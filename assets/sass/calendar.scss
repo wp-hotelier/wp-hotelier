@@ -1,0 +1,407 @@
+$border__color: #dedede;
+
+$pending: #fdb44d;
+$onhold: #bcbec1;
+$confirmed: #28c96d;
+$completed: #4786ff;
+$cancelled: #fa607e;
+$failed: #fa607e;
+
+.bc {
+	margin-top: 3em;
+	padding: 1em;
+	background-color: #fff;
+}
+
+.bc-filter {
+	margin-bottom: 50px;
+}
+
+.bc-filter__item {
+	display: inline-block;
+}
+
+.bc-filter__link {
+	position: relative;
+	padding: .25em 1.5em .25em 2.5em;
+	margin-right: 1.5em;
+	color: #444;
+	text-decoration: none;
+	display: block;
+
+	&:after {
+		font-family: dashicons;
+		content: "\f147";
+		font-size: 16px;
+		position: absolute;
+		top: 50%;
+		margin-top: -8px;
+		right: 0;
+	}
+
+	&:hover {
+		transition-duration: 0.2s;
+		transition-property: opacity;
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+		opacity: 1;
+		color: #444;
+
+		&:after {
+			content: "\f335";
+		}
+	}
+}
+
+.bc-filter__link--hidden {
+	opacity: .3;
+
+	&:after {
+		content: "\f335";
+	}
+
+	&:hover:after {
+		content: "\f147";
+	}
+}
+
+.bc-filter__icon {
+	width: 20px;
+	height: 20px;
+	border-radius: 100%;
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	margin-top: -10px;
+}
+
+.bc-filter__icon--completed {
+	background-color: $completed;
+}
+
+.bc-filter__icon--confirmed {
+	background-color: $confirmed;
+}
+
+.bc-filter__icon--pending {
+	background-color: $pending;
+}
+
+.bc-filter__icon--on-hold {
+	background-color: $onhold;
+	background: repeating-linear-gradient(
+		90deg,
+		$onhold,
+		$onhold 10px,
+		darken($onhold, 15%) 10px,
+		darken($onhold, 15%) 20px
+	);
+}
+
+.bc-filter__icon--cancelled {
+	background-color: $cancelled;
+}
+
+.bc-filter__icon--failed {
+	background-color: $failed;
+	background: repeating-linear-gradient(
+		90deg,
+		$failed,
+		$failed 10px,
+		darken($failed, 15%) 10px,
+		darken($failed, 15%) 20px
+	);
+}
+
+.bc-nav {
+	margin-top: 0;
+	margin-right: 1em;
+	display: inline-block;
+}
+
+.bc-nav__item {
+	display: inline-block;
+}
+
+.bc-nav__button .dashicons {
+	height: 100%;
+	vertical-align: middle;
+}
+
+.bc-weeks {
+	margin-top: 0;
+	display: inline-block;
+}
+
+.bc-weeks__item {
+	display: inline-block;
+}
+
+
+.form--bc {
+	margin-bottom: 1em;
+
+	@media (min-width:670px) {
+		float: right;
+		margin-bottom: 0;
+	}
+}
+
+
+
+.bc__table-wrapper {
+	border: 1px solid $border__color;
+	border-bottom: 0;
+	overflow-x: auto;
+}
+
+.bc__table {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
+	table-layout: fixed;
+	background-color: #fff;
+}
+
+.bc__table--main {
+	width: 900px;
+
+	@media (min-width:1145px) {
+		width: 100%;
+	}
+}
+
+.weeks-1 .bc__table--main {
+	width: 550px;
+
+	@media (min-width:615px) {
+		width: 100%;
+	}
+}
+
+.bc__row {
+	padding: 0;
+	margin: 0;
+}
+
+.bc__cell {
+	border-bottom: 1px solid $border__color;
+	border-top: 1px solid $border__color;
+	padding: 0;
+	margin: 0;
+}
+
+.bc__cell--header {
+	border: 3px solid #fff;
+	background-color: #f5f5f5;
+	font-weight: normal;
+}
+
+.bc__date--month,
+.bc__date--day {
+	text-transform: uppercase;
+	color: #ccc;
+	font-size: 12px;
+	padding: .5em 0;
+}
+
+.bc__date--number {
+	font-size: 24px;
+	font-weight: normal;
+	padding: .25em 0;
+}
+
+.bc__cell--room-name {
+	width: 200px;
+	padding: 1em;
+	box-sizing: border-box;
+}
+
+.bc__room-link {
+	color: #444;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 12px;
+}
+
+.bc__cell--today {
+	background-color: $onhold;
+	color: #fff;
+
+	.bc__date--month,
+	.bc__date--day {
+		color: #fff;
+	}
+}
+
+.bc__date {
+	display: block;
+}
+
+.bc__cell--week {
+	height: 100%;
+}
+
+.bc__table--week {
+	height: 100%;
+}
+
+.bc__cell--day {
+	border: 0;
+	height: 50px;
+}
+
+.bc__cell--first {
+	background-color: #f5f5f5;
+}
+
+.bc__day-booked {
+	position: relative;
+	height: 50px;
+}
+
+.bc__day-booked:after {
+	position: absolute;
+	top: 1px;
+	bottom: 1px;
+	left: 1px;
+	right: 1px;
+	content: '';
+	z-index: 1;
+	border-radius: 4px;
+}
+
+.bc__day-booked--past-week:after {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	left: 0;
+}
+
+.bc__day-booked--next-week:after {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	right: 0;
+}
+
+[data-status="completed"]:after {
+	background-color: $completed;
+}
+
+[data-status="confirmed"]:after {
+	background-color: $confirmed;
+}
+
+[data-status="pending"]:after {
+	background-color: $pending;
+}
+
+[data-status="on-hold"]:after {
+	background-color: $onhold;
+	background: repeating-linear-gradient(
+		45deg,
+		$onhold,
+		$onhold 10px,
+		darken($onhold, 5%) 10px,
+		darken($onhold, 5%) 20px
+	);
+}
+
+[data-status="cancelled"]:after {
+	background-color: $cancelled;
+}
+
+[data-status="failed"]:after {
+	background-color: $failed;
+	background: repeating-linear-gradient(
+		45deg,
+		$failed,
+		$failed 10px,
+		darken($failed, 5%) 10px,
+		darken($failed, 5%) 20px
+	);
+}
+
+.no-completed [data-status="completed"]:after {
+	opacity: .2;
+}
+
+.no-completed [data-status="completed"] .bc__reservation-label {
+	opacity: .7;
+}
+
+.no-confirmed [data-status="confirmed"]:after {
+	opacity: .2;
+}
+
+.no-confirmed [data-status="confirmed"] .bc__reservation-label {
+	opacity: .7;
+}
+
+.no-pending [data-status="pending"]:after {
+	opacity: .2;
+}
+
+.no-pending [data-status="pending"] .bc__reservation-label {
+	opacity: .7;
+}
+
+.no-on-hold [data-status="on-hold"]:after {
+	opacity: .2;
+}
+
+.no-on-hold [data-status="on-hold"] .bc__reservation-label {
+	opacity: .7;
+}
+
+.no-cancelled [data-status="cancelled"]:after {
+	opacity: .2;
+}
+
+.no-cancelled [data-status="cancelled"] .bc__reservation-label {
+	opacity: .7;
+}
+
+.no-failed [data-status="failed"]:after {
+	opacity: .2;
+}
+
+.no-failed [data-status="failed"] .bc__reservation-label {
+	opacity: .7;
+}
+
+// .bc__no--cancelled [data-status="cancelled"] {
+// 	height: 0;
+// }
+
+.bc__reservation-link {
+	display: block;
+	position: relative;
+	z-index: 4;
+	height: 100%;
+	line-height: 50px;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+
+	&:hover {
+		color: #fff;
+	}
+}
+
+.bc__reservation-label {
+	display: inline-block;
+	line-height: 1;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 90%;
+	font-size: 12px;
+}
+
+.bc__day-booked--hidden {
+	.bc__reservation-label {
+		display: none;
+	}
+}

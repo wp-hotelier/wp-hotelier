@@ -1,0 +1,29 @@
+/*--------------------------------------------------------------
+>>> MIN MAX INFO
+----------------------------------------------------------------
+*/
+
+.room__min-max-stay {
+	@include font-size(12px);
+	display: block;
+	font-style: italic;
+	margin-top: $space;
+}
+
+.room__min-max-stay--single {
+	margin-bottom: $space;
+	margin-top: 0;
+}
+
+.room__min-max-stay--rate-single {
+	margin-bottom: $space;
+}
+
+.room__min-max-stay--rate-listing {
+	margin-bottom: $space;
+
+	@include mq($from: mobile_wide) {
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+}

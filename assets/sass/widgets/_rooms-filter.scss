@@ -1,0 +1,34 @@
+/*--------------------------------------------------------------
+>>> WIDGET: ROOMS FILTER
+----------------------------------------------------------------
+*/
+
+.widget-rooms-filter__group-label {
+	font-weight: bold;
+	margin-bottom: $space;
+	display: block;
+}
+
+.widget-rooms-filter__group-list {
+	@include clear-list();
+	margin-bottom: $space;
+}
+
+.widget-rooms-filter__group-item--chosen {
+	padding-left: 1.5em;
+	position: relative;
+
+	&:before {
+		@include font-size(16px, 16px);
+		background-color: #000;
+		border-radius: 100%;
+		border: 1px solid #000;
+		color: #fff;
+		content: '×';
+		height: 16px;
+		left: 0;
+		position: absolute;
+		text-align: center;
+		width: 16px;
+	}
+}

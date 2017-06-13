@@ -1,0 +1,375 @@
+.bc {
+  margin-top: 3em;
+  padding: 1em;
+  background-color: #fff;
+}
+
+.bc-filter {
+  margin-bottom: 50px;
+}
+
+.bc-filter__item {
+  display: inline-block;
+}
+
+.bc-filter__link {
+  position: relative;
+  padding: .25em 1.5em .25em 2.5em;
+  margin-right: 1.5em;
+  color: #444;
+  text-decoration: none;
+  display: block;
+}
+
+.bc-filter__link:after {
+  font-family: dashicons;
+  content: "\f147";
+  font-size: 16px;
+  position: absolute;
+  top: 50%;
+  margin-top: -8px;
+  right: 0;
+}
+
+.bc-filter__link:hover {
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  color: #444;
+}
+
+.bc-filter__link:hover:after {
+  content: "\f335";
+}
+
+.bc-filter__link--hidden {
+  opacity: .3;
+}
+
+.bc-filter__link--hidden:after {
+  content: "\f335";
+}
+
+.bc-filter__link--hidden:hover:after {
+  content: "\f147";
+}
+
+.bc-filter__icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -10px;
+}
+
+.bc-filter__icon--completed {
+  background-color: #4786ff;
+}
+
+.bc-filter__icon--confirmed {
+  background-color: #28c96d;
+}
+
+.bc-filter__icon--pending {
+  background-color: #fdb44d;
+}
+
+.bc-filter__icon--on-hold {
+  background-color: #bcbec1;
+  background: repeating-linear-gradient(90deg, #bcbec1, #bcbec1 10px, #94979c 10px, #94979c 20px);
+}
+
+.bc-filter__icon--cancelled {
+  background-color: #fa607e;
+}
+
+.bc-filter__icon--failed {
+  background-color: #fa607e;
+  background: repeating-linear-gradient(90deg, #fa607e, #fa607e 10px, #f81642 10px, #f81642 20px);
+}
+
+.bc-nav {
+  margin-top: 0;
+  margin-right: 1em;
+  display: inline-block;
+}
+
+.bc-nav__item {
+  display: inline-block;
+}
+
+.bc-nav__button .dashicons {
+  height: 100%;
+  vertical-align: middle;
+}
+
+.bc-weeks {
+  margin-top: 0;
+  display: inline-block;
+}
+
+.bc-weeks__item {
+  display: inline-block;
+}
+
+.form--bc {
+  margin-bottom: 1em;
+}
+
+.bc__table-wrapper {
+  border: 1px solid #dedede;
+  border-bottom: 0;
+  overflow-x: auto;
+}
+
+.bc__table {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+  background-color: #fff;
+}
+
+.bc__table--main {
+  width: 900px;
+}
+
+.weeks-1 .bc__table--main {
+  width: 550px;
+}
+
+.bc__row {
+  padding: 0;
+  margin: 0;
+}
+
+.bc__cell {
+  border-bottom: 1px solid #dedede;
+  border-top: 1px solid #dedede;
+  padding: 0;
+  margin: 0;
+}
+
+.bc__cell--header {
+  border: 3px solid #fff;
+  background-color: #f5f5f5;
+  font-weight: normal;
+}
+
+.bc__date--month,
+.bc__date--day {
+  text-transform: uppercase;
+  color: #ccc;
+  font-size: 12px;
+  padding: .5em 0;
+}
+
+.bc__date--number {
+  font-size: 24px;
+  font-weight: normal;
+  padding: .25em 0;
+}
+
+.bc__cell--room-name {
+  width: 200px;
+  padding: 1em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.bc__room-link {
+  color: #444;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.bc__cell--today {
+  background-color: #bcbec1;
+  color: #fff;
+}
+
+.bc__cell--today .bc__date--month,
+.bc__cell--today .bc__date--day {
+  color: #fff;
+}
+
+.bc__date {
+  display: block;
+}
+
+.bc__cell--week {
+  height: 100%;
+}
+
+.bc__table--week {
+  height: 100%;
+}
+
+.bc__cell--day {
+  border: 0;
+  height: 50px;
+}
+
+.bc__cell--first {
+  background-color: #f5f5f5;
+}
+
+.bc__day-booked {
+  position: relative;
+  height: 50px;
+}
+
+.bc__day-booked:after {
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  left: 1px;
+  right: 1px;
+  content: '';
+  z-index: 1;
+  border-radius: 4px;
+}
+
+.bc__day-booked--past-week:after {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  left: 0;
+}
+
+.bc__day-booked--next-week:after {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  right: 0;
+}
+
+[data-status="completed"]:after {
+  background-color: #4786ff;
+}
+
+[data-status="confirmed"]:after {
+  background-color: #28c96d;
+}
+
+[data-status="pending"]:after {
+  background-color: #fdb44d;
+}
+
+[data-status="on-hold"]:after {
+  background-color: #bcbec1;
+  background: repeating-linear-gradient(45deg, #bcbec1, #bcbec1 10px, #afb1b5 10px, #afb1b5 20px);
+}
+
+[data-status="cancelled"]:after {
+  background-color: #fa607e;
+}
+
+[data-status="failed"]:after {
+  background-color: #fa607e;
+  background: repeating-linear-gradient(45deg, #fa607e, #fa607e 10px, #f9476a 10px, #f9476a 20px);
+}
+
+.no-completed [data-status="completed"]:after {
+  opacity: .2;
+}
+
+.no-completed [data-status="completed"] .bc__reservation-label {
+  opacity: .7;
+}
+
+.no-confirmed [data-status="confirmed"]:after {
+  opacity: .2;
+}
+
+.no-confirmed [data-status="confirmed"] .bc__reservation-label {
+  opacity: .7;
+}
+
+.no-pending [data-status="pending"]:after {
+  opacity: .2;
+}
+
+.no-pending [data-status="pending"] .bc__reservation-label {
+  opacity: .7;
+}
+
+.no-on-hold [data-status="on-hold"]:after {
+  opacity: .2;
+}
+
+.no-on-hold [data-status="on-hold"] .bc__reservation-label {
+  opacity: .7;
+}
+
+.no-cancelled [data-status="cancelled"]:after {
+  opacity: .2;
+}
+
+.no-cancelled [data-status="cancelled"] .bc__reservation-label {
+  opacity: .7;
+}
+
+.no-failed [data-status="failed"]:after {
+  opacity: .2;
+}
+
+.no-failed [data-status="failed"] .bc__reservation-label {
+  opacity: .7;
+}
+
+.bc__reservation-link {
+  display: block;
+  position: relative;
+  z-index: 4;
+  height: 100%;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+.bc__reservation-link:hover {
+  color: #fff;
+}
+
+.bc__reservation-label {
+  display: inline-block;
+  line-height: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 90%;
+  font-size: 12px;
+}
+
+.bc__day-booked--hidden .bc__reservation-label {
+  display: none;
+}
+
+@media (min-width: 615px) {
+  .weeks-1 .bc__table--main {
+    width: 100%;
+  }
+}
+
+@media (min-width: 670px) {
+  .form--bc {
+    float: right;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 1145px) {
+  .bc__table--main {
+    width: 100%;
+  }
+}

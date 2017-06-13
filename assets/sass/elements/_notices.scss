@@ -1,0 +1,15 @@
+/*--------------------------------------------------------------
+>>> NOTICES
+----------------------------------------------------------------
+*/
+
+.hotelier-notice {
+	background-color: $background__color__notice;
+	color: $color__text__notice;
+	margin: 0 0 $space__l;
+	padding: $space;
+}
+
+.hotelier-notice--error {
+	@include clear-list();
+}

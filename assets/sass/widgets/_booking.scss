@@ -1,0 +1,55 @@
+/*--------------------------------------------------------------
+>>> WIDGET: BOOKING
+----------------------------------------------------------------
+*/
+
+.widget-booking__change-cart {
+	text-align: right;
+}
+
+.widget-booking__date-block {
+	border: 1px solid #222;
+	margin-bottom: $space__s;
+	padding: $space;
+	text-align: center;
+}
+
+.widget-booking__date-label {
+	@include font-size(12px);
+	display: block;
+	margin-bottom: $space__s;
+	text-transform: uppercase;
+}
+
+.widget-booking__date {
+	@include font-size(12px);
+}
+
+.widget-booking__month-year {
+	display: block;
+}
+
+.widget-booking__day {
+	@include font-size(24px);
+	display: block;
+	padding: $space__xs;
+}
+
+.widget-booking__room-rate {
+	display: block;
+}
+
+.widget-booking__cart-total {
+	margin-top: $space;
+	display: block;
+
+	.amount {
+		@include font-size(16px);
+		float: right;
+	}
+}
+
+.widget-booking__rooms-list {
+	@include clear-list();
+	margin-top: $space;
+}

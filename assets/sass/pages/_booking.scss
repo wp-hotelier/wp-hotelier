@@ -1,0 +1,68 @@
+/*--------------------------------------------------------------
+>>> PAGE: BOOKING
+----------------------------------------------------------------
+*/
+
+.booking__section,
+.reservation-received__section {
+	margin-bottom: $space__l;
+}
+
+.form-row__description {
+	@include font-size(14px);
+	font-style: italic;
+	display: block;
+	margin-top: $space__s;
+}
+
+.payment-methods {
+	@include clear-list();
+}
+
+.payment-method {
+	overflow: hidden;
+	margin-bottom: $space;
+	padding-bottom: $space;
+	border-bottom: 1px solid $color__default__line;
+
+	img {
+		float: right;
+	}
+}
+
+.payment-method__label {
+	cursor: pointer;
+	display: inline;
+}
+
+.payment-method__description {
+	@include font-size(14px);
+	font-style: italic;
+	display: block;
+}
+
+.payment-method--single {
+	input[type="radio"] {
+		display: none;
+	}
+}
+
+.form-row--booking-terms {
+	margin-top: $space;
+}
+
+.label--booking-terms {
+	display: inline;
+}
+
+.reservation-response {
+	@include font-size(20px);
+}
+
+.reservation-details__list {
+	@include clear-list();
+}
+
+.reservation-non-cancellable-disclaimer__text {
+	font-style: italic;
+}

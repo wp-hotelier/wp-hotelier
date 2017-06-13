@@ -1,0 +1,107 @@
+/*--------------------------------------------------------------
+>>> PAGE: SINGLE ROOM
+----------------------------------------------------------------
+*/
+
+.room__thumbnail--single {
+	margin-bottom: $space__l;
+
+	img{
+		width: 100%;
+	}
+}
+
+.room__gallery--single {
+	text-align: right;
+}
+
+.room__gallery-link--single {
+	@include font-size(14px);
+}
+
+.room__price--single {
+	.amount {
+		@include font-size(18px);
+		font-weight: bold;
+	}
+}
+
+.room__deposit--single {
+	margin-bottom: $space;
+}
+
+.room__meta-list {
+	@include clear-list();
+	@include font-size(14px);
+}
+
+.room__facilities-content--single {
+	@include font-size(14px);
+}
+
+.room__conditions-list {
+	@include clear-list();
+	@include font-size(14px);
+}
+
+.room__description--single {
+	margin-bottom: $space__l;
+	margin-top: $space__l;
+}
+
+.room-available-rates__link {
+	display: inline-block;
+	margin-top: $space;
+}
+
+.room__rates-list {
+	@include clear-list();
+	@include font-size(14px);
+}
+
+.room__rate--single {
+	border: 1px solid #222;
+	margin-bottom: $space;
+	padding: $space $space $space__s;
+}
+
+.rate__name {
+	@include font-size(16px);
+}
+
+.rate__price {
+	@include font-size(16px);
+
+	.amount {
+		font-weight: bold;
+	}
+}
+
+.button--check-availability {
+	display: inline-block;
+	margin-top: $space__s;
+}
+
+.rate__conditions-title {
+	font-weight: bold;
+}
+
+.rate__conditions-list {
+	@include clear-list();
+	@include font-size(12px);
+}
+
+.related-rooms {
+	margin-top: $space__l;
+}
+
+.room__non-cancellable-info,
+.rate__non-cancellable-info {
+	color: red;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.room__non-cancellable-info--single p {
+	margin-bottom: 0;
+}

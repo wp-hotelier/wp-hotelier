@@ -1,0 +1,51 @@
+///*--------------------------------------------------------------
+//>>> MIXINS
+//----------------------------------------------------------------
+//*/
+
+// Font size
+@mixin font-size($font-size, $line-height: auto) {
+	// Rem output with px fallback
+	font-size: $font-size;
+	font-size: ($font-size / $global__font__size) * 1rem;
+
+	@if ($line-height == 'auto') {
+		line-height: ceil($font-size / $global__line__height) * ($global__line__height / $font-size);
+	} @else {
+		@if (type-of($line-height) == number or $line-height == 'inherit' or $line-height == 'normal') {
+			line-height: $line-height;
+		}
+	}
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+// CSS transitions
+@mixin transition {
+	transition-duration: 0.2s;
+	transition-property: color, background-color, border-color;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// Remove bullets from lists and any indentation
+@mixin clear-list() {
+	list-style: none;
+	margin-left: 0;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}

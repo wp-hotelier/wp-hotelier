@@ -1,0 +1,114 @@
+/**
+ * Basic Twenty Seventeen support (really, really basic)
+ */
+/*--------------------------------------------------------------
+>>> LOOPS
+----------------------------------------------------------------
+*/
+.button--view-room-details {
+  -webkit-box-shadow: 0 1px 0 #0f0f0f;
+          box-shadow: 0 1px 0 #0f0f0f;
+  -webkit-transition: -webkit-box-shadow ease-in-out 130ms;
+  transition: -webkit-box-shadow ease-in-out 130ms;
+  transition: box-shadow ease-in-out 130ms;
+  transition: box-shadow ease-in-out 130ms, -webkit-box-shadow ease-in-out 130ms;
+}
+
+.button--view-room-details:hover {
+  -webkit-box-shadow: 0 3px 0 #0f0f0f;
+          box-shadow: 0 3px 0 #0f0f0f;
+}
+
+/*--------------------------------------------------------------
+>>> PAGINATION
+----------------------------------------------------------------
+*/
+.pagination__item .next.page-numbers,
+.pagination__item .prev.page-numbers {
+  float: none;
+}
+
+/*--------------------------------------------------------------
+>>> PAGE: SINGLE ROOM
+----------------------------------------------------------------
+*/
+.single-featured-image-header {
+  display: none;
+}
+
+.room__gallery-link--single {
+  -webkit-box-shadow: 0 1px 0 #0f0f0f;
+          box-shadow: 0 1px 0 #0f0f0f;
+  -webkit-transition: -webkit-box-shadow ease-in-out 130ms;
+  transition: -webkit-box-shadow ease-in-out 130ms;
+  transition: box-shadow ease-in-out 130ms;
+  transition: box-shadow ease-in-out 130ms, -webkit-box-shadow ease-in-out 130ms;
+}
+
+.room__gallery-link--single:hover {
+  -webkit-box-shadow: 0 3px 0 #0f0f0f;
+          box-shadow: 0 3px 0 #0f0f0f;
+}
+
+/*--------------------------------------------------------------
+>>> PAGE: BOOKING
+----------------------------------------------------------------
+*/
+.payment-method {
+  padding-left: 1px;
+}
+
+/*--------------------------------------------------------------
+>>> WIDGET: SEARCH
+----------------------------------------------------------------
+*/
+.form--room-search {
+  position: relative;
+}
+
+.button--room-search {
+  bottom: 3px;
+  margin-top: 0;
+  padding: 0.5em 1em;
+  position: absolute;
+  right: 3px;
+  top: 3px;
+}
+
+/*--------------------------------------------------------------
+>>> WIDGET: ROOMS
+----------------------------------------------------------------
+*/
+.widget-rooms__item {
+  margin-bottom: 0;
+  min-height: 92px;
+}
+
+.widget-rooms__thumbnail {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+/*--------------------------------------------------------------
+>>> WIDGET: ROOMS FILTER
+----------------------------------------------------------------
+*/
+.widget-rooms-filter__group-list {
+  margin-bottom: 24px !important;
+}
+
+.widget-rooms-filter__group-item--chosen {
+  padding-left: 1.5em !important;
+}
+
+.widget-rooms-filter__group-item--chosen:before {
+  top: 10px;
+}
+
+/*--------------------------------------------------------------
+>>> WIDGET: BOOKING
+----------------------------------------------------------------
+*/
+.widget-booking__rooms-list {
+  margin-top: 24px !important;
+}

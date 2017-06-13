@@ -1,0 +1,214 @@
+/*--------------------------------------------------------------
+>>> DATEPICKER
+----------------------------------------------------------------
+*/
+
+.js {
+	.datepicker-input--checkin,
+	.datepicker-input--checkout {
+		display: none;
+	}
+}
+
+.datepicker-form {
+	margin-bottom: $space__l;
+}
+
+.datepicker {
+	@include font-size(14px);
+	background-color: #fff;
+	box-shadow: 8px 8px 40px 5px rgba(0,0,0,.08);
+	box-sizing: border-box;
+	overflow: hidden;
+	position: absolute;
+	width: 260px;
+	z-index: 1;
+
+	@include mq($from: mobile) {
+		width: 300px;
+	}
+
+	@include mq($from: mobile_wide) {
+		width: 460px;
+	}
+
+	@include mq($from: tablet) {
+		width: 560px;
+	}
+}
+
+.datepicker__inner {
+	overflow: hidden;
+	padding: $space;
+}
+
+.datepicker__months {
+	@include mq($from: mobile_wide) {
+		overflow: hidden;
+		position: relative;
+
+		&:before {
+			background: $color__default__line;
+			bottom: 0;
+			content: '';
+			display: block;
+			left: 50%;
+			position: absolute;
+			top: 0;
+			width: 1px;
+		}
+	}
+}
+
+.datepicker__month {
+	@include font-size(11px);
+	border-collapse: collapse;
+	text-align: center;
+	width: 100%;
+
+	@include mq($from: mobile_wide) {
+		width: 200px;
+	}
+
+	@include mq($from: tablet) {
+		@include font-size(14px);
+		width: 240px;
+	}
+}
+
+.datepicker__month--month1 {
+	@include mq($from: mobile_wide) {
+		float: left;
+	}
+}
+
+.datepicker__month--month2 {
+	display: none;
+
+	@include mq($from: mobile_wide) {
+		display: table;
+		float: right;
+	}
+}
+
+.datepicker__month-day {
+	@include transition;
+}
+
+.datepicker__month-day--invalid {
+	color: $color__text__invalid;
+}
+
+.datepicker__month-day--disabled {
+	color: $color__text__invalid;
+	position: relative;
+
+	&:after {
+		color: red;
+		content: '\00d7';
+		left: 50%;
+		position: absolute;
+		top: 50%;
+		transform: translate(-50%,-50%);
+	}
+}
+
+.datepicker__month-day--checkout-enabled {}
+
+.datepicker__month-day--selected {
+	background-color: rgba($background__color__day,.3);
+	color: #fff;
+}
+
+.datepicker__month-day--hovering {
+	background-color: rgba($background__color__day,.3);
+	color: #fff;
+}
+
+.datepicker__month-day--today {
+	background-color: $background__color__day;
+	color: #fff;
+}
+
+.datepicker__month-day--first-day-selected,
+.datepicker__month-day--last-day-selected {
+	background-color: rgba($background__color__day,.5);
+	color: #fff;
+}
+
+.datepicker__month-day--last-day-selected.datepicker__month-day--checkout-enabled:after {
+	content: none;
+}
+
+.datepicker__month-day--valid {
+	cursor: pointer;
+}
+
+.datepicker__month-day--lastMonth,
+.datepicker__month-day--nextMonth {
+	visibility: hidden;
+}
+
+.datepicker__month-button {
+	cursor: pointer;
+}
+
+.datepicker__month-button--disabled {
+	@include mq($from: mobile_wide) {
+		visibility: hidden;
+	}
+}
+
+.datepicker__info--feedback {
+	display: none;
+}
+
+.datepicker__info--error,
+.datepicker__info--help {
+	display: block;
+}
+
+.datepicker__info--error {
+	color: red;
+}
+
+.datepicker__close-button {
+	cursor: pointer;
+
+	@include mq($from: tablet) {
+		margin-top: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+}
+
+.datepicker__tooltip {
+	@include font-size(11px);
+	background-color: $background__color__day;
+	border-radius: 2px;
+	color: #fff;
+	margin-top: -5px;
+	padding: $space__xs $space__s;
+	position: absolute;
+
+	&:after {
+		border-left: 4px solid transparent;
+		border-right: 4px solid transparent;
+		border-top: 4px solid $background__color__day;
+		bottom: -4px;
+		content: '';
+		left: 50%;
+		margin-left: -4px;
+		position: absolute;
+	}
+}
+
+.datepicker__topbar {
+	margin-bottom: $space__l;
+	position: relative;
+}
+
+.button--datepicker {
+	margin-top: $space;
+}

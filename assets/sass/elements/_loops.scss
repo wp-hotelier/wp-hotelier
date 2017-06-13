@@ -1,0 +1,119 @@
+/*--------------------------------------------------------------
+>>> LOOPS
+----------------------------------------------------------------
+*/
+
+.room-loop__list {
+	@include clear-list();
+	@include clearfix();
+	clear: both;
+	margin-bottom: $space;
+	padding: 0;
+}
+
+.room-loop__item {
+	margin: 0;
+	padding: 0;
+}
+
+@include mq($from: mobile_wide) {
+	.room-loop__item {
+		float: left;
+		margin-right: 4%;
+		position: relative;
+		width: 48%;
+	}
+
+	.room-loop__item--columns-1 {
+		float: none;
+		margin-right: 0;
+		width: 100%;
+	}
+
+	.room-loop__item--even {
+		clear: none;
+		margin-right: 0;
+	}
+}
+
+@include mq($from: tablet) {
+	.room-loop__item--first {
+		clear: both !important;
+	}
+
+	.room-loop__item--last {
+		margin-right: 0 !important;
+	}
+
+	.room-loop__item--columns-3 {
+		clear: none;
+		margin-right: 3.5%;
+		width: 31%;
+	}
+
+	.room-loop__item--columns-4 {
+		clear: none;
+		margin-right: 3%;
+		width: 22.75%;
+	}
+
+	.room-loop__item--columns-5 {
+		clear: none;
+		margin-right: 2.5%;
+		width: 18%;
+	}
+
+	.room-loop__item--columns-6 {
+		clear: none;
+		margin-right: 2%;
+		width: 15%;
+	}
+}
+
+.room__name--loop {
+	@include font-size(16px);
+	padding: $space__s 0;
+}
+
+.room__description--loop {
+	@include font-size(14px);
+}
+
+.room__thumbnail--loop {
+	display: block;
+}
+
+.room__thumbnail--loop img {
+	display: block;
+	height: auto;
+	margin: 0 0 $space;
+	width: 100%;
+}
+
+.room__price--loop {
+	@include font-size(14px);
+	display: block;
+	font-weight: normal;
+	margin-bottom: $space__s;
+
+	.amount {
+		@include font-size(16px);
+		font-weight: bold;
+	}
+}
+
+.room__price {
+	del .amount {
+		@include font-size(12px);
+		opacity: .5;
+	}
+
+	ins {
+		background-color: transparent;
+	}
+}
+
+.button--view-room-details {
+	display: inline-block;
+	margin-bottom: $space;
+}

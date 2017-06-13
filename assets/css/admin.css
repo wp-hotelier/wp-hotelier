@@ -1,0 +1,1445 @@
+/* icons */
+.htl-icon {
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  background-size: 100%;
+  width: 14px;
+  height: 14px;
+}
+
+.htl-bars {
+  background-image: url(../images/icons/bars.svg);
+}
+
+.htl-help-circled {
+  background-image: url(../images/icons/help.svg);
+  border-radius: 100%;
+  background-color: #ddd;
+}
+
+.htl-help-circled:hover {
+  background-color: #0073aa;
+  -webkit-transition: background-color 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: background-color 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+/* hotelier settings */
+.hotelier-settings .form-table input.regular-text ~ label,
+.hotelier-settings .form-table select + label {
+  display: block;
+}
+
+.hotelier-settings .form-table label {
+  color: #666;
+  font-size: 13px;
+  font-style: italic;
+  margin: 4px 0 0;
+}
+
+.hotelier-settings .form-table label.input-radio {
+  color: #444;
+  font-size: 14px;
+  font-style: normal;
+}
+
+.hotelier-settings .form-table th strong {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.hotelier-settings .form-table .radio-description {
+  color: #666;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.hotelier-settings .form-table .radio-description strong {
+  margin-right: 5px;
+}
+
+.hotelier-settings .form-table .radio-description strong:after {
+  content: '\2013';
+  margin-left: 5px;
+}
+
+.hotelier-settings .form-table .cards-description {
+  color: #666;
+  font-size: 13px;
+  margin-top: 20px;
+}
+
+.hotelier-settings .form-table .card-icons {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.hotelier-settings .form-table .hotelier-accepted-cards {
+  padding-left: 48px;
+  padding-right: 10px;
+  position: relative;
+}
+
+.hotelier-settings .form-table .hotelier-accepted-cards:before {
+  background-color: #fff;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  content: '';
+  display: inline-block;
+  height: 24px;
+  left: 0;
+  position: absolute;
+  top: -3px;
+  width: 38px;
+}
+
+.hotelier-settings .form-table #hotelier-accepted-cards-mastercard:before {
+  background-image: url(../images/cards/mastercard.svg);
+}
+
+.hotelier-settings .form-table #hotelier-accepted-cards-amex:before {
+  background-image: url(../images/cards/amex.svg);
+}
+
+.hotelier-settings .form-table #hotelier-accepted-cards-cirrus:before {
+  background-image: url(../images/cards/cirrus.svg);
+}
+
+.hotelier-settings .form-table #hotelier-accepted-cards-discover:before {
+  background-image: url(../images/cards/discover.svg);
+}
+
+.hotelier-settings .form-table #hotelier-accepted-cards-maestro:before {
+  background-image: url(../images/cards/maestro.svg);
+}
+
+.hotelier-settings .form-table #hotelier-accepted-cards-visa:before {
+  background-image: url(../images/cards/visa.svg);
+}
+
+.hotelier-settings .form-table #hotelier-accepted-cards-visa_e:before {
+  background-image: url(../images/cards/visa_e.svg);
+}
+
+.hotelier-settings .form-table .subdesc {
+  margin-top: 15px;
+}
+
+.hotelier-settings .form-table .from-to select {
+  margin: 5px 0;
+}
+
+.hotelier-settings .form-table .server-info {
+  background-color: #fff;
+  font-family: "Courier 10 Pitch", Courier, monospace;
+  padding: 5px 10px;
+}
+
+.hotelier-settings .form-table .server-info .info-success {
+  color: #7ad03a;
+}
+
+.hotelier-settings .form-table .server-info .info-error {
+  color: #e7272d;
+}
+
+.hotelier-settings .form-table .server-info .info-error code {
+  background-color: white;
+  background-color: rgba(231, 39, 45, 0.2);
+}
+
+.hotelier-settings .form-table .seasonal-prices-table-description {
+  display: block;
+  margin-top: 1em;
+}
+
+.hotelier-settings-licenses .form-table tr {
+  background: #fff;
+  border: 1px solid #ccc;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  float: left;
+  margin: 0 15px 15px 0;
+  max-width: 400px;
+  min-height: 300px;
+  padding: 15px;
+  position: relative;
+  width: 50%;
+}
+
+.hotelier-settings-licenses .form-table th {
+  background: #0073aa;
+  color: #fff;
+  display: block;
+  margin: -15px -15px 20px;
+  padding: 15px;
+  width: 100%;
+}
+
+.hotelier-settings-licenses .form-table td {
+  padding: 0;
+}
+
+.hotelier-settings-licenses .form-table label {
+  color: #111;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.hotelier-settings-licenses .form-table .regular-text {
+  margin: 1em 0;
+  width: 100%;
+}
+
+.hotelier-settings-licenses .hotelier-license-data[class*="hotelier-license-"] {
+  background: #f7fcfe;
+  border-left: 4px solid #00a0d2;
+  bottom: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 20px -15px -15px;
+  min-height: 70px;
+  padding: 15px;
+  position: absolute;
+  width: 100%;
+}
+
+.hotelier-settings-licenses .hotelier-license-data[class*="hotelier-license-"] p {
+  font-size: 13px;
+  margin-top: 0;
+}
+
+.hotelier-settings-licenses .hotelier-license-data.hotelier-license-valid {
+  background-color: #ecf7ed;
+  border-color: #46b450;
+}
+
+.hotelier-settings-licenses .hotelier-license-data.hotelier-license-expired {
+  background-color: #dc3232;
+  border-color: #dc3232;
+  color: #fff;
+}
+
+.hotelier-settings-licenses .hotelier-license-data.hotelier-license-error,
+.hotelier-settings-licenses .hotelier-license-data.hotelier-license-missing,
+.hotelier-settings-licenses .hotelier-license-data.hotelier-license-invalid,
+.hotelier-settings-licenses .hotelier-license-data.hotelier-license-site_inactive,
+.hotelier-settings-licenses .hotelier-license-data.hotelier-license-item_name_mismatch {
+  background-color: #fff8e5;
+  border-color: #ffb900;
+}
+
+.hotelier-logs #logs-container {
+  margin-top: 30px;
+}
+
+.hotelier-logs #logs-container select {
+  margin-bottom: 15px;
+}
+
+#hotelier-seasonal-schema-table .season-dates {
+  width: 90%;
+}
+
+#hotelier-seasonal-schema-table .sort-rules {
+  background-color: #f7f7f7;
+  border: 1px solid #fff;
+  cursor: move;
+  padding: 0 15px;
+}
+
+/* room meta boxes */
+#hotelier-room-settings .room-settings {
+  overflow: hidden;
+}
+
+#hotelier-room-settings .inside {
+  margin: 0;
+  padding: 0;
+}
+
+#hotelier-room-settings label span,
+#hotelier-room-settings label strong {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+#hotelier-room-settings .label-text {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+#hotelier-room-settings .description {
+  display: block;
+  margin-top: 10px;
+}
+
+#hotelier-room-settings .checkbox-description {
+  display: inline;
+  margin-left: 10px;
+  margin-top: 0;
+}
+
+#hotelier-room-settings .form-field textarea {
+  width: 100%;
+}
+
+#hotelier-room-settings .form-field input[type="number"] {
+  max-width: 150px;
+}
+
+#hotelier-room-settings .room-general-settings {
+  background-color: #fafafa;
+  border-bottom: 1px solid #e5e5e5;
+  margin: 0;
+  padding-bottom: 2em;
+}
+
+#hotelier-room-settings .room-general-settings input,
+#hotelier-room-settings .room-general-settings select {
+  width: 100%;
+}
+
+#hotelier-room-settings .room-general-settings .form-field {
+  border-bottom: 1px solid #eee;
+  padding: 0 1em 1em;
+}
+
+#hotelier-room-settings .room-general-settings .form-field:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+#hotelier-room-settings .room-advanced-settings {
+  margin: 0;
+  padding-bottom: 12px;
+}
+
+#hotelier-room-settings .room-advanced-settings .form-field,
+#hotelier-room-settings .room-advanced-settings .label-text {
+  padding: 0 1em;
+}
+
+#hotelier-room-settings h4 {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 0 1em 1.33em;
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+
+#hotelier-room-settings .room-deposit {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 1.33em;
+}
+
+#hotelier-room-settings .room-deposit select {
+  min-width: 300px;
+}
+
+#hotelier-room-settings .room-deposit .room-deposit-amount {
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+
+#hotelier-room-settings .room-cancellation {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 1.33em;
+}
+
+#hotelier-room-settings .room-conditions {
+  padding: 0 1em;
+}
+
+#hotelier-room-settings .room-conditions .label-text {
+  padding: 0;
+}
+
+#hotelier-room-settings .room-conditions .sort-conditions {
+  background-color: #f7f7f7;
+  border: 1px solid #fff;
+  cursor: move;
+  padding: 0 15px;
+}
+
+#hotelier-room-settings .room-conditions table td {
+  vertical-align: middle !important;
+}
+
+#hotelier-room-settings .room-conditions table td.condition-name {
+  width: 100%;
+}
+
+#hotelier-room-settings .room-conditions table td.condition-name input[type="text"] {
+  width: 100%;
+}
+
+#hotelier-room-settings .variation-room-panel {
+  border-bottom: none;
+}
+
+#hotelier-room-settings .variation-room-panel .toolbar {
+  border-bottom: 1px solid #e5e5e5;
+  overflow: hidden;
+  padding: 10px;
+}
+
+#hotelier-room-settings .variation-room-panel .toolbar .add-variation {
+  float: right;
+}
+
+#hotelier-room-settings .variation-room-panel .toolbar .close-all,
+#hotelier-room-settings .variation-room-panel .toolbar .expand-all {
+  background-color: #f7f7f7;
+  border-radius: 6px;
+  line-height: 28px;
+  margin-right: 10px;
+  padding: 5px 15px;
+  text-decoration: none;
+}
+
+#hotelier-room-settings .variation-room-panel .toolbar .close-all:before,
+#hotelier-room-settings .variation-room-panel .toolbar .expand-all:before {
+  content: '';
+  font-size: 11px;
+  margin-right: 10px;
+  text-decoration: none;
+  width: 11px;
+  height: 11px;
+  display: inline-block;
+  background: url(../images/icons/expand.svg) no-repeat center;
+  background-size: 100%;
+}
+
+#hotelier-room-settings .variation-room-panel .toolbar .close-all {
+  margin-right: 0;
+}
+
+#hotelier-room-settings .variation-room-panel .toolbar .close-all:before {
+  background-image: url(../images/icons/compress.svg);
+}
+
+#hotelier-room-settings .room-variation {
+  background-color: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  margin: 0;
+}
+
+#hotelier-room-settings .room-variation-header {
+  border-left: 10px solid #f7f7f7;
+  border-right: 10px solid #f7f7f7;
+  cursor: move;
+  overflow: hidden;
+  padding: 20px 10px;
+  position: relative;
+}
+
+#hotelier-room-settings .room-variation-header .remove-variation {
+  float: right;
+}
+
+#hotelier-room-settings .room-variation-content {
+  border-top: 1px solid #e5e5e5;
+  padding: 20px 0;
+}
+
+#hotelier-room-settings .room-price-panel {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 1.33em;
+  padding: 0 0 1em;
+}
+
+#hotelier-room-settings .room-price {
+  min-width: 300px;
+}
+
+#hotelier-room-settings .price label em {
+  color: #00a0d2;
+  font-style: normal;
+  text-decoration: underline;
+}
+
+#hotelier-room-settings .price input {
+  max-width: 300px;
+}
+
+#hotelier-room-settings .price-per-day-row {
+  border-top: 1px solid #eee;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-top: 2em;
+  padding-top: 1.33em;
+}
+
+#hotelier-room-settings .price-per-day-row:last-child {
+  margin-top: 0;
+}
+
+#hotelier-room-settings .price-per-day-row .price-per-day-fields {
+  *zoom: 1;
+}
+
+#hotelier-room-settings .price-per-day-row .price-per-day-fields:before, #hotelier-room-settings .price-per-day-row .price-per-day-fields:after {
+  content: " ";
+  display: table;
+}
+
+#hotelier-room-settings .price-per-day-row .price-per-day-fields:after {
+  clear: both;
+}
+
+#hotelier-room-settings .price-per-day-row .single-day-field {
+  display: inline-block;
+  margin-right: 1%;
+  width: 12%;
+}
+
+#hotelier-room-settings .price-per-day-row .single-day-field:last-child {
+  margin-right: 0;
+}
+
+#hotelier-room-settings .price-per-day-row .single-day-field input {
+  width: 100%;
+}
+
+#hotelier-room-settings .price-per-day-row .single-day-field span {
+  background-color: #f7f7f7;
+  font-size: 11px;
+  margin-right: 0;
+  padding: 5px 15px;
+  text-align: center;
+}
+
+#hotelier-room-settings .price-panel-global,
+#hotelier-room-settings .price-panel-seasonal_price {
+  border-top: 1px solid #eee;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-top: 2em;
+  padding-top: 1.33em;
+}
+
+#hotelier-room-settings .price-panel-global .form-field:first-child,
+#hotelier-room-settings .price-panel-seasonal_price .form-field:first-child {
+  margin-top: 0;
+}
+
+#hotelier-room-settings .message.empty-variations {
+  padding-left: 10px;
+}
+
+#hotelier-room-settings .no-seasonal-prices-rules,
+#hotelier-room-settings .change-seasonal-prices-rules {
+  font-style: italic;
+  padding-left: 1em;
+  padding-top: 1em;
+}
+
+#hotelier-room-settings .hastip {
+  color: #ddd;
+  font-size: 17px;
+  margin-left: 10px;
+}
+
+#hotelier-room-settings .hastip:hover {
+  color: #00a0d2;
+  cursor: pointer;
+}
+
+#hotelier-room-settings .room-additional-settings {
+  margin: 0;
+}
+
+#hotelier-room-settings .room-additional-settings .form-field,
+#hotelier-room-settings .room-additional-settings .label-text {
+  padding: 0 1em;
+}
+
+#hotelier-room-settings .room-additional-settings .form-field {
+  border-bottom: 1px solid #eee;
+  padding: 0 1em 1em;
+}
+
+#hotelier-room-settings .room-additional-settings .form-field:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.room-additional-settings-close-button {
+  text-align: right;
+  margin-bottom: 2em;
+}
+
+#close-room-additional-settings {
+  /*float: right;*/
+  /*font-weight: 600;*/
+}
+
+/* room gallery */
+#room-images-container ul {
+  *zoom: 1;
+  margin: 0;
+  padding: 0;
+}
+
+#room-images-container ul:before, #room-images-container ul:after {
+  content: " ";
+  display: table;
+}
+
+#room-images-container ul:after {
+  clear: both;
+}
+
+#room-images-container ul li.image,
+#room-images-container ul li.add,
+#room-images-container ul li.htl-image-sortable-placeholder {
+  background: #f7f7f7;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  cursor: move;
+  float: left;
+  margin: 9px 9px 0 0;
+  position: relative;
+  width: 75px;
+}
+
+#room-images-container ul li.image img,
+#room-images-container ul li.add img,
+#room-images-container ul li.htl-image-sortable-placeholder img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+#room-images-container ul li.htl-image-sortable-placeholder {
+  border: 3px dashed #ddd;
+  position: relative;
+}
+
+#room-images-container ul li.htl-image-sortable-placeholder:after {
+  color: #ddd;
+  content: '\f128';
+  font-family: 'dashicons';
+  font-size: 2.618em;
+  height: 100%;
+  left: 0;
+  line-height: 75px;
+  position: absolute;
+  text-align: center;
+  text-indent: 0;
+  top: 0;
+  width: 100%;
+}
+
+#room-images-container ul a.delete {
+  background-color: #00a0d2;
+  border-radius: 100%;
+  color: #fff;
+  display: block;
+  height: 20px;
+  opacity: 0;
+  position: absolute;
+  right: -8px;
+  text-indent: -9999px;
+  top: -8px;
+  -webkit-transition: opacity 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: opacity 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  width: 20px;
+}
+
+#room-images-container ul a.delete:before {
+  content: '\f335';
+  font-family: 'dashicons';
+  font-size: .9em;
+  height: 100%;
+  left: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: center;
+  text-indent: 0;
+  top: 0;
+  width: 100%;
+}
+
+#room-images-container ul li:hover a.delete {
+  opacity: 1;
+}
+
+/* rooms columns */
+#posts-filter .column-quantity mark {
+  background-color: transparent;
+  color: #7ad03a;
+  font-weight: 700;
+}
+
+#posts-filter .column-quantity mark.only-x-left {
+  color: #fec24a;
+}
+
+#posts-filter .column-quantity mark.not-left {
+  color: #e7272d;
+}
+
+/* reservation columns */
+.wp-list-table .column-status {
+  text-align: center;
+}
+
+.wp-list-table td.column-status {
+  position: relative;
+}
+
+.wp-list-table td.column-status span {
+  border-radius: 100%;
+  border: 2px solid #7ad03a;
+  display: inline-block;
+  height: 24px;
+  left: 50%;
+  line-height: 25px;
+  margin-left: -12px;
+  position: absolute;
+  text-indent: -9999px;
+  top: 13px;
+  width: 24px;
+}
+
+.wp-list-table td.column-status span:after {
+  background-image: url(../images/icons/status-confirmed.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 60%;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  text-indent: 0;
+  top: 0;
+  width: 100%;
+}
+
+.wp-list-table td.column-status span.pending {
+  border-color: #fec24a;
+}
+
+.wp-list-table td.column-status span.pending:after {
+  background-image: url(../images/icons/status-pending.svg);
+}
+
+.wp-list-table td.column-status span.on-hold {
+  border-color: #ccc;
+}
+
+.wp-list-table td.column-status span.on-hold:after {
+  background-image: url(../images/icons/status-onhold.svg);
+}
+
+.wp-list-table td.column-status span.completed {
+  border-color: #00a0d2;
+}
+
+.wp-list-table td.column-status span.completed:after {
+  background-image: url(../images/icons/status-completed.svg);
+}
+
+.wp-list-table td.column-status span.failed {
+  border-color: #f26c4f;
+}
+
+.wp-list-table td.column-status span.failed:after {
+  background-image: url(../images/icons/status-failed.svg);
+}
+
+.wp-list-table td.column-status span.cancelled {
+  border-color: #e7272d;
+}
+
+.wp-list-table td.column-status span.cancelled:after {
+  background-image: url(../images/icons/status-cancelled.svg);
+}
+
+.wp-list-table td.column-status span.trash {
+  border-color: #ccc;
+}
+
+.wp-list-table td.column-status span.trash:after {
+  background-image: url(../images/icons/status-trash.svg);
+}
+
+/* reservation meta boxes */
+.add-new-reservation-form .add-new-room {
+  margin-top: 15px;
+}
+
+.add-new-reservation-form .add-new-room-row input[type='number'] {
+  width: 60px;
+}
+
+.add-new-reservation-form th strong {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+/* reservation meta boxes */
+#hotelier-reservation-data .handlediv,
+#hotelier-reservation-data .hndle {
+  display: none;
+}
+
+#hotelier-reservation-data .reservation-data-column-wrap {
+  overflow: hidden;
+}
+
+#hotelier-reservation-data h2 {
+  font-weight: 700;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+#hotelier-reservation-data .booking-details {
+  color: #aaa;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6em;
+  margin-top: 0;
+}
+
+#hotelier-reservation-data .edit-address {
+  background-color: #f7f7f7;
+  border-radius: 100%;
+  float: right;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  width: 35px;
+  text-decoration: none;
+}
+
+#hotelier-reservation-data .edit-address .dashicons,
+#hotelier-reservation-data .edit-address .dashicons:before {
+  height: 35px;
+  line-height: 35px;
+}
+
+#hotelier-reservation-data .edit-address:hover {
+  background-color: #00a0d2;
+  color: #fff;
+}
+
+#hotelier-reservation-data strong,
+#hotelier-reservation-data label {
+  color: #777;
+  display: block;
+  padding-bottom: 3px;
+}
+
+#hotelier-reservation-data .form-field input,
+#hotelier-reservation-data .form-field select,
+#hotelier-reservation-data .form-field textarea {
+  width: 100%;
+}
+
+#hotelier-reservation-data .edit-guest-details {
+  display: none;
+}
+
+#hotelier-reservation-data .edit-guest-details .form-field {
+  margin-top: 0;
+  width: 100%;
+}
+
+#hotelier-reservation-data .guest-special-requests {
+  font-size: 12px;
+}
+
+#hotelier-reservation-data .guest-special-requests strong {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+#hotelier-reservation-data .edit-guest-info {
+  display: none;
+}
+
+#hotelier-reservation-data .reservation-details {
+  border-bottom: 2px solid #ececec;
+  border-left: 2px solid #ececec;
+  border-right: 2px solid #ececec;
+  border-top: 1px solid #ececec;
+  color: #aaa;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+#hotelier-reservation-data .reservation-details p {
+  border-top: 1px solid #ececec;
+  margin-top: 0;
+  padding: 10px 20px 0;
+}
+
+#hotelier-reservation-data .reservation-details strong {
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2em;
+  margin-bottom: 0;
+  padding-top: 5px;
+}
+
+#hotelier-reservation-data .reservation-details .night-stay strong {
+  color: #00a0d2;
+}
+
+#hotelier-reservation-items .inside {
+  margin: 0;
+  padding: 0;
+}
+
+#hotelier-reservation-items table {
+  width: 100%;
+}
+
+#hotelier-reservation-items thead th,
+#hotelier-reservation-items td {
+  border-bottom: 1px dotted #ececec;
+  padding: 8px;
+}
+
+#hotelier-reservation-items thead th:first-child,
+#hotelier-reservation-items td:first-child {
+  padding-left: 12px;
+}
+
+#hotelier-reservation-items thead th:last-child,
+#hotelier-reservation-items td:last-child {
+  padding-left: 12px;
+}
+
+#hotelier-reservation-items thead th {
+  background-color: #f7f7f7;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+#hotelier-reservation-items th.room-name,
+#hotelier-reservation-items td.thumb,
+#hotelier-reservation-items td.name {
+  text-align: left;
+}
+
+#hotelier-reservation-items th.room-guests,
+#hotelier-reservation-items td.guests,
+#hotelier-reservation-items th.room-qty,
+#hotelier-reservation-items td.qty {
+  text-align: center;
+}
+
+#hotelier-reservation-items th.room-price,
+#hotelier-reservation-items th.room-total,
+#hotelier-reservation-items td.price,
+#hotelier-reservation-items td.total {
+  text-align: right;
+}
+
+#hotelier-reservation-items td.thumb {
+  width: 42px;
+}
+
+#hotelier-reservation-items td.thumb img {
+  border: 1px solid #f7f7f7;
+  height: 36px;
+  margin: 0;
+  padding: 1px;
+  vertical-align: middle;
+  width: 36px;
+}
+
+#hotelier-reservation-items td.name a {
+  display: block;
+}
+
+#hotelier-reservation-items td.name span {
+  font-size: 11px;
+}
+
+#hotelier-reservation-items td.name .rate {
+  border-bottom: 1px dotted #444;
+  color: #444;
+  font-style: italic;
+  font-weight: 700;
+}
+
+#hotelier-reservation-items td.name .non-refundable {
+  color: #dc3232;
+  display: block;
+  font-style: italic;
+  font-weight: bold;
+}
+
+#hotelier-reservation-items td.guests {
+  color: #0073aa;
+}
+
+#hotelier-reservation-items td.guests .dashicons {
+  font-size: 14px;
+}
+
+#hotelier-reservation-items table.hotelier-reservation-totals tr.subtotal td.total {
+  color: #000;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+#hotelier-reservation-items table.hotelier-reservation-totals tr.total td {
+  border-bottom: none;
+}
+
+#hotelier-reservation-items table.hotelier-reservation-totals tr.total td.total {
+  color: #000;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+#hotelier-reservation-items table.hotelier-reservation-totals tr.total td.total del {
+  font-size: 16px;
+  opacity: .3;
+}
+
+#hotelier-reservation-items table.hotelier-reservation-totals tr.total td.total ins {
+  text-decoration: none;
+}
+
+#hotelier-reservation-items table.hotelier-reservation-totals tr.deposit .item-name {
+  border-bottom: 1px dotted #444;
+  color: #444;
+  display: inline-block;
+  font-size: 11px;
+}
+
+#hotelier-reservation-items table.hotelier-reservation-totals tr.deposit .deposit {
+  color: #7ad03a;
+  display: block;
+  font-style: italic;
+}
+
+#hotelier-reservation-items table.hotelier-reservation-totals tr.deposit .amount {
+  font-weight: 700;
+}
+
+#hotelier-reservation-items table.hotelier-reservation-totals tr.deposit .deposit-total {
+  border-top: 2px solid #ececec;
+  color: #7ad03a;
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+#hotelier-reservation-items table.hotelier-reservation-totals tr.deposit .deposit-total.due {
+  color: #e7272d;
+}
+
+#hotelier-reservation-items table.hotelier-reservation-totals tr.deposit ul {
+  padding-bottom: 10px;
+}
+
+#hotelier-reservation-items table.hotelier-reservation-totals td.label {
+  font-weight: 700;
+}
+
+#hotelier-reservation-items table.hotelier-reservation-totals .remain-deposit-charge-label {
+  font-style: italic;
+}
+
+#hotelier-reservation-items table.hotelier-reservation-totals .remain-deposit-charge-amount .amount {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+#hotelier-reservation-save #reservation-actions {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 25px;
+  overflow: hidden;
+  padding-bottom: 25px;
+}
+
+#hotelier-reservation-save #reservation-actions p {
+  font-style: italic;
+}
+
+#hotelier-reservation-save #reservation-actions button {
+  float: right;
+}
+
+#hotelier-reservation-save #emails-action {
+  display: block;
+  margin-bottom: 10px;
+  width: 99%;
+}
+
+#hotelier-reservation-save .submitbox {
+  overflow: hidden;
+}
+
+#hotelier-reservation-save .save-reservation {
+  float: right;
+}
+
+#hotelier-reservation-notes .note-content {
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  font-size: 12px;
+  padding: 10px;
+  position: relative;
+}
+
+#hotelier-reservation-notes .note-content:after {
+  border-color: #f7f7f7 transparent;
+  border-style: solid;
+  border-width: 10px 10px 0 0;
+  bottom: -10px;
+  content: '';
+  display: block;
+  height: 0;
+  left: 20px;
+  position: absolute;
+  width: 0;
+}
+
+#hotelier-reservation-notes abbr {
+  border-bottom: 1px solid #e5e5e5;
+  color: #aaa;
+  font-size: 11px;
+  margin-bottom: 20px;
+}
+
+.hotelier-pay-actions {
+  padding: 8px;
+  margin-top: 2em;
+  text-align: right;
+}
+
+.hotelier-reservation-no-cancellable-info {
+  color: white;
+  font-size: 12px;
+  padding: 8px;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.hotelier-reservation-no-cancellable-info span {
+  background-color: #dc3232;
+  display: inline-block;
+  padding: 5px 10px;
+}
+
+/* extensions page */
+.hotelier-addons {
+  background: #fff;
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+  margin: 2% 1% 0 0;
+  max-width: 952px;
+  padding: 20px;
+}
+
+.hotelier-addons__list {
+  list-style: none;
+  margin: 3em 0 0;
+  overflow: hidden;
+}
+
+.hotelier-addons__extension {
+  float: left;
+  margin: 0 2em 2em 0;
+  padding: 0;
+  vertical-align: top;
+  width: 300px;
+}
+
+.hotelier-addons__extension:nth-child(3n) {
+  margin-right: 0;
+}
+
+.hotelier-addons__extension-thumbnail {
+  background-color: #f3efe7;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto 50%;
+  display: block;
+  height: 200px;
+}
+
+.hotelier-addons__extension-content {
+  border: 3px solid #f3efe7;
+  padding: 24px;
+}
+
+.hotelier-addons__extension-title {
+  font-size: 14px;
+  margin-bottom: 1em;
+  margin-top: 0;
+}
+
+.hotelier-addons__extension-title a {
+  color: #23282d;
+  text-decoration: none;
+  -webkit-transition-duration: .2s;
+          transition-duration: .2s;
+  -webkit-transition-property: color,background-color,border-color;
+  transition-property: color,background-color,border-color;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hotelier-addons__extension-title a:hover {
+  color: #1ca6ff;
+}
+
+.hotelier-addons__extension-button {
+  background: #1ca6ff;
+  border-radius: 200px;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 1.5;
+  margin-top: .5em;
+  padding: 11px 30px;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition-duration: .2s;
+          transition-duration: .2s;
+  -webkit-transition-property: color,background-color,border-color;
+  transition-property: color,background-color,border-color;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  vertical-align: middle;
+}
+
+.hotelier-addons__extension-button:hover {
+  background: #6224d6;
+  color: #fff;
+}
+
+/* tipsy and tooltip styles */
+.error-tooltip {
+  background-color: #e7272d;
+  border-radius: 3px;
+  color: #FFF;
+  font-size: 10px;
+  max-width: 200px;
+  padding: 5px 8px 4px 8px;
+  position: absolute;
+  top: 65px;
+  z-index: 100000;
+}
+
+.error-tooltip:after {
+  border-bottom: 5px solid #e7272d;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  content: '';
+  display: block;
+  height: 0;
+  left: 50%;
+  margin-left: -5px;
+  position: absolute;
+  top: -5px;
+  width: 0;
+}
+
+.tipsy {
+  font-size: 10px;
+  padding: 5px;
+  position: absolute;
+  z-index: 100000;
+}
+
+.tipsy-inner {
+  background-color: #000;
+  color: #FFF;
+  max-width: 200px;
+  padding: 5px 8px 4px 8px;
+  text-align: center;
+}
+
+.tipsy-inner {
+  border-radius: 3px;
+}
+
+.tipsy-arrow {
+  border: 5px dashed #000;
+  height: 0;
+  line-height: 0;
+  position: absolute;
+  width: 0;
+}
+
+.tipsy-arrow-n {
+  border-bottom-color: #000;
+}
+
+.tipsy-arrow-s {
+  border-top-color: #000;
+}
+
+.tipsy-arrow-e {
+  border-left-color: #000;
+}
+
+.tipsy-arrow-w {
+  border-right-color: #000;
+}
+
+.tipsy-n .tipsy-arrow {
+  border-bottom-style: solid;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top: none;
+  left: 50%;
+  margin-left: -5px;
+  top: 0px;
+}
+
+.tipsy-nw .tipsy-arrow {
+  border-bottom-style: solid;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top: none;
+  left: 10px;
+  top: 0;
+}
+
+.tipsy-ne .tipsy-arrow {
+  border-bottom-style: solid;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top: none;
+  right: 10px;
+  top: 0;
+}
+
+.tipsy-s .tipsy-arrow {
+  border-bottom: none;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-style: solid;
+  bottom: 0;
+  left: 50%;
+  margin-left: -5px;
+}
+
+.tipsy-sw .tipsy-arrow {
+  border-bottom: none;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-style: solid;
+  bottom: 0;
+  left: 10px;
+}
+
+.tipsy-se .tipsy-arrow {
+  border-bottom: none;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-style: solid;
+  bottom: 0;
+  right: 10px;
+}
+
+.tipsy-e .tipsy-arrow {
+  border-bottom-color: transparent;
+  border-left-style: solid;
+  border-right: none;
+  border-top-color: transparent;
+  margin-top: -5px;
+  right: 0;
+  top: 50%;
+}
+
+.tipsy-w .tipsy-arrow {
+  border-bottom-color: transparent;
+  border-left: none;
+  border-right-style: solid;
+  border-top-color: transparent;
+  left: 0;
+  margin-top: -5px;
+  top: 50%;
+}
+
+@media (min-width: 480px) {
+  .hotelier-settings-licenses .form-table tr {
+    min-height: 270px;
+  }
+}
+
+@media (min-width: 600px) {
+  #hotelier-room-settings .room-general-settings {
+    border-bottom: none;
+    border-right: 1px solid #e5e5e5;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    float: left;
+    position: relative;
+    width: 20%;
+  }
+  #hotelier-room-settings .room-general-settings:after {
+    background-color: #fafafa;
+    border-right: 1px solid #e5e5e5;
+    bottom: -9999em;
+    content: '';
+    display: block;
+    height: 9999em;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+  #hotelier-room-settings .room-advanced-settings {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    float: right;
+    width: 80%;
+  }
+  #hotelier-room-settings .room-additional-settings {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    float: right;
+    width: 80%;
+  }
+  .js #hotelier-room-settings .room-additional-settings {
+    float: none;
+    width: 100%;
+  }
+  #hotelier-reservation-data .reservation-data-column {
+    float: left;
+    padding: 0 2% 0 0;
+    width: 32%;
+  }
+  #hotelier-reservation-data .reservation-data-column:last-child {
+    padding-right: 0;
+    width: 31%;
+  }
+}
+
+@media (min-width: 783px) {
+  .hotelier-settings .form-table .from-to select {
+    margin: 0 10px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #hotelier-reservation-data .edit-guest-details .form-field {
+    width: 48%;
+    float: left;
+  }
+  #hotelier-reservation-data .edit-guest-details .form-field.form-field-last {
+    float: right;
+  }
+  #hotelier-reservation-data .edit-guest-details .form-field.form-field-wide {
+    width: 100%;
+  }
+}

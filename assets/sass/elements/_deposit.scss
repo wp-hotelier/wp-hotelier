@@ -1,0 +1,16 @@
+/*--------------------------------------------------------------
+>>> DEPOSIT
+----------------------------------------------------------------
+*/
+
+.room__deposit,
+.rate__deposit {
+	padding: $space__xs $space;
+	margin-top: $space;
+	display: inline-block;
+	background-color: $background__color__deposit;
+}
+
+.rate__deposit--single {
+	margin-top: 0;
+}

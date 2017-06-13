@@ -1,0 +1,34 @@
+/*--------------------------------------------------------------
+>>> WIDGET: ROOMS
+----------------------------------------------------------------
+*/
+
+.widget-rooms__list {
+	@include clear-list();
+}
+
+.widget-rooms__item {
+	margin-bottom: $space;
+	min-height: 75px;
+	position: relative;
+}
+
+.widget-rooms__name {
+	display: block;
+	margin-left: ($space + 75px);
+}
+
+.widget-rooms__price {
+	@include font-size(12px);
+	display: block;
+	margin-left: ($space + 75px);
+
+	.amount {
+		@include font-size(14px);
+	}
+}
+
+.widget-rooms__thumbnail {
+	position: absolute;
+	width: 75px;
+}

@@ -1,0 +1,60 @@
+/**
+ * The main Hotelier CSS
+ */
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+*/
+
+//  SETTINGS
+//  Settings ........... Variables and settings.
+//  Mixins ............. Default mixins
+//  Sass MQ ............ Media Queries with superpowers (https://github.com/sass-mq/sass-mq).
+
+/*
+ELEMENTS
+	Notices ............ Hotelier notices.
+	Datepicker ......... Datepicker styles.
+	Tables ............. Booking tables styles.
+	Loops .............. Room shortcodes styles.
+	Pagination ......... Hotelier pagination styles.
+	Deposit ............ Room deposit label.
+	Min/Max info ....... Room min/max stay info.
+
+PAGES
+	Room ............... Single room page.
+	Listing ............ Listing page.
+	Booking ............ Booking page.
+
+WIDGETS
+	Search ............. Search widget styles.
+	Rooms Filter ....... Rooms Filter widget styles.
+	Rooms .............. Rooms widget styles.
+	Booking ............ Booking widget styles.
+*/
+
+// SETTINGS
+@import "settings/settings";
+@import "settings/mixins";
+@import "node_modules/sass-mq/mq";
+
+// ELEMENTS
+@import "elements/notices";
+@import "elements/datepicker";
+@import "elements/tables";
+@import "elements/loops";
+@import "elements/pagination";
+@import "elements/deposit";
+@import "elements/min-max-info";
+
+// PAGES
+@import "pages/single-room";
+@import "pages/listing";
+@import "pages/booking";
+
+// WIDGETS
+@import "widgets/search";
+@import "widgets/rooms-filter";
+@import "widgets/rooms";
+@import "widgets/booking";

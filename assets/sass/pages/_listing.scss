@@ -1,0 +1,141 @@
+/*--------------------------------------------------------------
+>>> PAGE: LISTING
+----------------------------------------------------------------
+*/
+
+.selected-nights {
+	font-style: italic;
+	font-weight: bold;
+}
+
+.listing__list {
+	@include clear-list();
+	@include font-size(14px);
+}
+
+.listing__room {
+	border: 1px solid #222;
+	margin-bottom: $space;
+	overflow: hidden;
+	padding: $space;
+}
+
+.room__gallery-link {
+	@include font-size(12px);
+}
+
+.room__max-guests-recommendation {
+	@include font-size(12px);
+	display: inline-block;
+	font-style: italic;
+	margin-top: $space;
+}
+
+.room__only-x-left {
+	@include font-size(12px);
+	background-color: $background__color__onlyleft;
+	color: $color__text__onlyleft;
+	display: inline-block;
+	padding: $space__xs $space__s;
+}
+
+.room__price--listing,
+.rate__price--listing {
+	display: block;
+
+	.amount {
+		@include font-size(16px);
+		font-weight: bold;
+	}
+
+	del .amount {
+		@include font-size(12px);
+		opacity: .5;
+	}
+
+	ins {
+		background-color: transparent;
+	}
+}
+
+.room__price-description,
+.rate__price-description {
+	@include font-size(10px);
+	font-style: italic;
+}
+
+.room__deposit--listing,
+.rate__deposit--listing {
+	margin-bottom: $space;
+	margin-top: 0;
+}
+
+.room__actions {
+	border-top: 1px solid $color__default__line;
+	margin-top: $space;
+	padding-top: $space;
+
+	@include mq($from: mobile_wide) {
+		border-left: 1px solid $color__default__line;
+		border-top: none;
+		float: right;
+		margin-top: 0;
+		padding-left: $space__s;
+		padding-top: 0;
+		text-align: right;
+		width: 34%;
+	}
+}
+
+@include mq($from: mobile_wide) {
+	.room__content--listing {
+		float: left;
+		padding-right: $space__s;
+		width: 65%;
+	}
+}
+
+.button--add-to-cart,
+.button--toggle-rates {
+	display: inline-block;
+	margin-top: $space__s;
+}
+
+.add-to-cart-selected {
+	@include font-size(12px);
+	display: block;
+}
+
+.room__rate--listing {
+	border-top: 1px solid $color__default__line;
+	margin-top: $space;
+	overflow: hidden;
+	padding-top: $space;
+}
+
+@include mq($from: mobile_wide) {
+	.rate__content {
+		float: left;
+		padding-right: $space__s;
+		width: 65%;
+	}
+
+	.rate__actions--listing {
+		border-left: 1px solid $color__default__line;
+		float: right;
+		padding-left: $space__s;
+		text-align: right;
+		width: 34%;
+	}
+}
+
+.rate__room--listing {
+	margin-bottom: 0;
+}
+
+.rate__name--listing {
+	@include font-size(12px);
+	display: inline-block;
+	font-weight: bold;
+	margin-bottom: $space;
+}

@@ -1,0 +1,40 @@
+///*--------------------------------------------------------------
+//>>> SETTINGS
+//----------------------------------------------------------------
+//*/
+
+// Font size
+$global__font__size:   16px;
+
+// Line height
+$global__line__height: 24px;
+
+// Background color
+$background__color__notice: #222;
+$background__color__day: #222;
+$background__color__deposit: #eee;
+$background__color__onlyleft: #222;
+
+// Text color
+$color__text__notice: #fff;
+$color__text__invalid: #eee;
+$color__text__onlyleft: #fff;
+
+// Line color
+$color__default__line: #eee;
+
+// Spacing variables based on the line height
+$space:     round($global__line__height);
+$space__xs: round(0.25 * $space);
+$space__s:  round(0.5 * $space);
+$space__l:  round(2 * $space);
+$space__xl: round(4 * $space);
+
+// Breakpoints
+$mq-breakpoints: (
+    mobile:      320px,
+    mobile_wide: 480px,
+    tablet:      768px,
+    desktop:     992px,
+    wide:        1200px
+);
