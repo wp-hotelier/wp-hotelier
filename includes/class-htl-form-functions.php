@@ -312,8 +312,8 @@ class HTL_Form_Functions {
 	public static function datepicker_action() {
 		if ( isset( $_POST[ 'hotelier_datepicker_button' ] ) ) {
 
-			$checkin  = $_POST[ 'checkin' ];
-			$checkout = $_POST[ 'checkout' ];
+			$checkin  = sanitize_text_field( $_POST[ 'checkin' ] );
+			$checkout = sanitize_text_field( $_POST[ 'checkout' ] );
 
 			if ( ! headers_sent() && did_action( 'wp_loaded' ) ) {
 				do_action( 'hotelier_set_cookies', true );

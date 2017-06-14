@@ -509,7 +509,7 @@ class HTL_Booking {
 
 			// Booking fields (not defined in booking_fields)
 			$this->form_data[ 'booking_terms' ]  = isset( $_POST[ 'booking_terms' ] ) ? 1 : 0;
-			$this->form_data[ 'payment_method' ] = isset( $_POST[ 'payment_method' ] ) ? stripslashes( $_POST[ 'payment_method' ] ) : '';
+			$this->form_data[ 'payment_method' ] = isset( $_POST[ 'payment_method' ] ) ? sanitize_text_field( $_POST[ 'payment_method' ] ) : '';
 
 			HTL()->session->set( 'chosen_payment_method', $this->form_data[ 'payment_method' ] );
 

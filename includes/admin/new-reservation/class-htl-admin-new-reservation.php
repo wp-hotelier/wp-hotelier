@@ -102,16 +102,16 @@ class HTL_Admin_New_Reservation {
 
 						foreach ( $_POST[ $key ] as $index => $room_value ) {
 							$room_id_index = explode( '-', $room_value );
-							self::$rooms[] = array( 'room_id' => $room_id_index[ 0 ], 'rate_id' => $room_id_index[ 1 ], 'qty' => $_POST[ 'room_qty' ][ $index ] );
+							self::$rooms[] = array( 'room_id' => $room_id_index[ 0 ], 'rate_id' => $room_id_index[ 1 ], 'qty' => absint( $_POST[ 'room_qty' ][ $index ] ) );
 						}
 
 					} elseif ( $key == 'from' ) {
 
-						self::$checkin = $_POST[ 'from' ];
+						self::$checkin = sanitize_text_field( $_POST[ 'from' ] );
 
 					} elseif ( $key == 'to' ) {
 
-						self::$checkout = $_POST[ 'to' ];
+						self::$checkout = sanitize_text_field( $_POST[ 'to' ] );
 					}
 				}
 

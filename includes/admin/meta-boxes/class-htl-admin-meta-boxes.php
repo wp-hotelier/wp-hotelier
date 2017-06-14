@@ -170,7 +170,7 @@ class HTL_Admin_Meta_Boxes {
 
 		foreach ( $fields as $field => $type ) {
 			if ( ! empty( $_POST[ $field ] ) ) {
-				$data = apply_filters( 'hotelier_meta_box_save_' . $type, $_POST[ $field ] );
+				$data = sanitize_text_field( apply_filters( 'hotelier_meta_box_save_' . $type, $_POST[ $field ] ) );
 				update_post_meta( $post_id, $field, $data );
 			} else {
 				delete_post_meta( $post_id, $field );

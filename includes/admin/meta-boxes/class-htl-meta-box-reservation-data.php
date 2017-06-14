@@ -361,13 +361,13 @@ class HTL_Meta_Box_Reservation_Data {
 		$reservation = htl_get_reservation( $post_id );
 
 		// Reservation status
-		$reservation->update_status( $_POST[ 'reservation_status' ], '', true );
+		$reservation->update_status( sanitize_text_field( $_POST[ 'reservation_status' ] ), '', true );
 
 		// Guest special requests
-		$reservation->update_guest_special_requests( $_POST[ 'guest_special_requests' ], '', true );
+		$reservation->update_guest_special_requests( sanitize_text_field( $_POST[ 'guest_special_requests' ] ), '', true );
 
 		// Guest estimated arrival time
-		$reservation->set_arrival_time( $_POST[ 'guest_arrival_time' ] );
+		$reservation->set_arrival_time( sanitize_text_field( $_POST[ 'guest_arrival_time' ] ) );
 	}
 }
 
