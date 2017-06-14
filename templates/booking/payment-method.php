@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php if ( $gateway->get_description() ) : ?>
 		<div class="payment-method__description">
-			<?php echo $gateway->get_description(); ?>
+			<?php echo wp_kses_post( $gateway->get_description() ); ?>
 		</div>
 	<?php endif; ?>
 </li>

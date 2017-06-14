@@ -180,8 +180,8 @@ abstract class HTL_Widget extends WP_Widget {
 				case 'text' :
 					?>
 					<p>
-						<label for="<?php echo $this->get_field_id( $key ); ?>"><?php echo esc_attr( $setting[ 'label' ] ); ?></label>
-						<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>" name="<?php echo $this->get_field_name( $key ); ?>" type="text" value="<?php echo esc_attr( $value ); ?>" />
+						<label for="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>"><?php echo esc_attr( $setting[ 'label' ] ); ?></label>
+						<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( $key ) ); ?>" type="text" value="<?php echo esc_attr( $value ); ?>" />
 
 						<?php if ( isset( $setting[ 'description' ] ) ) : ?>
 							<small><?php echo esc_html( $setting[ 'description' ] ); ?></small>
@@ -193,8 +193,8 @@ abstract class HTL_Widget extends WP_Widget {
 				case 'number' :
 					?>
 					<p>
-						<label for="<?php echo $this->get_field_id( $key ); ?>"><?php echo esc_attr( $setting[ 'label' ] ); ?></label>
-						<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>" name="<?php echo $this->get_field_name( $key ); ?>" type="number" value="<?php echo esc_attr( $value ); ?>" />
+						<label for="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>"><?php echo esc_attr( $setting[ 'label' ] ); ?></label>
+						<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( $key ) ); ?>" type="number" value="<?php echo esc_attr( $value ); ?>" />
 
 						<?php if ( isset( $setting[ 'description' ] ) ) : ?>
 							<small><?php echo esc_html( $setting[ 'description' ] ); ?></small>
@@ -206,8 +206,8 @@ abstract class HTL_Widget extends WP_Widget {
 				case 'select' :
 					?>
 					<p>
-						<label for="<?php echo $this->get_field_id( $key ); ?>"><?php echo esc_attr( $setting[ 'label' ] ); ?></label>
-						<select class="widefat" id="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>" name="<?php echo $this->get_field_name( $key ); ?>">
+						<label for="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>"><?php echo esc_attr( $setting[ 'label' ] ); ?></label>
+						<select class="widefat" id="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( $key ) ); ?>">
 							<?php foreach ( $setting[ 'options' ] as $option_key => $option_value ) : ?>
 								<option value="<?php echo esc_attr( $option_key ); ?>" <?php selected( $option_key, $value ); ?>><?php echo esc_html( $option_value ); ?></option>
 							<?php endforeach; ?>
@@ -224,7 +224,7 @@ abstract class HTL_Widget extends WP_Widget {
 					?>
 					<p>
 						<input id="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( $key ) ); ?>" type="checkbox" value="1" <?php checked( $value, 1 ); ?> />
-						<label for="<?php echo $this->get_field_id( $key ); ?>"><?php echo esc_attr( $setting[ 'label' ] ); ?></label>
+						<label for="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>"><?php echo esc_attr( $setting[ 'label' ] ); ?></label>
 
 						<?php if ( isset( $setting[ 'description' ] ) ) : ?>
 							<small><?php echo esc_html( $setting[ 'description' ] ); ?></small>

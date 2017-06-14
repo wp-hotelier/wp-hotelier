@@ -273,7 +273,7 @@ class HTL_Emails {
 
 				foreach ( $fields as $field ) {
 					if ( isset( $field[ 'label' ] ) && isset( $field[ 'value' ] ) && $field[ 'value' ] ) {
-						echo $field[ 'label' ] . ': ' . $field[ 'value' ] . "\n";
+						echo esc_html( $field[ 'label' ] ) . ': ' . wptexturize( $field[ 'value' ] ) . "\n";
 					}
 				}
 

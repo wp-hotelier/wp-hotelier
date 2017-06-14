@@ -38,7 +38,7 @@ echo "==========\n\n";
 
 if ( $totals = $reservation->get_reservation_totals() ) {
 	foreach ( $totals as $total ) {
-		echo $total[ 'label' ] . " " . $total[ 'value' ] . "\n";
+		echo esc_html( $total[ 'label' ] ) . " " . wp_kses_post( $total[ 'value' ] ) . "\n";
 	}
 }
 

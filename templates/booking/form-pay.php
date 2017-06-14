@@ -45,7 +45,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				foreach ( $totals as $total ) : ?>
 					<tr class="reservation-table__row reservation-table__row--footer">
 						<th colspan="2" class="reservation-table__label reservation-table__label--total"><?php echo esc_html( $total[ 'label' ] ); ?></th>
-						<td class="reservation-table__data reservation-table__data--total"><strong><?php echo $total[ 'value' ]; ?></strong></td>
+						<td class="reservation-table__data reservation-table__data--total"><strong><?php echo wp_kses_post( $total[ 'value' ] ); ?></strong></td>
 					</tr>
 				<?php endforeach;
 			endif; ?>

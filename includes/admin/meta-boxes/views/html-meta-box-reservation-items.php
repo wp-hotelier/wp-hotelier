@@ -88,7 +88,7 @@ $line_items = $reservation->get_items();
 			<tr class="remain-deposit-charge">
 				<td colspan="2" class="total">
 					<span class="remain-deposit-charge-label"><?php printf( esc_html__( 'Remain deposit charged manually (%s)', 'hotelier' ), date_i18n( get_option( 'date_format' ) . ', ' . get_option( 'time_format' ), $reservation->get_remain_deposit_charge_date() ) ); ?>: </span>
-					<span class="remain-deposit-charge-amount">- <?php echo $reservation->get_formatted_remain_deposit_charge(); ?></span>
+					<span class="remain-deposit-charge-amount">- <?php echo esc_attr( $reservation->get_formatted_remain_deposit_charge() ); ?></span>
 				</td>
 			</tr>
 
@@ -99,7 +99,7 @@ $line_items = $reservation->get_items();
 		<tr class="total">
 			<td class="label"><?php esc_html_e( 'Balance due', 'hotelier' ); ?>:</td>
 			<td class="total">
-				<?php echo $reservation->get_formatted_balance_due(); ?>
+				<?php echo wp_kses_post( $reservation->get_formatted_balance_due() ); ?>
 			</td>
 		</tr>
 
