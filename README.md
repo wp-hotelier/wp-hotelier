@@ -17,21 +17,21 @@ Like any other WordPress plugin, place it in `/wp-content/plugins/`.
 
 This repository comes with a ready to use `package.json` file that allows you to run and watch some powerful tasks. You can compile your Sass files, minimize your scripts, preview your changes and so on.
 
-The first thing you need to do is install the npm dependencies. So, with the terminal cd into the **hotelier** folder and run `npm install`.
+The first thing you need to do is install the npm dependencies. So, with the terminal cd into the **wp-hotelier** folder and run `npm install`.
 
-To make your life easier, the project uses a `.npmrc` file (not included in this repo) to pass the project configuration values. So, create a `.npmrc` file in the root of the **hotelier** folder and adjust the following settings:
+To make your life easier, the project uses a `.npmrc` file (not included in this repo) to pass the project configuration values. So, create a `.npmrc` file in the root of the **wp-hotelier** folder and adjust the following settings:
 
 ```bash
-HOTELIER_URL='http://path-to-your-wordpress-installation'
-HOTELIER_SSHPORT='22'
-HOTELIER_SYNCDEST='username@hostname:path'
+WPHOTELIER_URL='http://path-to-your-wordpress-installation'
+WPHOTELIER_SSHPORT='22'
+WPHOTELIER_SYNCDEST='username@hostname:path'
 ```
 
 Settings in detail:
 
-* `HOTELIER_URL`: proxy URL to view your site; more info [here](https://browsersync.io/docs/options#option-proxy)
-* `HOTELIER_SSHPORT`: SSH port
-* `HOTELIER_SYNCDEST`: rsync destination; for example `username@hostname:/var/www/html/wordpress/wp-content/plugins/hotelier`
+* `WPHOTELIER_URL`: proxy URL to view your site; more info [here](https://browsersync.io/docs/options#option-proxy)
+* `WPHOTELIER_SSHPORT`: SSH port
+* `WPHOTELIER_SYNCDEST`: rsync destination; for example `username@hostname:/var/www/html/wordpress/wp-content/plugins/wp-hotelier`
 
 ## Tasks included
 
@@ -47,7 +47,7 @@ npm run build
 
 ### build-sync
 
-Same as the build task plus the possibility to sync the **hotelier** folder with another folder in a different server or VM. Useful to sync a local **hotelier** folder with the folder in `wp-content/plugins/hotelier` (in another server or VM). You need to specify a correct destination and SSH port in the `.npmrc` file: `HOTELIER_SYNCDEST` and `HOTELIER_SSHPORT`.
+Same as the build task plus the possibility to sync the **wp-hotelier** folder with another folder in a different server or VM. Useful to sync a local **wp-hotelier** folder with the folder in `wp-content/plugins/wp-hotelier` (in another server or VM). You need to specify a correct destination and SSH port in the `.npmrc` file: `WPHOTELIER_SYNCDEST` and `WPHOTELIER_SSHPORT`.
 
 Run this command in the terminal:
 
@@ -57,7 +57,7 @@ npm run build-sync
 
 ### build-server
 
-Same as the build task plus the possibility to sync your WP installation across multiple devices with Browsersync. You need to specify a correct proxy URL in the `.npmrc` file: `HOTELIER_URL`.
+Same as the build task plus the possibility to sync your WP installation across multiple devices with Browsersync. You need to specify a correct proxy URL in the `.npmrc` file: `WPHOTELIER_URL`.
 
 Run this command in the terminal:
 
