@@ -1,6 +1,6 @@
 === WP Hotelier ===
 Contributors: benitolopez
-Tags: booking, hotel, hostel, reservations, b&b, rooms, hotelier
+Tags: booking, hotel, booking system, hostel, reservations, reservations, b&b, rooms, wphotelier
 Requires at least: 4.1
 Tested up to: 4.8
 Stable tag: 1.0.0
@@ -93,13 +93,14 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Screenshots ==
 
-1. Hotelier settings panel.
-2. Hotelier room data panel.
-4. Hotelier admin calendar.
+1. WP Hotelier - General settings panel.
+2. WP Hotelier - Room data panel.
+3. WP Hotelier - List of reservations.
+4. WP Hotelier - Admin calendar.
 
 == Changelog ==
 
-= 1.0.0 - 2017-06-11 =
+= 1.0.0 - 2017-06-16 =
 * First public release.
 
 == Credits ==
