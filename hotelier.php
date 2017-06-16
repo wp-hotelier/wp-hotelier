@@ -317,13 +317,13 @@ final class Hotelier {
 
 		// Setup paths to current locale file
 		$mofile_local  = $hotelier_lang_dir . $mofile;
-		$mofile_global = WP_LANG_DIR . '/hotelier/' . $mofile;
+		$mofile_global = WP_LANG_DIR . '/wp-hotelier/' . $mofile;
 
 		if ( file_exists( $mofile_global ) ) {
-			// Look in global /wp-content/languages/hotelier folder
+			// Look in global /wp-content/languages/wp-hotelier folder
 			load_textdomain( 'hotelier', $mofile_global );
 		} elseif ( file_exists( $mofile_local ) ) {
-			// Look in local /wp-content/plugins/hotelier/languages/ folder
+			// Look in local /wp-content/plugins/wp-hotelier/languages/ folder
 			load_textdomain( 'hotelier', $mofile_local );
 		} else {
 			// Load the default language files

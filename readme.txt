@@ -64,18 +64,18 @@ Something missing? No problem, you can extend WP Hotelier with a vast number of 
 2. Search for 'WP Hotelier'.
 3. Activate WP Hotelier from your 'Plugins' page.
 
-You should see the 'Hotelier' menu in your WordPress admin panel.
+You should see the 'WP Hotelier' menu in your WordPress admin panel.
 
 = Manually =
 
-1. Upload the entire `hotelier` folder to the `/wp-content/plugins/` directory.
+1. Upload the entire `wp-hotelier` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 
-You should see the 'Hotelier' menu in your WordPress admin panel.
+You should see the 'WP Hotelier' menu in your WordPress admin panel.
 
 = Dummy Data =
 
-WP Hotelier comes with some sample data you can use to see how rooms look. You can find the sample_data.xml file in `hotelier/sample-data/sample_data.xml`. To import the data, use the [WordPress importer](https://wordpress.org/plugins/wordpress-importer/) plugin.
+WP Hotelier comes with some sample data you can use to see how rooms look. You can find the sample_data.xml file in `wp-hotelier/sample-data/sample_data.xml`. To import the data, use the [WordPress importer](https://wordpress.org/plugins/wordpress-importer/) plugin.
 
 = Extra =
 

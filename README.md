@@ -8,8 +8,8 @@ Welcome to the [WP Hotelier](https://wphotelier.com) GitHub repository. The docu
 
 For detailed setup instructions, visit the official [WP Hotelier Documentation](http://docs.wphotelier.com) website.
 
-1. Clone the GitHub repository: `https://github.com/hotelier/hotelier.git`
-2. Or download it directly as a ZIP file: `https://github.com/hotelier/hotelier/archive/master.zip`
+1. Clone the GitHub repository: `https://github.com/wp-hotelier/wp-hotelier.git`
+2. Or download it directly as a ZIP file: `https://github.com/wp-hotelier/wp-hotelier/archive/master.zip`
 
 Like any other WordPress plugin, place it in `/wp-content/plugins/`.
 
@@ -88,6 +88,6 @@ npm run dist
 This repository is not suitable for support. But for issues related to WP Hotelier (core plugin only). Please don't submit support requests, use the official support channels for that:
 
 * The [WP Hotelier support portal](https://wphotelier.com/support/) for customers who have purchased extensions or themes.
-* [Support forum on wp.org](https://wordpress.org/support/plugin/wphotelier) if you don't have a valid license key.
+* [Support forum on wp.org](https://wordpress.org/support/plugin/wp-hotelier) if you don't have a valid license key.
 
 Support requests or issues related to extensions or themes will be closed immediately.

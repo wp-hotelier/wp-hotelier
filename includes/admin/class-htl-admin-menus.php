@@ -53,7 +53,7 @@ class HTL_Admin_Menus {
 	 * Add addons page
 	 */
 	public function admin_addons() {
-		add_submenu_page( 'hotelier-settings', esc_html__( 'Hotelier Extensions & Themes', 'hotelier' ),  esc_html__( 'Extensions & Themes', 'hotelier' ) , 'manage_hotelier', 'hotelier-addons', array( $this, 'addons_page' ) );
+		add_submenu_page( 'hotelier-settings', esc_html__( 'WP Hotelier Extensions & Themes', 'hotelier' ),  esc_html__( 'Extensions & Themes', 'hotelier' ) , 'manage_hotelier', 'hotelier-addons', array( $this, 'addons_page' ) );
 	}
 
 	/**
