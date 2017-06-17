@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 																<td>&nbsp;</td>
 															</tr>
 															<tr>
-																<td style="text-align:left;font-size:13px;line-height:17px;color:#444444;font-weight:bold;font-family:Helvetica,Arial;"><?php echo esc_html( htl_get_option( 'emails_footer_text' ), 'Powered by WP Hotelier' ); ?></td>
+																<td style="text-align:left;font-size:13px;line-height:17px;color:#444444;font-weight:bold;font-family:Helvetica,Arial;"><?php echo esc_html( htl_get_option( 'emails_footer_text' ), 'Powered by Easy WP Hotelier' ); ?></td>
 															</tr>
 														</tbody>
 													</table>

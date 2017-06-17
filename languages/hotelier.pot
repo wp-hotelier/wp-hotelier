@@ -1,13 +1,13 @@
-# Copyright (C) 2017 WP Hotelier
-# This file is distributed under the same license as the WP Hotelier package.
+# Copyright (C) 2017 Easy WP Hotelier
+# This file is distributed under the same license as the Easy WP Hotelier package.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Hotelier\n"
+"Project-Id-Version: Easy WP Hotelier\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language-Team: WP Hotelier <support@wphotelier.com>\n"
-"Report-Msgid-Bugs-To: https://github.com/hotelier/hotelier\n"
+"Language-Team: Easy WP Hotelier <support@wphotelier.com>\n"
+"Report-Msgid-Bugs-To: https://github.com/easy-wp-hotelier/wp-hotelier\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -197,6 +197,10 @@ msgstr ""
 msgid "Sorry, this room cannot be reserved."
 msgstr ""
 
+#: ../includes/class-htl-cart.php:542
+msgid "Sorry, we do not have enough \"%s\" available to fulfill your reservation. Please select another room or reduce the quantity and try again. We apologise for any inconvenience caused."
+msgstr ""
+
 #: ../includes/class-htl-emails.php:220, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:303, ../templates/reservation/reservation-details.php:41
 msgid "None"
 msgstr ""
@@ -227,6 +231,10 @@ msgstr ""
 
 #: ../includes/class-htl-form-functions.php:285
 msgid "Your reservation includes a non cancellable and non refundable room and it cannot be cancelled."
+msgstr ""
+
+#: ../includes/class-htl-form-functions.php:289
+msgid "Reservation cancelled by guest."
 msgstr ""
 
 #: ../includes/class-htl-form-functions.php:292
@@ -334,7 +342,7 @@ msgid "Settings"
 msgstr ""
 
 #: ../includes/class-htl-install.php:254
-msgid "View WP Hotelier documentation"
+msgid "View Easy WP Hotelier documentation"
 msgstr ""
 
 #: ../includes/class-htl-install.php:254
@@ -715,8 +723,16 @@ msgstr ""
 msgid "Reservation received"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:333, ../includes/class-htl-reservation.php:339, ../includes/admin/settings/class-htl-admin-settings.php:65
+#: ../includes/class-htl-reservation.php:333, ../includes/class-htl-reservation.php:339
 msgid "Hotelier"
+msgstr ""
+
+#: ../includes/class-htl-reservation.php:376
+msgid "Error: Trying to change the status from %1$s to %2$s. %1$s reservations cannot be restored or modified."
+msgstr ""
+
+#: ../includes/class-htl-reservation.php:394
+msgid "Reservation status changed from %s to %s."
 msgstr ""
 
 #: ../includes/class-htl-reservation.php:842
@@ -898,6 +914,14 @@ msgctxt "Reservation status"
 msgid "Pending"
 msgstr ""
 
+#: ../includes/htl-reservation-functions.php:360
+msgid "Time limit reached."
+msgstr ""
+
+#: ../includes/htl-reservation-functions.php:396, ../includes/htl-reservation-functions.php:398
+msgid "Check-out date reached."
+msgstr ""
+
 #: ../includes/htl-room-functions.php:44
 msgid "Placeholder"
 msgstr ""
@@ -945,7 +969,7 @@ msgid "View Calendar"
 msgstr ""
 
 #: ../includes/admin/class-htl-admin-menus.php:56
-msgid "Hotelier Extensions & Themes"
+msgid "Easy WP Hotelier Extensions & Themes"
 msgstr ""
 
 #: ../includes/admin/class-htl-admin-menus.php:56
@@ -1002,6 +1026,10 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
+#: ../includes/admin/class-htl-admin-post-types.php:243
+msgid "This reservation cannot be restored because one or more rooms are no longer available on those dates."
+msgstr ""
+
 #: ../includes/admin/class-htl-admin-scripts.php:99
 msgid "Please enter in decimal (%s) format without thousand separators."
 msgstr ""
@@ -1015,7 +1043,7 @@ msgid "Are you sure you wish to proceed with this charge? This action cannot be 
 msgstr ""
 
 #: ../includes/admin/class-htl-admin.php:57
-msgid "Thank you for using <a href=\"%1$s\" target=\"_blank\">WP Hotelier</a>! If you like it, please leave us a %2$s rating. Cheers :)"
+msgid "Thank you for using <a href=\"%1$s\" target=\"_blank\">Easy WP Hotelier</a>! If you like it, please leave us a %2$s rating. Cheers :)"
 msgstr ""
 
 #: ../includes/emails/class-htl-email-cancelled-reservation.php:28, ../includes/emails/class-htl-email-cancelled-reservation.php:30, ../includes/emails/class-htl-email-guest-cancelled-reservation.php:28, ../includes/emails/class-htl-email-guest-cancelled-reservation.php:30, ../includes/admin/settings/class-htl-admin-settings-default.php:678, ../includes/admin/settings/class-htl-admin-settings-default.php:705, ../includes/admin/settings/class-htl-admin-settings-default.php:739
@@ -1222,7 +1250,7 @@ msgid "Error"
 msgstr ""
 
 #: ../includes/admin/license-manager/class-htl-admin-license-manager.php:345
-msgid "You have invalid or expired license keys for WP Hotelier. Please go to the <a href=\"%s\">Licenses page</a> to correct this issue."
+msgid "You have invalid or expired license keys for Easy WP Hotelier. Please go to the <a href=\"%s\">Licenses page</a> to correct this issue."
 msgstr ""
 
 #: ../includes/admin/license-manager/class-htl-admin-license-manager.php:371
@@ -1265,7 +1293,7 @@ msgstr ""
 msgid "Estimated arrival time"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:176
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:176, ../includes/gateways/paypal-standard/includes/class-htl-gateway-paypal-request.php:123
 msgid "Reservation"
 msgstr ""
 
@@ -1341,6 +1369,10 @@ msgstr ""
 msgid "Save reservation"
 msgstr ""
 
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:110
+msgid "%s email notification manually sent."
+msgstr ""
+
 #: ../includes/admin/meta-boxes/class-htl-meta-box-room-images.php:39, ../includes/admin/meta-boxes/class-htl-meta-box-room-images.php:51
 msgid "Delete image"
 msgstr ""
@@ -1361,7 +1393,7 @@ msgstr ""
 msgid "Add room gallery images"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:105
+#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:105, ../templates/single-room/meta.php:39
 msgid "Room type:"
 msgstr ""
 
@@ -1467,6 +1499,10 @@ msgstr ""
 
 #: ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:121
 msgid "Please fill the required fields."
+msgstr ""
+
+#: ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:374
+msgid "Reservation manually created by admin."
 msgstr ""
 
 #: ../includes/admin/settings/class-htl-admin-settings-default.php:64
@@ -1890,7 +1926,7 @@ msgid "The text to appear in the footer of Hotelier emails."
 msgstr ""
 
 #: ../includes/admin/settings/class-htl-admin-settings-default.php:550
-msgid "Powered by WP Hotelier"
+msgid "Powered by Easy WP Hotelier"
 msgstr ""
 
 #: ../includes/admin/settings/class-htl-admin-settings-default.php:559
@@ -2217,7 +2253,7 @@ msgid "Not available"
 msgstr ""
 
 #: ../includes/admin/settings/class-htl-admin-settings-fields.php:971
-msgid "%s - WP Hotelier requires at least PHP 5.6.0. Please update your PHP version."
+msgid "%s - Easy WP Hotelier requires at least PHP 5.6.0. Please update your PHP version."
 msgstr ""
 
 #: ../includes/admin/settings/class-htl-admin-settings-fields.php:989
@@ -2244,8 +2280,12 @@ msgstr ""
 msgid "To allow logging, make <code>%s</code> writable or define a custom <code>HTL_LOG_DIR</code>."
 msgstr ""
 
+#: ../includes/admin/settings/class-htl-admin-settings.php:65
+msgid "Easy WP Hotelier"
+msgstr ""
+
 #: ../includes/admin/settings/class-htl-admin-settings.php:67
-msgid "Hotelier Settings"
+msgid "Easy WP Hotelier Settings"
 msgstr ""
 
 #: ../includes/admin/settings/class-htl-admin-settings.php:92
@@ -2337,11 +2377,11 @@ msgid "Enter the name of the page style to use, or leave blank for default. Thes
 msgstr ""
 
 #: ../includes/admin/addons/views/html-admin-page-addons.php:19
-msgid "Supercharge your hotel website with extensions built specifically for WP Hotelier."
+msgid "Supercharge your hotel website with extensions built specifically for Easy WP Hotelier."
 msgstr ""
 
 #: ../includes/admin/addons/views/html-admin-page-addons.php:20
-msgid "Premium extensions are special WordPress plugins that enhance, or extend, the core WP Hotelier functionalities."
+msgid "Premium extensions are special WordPress plugins that enhance, or extend, the core Easy WP Hotelier functionalities."
 msgstr ""
 
 #: ../includes/admin/addons/views/html-admin-page-addons.php:39
@@ -2353,7 +2393,7 @@ msgid "Get this extension"
 msgstr ""
 
 #: ../includes/admin/addons/views/html-admin-page-addons.php:49
-msgid "Our catalog of WP Hotelier Extensions can be found on WP Hotelier here: <a href=\"%s\">WP Hotelier Extensions</a>"
+msgid "Our catalog of Easy WP Hotelier Extensions can be found on Easy WP Hotelier here: <a href=\"%s\">Easy WP Hotelier Extensions</a>"
 msgstr ""
 
 #: ../includes/admin/calendar/views/html-admin-calendar.php:21
@@ -2518,6 +2558,30 @@ msgstr ""
 
 #: ../includes/admin/settings/views/html-admin-logs.php:56
 msgid "There are currently no logs to view."
+msgstr ""
+
+#: ../includes/gateways/paypal-standard/includes/class-htl-gateway-paypal-response.php:142
+msgid "Validation error: PayPal currencies do not match (code %s)."
+msgstr ""
+
+#: ../includes/gateways/paypal-standard/includes/class-htl-gateway-paypal-response.php:156
+msgid "Validation error: PayPal amounts do not match (gross %s)."
+msgstr ""
+
+#: ../includes/gateways/paypal-standard/includes/class-htl-gateway-paypal-response.php:171
+msgid "Validation error: PayPal IPN response from a different email address (%s)."
+msgstr ""
+
+#: ../includes/gateways/paypal-standard/includes/class-htl-gateway-paypal-response.php:197
+msgid "IPN payment completed"
+msgstr ""
+
+#: ../includes/gateways/paypal-standard/includes/class-htl-gateway-paypal-response.php:205
+msgid "Payment pending: %s"
+msgstr ""
+
+#: ../includes/gateways/paypal-standard/includes/class-htl-gateway-paypal-response.php:222
+msgid "Payment %s via IPN."
 msgstr ""
 
 #: ../templates/booking/cart-errors.php:20

@@ -547,7 +547,7 @@ class HTL_Admin_Settings_Default {
 						'name' => esc_html__( 'Email footer text', 'hotelier' ),
 						'desc' => __( 'The text to appear in the footer of Hotelier emails.', 'hotelier' ),
 						'type' => 'text',
-						'std'  => get_bloginfo( 'name', 'display' ) . ' - ' . __( 'Powered by WP Hotelier', 'hotelier' ),
+						'std'  => get_bloginfo( 'name', 'display' ) . ' - ' . __( 'Powered by Easy WP Hotelier', 'hotelier' ),
 					),
 					'emails_new_reservation' => array(
 						'id'   => 'emails_new_reservation',

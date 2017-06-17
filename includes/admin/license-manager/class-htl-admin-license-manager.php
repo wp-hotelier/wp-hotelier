@@ -182,7 +182,7 @@ class HTL_License_Manager {
 		$response = wp_remote_post(
 			$this->api_url,
 			array(
-				'user-agent' => 'Hotelier License Manager',
+				'user-agent' => 'Easy WP Hotelier License Manager',
 				'timeout'    => 15,
 				'sslverify'  => false,
 				'body'       => $api_params
@@ -238,7 +238,7 @@ class HTL_License_Manager {
 			$response = wp_remote_post(
 				$this->api_url,
 				array(
-					'user-agent' => 'Hotelier License Manager',
+					'user-agent' => 'Easy WP Hotelier License Manager',
 					'timeout'    => 15,
 					'sslverify'  => false,
 					'body'       => $api_params
@@ -281,7 +281,7 @@ class HTL_License_Manager {
 		$response = wp_remote_post(
 			$this->api_url,
 			array(
-				'user-agent' => 'Hotelier License Manager',
+				'user-agent' => 'Easy WP Hotelier License Manager',
 				'timeout'    => 15,
 				'sslverify'  => false,
 				'body'       => $api_params
@@ -342,7 +342,7 @@ class HTL_License_Manager {
 		if ( is_object( $license ) && 'valid' !== $license->license && empty( $showed_invalid_message ) ) {
 			if ( empty( $_GET[ 'tab' ] ) || 'licenses' !== $_GET[ 'tab' ] ) {
 				$messages[] = sprintf(
-					__( 'You have invalid or expired license keys for WP Hotelier. Please go to the <a href="%s">Licenses page</a> to correct this issue.', 'hotelier' ),
+					__( 'You have invalid or expired license keys for Easy WP Hotelier. Please go to the <a href="%s">Licenses page</a> to correct this issue.', 'hotelier' ),
 					admin_url( 'admin.php?page=hotelier-settings&tab=licenses' )
 				);
 

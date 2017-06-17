@@ -16,8 +16,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php if ( isset( $addons->extensions ) ) : ?>
 			<div class="hotelier-addons">
-				<h2 class="hotelier-addons__title"><?php esc_html_e( 'Supercharge your hotel website with extensions built specifically for WP Hotelier.', 'hotelier' ); ?></h2>
-				<p class="hotelier-addons__description"><?php esc_html_e( 'Premium extensions are special WordPress plugins that enhance, or extend, the core WP Hotelier functionalities.', 'hotelier' ); ?></p>
+				<h2 class="hotelier-addons__title"><?php esc_html_e( 'Supercharge your hotel website with extensions built specifically for Easy WP Hotelier.', 'hotelier' ); ?></h2>
+				<p class="hotelier-addons__description"><?php esc_html_e( 'Premium extensions are special WordPress plugins that enhance, or extend, the core Easy WP Hotelier functionalities.', 'hotelier' ); ?></p>
 
 				<ul class="hotelier-addons__list">
 					<?php foreach ( $addons->extensions as $extension ) :
@@ -46,5 +46,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php endif; ?>
 
 	<?php else : ?>
-		<p><?php printf( __( 'Our catalog of WP Hotelier Extensions can be found on WP Hotelier here: <a href="%s">WP Hotelier Extensions</a>', 'hotelier' ), 'https://wphotelier.com/extensions/' ); ?></p>
+		<p><?php printf( __( 'Our catalog of Easy WP Hotelier Extensions can be found on Easy WP Hotelier here: <a href="%s">Easy WP Hotelier Extensions</a>', 'hotelier' ), 'https://wphotelier.com/extensions/' ); ?></p>
 	<?php endif; ?>

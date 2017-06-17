@@ -54,7 +54,7 @@ class HTL_Admin {
 		$screen = get_current_screen();
 
 		if ( class_exists( 'HTL_Admin_Functions' ) && in_array( $screen->id, HTL_Admin_Functions::get_screen_ids() ) ) {
-			$footer_text = sprintf( __( 'Thank you for using <a href="%1$s" target="_blank">WP Hotelier</a>! If you like it, please leave us a %2$s rating. Cheers :)', 'hotelier' ),
+			$footer_text = sprintf( __( 'Thank you for using <a href="%1$s" target="_blank">Easy WP Hotelier</a>! If you like it, please leave us a %2$s rating. Cheers :)', 'hotelier' ),
 				'https://wphotelier.com',
 				'<a href="https://wordpress.org/plugins/wp-hotelier/" target="_blank">&#9733;&#9733;&#9733;&#9733;&#9733;</a>'
 			);

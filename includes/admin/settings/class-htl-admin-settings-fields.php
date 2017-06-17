@@ -968,7 +968,7 @@ class HTL_Admin_Settings_Fields {
 
 		if ( function_exists( 'phpversion' ) ) {
 			if ( version_compare( phpversion(), '5.6.0', '<' ) ) {
-				$info = '<span class="info-error">' . sprintf( esc_html__( '%s - WP Hotelier requires at least PHP 5.6.0. Please update your PHP version.', 'hotelier' ), phpversion() ) . '</span>';
+				$info = '<span class="info-error">' . sprintf( esc_html__( '%s - Easy WP Hotelier requires at least PHP 5.6.0. Please update your PHP version.', 'hotelier' ), phpversion() ) . '</span>';
 			} else {
 				$info = '<span class="info-success">' . phpversion() . '</span>';
 			}

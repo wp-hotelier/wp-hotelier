@@ -91,10 +91,10 @@ add_filter( 'loop_end', 'hotelier_reset_loop' );
 function htl_generator_tag( $gen, $type ) {
 	switch ( $type ) {
 		case 'html':
-			$gen .= "\n" . '<meta name="generator" content="WP Hotelier ' . esc_attr( HTL_VERSION ) . '">';
+			$gen .= "\n" . '<meta name="generator" content="Easy WP Hotelier ' . esc_attr( HTL_VERSION ) . '">';
 			break;
 		case 'xhtml':
-			$gen .= "\n" . '<meta name="generator" content="WP Hotelier ' . esc_attr( HTL_VERSION ) . '" />';
+			$gen .= "\n" . '<meta name="generator" content="Easy WP Hotelier ' . esc_attr( HTL_VERSION ) . '" />';
 			break;
 	}
 	return $gen;
