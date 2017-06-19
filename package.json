@@ -18,7 +18,7 @@
     "build:scss": "npm run run:sass && npm run run:sass -- -w",
     "sync": "onchange '**/*' -e 'dist' -e 'assets/sass' -e '.git' -e 'languages' -e 'assets/js/*.min.js' -e '.tmp' -w -- npm run run:sync",
     "server": "browser-sync start --proxy $npm_config_WPHOTELIER_URL --host $npm_config_WPHOTELIER_URL --reload-delay 2000 --files 'assets/*.css'",
-    "zip": "rsync -azP -e --delete --exclude='package.json' --exclude='postcss.config.js' --exclude='.*/' --exclude='.*' --exclude='node_modules/' --exclude='dist/' --exclude='assets/sass/' . dist/wp-hotelier; cd dist; zip -r wp-hotelier.$npm_package_version.zip wp-hotelier; cd ..",
+    "zip": "rsync -azP -e --delete --exclude='package.json' --exclude='README.md' --exclude='postcss.config.js' --exclude='.*/' --exclude='.*' --exclude='node_modules/' --exclude='dist/' --exclude='assets/sass/' . dist/wp-hotelier; cd dist; zip -r wp-hotelier.$npm_package_version.zip wp-hotelier; cd ..",
     "build": "npm-run-all --silent --parallel build:*",
     "build-sync": "npm-run-all --silent --parallel build:* sync",
     "build-server": "npm-run-all --silent --parallel build:* server",
