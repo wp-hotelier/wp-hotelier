@@ -60,6 +60,11 @@ class HTL_Admin_Scripts {
 		if ( $screen->id == 'hotelier_page_hotelier-calendar' ) {
 			wp_enqueue_style( 'hotelier_calendar_styles', HTL_PLUGIN_URL . 'assets/css/calendar.css', array(), HTL_VERSION );
 		}
+
+		// Addons page style
+		if ( $screen->id == 'hotelier_page_hotelier-addons' ) {
+			wp_enqueue_style( 'hotelier_addons_styles', HTL_PLUGIN_URL . 'assets/css/addons.css', array(), HTL_VERSION );
+		}
 	}
 
 	/**
