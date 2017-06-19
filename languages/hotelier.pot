@@ -723,7 +723,7 @@ msgstr ""
 msgid "Reservation received"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:333, ../includes/class-htl-reservation.php:339
+#: ../includes/class-htl-reservation.php:333, ../includes/class-htl-reservation.php:339, ../includes/admin/settings/class-htl-admin-settings.php:65
 msgid "Hotelier"
 msgstr ""
 
@@ -1030,15 +1030,15 @@ msgstr ""
 msgid "This reservation cannot be restored because one or more rooms are no longer available on those dates."
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-scripts.php:99
+#: ../includes/admin/class-htl-admin-scripts.php:104
 msgid "Please enter in decimal (%s) format without thousand separators."
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-scripts.php:100
+#: ../includes/admin/class-htl-admin-scripts.php:105
 msgid "Please enter in a value less than the regular price."
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-scripts.php:114
+#: ../includes/admin/class-htl-admin-scripts.php:119
 msgid "Are you sure you wish to proceed with this charge? This action cannot be undone."
 msgstr ""
 
@@ -2278,10 +2278,6 @@ msgstr ""
 
 #: ../includes/admin/settings/class-htl-admin-settings-fields.php:1091
 msgid "To allow logging, make <code>%s</code> writable or define a custom <code>HTL_LOG_DIR</code>."
-msgstr ""
-
-#: ../includes/admin/settings/class-htl-admin-settings.php:65
-msgid "Easy WP Hotelier"
 msgstr ""
 
 #: ../includes/admin/settings/class-htl-admin-settings.php:67
