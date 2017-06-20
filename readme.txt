@@ -100,7 +100,11 @@ Here: [Easy WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
-= 1.0.0 - 2017-06-19 =
+= 1.1.0 - 2017-06-21 =
+* Change - Use 'wp-hotelier' for the i18n slug.
+* Localization - POT file updated and renamed.
+
+= 1.0.1 - 2017-06-19 =
 * Fix - Use only Hotelier in menu name and fix screen IDs related issues.
 * Fix - Use correct link in admin footer pages.
 * Localization - POT file updated.
