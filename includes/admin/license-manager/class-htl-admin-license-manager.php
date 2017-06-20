@@ -107,7 +107,7 @@ class HTL_License_Manager {
 	 * Add license tab to settings
 	 */
 	public function add_tab( $settings_tabs ) {
-		$settings_tabs[ 'licenses' ] = esc_html__( 'Licenses', 'hotelier' );
+		$settings_tabs[ 'licenses' ] = esc_html__( 'Licenses', 'wp-hotelier' );
 
 		return array_merge( $settings_tabs );
 	}
@@ -123,7 +123,7 @@ class HTL_License_Manager {
 		}
 
 		echo '<p class="tab-top-help-text">' . wp_kses_post( sprintf(
-			__( 'Enter your extension license keys here to receive updates for purchased extensions. If your license key has expired, please <a href="%s" target="_blank">renew your license</a>.', 'hotelier' ),
+			__( 'Enter your extension license keys here to receive updates for purchased extensions. If your license key has expired, please <a href="%s" target="_blank">renew your license</a>.', 'wp-hotelier' ),
 			'http://docs.wphotelier.com/article/36-how-to-renew-a-license'
 		) ) . '</p>';
 
@@ -216,7 +216,7 @@ class HTL_License_Manager {
 		}
 
 		if ( ! wp_verify_nonce( $_REQUEST[ $this->item_shortname . '_license_key-nonce' ], $this->item_shortname . '_license_key-nonce' ) ) {
-			wp_die( __( 'Nonce verification failed', 'hotelier' ), __( 'Error', 'hotelier' ), array( 'response' => 403 ) );
+			wp_die( __( 'Nonce verification failed', 'wp-hotelier' ), __( 'Error', 'wp-hotelier' ), array( 'response' => 403 ) );
 		}
 
 		if ( ! current_user_can( 'manage_hotelier' ) ) {
@@ -342,7 +342,7 @@ class HTL_License_Manager {
 		if ( is_object( $license ) && 'valid' !== $license->license && empty( $showed_invalid_message ) ) {
 			if ( empty( $_GET[ 'tab' ] ) || 'licenses' !== $_GET[ 'tab' ] ) {
 				$messages[] = sprintf(
-					__( 'You have invalid or expired license keys for Easy WP Hotelier. Please go to the <a href="%s">Licenses page</a> to correct this issue.', 'hotelier' ),
+					__( 'You have invalid or expired license keys for Easy WP Hotelier. Please go to the <a href="%s">Licenses page</a> to correct this issue.', 'wp-hotelier' ),
 					admin_url( 'admin.php?page=hotelier-settings&tab=licenses' )
 				);
 
@@ -368,7 +368,7 @@ class HTL_License_Manager {
 		$license = get_option( $this->item_shortname . '_license_key_active' );
 
 		if ( ( ! is_object( $license ) || 'valid' !== $license->license ) && empty( $showed_imissing_key_message[ $this->item_shortname ] ) ) {
-			echo '&nbsp;<strong><a href="' . esc_url( admin_url( 'admin.php?page=hotelier-settings&tab=licenses' ) ) . '">' . __( 'Enter valid license key for automatic updates.', 'hotelier' ) . '</a></strong>';
+			echo '&nbsp;<strong><a href="' . esc_url( admin_url( 'admin.php?page=hotelier-settings&tab=licenses' ) ) . '">' . __( 'Enter valid license key for automatic updates.', 'wp-hotelier' ) . '</a></strong>';
 			$showed_imissing_key_message[ $this->item_shortname ] = true;
 		}
 	}

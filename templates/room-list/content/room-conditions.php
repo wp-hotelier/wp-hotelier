@@ -23,7 +23,7 @@ if ( ! $room->has_conditions() ) {
 
 <div class="room__conditions room__conditions--listing">
 
-	<strong class="room__conditions-title room__conditions-title--listing"><?php esc_html_e( 'Room conditions:', 'hotelier' ) ?></strong>
+	<strong class="room__conditions-title room__conditions-title--listing"><?php esc_html_e( 'Room conditions:', 'wp-hotelier' ) ?></strong>
 
 	<ul class="room__conditions-list room__conditions-list--listing">
 

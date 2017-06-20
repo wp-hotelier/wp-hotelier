@@ -3,14 +3,14 @@
  * Plugin Name:       Easy WP Hotelier
  * Plugin URI:        https://wphotelier.com/?utm_source=wpadmin&utm_medium=plugin&utm_campaign=wphotelierplugin
  * Description:       Manage your hotel bookings with WordPress.
- * Version:           1.0.1
+ * Version:           1.1.0
  * Author:            Easy WP Hotelier
  * Author URI:        https://wphotelier.com/
  * Requires at least: 4.0
  * Tested up to:      4.8
  * License:           GPLv3
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.html
- * Text Domain:       hotelier
+ * Text Domain:       wp-hotelier
  * Domain Path:       languages
  *
  * @package  Hotelier
@@ -32,7 +32,7 @@ final class Hotelier {
 	/**
 	 * @var string
 	 */
-	public $version = '1.0.1';
+	public $version = '1.1.0';
 
 	/**
 	 * @var Hotelier The single instance of the class
@@ -88,14 +88,14 @@ final class Hotelier {
 	 * Cloning is forbidden.
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', 'hotelier' ), '1.0.0' );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', 'wp-hotelier' ), '1.0.0' );
 	}
 
 	/**
 	 * Unserializing instances of this class is forbidden.
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', 'hotelier' ), '1.0.0' );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', 'wp-hotelier' ), '1.0.0' );
 	}
 
 	/**
@@ -312,8 +312,8 @@ final class Hotelier {
 		$hotelier_lang_dir = apply_filters( 'hotelier_languages_directory', $hotelier_lang_dir );
 
 		// Traditional WordPress plugin locale filter
-		$locale = apply_filters( 'plugin_locale', get_locale(), 'hotelier' );
-		$mofile = sprintf( '%1$s-%2$s.mo', 'hotelier', $locale );
+		$locale = apply_filters( 'plugin_locale', get_locale(), 'wp-hotelier' );
+		$mofile = sprintf( '%1$s-%2$s.mo', 'wp-hotelier', $locale );
 
 		// Setup paths to current locale file
 		$mofile_local  = $hotelier_lang_dir . $mofile;
@@ -321,13 +321,13 @@ final class Hotelier {
 
 		if ( file_exists( $mofile_global ) ) {
 			// Look in global /wp-content/languages/wp-hotelier folder
-			load_textdomain( 'hotelier', $mofile_global );
+			load_textdomain( 'wp-hotelier', $mofile_global );
 		} elseif ( file_exists( $mofile_local ) ) {
 			// Look in local /wp-content/plugins/wp-hotelier/languages/ folder
-			load_textdomain( 'hotelier', $mofile_local );
+			load_textdomain( 'wp-hotelier', $mofile_local );
 		} else {
 			// Load the default language files
-			load_plugin_textdomain( 'hotelier', false, $hotelier_lang_dir );
+			load_plugin_textdomain( 'wp-hotelier', false, $hotelier_lang_dir );
 		}
 	}
 

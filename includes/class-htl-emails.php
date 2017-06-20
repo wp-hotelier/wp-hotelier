@@ -44,14 +44,14 @@ class HTL_Emails {
 	 * Cloning is forbidden.
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', 'hotelier' ), '1.0.0' );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', 'wp-hotelier' ), '1.0.0' );
 	}
 
 	/**
 	 * Unserializing instances of this class is forbidden.
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', 'hotelier' ), '1.0.0' );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', 'wp-hotelier' ), '1.0.0' );
 	}
 
 	/**
@@ -216,8 +216,8 @@ class HTL_Emails {
 	 * @return string
 	 */
 	public function guest_special_requests( $reservation, $sent_to_admin = false, $plain_text = false ) {
-		$label            = esc_html__( 'Special requests', 'hotelier' );
-		$special_requests = $reservation->get_guest_special_requests() ? wptexturize( $reservation->get_guest_special_requests() ) : esc_html__( 'None', 'hotelier' );
+		$label            = esc_html__( 'Special requests', 'wp-hotelier' );
+		$special_requests = $reservation->get_guest_special_requests() ? wptexturize( $reservation->get_guest_special_requests() ) : esc_html__( 'None', 'wp-hotelier' );
 
 		if ( $plain_text ) {
 			echo strtoupper( $label ) . "\n\n";
@@ -240,21 +240,21 @@ class HTL_Emails {
 
 		if ( $reservation->get_formatted_guest_full_name() ) {
 			$fields[ 'guest_name' ] = array(
-				'label' => esc_html__( 'Name', 'hotelier' ),
+				'label' => esc_html__( 'Name', 'wp-hotelier' ),
 				'value' => wptexturize( $reservation->get_formatted_guest_full_name() )
 			);
 	    }
 
 	    if ( $reservation->guest_email ) {
 			$fields[ 'guest_email' ] = array(
-				'label' => esc_html__( 'Email', 'hotelier' ),
+				'label' => esc_html__( 'Email', 'wp-hotelier' ),
 				'value' => wptexturize( $reservation->guest_email )
 			);
 	    }
 
 	    if ( $reservation->guest_telephone ) {
 			$fields[ 'guest_telephone' ] = array(
-				'label' => esc_html__( 'Telephone', 'hotelier' ),
+				'label' => esc_html__( 'Telephone', 'wp-hotelier' ),
 				'value' => wptexturize( $reservation->guest_telephone )
 			);
 	    }
@@ -263,7 +263,7 @@ class HTL_Emails {
 
 		if ( $fields ) {
 
-			$heading = $sent_to_admin ? esc_html__( 'Guest details', 'hotelier' ) : esc_html__( 'Your details', 'hotelier' );
+			$heading = $sent_to_admin ? esc_html__( 'Guest details', 'wp-hotelier' ) : esc_html__( 'Your details', 'wp-hotelier' );
 
 			$heading = apply_filters( 'hotelier_email_custom_details_header', $heading, $sent_to_admin, $reservation );
 

@@ -29,7 +29,7 @@ class HTL_Roles {
 	 * @return void
 	 */
 	public function add_roles() {
-		add_role( 'hotel_manager', esc_html__( 'Hotel Manager', 'hotelier' ), array(
+		add_role( 'hotel_manager', esc_html__( 'Hotel Manager', 'wp-hotelier' ), array(
 			'read'                   => true,
 			'read_private_pages'     => true,
 			'read_private_posts'     => true,

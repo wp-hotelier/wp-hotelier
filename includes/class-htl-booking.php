@@ -86,14 +86,14 @@ class HTL_Booking {
 	 * Cloning is forbidden.
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', 'hotelier' ), '1.0.0' );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', 'wp-hotelier' ), '1.0.0' );
 	}
 
 	/**
 	 * Unserializing instances of this class is forbidden.
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', 'hotelier' ), '1.0.0' );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', 'wp-hotelier' ), '1.0.0' );
 	}
 
 	/**
@@ -157,7 +157,7 @@ class HTL_Booking {
 				$reservation                          = htl_update_reservation( $reservation_data );
 
 				if ( is_wp_error( $reservation ) ) {
-					throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'hotelier' ), 404 ) );
+					throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'wp-hotelier' ), 404 ) );
 				} else {
 					$reservation->remove_reservation_items();
 					do_action( 'hotelier_resume_reservation', $reservation_id );
@@ -168,13 +168,13 @@ class HTL_Booking {
 				$reservation = htl_create_reservation( $reservation_data );
 
 				if ( is_wp_error( $reservation ) ) {
-					throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'hotelier' ), 400 ) );
+					throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'wp-hotelier' ), 400 ) );
 				} else {
 					$reservation_id = $reservation->id;
 					$booking_id = htl_add_booking( $reservation_id, $this->checkin, $this->checkout, 'pending' );
 
 					if ( ! $booking_id ) {
-						throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'hotelier' ), 401 ) );
+						throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'wp-hotelier' ), 401 ) );
 					}
 
 					do_action( 'hotelier_new_reservation', $reservation_id );
@@ -195,7 +195,7 @@ class HTL_Booking {
 					$rooms_bookings_id = htl_populate_rooms_bookings( $reservation_id, $values[ 'room_id' ] );
 
 					if ( ! $rooms_bookings_id ) {
-						throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'hotelier' ), 402 ) );
+						throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'wp-hotelier' ), 402 ) );
 					}
 				}
 
@@ -213,7 +213,7 @@ class HTL_Booking {
 				);
 
 				if ( ! $item_id ) {
-					throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'hotelier' ), 403 ) );
+					throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'wp-hotelier' ), 403 ) );
 				}
 
 				// Allow plugins to add reservation item meta
@@ -260,66 +260,66 @@ class HTL_Booking {
 			'address_fields' => apply_filters( 'hotelier_booking_default_address_fields',
 				array(
 					'first_name' => array(
-						'label'       => esc_html__( 'First name', 'hotelier' ),
-						'placeholder' => esc_html_x( 'First name', 'placeholder', 'hotelier' ),
+						'label'       => esc_html__( 'First name', 'wp-hotelier' ),
+						'placeholder' => esc_html_x( 'First name', 'placeholder', 'wp-hotelier' ),
 						'required'    => true,
 						'class'       => array( 'form-row--first' ),
 					),
 					'last_name' => array(
-						'label'       => esc_html__( 'Last name', 'hotelier' ),
-						'placeholder' => esc_html_x( 'Last name', 'placeholder', 'hotelier' ),
+						'label'       => esc_html__( 'Last name', 'wp-hotelier' ),
+						'placeholder' => esc_html_x( 'Last name', 'placeholder', 'wp-hotelier' ),
 						'required'    => true,
 						'class'       => array( 'form-row--last' ),
 						'clear'       => true
 					),
 					'email' => array(
-						'label'       => esc_html__( 'Email address', 'hotelier' ),
-						'placeholder' => esc_html_x( 'Email address', 'placeholder', 'hotelier' ),
+						'label'       => esc_html__( 'Email address', 'wp-hotelier' ),
+						'placeholder' => esc_html_x( 'Email address', 'placeholder', 'wp-hotelier' ),
 						'type'        => 'email',
 						'required'    => true,
 						'class'       => array( 'form-row--wide' ),
 						'validate'    => array( 'email' )
 					),
 					'telephone' => array(
-						'label'       => esc_html__( 'Telephone', 'hotelier' ),
-						'placeholder' => esc_html_x( 'Telephone', 'placeholder', 'hotelier' ),
+						'label'       => esc_html__( 'Telephone', 'wp-hotelier' ),
+						'placeholder' => esc_html_x( 'Telephone', 'placeholder', 'wp-hotelier' ),
 						'type'        => 'tel',
 						'required'    => true,
 						'class'       => array( 'form-row--wide' ),
 						'validate'    => array( 'phone' )
 					),
 					'country' => array(
-						'label'       => esc_html__( 'Country', 'hotelier' ),
-						'placeholder' => esc_html_x( 'Country', 'placeholder', 'hotelier' ),
+						'label'       => esc_html__( 'Country', 'wp-hotelier' ),
+						'placeholder' => esc_html_x( 'Country', 'placeholder', 'wp-hotelier' ),
 						'required'    => true,
 						'class'       => array( 'form-row--wide' ),
 					),
 					'address1' => array(
-						'label'       => esc_html__( 'Address', 'hotelier' ),
-						'placeholder' => esc_html_x( 'Street address', 'placeholder', 'hotelier' ),
+						'label'       => esc_html__( 'Address', 'wp-hotelier' ),
+						'placeholder' => esc_html_x( 'Street address', 'placeholder', 'wp-hotelier' ),
 						'required'    => false,
 						'class'       => array( 'form-row--wide' )
 					),
 					'address2' => array(
-						'placeholder' => esc_html_x( 'Apartment, suite, unit etc. (optional)', 'placeholder', 'hotelier' ),
+						'placeholder' => esc_html_x( 'Apartment, suite, unit etc. (optional)', 'placeholder', 'wp-hotelier' ),
 						'required'    => false,
 						'class'       => array( 'form-row--wide' )
 					),
 					'city' => array(
-						'label'       => esc_html__( 'Town / City', 'hotelier' ),
-						'placeholder' => esc_html_x( 'Town / City', 'placeholder', 'hotelier' ),
+						'label'       => esc_html__( 'Town / City', 'wp-hotelier' ),
+						'placeholder' => esc_html_x( 'Town / City', 'placeholder', 'wp-hotelier' ),
 						'required'    => false,
 						'class'       => array( 'form-row--wide' )
 					),
 					'state' => array(
-						'label'       => esc_html__( 'State / County', 'hotelier' ),
-						'placeholder' => esc_html_x( 'State / County', 'placeholder', 'hotelier' ),
+						'label'       => esc_html__( 'State / County', 'wp-hotelier' ),
+						'placeholder' => esc_html_x( 'State / County', 'placeholder', 'wp-hotelier' ),
 						'required'    => false,
 						'class'       => array( 'form-row--first' )
 					),
 					'postcode' => array(
-						'label'       => esc_html__( 'Postcode / Zip', 'hotelier' ),
-						'placeholder' => esc_html_x( 'Postcode / Zip', 'placeholder', 'hotelier' ),
+						'label'       => esc_html__( 'Postcode / Zip', 'wp-hotelier' ),
+						'placeholder' => esc_html_x( 'Postcode / Zip', 'placeholder', 'wp-hotelier' ),
 						'required'    => false,
 						'class'       => array( 'form-row--last' ),
 						'clear'       => true
@@ -332,13 +332,13 @@ class HTL_Booking {
 			$fields[ 'additional_information_fields' ] = apply_filters( 'hotelier_booking_additional_information_fields',
 				array(
 					'arrival_time' => array(
-						'label'    => esc_html__( 'Your estimated time of arrival', 'hotelier' ),
-						'desc'     => htl_get_option( 'hotel_locality' ) ? sprintf( esc_html__( 'Time is for %s time zone', 'hotelier' ), htl_get_option( 'hotel_locality' ) ) : '',
+						'label'    => esc_html__( 'Your estimated time of arrival', 'wp-hotelier' ),
+						'desc'     => htl_get_option( 'hotel_locality' ) ? sprintf( esc_html__( 'Time is for %s time zone', 'wp-hotelier' ), htl_get_option( 'hotel_locality' ) ) : '',
 						'required' => false,
 						'class'    => array( 'form-row--wide form-row--arrival-time' ),
 						'type'     => 'select',
 						'options'  => array(
-							'-1' => esc_html__( 'I don\'t know', 'hotelier' ),
+							'-1' => esc_html__( 'I don\'t know', 'wp-hotelier' ),
 							'0'  => '00:00 - 01:00',
 							'1'  => '01:00 - 02:00',
 							'2'  => '02:00 - 03:00',
@@ -366,10 +366,10 @@ class HTL_Booking {
 						)
 					),
 					'special_requests' => array(
-						'label'    => esc_html__( 'Special requests', 'hotelier' ),
+						'label'    => esc_html__( 'Special requests', 'wp-hotelier' ),
 						'required' => false,
 						'type'     => 'textarea',
-						'desc'     => esc_html__( 'Special requests cannot be guaranteed but we will do our best to meet your needs.', 'hotelier' ),
+						'desc'     => esc_html__( 'Special requests cannot be guaranteed but we will do our best to meet your needs.', 'wp-hotelier' ),
 						'class'    => array( 'form-row--wide' )
 					)
 				)
@@ -409,17 +409,17 @@ class HTL_Booking {
 		if ( $this->booking_method == 'instant-booking' ) {
 			if ( HTL()->cart->needs_payment() ) {
 
-				$button_text = apply_filters( 'hotelier_instant_booking_with_deposit_button_text', esc_html__( 'Book now & pay deposit', 'hotelier' ) );
+				$button_text = apply_filters( 'hotelier_instant_booking_with_deposit_button_text', esc_html__( 'Book now & pay deposit', 'wp-hotelier' ) );
 
 			} else {
 
-				$button_text = apply_filters( 'hotelier_instant_booking_button_text', esc_html__( 'Book now', 'hotelier' ) );
+				$button_text = apply_filters( 'hotelier_instant_booking_button_text', esc_html__( 'Book now', 'wp-hotelier' ) );
 
 			}
 
 		} elseif ( $this->booking_method == 'manual-booking' ) {
 
-			$button_text = apply_filters( 'hotelier_manual_booking_button_text', esc_html__( 'Send request', 'hotelier' ) );
+			$button_text = apply_filters( 'hotelier_manual_booking_button_text', esc_html__( 'Send request', 'wp-hotelier' ) );
 
 		}
 
@@ -489,7 +489,7 @@ class HTL_Booking {
 	public function process_booking() {
 		try {
 			if ( empty( $_POST[ '_wpnonce' ] ) || ! wp_verify_nonce( $_POST[ '_wpnonce' ], 'hotelier_process_booking' ) ) {
-				throw new Exception( esc_html__( 'We were unable to process your reservation, please try again.', 'hotelier' ) );
+				throw new Exception( esc_html__( 'We were unable to process your reservation, please try again.', 'wp-hotelier' ) );
 			}
 
 			if ( ! defined( 'HOTELIER_BOOKING' ) ) {
@@ -502,7 +502,7 @@ class HTL_Booking {
 			do_action( 'hotelier_before_booking_process' );
 
 			if ( HTL()->cart->is_empty() ) {
-				throw new Exception( sprintf( wp_kses( __( 'Sorry, your session has expired. <a href="%s" class="htl-backward">Return to homepage</a>', 'hotelier' ), array( 'a' => array( 'href' => array() ) ) ), home_url() ) );
+				throw new Exception( sprintf( wp_kses( __( 'Sorry, your session has expired. <a href="%s" class="htl-backward">Return to homepage</a>', 'wp-hotelier' ), array( 'a' => array( 'href' => array() ) ) ), home_url() ) );
 			}
 
 			do_action( 'hotelier_booking_process' );
@@ -545,7 +545,7 @@ class HTL_Booking {
 
 					// Validation: Required fields
 					if ( isset( $field[ 'required' ] ) && $field[ 'required' ] && empty( $this->form_data[ $key ] ) ) {
-						htl_add_notice( '<strong>' . $field[ 'label' ] . '</strong> ' . esc_html__( 'is a required field.', 'hotelier' ), 'error' );
+						htl_add_notice( '<strong>' . $field[ 'label' ] . '</strong> ' . esc_html__( 'is a required field.', 'wp-hotelier' ), 'error' );
 					}
 
 					if ( ! empty( $this->form_data[ $key ] ) ) {
@@ -555,14 +555,14 @@ class HTL_Booking {
 								switch ( $data_type ) {
 									case 'email' :
 										if ( ! is_email( $this->form_data[ $key ] ) ) {
-											htl_add_notice( '<strong>' . $field[ 'label' ] . '</strong> ' . esc_html__( 'is not a valid email address.', 'hotelier' ), 'error' );
+											htl_add_notice( '<strong>' . $field[ 'label' ] . '</strong> ' . esc_html__( 'is not a valid email address.', 'wp-hotelier' ), 'error' );
 										}
 
 										break;
 
 									case 'number' :
 										if ( ! is_numeric( $this->form_data[ $key ] ) ) {
-											htl_add_notice( '<strong>' . $field[ 'label' ] . '</strong> ' . esc_html__( 'is not a valid number.', 'hotelier' ), 'error' );
+											htl_add_notice( '<strong>' . $field[ 'label' ] . '</strong> ' . esc_html__( 'is not a valid number.', 'wp-hotelier' ), 'error' );
 										}
 
 										break;
@@ -571,7 +571,7 @@ class HTL_Booking {
 										$this->form_data[ $key ] = HTL_Formatting_Helper::validate_phone( $this->form_data[ $key ] );
 
 										if ( ! HTL_Formatting_Helper::is_phone( $this->form_data[ $key ] ) ) {
-											htl_add_notice( '<strong>' . $field[ 'label' ] . '</strong> ' . esc_html__( 'is not a valid phone number.', 'hotelier' ), 'error' );
+											htl_add_notice( '<strong>' . $field[ 'label' ] . '</strong> ' . esc_html__( 'is not a valid phone number.', 'wp-hotelier' ), 'error' );
 										}
 
 										break;
@@ -584,7 +584,7 @@ class HTL_Booking {
 
 			// Terms and conditions
 			if ( ! empty( $_POST[ 'has_terms_field' ] ) && empty( $this->form_data[ 'booking_terms' ] ) ) {
-				htl_add_notice( esc_html__( 'You must accept our Terms &amp; Conditions.', 'hotelier' ), 'error' );
+				htl_add_notice( esc_html__( 'You must accept our Terms &amp; Conditions.', 'wp-hotelier' ), 'error' );
 			}
 
 			HTL()->cart->calculate_totals();
@@ -595,7 +595,7 @@ class HTL_Booking {
 
 				if ( ! isset( $available_gateways[ $this->form_data[ 'payment_method' ] ] ) ) {
 					$this->payment_method = '';
-					htl_add_notice( esc_html__( 'Invalid payment method.', 'hotelier' ), 'error' );
+					htl_add_notice( esc_html__( 'Invalid payment method.', 'wp-hotelier' ), 'error' );
 				} else {
 					$this->payment_method = $available_gateways[ $this->form_data[ 'payment_method' ] ];
 					$this->payment_method->validate_fields();
@@ -614,7 +614,7 @@ class HTL_Booking {
 
 				// Abort if errors are present
 				if ( htl_notice_count( 'error' ) > 0 ) {
-					throw new Exception( sprintf( wp_kses( __( 'List of available rooms <a href="%s">here</a>', 'hotelier' ), array( 'a' => array( 'href' => array() ) ) ), HTL()->cart->get_room_list_form_url() ) );
+					throw new Exception( sprintf( wp_kses( __( 'List of available rooms <a href="%s">here</a>', 'wp-hotelier' ), array( 'a' => array( 'href' => array() ) ) ), HTL()->cart->get_room_list_form_url() ) );
 				}
 
 				$reservation_id = $this->create_reservation();

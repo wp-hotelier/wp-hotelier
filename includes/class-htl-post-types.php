@@ -45,19 +45,19 @@ class HTL_Post_Types {
 
 		// Room Post Type
 		$room_labels =  apply_filters( 'hotelier_room_labels', array(
-			'name'               => esc_html_x( 'Rooms', 'room post type name', 'hotelier' ),
-			'singular_name'      => esc_html_x( 'Room', 'singular room post type name', 'hotelier' ),
-			'add_new'            => esc_html__( 'Add New', 'hotelier' ),
-			'add_new_item'       => esc_html__( 'Add New Room', 'hotelier' ),
-			'edit_item'          => esc_html__( 'Edit Room', 'hotelier' ),
-			'new_item'           => esc_html__( 'New Room', 'hotelier' ),
-			'all_items'          => esc_html__( 'All Rooms', 'hotelier' ),
-			'view_item'          => esc_html__( 'View Room', 'hotelier' ),
-			'search_items'       => esc_html__( 'Search Rooms', 'hotelier' ),
-			'not_found'          => esc_html__( 'No Rooms found', 'hotelier' ),
-			'not_found_in_trash' => esc_html__( 'No Rooms found in Trash', 'hotelier' ),
+			'name'               => esc_html_x( 'Rooms', 'room post type name', 'wp-hotelier' ),
+			'singular_name'      => esc_html_x( 'Room', 'singular room post type name', 'wp-hotelier' ),
+			'add_new'            => esc_html__( 'Add New', 'wp-hotelier' ),
+			'add_new_item'       => esc_html__( 'Add New Room', 'wp-hotelier' ),
+			'edit_item'          => esc_html__( 'Edit Room', 'wp-hotelier' ),
+			'new_item'           => esc_html__( 'New Room', 'wp-hotelier' ),
+			'all_items'          => esc_html__( 'All Rooms', 'wp-hotelier' ),
+			'view_item'          => esc_html__( 'View Room', 'wp-hotelier' ),
+			'search_items'       => esc_html__( 'Search Rooms', 'wp-hotelier' ),
+			'not_found'          => esc_html__( 'No Rooms found', 'wp-hotelier' ),
+			'not_found_in_trash' => esc_html__( 'No Rooms found in Trash', 'wp-hotelier' ),
 			'parent_item_colon'  => '',
-			'menu_name'          => esc_html_x( 'Rooms', 'room post type menu name', 'hotelier' )
+			'menu_name'          => esc_html_x( 'Rooms', 'room post type menu name', 'wp-hotelier' )
 		) );
 
 		$room_args = array(
@@ -79,25 +79,25 @@ class HTL_Post_Types {
 
 		// Reservation Post Type
 		$reservation_labels = apply_filters( 'hotelier_reservation_labels', array(
-			'name'               => esc_html_x( 'Reservations', 'post type general name', 'hotelier' ),
-			'singular_name'      => esc_html_x( 'Reservation', 'post type singular name', 'hotelier' ),
-			'add_new'            => esc_html__( 'Add Reservation', 'hotelier' ),
-			'add_new_item'       => esc_html__( 'Add New Reservation', 'hotelier' ),
-			'edit'               => esc_html__( 'Edit', 'hotelier' ),
-			'edit_item'          => esc_html__( 'Edit Reservation', 'hotelier' ),
-			'new_item'           => esc_html__( 'New Reservation', 'hotelier' ),
-			'view'               => esc_html__( 'View Reservation', 'hotelier' ),
-			'view_item'          => esc_html__( 'View Reservation', 'hotelier' ),
-			'search_items'       => esc_html__( 'Search Reservations', 'hotelier' ),
-			'not_found'          => esc_html__( 'No Reservations found', 'hotelier' ),
-			'not_found_in_trash' => esc_html__( 'No Reservations found in Trash', 'hotelier' ),
-			'parent'             => esc_html__( 'Parent Reservation', 'hotelier' ),
-			'menu_name'          => esc_html_x( 'Reservations', 'admin menu name', 'hotelier' )
+			'name'               => esc_html_x( 'Reservations', 'post type general name', 'wp-hotelier' ),
+			'singular_name'      => esc_html_x( 'Reservation', 'post type singular name', 'wp-hotelier' ),
+			'add_new'            => esc_html__( 'Add Reservation', 'wp-hotelier' ),
+			'add_new_item'       => esc_html__( 'Add New Reservation', 'wp-hotelier' ),
+			'edit'               => esc_html__( 'Edit', 'wp-hotelier' ),
+			'edit_item'          => esc_html__( 'Edit Reservation', 'wp-hotelier' ),
+			'new_item'           => esc_html__( 'New Reservation', 'wp-hotelier' ),
+			'view'               => esc_html__( 'View Reservation', 'wp-hotelier' ),
+			'view_item'          => esc_html__( 'View Reservation', 'wp-hotelier' ),
+			'search_items'       => esc_html__( 'Search Reservations', 'wp-hotelier' ),
+			'not_found'          => esc_html__( 'No Reservations found', 'wp-hotelier' ),
+			'not_found_in_trash' => esc_html__( 'No Reservations found in Trash', 'wp-hotelier' ),
+			'parent'             => esc_html__( 'Parent Reservation', 'wp-hotelier' ),
+			'menu_name'          => esc_html_x( 'Reservations', 'admin menu name', 'wp-hotelier' )
 		) );
 
 		$reservation_args = array(
 			'labels'              => apply_filters( 'hotelier_reservation_labels', $reservation_labels ),
-			'description'         => esc_html__( 'This is where hotel reservations are stored.', 'hotelier' ),
+			'description'         => esc_html__( 'This is where hotel reservations are stored.', 'wp-hotelier' ),
 			'public'              => false,
 			'show_ui'             => true,
 			'query_var'           => false,
@@ -125,52 +125,52 @@ class HTL_Post_Types {
 	 */
 	public function register_post_status() {
 		register_post_status( 'htl-pending', array(
-			'label'                     => esc_html_x( 'Pending Payment', 'Reservation status', 'hotelier' ),
+			'label'                     => esc_html_x( 'Pending Payment', 'Reservation status', 'wp-hotelier' ),
 			'public'                    => true,
 			'exclude_from_search'       => false,
 			'show_in_admin_all_list'    => true,
 			'show_in_admin_status_list' => true,
-			'label_count'               => _n_noop( 'Pending Payment <span class="count">(%s)</span>', 'Pending Payment <span class="count">(%s)</span>', 'hotelier' )
+			'label_count'               => _n_noop( 'Pending Payment <span class="count">(%s)</span>', 'Pending Payment <span class="count">(%s)</span>', 'wp-hotelier' )
 		) );
 		register_post_status( 'htl-on-hold', array(
-			'label'                     => esc_html_x( 'On Hold', 'Reservation status', 'hotelier' ),
+			'label'                     => esc_html_x( 'On Hold', 'Reservation status', 'wp-hotelier' ),
 			'public'                    => true,
 			'exclude_from_search'       => false,
 			'show_in_admin_all_list'    => true,
 			'show_in_admin_status_list' => true,
-			'label_count'               => _n_noop( 'On Hold <span class="count">(%s)</span>', 'On Hold <span class="count">(%s)</span>', 'hotelier' )
+			'label_count'               => _n_noop( 'On Hold <span class="count">(%s)</span>', 'On Hold <span class="count">(%s)</span>', 'wp-hotelier' )
 		) );
 		register_post_status( 'htl-confirmed', array(
-			'label'                     => esc_html_x( 'Confirmed', 'Reservation status', 'hotelier' ),
+			'label'                     => esc_html_x( 'Confirmed', 'Reservation status', 'wp-hotelier' ),
 			'public'                    => true,
 			'exclude_from_search'       => false,
 			'show_in_admin_all_list'    => true,
 			'show_in_admin_status_list' => true,
-			'label_count'               => _n_noop( 'Confirmed <span class="count">(%s)</span>', 'Confirmed <span class="count">(%s)</span>', 'hotelier' )
+			'label_count'               => _n_noop( 'Confirmed <span class="count">(%s)</span>', 'Confirmed <span class="count">(%s)</span>', 'wp-hotelier' )
 		) );
 		register_post_status( 'htl-completed', array(
-			'label'                     => esc_html_x( 'Completed', 'Reservation status', 'hotelier' ),
+			'label'                     => esc_html_x( 'Completed', 'Reservation status', 'wp-hotelier' ),
 			'public'                    => true,
 			'exclude_from_search'       => false,
 			'show_in_admin_all_list'    => true,
 			'show_in_admin_status_list' => true,
-			'label_count'               => _n_noop( 'Completed <span class="count">(%s)</span>', 'Completed <span class="count">(%s)</span>', 'hotelier' )
+			'label_count'               => _n_noop( 'Completed <span class="count">(%s)</span>', 'Completed <span class="count">(%s)</span>', 'wp-hotelier' )
 		) );
 		register_post_status( 'htl-cancelled', array(
-			'label'                     => esc_html_x( 'Cancelled', 'Reservation status', 'hotelier' ),
+			'label'                     => esc_html_x( 'Cancelled', 'Reservation status', 'wp-hotelier' ),
 			'public'                    => true,
 			'exclude_from_search'       => false,
 			'show_in_admin_all_list'    => true,
 			'show_in_admin_status_list' => true,
-			'label_count'               => _n_noop( 'Cancelled <span class="count">(%s)</span>', 'Cancelled <span class="count">(%s)</span>', 'hotelier' )
+			'label_count'               => _n_noop( 'Cancelled <span class="count">(%s)</span>', 'Cancelled <span class="count">(%s)</span>', 'wp-hotelier' )
 		) );
 		register_post_status( 'htl-failed', array(
-			'label'                     => esc_html_x( 'Failed', 'Reservation status', 'hotelier' ),
+			'label'                     => esc_html_x( 'Failed', 'Reservation status', 'wp-hotelier' ),
 			'public'                    => true,
 			'exclude_from_search'       => false,
 			'show_in_admin_all_list'    => true,
 			'show_in_admin_status_list' => true,
-			'label_count'               => _n_noop( 'Failed <span class="count">(%s)</span>', 'Failed <span class="count">(%s)</span>', 'hotelier' )
+			'label_count'               => _n_noop( 'Failed <span class="count">(%s)</span>', 'Failed <span class="count">(%s)</span>', 'wp-hotelier' )
 		) );
 
 	}
@@ -193,15 +193,15 @@ class HTL_Post_Types {
 			apply_filters( 'hotelier_taxonomy_args_room_cat', array(
 				'hierarchical'          => true,
 				'labels' => array(
-						'name'              => esc_html__( 'Room Categories', 'hotelier' ),
-						'singular_name'     => esc_html__( 'Room Category', 'hotelier' ),
-						'menu_name'         => esc_html__( 'Categories', 'hotelier' ),
-						'search_items'      => esc_html__( 'Search Room Categories', 'hotelier' ),
-						'all_items'         => esc_html__( 'All Room Categories', 'hotelier' ),
-						'edit_item'         => esc_html__( 'Edit Room Category', 'hotelier' ),
-						'update_item'       => esc_html__( 'Update Room Category', 'hotelier' ),
-						'add_new_item'      => esc_html__( 'Add New Room Category', 'hotelier' ),
-						'new_item_name'     => esc_html__( 'New Room Category Name', 'hotelier' ),
+						'name'              => esc_html__( 'Room Categories', 'wp-hotelier' ),
+						'singular_name'     => esc_html__( 'Room Category', 'wp-hotelier' ),
+						'menu_name'         => esc_html__( 'Categories', 'wp-hotelier' ),
+						'search_items'      => esc_html__( 'Search Room Categories', 'wp-hotelier' ),
+						'all_items'         => esc_html__( 'All Room Categories', 'wp-hotelier' ),
+						'edit_item'         => esc_html__( 'Edit Room Category', 'wp-hotelier' ),
+						'update_item'       => esc_html__( 'Update Room Category', 'wp-hotelier' ),
+						'add_new_item'      => esc_html__( 'Add New Room Category', 'wp-hotelier' ),
+						'new_item_name'     => esc_html__( 'New Room Category Name', 'wp-hotelier' ),
 					),
 				'show_ui'               => true,
 				'show_admin_column'     => true,
@@ -221,15 +221,15 @@ class HTL_Post_Types {
 			apply_filters( 'hotelier_taxonomy_args_room_rate', array(
 				'hierarchical'       => false,
 				'labels' => array(
-						'name'              => esc_html_x( 'Rates', 'taxonomy general name', 'hotelier' ),
-						'singular_name'     => esc_html_x( 'Rate', 'taxonomy singular name', 'hotelier' ),
-						'menu_name'         => esc_html_x( 'Rates', 'admin menu name', 'hotelier' ),
-						'search_items'      => esc_html__( 'Search Rates', 'hotelier' ),
-						'all_items'         => esc_html__( 'All Rates', 'hotelier' ),
-						'edit_item'         => esc_html__( 'Edit Rate', 'hotelier' ),
-						'update_item'       => esc_html__( 'Update Rate', 'hotelier' ),
-						'add_new_item'      => esc_html__( 'Add New Rate', 'hotelier' ),
-						'new_item_name'     => esc_html__( 'New Rate Name', 'hotelier' )
+						'name'              => esc_html_x( 'Rates', 'taxonomy general name', 'wp-hotelier' ),
+						'singular_name'     => esc_html_x( 'Rate', 'taxonomy singular name', 'wp-hotelier' ),
+						'menu_name'         => esc_html_x( 'Rates', 'admin menu name', 'wp-hotelier' ),
+						'search_items'      => esc_html__( 'Search Rates', 'wp-hotelier' ),
+						'all_items'         => esc_html__( 'All Rates', 'wp-hotelier' ),
+						'edit_item'         => esc_html__( 'Edit Rate', 'wp-hotelier' ),
+						'update_item'       => esc_html__( 'Update Rate', 'wp-hotelier' ),
+						'add_new_item'      => esc_html__( 'Add New Rate', 'wp-hotelier' ),
+						'new_item_name'     => esc_html__( 'New Rate Name', 'wp-hotelier' )
 					),
 				'public'             => false,
 				'show_ui'            => true,
@@ -250,15 +250,15 @@ class HTL_Post_Types {
 			apply_filters( 'hotelier_taxonomy_args_room_facilities', array(
 				'hierarchical'          => false,
 				'labels' => array(
-						'name'              => esc_html_x( 'Facilities', 'taxonomy general name', 'hotelier' ),
-						'singular_name'     => esc_html_x( 'Facility', 'taxonomy singular name', 'hotelier' ),
-						'menu_name'         => esc_html_x( 'Facilities', 'admin menu name', 'hotelier' ),
-						'search_items'      => esc_html__( 'Search Facilities', 'hotelier' ),
-						'all_items'         => esc_html__( 'All Facilities', 'hotelier' ),
-						'edit_item'         => esc_html__( 'Edit Facility', 'hotelier' ),
-						'update_item'       => esc_html__( 'Update Facility', 'hotelier' ),
-						'add_new_item'      => esc_html__( 'Add New Facility', 'hotelier' ),
-						'new_item_name'     => esc_html__( 'New Facility Name', 'hotelier' )
+						'name'              => esc_html_x( 'Facilities', 'taxonomy general name', 'wp-hotelier' ),
+						'singular_name'     => esc_html_x( 'Facility', 'taxonomy singular name', 'wp-hotelier' ),
+						'menu_name'         => esc_html_x( 'Facilities', 'admin menu name', 'wp-hotelier' ),
+						'search_items'      => esc_html__( 'Search Facilities', 'wp-hotelier' ),
+						'all_items'         => esc_html__( 'All Facilities', 'wp-hotelier' ),
+						'edit_item'         => esc_html__( 'Edit Facility', 'wp-hotelier' ),
+						'update_item'       => esc_html__( 'Update Facility', 'wp-hotelier' ),
+						'add_new_item'      => esc_html__( 'Add New Facility', 'wp-hotelier' ),
+						'new_item_name'     => esc_html__( 'New Facility Name', 'wp-hotelier' )
 					),
 				'public'                => false,
 				'show_ui'               => true,
@@ -285,33 +285,33 @@ class HTL_Post_Types {
 
 		$messages[ 'room' ] = array(
 			0 => '', // Unused. Messages start at index 1.
-			1 => sprintf( __( 'Room updated. <a href="%s">View Room</a>', 'hotelier' ), esc_url( get_permalink( $post_ID ) ) ),
-			2 => esc_html__( 'Custom field updated.', 'hotelier' ),
-			3 => esc_html__( 'Custom field deleted.', 'hotelier' ),
-			4 => esc_html__( 'Room updated.', 'hotelier' ),
-			5 => isset( $_GET['revision'] ) ? sprintf( __( 'Room restored to revision from %s', 'hotelier' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
-			6 => sprintf( __( 'Room published. <a href="%s">View Room</a>', 'hotelier' ), esc_url( get_permalink( $post_ID ) ) ),
-			7 => __( 'Room saved.', 'hotelier' ),
-			8 => sprintf( __( 'Room submitted. <a target="_blank" href="%s">Preview Room</a>', 'hotelier' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
-			9 => sprintf( __( 'Room scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview Room</a>', 'hotelier' ),
-			  date_i18n( __( 'M j, Y @ G:i', 'hotelier' ), strtotime( $post->post_date ) ), esc_url( get_permalink( $post_ID ) ) ),
-			10 => sprintf( __( 'Room draft updated. <a target="_blank" href="%s">Preview Room</a>', 'hotelier' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
+			1 => sprintf( __( 'Room updated. <a href="%s">View Room</a>', 'wp-hotelier' ), esc_url( get_permalink( $post_ID ) ) ),
+			2 => esc_html__( 'Custom field updated.', 'wp-hotelier' ),
+			3 => esc_html__( 'Custom field deleted.', 'wp-hotelier' ),
+			4 => esc_html__( 'Room updated.', 'wp-hotelier' ),
+			5 => isset( $_GET['revision'] ) ? sprintf( __( 'Room restored to revision from %s', 'wp-hotelier' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+			6 => sprintf( __( 'Room published. <a href="%s">View Room</a>', 'wp-hotelier' ), esc_url( get_permalink( $post_ID ) ) ),
+			7 => __( 'Room saved.', 'wp-hotelier' ),
+			8 => sprintf( __( 'Room submitted. <a target="_blank" href="%s">Preview Room</a>', 'wp-hotelier' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
+			9 => sprintf( __( 'Room scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview Room</a>', 'wp-hotelier' ),
+			  date_i18n( __( 'M j, Y @ G:i', 'wp-hotelier' ), strtotime( $post->post_date ) ), esc_url( get_permalink( $post_ID ) ) ),
+			10 => sprintf( __( 'Room draft updated. <a target="_blank" href="%s">Preview Room</a>', 'wp-hotelier' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
 		);
 
 		$messages[ 'room_reservation' ] = array(
 			0 => '', // Unused. Messages start at index 1.
-			1 => esc_html__( 'Reservation updated.', 'hotelier' ),
-			2 => esc_html__( 'Custom field updated.', 'hotelier' ),
-			3 => esc_html__( 'Custom field deleted.', 'hotelier' ),
-			4 => esc_html__( 'Reservation updated.', 'hotelier' ),
-			5 => isset( $_GET['revision'] ) ? sprintf( __( 'Reservation restored to revision from %s', 'hotelier' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
-			6 => esc_html__( 'Reservation updated.', 'hotelier' ),
-			7 => esc_html__( 'Reservation saved.', 'hotelier' ),
-			8 => esc_html__( 'Reservation submitted.', 'hotelier' ),
-			9 => sprintf( __( 'Reservation scheduled for: <strong>%1$s</strong>.', 'hotelier' ),
-			date_i18n( __( 'M j, Y @ G:i', 'hotelier' ), strtotime( $post->post_date ) ) ),
-			10 => esc_html__( 'Reservation draft updated.', 'hotelier' ),
-			11 => esc_html__( 'Reservation updated and email sent.', 'hotelier' ),
+			1 => esc_html__( 'Reservation updated.', 'wp-hotelier' ),
+			2 => esc_html__( 'Custom field updated.', 'wp-hotelier' ),
+			3 => esc_html__( 'Custom field deleted.', 'wp-hotelier' ),
+			4 => esc_html__( 'Reservation updated.', 'wp-hotelier' ),
+			5 => isset( $_GET['revision'] ) ? sprintf( __( 'Reservation restored to revision from %s', 'wp-hotelier' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+			6 => esc_html__( 'Reservation updated.', 'wp-hotelier' ),
+			7 => esc_html__( 'Reservation saved.', 'wp-hotelier' ),
+			8 => esc_html__( 'Reservation submitted.', 'wp-hotelier' ),
+			9 => sprintf( __( 'Reservation scheduled for: <strong>%1$s</strong>.', 'wp-hotelier' ),
+			date_i18n( __( 'M j, Y @ G:i', 'wp-hotelier' ), strtotime( $post->post_date ) ) ),
+			10 => esc_html__( 'Reservation draft updated.', 'wp-hotelier' ),
+			11 => esc_html__( 'Reservation updated and email sent.', 'wp-hotelier' ),
 		);
 
 		return $messages;

@@ -16,8 +16,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php if ( isset( $addons->extensions ) ) : ?>
 			<div class="hotelier-addons">
-				<h2 class="hotelier-addons__title"><?php esc_html_e( 'Supercharge your hotel website with extensions built specifically for Easy WP Hotelier.', 'hotelier' ); ?></h2>
-				<p class="hotelier-addons__description"><?php esc_html_e( 'Premium extensions are special WordPress plugins that enhance, or extend, the core Easy WP Hotelier functionalities.', 'hotelier' ); ?></p>
+				<h2 class="hotelier-addons__title"><?php esc_html_e( 'Supercharge your hotel website with extensions built specifically for Easy WP Hotelier.', 'wp-hotelier' ); ?></h2>
+				<p class="hotelier-addons__description"><?php esc_html_e( 'Premium extensions are special WordPress plugins that enhance, or extend, the core Easy WP Hotelier functionalities.', 'wp-hotelier' ); ?></p>
 
 				<ul class="hotelier-addons__list">
 					<?php foreach ( $addons->extensions as $extension ) :
@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 									<p><?php echo esc_html( $description ); ?></p>
 								</div>
 
-								<a class="hotelier-addons__extension-button" href="<?php echo esc_url( $link ); ?>" title="<?php esc_attr_e( 'View extension', 'hotelier' ); ?>"><?php esc_html_e( 'Get this extension', 'hotelier' ); ?></a>
+								<a class="hotelier-addons__extension-button" href="<?php echo esc_url( $link ); ?>" title="<?php esc_attr_e( 'View extension', 'wp-hotelier' ); ?>"><?php esc_html_e( 'Get this extension', 'wp-hotelier' ); ?></a>
 							</div>
 						</li>
 					<?php endforeach; ?>
@@ -46,5 +46,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php endif; ?>
 
 	<?php else : ?>
-		<p><?php printf( __( 'Our catalog of Easy WP Hotelier Extensions can be found on Easy WP Hotelier here: <a href="%s">Easy WP Hotelier Extensions</a>', 'hotelier' ), 'https://wphotelier.com/extensions/' ); ?></p>
+		<p><?php printf( __( 'Our catalog of Easy WP Hotelier Extensions can be found on Easy WP Hotelier here: <a href="%s">Easy WP Hotelier Extensions</a>', 'wp-hotelier' ), 'https://wphotelier.com/extensions/' ); ?></p>
 	<?php endif; ?>

@@ -62,9 +62,9 @@ class HTL_Admin_Settings {
 	 * Add menu items
 	 */
 	public function add_settings_menu_page() {
-		add_menu_page( '', esc_html__( 'Hotelier', 'hotelier' ), 'manage_hotelier', 'hotelier-settings', array( $this, 'create_settings_page' ), '', '45.5' );
+		add_menu_page( '', esc_html__( 'Hotelier', 'wp-hotelier' ), 'manage_hotelier', 'hotelier-settings', array( $this, 'create_settings_page' ), '', '45.5' );
 
-		add_submenu_page( 'hotelier-settings', esc_html__( 'Easy WP Hotelier Settings', 'hotelier' ), esc_html__( 'Settings', 'hotelier' ), 'manage_hotelier', 'hotelier-settings', array( $this, 'create_settings_page' ) );
+		add_submenu_page( 'hotelier-settings', esc_html__( 'Easy WP Hotelier Settings', 'wp-hotelier' ), esc_html__( 'Settings', 'wp-hotelier' ), 'manage_hotelier', 'hotelier-settings', array( $this, 'create_settings_page' ) );
 	}
 
 	/**
@@ -89,12 +89,12 @@ class HTL_Admin_Settings {
 		if ( empty( $this->settings_tabs ) ) {
 			$settings_tabs = array();
 
-			$settings_tabs[ 'general' ]                = esc_html__( 'General', 'hotelier' );
-			$settings_tabs[ 'rooms-and-reservations' ] = esc_html__( 'Rooms & reservations', 'hotelier' );
-			$settings_tabs[ 'seasonal-prices' ]        = esc_html__( 'Seasonal prices', 'hotelier' );
-			$settings_tabs[ 'payment' ]                = esc_html__( 'Payment gateways', 'hotelier' );
-			$settings_tabs[ 'emails' ]                 = esc_html__( 'Emails', 'hotelier' );
-			$settings_tabs[ 'tools' ]                  = esc_html__( 'Tools', 'hotelier' );
+			$settings_tabs[ 'general' ]                = esc_html__( 'General', 'wp-hotelier' );
+			$settings_tabs[ 'rooms-and-reservations' ] = esc_html__( 'Rooms & reservations', 'wp-hotelier' );
+			$settings_tabs[ 'seasonal-prices' ]        = esc_html__( 'Seasonal prices', 'wp-hotelier' );
+			$settings_tabs[ 'payment' ]                = esc_html__( 'Payment gateways', 'wp-hotelier' );
+			$settings_tabs[ 'emails' ]                 = esc_html__( 'Emails', 'wp-hotelier' );
+			$settings_tabs[ 'tools' ]                  = esc_html__( 'Tools', 'wp-hotelier' );
 
 			$this->settings_tabs = apply_filters( 'hotelier_get_settings_tabs', $settings_tabs );
 		}
@@ -133,8 +133,8 @@ class HTL_Admin_Settings {
 					echo '</a>';
 				}
 
-				echo '<a href="' . esc_url( admin_url( 'admin.php?page=hotelier-logs' ) ) . '" title="' . esc_attr__( 'Logs', 'hotelier' ) . '" class="nav-tab">';
-						echo esc_html__( 'Logs', 'hotelier' );
+				echo '<a href="' . esc_url( admin_url( 'admin.php?page=hotelier-logs' ) ) . '" title="' . esc_attr__( 'Logs', 'wp-hotelier' ) . '" class="nav-tab">';
+						echo esc_html__( 'Logs', 'wp-hotelier' );
 				echo '</a>';
 				?>
 			</h2>
@@ -267,7 +267,7 @@ class HTL_Admin_Settings {
 		// Merge new settings with the existing
 		$output = array_merge( $this->options, $input );
 
-		add_settings_error( 'hotelier-notices', '', esc_html__( 'Your settings have been saved.', 'hotelier' ), 'updated' );
+		add_settings_error( 'hotelier-notices', '', esc_html__( 'Your settings have been saved.', 'wp-hotelier' ), 'updated' );
 
 		return $output;
 	}
@@ -280,7 +280,7 @@ class HTL_Admin_Settings {
 	 * @param array $args Arguments passed by the setting
 	 */
 	function default_callback( $args ) {
-		$html = sprintf( __( 'The callback function used for the <strong>%s</strong> setting is missing.', 'hotelier' ), $args[ 'id' ] );
+		$html = sprintf( __( 'The callback function used for the <strong>%s</strong> setting is missing.', 'wp-hotelier' ), $args[ 'id' ] );
 		echo apply_filters( 'hotelier_settings_' . $args[ 'type' ] . '_callback', $html, $args );
 	}
 }

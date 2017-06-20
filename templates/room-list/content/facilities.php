@@ -21,7 +21,7 @@ global $room;
 
 <div class="room__meta room__meta--listing">
 
-	<p class="room__facilities room__facilities--listing"><strong><?php esc_html_e( 'Room facilities:', 'hotelier' ); ?></strong> <?php echo $facilities; ?></p>
+	<p class="room__facilities room__facilities--listing"><strong><?php esc_html_e( 'Room facilities:', 'wp-hotelier' ); ?></strong> <?php echo $facilities; ?></p>
 
 </div>
 

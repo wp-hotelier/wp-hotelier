@@ -15,7 +15,7 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../hotelier.php:91, ../hotelier.php:98, ../includes/class-htl-booking.php:89, ../includes/class-htl-booking.php:96, ../includes/class-htl-emails.php:47, ../includes/class-htl-emails.php:54, ../includes/class-htl-payment-gateways.php:51, ../includes/class-htl-payment-gateways.php:58
+#: ../includes/class-htl-booking.php:89, ../includes/class-htl-booking.php:96, ../includes/class-htl-emails.php:47, ../includes/class-htl-emails.php:54, ../includes/class-htl-payment-gateways.php:51, ../includes/class-htl-payment-gateways.php:58, ../wp-hotelier.php:91, ../wp-hotelier.php:98
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
@@ -2211,13 +2211,6 @@ msgstr ""
 
 #: ../includes/admin/settings/class-htl-admin-settings-fields.php:773
 msgid "Test email from %s"
-msgstr ""
-
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:774
-msgid ""
-"This test email proves that your WordPress installation at %s can send emails.\n"
-"\n"
-"Sent: %s"
 msgstr ""
 
 #: ../includes/admin/settings/class-htl-admin-settings-fields.php:778

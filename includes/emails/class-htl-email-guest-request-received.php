@@ -25,10 +25,10 @@ class HTL_Email_Request_Received extends HTL_Email {
 	function __construct() {
 
 		$this->id               = 'guest_request_received';
-		$this->title            = esc_html__( 'Request received', 'hotelier' );
+		$this->title            = esc_html__( 'Request received', 'wp-hotelier' );
 
-		$this->heading          = htl_get_option( 'emails_request_received_heading', __( 'Request received', 'hotelier' ) );
-		$this->subject          = htl_get_option( 'emails_request_received_subject', __( 'Your reservation for {site_title}', 'hotelier' ) );
+		$this->heading          = htl_get_option( 'emails_request_received_heading', __( 'Request received', 'wp-hotelier' ) );
+		$this->subject          = htl_get_option( 'emails_request_received_subject', __( 'Your reservation for {site_title}', 'wp-hotelier' ) );
 
 		$this->template_html    = 'emails/guest-request-received.php';
 		$this->template_plain   = 'emails/plain/guest-request-received.php';

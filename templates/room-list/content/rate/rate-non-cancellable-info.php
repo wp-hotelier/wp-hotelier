@@ -19,5 +19,5 @@ if ( $variation->is_cancellable() ) {
 ?>
 
 <div class="rate__non-cancellable-info rate__non-cancellable-info--listing">
-	<p><?php echo ( apply_filters( 'hotelier_room_list_non_cancellable_info_text', esc_html__( 'Non-refundable', 'hotelier' ) ) ); ?></p>
+	<p><?php echo ( apply_filters( 'hotelier_room_list_non_cancellable_info_text', esc_html__( 'Non-refundable', 'wp-hotelier' ) ) ); ?></p>
 </div>

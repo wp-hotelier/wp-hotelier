@@ -41,7 +41,7 @@ function htl_placeholder_img_src() {
 function htl_placeholder_img( $size = 'room_thumbnail' ) {
 	$dimensions = htl_get_image_size( $size );
 
-	return apply_filters( 'hotelier_placeholder_img', '<img src="' . htl_placeholder_img_src() . '" alt="' . esc_attr__( 'Placeholder', 'hotelier' ) . '" width="' . esc_attr( $dimensions[ 'width' ] ) . '" class="hotelier-placeholder wp-post-image" height="' . esc_attr( $dimensions[ 'height' ] ) . '" />', $size, $dimensions );
+	return apply_filters( 'hotelier_placeholder_img', '<img src="' . htl_placeholder_img_src() . '" alt="' . esc_attr__( 'Placeholder', 'wp-hotelier' ) . '" width="' . esc_attr( $dimensions[ 'width' ] ) . '" class="hotelier-placeholder wp-post-image" height="' . esc_attr( $dimensions[ 'height' ] ) . '" />', $size, $dimensions );
 }
 
 /**
@@ -101,7 +101,7 @@ function htl_get_room_ids_unavailable( $checkin, $checkout, $args = array() ) {
 		global $wpdb;
 
 		if ( ! HTL_Formatting_Helper::is_valid_checkin_checkout( $checkin, $checkout ) ) {
-			throw new Exception( esc_html__( 'Please check your dates.', 'hotelier' ) );
+			throw new Exception( esc_html__( 'Please check your dates.', 'wp-hotelier' ) );
 		}
 
 		// query already reserved rooms and check if there is enough stock
@@ -562,11 +562,11 @@ function htl_get_room_reservations( $room_id, $checkin, $checkout ) {
  */
 function htl_get_room_min_max_info( $min_nights, $max_nights ) {
 	if ( $min_nights > 1 && $max_nights ) {
-		$text = sprintf( __( '%s nights minimum stay and %s nights maximum stay', 'hotelier' ), absint( $min_nights ), absint( $max_nights ) );
+		$text = sprintf( __( '%s nights minimum stay and %s nights maximum stay', 'wp-hotelier' ), absint( $min_nights ), absint( $max_nights ) );
 	} else if ( $min_nights > 1 ) {
-		$text = sprintf( __( '%s nights minimum stay', 'hotelier' ), absint( $min_nights ) );
+		$text = sprintf( __( '%s nights minimum stay', 'wp-hotelier' ), absint( $min_nights ) );
 	} else if ( $max_nights ) {
-		$text = sprintf( _n( '%s night maximum stay', '%s nights maximum stay', $max_nights, 'hotelier' ), absint( $max_nights ) );
+		$text = sprintf( _n( '%s night maximum stay', '%s nights maximum stay', $max_nights, 'wp-hotelier' ), absint( $max_nights ) );
 	} else {
 		$text = '';
 	}

@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 echo "= " . esc_html( $email_heading ) . " =\n\n";
 
-echo sprintf( esc_html__( 'The reservation #%d from %s has been cancelled. The reservation was as follows.', 'hotelier' ), $reservation->id, $reservation->get_formatted_guest_full_name() ) . "\n\n";
+echo sprintf( esc_html__( 'The reservation #%d from %s has been cancelled. The reservation was as follows.', 'wp-hotelier' ), $reservation->id, $reservation->get_formatted_guest_full_name() ) . "\n\n";
 
 echo "=====================================================================\n\n";
 
@@ -23,13 +23,13 @@ do_action( 'hotelier_email_hotel_info', $plain_text );
 
 echo "==========\n\n";
 
-echo sprintf( esc_html__( 'Check-in: %s', 'hotelier' ), $reservation->get_formatted_checkin() ) . ' (' . HTL_Info::get_hotel_checkin() . ')' . "\n";
-echo sprintf( esc_html__( 'Check-out: %s', 'hotelier' ), $reservation->get_formatted_checkout() ) . ' (' . HTL_Info::get_hotel_checkout() . ')' . "\n";
-echo sprintf( esc_html__( 'Nights: %s', 'hotelier' ), $reservation->get_nights() ) . "\n\n";
+echo sprintf( esc_html__( 'Check-in: %s', 'wp-hotelier' ), $reservation->get_formatted_checkin() ) . ' (' . HTL_Info::get_hotel_checkin() . ')' . "\n";
+echo sprintf( esc_html__( 'Check-out: %s', 'wp-hotelier' ), $reservation->get_formatted_checkout() ) . ' (' . HTL_Info::get_hotel_checkout() . ')' . "\n";
+echo sprintf( esc_html__( 'Nights: %s', 'wp-hotelier' ), $reservation->get_nights() ) . "\n\n";
 
 echo "=====================================================================\n\n";
 
-echo strtoupper( sprintf( esc_html__( 'Reservation number: %s', 'hotelier' ), $reservation->get_reservation_number() ) ) . "\n";
+echo strtoupper( sprintf( esc_html__( 'Reservation number: %s', 'wp-hotelier' ), $reservation->get_reservation_number() ) ) . "\n";
 echo date_i18n( get_option( 'date_format' ), strtotime( $reservation->reservation_date ) ) . "\n";
 
 echo "\n" . $reservation->email_reservation_items_table( true );
@@ -42,7 +42,7 @@ if ( $totals = $reservation->get_reservation_totals() ) {
 	}
 }
 
-echo "\n" . sprintf( esc_html__( 'View reservation: %s', 'hotelier'), admin_url( 'post.php?post=' . $reservation->id . '&action=edit' ) ) . "\n";
+echo "\n" . sprintf( esc_html__( 'View reservation: %s', 'wp-hotelier'), admin_url( 'post.php?post=' . $reservation->id . '&action=edit' ) ) . "\n";
 
 echo "\n=====================================================================\n\n";
 

@@ -20,14 +20,14 @@ class HTL_Widget_Rooms extends HTL_Widget {
 	 */
 	public function __construct() {
 		$this->widget_cssclass    = 'widget--hotelier widget-rooms';
-		$this->widget_description = __( 'Display a list of rooms on your site.', 'hotelier' );
+		$this->widget_description = __( 'Display a list of rooms on your site.', 'wp-hotelier' );
 		$this->widget_id          = 'hotelier-widget-rooms';
-		$this->widget_name        = __( 'Hotelier Rooms', 'hotelier' );
+		$this->widget_name        = __( 'Hotelier Rooms', 'wp-hotelier' );
 		$this->settings           = array(
 			'title'  => array(
 				'type'  => 'text',
-				'std'   => __( 'Rooms', 'hotelier' ),
-				'label' => __( 'Title', 'hotelier' )
+				'std'   => __( 'Rooms', 'wp-hotelier' ),
+				'label' => __( 'Title', 'wp-hotelier' )
 			),
 			'number' => array(
 				'type'  => 'number',
@@ -35,29 +35,29 @@ class HTL_Widget_Rooms extends HTL_Widget {
 				'min'   => 1,
 				'max'   => '',
 				'std'   => 5,
-				'label' => __( 'Number of rooms to show', 'hotelier' )
+				'label' => __( 'Number of rooms to show', 'wp-hotelier' )
 			),
 			'order' => array(
 				'type'  => 'select',
 				'std'   => 'date',
-				'label' => __( 'Order by?', 'hotelier' ),
+				'label' => __( 'Order by?', 'wp-hotelier' ),
 				'options' => array(
-					'date' => __( 'Date', 'hotelier' ),
-					'cat'  => __( 'Category', 'hotelier' ),
-					'ids'  => __( 'IDs', 'hotelier' ),
+					'date' => __( 'Date', 'wp-hotelier' ),
+					'cat'  => __( 'Category', 'wp-hotelier' ),
+					'ids'  => __( 'IDs', 'wp-hotelier' ),
 				)
 			),
 			'cats'  => array(
 				'type'        => 'text',
-				'label'       => __( 'Category IDs', 'hotelier' ),
+				'label'       => __( 'Category IDs', 'wp-hotelier' ),
 				'std'         => '',
-				'description' => __( 'List of category IDs separated by commas (eg. 1,5,8). Works only when the order type is set to "Category"', 'hotelier' )
+				'description' => __( 'List of category IDs separated by commas (eg. 1,5,8). Works only when the order type is set to "Category"', 'wp-hotelier' )
 			),
 			'ids'  => array(
 				'type'        => 'text',
-				'label'       => __( 'Room IDs', 'hotelier' ),
+				'label'       => __( 'Room IDs', 'wp-hotelier' ),
 				'std'         => '',
-				'description' => __( 'List of room IDs separated by commas (eg. 1,5,8). Works only when the order type is set to "IDs"', 'hotelier' )
+				'description' => __( 'List of room IDs separated by commas (eg. 1,5,8). Works only when the order type is set to "IDs"', 'wp-hotelier' )
 			),
 		);
 

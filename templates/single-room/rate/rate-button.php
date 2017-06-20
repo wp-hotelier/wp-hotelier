@@ -19,4 +19,4 @@ if ( htl_get_option( 'booking_mode' ) == 'no-booking' ) {
 
 ?>
 
-<p><a href="#hotelier-datepicker" class="button button--check-availability"><?php esc_html_e( 'Check availability', 'hotelier' ) ?></a></p>
+<p><a href="#hotelier-datepicker" class="button button--check-availability"><?php esc_html_e( 'Check availability', 'wp-hotelier' ) ?></a></p>

@@ -114,21 +114,21 @@ class HTL_Frontend_Scripts {
 			'month_names_short' => $month_names_short,
 			'enable_checkout'   => apply_filters( 'hotelier_datepicker_enable_checkout', true ),
 			'i18n'              => array(
-				'selected'        => esc_html_x( 'Your stay:', 'datepicker_selected', 'hotelier' ),
-				'night'           => esc_html_x( 'Night', 'datepicker_night', 'hotelier' ),
-				'nights'          => esc_html_x( 'Nights', 'datepicker_nights', 'hotelier' ),
-				'button'           => esc_html_x( 'Close', 'datepicker_apply', 'hotelier' ),
+				'selected'        => esc_html_x( 'Your stay:', 'datepicker_selected', 'wp-hotelier' ),
+				'night'           => esc_html_x( 'Night', 'datepicker_night', 'wp-hotelier' ),
+				'nights'          => esc_html_x( 'Nights', 'datepicker_nights', 'wp-hotelier' ),
+				'button'           => esc_html_x( 'Close', 'datepicker_apply', 'wp-hotelier' ),
 				'day-names'       => $day_names,
 				'month-names'     => $month_names,
 
-				'error-more'     => esc_html_x( 'Date range should not be more than 1 night', 'datepicker_error_more', 'hotelier' ),
-				'error-more-plural'     => esc_html_x( 'Date range should not be more than %d nights', 'datepicker_error_more_plural', 'hotelier' ),
-				'error-less'     => esc_html_x( 'Date range should not be less than 1 night', 'datepicker_error_less', 'hotelier' ),
-				'error-less-plural'     => esc_html_x( 'Date range should not be less than %d nights', 'datepicker_error_less_plural', 'hotelier' ),
-				'info-more'     => esc_html_x( 'Please select a date range longer than 1 night', 'datepicker_info_more', 'hotelier' ),
-				'info-more-plural'     => esc_html_x( 'Please select a date range longer than %d nights', 'datepicker_info_more_plural', 'hotelier' ),
-				'info-range'     => esc_html_x( 'Please select a date range between %d and %d nights', 'datepicker_info_range', 'hotelier' ),
-				'info-default'     => esc_html_x( 'Please select a date range', 'datepicker_info_default', 'hotelier' )
+				'error-more'     => esc_html_x( 'Date range should not be more than 1 night', 'datepicker_error_more', 'wp-hotelier' ),
+				'error-more-plural'     => esc_html_x( 'Date range should not be more than %d nights', 'datepicker_error_more_plural', 'wp-hotelier' ),
+				'error-less'     => esc_html_x( 'Date range should not be less than 1 night', 'datepicker_error_less', 'wp-hotelier' ),
+				'error-less-plural'     => esc_html_x( 'Date range should not be less than %d nights', 'datepicker_error_less_plural', 'wp-hotelier' ),
+				'info-more'     => esc_html_x( 'Please select a date range longer than 1 night', 'datepicker_info_more', 'wp-hotelier' ),
+				'info-more-plural'     => esc_html_x( 'Please select a date range longer than %d nights', 'datepicker_info_more_plural', 'wp-hotelier' ),
+				'info-range'     => esc_html_x( 'Please select a date range between %d and %d nights', 'datepicker_info_range', 'wp-hotelier' ),
+				'info-default'     => esc_html_x( 'Please select a date range', 'datepicker_info_default', 'wp-hotelier' )
 			)
 		);
 

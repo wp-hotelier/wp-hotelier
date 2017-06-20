@@ -189,13 +189,13 @@ class HTL_Install {
 	public static function create_pages() {
 		$pages = apply_filters( 'hotelier_create_pages', array(
 			'listing' => array(
-				'name'    => esc_html_x( 'available-rooms', 'Page slug', 'hotelier' ),
-				'title'   => esc_html_x( 'Available rooms', 'Page title', 'hotelier' ),
+				'name'    => esc_html_x( 'available-rooms', 'Page slug', 'wp-hotelier' ),
+				'title'   => esc_html_x( 'Available rooms', 'Page title', 'wp-hotelier' ),
 				'content' => '[' . apply_filters( 'hotelier_listing_shortcode_tag', 'hotelier_listing' ) . ']'
 			),
 			'booking' => array(
-				'name'    => esc_html_x( 'booking', 'Page slug', 'hotelier' ),
-				'title'   => esc_html_x( 'Booking', 'Page title', 'hotelier' ),
+				'name'    => esc_html_x( 'booking', 'Page slug', 'wp-hotelier' ),
+				'title'   => esc_html_x( 'Booking', 'Page title', 'wp-hotelier' ),
 				'content' => '[' . apply_filters( 'hotelier_booking_shortcode_tag', 'hotelier_booking' ) . ']'
 			)
 		) );
@@ -235,7 +235,7 @@ class HTL_Install {
 	 */
 	public static function plugin_action_links( $links ) {
 		$action_links = array(
-			'settings' => '<a href="' . admin_url( 'admin.php?page=hotelier-settings' ) . '" title="' . esc_attr__( 'View Hotelier settings', 'hotelier' ) . '">' . esc_html__( 'Settings', 'hotelier' ) . '</a>',
+			'settings' => '<a href="' . admin_url( 'admin.php?page=hotelier-settings' ) . '" title="' . esc_attr__( 'View Hotelier settings', 'wp-hotelier' ) . '">' . esc_html__( 'Settings', 'wp-hotelier' ) . '</a>',
 		);
 
 		return array_merge( $action_links, $links );
@@ -251,7 +251,7 @@ class HTL_Install {
 	public static function plugin_row_meta( $links, $file ) {
 		if ( $file == HTL_PLUGIN_BASENAME ) {
 			$row_meta = array(
-				'docs'    => '<a href="http://docs.wphotelier.com/" title="' . esc_attr__( 'View Easy WP Hotelier documentation', 'hotelier' ) . '">' . esc_html__( 'Docs', 'hotelier' ) . '</a>',
+				'docs'    => '<a href="http://docs.wphotelier.com/" title="' . esc_attr__( 'View Easy WP Hotelier documentation', 'wp-hotelier' ) . '">' . esc_html__( 'Docs', 'wp-hotelier' ) . '</a>',
 			);
 
 			return array_merge( $links, $row_meta );

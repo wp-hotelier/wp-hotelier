@@ -17,7 +17,7 @@ if ( ( $price_html = $variation->get_price_html( $checkin, $checkout ) ) && appl
 
 	<div class="rate__price rate__price--listing">
 		<span class="rate__price rate__price--listing"><?php echo $price_html; ?></span>
-		<span class="rate__price-description"><?php esc_html_e( 'Prices are per room', 'hotelier' ); ?></span>
+		<span class="rate__price-description"><?php esc_html_e( 'Prices are per room', 'wp-hotelier' ); ?></span>
 	</div>
 
 <?php endif; ?>

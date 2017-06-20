@@ -25,7 +25,7 @@ $variations = $room->get_room_variations();
 
 <div class="room__rates room__rates--single">
 
-	<h3 class="room__rates-title"><?php esc_html_e( 'Available rates', 'hotelier' ); ?></h3>
+	<h3 class="room__rates-title"><?php esc_html_e( 'Available rates', 'wp-hotelier' ); ?></h3>
 
 	<ul id="room-rates-<?php echo absint( get_the_ID() ); ?>" class="room__rates-list">
 

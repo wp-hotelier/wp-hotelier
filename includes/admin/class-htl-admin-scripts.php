@@ -101,8 +101,8 @@ class HTL_Admin_Scripts {
 			wp_register_script( 'accounting', HTL_PLUGIN_URL . 'assets/js/lib/accounting/accounting' . $suffix . '.js', array( 'jquery' ), '0.4.2' );
 
 			$room_params = array(
-				'decimal_error'                => sprintf( esc_html__( 'Please enter in decimal (%s) format without thousand separators.', 'hotelier' ), htl_get_price_decimal_separator() ),
-				'sale_less_than_regular_error'  => esc_html__( 'Please enter in a value less than the regular price.', 'hotelier' ),
+				'decimal_error'                => sprintf( esc_html__( 'Please enter in decimal (%s) format without thousand separators.', 'wp-hotelier' ), htl_get_price_decimal_separator() ),
+				'sale_less_than_regular_error'  => esc_html__( 'Please enter in a value less than the regular price.', 'wp-hotelier' ),
 				'decimal_point'                     => htl_get_price_decimal_separator()
 			);
 
@@ -116,7 +116,7 @@ class HTL_Admin_Scripts {
 		// Reservation meta boxes
 		if ( in_array( $screen->id, array( 'room_reservation', 'edit-room_reservation' ) ) ) {
 			$reservation_params = array(
-				'i18n_do_remain_deposit_charge' => esc_html__( 'Are you sure you wish to proceed with this charge? This action cannot be undone.', 'hotelier' )
+				'i18n_do_remain_deposit_charge' => esc_html__( 'Are you sure you wish to proceed with this charge? This action cannot be undone.', 'wp-hotelier' )
 			);
 
 			wp_enqueue_script( 'htl-admin-reservation-meta-boxes', HTL_PLUGIN_URL . 'assets/js/admin/meta-boxes-reservation' . $suffix . '.js', array( 'htl-admin-meta-boxes' ), HTL_VERSION );

@@ -23,7 +23,7 @@ if ( $wp_query->max_num_pages < 2 ) {
 ?>
 
 <nav class="hotelier-pagination pagination">
-	<h2 class="screen-reader-text"><?php esc_html_e( 'Posts navigation', 'hotelier' ); ?></h2>
+	<h2 class="screen-reader-text"><?php esc_html_e( 'Posts navigation', 'wp-hotelier' ); ?></h2>
 
 	<?php
 	$big = 999999999; // need an unlikely integer

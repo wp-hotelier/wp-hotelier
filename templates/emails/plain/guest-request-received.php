@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 echo "= " . esc_html( $email_heading ) . " =\n\n";
 
-echo esc_html__( 'Thank you, your booking request has been received and is now being processed. Your reservation details are shown below for your reference.', 'hotelier' ) . "\n\n";
+echo esc_html__( 'Thank you, your booking request has been received and is now being processed. Your reservation details are shown below for your reference.', 'wp-hotelier' ) . "\n\n";
 
 echo "=====================================================================\n\n";
 
@@ -23,13 +23,13 @@ do_action( 'hotelier_email_hotel_info', $plain_text );
 
 echo "==========\n\n";
 
-echo sprintf( esc_html__( 'Check-in: %s', 'hotelier' ), $reservation->get_formatted_checkin() ) . ' (' . HTL_Info::get_hotel_checkin() . ')' . "\n";
-echo sprintf( esc_html__( 'Check-out: %s', 'hotelier' ), $reservation->get_formatted_checkout() ) . ' (' . HTL_Info::get_hotel_checkout() . ')' . "\n";
-echo sprintf( esc_html__( 'Nights: %s', 'hotelier' ), $reservation->get_nights() ) . "\n\n";
+echo sprintf( esc_html__( 'Check-in: %s', 'wp-hotelier' ), $reservation->get_formatted_checkin() ) . ' (' . HTL_Info::get_hotel_checkin() . ')' . "\n";
+echo sprintf( esc_html__( 'Check-out: %s', 'wp-hotelier' ), $reservation->get_formatted_checkout() ) . ' (' . HTL_Info::get_hotel_checkout() . ')' . "\n";
+echo sprintf( esc_html__( 'Nights: %s', 'wp-hotelier' ), $reservation->get_nights() ) . "\n\n";
 
 echo "=====================================================================\n\n";
 
-echo strtoupper( sprintf( esc_html__( 'Reservation number: %s', 'hotelier' ), $reservation->get_reservation_number() ) ) . "\n";
+echo strtoupper( sprintf( esc_html__( 'Reservation number: %s', 'wp-hotelier' ), $reservation->get_reservation_number() ) ) . "\n";
 echo date_i18n( get_option( 'date_format' ), strtotime( $reservation->reservation_date ) ) . "\n";
 
 echo "\n" . $reservation->email_reservation_items_table( true );
@@ -45,12 +45,12 @@ if ( $totals = $reservation->get_reservation_totals() ) {
 if ( ! $reservation->can_be_cancelled() ) {
 	echo "\n=====================================================================\n\n";
 
-	esc_html_e( 'This reservation includes a non-cancellable and non-refundable room. You will be charged the total price if you cancel your booking.', 'hotelier' ) . "\n";
+	esc_html_e( 'This reservation includes a non-cancellable and non-refundable room. You will be charged the total price if you cancel your booking.', 'wp-hotelier' ) . "\n";
 }
 
 echo "\n=====================================================================\n\n";
 
-echo sprintf( esc_html__( 'View reservation: %s', 'hotelier' ), esc_url( $reservation->get_booking_received_url() ) ) . "\n";
+echo sprintf( esc_html__( 'View reservation: %s', 'wp-hotelier' ), esc_url( $reservation->get_booking_received_url() ) ) . "\n";
 
 echo "\n=====================================================================\n\n";
 

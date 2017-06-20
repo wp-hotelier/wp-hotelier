@@ -15,4 +15,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<p class="no-rooms-found"><?php esc_html_e( 'No rooms were found matching your selection.', 'hotelier' ); ?></p>
+<p class="no-rooms-found"><?php esc_html_e( 'No rooms were found matching your selection.', 'wp-hotelier' ); ?></p>

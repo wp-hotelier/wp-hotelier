@@ -20,15 +20,15 @@ $reservation = htl_get_reservation( $reservation_id );
 <div class="reservation-received__section">
 
 	<header class="section-header">
-		<h3 class="section-header__title"><?php esc_html_e( 'Reservation details', 'hotelier' ); ?></h3>
+		<h3 class="section-header__title"><?php esc_html_e( 'Reservation details', 'wp-hotelier' ); ?></h3>
 	</header>
 
 	<table class="table table--reservation-table reservation-table hotelier-table">
 		<thead class="reservation-table__heading">
 			<tr class="reservation-table__row reservation-table__row--heading">
-				<th class="reservation-table__room-name reservation-table__room-name--heading"><?php esc_html_e( 'Room', 'hotelier' ); ?></th>
-				<th class="reservation-table__room-qty reservation-table__room-qty--heading"><?php esc_html_e( 'Qty', 'hotelier' ); ?></th>
-				<th class="reservation-table__room-cost reservation-table__room-cost--heading"><?php esc_html_e( 'Cost', 'hotelier' ); ?></th>
+				<th class="reservation-table__room-name reservation-table__room-name--heading"><?php esc_html_e( 'Room', 'wp-hotelier' ); ?></th>
+				<th class="reservation-table__room-qty reservation-table__room-qty--heading"><?php esc_html_e( 'Qty', 'wp-hotelier' ); ?></th>
+				<th class="reservation-table__room-cost reservation-table__room-cost--heading"><?php esc_html_e( 'Cost', 'wp-hotelier' ); ?></th>
 			</tr>
 		</thead>
 		<tbody class="reservation-table__body">
@@ -61,7 +61,7 @@ $reservation = htl_get_reservation( $reservation_id );
 	<?php if ( ! $reservation->can_be_cancelled() ) : ?>
 		<div class="reservation-non-cancellable-disclaimer">
 			<p class="reservation-non-cancellable-disclaimer__text">
-				<?php esc_html_e( 'This reservation includes a non-cancellable and non-refundable room. You will be charged the total price if you cancel your booking.', 'hotelier' ); ?>
+				<?php esc_html_e( 'This reservation includes a non-cancellable and non-refundable room. You will be charged the total price if you cancel your booking.', 'wp-hotelier' ); ?>
 			</p>
 		</div>
 	<?php endif; ?>

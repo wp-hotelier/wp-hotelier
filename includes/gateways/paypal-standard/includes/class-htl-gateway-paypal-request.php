@@ -120,7 +120,7 @@ class HTL_Gateway_Paypal_Request {
 		} else {
 			$this->delete_line_items();
 			$all_items_name = $this->get_reservation_item_names( $reservation );
-			$this->add_line_item( $all_items_name ? $all_items_name : esc_html__( 'Reservation', 'hotelier' ), 1, $reservation->get_deposit(), $reservation->get_reservation_currency() );
+			$this->add_line_item( $all_items_name ? $all_items_name : esc_html__( 'Reservation', 'wp-hotelier' ), 1, $reservation->get_deposit(), $reservation->get_reservation_currency() );
 			$line_item_args = $this->get_line_items();
 
 		}

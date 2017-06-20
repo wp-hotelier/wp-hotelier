@@ -21,9 +21,9 @@ $max_children = $room->get_max_children();
 ?>
 
 <div class="room__max-guests">
-	<strong class="room__max-guests-label"><?php esc_html_e( 'Guests:', 'hotelier' ); ?></strong> <span class="max max<?php echo absint( $max_guests ); ?>"><?php echo absint( $max_guests ); ?></span>
+	<strong class="room__max-guests-label"><?php esc_html_e( 'Guests:', 'wp-hotelier' ); ?></strong> <span class="max max<?php echo absint( $max_guests ); ?>"><?php echo absint( $max_guests ); ?></span>
 
 	<?php if ( $max_children > 0 ) : ?>
-		<div class="room__max-guests-recommendation"><?php printf( esc_html__( 'Recommended for %s adult(s) and %s child(ren)', 'hotelier' ), absint( $max_guests ), absint( $max_children ) ); ?></div>
+		<div class="room__max-guests-recommendation"><?php printf( esc_html__( 'Recommended for %s adult(s) and %s child(ren)', 'wp-hotelier' ), absint( $max_guests ), absint( $max_children ) ); ?></div>
 	<?php endif; ?>
 </div>

@@ -94,10 +94,10 @@ class HTL_Admin_Post_Types {
 		unset( $existing_columns[ 'comments' ], $existing_columns[ 'date' ] );
 
 		$columns               = array();
-		$columns[ 'guests' ]   = esc_html__( 'Guests', 'hotelier' );
-		$columns[ 'type' ]     = esc_html__( 'Room Type', 'hotelier' );
-		$columns[ 'quantity' ] = esc_html__( 'Available Today', 'hotelier' );
-		$columns[ 'date' ]     = esc_html__( 'Date', 'hotelier' );
+		$columns[ 'guests' ]   = esc_html__( 'Guests', 'wp-hotelier' );
+		$columns[ 'type' ]     = esc_html__( 'Room Type', 'wp-hotelier' );
+		$columns[ 'quantity' ] = esc_html__( 'Available Today', 'wp-hotelier' );
+		$columns[ 'date' ]     = esc_html__( 'Date', 'wp-hotelier' );
 
 		return array_merge( $existing_columns, $columns );
 	}
@@ -130,11 +130,11 @@ class HTL_Admin_Post_Types {
 				if ( $available_rooms > 0 ) {
 					echo ( $available_rooms <= $low_room_threshold ) ? '<mark class="only-x-left">' : '<mark>';
 
-					echo sprintf( _n( '%s room left', '%s rooms left', absint( $available_rooms ), 'hotelier' ), $available_rooms );
+					echo sprintf( _n( '%s room left', '%s rooms left', absint( $available_rooms ), 'wp-hotelier' ), $available_rooms );
 
 					echo '</mark>';
 				} else {
-					echo '<mark class="not-left">' . esc_html__( 'No rooms left!', 'hotelier' ) . '</mark>';
+					echo '<mark class="not-left">' . esc_html__( 'No rooms left!', 'wp-hotelier' ) . '</mark>';
 				}
  				break;
 
@@ -155,12 +155,12 @@ class HTL_Admin_Post_Types {
 		unset( $existing_columns[ 'comments' ], $existing_columns[ 'date' ] );
 
 		$columns                = array();
-		$columns[ 'title' ]     = esc_html__( 'Guest', 'hotelier' );
-		$columns[ 'nights' ]    = esc_html__( 'Nights', 'hotelier' );
-		$columns[ 'check_in' ]  = esc_html__( 'Check-in', 'hotelier' );
-		$columns[ 'check_out' ] = esc_html__( 'Check-out', 'hotelier' );
-		$columns[ 'date' ]      = esc_html__( 'Date', 'hotelier' );
-		$columns[ 'status' ]    = esc_html__( 'Status', 'hotelier' );
+		$columns[ 'title' ]     = esc_html__( 'Guest', 'wp-hotelier' );
+		$columns[ 'nights' ]    = esc_html__( 'Nights', 'wp-hotelier' );
+		$columns[ 'check_in' ]  = esc_html__( 'Check-in', 'wp-hotelier' );
+		$columns[ 'check_out' ] = esc_html__( 'Check-out', 'wp-hotelier' );
+		$columns[ 'date' ]      = esc_html__( 'Date', 'wp-hotelier' );
+		$columns[ 'status' ]    = esc_html__( 'Status', 'wp-hotelier' );
 
 		return array_merge( $existing_columns, $columns );
 	}
@@ -240,7 +240,7 @@ class HTL_Admin_Post_Types {
 
 			if ( ! $ret ) {
 				// One or more rooms are not available anymore. Change status to cancelled.
-				$reservation->update_status( 'cancelled', esc_html__( 'This reservation cannot be restored because one or more rooms are no longer available on those dates.', 'hotelier' ) );
+				$reservation->update_status( 'cancelled', esc_html__( 'This reservation cannot be restored because one or more rooms are no longer available on those dates.', 'wp-hotelier' ) );
 			} else {
 				// The reservation can be restored. Update the 'bookings' table to the old status
 				$reservation->update_table_status( $old_status );

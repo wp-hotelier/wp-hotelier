@@ -22,14 +22,14 @@ class HTL_Widget_Booking extends HTL_Widget {
 	 */
 	public function __construct() {
 		$this->widget_cssclass    = 'widget--hotelier widget-booking';
-		$this->widget_description = __( 'Displays current rooms selected and booking details. Visible only in the "listing" and "booking" pages.', 'hotelier' );
+		$this->widget_description = __( 'Displays current rooms selected and booking details. Visible only in the "listing" and "booking" pages.', 'wp-hotelier' );
 		$this->widget_id          = 'hotelier-widget-booking';
-		$this->widget_name        = __( 'Hotelier Booking', 'hotelier' );
+		$this->widget_name        = __( 'Hotelier Booking', 'wp-hotelier' );
 		$this->settings           = array(
 			'title'  => array(
 				'type'  => 'text',
-				'std'   => __( 'Your stay', 'hotelier' ),
-				'label' => __( 'Title', 'hotelier' )
+				'std'   => __( 'Your stay', 'wp-hotelier' ),
+				'label' => __( 'Title', 'wp-hotelier' )
 			)
 		);
 
@@ -60,14 +60,14 @@ class HTL_Widget_Booking extends HTL_Widget {
 		<div class="widget-booking__wrapper">
 
 			<?php if ( is_booking() ) : ?>
-				<p class="widget-booking__change-cart"><a href="<?php echo esc_url( HTL()->cart->get_room_list_form_url() ); ?>" class="widget-booking__change-cart-link"><?php esc_html_e( 'Modify', 'hotelier' ); ?></a></p>
+				<p class="widget-booking__change-cart"><a href="<?php echo esc_url( HTL()->cart->get_room_list_form_url() ); ?>" class="widget-booking__change-cart-link"><?php esc_html_e( 'Modify', 'wp-hotelier' ); ?></a></p>
 			<?php endif; ?>
 
 			<?php ob_start(); ?>
 
 			<div class="widget-booking__dates">
 				<div class="widget-booking__date-block widget-booking__date-block--checkin">
-					<span class="widget-booking__date-label"><?php esc_html_e( 'Check-in', 'hotelier' ); ?></span>
+					<span class="widget-booking__date-label"><?php esc_html_e( 'Check-in', 'wp-hotelier' ); ?></span>
 
 					<div class="widget-booking__date">
 						<span class="widget-booking__month-year"><?php echo date_i18n( 'M Y', strtotime( $checkin ) ); ?></span>
@@ -77,7 +77,7 @@ class HTL_Widget_Booking extends HTL_Widget {
 				</div>
 
 				<div class="widget-booking__date-block widget-booking__date-block--checkout">
-					<span class="widget-booking__date-label"><?php esc_html_e( 'Check-out', 'hotelier' ); ?></span>
+					<span class="widget-booking__date-label"><?php esc_html_e( 'Check-out', 'wp-hotelier' ); ?></span>
 
 					<div class="widget-booking__date">
 						<span class="widget-booking__month-year"><?php echo date_i18n( 'M Y', strtotime( $checkout ) ); ?></span>
@@ -105,7 +105,7 @@ class HTL_Widget_Booking extends HTL_Widget {
 						<li class="widget-booking__room-item">
 							<a class="widget-booking__room-link" href="<?php echo esc_url( get_permalink( $_room_id ) ); ?>"><?php echo esc_html( $_room->get_title() ); ?> <?php echo $cart_item[ 'quantity' ] > 1 ? '&times; ' . absint( $cart_item[ 'quantity' ] ) : ''; ?></a>
 							<?php if ( $cart_item[ 'rate_name' ] ) : ?>
-								<small class="widget-booking__room-rate"><?php printf( esc_html__( 'Rate: %s', 'hotelier' ), htl_get_formatted_room_rate( $cart_item[ 'rate_name' ] ) ); ?></small>
+								<small class="widget-booking__room-rate"><?php printf( esc_html__( 'Rate: %s', 'wp-hotelier' ), htl_get_formatted_room_rate( $cart_item[ 'rate_name' ] ) ); ?></small>
 							<?php endif; ?>
 						</li>
 
@@ -114,7 +114,7 @@ class HTL_Widget_Booking extends HTL_Widget {
 
 				</ul>
 
-				<span class="widget-booking__cart-total"><strong><?php esc_html_e( 'Total', 'hotelier' ); ?></strong><?php echo htl_cart_formatted_total(); ?></span>
+				<span class="widget-booking__cart-total"><strong><?php esc_html_e( 'Total', 'wp-hotelier' ); ?></strong><?php echo htl_cart_formatted_total(); ?></span>
 
 			<?php endif; ?>
 

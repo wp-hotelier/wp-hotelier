@@ -237,7 +237,7 @@ class HTL_Admin_Settings_Fields {
 
 		$size     = ( isset( $args[ 'size' ] ) && ! is_null( $args[ 'size' ] ) ) ? $args[ 'size' ] : 'regular';
 		$html     = '<input type="text" class="' . esc_attr( $size ) . '-text" id="hotelier_settings[' . esc_attr( $args[ 'id' ] ) . ']" name="hotelier_settings[' . esc_attr( $args[ 'id' ] ) . ']" value="' . esc_attr( $value ) . '" placeholder="' . esc_attr( $placeholder ) . '" />';
-		$html    .= '<a href="#" class="button htl-uploader">' . esc_html__( 'Upload', 'hotelier' ) . '</a>';
+		$html    .= '<a href="#" class="button htl-uploader">' . esc_html__( 'Upload', 'wp-hotelier' ) . '</a>';
 		$html    .= '<label for="hotelier_settings[' . esc_attr( $args[ 'id' ] ) . ']"> '  . wp_kses_post( $args[ 'desc' ] ) . '</label>';
 
 		echo $html;
@@ -381,7 +381,7 @@ class HTL_Admin_Settings_Fields {
 
 		$html = '<input name="hotelier_settings[' . esc_attr( $args[ 'id' ] ) . '][width]" id="' . esc_attr( $args[ 'id' ] ) . '-width" type="text" size="3" value="' . absint( $width ) . '" /> &times; <input name="hotelier_settings[' . esc_attr( $args[ 'id' ] ) . '][height]" id="' . esc_attr( $args[ 'id' ] ) . '-height" type="text" size="3" value="' . absint( $height ) . '" />px';
 
-		$html .= '<label><input name="hotelier_settings[' . esc_attr( $args[ 'id' ] ) . '][crop]" id="' . esc_attr( $args[ 'id' ] ) . '-crop" type="checkbox" value="1" ' . $checked . ' />' . esc_html__( 'Hard crop?', 'hotelier' ) . '</label>';
+		$html .= '<label><input name="hotelier_settings[' . esc_attr( $args[ 'id' ] ) . '][crop]" id="' . esc_attr( $args[ 'id' ] ) . '-crop" type="checkbox" value="1" ' . $checked . ' />' . esc_html__( 'Hard crop?', 'wp-hotelier' ) . '</label>';
 
 		echo $html;
 	}
@@ -426,7 +426,7 @@ class HTL_Admin_Settings_Fields {
 			'23' => '23:00'
 		);
 
-		$html = '<label class="from-to">' . esc_html__( 'From:', 'hotelier' ) . '<select name="hotelier_settings[' . esc_attr( $args[ 'id' ] ) . '][from]">';
+		$html = '<label class="from-to">' . esc_html__( 'From:', 'wp-hotelier' ) . '<select name="hotelier_settings[' . esc_attr( $args[ 'id' ] ) . '][from]">';
 
 		foreach ( $options as $option => $name ) {
 			$selected = selected( $option, $from, false );
@@ -435,7 +435,7 @@ class HTL_Admin_Settings_Fields {
 
 		$html .= '</select></label>';
 
-		$html .= '<label class="from-to">' . esc_html__( 'To:', 'hotelier' ) . '<select name="hotelier_settings[' . esc_attr( $args[ 'id' ] ) . '][to]">';
+		$html .= '<label class="from-to">' . esc_html__( 'To:', 'wp-hotelier' ) . '<select name="hotelier_settings[' . esc_attr( $args[ 'id' ] ) . '][to]">';
 
 		foreach ( $options as $option => $name ) {
 			$selected = selected( $option, $to, false );
@@ -482,19 +482,19 @@ class HTL_Admin_Settings_Fields {
 
 		switch ( $args[ 'id' ] ) {
 			case 'install_pages':
-				$html .= '<a class="button" href="' . wp_nonce_url( admin_url( 'admin.php?page=hotelier-settings&tab=tools&action=install_pages' ), 'tools_action' ) . '">' . esc_html__( 'Install pages', 'hotelier' ) . '</a>';
+				$html .= '<a class="button" href="' . wp_nonce_url( admin_url( 'admin.php?page=hotelier-settings&tab=tools&action=install_pages' ), 'tools_action' ) . '">' . esc_html__( 'Install pages', 'wp-hotelier' ) . '</a>';
 				break;
 
 			case 'send_test_email':
-				$html .= '<a class="button" href="' . wp_nonce_url( admin_url( 'admin.php?page=hotelier-settings&tab=tools&action=send_test_email' ), 'tools_action' ) . '">' . esc_html__( 'Send email', 'hotelier' ) . '</a>';
+				$html .= '<a class="button" href="' . wp_nonce_url( admin_url( 'admin.php?page=hotelier-settings&tab=tools&action=send_test_email' ), 'tools_action' ) . '">' . esc_html__( 'Send email', 'wp-hotelier' ) . '</a>';
 				break;
 
 			case 'clear_sessions':
-				$html .= '<a class="button" href="' . wp_nonce_url( admin_url( 'admin.php?page=hotelier-settings&tab=tools&action=clear_sessions' ), 'tools_action' ) . '">' . esc_html__( 'Clear sessions', 'hotelier' ) . '</a>';
+				$html .= '<a class="button" href="' . wp_nonce_url( admin_url( 'admin.php?page=hotelier-settings&tab=tools&action=clear_sessions' ), 'tools_action' ) . '">' . esc_html__( 'Clear sessions', 'wp-hotelier' ) . '</a>';
 				break;
 
 			case 'delete_completed_bookings':
-				$html .= '<a class="button" href="' . wp_nonce_url( admin_url( 'admin.php?page=hotelier-settings&tab=tools&action=delete_completed_bookings' ), 'tools_action' ) . '">' . esc_html__( 'Delete bookings', 'hotelier' ) . '</a>';
+				$html .= '<a class="button" href="' . wp_nonce_url( admin_url( 'admin.php?page=hotelier-settings&tab=tools&action=delete_completed_bookings' ), 'tools_action' ) . '">' . esc_html__( 'Delete bookings', 'wp-hotelier' ) . '</a>';
 				break;
 
 			default:
@@ -530,14 +530,14 @@ class HTL_Admin_Settings_Fields {
 
 				$html .= '<tr class="rule-row" data-key="' . HTL_Formatting_Helper::sanitize_key( $key ) . '">';
 				$html .= '<td class="season-dates">
-							<label>' . esc_html__( 'From', 'hotelier' ) . '
+							<label>' . esc_html__( 'From', 'wp-hotelier' ) . '
 							<input class="date-from" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][' . HTL_Formatting_Helper::sanitize_key( $key ) . '][from]" value="' . esc_attr__( $rule['from'] ) . '"></label>
-							<label>' . esc_html__( 'To', 'hotelier' ) . '
+							<label>' . esc_html__( 'To', 'wp-hotelier' ) . '
 							<input class="date-to" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][' . HTL_Formatting_Helper::sanitize_key( $key ) . '][to]" value="' . esc_attr__( $rule['to'] ) . '"></label>
 							<input class="rule-index" type="hidden" name="hotelier_settings[seasonal_prices_schema][' . HTL_Formatting_Helper::sanitize_key( $key ) . '][index]" value="' . esc_attr__( HTL_Formatting_Helper::sanitize_key( $key ) ) . '">
 						</td>';
 				$html .= '<td>
-							<button type="button" class="remove-rule button">' . esc_html__( 'Remove', 'hotelier' ) . '</button>
+							<button type="button" class="remove-rule button">' . esc_html__( 'Remove', 'wp-hotelier' ) . '</button>
 						</td>';
 				$html .= '<td class="sort-rules"><i class="htl-icon htl-bars"></i></td>';
 				$html .= '</tr>';
@@ -547,14 +547,14 @@ class HTL_Admin_Settings_Fields {
 
 			$html .= '<tr class="rule-row" data-key="1">';
 			$html .= '<td class="season-dates">
-						<label>' . esc_html__( 'From', 'hotelier' ) . '
+						<label>' . esc_html__( 'From', 'wp-hotelier' ) . '
 						<input class="date-from" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][1][from]"></label>
-						<label>' . esc_html__( 'To', 'hotelier' ) . '
+						<label>' . esc_html__( 'To', 'wp-hotelier' ) . '
 						<input class="date-to" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][1][to]"></label>
 						<input class="rule-index" type="hidden" name="hotelier_settings[seasonal_prices_schema][1][index]" value="1">
 					</td>';
 			$html .= '<td>
-						<button type="button" class="remove-rule button">' . esc_html__( 'Remove', 'hotelier' ) . '</button>
+						<button type="button" class="remove-rule button">' . esc_html__( 'Remove', 'wp-hotelier' ) . '</button>
 					</td>';
 			$html .= '<td class="sort-rules"><i class="htl-icon htl-bars"></i></td>';
 			$html .= '</tr>';
@@ -563,7 +563,7 @@ class HTL_Admin_Settings_Fields {
 		$html .= '</tbody>';
 		$html .= '<tfoot>';
 		$html .= '<tr><td colspan="3">
-						<button type="button" class="add-rule button button-primary">' . esc_html__( 'Add new rule', 'hotelier' ) . '</button>
+						<button type="button" class="add-rule button button-primary">' . esc_html__( 'Add new rule', 'wp-hotelier' ) . '</button>
 				</td></tr>';
 		$html .= '</tfoot>';
 		$html .= '</table>';
@@ -595,7 +595,7 @@ class HTL_Admin_Settings_Fields {
 
 						$class = 'expired';
 						$messages[] = sprintf(
-							__( 'Your license key expired on %s. Please <a href="%s" target="_blank">renew your license key</a>.', 'hotelier' ),
+							__( 'Your license key expired on %s. Please <a href="%s" target="_blank">renew your license key</a>.', 'wp-hotelier' ),
 							date_i18n( get_option( 'date_format' ), strtotime( $license->expires, current_time( 'timestamp' ) ) ),
 							'https://wphotelier.com/checkout/?edd_license_key=' . $value
 						);
@@ -608,7 +608,7 @@ class HTL_Admin_Settings_Fields {
 
 						$class = 'error';
 						$messages[] = sprintf(
-							__( 'Your license key has been disabled. Please <a href="%s" target="_blank">contact support</a> for more information.', 'hotelier' ),
+							__( 'Your license key has been disabled. Please <a href="%s" target="_blank">contact support</a> for more information.', 'wp-hotelier' ),
 							'https://wphotelier.com/support/'
 						);
 
@@ -620,7 +620,7 @@ class HTL_Admin_Settings_Fields {
 
 						$class = 'error';
 						$messages[] = sprintf(
-							__( 'Invalid license. Please <a href="%s" target="_blank">visit your account page</a> and verify it.', 'hotelier' ),
+							__( 'Invalid license. Please <a href="%s" target="_blank">visit your account page</a> and verify it.', 'wp-hotelier' ),
 							'https://wphotelier.com/login/'
 						);
 
@@ -633,7 +633,7 @@ class HTL_Admin_Settings_Fields {
 
 						$class = 'error';
 						$messages[] = sprintf(
-							__( 'Your %s is not active for this URL. Please <a href="%s" target="_blank">visit your account page</a> to manage your license key URLs.', 'hotelier' ),
+							__( 'Your %s is not active for this URL. Please <a href="%s" target="_blank">visit your account page</a> to manage your license key URLs.', 'wp-hotelier' ),
 							$args['name'],
 							'https://wphotelier.com/login/'
 						);
@@ -645,7 +645,7 @@ class HTL_Admin_Settings_Fields {
 					case 'item_name_mismatch' :
 
 						$class = 'error';
-						$messages[] = sprintf( __( 'This appears to be an invalid license key for %s.', 'hotelier' ), $args['name'] );
+						$messages[] = sprintf( __( 'This appears to be an invalid license key for %s.', 'wp-hotelier' ), $args['name'] );
 
 						$license_status = 'license-' . $class . '-notice';
 
@@ -654,7 +654,7 @@ class HTL_Admin_Settings_Fields {
 					case 'no_activations_left':
 
 						$class = 'error';
-						$messages[] = sprintf( __( 'Your license key has reached its activation limit. <a href="%s">View possible upgrades</a> now.', 'hotelier' ), 'https://wphotelier.com/login/' );
+						$messages[] = sprintf( __( 'Your license key has reached its activation limit. <a href="%s">View possible upgrades</a> now.', 'wp-hotelier' ), 'https://wphotelier.com/login/' );
 
 						$license_status = 'license-' . $class . '-notice';
 
@@ -663,8 +663,8 @@ class HTL_Admin_Settings_Fields {
 					default :
 
 						$class = 'error';
-						$error = ! empty(  $license->error ) ?  $license->error : __( 'unknown_error', 'hotelier' );
-						$messages[] = sprintf( __( 'There was an error with this license key: %s. Please <a href="%s">contact our support team</a>.', 'hotelier' ), $error, 'https://wphotelier.com/login/' );
+						$error = ! empty(  $license->error ) ?  $license->error : __( 'unknown_error', 'wp-hotelier' );
+						$messages[] = sprintf( __( 'There was an error with this license key: %s. Please <a href="%s">contact our support team</a>.', 'wp-hotelier' ), $error, 'https://wphotelier.com/login/' );
 
 						$license_status = 'license-' . $class . '-notice';
 						break;
@@ -684,14 +684,14 @@ class HTL_Admin_Settings_Fields {
 
 						if ( 'lifetime' === $license->expires ) {
 
-							$messages[] = __( 'License key never expires.', 'hotelier' );
+							$messages[] = __( 'License key never expires.', 'wp-hotelier' );
 
 							$license_status = 'license-lifetime-notice';
 
 						} elseif ( $expiration > $now && $expiration - $now < ( DAY_IN_SECONDS * 30 ) ) {
 
 							$messages[] = sprintf(
-								__( 'Your license key expires soon! It expires on %s. <a href="%s" target="_blank">Renew your license key</a>.', 'hotelier' ),
+								__( 'Your license key expires soon! It expires on %s. <a href="%s" target="_blank">Renew your license key</a>.', 'wp-hotelier' ),
 								date_i18n( get_option( 'date_format' ), strtotime( $license->expires, current_time( 'timestamp' ) ) ),
 								'https://wphotelier.com/checkout/?edd_license_key=' . $value
 							);
@@ -701,7 +701,7 @@ class HTL_Admin_Settings_Fields {
 						} else {
 
 							$messages[] = sprintf(
-								__( 'Your license key expires on %s.', 'hotelier' ),
+								__( 'Your license key expires on %s.', 'wp-hotelier' ),
 								date_i18n( get_option( 'date_format' ), strtotime( $license->expires, current_time( 'timestamp' ) ) )
 							);
 
@@ -719,19 +719,19 @@ class HTL_Admin_Settings_Fields {
 			$class = 'empty';
 
 			$messages[] = sprintf(
-				__( 'To receive updates, please enter your valid %s license key.', 'hotelier' ),
+				__( 'To receive updates, please enter your valid %s license key.', 'wp-hotelier' ),
 				$args['name']
 			);
 
 			$license_status = null;
 		}
 
-		$html    = '<label for="hotelier_settings[' . esc_attr( $args[ 'id' ] ) . ']"> '  . esc_html__( 'License Key', 'hotelier' ) . '</label>';
+		$html    = '<label for="hotelier_settings[' . esc_attr( $args[ 'id' ] ) . ']"> '  . esc_html__( 'License Key', 'wp-hotelier' ) . '</label>';
 
 		$html     .= '<input type="text" class="regular-text" id="hotelier_settings[' . esc_attr( $args[ 'id' ] ) . ']" name="hotelier_settings[' . esc_attr( $args[ 'id' ] ) . ']" value="' . esc_attr( $value ) . '" />';
 
 		if ( ( is_object( $license ) && 'valid' == $license->license ) || 'valid' == $license ) {
-			$html .= '<input type="submit" class="button button-secondary" name="' . $args[ 'id' ] . '_deactivate" value="' . esc_attr__( 'Deactivate License',  'hotelier' ) . '"/>';
+			$html .= '<input type="submit" class="button button-secondary" name="' . $args[ 'id' ] . '_deactivate" value="' . esc_attr__( 'Deactivate License',  'wp-hotelier' ) . '"/>';
 		}
 
 		if ( ! empty( $messages ) ) {
@@ -756,7 +756,7 @@ class HTL_Admin_Settings_Fields {
 			if ( $_GET[ 'action' ] == 'install_pages' ) {
 
 				HTL_Install::create_pages();
-				echo '<div class="updated"><p>' . esc_html__( 'All missing Hotelier pages was installed successfully.', 'hotelier' ) . '</p></div>';
+				echo '<div class="updated"><p>' . esc_html__( 'All missing Hotelier pages was installed successfully.', 'wp-hotelier' ) . '</p></div>';
 			}
 		}
 	}
@@ -770,12 +770,12 @@ class HTL_Admin_Settings_Fields {
 			if ( $_GET[ 'action' ] == 'send_test_email' ) {
 
 				$to      = get_option( 'admin_email' );
-				$subject = sprintf( esc_html__( 'Test email from %s', 'hotelier'), get_bloginfo( 'name', 'display' ) );
+				$subject = sprintf( esc_html__( 'Test email from %s', 'wp-hotelier'), get_bloginfo( 'name', 'display' ) );
 				$message = sprintf( esc_html__( "This test email proves that your WordPress installation at %s can send emails.\n\nSent: %s", "hotelier" ), esc_url( get_bloginfo( "url" ) ), date( "r" ) );
 				$headers = 'Content-Type: text/plain';
 				wp_mail( $to, $subject, $message, $headers );
 
-				echo '<div class="updated"><p>' . sprintf( wp_kses( __( 'Email sent. This does not mean it has been delivered. See %s in the Codex for more information.', 'hotelier' ), array( 'a' => array( 'href' => array() ) ) ), '<a href="http://codex.wordpress.org/Function_Reference/wp_mail">wp_mail</a>' ) . '</p></div>';
+				echo '<div class="updated"><p>' . sprintf( wp_kses( __( 'Email sent. This does not mean it has been delivered. See %s in the Codex for more information.', 'wp-hotelier' ), array( 'a' => array( 'href' => array() ) ) ), '<a href="http://codex.wordpress.org/Function_Reference/wp_mail">wp_mail</a>' ) . '</p></div>';
 			}
 		}
 	}
@@ -794,7 +794,7 @@ class HTL_Admin_Settings_Fields {
 
 				wp_cache_flush();
 
-				echo '<div class="updated"><p>' . esc_html__( 'Sessions successfully cleared.', 'hotelier' ) . '</p></div>';
+				echo '<div class="updated"><p>' . esc_html__( 'Sessions successfully cleared.', 'wp-hotelier' ) . '</p></div>';
 			}
 		}
 	}
@@ -827,7 +827,7 @@ class HTL_Admin_Settings_Fields {
 					}
 				}
 
-				echo '<div class="updated"><p>' . esc_html__( 'Bookings successfully deleted.', 'hotelier' ) . '</p></div>';
+				echo '<div class="updated"><p>' . esc_html__( 'Bookings successfully deleted.', 'wp-hotelier' ) . '</p></div>';
 			}
 		}
 	}
@@ -911,13 +911,13 @@ class HTL_Admin_Settings_Fields {
 		$listing_page = $pages[ 'listing' ];
 
 		if ( ! $listing_page[ 'page_set' ] ) {
-			$info = '<span class="info-error">' . __( 'Page not set', 'hotelier' ) . '</mark>';
+			$info = '<span class="info-error">' . __( 'Page not set', 'wp-hotelier' ) . '</mark>';
 		} elseif ( ! $listing_page[ 'page_exists' ] ) {
-			$info = '<span class="info-error">' . __( 'The page is set, but it does not exist', 'hotelier' ) . '</mark>';
+			$info = '<span class="info-error">' . __( 'The page is set, but it does not exist', 'wp-hotelier' ) . '</mark>';
 		} elseif ( ! $listing_page[ 'page_visible' ] ) {
-			$info = '<span class="info-error">' . __( 'The page is set, but it is not public', 'hotelier' ) . '</mark>';
+			$info = '<span class="info-error">' . __( 'The page is set, but it is not public', 'wp-hotelier' ) . '</mark>';
 		} elseif ( ! $listing_page[ 'has_shortcode' ] ) {
-			$info = '<span class="info-error">' . sprintf( __( 'The page requires this shortcode: %s', 'hotelier' ), '<code>' . $listing_page[ 'shortcode' ] . '</code>' ) . '</mark>';
+			$info = '<span class="info-error">' . sprintf( __( 'The page requires this shortcode: %s', 'wp-hotelier' ), '<code>' . $listing_page[ 'shortcode' ] . '</code>' ) . '</mark>';
 		} else {
 			$info = '<span class="info-success">(ID = ' . absint( $listing_page[ 'page_id' ] ) . ') ' . get_permalink( $listing_page[ 'page_id' ] ) . '</span>';
 		}
@@ -933,13 +933,13 @@ class HTL_Admin_Settings_Fields {
 		$booking_page = $pages[ 'booking' ];
 
 		if ( ! $booking_page[ 'page_set' ] ) {
-			$info = '<span class="info-error">' . __( 'Page not set', 'hotelier' ) . '</mark>';
+			$info = '<span class="info-error">' . __( 'Page not set', 'wp-hotelier' ) . '</mark>';
 		} elseif ( ! $booking_page[ 'page_exists' ] ) {
-			$info = '<span class="info-error">' . __( 'The page is set, but it does not exist', 'hotelier' ) . '</mark>';
+			$info = '<span class="info-error">' . __( 'The page is set, but it does not exist', 'wp-hotelier' ) . '</mark>';
 		} elseif ( ! $booking_page[ 'page_visible' ] ) {
-			$info = '<span class="info-error">' . __( 'The page is set, but it is not public', 'hotelier' ) . '</mark>';
+			$info = '<span class="info-error">' . __( 'The page is set, but it is not public', 'wp-hotelier' ) . '</mark>';
 		} elseif ( ! $booking_page[ 'has_shortcode' ] ) {
-			$info = '<span class="info-error">' . sprintf( __( 'The page requires this shortcode: %s', 'hotelier' ), '<code>' . $listing_page[ 'shortcode' ] . '</code>' ) . '</mark>';
+			$info = '<span class="info-error">' . sprintf( __( 'The page requires this shortcode: %s', 'wp-hotelier' ), '<code>' . $listing_page[ 'shortcode' ] . '</code>' ) . '</mark>';
 		} else {
 			$info = '<span class="info-success">(ID = ' . absint( $booking_page[ 'page_id' ] ) . ') ' . get_permalink( $booking_page[ 'page_id' ] ) . '</span>';
 		}
@@ -951,7 +951,7 @@ class HTL_Admin_Settings_Fields {
 	 * Print server_info
 	 */
 	public function print_server_info() {
-		$info = '<span>' . esc_html__( 'Not available', 'hotelier' ) . '</span>';
+		$info = '<span>' . esc_html__( 'Not available', 'wp-hotelier' ) . '</span>';
 
 		if ( isset( $_SERVER[ 'SERVER_SOFTWARE' ] ) && ! empty( $_SERVER[ 'SERVER_SOFTWARE' ] ) ) {
 			$info = '<span>' . $_SERVER[ 'SERVER_SOFTWARE' ] . '</span>';
@@ -964,11 +964,11 @@ class HTL_Admin_Settings_Fields {
 	 * Print php_version
 	 */
 	public function print_php_version() {
-		$info = '<span>' . esc_html__( 'Not available', 'hotelier' ) . '</span>';
+		$info = '<span>' . esc_html__( 'Not available', 'wp-hotelier' ) . '</span>';
 
 		if ( function_exists( 'phpversion' ) ) {
 			if ( version_compare( phpversion(), '5.6.0', '<' ) ) {
-				$info = '<span class="info-error">' . sprintf( esc_html__( '%s - Easy WP Hotelier requires at least PHP 5.6.0. Please update your PHP version.', 'hotelier' ), phpversion() ) . '</span>';
+				$info = '<span class="info-error">' . sprintf( esc_html__( '%s - Easy WP Hotelier requires at least PHP 5.6.0. Please update your PHP version.', 'wp-hotelier' ), phpversion() ) . '</span>';
 			} else {
 				$info = '<span class="info-success">' . phpversion() . '</span>';
 			}
@@ -981,12 +981,12 @@ class HTL_Admin_Settings_Fields {
 	 * Print wp_memory_limit
 	 */
 	public function print_wp_memory_limit() {
-		$info = '<span>' . esc_html__( 'Not available', 'hotelier' ) . '</span>';
+		$info = '<span>' . esc_html__( 'Not available', 'wp-hotelier' ) . '</span>';
 
 		$memory = HTL_Formatting_Helper::notation_to_int( WP_MEMORY_LIMIT );
 
 		if ( $memory < 67108864 ) {
-			$info = '<span class="info-error">' . sprintf( esc_html__( '%s - We recommend setting memory to at least 64MB.', 'hotelier' ), size_format( $memory ) ) . '</span>';
+			$info = '<span class="info-error">' . sprintf( esc_html__( '%s - We recommend setting memory to at least 64MB.', 'wp-hotelier' ), size_format( $memory ) ) . '</span>';
 		} else {
 			$info = '<span class="info-success">' . size_format( $memory ) . '</span>';
 		}
@@ -999,9 +999,9 @@ class HTL_Admin_Settings_Fields {
 	 */
 	public function print_wp_debug() {
 		if ( defined('WP_DEBUG') && true === WP_DEBUG ) {
-			$info = '<span>' . esc_html__( 'Enabled', 'hotelier' ) . '</span>';
+			$info = '<span>' . esc_html__( 'Enabled', 'wp-hotelier' ) . '</span>';
 		} else {
-			$info = '<span>' . esc_html__( 'Disabled', 'hotelier' ) . '</span>';
+			$info = '<span>' . esc_html__( 'Disabled', 'wp-hotelier' ) . '</span>';
 		}
 
 		echo $info;
@@ -1011,7 +1011,7 @@ class HTL_Admin_Settings_Fields {
 	 * Print php_post_max_size
 	 */
 	public function print_php_post_max_size() {
-		$info = '<span>' . esc_html__( 'Not available', 'hotelier' ) . '</span>';
+		$info = '<span>' . esc_html__( 'Not available', 'wp-hotelier' ) . '</span>';
 
 		if ( function_exists( 'ini_get' ) ) {
 			$info = '<span>' . size_format( HTL_Formatting_Helper::notation_to_int( ini_get( 'post_max_size' ) ) ) . '</span>';
@@ -1033,7 +1033,7 @@ class HTL_Admin_Settings_Fields {
 	 * Print php_time_limit
 	 */
 	public function print_php_time_limit() {
-		$info = '<span>' . esc_html__( 'Not available', 'hotelier' ) . '</span>';
+		$info = '<span>' . esc_html__( 'Not available', 'wp-hotelier' ) . '</span>';
 
 		if ( function_exists( 'ini_get' ) ) {
 			$info = '<span>' . ini_get( 'max_execution_time' ) . '</span>';
@@ -1046,7 +1046,7 @@ class HTL_Admin_Settings_Fields {
 	 * Print php_max_input_vars
 	 */
 	public function print_php_max_input_vars() {
-		$info = '<span>' . esc_html__( 'Not available', 'hotelier' ) . '</span>';
+		$info = '<span>' . esc_html__( 'Not available', 'wp-hotelier' ) . '</span>';
 
 		if ( function_exists( 'ini_get' ) ) {
 			$info = '<span>' . ini_get( 'max_input_vars' ) . '</span>';
@@ -1060,9 +1060,9 @@ class HTL_Admin_Settings_Fields {
 	 */
 	public function print_fsockopen_cURL() {
 		if ( function_exists( 'fsockopen' ) && function_exists( 'curl_init' ) ) {
-			$info = '<span class="info-success">' . esc_html__( 'Enabled', 'hotelier' ) . '</span>';
+			$info = '<span class="info-success">' . esc_html__( 'Enabled', 'wp-hotelier' ) . '</span>';
 		} else {
-			$info = '<span class="info-error">' . esc_html__( 'Your server does not have fsockopen or cURL enabled - PayPal IPN and other scripts which communicate with other servers will not work. Contact your hosting provider.', 'hotelier' ) . '</span>';
+			$info = '<span class="info-error">' . esc_html__( 'Your server does not have fsockopen or cURL enabled - PayPal IPN and other scripts which communicate with other servers will not work. Contact your hosting provider.', 'wp-hotelier' ) . '</span>';
 		}
 
 		echo $info;
@@ -1073,9 +1073,9 @@ class HTL_Admin_Settings_Fields {
 	 */
 	public function print_domdocument() {
 		if ( class_exists( 'DOMDocument' ) ) {
-			$info = '<span class="info-success">' . esc_html__( 'Enabled', 'hotelier' ) . '</span>';
+			$info = '<span class="info-success">' . esc_html__( 'Enabled', 'wp-hotelier' ) . '</span>';
 		} else {
-			$info = '<span class="info-error">' . esc_html__( 'Your server does not have the DOMDocument class enabled - Some extensions may not work without DOMDocument', 'hotelier' ) . '</span>';
+			$info = '<span class="info-error">' . esc_html__( 'Your server does not have the DOMDocument class enabled - Some extensions may not work without DOMDocument', 'wp-hotelier' ) . '</span>';
 		}
 
 		echo $info;
@@ -1088,7 +1088,7 @@ class HTL_Admin_Settings_Fields {
 		if ( @fopen( HTL_LOG_DIR . 'test-log.log', 'a' ) ) {
 			$info = '<span class="info-success">' . HTL_LOG_DIR . '</span>';
 		} else {
-			$info = sprintf( '<span class="info-error">' . wp_kses( __( 'To allow logging, make <code>%s</code> writable or define a custom <code>HTL_LOG_DIR</code>.', 'hotelier' ), array( 'code' => array() ) ) . '</span>', HTL_LOG_DIR );
+			$info = sprintf( '<span class="info-error">' . wp_kses( __( 'To allow logging, make <code>%s</code> writable or define a custom <code>HTL_LOG_DIR</code>.', 'wp-hotelier' ), array( 'code' => array() ) ) . '</span>', HTL_LOG_DIR );
 		}
 
 		echo $info;

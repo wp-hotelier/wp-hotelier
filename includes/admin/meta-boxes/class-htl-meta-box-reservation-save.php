@@ -35,10 +35,10 @@ class HTL_Meta_Box_Reservation_Save {
 
 			<div id="reservation-actions">
 
-				<p><?php esc_html_e( 'Resend reservation emails.', 'hotelier' ); ?></p>
+				<p><?php esc_html_e( 'Resend reservation emails.', 'wp-hotelier' ); ?></p>
 
 				<select name="hotelier_emails_action" id="emails-action">
-					<option value=""><?php esc_html_e( 'Emails', 'hotelier' ); ?></option>
+					<option value=""><?php esc_html_e( 'Emails', 'wp-hotelier' ); ?></option>
 
 					<?php
 					$mailer           = HTL()->mailer();
@@ -55,7 +55,7 @@ class HTL_Meta_Box_Reservation_Save {
 					?>
 				</select>
 
-				<button class="button" title="<?php esc_attr_e( 'Send email', 'hotelier' ); ?>"><?php esc_html_e( 'Send email', 'hotelier' ); ?></button>
+				<button class="button" title="<?php esc_attr_e( 'Send email', 'wp-hotelier' ); ?>"><?php esc_html_e( 'Send email', 'wp-hotelier' ); ?></button>
 
 			</div>
 
@@ -63,16 +63,16 @@ class HTL_Meta_Box_Reservation_Save {
 				if ( current_user_can( 'delete_post', $post->ID ) ) {
 
 					if ( ! EMPTY_TRASH_DAYS ) {
-						$delete_text = esc_html__( 'Delete Permanently', 'hotelier' );
+						$delete_text = esc_html__( 'Delete Permanently', 'wp-hotelier' );
 					} else {
-						$delete_text = esc_html__( 'Move to Trash', 'hotelier' );
+						$delete_text = esc_html__( 'Move to Trash', 'wp-hotelier' );
 					}
 					?><a class="submitdelete deletion" href="<?php echo esc_url( get_delete_post_link( $post->ID ) ); ?>"><?php echo $delete_text; ?></a>
 				<?php }
 				?>
 			</div>
 
-			<input type="submit" class="button save-reservation button-primary" name="save" value="<?php esc_html_e( 'Save reservation', 'hotelier' ); ?>" />
+			<input type="submit" class="button save-reservation button-primary" name="save" value="<?php esc_html_e( 'Save reservation', 'wp-hotelier' ); ?>" />
 
 		</div>
 
@@ -107,7 +107,7 @@ class HTL_Meta_Box_Reservation_Save {
 					foreach ( $mails as $mail ) {
 						if ( $mail->id == $email_to_send ) {
 							$mail->trigger( $reservation->id );
-							$reservation->add_reservation_note( sprintf( esc_html__( '%s email notification manually sent.', 'hotelier' ), $mail->title ), false, true );
+							$reservation->add_reservation_note( sprintf( esc_html__( '%s email notification manually sent.', 'wp-hotelier' ), $mail->title ), false, true );
 						}
 					}
 				}

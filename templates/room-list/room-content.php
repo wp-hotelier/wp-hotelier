@@ -126,7 +126,7 @@ $is_available = $room->is_available( $checkin, $checkout );
 
 	<?php if ( $room->is_variable_room() ) : ?>
 
-		<a href="#room-variations-<?php echo absint( $room->id ); ?>" data-closed="<?php esc_html_e( 'Show rates', 'hotelier' ); ?>" data-open="<?php esc_html_e( 'Hide rates', 'hotelier' ); ?>" class="button button--toggle-rates"><?php esc_html_e( 'Hide rates', 'hotelier' ); ?></a>
+		<a href="#room-variations-<?php echo absint( $room->id ); ?>" data-closed="<?php esc_html_e( 'Show rates', 'wp-hotelier' ); ?>" data-open="<?php esc_html_e( 'Hide rates', 'wp-hotelier' ); ?>" class="button button--toggle-rates"><?php esc_html_e( 'Hide rates', 'wp-hotelier' ); ?></a>
 
 		</div><!-- .room__actions -->
 

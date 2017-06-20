@@ -15,14 +15,14 @@ $line_items = $reservation->get_items();
 	<table cellpadding="0" cellspacing="0" class="hotelier_reservation_items">
 		<thead>
 			<tr>
-				<th class="room-name" colspan="2"><?php esc_html_e( 'Room', 'hotelier' ); ?></th>
+				<th class="room-name" colspan="2"><?php esc_html_e( 'Room', 'wp-hotelier' ); ?></th>
 
 				<?php do_action( 'hotelier_admin_reservation_item_headers', $reservation ); ?>
 
-				<th class="room-guests"><?php esc_html_e( 'Guests', 'hotelier' ); ?></th>
-				<th class="room-price"><?php esc_html_e( 'Price', 'hotelier' ); ?></th>
-				<th class="room-qty"><?php esc_html_e( 'Qty', 'hotelier' ); ?></th>
-				<th class="room-total"><?php esc_html_e( 'Total', 'hotelier' ); ?></th>
+				<th class="room-guests"><?php esc_html_e( 'Guests', 'wp-hotelier' ); ?></th>
+				<th class="room-price"><?php esc_html_e( 'Price', 'wp-hotelier' ); ?></th>
+				<th class="room-qty"><?php esc_html_e( 'Qty', 'wp-hotelier' ); ?></th>
+				<th class="room-total"><?php esc_html_e( 'Total', 'wp-hotelier' ); ?></th>
 			</tr>
 		</thead>
 
@@ -47,7 +47,7 @@ $line_items = $reservation->get_items();
 		<?php if ( $reservation->has_room_with_deposit() ) : ?>
 
 			<tr class="subtotal">
-				<td class="label"><?php esc_html_e( 'Total charge', 'hotelier' ); ?>:</td>
+				<td class="label"><?php esc_html_e( 'Total charge', 'wp-hotelier' ); ?>:</td>
 				<td class="total">
 					<?php echo htl_price( htl_convert_to_cents( $reservation->get_total() ), $reservation->get_reservation_currency() ); ?>
 				</td>
@@ -57,9 +57,9 @@ $line_items = $reservation->get_items();
 
 				<td class="label">
 					<?php if ( $reservation->get_paid_deposit() > 0 ) {
-						echo esc_html__( 'Paid deposit', 'hotelier' );
+						echo esc_html__( 'Paid deposit', 'wp-hotelier' );
 					} else {
-						echo esc_html__( 'Deposit due', 'hotelier' );
+						echo esc_html__( 'Deposit due', 'wp-hotelier' );
 					} ?>:
 				</td>
 
@@ -87,7 +87,7 @@ $line_items = $reservation->get_items();
 
 			<tr class="remain-deposit-charge">
 				<td colspan="2" class="total">
-					<span class="remain-deposit-charge-label"><?php printf( esc_html__( 'Remain deposit charged manually (%s)', 'hotelier' ), date_i18n( get_option( 'date_format' ) . ', ' . get_option( 'time_format' ), $reservation->get_remain_deposit_charge_date() ) ); ?>: </span>
+					<span class="remain-deposit-charge-label"><?php printf( esc_html__( 'Remain deposit charged manually (%s)', 'wp-hotelier' ), date_i18n( get_option( 'date_format' ) . ', ' . get_option( 'time_format' ), $reservation->get_remain_deposit_charge_date() ) ); ?>: </span>
 					<span class="remain-deposit-charge-amount">- <?php echo esc_attr( $reservation->get_formatted_remain_deposit_charge() ); ?></span>
 				</td>
 			</tr>
@@ -97,7 +97,7 @@ $line_items = $reservation->get_items();
 		<?php endif; ?>
 
 		<tr class="total">
-			<td class="label"><?php esc_html_e( 'Balance due', 'hotelier' ); ?>:</td>
+			<td class="label"><?php esc_html_e( 'Balance due', 'wp-hotelier' ); ?>:</td>
 			<td class="total">
 				<?php echo wp_kses_post( $reservation->get_formatted_balance_due() ); ?>
 			</td>
@@ -108,7 +108,7 @@ $line_items = $reservation->get_items();
 
 <?php if ( ! $reservation->can_be_cancelled() ) : ?>
 	<div class="hotelier-reservation-no-cancellable-info">
-		<span><?php esc_html_e( 'Non-refundable', 'hotelier' ); ?></span>
+		<span><?php esc_html_e( 'Non-refundable', 'wp-hotelier' ); ?></span>
 	</div>
 <?php endif; ?>
 
@@ -116,13 +116,13 @@ $line_items = $reservation->get_items();
 
 	<div class="hotelier-pay-actions">
 		<?php if ( $reservation->can_be_charged() ) : ?>
-			<button type="submit" name="hotelier_charge_remain_deposit" class="button charge-remain-deposit" value="1"><?php esc_html_e( 'Charge remain deposit', 'hotelier' ); ?></button>
+			<button type="submit" name="hotelier_charge_remain_deposit" class="button charge-remain-deposit" value="1"><?php esc_html_e( 'Charge remain deposit', 'wp-hotelier' ); ?></button>
 		<?php endif; ?>
 
 		<?php if ( $reservation->is_marked_as_paid() ) : ?>
-			<button type="submit" name="hotelier_mark_as_paid_action" class="button button-primary" value="unpaid"><?php esc_html_e( 'Mark as unpaid', 'hotelier' ); ?></button>
+			<button type="submit" name="hotelier_mark_as_paid_action" class="button button-primary" value="unpaid"><?php esc_html_e( 'Mark as unpaid', 'wp-hotelier' ); ?></button>
 		<?php else : ?>
-			<button type="submit" name="hotelier_mark_as_paid_action" class="button button-primary" value="paid"><?php esc_html_e( 'Mark as paid', 'hotelier' ); ?></button>
+			<button type="submit" name="hotelier_mark_as_paid_action" class="button button-primary" value="paid"><?php esc_html_e( 'Mark as paid', 'wp-hotelier' ); ?></button>
 		<?php endif; ?>
 	</div>
 

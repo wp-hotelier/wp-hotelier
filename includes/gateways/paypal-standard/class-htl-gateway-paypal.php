@@ -25,7 +25,7 @@ class HTL_Gateway_Paypal extends HTL_Payment_Gateway {
 	 */
 	public function __construct() {
 		$this->id          = 'paypal';
-		$this->title       = esc_html__( 'PayPal', 'hotelier' );
+		$this->title       = esc_html__( 'PayPal', 'wp-hotelier' );
 		$this->description = htl_get_option( 'paypal_message' );
 		$this->icon        = HTL()->plugin_url() . '/includes/gateways/paypal-standard/assets/images/paypal.svg';
 		$this->testmode    = htl_get_option( 'paypal_sandbox' ) ? true : false;
@@ -47,46 +47,46 @@ class HTL_Gateway_Paypal extends HTL_Payment_Gateway {
 		$gateway_fields = array(
 			'paypal_settings' => array(
 				'id'   => 'paypal_settings',
-				'name' => '<strong>' . esc_html__( 'PayPal settings', 'hotelier' ) . '</strong>',
+				'name' => '<strong>' . esc_html__( 'PayPal settings', 'wp-hotelier' ) . '</strong>',
 				'type' => 'header'
 			),
 			'paypal_description' => array(
 				'id'   => 'paypal_description',
-				'desc' => sprintf( wp_kses( __( 'PayPal standard sends customers to PayPal to enter their payment information. PayPal IPN requires <a href="%s">fsockopen/cURL</a> support to update bookings after payment.', 'hotelier' ), array( 'a' => array( 'href' => array() ) ) ), esc_url( '?page=hotelier-settings&tab=tools' ) ),
+				'desc' => sprintf( wp_kses( __( 'PayPal standard sends customers to PayPal to enter their payment information. PayPal IPN requires <a href="%s">fsockopen/cURL</a> support to update bookings after payment.', 'wp-hotelier' ), array( 'a' => array( 'href' => array() ) ) ), esc_url( '?page=hotelier-settings&tab=tools' ) ),
 				'type' => 'description'
 			),
 			'paypal_message' => array(
 				'id'   => 'paypal_message',
-				'name' => esc_html__( 'PayPal description', 'hotelier' ),
-				'desc' => esc_html__( 'The description the user sees during the booking.', 'hotelier' ),
-				'std'  => esc_html__( 'Pay with PayPal - The safer, easier way to pay online!', 'hotelier' ),
+				'name' => esc_html__( 'PayPal description', 'wp-hotelier' ),
+				'desc' => esc_html__( 'The description the user sees during the booking.', 'wp-hotelier' ),
+				'std'  => esc_html__( 'Pay with PayPal - The safer, easier way to pay online!', 'wp-hotelier' ),
 				'type' => 'textarea'
 			),
 			'paypal_sandbox' => array(
 				'id'   => 'paypal_sandbox',
-				'name' => esc_html__( 'PayPal sandbox', 'hotelier' ),
-				'desc' => esc_html__( 'Enable test mode.', 'hotelier' ),
-				'subdesc' => esc_html__( 'While in test mode no live transactions are processed. To fully use test mode, you must have a PayPal sandbox (test) account.', 'hotelier' ),
+				'name' => esc_html__( 'PayPal sandbox', 'wp-hotelier' ),
+				'desc' => esc_html__( 'Enable test mode.', 'wp-hotelier' ),
+				'subdesc' => esc_html__( 'While in test mode no live transactions are processed. To fully use test mode, you must have a PayPal sandbox (test) account.', 'wp-hotelier' ),
 				'type' => 'checkbox'
 			),
 			'paypal_log' => array(
 				'id'   => 'paypal_log',
-				'name' => esc_html__( 'Debug log', 'hotelier' ),
-				'desc' => esc_html__( 'Enable logging.', 'hotelier' ),
-				'subdesc' => sprintf( __( 'Log PayPal events, such as IPN requests, inside <code>%s</code>', 'hotelier' ), htl_get_log_file_path( 'paypal' ) ),
+				'name' => esc_html__( 'Debug log', 'wp-hotelier' ),
+				'desc' => esc_html__( 'Enable logging.', 'wp-hotelier' ),
+				'subdesc' => sprintf( __( 'Log PayPal events, such as IPN requests, inside <code>%s</code>', 'wp-hotelier' ), htl_get_log_file_path( 'paypal' ) ),
 				'type' => 'checkbox'
 			),
 			'paypal_email' => array(
 				'id'   => 'paypal_email',
-				'name' => esc_html__( 'PayPal email', 'hotelier' ),
-				'desc' => esc_html__( 'Enter your PayPal account\'s email.', 'hotelier' ),
+				'name' => esc_html__( 'PayPal email', 'wp-hotelier' ),
+				'desc' => esc_html__( 'Enter your PayPal account\'s email.', 'wp-hotelier' ),
 				'type' => 'text',
 				'std'  => ''
 			),
 			'paypal_page_style' => array(
 				'id'   => 'paypal_page_style',
-				'name' => esc_html__( 'PayPal page style', 'hotelier' ),
-				'desc' => esc_html__( 'Enter the name of the page style to use, or leave blank for default. These are defined within your PayPal account.', 'hotelier' ),
+				'name' => esc_html__( 'PayPal page style', 'wp-hotelier' ),
+				'desc' => esc_html__( 'Enter the name of the page style to use, or leave blank for default. These are defined within your PayPal account.', 'wp-hotelier' ),
 				'type' => 'text',
 				'std'  => ''
 			),

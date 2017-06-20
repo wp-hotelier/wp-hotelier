@@ -19,6 +19,6 @@ $nights = absint( $nights );
 
 <?php if ( $nights > 0 ) : ?>
 
-	<p class="selected-nights"><?php printf( _nx( '%s-night stay', '%s-nights stay', $nights, 'selected_nights', 'hotelier' ), $nights ); ?></p>
+	<p class="selected-nights"><?php printf( _nx( '%s-night stay', '%s-nights stay', $nights, 'selected_nights', 'wp-hotelier' ), $nights ); ?></p>
 
 <?php endif; ?>

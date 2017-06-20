@@ -88,7 +88,7 @@ class HTL_Admin_New_Reservation {
 
 			try {
 				if ( empty( $_POST[ '_wpnonce' ] ) || ! wp_verify_nonce( $_POST[ '_wpnonce' ], 'hotelier_admin_process_new_reservation' ) ) {
-					throw new Exception( esc_html__( 'We were unable to process your reservation, please try again.', 'hotelier' ) );
+					throw new Exception( esc_html__( 'We were unable to process your reservation, please try again.', 'wp-hotelier' ) );
 				}
 
 				// Prevent timeout
@@ -118,13 +118,13 @@ class HTL_Admin_New_Reservation {
 				foreach ( HTL_Meta_Box_Reservation_Data::get_guest_details_fields() as $key => $field ) {
 					// Validation: Required fields
 					if ( isset( $field[ 'required' ] ) && $field[ 'required' ] && empty( self::$form_data[ $key ] ) ) {
-						throw new Exception( sprintf( esc_html__( 'Please fill the required fields.', 'hotelier' ) ) );
+						throw new Exception( sprintf( esc_html__( 'Please fill the required fields.', 'wp-hotelier' ) ) );
 					}
 				}
 
 				// Check checkin and checkout dates
 				if ( ! HTL_Formatting_Helper::is_valid_checkin_checkout( self::$checkin, self::$checkout ) ) {
-					throw new Exception( esc_html__( 'Sorry, this room is not available on the given dates.', 'hotelier' ) );
+					throw new Exception( esc_html__( 'Sorry, this room is not available on the given dates.', 'wp-hotelier' ) );
 				}
 
 				// Add rooms to the reservation
@@ -165,7 +165,7 @@ class HTL_Admin_New_Reservation {
 
 		if ( ! $_room->exists() ) {
 			// Oops, check failed so throw an error (this this room does not exists)
-			throw new Exception( esc_html__( 'Sorry, this room does not exists.', 'hotelier' ) );
+			throw new Exception( esc_html__( 'Sorry, this room does not exists.', 'wp-hotelier' ) );
 		}
 
 		// Sanitity check
@@ -175,7 +175,7 @@ class HTL_Admin_New_Reservation {
 
 		// Check room is_available on the given dates
 		if ( ! $_room->is_available( self::$checkin, self::$checkout, $quantity ) ) {
-			throw new Exception( esc_html__( 'Sorry, this room is not available on the given dates.', 'hotelier' ) );
+			throw new Exception( esc_html__( 'Sorry, this room is not available on the given dates.', 'wp-hotelier' ) );
 		}
 
 		// If a $rate_id > 0 is passed, then this is (technically) a variable room
@@ -183,7 +183,7 @@ class HTL_Admin_New_Reservation {
 
 			if ( ! $_room->is_variable_room() ) {
 				// Oops, check failed so throw an error (this is not a variable room)
-				throw new Exception( esc_html__( 'Sorry, this room does not exists.', 'hotelier' ) );
+				throw new Exception( esc_html__( 'Sorry, this room does not exists.', 'wp-hotelier' ) );
 			}
 
 			// Check if the room has this rate and get it (we need the slug)
@@ -204,11 +204,11 @@ class HTL_Admin_New_Reservation {
 			} else {
 
 				// Oops, check failed so throw an error (rate does not exist in the room_rate taxonomy)
-				throw new Exception( esc_html__( 'Sorry, this room does not exists.', 'hotelier' ) );
+				throw new Exception( esc_html__( 'Sorry, this room does not exists.', 'wp-hotelier' ) );
 			}
 		} elseif ( $rate_id === 0 && $_room->is_variable_room() ) {
 			// Oops, check failed so throw an error (passed rate_id = 0 but this is a variable room)
-			throw new Exception( esc_html__( 'Sorry, this room does not exists.', 'hotelier' ) );
+			throw new Exception( esc_html__( 'Sorry, this room does not exists.', 'wp-hotelier' ) );
 		} else {
 			// This is a standard room
 			$rate_name  = false;
@@ -262,7 +262,7 @@ class HTL_Admin_New_Reservation {
 			if ( ! $line_price ) {
 				// Remove room from reservation if has not price and throw an error
 				unset( self::$reservation_contents[ $reservation_item_key ] );
-				throw new Exception( esc_html__( 'Sorry, this room cannot be reserved.', 'hotelier' ) );
+				throw new Exception( esc_html__( 'Sorry, this room cannot be reserved.', 'wp-hotelier' ) );
 			}
 
 			// The total price of the room
@@ -318,13 +318,13 @@ class HTL_Admin_New_Reservation {
 			$reservation = htl_create_reservation( $reservation_data );
 
 			if ( is_wp_error( $reservation ) ) {
-				throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'hotelier' ), 400 ) );
+				throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'wp-hotelier' ), 400 ) );
 			} else {
 				$reservation_id = $reservation->id;
 				$booking_id = htl_add_booking( $reservation_id, self::$checkin, self::$checkout, 'pending' );
 
 				if ( ! $booking_id ) {
-					throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'hotelier' ), 401 ) );
+					throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'wp-hotelier' ), 401 ) );
 				}
 			}
 
@@ -340,7 +340,7 @@ class HTL_Admin_New_Reservation {
 					$rooms_bookings_id = htl_populate_rooms_bookings( $reservation_id, $values[ 'room_id' ] );
 
 					if ( ! $rooms_bookings_id ) {
-						throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'hotelier' ), 402 ) );
+						throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'wp-hotelier' ), 402 ) );
 					}
 				}
 
@@ -358,7 +358,7 @@ class HTL_Admin_New_Reservation {
 				);
 
 				if ( ! $item_id ) {
-					throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'hotelier' ), 403 ) );
+					throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'wp-hotelier' ), 403 ) );
 				}
 			}
 
@@ -371,7 +371,7 @@ class HTL_Admin_New_Reservation {
 			$reservation->set_deposit( self::$required_deposit );
 
 			// Add a note to the reservation
-			$reservation->add_reservation_note( esc_html__( 'Reservation manually created by admin.', 'hotelier' ) );
+			$reservation->add_reservation_note( esc_html__( 'Reservation manually created by admin.', 'wp-hotelier' ) );
 
 			// If we got here, the reservation was created without problems!
 			$wpdb->query( 'COMMIT' );

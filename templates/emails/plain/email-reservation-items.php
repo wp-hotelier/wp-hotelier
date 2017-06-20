@@ -20,19 +20,19 @@ foreach ( $items as $item_id => $item ) :
 
 	if ( isset( $item[ 'rate_name' ] ) ) {
 		// Rate
-		echo "\n" . sprintf( esc_html__( 'Rate: %s', 'hotelier' ), htl_get_formatted_room_rate( $item[ 'rate_name' ] ) );
+		echo "\n" . sprintf( esc_html__( 'Rate: %s', 'wp-hotelier' ), htl_get_formatted_room_rate( $item[ 'rate_name' ] ) );
 	}
 
 	if ( ! $item[ 'is_cancellable' ] ) {
 		// Non cancellable info
-		echo "\n" .  esc_html__( 'Non-refundable', 'hotelier' );
+		echo "\n" .  esc_html__( 'Non-refundable', 'wp-hotelier' );
 	}
 
 	// Quantity
-	echo "\n" . sprintf( esc_html__( 'Quantity: %s', 'hotelier' ), $item[ 'qty' ] );
+	echo "\n" . sprintf( esc_html__( 'Quantity: %s', 'wp-hotelier' ), $item[ 'qty' ] );
 
 	// Cost
-	echo "\n" . sprintf( esc_html__( 'Cost: %s', 'hotelier' ), $reservation->get_formatted_line_total( $item ) );
+	echo "\n" . sprintf( esc_html__( 'Cost: %s', 'wp-hotelier' ), $reservation->get_formatted_line_total( $item ) );
 
 	// Allow other plugins to add additional room information here
 	do_action( 'hotelier_reservation_item_meta', $item_id, $item, $reservation );

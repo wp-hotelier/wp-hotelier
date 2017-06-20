@@ -224,7 +224,7 @@ class HTL_Reservation {
 	 */
 	public function get_formatted_arrival_time() {
 		$time           = intval( $this->guest_arrival_time );
-		$formatted_time = esc_html__( 'I don\'t know', 'hotelier' );
+		$formatted_time = esc_html__( 'I don\'t know', 'wp-hotelier' );
 
 		if ( $time >= 1 && $time <= 23 ) {
 			$hour           = sprintf( '%02d', $time );
@@ -330,13 +330,13 @@ class HTL_Reservation {
 	 * @return int Comment ID
 	 */
 	public function add_reservation_note( $note ) {
-		$comment_author_email = strtolower( esc_html__( 'Hotelier', 'hotelier' ) ) . '@';
+		$comment_author_email = strtolower( esc_html__( 'Hotelier', 'wp-hotelier' ) ) . '@';
 		$comment_author_email .= isset( $_SERVER['HTTP_HOST'] ) ? str_replace( 'www.', '', $_SERVER['HTTP_HOST'] ) : 'noreply.com';
 		$comment_author_email = sanitize_email( $comment_author_email );
 
 		$commentdata = apply_filters( 'hotelier_new_reservation_note_data', array(
 			'comment_post_ID' => $this->id,
-			'comment_author' => esc_html__( 'Hotelier', 'hotelier' ),
+			'comment_author' => esc_html__( 'Hotelier', 'wp-hotelier' ),
 			'comment_author_email' => $comment_author_email,
 			'comment_author_url' => '',
 			'comment_content' => esc_html( $note ),
@@ -373,7 +373,7 @@ class HTL_Reservation {
 			// Cancelled/completed reservations cannot be restored
 			if ( $old_status == 'cancelled' || $old_status == 'completed' ) {
 
-				$this->add_reservation_note( trim( $note . ' ' . sprintf( esc_html__( 'Error: Trying to change the status from %1$s to %2$s. %1$s reservations cannot be restored or modified.', 'hotelier' ), htl_get_reservation_status_name( $old_status ), htl_get_reservation_status_name( $new_status ) ) ) );
+				$this->add_reservation_note( trim( $note . ' ' . sprintf( esc_html__( 'Error: Trying to change the status from %1$s to %2$s. %1$s reservations cannot be restored or modified.', 'wp-hotelier' ), htl_get_reservation_status_name( $old_status ), htl_get_reservation_status_name( $new_status ) ) ) );
 
 			} else {
 				// Temporarily remove reservation save action to
@@ -391,7 +391,7 @@ class HTL_Reservation {
 				// Update the reservation table
 				$this->update_table_status( $new_status );
 
-				$this->add_reservation_note( trim( $note . ' ' . sprintf( esc_html__( 'Reservation status changed from %s to %s.', 'hotelier' ), htl_get_reservation_status_name( $old_status ), htl_get_reservation_status_name( $new_status ) ) ) );
+				$this->add_reservation_note( trim( $note . ' ' . sprintf( esc_html__( 'Reservation status changed from %s to %s.', 'wp-hotelier' ), htl_get_reservation_status_name( $old_status ), htl_get_reservation_status_name( $new_status ) ) ) );
 
 				// Status was changed
 				do_action( 'hotelier_reservation_status_' . $new_status, $this->id );
@@ -839,28 +839,28 @@ class HTL_Reservation {
 		if ( $this->has_room_with_deposit() ) {
 
 			$total_rows[ 'subtotal' ] = array(
-				'label' => esc_html__( 'Subtotal:', 'hotelier' ),
+				'label' => esc_html__( 'Subtotal:', 'wp-hotelier' ),
 				'value'	=> $this->get_formatted_total()
 			);
 
 			if ( $this->get_formatted_paid_deposit() > 0 ) {
 
 				$total_rows[ 'paid_deposit' ] = array(
-					'label' => esc_html__( 'Paid Deposit:', 'hotelier' ),
+					'label' => esc_html__( 'Paid Deposit:', 'wp-hotelier' ),
 					'value'	=> $this->get_formatted_paid_deposit()
 				);
 
 			} else {
 
 				$total_rows[ 'required_deposit' ] = array(
-					'label' => esc_html__( 'Required Deposit:', 'hotelier' ),
+					'label' => esc_html__( 'Required Deposit:', 'wp-hotelier' ),
 					'value'	=> $this->get_formatted_deposit()
 				);
 			}
 
 			if ( $this->get_paid_deposit() > 0 && $this->payment_method_title ) {
 				$total_rows[ 'payment_method' ] = array(
-					'label' => esc_html__( 'Payment Method:', 'hotelier' ),
+					'label' => esc_html__( 'Payment Method:', 'wp-hotelier' ),
 					'value' => $this->payment_method_title
 				);
 			}
@@ -868,7 +868,7 @@ class HTL_Reservation {
 		}
 
 		$total_rows[ 'total' ] = array(
-			'label' => esc_html__( 'Total Due:', 'hotelier' ),
+			'label' => esc_html__( 'Total Due:', 'wp-hotelier' ),
 			'value'	=> $this->get_formatted_balance_due()
 		);
 
@@ -886,19 +886,19 @@ class HTL_Reservation {
 		if ( $this->has_room_with_deposit() ) {
 
 			$total_rows[ 'total' ] = array(
-				'label' => esc_html__( 'Total:', 'hotelier' ),
+				'label' => esc_html__( 'Total:', 'wp-hotelier' ),
 				'value'	=> $this->get_formatted_total()
 			);
 
 			$total_rows[ 'deposit_due' ] = array(
-				'label' => esc_html__( 'Deposit Due Now:', 'hotelier' ),
+				'label' => esc_html__( 'Deposit Due Now:', 'wp-hotelier' ),
 				'value'	=> $this->get_formatted_deposit()
 			);
 
 		} else {
 
 			$total_rows[ 'total' ] = array(
-				'label' => esc_html__( 'Total:', 'hotelier' ),
+				'label' => esc_html__( 'Total:', 'wp-hotelier' ),
 				'value'	=> $this->get_formatted_total()
 			);
 		}

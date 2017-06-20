@@ -22,7 +22,7 @@ global $room;
 
 	<?php if ( $room->is_variable_room() ) : ?>
 
-		<p class="room-available-rates"><a class="room-available-rates__link" href="#room-rates-<?php echo absint( get_the_ID() ); ?>"><?php esc_html_e( 'See available rates', 'hotelier' ); ?></a></p>
+		<p class="room-available-rates"><a class="room-available-rates__link" href="#room-rates-<?php echo absint( get_the_ID() ); ?>"><?php esc_html_e( 'See available rates', 'wp-hotelier' ); ?></a></p>
 
 	<?php endif; ?>
 </div>

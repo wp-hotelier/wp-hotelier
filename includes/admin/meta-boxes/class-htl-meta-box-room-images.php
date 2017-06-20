@@ -36,7 +36,7 @@ class HTL_Meta_Box_Room_Images {
 					foreach ( $attachments as $attachment_id ) {
 						echo '<li class="image" data-attachment_id="' . esc_attr( $attachment_id ) . '">
 							' . wp_get_attachment_image( $attachment_id, 'thumbnail' ) . '
-							<a href="#" class="delete" title="' . esc_attr__( 'Delete image', 'hotelier' ) . '">' . esc_html__( 'Delete', 'hotelier' ) . '</a>
+							<a href="#" class="delete" title="' . esc_attr__( 'Delete image', 'wp-hotelier' ) . '">' . esc_html__( 'Delete', 'wp-hotelier' ) . '</a>
 						</li>';
 					}
 				}
@@ -48,7 +48,7 @@ class HTL_Meta_Box_Room_Images {
 		</div>
 
 		<p class="add-room-images-wrap hide-if-no-js">
-			<a href="#" id="add-room-images" data-choose="<?php esc_attr_e( 'Add images to room gallery', 'hotelier' ); ?>" data-update="<?php esc_attr_e( 'Add to gallery', 'hotelier' ); ?>" data-delete="<?php esc_attr_e( 'Delete image', 'hotelier' ); ?>" data-text="<?php esc_attr_e( 'Delete', 'hotelier' ); ?>"><?php esc_html_e( 'Add room gallery images', 'hotelier' ); ?></a>
+			<a href="#" id="add-room-images" data-choose="<?php esc_attr_e( 'Add images to room gallery', 'wp-hotelier' ); ?>" data-update="<?php esc_attr_e( 'Add to gallery', 'wp-hotelier' ); ?>" data-delete="<?php esc_attr_e( 'Delete image', 'wp-hotelier' ); ?>" data-text="<?php esc_attr_e( 'Delete', 'wp-hotelier' ); ?>"><?php esc_html_e( 'Add room gallery images', 'wp-hotelier' ); ?></a>
 		</p>
 		<?php
 	}

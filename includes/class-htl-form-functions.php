@@ -73,13 +73,13 @@ class HTL_Form_Functions {
 					$available_gateways = HTL()->payment_gateways->get_available_payment_gateways();
 
 					if ( ! $payment_method ) {
-						htl_add_notice( esc_html__( 'Invalid payment method.', 'hotelier' ), 'error' );
+						htl_add_notice( esc_html__( 'Invalid payment method.', 'wp-hotelier' ), 'error' );
 						return;
 					}
 
 					// Terms and conditions
 					if ( ! empty( $_POST[ 'has_terms_field' ] ) && empty( $_POST[ 'booking_terms' ] ) ) {
-						htl_add_notice( esc_html__( 'You must accept our Terms &amp; Conditions.', 'hotelier' ), 'error' );
+						htl_add_notice( esc_html__( 'You must accept our Terms &amp; Conditions.', 'wp-hotelier' ), 'error' );
 						return;
 					}
 
@@ -126,7 +126,7 @@ class HTL_Form_Functions {
 		if ( isset( $_POST[ 'hotelier_reserve_rooms_button' ] ) ) {
 			try {
 				if ( empty( $_POST[ '_wpnonce' ] ) || ! wp_verify_nonce( $_POST[ '_wpnonce' ], 'hotelier_reserve_rooms' ) ) {
-					throw new Exception( esc_html__( 'We were unable to process your reservation, please try again.', 'hotelier' ) );
+					throw new Exception( esc_html__( 'We were unable to process your reservation, please try again.', 'wp-hotelier' ) );
 				}
 
 				if ( ! defined( 'HOTELIER_LISTING' ) ) {
@@ -160,7 +160,7 @@ class HTL_Form_Functions {
 
 				// If $items is empty (no rooms were added or something went wrong) throw an exception
 				if ( empty( $items ) ) {
-					throw new Exception( esc_html__( 'Please select at least one room.', 'hotelier' ) );
+					throw new Exception( esc_html__( 'Please select at least one room.', 'wp-hotelier' ) );
 				}
 
 				// Add room(s) to the cart
@@ -173,7 +173,7 @@ class HTL_Form_Functions {
 					$was_added_to_cart = self::add_to_cart_from_room_list_handler( $room_id, $quantity, $rate_id );
 
 					if ( ! $was_added_to_cart ) {
-						throw new Exception( esc_html__( 'We were unable to process your reservation, please try again.', 'hotelier' ) );
+						throw new Exception( esc_html__( 'We were unable to process your reservation, please try again.', 'wp-hotelier' ) );
 					}
 				}
 
@@ -279,24 +279,24 @@ class HTL_Form_Functions {
 
 			if ( $reservation->has_status( 'cancelled' ) ) {
 				// Already cancelled
-				htl_add_notice( esc_html__( 'Reservation already cancelled.', 'hotelier' ), 'error' );
+				htl_add_notice( esc_html__( 'Reservation already cancelled.', 'wp-hotelier' ), 'error' );
 			} elseif ( ! $reservation->can_be_cancelled() ) {
 				// Reservation contains non-cancellable rooms
-				htl_add_notice( esc_html__( 'Your reservation includes a non cancellable and non refundable room and it cannot be cancelled.', 'hotelier' ), 'error' );
+				htl_add_notice( esc_html__( 'Your reservation includes a non cancellable and non refundable room and it cannot be cancelled.', 'wp-hotelier' ), 'error' );
 			} elseif ( $reservation_can_cancel && $reservation->id == $reservation_id && $reservation->reservation_key == $reservation_key && isset( $_GET[ '_wpnonce' ] ) && wp_verify_nonce( $_GET[ '_wpnonce' ], 'hotelier-cancel_reservation' ) ) {
 
 				// Cancel the reservation + restore available rooms
-				$reservation->cancel_reservation( esc_html__( 'Reservation cancelled by guest.', 'hotelier' ) );
+				$reservation->cancel_reservation( esc_html__( 'Reservation cancelled by guest.', 'wp-hotelier' ) );
 
 				// Message
-				htl_add_notice( apply_filters( 'hotelier_reservation_cancelled_message', esc_html__( 'Your reservation has been cancelled.', 'hotelier' ) ), 'notice' );
+				htl_add_notice( apply_filters( 'hotelier_reservation_cancelled_message', esc_html__( 'Your reservation has been cancelled.', 'wp-hotelier' ) ), 'notice' );
 
 				do_action( 'hotelier_cancelled_reservation', $reservation->id );
 
 			} elseif ( ! $reservation_can_cancel ) {
-				htl_add_notice( esc_html__( 'Your reservation can no longer be cancelled. Please contact us if you need assistance.', 'hotelier' ), 'error' );
+				htl_add_notice( esc_html__( 'Your reservation can no longer be cancelled. Please contact us if you need assistance.', 'wp-hotelier' ), 'error' );
 			} else {
-				htl_add_notice( esc_html__( 'Invalid reservation.', 'hotelier' ), 'error' );
+				htl_add_notice( esc_html__( 'Invalid reservation.', 'wp-hotelier' ), 'error' );
 			}
 
 			if ( $redirect ) {

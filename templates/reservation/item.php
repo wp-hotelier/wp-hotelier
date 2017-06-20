@@ -22,11 +22,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		echo $is_visible ? sprintf( '<a class="reservation-table__room-link" href="%s">%s</a>', get_permalink( $item[ 'room_id' ] ), $item[ 'name' ] ) : $item[ 'name' ];
 
 		if ( isset( $item[ 'rate_name' ] ) ) : ?>
-			<small class="reservation-table__room-rate"><?php printf( esc_html__( 'Rate: %s', 'hotelier' ), htl_get_formatted_room_rate( $item[ 'rate_name' ] ) ); ?></small>
+			<small class="reservation-table__room-rate"><?php printf( esc_html__( 'Rate: %s', 'wp-hotelier' ), htl_get_formatted_room_rate( $item[ 'rate_name' ] ) ); ?></small>
 		<?php endif;
 
 		if ( ! $item[ 'is_cancellable' ] ) : ?>
-			<span class="reservation-table__room-non-cancellable"><?php echo esc_html_e( 'Non-refundable', 'hotelier' ); ?></span>
+			<span class="reservation-table__room-non-cancellable"><?php echo esc_html_e( 'Non-refundable', 'wp-hotelier' ); ?></span>
 		<?php endif;
 
 		// Allow other plugins to add additional room information here

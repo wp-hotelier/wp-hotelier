@@ -145,7 +145,7 @@ class HTL_Info {
 	 */
 	public static function get_hotel_pets_message() {
 		$allowed_pets = htl_get_option( 'hotel_pets', false );
-		$message      =  $allowed_pets ? htl_get_option( 'hotel_pets_message' ) : esc_html__( 'Pets are not allowed.', 'hotelier' );
+		$message      =  $allowed_pets ? htl_get_option( 'hotel_pets_message' ) : esc_html__( 'Pets are not allowed.', 'wp-hotelier' );
 
 		return apply_filters( 'hotelier_get_hotel_pets_message', $message );
 	}

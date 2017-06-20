@@ -25,10 +25,10 @@ class HTL_Email_Confirmed_Reservation extends HTL_Email {
 	function __construct() {
 
 		$this->id               = 'guest_confirmed_reservation';
-		$this->title            = esc_html__( 'Confirmed reservation', 'hotelier' );
+		$this->title            = esc_html__( 'Confirmed reservation', 'wp-hotelier' );
 
-		$this->heading          = htl_get_option( 'emails_confirmed_reservation_heading', __( 'Thank you for your reservation', 'hotelier' ) );
-		$this->subject          = htl_get_option( 'emails_confirmed_reservation_subject', __( 'Your reservation for {site_title}', 'hotelier' ) );
+		$this->heading          = htl_get_option( 'emails_confirmed_reservation_heading', __( 'Thank you for your reservation', 'wp-hotelier' ) );
+		$this->subject          = htl_get_option( 'emails_confirmed_reservation_subject', __( 'Your reservation for {site_title}', 'wp-hotelier' ) );
 
 		$this->template_html    = 'emails/guest-confirmed-reservation.php';
 		$this->template_plain   = 'emails/plain/guest-confirmed-reservation.php';

@@ -39,28 +39,28 @@ class HTL_Admin_Menus {
 	 * Add settings page
 	 */
 	public function admin_menu() {
-		add_submenu_page( 'hotelier-settings', esc_html__( 'Add New Reservation', 'hotelier' ),  esc_html__( 'Add Reservation', 'hotelier' ) , 'manage_hotelier', 'hotelier-add-reservation', array( $this, 'add_new_reservation_page' ) );
+		add_submenu_page( 'hotelier-settings', esc_html__( 'Add New Reservation', 'wp-hotelier' ),  esc_html__( 'Add Reservation', 'wp-hotelier' ) , 'manage_hotelier', 'hotelier-add-reservation', array( $this, 'add_new_reservation_page' ) );
 	}
 
 	/**
 	 * Add calendar page
 	 */
 	public function admin_calendar() {
-		add_submenu_page( 'hotelier-settings', esc_html__( 'Calendar', 'hotelier' ),  esc_html__( 'View Calendar', 'hotelier' ) , 'manage_hotelier', 'hotelier-calendar', array( $this, 'calendar_page' ) );
+		add_submenu_page( 'hotelier-settings', esc_html__( 'Calendar', 'wp-hotelier' ),  esc_html__( 'View Calendar', 'wp-hotelier' ) , 'manage_hotelier', 'hotelier-calendar', array( $this, 'calendar_page' ) );
 	}
 
 	/**
 	 * Add addons page
 	 */
 	public function admin_addons() {
-		add_submenu_page( 'hotelier-settings', esc_html__( 'Easy WP Hotelier Extensions & Themes', 'hotelier' ),  esc_html__( 'Extensions & Themes', 'hotelier' ) , 'manage_hotelier', 'hotelier-addons', array( $this, 'addons_page' ) );
+		add_submenu_page( 'hotelier-settings', esc_html__( 'Easy WP Hotelier Extensions & Themes', 'wp-hotelier' ),  esc_html__( 'Extensions & Themes', 'wp-hotelier' ) , 'manage_hotelier', 'hotelier-addons', array( $this, 'addons_page' ) );
 	}
 
 	/**
 	 * Add logs page
 	 */
 	public function admin_logs() {
-		add_submenu_page( 'hotelier-settings', esc_html__( 'Logs', 'hotelier' ),  esc_html__( 'Logs', 'hotelier' ) , 'manage_hotelier', 'hotelier-logs', array( $this, 'log_page' ) );
+		add_submenu_page( 'hotelier-settings', esc_html__( 'Logs', 'wp-hotelier' ),  esc_html__( 'Logs', 'wp-hotelier' ) , 'manage_hotelier', 'hotelier-logs', array( $this, 'log_page' ) );
 	}
 
 	/**

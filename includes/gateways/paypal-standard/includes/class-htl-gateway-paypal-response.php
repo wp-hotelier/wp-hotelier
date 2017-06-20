@@ -139,7 +139,7 @@ class HTL_Gateway_Paypal_Response {
 			HTL_Gateway_Paypal::log( 'Payment error: Currencies do not match (sent "' . $reservation->get_reservation_currency() . '" | returned "' . $currency . '")' );
 
 			// Put this reservation on-hold for manual checking
-			$reservation->update_status( 'on-hold', sprintf( esc_html__( 'Validation error: PayPal currencies do not match (code %s).', 'hotelier' ), $currency ) );
+			$reservation->update_status( 'on-hold', sprintf( esc_html__( 'Validation error: PayPal currencies do not match (code %s).', 'wp-hotelier' ), $currency ) );
 			exit;
 		}
 	}
@@ -153,7 +153,7 @@ class HTL_Gateway_Paypal_Response {
 			HTL_Gateway_Paypal::log( 'Payment error: Amounts do not match (gross ' . $amount . ')' );
 
 			// Put this reservation on-hold for manual checking
-			$reservation->update_status( 'on-hold', sprintf( esc_html__( 'Validation error: PayPal amounts do not match (gross %s).', 'hotelier' ), $amount ) );
+			$reservation->update_status( 'on-hold', sprintf( esc_html__( 'Validation error: PayPal amounts do not match (gross %s).', 'wp-hotelier' ), $amount ) );
 
 			exit;
 		}
@@ -168,7 +168,7 @@ class HTL_Gateway_Paypal_Response {
 			HTL_Gateway_Paypal::log( "IPN Response is for another account: {$receiver_email}. Your email is {$this->receiver_email}" );
 
 			// Put this reservation on-hold for manual checking
-			$reservation->update_status( 'on-hold', sprintf( esc_html__( 'Validation error: PayPal IPN response from a different email address (%s).', 'hotelier' ), $email ) );
+			$reservation->update_status( 'on-hold', sprintf( esc_html__( 'Validation error: PayPal IPN response from a different email address (%s).', 'wp-hotelier' ), $email ) );
 
 			exit;
 		}
@@ -194,7 +194,7 @@ class HTL_Gateway_Paypal_Response {
 		$this->save_paypal_meta_data( $reservation, $posted );
 
 		if ( 'completed' === $posted[ 'payment_status' ] ) {
-			$this->payment_complete( $reservation, ( ! empty( $posted[ 'txn_id' ] ) ? sanitize_text_field( $posted[ 'txn_id' ] ) : '' ), esc_html__( 'IPN payment completed', 'hotelier' ) );
+			$this->payment_complete( $reservation, ( ! empty( $posted[ 'txn_id' ] ) ? sanitize_text_field( $posted[ 'txn_id' ] ) : '' ), esc_html__( 'IPN payment completed', 'wp-hotelier' ) );
 
 			if ( ! empty( $posted[ 'mc_fee' ] ) ) {
 				// log paypal transaction fee
@@ -202,7 +202,7 @@ class HTL_Gateway_Paypal_Response {
 			}
 
 		} else {
-			$this->payment_on_hold( $reservation, sprintf( esc_html__( 'Payment pending: %s', 'hotelier' ), $posted[ 'pending_reason' ] ) );
+			$this->payment_on_hold( $reservation, sprintf( esc_html__( 'Payment pending: %s', 'wp-hotelier' ), $posted[ 'pending_reason' ] ) );
 		}
 	}
 
@@ -219,7 +219,7 @@ class HTL_Gateway_Paypal_Response {
 	 * @param  HTL_Reservation $reservation
 	 */
 	protected function payment_status_failed( $reservation, $posted ) {
-		$reservation->update_status( 'failed', sprintf( esc_html__( 'Payment %s via IPN.', 'hotelier' ), sanitize_text_field( $posted[ 'payment_status' ] ) ) );
+		$reservation->update_status( 'failed', sprintf( esc_html__( 'Payment %s via IPN.', 'wp-hotelier' ), sanitize_text_field( $posted[ 'payment_status' ] ) ) );
 	}
 
 	/**

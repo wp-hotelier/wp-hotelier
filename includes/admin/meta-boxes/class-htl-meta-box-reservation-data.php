@@ -40,43 +40,43 @@ class HTL_Meta_Box_Reservation_Data {
 
 		self::$guest_details = apply_filters( 'hotelier_admin_guest_details_fields', array(
 			'first_name' => array(
-				'label'    => esc_html__( 'First name', 'hotelier' ),
+				'label'    => esc_html__( 'First name', 'wp-hotelier' ),
 				'required' => true,
 			),
 			'last_name' => array(
-				'label'         => esc_html__( 'Last name', 'hotelier' ),
+				'label'         => esc_html__( 'Last name', 'wp-hotelier' ),
 				'wrapper_class' => 'form-field-last',
 				'required'      => true,
 			),
 			'email' => array(
-				'label'    => esc_html__( 'Email address', 'hotelier' ),
+				'label'    => esc_html__( 'Email address', 'wp-hotelier' ),
 				'type'     => 'email',
 				'required' => true,
 			),
 			'telephone' => array(
-				'label'         => esc_html__( 'Telephone', 'hotelier' ),
+				'label'         => esc_html__( 'Telephone', 'wp-hotelier' ),
 				'wrapper_class' => 'form-field-last'
 			),
 			'address1' => array(
-				'label'         => esc_html__( 'Address 1', 'hotelier' ),
+				'label'         => esc_html__( 'Address 1', 'wp-hotelier' ),
 				'wrapper_class' => 'form-field-wide'
 			),
 			'address2' => array(
-				'label'         => esc_html__( 'Address 2', 'hotelier' ),
+				'label'         => esc_html__( 'Address 2', 'wp-hotelier' ),
 				'wrapper_class' => 'form-field-wide'
 			),
 			'city' => array(
-				'label' => esc_html__( 'Town / City', 'hotelier' ),
+				'label' => esc_html__( 'Town / City', 'wp-hotelier' ),
 			),
 			'postcode' => array(
-				'label'         => esc_html__( 'Postcode / Zip', 'hotelier' ),
+				'label'         => esc_html__( 'Postcode / Zip', 'wp-hotelier' ),
 				'wrapper_class' => 'form-field-last'
 			),
 			'state' => array(
-				'label' => esc_html__( 'State / County', 'hotelier' ),
+				'label' => esc_html__( 'State / County', 'wp-hotelier' ),
 			),
 			'country' => array(
-				'label'         => esc_html__( 'Country', 'hotelier' ),
+				'label'         => esc_html__( 'Country', 'wp-hotelier' ),
 				'wrapper_class' => 'form-field-last'
 			)
 		) );
@@ -90,10 +90,10 @@ class HTL_Meta_Box_Reservation_Data {
 		self::$guest_info = apply_filters( 'hotelier_admin_guest_info_fields', array(
 			'guest_arrival_time' => array(
 				'id'      => 'guest_arrival_time',
-				'label'   => esc_html__( 'Estimated arrival time', 'hotelier' ),
+				'label'   => esc_html__( 'Estimated arrival time', 'wp-hotelier' ),
 				'type'    => 'select',
 				'options' => array(
-					'-1' => esc_html__( 'I don\'t know', 'hotelier' ),
+					'-1' => esc_html__( 'I don\'t know', 'wp-hotelier' ),
 					'0'  => '00:00 - 01:00',
 					'1'  => '01:00 - 02:00',
 					'2'  => '02:00 - 03:00',
@@ -173,26 +173,26 @@ class HTL_Meta_Box_Reservation_Data {
 		</style>
 
 		<div class="panel-wrap hotelier">
-			<input name="post_title" type="hidden" value="<?php echo empty( $post->post_title ) ? esc_attr__( 'Reservation', 'hotelier' ) : esc_attr( $post->post_title ); ?>" />
+			<input name="post_title" type="hidden" value="<?php echo empty( $post->post_title ) ? esc_attr__( 'Reservation', 'wp-hotelier' ) : esc_attr( $post->post_title ); ?>" />
 			<input name="post_status" type="hidden" value="<?php echo esc_attr( $post->post_status ); ?>" />
 
 			<div id="reservation-data" class="panel">
-				<h2><?php echo sprintf( esc_html__( 'Reservation #%d details', 'hotelier' ), $reservation->id ); ?></h2>
+				<h2><?php echo sprintf( esc_html__( 'Reservation #%d details', 'wp-hotelier' ), $reservation->id ); ?></h2>
 
 				<p class="booking-details">
-					<span><?php echo esc_html__( 'Booking mode', 'hotelier' ) . ': ' . esc_html( ucfirst( str_replace( '-', ' ', $booking_method ) ) ); ?></span>
+					<span><?php echo esc_html__( 'Booking mode', 'wp-hotelier' ) . ': ' . esc_html( ucfirst( str_replace( '-', ' ', $booking_method ) ) ); ?></span>
 
 					<?php if ( ( get_post_meta( $post->ID, '_created_via', true ) == 'admin' ) ) : ?>
-						<span> <?php esc_html_e( '(created by admin)', 'hotelier' ); ?></span>
+						<span> <?php esc_html_e( '(created by admin)', 'wp-hotelier' ); ?></span>
 					<?php endif; ?>
 
 					<?php if ( $payment_method ) : ?>
-						<span> &ndash; <?php echo sprintf( esc_html__( 'Payment via %s', 'hotelier' ), $reservation->get_payment_method_title() ); ?></span>
+						<span> &ndash; <?php echo sprintf( esc_html__( 'Payment via %s', 'wp-hotelier' ), $reservation->get_payment_method_title() ); ?></span>
 
 						<?php if ( $transaction_id = $reservation->get_transaction_id() ) {
 							if ( isset( $payment_gateways[ $payment_method ] ) && ( $url = $payment_gateways[ $payment_method ]->get_transaction_url( $reservation ) ) ) {
 								?>
-								<div><small><?php _e( 'Transaction ID:', 'hotelier' ); ?> <a class="transaction-id" href="<?php echo esc_url( $url ); ?>" target="_blank"><?php echo esc_html( $transaction_id ); ?></a></small></div>
+								<div><small><?php _e( 'Transaction ID:', 'wp-hotelier' ); ?> <a class="transaction-id" href="<?php echo esc_url( $url ); ?>" target="_blank"><?php echo esc_html( $transaction_id ); ?></a></small></div>
 								<?php
 							}
 						} ?>
@@ -201,9 +201,9 @@ class HTL_Meta_Box_Reservation_Data {
 
 				<div class="reservation-data-column-wrap">
 					<div class="reservation-data-column">
-						<h4><?php esc_html_e( 'General details', 'hotelier' ); ?></h4>
+						<h4><?php esc_html_e( 'General details', 'wp-hotelier' ); ?></h4>
 
-						<p class="form-field form-field-wide"><label for="reservation-status"><?php _e( 'Reservation status:', 'hotelier' ) ?></label>
+						<p class="form-field form-field-wide"><label for="reservation-status"><?php _e( 'Reservation status:', 'wp-hotelier' ) ?></label>
 
 						<select id="reservation-status" name="reservation_status">
 							<?php
@@ -217,12 +217,12 @@ class HTL_Meta_Box_Reservation_Data {
 
 						<div class="reservation-details">
 							<p>
-								<strong><?php esc_html_e( 'Check-in:', 'hotelier' ) ?></strong>
+								<strong><?php esc_html_e( 'Check-in:', 'wp-hotelier' ) ?></strong>
 								<?php echo esc_html( $reservation->get_formatted_checkin() ); ?>
 							</p>
 
 							<p>
-								<strong><?php esc_html_e( 'Check-out:', 'hotelier' ) ?></strong>
+								<strong><?php esc_html_e( 'Check-out:', 'wp-hotelier' ) ?></strong>
 								<?php echo esc_html( $reservation->get_formatted_checkout() ); ?>
 							</p>
 
@@ -232,7 +232,7 @@ class HTL_Meta_Box_Reservation_Data {
 
 					<div class="reservation-data-column">
 						<h4>
-							<?php esc_html_e( 'Guest details', 'hotelier' ); ?>
+							<?php esc_html_e( 'Guest details', 'wp-hotelier' ); ?>
 							<a href="#" class="edit-address"><i class="dashicons dashicons-edit"></i></a>
 						</h4>
 
@@ -243,21 +243,21 @@ class HTL_Meta_Box_Reservation_Data {
 
 							<?php if ( $reservation->get_formatted_guest_address() ) : ?>
 								<p>
-									<strong><?php esc_html_e( 'Address', 'hotelier' ); ?>:</strong>
+									<strong><?php esc_html_e( 'Address', 'wp-hotelier' ); ?>:</strong>
 									<?php echo wp_kses( $reservation->get_formatted_guest_address(), array( 'br' => array() ) ); ?>
 								</p>
 							<?php endif; ?>
 
 							<?php if ( $reservation->guest_email ) : ?>
 								<p>
-									<strong><?php esc_html_e( 'Email', 'hotelier' ); ?>:</strong>
+									<strong><?php esc_html_e( 'Email', 'wp-hotelier' ); ?>:</strong>
 									<a href="mailto:<?php echo esc_attr( esc_html( $reservation->guest_email ) ); ?>"><?php echo esc_html( $reservation->guest_email ); ?></a>
 								</p>
 							<?php endif; ?>
 
 							<?php if ( $reservation->guest_telephone ) : ?>
 								<p>
-									<strong><?php esc_html_e( 'Telephone', 'hotelier' ); ?>:</strong>
+									<strong><?php esc_html_e( 'Telephone', 'wp-hotelier' ); ?>:</strong>
 									<?php echo esc_html( $reservation->guest_telephone ); ?>
 								</p>
 							<?php endif; ?>
@@ -279,7 +279,7 @@ class HTL_Meta_Box_Reservation_Data {
 
 					<div class="reservation-data-column">
 						<h4>
-							<?php esc_html_e( 'Guest notes', 'hotelier' ); ?>
+							<?php esc_html_e( 'Guest notes', 'wp-hotelier' ); ?>
 							<a href="#" class="edit-address"><i class="dashicons dashicons-edit"></i></a>
 						</h4>
 
@@ -289,7 +289,7 @@ class HTL_Meta_Box_Reservation_Data {
 
 							<?php if ( $reservation->get_arrival_time() ) : ?>
 								<p>
-									<strong><?php esc_html_e( 'Estimated arrival time', 'hotelier' ); ?>:</strong>
+									<strong><?php esc_html_e( 'Estimated arrival time', 'wp-hotelier' ); ?>:</strong>
 									<?php echo esc_html( $reservation->get_formatted_arrival_time() ); ?>
 								</p>
 							<?php endif; ?>
@@ -299,8 +299,8 @@ class HTL_Meta_Box_Reservation_Data {
 							<?php do_action( 'hotelier_reservation_before_guest_special_requets' ); ?>
 
 							<p class="guest-special-requests">
-								<strong><?php esc_html_e( 'Special requests', 'hotelier' ); ?>:</strong>
-								<?php echo esc_html( $reservation->get_guest_special_requests() ? $reservation->get_guest_special_requests() : esc_html__( 'None', 'hotelier' ) ); ?>
+								<strong><?php esc_html_e( 'Special requests', 'wp-hotelier' ); ?>:</strong>
+								<?php echo esc_html( $reservation->get_guest_special_requests() ? $reservation->get_guest_special_requests() : esc_html__( 'None', 'wp-hotelier' ) ); ?>
 							</p>
 
 							<?php do_action( 'hotelier_reservation_after_guest_special_requets' ); ?>
@@ -308,11 +308,11 @@ class HTL_Meta_Box_Reservation_Data {
 						</div>
 
 						<div class="edit-guest-info edit-fields">
-							<p class="form-field form-field-wide"><label for="reservation-status"><?php esc_html_e( 'Estimated arrival time', 'hotelier' ) ?></label>
+							<p class="form-field form-field-wide"><label for="reservation-status"><?php esc_html_e( 'Estimated arrival time', 'wp-hotelier' ) ?></label>
 							<select id="guest-arrival-time" name="guest_arrival_time">
 								<?php
 									$hours = array(
-										'-1' => esc_html__( 'I don\'t know', 'hotelier' ),
+										'-1' => esc_html__( 'I don\'t know', 'wp-hotelier' ),
 										'0'  => '00:00 - 01:00',
 										'1'  => '01:00 - 02:00',
 										'2'  => '02:00 - 03:00',
@@ -345,7 +345,7 @@ class HTL_Meta_Box_Reservation_Data {
 								?>
 							</select></p>
 
-							<p class="form-field"><label><?php esc_html_e( 'Special requests', 'hotelier' ); ?></label><textarea name="guest_special_requests" class="input-text" rows="7" cols="5"><?php echo esc_html( $reservation->get_guest_special_requests() ); ?></textarea></p>
+							<p class="form-field"><label><?php esc_html_e( 'Special requests', 'wp-hotelier' ); ?></label><textarea name="guest_special_requests" class="input-text" rows="7" cols="5"><?php echo esc_html( $reservation->get_guest_special_requests() ); ?></textarea></p>
 						</div>
 					</div>
 				</div>

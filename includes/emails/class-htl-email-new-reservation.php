@@ -25,10 +25,10 @@ class HTL_Email_New_Reservation extends HTL_Email {
 	function __construct() {
 
 		$this->id               = 'new_reservation';
-		$this->title            = esc_html__( 'New reservation', 'hotelier' );
+		$this->title            = esc_html__( 'New reservation', 'wp-hotelier' );
 
-		$this->heading          = htl_get_option( 'emails_new_reservation_heading', __( 'New hotel reservation', 'hotelier' ) );
-		$this->subject          = htl_get_option( 'emails_new_reservation_subject', __( '{site_title} - New hotel reservation #{reservation_number}', 'hotelier' ) );
+		$this->heading          = htl_get_option( 'emails_new_reservation_heading', __( 'New hotel reservation', 'wp-hotelier' ) );
+		$this->subject          = htl_get_option( 'emails_new_reservation_subject', __( '{site_title} - New hotel reservation #{reservation_number}', 'wp-hotelier' ) );
 
 		$this->template_html    = 'emails/admin-new-reservation.php';
 		$this->template_plain   = 'emails/plain/admin-new-reservation.php';

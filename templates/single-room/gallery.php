@@ -72,7 +72,7 @@ foreach ( $attachment_ids as $attachment_id ) {
 
 	<div class="room__gallery room__gallery--single">
 
-		<a href="#" class="room__gallery-link room__gallery-link--single" data-index="0"><?php esc_html_e( 'View room gallery', 'hotelier' ); ?></a>
+		<a href="#" class="room__gallery-link room__gallery-link--single" data-index="0"><?php esc_html_e( 'View room gallery', 'wp-hotelier' ); ?></a>
 
 		<ul style="display:none">
 

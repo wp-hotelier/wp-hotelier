@@ -22,5 +22,5 @@ $datepicker_form_url = apply_filters( 'hotelier_datepicker_form_url', HTL()->car
 	<input type="text" id="hotelier-datepicker-checkin" class="datepicker-input datepicker-input--checkin" name="checkin" value="<?php echo esc_attr( $checkin ); ?>">
 	<input type="text" id="hotelier-datepicker-checkout" class="datepicker-input datepicker-input--checkout" name="checkout" value="<?php echo esc_attr( $checkout ); ?>">
 
-	<?php echo apply_filters( 'hotelier_datepicker_button_html', '<input type="submit" class="button button--datepicker" name="hotelier_datepicker_button" id="datepicker-button" value="' . esc_attr__( 'Check availability', 'hotelier' ) . '" />' ); ?>
+	<?php echo apply_filters( 'hotelier_datepicker_button_html', '<input type="submit" class="button button--datepicker" name="hotelier_datepicker_button" id="datepicker-button" value="' . esc_attr__( 'Check availability', 'wp-hotelier' ) . '" />' ); ?>
 </form>

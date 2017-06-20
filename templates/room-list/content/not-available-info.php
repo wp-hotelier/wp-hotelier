@@ -21,5 +21,5 @@ if ( $is_available ) {
 ?>
 
 <div class="room__not-available-info">
-	<p><?php echo ( apply_filters( 'hotelier_room_list_not_available_info_text', esc_html__( 'The room is not available for this date', 'hotelier' ) ) ); ?></p>
+	<p><?php echo ( apply_filters( 'hotelier_room_list_not_available_info_text', esc_html__( 'The room is not available for this date', 'wp-hotelier' ) ) ); ?></p>
 </div>

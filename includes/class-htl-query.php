@@ -61,10 +61,10 @@ class HTL_Query {
 
 		switch ( $endpoint ) {
 			case 'pay-reservation' :
-				$title = esc_html__( 'Pay reservation', 'hotelier' );
+				$title = esc_html__( 'Pay reservation', 'wp-hotelier' );
 			break;
 			case 'reservation-received' :
-				$title = esc_html__( 'Reservation received', 'hotelier' );
+				$title = esc_html__( 'Reservation received', 'wp-hotelier' );
 			break;
 			default :
 				$title = '';

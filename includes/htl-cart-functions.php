@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 function htl_protected_room_add_to_cart( $passed, $room_id ) {
 	if ( post_password_required( $room_id ) ) {
 		$passed = false;
-		htl_add_notice( esc_html__( 'This room is protected and cannot be reserved.', 'hotelier' ), 'error' );
+		htl_add_notice( esc_html__( 'This room is protected and cannot be reserved.', 'wp-hotelier' ), 'error' );
 	}
 	return $passed;
 }
@@ -113,7 +113,7 @@ function htl_cart_price_breakdown( $checkin, $checkout, $room_id, $rate_id, $qty
 	$breakdown = htl_get_room_price_breakdown( $checkin, $checkout, $room_id, $rate_id, $qty );
 
 	$html = '<table class="table table--price-breakdown price-breakdown" id="' . esc_attr( htl_generate_item_key( $room_id, $rate_id ) ) . '">';
-	$html .= '<thead><tr class="price-breakdown__row price-breakdown__row--heading"><th colspan="2" class="price-breakdown__day price-breakdown__day--heading">' . esc_html__( 'Day', 'hotelier' ) . '</th><th class="price-breakdown__cost price-breakdown__cost--heading">' . esc_html__( 'Cost', 'hotelier' ) . '</th></tr><tbody>';
+	$html .= '<thead><tr class="price-breakdown__row price-breakdown__row--heading"><th colspan="2" class="price-breakdown__day price-breakdown__day--heading">' . esc_html__( 'Day', 'wp-hotelier' ) . '</th><th class="price-breakdown__cost price-breakdown__cost--heading">' . esc_html__( 'Cost', 'wp-hotelier' ) . '</th></tr><tbody>';
 
 	foreach ( $breakdown as $day => $price ) {
 		$html .= '<tr class="price-breakdown__row price-breakdown__row--body">';

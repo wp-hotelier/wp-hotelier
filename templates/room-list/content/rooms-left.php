@@ -22,5 +22,5 @@ $show_left_rooms_message = ( $available_rooms <= $low_room_threshold && $is_avai
 ?>
 
 <?php if ( apply_filters( 'hotelier_show_left_rooms_message', $show_left_rooms_message ) ) : ?>
-	<mark class="room__only-x-left"><?php echo sprintf( _n( '%s room left!', '%s rooms left!', $available_rooms, 'hotelier' ), $available_rooms ); ?></mark>
+	<mark class="room__only-x-left"><?php echo sprintf( _n( '%s room left!', '%s rooms left!', $available_rooms, 'wp-hotelier' ), $available_rooms ); ?></mark>
 <?php endif; ?>

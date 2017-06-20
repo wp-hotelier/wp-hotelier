@@ -18,27 +18,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="reservation-received__section">
 
 	<header class="section-header">
-		<h3 class="section-header__title"><?php esc_html_e( 'Guest details', 'hotelier' ); ?></h3>
+		<h3 class="section-header__title"><?php esc_html_e( 'Guest details', 'wp-hotelier' ); ?></h3>
 	</header>
 
 	<table class="table table--guest-details hotelier-table">
 		<?php if ( $reservation->get_formatted_guest_full_name() ) : ?>
 			<tr class="reservation-table__row reservation-table__row--body">
-				<th class="reservation-table__label"><?php esc_html_e( 'Name:', 'hotelier' ); ?></th>
+				<th class="reservation-table__label"><?php esc_html_e( 'Name:', 'wp-hotelier' ); ?></th>
 				<td class="reservation-table__data"><?php echo esc_html( $reservation->get_formatted_guest_full_name() ); ?></td>
 			</tr>
 		<?php endif; ?>
 
 		<?php if ( $reservation->guest_email ) : ?>
 			<tr class="reservation-table__row reservation-table__row--body">
-				<th class="reservation-table__label"><?php esc_html_e( 'Email:', 'hotelier' ); ?></th>
+				<th class="reservation-table__label"><?php esc_html_e( 'Email:', 'wp-hotelier' ); ?></th>
 				<td class="reservation-table__data"><?php echo esc_html( $reservation->guest_email ); ?></td>
 			</tr>
 		<?php endif; ?>
 
 		<?php if ( $reservation->guest_telephone ) : ?>
 			<tr class="reservation-table__row reservation-table__row--body">
-				<th class="reservation-table__label"><?php esc_html_e( 'Telephone:', 'hotelier' ); ?></th>
+				<th class="reservation-table__label"><?php esc_html_e( 'Telephone:', 'wp-hotelier' ); ?></th>
 				<td class="reservation-table__data"><?php echo esc_html( $reservation->guest_telephone ); ?></td>
 			</tr>
 		<?php endif; ?>
@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div class="reservation-received__section">
 	<header class="section-header">
-		<h3 class="section-header__title"><?php esc_html_e( 'Guest address', 'hotelier' ); ?></h3>
+		<h3 class="section-header__title"><?php esc_html_e( 'Guest address', 'wp-hotelier' ); ?></h3>
 	</header>
 
 	<address class="address address--guest-address">

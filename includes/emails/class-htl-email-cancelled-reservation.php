@@ -25,10 +25,10 @@ class HTL_Email_Cancelled_Reservation extends HTL_Email {
 	function __construct() {
 
 		$this->id               = 'cancelled_reservation';
-		$this->title            = esc_html__( 'Cancelled reservation', 'hotelier' );
+		$this->title            = esc_html__( 'Cancelled reservation', 'wp-hotelier' );
 
-		$this->heading          = htl_get_option( 'emails_cancelled_reservation_heading', __( 'Cancelled reservation', 'hotelier' ) );
-		$this->subject          = htl_get_option( 'emails_cancelled_reservation_subject', __( '{site_title} - Cancelled reservation #{reservation_number}', 'hotelier' ) );
+		$this->heading          = htl_get_option( 'emails_cancelled_reservation_heading', __( 'Cancelled reservation', 'wp-hotelier' ) );
+		$this->subject          = htl_get_option( 'emails_cancelled_reservation_subject', __( '{site_title} - Cancelled reservation #{reservation_number}', 'wp-hotelier' ) );
 
 		$this->template_html    = 'emails/admin-cancelled-reservation.php';
 		$this->template_plain   = 'emails/plain/admin-cancelled-reservation.php';

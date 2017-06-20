@@ -48,14 +48,14 @@ class HTL_Payment_Gateways {
 	 * Cloning is forbidden.
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', 'hotelier' ), '1.0.0' );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', 'wp-hotelier' ), '1.0.0' );
 	}
 
 	/**
 	 * Unserializing instances of this class is forbidden.
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', 'hotelier' ), '1.0.0' );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cheatin&#8217; huh?', 'wp-hotelier' ), '1.0.0' );
 	}
 
 	/**
@@ -95,7 +95,7 @@ class HTL_Payment_Gateways {
 		$gateways =  array(
 			'paypal' => array(
 				'id'          => 'paypal',
-				'admin_label' => esc_html__( 'Paypal Standard', 'hotelier' ),
+				'admin_label' => esc_html__( 'Paypal Standard', 'wp-hotelier' ),
 				'class'       => 'HTL_Gateway_Paypal',
 			)
 		);

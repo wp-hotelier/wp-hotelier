@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<p class="hotelier-notice hotelier-notice--info hotelier-notice--no-rooms-available"><?php esc_html_e( 'We are sorry, there are no rooms available on your requested dates. Please try again with some different dates.', 'hotelier' ); ?></p>
+<p class="hotelier-notice hotelier-notice--info hotelier-notice--no-rooms-available"><?php esc_html_e( 'We are sorry, there are no rooms available on your requested dates. Please try again with some different dates.', 'wp-hotelier' ); ?></p>
 
 <?php
 	/**

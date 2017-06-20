@@ -39,7 +39,7 @@ $available_rooms = absint( $room->get_available_rooms( $checkin, $checkout ) );
 			<input type="hidden" name="add_to_cart_room[<?php echo esc_attr( $key ); ?>]" value="<?php echo esc_attr( apply_filters( 'hotelier_add_to_cart_room_id', $room->id, $room ) ); ?>" />
 			<input type="hidden" name="rate_id[<?php echo esc_attr( $key ); ?>]" value="<?php echo absint( $variation->get_room_index() ); ?>" />
 
-			<a href="#reserve-button" data-selected-text-singular="<?php echo esc_attr_x( 'room selected', 'book now button text: singular', 'hotelier' ); ?>" data-selected-text-plural="<?php echo esc_attr_x( 'rooms selected', 'book now button text: plural', 'hotelier' ); ?>" class="button button--add-to-cart"><?php esc_html_e( 'Book now', 'hotelier' ); ?></a>
+			<a href="#reserve-button" data-selected-text-singular="<?php echo esc_attr_x( 'room selected', 'book now button text: singular', 'wp-hotelier' ); ?>" data-selected-text-plural="<?php echo esc_attr_x( 'rooms selected', 'book now button text: plural', 'wp-hotelier' ); ?>" class="button button--add-to-cart"><?php esc_html_e( 'Book now', 'wp-hotelier' ); ?></a>
 
 			<?php do_action( 'hotelier_after_add_to_cart_button' ); ?>
 

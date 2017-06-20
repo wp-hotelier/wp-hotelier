@@ -23,12 +23,12 @@ foreach ( $items as $item_id => $item ) : ?>
 
 			if ( isset( $item[ 'rate_name' ] ) ) {
 				// Rate
-				echo '<br><small style="text-align:left;font-size:12px;line-height:16px;color:#999999;font-family:Helvetica,Arial;">' . sprintf( esc_html__( 'Rate: %s', 'hotelier' ), htl_get_formatted_room_rate( $item[ 'rate_name' ] ) ) . '</small>';
+				echo '<br><small style="text-align:left;font-size:12px;line-height:16px;color:#999999;font-family:Helvetica,Arial;">' . sprintf( esc_html__( 'Rate: %s', 'wp-hotelier' ), htl_get_formatted_room_rate( $item[ 'rate_name' ] ) ) . '</small>';
 			}
 
 			if ( ! $item[ 'is_cancellable' ] ) {
 				// Non cancellable info
-				echo '<br><small style="text-align:left;font-size:12px;line-height:16px;color:red;font-family:Helvetica,Arial;">' . esc_html__( 'Non-refundable', 'hotelier' ) . '</small>';
+				echo '<br><small style="text-align:left;font-size:12px;line-height:16px;color:red;font-family:Helvetica,Arial;">' . esc_html__( 'Non-refundable', 'wp-hotelier' ) . '</small>';
 			}
 
 			// Allow other plugins to add additional room information here

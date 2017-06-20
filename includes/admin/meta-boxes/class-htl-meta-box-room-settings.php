@@ -102,10 +102,10 @@ class HTL_Meta_Box_Room_Settings {
 					array(
 						'id'      => '_room_type',
 						'show_id' => true,
-						'label'   => esc_html__( 'Room type:', 'hotelier' ),
+						'label'   => esc_html__( 'Room type:', 'wp-hotelier' ),
 						'options' => array(
-							'standard_room' => esc_html__( 'Standard room', 'hotelier' ),
-							'variable_room' => esc_html__( 'Variable room', 'hotelier' )
+							'standard_room' => esc_html__( 'Standard room', 'wp-hotelier' ),
+							'variable_room' => esc_html__( 'Variable room', 'wp-hotelier' )
 						)
 					)
 				);
@@ -115,7 +115,7 @@ class HTL_Meta_Box_Room_Settings {
 					array(
 						'id'      => '_max_guests',
 						'show_id' => true,
-						'label'   => esc_html__( 'Guests:', 'hotelier' ),
+						'label'   => esc_html__( 'Guests:', 'wp-hotelier' ),
 						'options' => self::get_guests()
 					)
 				);
@@ -125,7 +125,7 @@ class HTL_Meta_Box_Room_Settings {
 					array(
 						'id'      => '_max_children',
 						'show_id' => true,
-						'label'   => esc_html__( 'Children:', 'hotelier' ),
+						'label'   => esc_html__( 'Children:', 'wp-hotelier' ),
 						'options' => self::get_children()
 					)
 				);
@@ -135,8 +135,8 @@ class HTL_Meta_Box_Room_Settings {
 					array(
 						'id'          => '_bed_size',
 						'show_id'     => true,
-						'label'       => esc_html__( 'Bed size(s):', 'hotelier' ),
-						'placeholder' => esc_html__( '1 king', 'hotelier' )
+						'label'       => esc_html__( 'Bed size(s):', 'wp-hotelier' ),
+						'placeholder' => esc_html__( '1 king', 'wp-hotelier' )
 					)
 				);
 
@@ -146,7 +146,7 @@ class HTL_Meta_Box_Room_Settings {
 					array(
 						'id'          => '_room_size',
 						'show_id'     => true,
-						'label'       => esc_html__( 'Room size', 'hotelier' ) . ' (' . $hotelier_dimension_unit . '):' ,
+						'label'       => esc_html__( 'Room size', 'wp-hotelier' ) . ' (' . $hotelier_dimension_unit . '):' ,
 						'placeholder' => '10'
 					)
 				);
@@ -156,15 +156,15 @@ class HTL_Meta_Box_Room_Settings {
 					array(
 						'id'          => '_stock_rooms',
 						'show_id'     => true,
-						'label'       => esc_html__( 'Stock rooms?', 'hotelier' ),
+						'label'       => esc_html__( 'Stock rooms?', 'wp-hotelier' ),
 						'options'     => self::get_stock_rooms(),
-						'description' => esc_html__( 'This is the total number of rooms available in the structure.', 'hotelier' )
+						'description' => esc_html__( 'This is the total number of rooms available in the structure.', 'wp-hotelier' )
 					)
 				);
 
 				// additional settings button
 				?>
-				<p class="form-field"><a id="view-room-additional-settings" href="#room-additional-settings" class="button button-primary"><?php esc_html_e( 'Additional settings', 'hotelier' ) ?></a></p>
+				<p class="form-field"><a id="view-room-additional-settings" href="#room-additional-settings" class="button button-primary"><?php esc_html_e( 'Additional settings', 'wp-hotelier' ) ?></a></p>
 
 				<?php
 				/**
@@ -178,7 +178,7 @@ class HTL_Meta_Box_Room_Settings {
 
 				<div class="standard-room-panel">
 
-					<h4><?php esc_html_e( 'Standard room', 'hotelier' ); ?></h4>
+					<h4><?php esc_html_e( 'Standard room', 'wp-hotelier' ); ?></h4>
 
 					<?php
 
@@ -198,8 +198,8 @@ class HTL_Meta_Box_Room_Settings {
 								'id'          => '_require_deposit',
 								'show_id'     => true,
 								'class'       => 'require-deposit',
-								'label'       => esc_html__( 'Require deposit?', 'hotelier' ),
-								'description' => esc_html__( 'When selected, a deposit is required at the time of booking.', 'hotelier' )
+								'label'       => esc_html__( 'Require deposit?', 'wp-hotelier' ),
+								'description' => esc_html__( 'When selected, a deposit is required at the time of booking.', 'wp-hotelier' )
 							)
 						); ?>
 
@@ -210,7 +210,7 @@ class HTL_Meta_Box_Room_Settings {
 								array(
 									'id'      => '_deposit_amount',
 									'show_id' => true,
-									'label'   => esc_html__( 'Deposit amount:', 'hotelier' ),
+									'label'   => esc_html__( 'Deposit amount:', 'wp-hotelier' ),
 									'options' => self::get_deposit_options()
 								)
 							);
@@ -232,8 +232,8 @@ class HTL_Meta_Box_Room_Settings {
 							array(
 								'id'          => '_non_cancellable',
 								'show_id'     => true,
-								'label'       => esc_html__( 'Non cancellable?', 'hotelier' ),
-								'description' => esc_html__( 'When checked, reservations that include this room will be non cancellable and non refundable.', 'hotelier' )
+								'label'       => esc_html__( 'Non cancellable?', 'wp-hotelier' ),
+								'description' => esc_html__( 'When checked, reservations that include this room will be non cancellable and non refundable.', 'wp-hotelier' )
 							)
 						); ?>
 					</div>
@@ -256,12 +256,12 @@ class HTL_Meta_Box_Room_Settings {
 
 				<div class="variation-room-panel">
 
-					<h4><?php esc_html_e( 'Variable room', 'hotelier' ); ?></h4>
+					<h4><?php esc_html_e( 'Variable room', 'wp-hotelier' ); ?></h4>
 
 					<div class="toolbar">
-						<a href="#" class="expand-all"><?php esc_html_e( 'Expand all', 'hotelier' ); ?></a>
-						<a href="#" class="close-all"><?php esc_html_e( 'Close all', 'hotelier' ); ?></a>
-						<button type="button" class="add-variation button button-primary"><?php esc_html_e( 'Add room rate', 'hotelier' ); ?></button>
+						<a href="#" class="expand-all"><?php esc_html_e( 'Expand all', 'wp-hotelier' ); ?></a>
+						<a href="#" class="close-all"><?php esc_html_e( 'Close all', 'wp-hotelier' ); ?></a>
+						<button type="button" class="add-variation button button-primary"><?php esc_html_e( 'Add room rate', 'wp-hotelier' ); ?></button>
 					</div>
 
 					<?php
@@ -288,7 +288,7 @@ class HTL_Meta_Box_Room_Settings {
 
 										// room rate
 
-										echo '<label><strong>' . esc_html__( 'Room rate:', 'hotelier' ) . '</strong><select class="room-rates" name="_room_variations[' . absint( $loop ) . '][room_rate]">';
+										echo '<label><strong>' . esc_html__( 'Room rate:', 'wp-hotelier' ) . '</strong><select class="room-rates" name="_room_variations[' . absint( $loop ) . '][room_rate]">';
 
 										$room_rate_selected = is_array( $variations ) && isset( $variations[ absint( $loop ) ][ 'room_rate' ] ) ? $variations[ absint( $loop ) ][ 'room_rate' ] : false;
 
@@ -299,7 +299,7 @@ class HTL_Meta_Box_Room_Settings {
 
 										?>
 
-										<button type="button" class="remove-variation button"><?php esc_html_e( 'Remove', 'hotelier' ); ?></button>
+										<button type="button" class="remove-variation button"><?php esc_html_e( 'Remove', 'wp-hotelier' ); ?></button>
 
 										<input type="hidden" class="variation-index" name="_room_variations[<?php echo absint( $loop ); ?>][index]" value="<?php echo absint( $loop ); ?>">
 
@@ -326,8 +326,8 @@ class HTL_Meta_Box_Room_Settings {
 													'name'        => '_room_variations[' . absint( $loop ) . '][require_deposit]',
 													'depth'       => array( absint( $loop ), 'require_deposit' ),
 													'class'       => 'require-deposit',
-													'label'       => esc_html__( 'Require deposit?', 'hotelier' ),
-													'description' => esc_html__( 'When selected, a deposit is required at the time of booking.', 'hotelier' )
+													'label'       => esc_html__( 'Require deposit?', 'wp-hotelier' ),
+													'description' => esc_html__( 'When selected, a deposit is required at the time of booking.', 'wp-hotelier' )
 												)
 											); ?>
 
@@ -339,7 +339,7 @@ class HTL_Meta_Box_Room_Settings {
 														'id'      => '_room_variations',
 														'name'    => '_room_variations[' . absint( $loop ) . '][deposit_amount]',
 														'depth'   => array( absint( $loop ), 'deposit_amount' ),
-														'label'   => esc_html__( 'Deposit amount:', 'hotelier' ),
+														'label'   => esc_html__( 'Deposit amount:', 'wp-hotelier' ),
 														'options' => self::get_deposit_options()
 													)
 												);
@@ -362,8 +362,8 @@ class HTL_Meta_Box_Room_Settings {
 													'id'          => '_room_variations',
 													'name'        => '_room_variations[' . absint( $loop ) . '][non_cancellable]',
 													'depth'       => array( absint( $loop ), 'non_cancellable' ),
-													'label'       => esc_html__( 'Non cancellable?', 'hotelier' ),
-													'description' => esc_html__( 'When checked, reservations that include this room will be non cancellable and non refundable.', 'hotelier' )
+													'label'       => esc_html__( 'Non cancellable?', 'wp-hotelier' ),
+													'description' => esc_html__( 'When checked, reservations that include this room will be non cancellable and non refundable.', 'wp-hotelier' )
 												)
 											); ?>
 										</div>
@@ -391,14 +391,14 @@ class HTL_Meta_Box_Room_Settings {
 
 					<?php else : ?>
 
-						<p class="message empty-variations"><?php printf( wp_kses( __( 'Before adding variations, add and save some <a href="%1$s">room rates</a>.', 'hotelier' ), array( 'a' => array( 'href' => array() ) ) ), 'edit-tags.php?taxonomy=room_rate&post_type=room' ); ?></p>
+						<p class="message empty-variations"><?php printf( wp_kses( __( 'Before adding variations, add and save some <a href="%1$s">room rates</a>.', 'wp-hotelier' ), array( 'a' => array( 'href' => array() ) ) ), 'edit-tags.php?taxonomy=room_rate&post_type=room' ); ?></p>
 
 					<?php endif; ?>
 
 					<div class="toolbar">
-						<a href="#" class="expand-all"><?php esc_html_e( 'Expand all', 'hotelier' ); ?></a>
-						<a href="#" class="close-all"><?php esc_html_e( 'Close all', 'hotelier' ); ?></a>
-						<button type="button" class="add-variation button button-primary"><?php esc_html_e( 'Add room rate', 'hotelier' ); ?></button>
+						<a href="#" class="expand-all"><?php esc_html_e( 'Expand all', 'wp-hotelier' ); ?></a>
+						<a href="#" class="close-all"><?php esc_html_e( 'Close all', 'wp-hotelier' ); ?></a>
+						<button type="button" class="add-variation button button-primary"><?php esc_html_e( 'Add room rate', 'wp-hotelier' ); ?></button>
 					</div>
 
 				</div><!-- .variation-room-panel -->
@@ -406,10 +406,10 @@ class HTL_Meta_Box_Room_Settings {
 			</div><!-- .room-advanced-settings -->
 
 			<div id="room-additional-settings" class="room-additional-settings">
-				<h4><?php esc_html_e( 'Additional room settings', 'hotelier' ); ?></h4>
+				<h4><?php esc_html_e( 'Additional room settings', 'wp-hotelier' ); ?></h4>
 
 				<p class="form-field room-additional-settings-close-button">
-					<a href="#hotelier-room-settings" id="close-room-additional-settings" class="button"><?php esc_html_e( 'Back to the room settings', 'hotelier' ); ?></a>
+					<a href="#hotelier-room-settings" id="close-room-additional-settings" class="button"><?php esc_html_e( 'Back to the room settings', 'wp-hotelier' ); ?></a>
 				</p>
 
 				<?php
@@ -423,8 +423,8 @@ class HTL_Meta_Box_Room_Settings {
 					array(
 						'id'          => '_room_additional_details',
 						'show_id'     => true,
-						'label'       => esc_html__( 'Additional details', 'hotelier' ),
-						'description' => esc_html__( 'These details are not prominent by default; however, some themes may show them.', 'hotelier' )
+						'label'       => esc_html__( 'Additional details', 'wp-hotelier' ),
+						'description' => esc_html__( 'These details are not prominent by default; however, some themes may show them.', 'wp-hotelier' )
 					)
 				);
 

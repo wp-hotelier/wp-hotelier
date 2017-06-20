@@ -20,24 +20,24 @@ class HTL_Widget_Rooms_Filter extends HTL_Widget {
 	 */
 	public function __construct() {
 		$this->widget_cssclass    = 'widget--hotelier widget-rooms-filter';
-		$this->widget_description = __( 'Displays a custom filter which lets you narrow down the list of rooms. Visible only in the "listing" page.', 'hotelier' );
+		$this->widget_description = __( 'Displays a custom filter which lets you narrow down the list of rooms. Visible only in the "listing" page.', 'wp-hotelier' );
 		$this->widget_id          = 'hotelier-widget-rooms-filter';
-		$this->widget_name        = __( 'Hotelier Rooms Filter', 'hotelier' );
+		$this->widget_name        = __( 'Hotelier Rooms Filter', 'wp-hotelier' );
 		$this->settings           = array(
 			'title'  => array(
 				'type'  => 'text',
-				'std'   => __( 'Refine results', 'hotelier' ),
-				'label' => __( 'Title', 'hotelier' )
+				'std'   => __( 'Refine results', 'wp-hotelier' ),
+				'label' => __( 'Title', 'wp-hotelier' )
 			),
 			'max_guests' => array(
 				'type'  => 'number',
 				'std'   => 7,
-				'label' => __( 'Max guests (type "0" to hide this filter)', 'hotelier' )
+				'label' => __( 'Max guests (type "0" to hide this filter)', 'wp-hotelier' )
 			),
 			'max_children' => array(
 				'type'  => 'number',
 				'std'   => 3,
-				'label' => __( 'Max children (type "0" to hide this filter)', 'hotelier' )
+				'label' => __( 'Max children (type "0" to hide this filter)', 'wp-hotelier' )
 			)
 		);
 
@@ -104,7 +104,7 @@ class HTL_Widget_Rooms_Filter extends HTL_Widget {
 
 				<div class="widget-rooms-filter__group widget-rooms-filter__group--room-type">
 
-					<span class="widget-rooms-filter__group-label"><?php esc_html_e( 'Room type', 'hotelier' ); ?></span>
+					<span class="widget-rooms-filter__group-label"><?php esc_html_e( 'Room type', 'wp-hotelier' ); ?></span>
 
 					<ul class="widget-rooms-filter__group-list widget-rooms-filter__group-list--room-type">
 
@@ -150,7 +150,7 @@ class HTL_Widget_Rooms_Filter extends HTL_Widget {
 
 				<div class="widget-rooms-filter__group widget-rooms-filter__group--room-rate">
 
-					<span class="widget-rooms-filter__group-label"><?php esc_html_e( 'Room rate', 'hotelier' ); ?></span>
+					<span class="widget-rooms-filter__group-label"><?php esc_html_e( 'Room rate', 'wp-hotelier' ); ?></span>
 
 					<ul class="widget-rooms-filter__group-list widget-rooms-filter__group-list--room-rate">
 
@@ -194,7 +194,7 @@ class HTL_Widget_Rooms_Filter extends HTL_Widget {
 
 				<div class="widget-rooms-filter__group widget-rooms-filter__group--guests">
 
-					<span class="widget-rooms-filter__group-label"><?php esc_html_e( 'Guests', 'hotelier' ); ?></span>
+					<span class="widget-rooms-filter__group-label"><?php esc_html_e( 'Guests', 'wp-hotelier' ); ?></span>
 
 					<?php $guests =  range( 2, $max_guests ); ?>
 
@@ -238,7 +238,7 @@ class HTL_Widget_Rooms_Filter extends HTL_Widget {
 
 				<div class="widget-rooms-filter__group widget-rooms-filter__group--children">
 
-					<span class="widget-rooms-filter__group-label"><?php esc_html_e( 'Children', 'hotelier' ); ?></span>
+					<span class="widget-rooms-filter__group-label"><?php esc_html_e( 'Children', 'wp-hotelier' ); ?></span>
 
 					<?php $children =  range( 1, $max_children ); ?>
 

@@ -104,19 +104,19 @@ class HTL_Shortcode_Booking {
 					htl_get_template( 'booking/form-pay.php', array(
 						'reservation'             => $reservation,
 						'available_gateways'      => $available_gateways,
-						'reservation_button_text' => apply_filters( 'hotelier_pay_reservation_button_text', esc_html__( 'Pay deposit', 'hotelier' ) )
+						'reservation_button_text' => apply_filters( 'hotelier_pay_reservation_button_text', esc_html__( 'Pay deposit', 'wp-hotelier' ) )
 					) );
 
 				} else {
-					htl_add_notice( esc_html__( 'Hi there! Seems that this reservation does not require a deposit. Please contact us if you need assistance.', 'hotelier' ), 'error' );
+					htl_add_notice( esc_html__( 'Hi there! Seems that this reservation does not require a deposit. Please contact us if you need assistance.', 'wp-hotelier' ), 'error' );
 				}
 
 			} else {
-				htl_add_notice( esc_html__( 'Sorry, this reservation is invalid and cannot be paid for.', 'hotelier' ), 'error' );
+				htl_add_notice( esc_html__( 'Sorry, this reservation is invalid and cannot be paid for.', 'wp-hotelier' ), 'error' );
 			}
 
 		} else {
-			htl_add_notice( esc_html__( 'Invalid reservation.', 'hotelier' ), 'error' );
+			htl_add_notice( esc_html__( 'Invalid reservation.', 'wp-hotelier' ), 'error' );
 		}
 
 		htl_print_notices();

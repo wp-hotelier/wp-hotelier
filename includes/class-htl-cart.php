@@ -114,7 +114,7 @@ class HTL_Cart {
 	 */
 	public function get_cart() {
 		if ( ! did_action( 'wp_loaded' ) ) {
-			_doing_it_wrong( __FUNCTION__, esc_html__( 'Get cart should not be called before the wp_loaded action.', 'hotelier' ), '1.0.0' );
+			_doing_it_wrong( __FUNCTION__, esc_html__( 'Get cart should not be called before the wp_loaded action.', 'wp-hotelier' ), '1.0.0' );
 		}
 
 		if ( ! did_action( 'hotelier_cart_loaded_from_session' ) ) {
@@ -179,7 +179,7 @@ class HTL_Cart {
 						// Flag to indicate the stored cart should be update
 						$update_cart_session = true;
 
-						htl_add_notice( sprintf( esc_html__( '%s has been removed from your cart because it can no longer be reserved. Please contact us if you need assistance.', 'hotelier' ), $_room->get_title() ), 'error' );
+						htl_add_notice( sprintf( esc_html__( '%s has been removed from your cart because it can no longer be reserved. Please contact us if you need assistance.', 'wp-hotelier' ), $_room->get_title() ), 'error' );
 						do_action( 'hotelier_remove_cart_item_from_session', $key, $values );
 
 					} else {
@@ -266,7 +266,7 @@ class HTL_Cart {
 			$rate_id  = absint( $rate_id );
 
 			if ( ! HTL_Formatting_Helper::is_valid_checkin_checkout( $this->checkin, $this->checkout ) ) {
-				throw new Exception( esc_html__( 'Sorry, this room is not available on the given dates.', 'hotelier' ) );
+				throw new Exception( esc_html__( 'Sorry, this room is not available on the given dates.', 'wp-hotelier' ) );
 			}
 
 			// Get the room
@@ -274,7 +274,7 @@ class HTL_Cart {
 
 			if ( ! $_room->exists() ) {
 				// Oops, check failed so throw an error (this this room does not exists)
-				throw new Exception( esc_html__( 'Sorry, this room does not exists.', 'hotelier' ) );
+				throw new Exception( esc_html__( 'Sorry, this room does not exists.', 'wp-hotelier' ) );
 			}
 
 			// Sanitity check
@@ -291,7 +291,7 @@ class HTL_Cart {
 
 			// Check room is_available on the given dates
 			if ( ! $_room->is_available( $this->checkin, $this->checkout, $real_qty ) ) {
-				throw new Exception( esc_html__( 'Sorry, this room is not available on the given dates.', 'hotelier' ) );
+				throw new Exception( esc_html__( 'Sorry, this room is not available on the given dates.', 'wp-hotelier' ) );
 			}
 
 			// If a $rate_id > 0 is passed, then this is (technically) a variable room
@@ -299,7 +299,7 @@ class HTL_Cart {
 
 				if ( ! $_room->is_variable_room() ) {
 					// Oops, check failed so throw an error (this is not a variable room)
-					throw new Exception( esc_html__( 'Sorry, this room does not exists.', 'hotelier' ) );
+					throw new Exception( esc_html__( 'Sorry, this room does not exists.', 'wp-hotelier' ) );
 				}
 
 				// Check if the room has this rate and get it (we need the slug)
@@ -320,11 +320,11 @@ class HTL_Cart {
 				} else {
 
 					// Oops, check failed so throw an error (rate does not exist in the room_rate taxonomy)
-					throw new Exception( esc_html__( 'Sorry, this room does not exists.', 'hotelier' ) );
+					throw new Exception( esc_html__( 'Sorry, this room does not exists.', 'wp-hotelier' ) );
 				}
 			} elseif ( $rate_id === 0 && $_room->is_variable_room() ) {
 				// Oops, check failed so throw an error (passed rate_id = 0 but this is a variable room)
-				throw new Exception( esc_html__( 'Sorry, this room does not exists.', 'hotelier' ) );
+				throw new Exception( esc_html__( 'Sorry, this room does not exists.', 'wp-hotelier' ) );
 			} else {
 				// This is a standard room
 				$rate_name  = false;
@@ -405,7 +405,7 @@ class HTL_Cart {
 			if ( ! $line_price ) {
 				// Remove room from cart if has not price and throw an error
 				unset( $cart[ $cart_item_key ] );
-				htl_add_notice( esc_html__( 'Sorry, this room cannot be reserved.', 'hotelier' ), 'error' );
+				htl_add_notice( esc_html__( 'Sorry, this room cannot be reserved.', 'wp-hotelier' ), 'error' );
 			}
 
 			// The total price of the room
@@ -518,7 +518,7 @@ class HTL_Cart {
 			if ( ! $_room || ! $_room->exists() || $_room->post->post_status == 'trash' ) {
 				$this->set_quantity( $cart_item_key, 0 );
 
-				return new WP_Error( 'invalid', sprintf( esc_html__( '%s has been removed from your cart because it can no longer be reserved. Please contact us if you need assistance.', 'hotelier' ), $_room->get_title() ) );
+				return new WP_Error( 'invalid', sprintf( esc_html__( '%s has been removed from your cart because it can no longer be reserved. Please contact us if you need assistance.', 'wp-hotelier' ), $_room->get_title() ) );
 			}
 		}
 
@@ -539,7 +539,7 @@ class HTL_Cart {
 
 			// Check room is_available on the given dates
 			if ( ! $_room->is_available( $this->checkin, $this->checkout, $qty ) ) {
-				$error->add( 'room-not-available', sprintf( esc_html__( 'Sorry, we do not have enough "%s" available to fulfill your reservation. Please select another room or reduce the quantity and try again. We apologise for any inconvenience caused.', 'hotelier' ), $_room->get_title() ) );
+				$error->add( 'room-not-available', sprintf( esc_html__( 'Sorry, we do not have enough "%s" available to fulfill your reservation. Please select another room or reduce the quantity and try again. We apologise for any inconvenience caused.', 'wp-hotelier' ), $_room->get_title() ) );
 
 				return $error;
 			}
@@ -560,7 +560,7 @@ class HTL_Cart {
 			$qty   = $this->cart_contents_quantity[ $_room->id ];
 
 			if ( ! apply_filters( 'hotelier_check_cart_item_for_extensions', true, $_room, $this->checkin, $this->checkout, $qty, $values ) ) {
-				return new WP_Error( 'invalid', esc_html( apply_filters( 'hotelier_check_cart_item_for_extensions_error', __( 'Sorry, this room cannot be reserved.', 'hotelier' ), $_room, $this->checkin, $this->checkout, $qty, $values ) ) );
+				return new WP_Error( 'invalid', esc_html( apply_filters( 'hotelier_check_cart_item_for_extensions_error', __( 'Sorry, this room cannot be reserved.', 'wp-hotelier' ), $_room, $this->checkin, $this->checkout, $qty, $values ) ) );
 			}
 		}
 

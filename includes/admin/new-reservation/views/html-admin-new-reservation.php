@@ -39,36 +39,36 @@ $tomorrow = $tomorrow->format( 'Y-m-d' );
 
 	if ( $rooms->have_posts() ) : ?>
 
-		<h1><?php esc_html_e( 'Add new reservation', 'hotelier' ); ?></h1>
+		<h1><?php esc_html_e( 'Add new reservation', 'wp-hotelier' ); ?></h1>
 
 		<form method="post" class="add-new-reservation-form">
 			<table class="form-table">
 				<tbody>
 					<tr>
-						<th scope="row"><?php esc_html_e( 'Select room:', 'hotelier' ); ?></th>
+						<th scope="row"><?php esc_html_e( 'Select room:', 'wp-hotelier' ); ?></th>
 						<td>
 							<div class="add-new-room-row" data-key="0">
 								<?php echo htl_get_list_of_rooms_html( 'room[0]' ); ?>
 								<input type="number" name="room_qty[0]" value="1">
-								<button type="button" class="button remove-room" disabled><?php esc_html_e( 'Remove room', 'hotelier' ); ?></button>
+								<button type="button" class="button remove-room" disabled><?php esc_html_e( 'Remove room', 'wp-hotelier' ); ?></button>
 							</div>
-							<button type="button" class="button button-primary add-new-room"><?php esc_html_e( 'Add another room', 'hotelier' ); ?></button>
+							<button type="button" class="button button-primary add-new-room"><?php esc_html_e( 'Add another room', 'wp-hotelier' ); ?></button>
 						</td>
 					</tr>
 					<tr>
-						<th scope="row"><?php esc_html_e( 'Check-in:', 'hotelier' ); ?></th>
+						<th scope="row"><?php esc_html_e( 'Check-in:', 'wp-hotelier' ); ?></th>
 						<td>
 							<input class="date-from" type="text" placeholder="YYYY-MM-DD" name="from" value="<?php echo esc_attr( $today ); ?>">
 						</td>
 					</tr>
 					<tr>
-						<th scope="row"><?php esc_html_e( 'Check-out:', 'hotelier' ); ?></th>
+						<th scope="row"><?php esc_html_e( 'Check-out:', 'wp-hotelier' ); ?></th>
 						<td>
 							<input class="date-to" type="text" placeholder="YYYY-MM-DD" name="to" value="<?php echo esc_attr( $tomorrow ); ?>">
 						</td>
 					</tr>
 					<tr>
-						<th scope="row"><strong><?php esc_html_e( 'Guest details', 'hotelier' ); ?></strong></th>
+						<th scope="row"><strong><?php esc_html_e( 'Guest details', 'wp-hotelier' ); ?></strong></th>
 						<td><hr></td>
 					</tr>
 					<?php foreach ( HTL_Meta_Box_Reservation_Data::get_guest_details_fields() as $key => $field ) :
@@ -84,16 +84,16 @@ $tomorrow = $tomorrow->format( 'Y-m-d' );
 			</table>
 
 			<p class="submit">
-				<input type="submit" name="hotelier_admin_add_new_reservation" class="button button-primary add-new-reservation" value="<?php esc_attr_e( 'Save reservation', 'hotelier' ); ?>">
+				<input type="submit" name="hotelier_admin_add_new_reservation" class="button button-primary add-new-reservation" value="<?php esc_attr_e( 'Save reservation', 'wp-hotelier' ); ?>">
 				<?php wp_nonce_field( 'hotelier_admin_process_new_reservation' ); ?>
 			</p>
 		</form>
 
 	<?php else : ?>
 
-		<div class="error"><p><?php esc_html_e( 'In order to create a reservation, you need to have at least one room.', 'hotelier' ); ?></p></div>
+		<div class="error"><p><?php esc_html_e( 'In order to create a reservation, you need to have at least one room.', 'wp-hotelier' ); ?></p></div>
 
-		<p><?php printf( wp_kses( __( 'Create a new room <a href="%s">here</a>.', 'hotelier' ), array( 'a' => array( 'href' => array() ) ) ), 'post-new.php?post_type=room' ); ?></p>
+		<p><?php printf( wp_kses( __( 'Create a new room <a href="%s">here</a>.', 'wp-hotelier' ), array( 'a' => array( 'href' => array() ) ) ), 'post-new.php?post_type=room' ); ?></p>
 
 	<?php endif; ?>
 

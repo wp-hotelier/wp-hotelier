@@ -23,20 +23,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php echo esc_html( $item[ 'name' ] ); ?>
 			</a>
 			<?php if ( isset( $item[ 'rate_name' ] ) ) : ?>
-				<span><?php echo esc_html__( 'Rate', 'hotelier' ) . ': '; ?><span class="rate"><?php echo htl_get_formatted_room_rate( $item[ 'rate_name' ] ); ?></span></span>
+				<span><?php echo esc_html__( 'Rate', 'wp-hotelier' ) . ': '; ?><span class="rate"><?php echo htl_get_formatted_room_rate( $item[ 'rate_name' ] ); ?></span></span>
 			<?php else : ?>
-				<span><?php echo esc_html__( 'Standard room', 'hotelier' ); ?></span>
+				<span><?php echo esc_html__( 'Standard room', 'wp-hotelier' ); ?></span>
 			<?php endif; ?>
 		<?php else : ?>
 			<?php echo esc_html( $item[ 'name' ] ); ?>
 			<?php if ( isset( $item[ 'rate_name' ] ) ) : ?>
 				<?php echo htl_get_formatted_room_rate( $item[ 'rate_name' ] ); ?>
 			<?php else : ?>
-				<span><?php echo esc_html__( 'Standard room', 'hotelier' ); ?></span>
+				<span><?php echo esc_html__( 'Standard room', 'wp-hotelier' ); ?></span>
 			<?php endif; ?>
 		<?php endif; ?>
 		<?php if ( isset( $item[ 'is_cancellable' ] ) && ! $item[ 'is_cancellable' ] ) : ?>
-			<span class="non-refundable"><?php echo esc_html__( 'Non-refundable', 'hotelier' ); ?></span>
+			<span class="non-refundable"><?php echo esc_html__( 'Non-refundable', 'wp-hotelier' ); ?></span>
 		<?php endif; ?>
 	</td>
 	<td class="guests">

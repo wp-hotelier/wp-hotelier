@@ -17,7 +17,7 @@ if ( $related_rooms && $related_rooms->have_posts() ) : ?>
 
 	<div class="related-rooms">
 
-		<h3 class="related-rooms-title"><?php _e( 'Related rooms', 'hotelier' ); ?></h3>
+		<h3 class="related-rooms-title"><?php _e( 'Related rooms', 'wp-hotelier' ); ?></h3>
 
 		<div class="hotelier room-loop room-loop--related-rooms room-loop--columns-<?php echo absint( $columns ); ?>">
 

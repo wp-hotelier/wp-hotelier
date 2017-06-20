@@ -15,4 +15,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<a class="button button--view-room-details" href="<?php the_permalink() ?>"><?php esc_html_e( 'View room details', 'hotelier' ); ?></a>
+<a class="button button--view-room-details" href="<?php the_permalink() ?>"><?php esc_html_e( 'View room details', 'wp-hotelier' ); ?></a>

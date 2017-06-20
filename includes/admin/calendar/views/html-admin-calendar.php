@@ -18,7 +18,7 @@ $prev_week = $prev_week->modify( '-7 days' )->format( 'Y-m-d' );
 
 <div class="wrap hotelier">
 
-	<h1><?php esc_html_e( 'Booking calendar', 'hotelier' ); ?></h1>
+	<h1><?php esc_html_e( 'Booking calendar', 'wp-hotelier' ); ?></h1>
 
 	<?php
 	$classes = array();
@@ -66,7 +66,7 @@ $prev_week = $prev_week->modify( '-7 days' )->format( 'Y-m-d' );
 				<a class="button bc-weeks__button bc-weeks__button--2" href="<?php echo esc_url( add_query_arg( 'weeks', 2 ) ); ?>">14</a>
 			</li>
 			<li class="bc-weeks__item bc-weeks__item--today">
-				<a class="button bc-weeks__button bc-weeks__button--roday" href="<?php echo esc_url( add_query_arg( 'marker', $today ) ); ?>"><?php esc_html_e( 'Today', 'hotelier' ); ?></a>
+				<a class="button bc-weeks__button bc-weeks__button--roday" href="<?php echo esc_url( add_query_arg( 'marker', $today ) ); ?>"><?php esc_html_e( 'Today', 'wp-hotelier' ); ?></a>
 			</li>
 		</ul>
 
@@ -74,7 +74,7 @@ $prev_week = $prev_week->modify( '-7 days' )->format( 'Y-m-d' );
 			<input type="hidden" name="page" value="hotelier-calendar">
 			<input type="hidden" name="weeks" value="<?php if ( ! empty( $_GET[ 'weeks' ] ) ) echo absint( $_GET[ 'weeks' ] ); ?>">
 			<input class="bc-datepicker" type="text" placeholder="YYYY-MM-DD" name="marker" value="<?php echo esc_attr( $marker->format( 'Y-m-d' ) ); ?>">
-			<input type="submit" class="button" value="<?php esc_attr_e( 'Go to date', 'hotelier' ); ?>">
+			<input type="submit" class="button" value="<?php esc_attr_e( 'Go to date', 'wp-hotelier' ); ?>">
 		</form>
 
 		<div class="bc__table-wrapper">

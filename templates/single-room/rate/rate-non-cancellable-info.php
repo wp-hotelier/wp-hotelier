@@ -18,4 +18,4 @@ if ( $variation->is_cancellable() ) {
 }
 ?>
 
-<span class="rate__non-cancellable-info rate__non-cancellable-info--single"><?php echo esc_html( apply_filters( 'hotelier_single_room_non_cancellable_info_text', __( 'Non-refundable', 'hotelier' ) ) ); ?></span>
+<span class="rate__non-cancellable-info rate__non-cancellable-info--single"><?php echo esc_html( apply_filters( 'hotelier_single_room_non_cancellable_info_text', __( 'Non-refundable', 'wp-hotelier' ) ) ); ?></span>

@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <tr>
-	<td style="text-align:left;font-size:16px;line-height:40px;color:#444444;font-weight:bold;font-family:Helvetica,Arial;"><?php esc_html_e( 'Guest details', 'hotelier' ); ?></td>
+	<td style="text-align:left;font-size:16px;line-height:40px;color:#444444;font-weight:bold;font-family:Helvetica,Arial;"><?php esc_html_e( 'Guest details', 'wp-hotelier' ); ?></td>
 </tr>
 
 <?php

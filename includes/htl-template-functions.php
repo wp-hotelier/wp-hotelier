@@ -216,10 +216,10 @@ if ( ! function_exists( 'hotelier_page_title' ) ) {
 	function hotelier_page_title() {
 
 		if ( is_search() ) {
-			$page_title = sprintf( esc_html__( 'Search results for: "%s"', 'hotelier' ), '<span>' . get_search_query() . '</span>' );
+			$page_title = sprintf( esc_html__( 'Search results for: "%s"', 'wp-hotelier' ), '<span>' . get_search_query() . '</span>' );
 
 			if ( get_query_var( 'paged' ) )
-				$page_title .= sprintf( esc_html__( '&nbsp;&ndash; Page %s', 'hotelier' ), get_query_var( 'paged' ) );
+				$page_title .= sprintf( esc_html__( '&nbsp;&ndash; Page %s', 'wp-hotelier' ), get_query_var( 'paged' ) );
 
 		} elseif ( is_tax() ) {
 
@@ -227,7 +227,7 @@ if ( ! function_exists( 'hotelier_page_title' ) ) {
 
 		} else {
 
-			$page_title = esc_html__( 'Rooms archive', 'hotelier' );
+			$page_title = esc_html__( 'Rooms archive', 'wp-hotelier' );
 			$page_title = apply_filters( 'hotelier_rooms_archive_page_title', $page_title );
 		}
 
@@ -1157,7 +1157,7 @@ if ( ! function_exists( 'htl_form_field' ) ) {
 
 		if ( $args[ 'required' ] ) {
 			$args[ 'class' ][] = 'form-row--validate-required';
-			$required = ' <abbr class="required" title="' . esc_attr__( 'required', 'hotelier'  ) . '">*</abbr>';
+			$required = ' <abbr class="required" title="' . esc_attr__( 'required', 'wp-hotelier'  ) . '">*</abbr>';
 		} else {
 			$required = '';
 		}

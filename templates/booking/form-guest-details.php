@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div id="guest-details" class="booking__section booking__section--guest-details">
 
 	<header class="section-header">
-		<h3 class="section-header__title"><?php esc_html_e( 'Guest details', 'hotelier' ); ?></h3>
+		<h3 class="section-header__title"><?php esc_html_e( 'Guest details', 'wp-hotelier' ); ?></h3>
 	</header>
 
 	<?php do_action( 'hotelier_booking_before_guest_details' ); ?>

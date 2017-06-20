@@ -23,7 +23,7 @@ global $room;
 
 	<?php do_action( 'hotelier_room_list_before_submit' ); ?>
 
-	<?php echo apply_filters( 'hotelier_reserve_button_html', '<input type="submit" class="button button--reserve" name="hotelier_reserve_rooms_button" id="reserve-button" value="' . esc_html__( 'Reserve', 'hotelier' ) . '" />' ); ?>
+	<?php echo apply_filters( 'hotelier_reserve_button_html', '<input type="submit" class="button button--reserve" name="hotelier_reserve_rooms_button" id="reserve-button" value="' . esc_html__( 'Reserve', 'wp-hotelier' ) . '" />' ); ?>
 
 	<?php do_action( 'hotelier_room_list_after_submit' ); ?>
 

@@ -21,7 +21,7 @@ if ( ! $variation->has_conditions() ) {
 
 <div class="rate__conditions rate__conditions--listing">
 
-	<strong class="rate__conditions-title rate__conditions-title--listing"><?php esc_html_e( 'Room conditions:', 'hotelier' ) ?></strong>
+	<strong class="rate__conditions-title rate__conditions-title--listing"><?php esc_html_e( 'Room conditions:', 'wp-hotelier' ) ?></strong>
 
 	<ul class="rate__conditions-list rate__conditions-list--listing">
 

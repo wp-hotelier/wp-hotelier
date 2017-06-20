@@ -21,7 +21,7 @@ if ( $attachment_ids ) {
 	$loop = 0;
 	?>
 
-	<p><a href="#thumbnails-<?php echo esc_attr( $post->ID ); ?>" class="room__gallery-link room__gallery-link--listing" data-index="0"><?php esc_html_e( 'View gallery', 'hotelier' ); ?></a></p>
+	<p><a href="#thumbnails-<?php echo esc_attr( $post->ID ); ?>" class="room__gallery-link room__gallery-link--listing" data-index="0"><?php esc_html_e( 'View gallery', 'wp-hotelier' ); ?></a></p>
 
 	<ul style="display:none">
 

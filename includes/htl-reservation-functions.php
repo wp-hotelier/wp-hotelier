@@ -58,7 +58,7 @@ function htl_create_reservation( $args = array() ) {
 
 	if ( $args[ 'status' ] ) {
 		if ( ! in_array( 'htl-' . $args[ 'status' ], array_keys( htl_get_reservation_statuses() ) ) ) {
-			return new WP_Error( 'hotelier_invalid_reservation_status', esc_html__( 'Invalid reservation status', 'hotelier' ) );
+			return new WP_Error( 'hotelier_invalid_reservation_status', esc_html__( 'Invalid reservation status', 'wp-hotelier' ) );
 		}
 
 		$reservation_data[ 'post_status' ]  = 'htl-' . $args[ 'status' ];
@@ -100,7 +100,7 @@ function htl_create_reservation( $args = array() ) {
  */
 function htl_update_reservation( $args ) {
 	if ( ! $args[ 'reservation_id' ] ) {
-		return new WP_Error( esc_html__( 'Invalid reservation ID', 'hotelier' ) );
+		return new WP_Error( esc_html__( 'Invalid reservation ID', 'wp-hotelier' ) );
 	}
 
 	return htl_create_reservation( $args );
@@ -113,12 +113,12 @@ function htl_update_reservation( $args ) {
  */
 function htl_get_reservation_statuses() {
 	$reservation_statuses = array(
-		'htl-completed'  => esc_html_x( 'Completed', 'Reservation status', 'hotelier' ),
-		'htl-confirmed'  => esc_html_x( 'Confirmed', 'Reservation status', 'hotelier' ),
-		'htl-pending'    => esc_html_x( 'Pending', 'Reservation status', 'hotelier' ),
-		'htl-on-hold'    => esc_html_x( 'On Hold', 'Reservation status', 'hotelier' ),
-		'htl-cancelled'  => esc_html_x( 'Cancelled', 'Reservation status', 'hotelier' ),
-		'htl-failed'     => esc_html_x( 'Failed', 'Reservation status', 'hotelier' )
+		'htl-completed'  => esc_html_x( 'Completed', 'Reservation status', 'wp-hotelier' ),
+		'htl-confirmed'  => esc_html_x( 'Confirmed', 'Reservation status', 'wp-hotelier' ),
+		'htl-pending'    => esc_html_x( 'Pending', 'Reservation status', 'wp-hotelier' ),
+		'htl-on-hold'    => esc_html_x( 'On Hold', 'Reservation status', 'wp-hotelier' ),
+		'htl-cancelled'  => esc_html_x( 'Cancelled', 'Reservation status', 'wp-hotelier' ),
+		'htl-failed'     => esc_html_x( 'Failed', 'Reservation status', 'wp-hotelier' )
 	);
 
 	return apply_filters( 'hotelier_reservation_statuses', $reservation_statuses );
@@ -357,7 +357,7 @@ function htl_cancel_pending_reservations() {
 			$reservation = htl_get_reservation( $pending_reservation );
 
 			if ( apply_filters( 'hotelier_cancel_pending_reservation', 'booking' === get_post_meta( $pending_reservation, '_created_via', true ), $reservation ) ) {
-				$reservation->update_status( 'cancelled', esc_html__( 'Time limit reached.', 'hotelier' ) );
+				$reservation->update_status( 'cancelled', esc_html__( 'Time limit reached.', 'wp-hotelier' ) );
 			}
 		}
 	}
@@ -393,9 +393,9 @@ function htl_process_completed_reservations() {
 			}
 
 			if ( $reservation->get_status() == 'confirmed' ) {
-				$reservation->update_status( 'completed', esc_html__( 'Check-out date reached.', 'hotelier' ) );
+				$reservation->update_status( 'completed', esc_html__( 'Check-out date reached.', 'wp-hotelier' ) );
 			} else {
-				$reservation->update_status( 'cancelled', esc_html__( 'Check-out date reached.', 'hotelier' ) );
+				$reservation->update_status( 'cancelled', esc_html__( 'Check-out date reached.', 'wp-hotelier' ) );
 			}
 		}
 	}

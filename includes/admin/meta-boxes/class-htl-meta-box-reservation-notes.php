@@ -49,13 +49,13 @@ class HTL_Meta_Box_Reservation_Notes {
 				?>
 				<li>
 					<p class="note-content"><?php echo esc_html( $note->comment_content ); ?><p>
-					<abbr title="<?php echo esc_attr( $note->comment_date ); ?>"><?php printf( esc_html__( 'Added on %1$s at %2$s', 'hotelier' ), date_i18n( get_option( 'date_format' ), strtotime( $note->comment_date ) ), date_i18n( get_option( 'time_format' ), strtotime( $note->comment_date ) ) ); ?></abbr>
+					<abbr title="<?php echo esc_attr( $note->comment_date ); ?>"><?php printf( esc_html__( 'Added on %1$s at %2$s', 'wp-hotelier' ), date_i18n( get_option( 'date_format' ), strtotime( $note->comment_date ) ), date_i18n( get_option( 'time_format' ), strtotime( $note->comment_date ) ) ); ?></abbr>
 				</li>
 				<?php
 			}
 
 		} else {
-			echo '<li>' . esc_html__( 'There are no notes yet.', 'hotelier' ) . '</li>';
+			echo '<li>' . esc_html__( 'There are no notes yet.', 'wp-hotelier' ) . '</li>';
 		}
 
 		?>

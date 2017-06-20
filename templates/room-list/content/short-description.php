@@ -25,4 +25,4 @@ if ( ! $post->post_excerpt ) {
 	<?php echo apply_filters( 'hotelier_short_description', $post->post_excerpt ) ?>
 </div>
 
-<p class="room__more"><a class="room__more-link" href="#room-details-<?php echo esc_attr( $post->ID ); ?>" data-closed="<?php esc_html_e( 'More about this room', 'hotelier' ); ?>" data-open="<?php esc_html_e( 'Hide room details', 'hotelier' ); ?>"><?php esc_html_e( 'More about this room', 'hotelier' ); ?></a></p>
+<p class="room__more"><a class="room__more-link" href="#room-details-<?php echo esc_attr( $post->ID ); ?>" data-closed="<?php esc_html_e( 'More about this room', 'wp-hotelier' ); ?>" data-open="<?php esc_html_e( 'Hide room details', 'wp-hotelier' ); ?>"><?php esc_html_e( 'More about this room', 'wp-hotelier' ); ?></a></p>

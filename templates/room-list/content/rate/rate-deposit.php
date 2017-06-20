@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( $variation->needs_deposit() ) : ?>
 
 <div class="rate__deposit rate__deposit--listing">
-	<span class="rate__deposit-label rate__deposit-label--listing"><?php esc_html_e( 'Deposit required', 'hotelier' ); ?></span>
+	<span class="rate__deposit-label rate__deposit-label--listing"><?php esc_html_e( 'Deposit required', 'wp-hotelier' ); ?></span>
 	<span class="rate__deposit-amount rate__deposit-amount--listing"><?php echo esc_html( $variation->get_formatted_deposit() ); ?></span>
 </div>
 
