@@ -15,7 +15,7 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../includes/class-htl-booking.php:89, ../includes/class-htl-booking.php:96, ../includes/class-htl-emails.php:47, ../includes/class-htl-emails.php:54, ../includes/class-htl-payment-gateways.php:51, ../includes/class-htl-payment-gateways.php:58, ../wp-hotelier.php:91, ../wp-hotelier.php:98
+#: ../hotelier.php:91, ../hotelier.php:98, ../includes/class-htl-booking.php:89, ../includes/class-htl-booking.php:96, ../includes/class-htl-emails.php:47, ../includes/class-htl-emails.php:54, ../includes/class-htl-payment-gateways.php:51, ../includes/class-htl-payment-gateways.php:58
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
