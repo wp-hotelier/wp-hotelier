@@ -3,7 +3,7 @@ Contributors: benitolopez
 Tags: booking, hotel, booking system, hostel, reservations, reservations, b&b, rooms, wphotelier
 Requires at least: 4.1
 Tested up to: 4.8
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -99,6 +99,9 @@ Here: [Easy WP Hotelier documentation](http://docs.wphotelier.com/).
 4. Easy WP Hotelier - Admin calendar.
 
 == Changelog ==
+
+= 1.1.1 - 2017-06-22 =
+* Fix - Fix in room meta boxes (some settings were not saved correctly).
 
 = 1.1.0 - 2017-06-21 =
 * Change - Use 'wp-hotelier' for the i18n slug.
