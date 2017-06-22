@@ -266,6 +266,20 @@ class HTL_Formatting_Helper {
 		$string = $string ? implode( ',', wp_parse_id_list( $string ) ) : '';
 		return $string;
 	}
+
+	/**
+	 * Clean inputs using sanitize_text_field. Arrays are cleaned recursively.
+	 * Non-scalar values are ignored.
+	 * @param string|array $input
+	 * @return string|array
+	 */
+	public static function clean_input( $input ) {
+		if ( is_array( $input ) ) {
+			return array_map( 'self::clean_input', $input );
+		} else {
+			return is_scalar( $input ) ? sanitize_text_field( $input ) : $input;
+		}
+	}
 }
 
 endif;
