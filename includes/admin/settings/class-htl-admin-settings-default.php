@@ -790,7 +790,7 @@ class HTL_Admin_Settings_Default {
 					),
 					'hotelier_version' => array(
 						'id'   => 'hotelier_version',
-						'name' => esc_html__( 'Hotelier version', 'wp-hotelier' ),
+						'name' => esc_html__( 'Easy WP Hotelier version', 'wp-hotelier' ),
 						'type' => 'info'
 					),
 					'theme_name' => array(
