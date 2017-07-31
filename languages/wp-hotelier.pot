@@ -2046,7 +2046,7 @@ msgid "Server settings & info"
 msgstr ""
 
 #: ../includes/admin/settings/class-htl-admin-settings-default.php:793
-msgid "Hotelier version"
+msgid "Easy WP Hotelier version"
 msgstr ""
 
 #: ../includes/admin/settings/class-htl-admin-settings-default.php:798
