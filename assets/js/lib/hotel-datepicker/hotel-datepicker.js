@@ -1,4 +1,4 @@
-/*! hotel-datepicker 2.0.5 - Copyright 2017 Benito Lopez (http://lopezb.com) - https://github.com/benitolopez/hotel-datepicker - MIT */
+/*! hotel-datepicker 2.0.7 - Copyright 2017 Benito Lopez (http://lopezb.com) - https://github.com/benitolopez/hotel-datepicker - MIT */
 var HotelDatepicker = (function () {
 'use strict';
 
@@ -584,6 +584,10 @@ HotelDatepicker.prototype.setDateRange = function setDateRange (date1, date2) {
 
 		return;
 	}
+
+	// Fix DST
+	date1.setTime(date1.getTime() + (12 * 60 * 60 * 1000));
+	date2.setTime(date2.getTime() + (12 * 60 * 60 * 1000));
 
         // Calculate the next month value
 	this.start = date1.getTime();
@@ -1197,7 +1201,7 @@ HotelDatepicker.prototype.parseDisabledDates = function parseDisabledDates () {
 	var _tmp = [];
 
 	for (var i = 0; i < this.disabledDates.length; i++) {
-		_tmp[i] = new Date(this$1.disabledDates[i]);
+		_tmp[i] = fecha.parse(this$1.disabledDates[i], 'YYYY-MM-DD');
 	}
 
 	_tmp.sort(function (a, b) {
