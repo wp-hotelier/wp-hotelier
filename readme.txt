@@ -3,7 +3,7 @@ Contributors: benitolopez
 Tags: booking, hotel, booking system, hostel, reservations, reservations, b&b, rooms, wphotelier
 Requires at least: 4.1
 Tested up to: 4.8
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -99,6 +99,12 @@ Here: [Easy WP Hotelier documentation](http://docs.wphotelier.com/).
 4. Easy WP Hotelier - Admin calendar.
 
 == Changelog ==
+
+= 1.1.3 - 2017-08-07 =
+* Update - Hotel Datepicker library updated
+* Fix - Fix timezone error on disabled dates (datepicker).
+* Fix - Fix DST (Daylight Saving Time) issues (datepicker).
+* Fix - Fix count comments error.
 
 = 1.1.2 - 2017-07-31 =
 * Fix - Fix JS console error in the hotel datepicker library.
