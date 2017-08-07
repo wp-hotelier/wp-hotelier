@@ -31,6 +31,10 @@ class HTL_Comments {
 
 		// Count comments
 		add_filter( 'wp_count_comments', array( __CLASS__, 'wp_count_comments' ), 10, 2 );
+
+		// Delete comments count cache when insert a new comment or when the status changes
+		add_action( 'wp_insert_comment', array( __CLASS__, 'delete_comments_count_cache' ) );
+		add_action( 'wp_set_comment_status', array( __CLASS__, 'delete_comments_count_cache' ) );
 	}
 
 	/**
@@ -101,8 +105,15 @@ class HTL_Comments {
 	}
 
 	/**
+	 * Delete comments count cache whenever there is a
+	 * new comment or when the status of a comment changes.
+	 */
+	public static function delete_comments_count_cache() {
+		delete_transient( 'hoteleir_count_comments' );
+	}
+
+	/**
 	 * Remove reservation notes from wp_count_comments().
-	 * @since  2.2
 	 * @param  object $stats
 	 * @param  int $post_id
 	 * @return object
@@ -111,36 +122,48 @@ class HTL_Comments {
 		global $wpdb;
 
 		if ( 0 === $post_id ) {
+			$stats = get_transient( 'hotelier_count_comments' );
 
-			$count = wp_cache_get( 'comments-0', 'counts' );
-			if ( false !== $count ) {
-				return $count;
-			}
+			if ( ! $stats ) {
+				$stats = array();
 
-			$count = $wpdb->get_results( "SELECT comment_approved, COUNT( * ) AS num_comments FROM {$wpdb->comments} WHERE comment_type != 'reservation_note' GROUP BY comment_approved", ARRAY_A );
+				$count = $wpdb->get_results( "
+					SELECT comment_approved, COUNT(*) AS num_comments
+					FROM {$wpdb->comments}
+					WHERE comment_type NOT IN ('order_note', 'webhook_delivery')
+					GROUP BY comment_approved
+				", ARRAY_A );
 
-			$total = 0;
-			$approved = array( '0' => 'moderated', '1' => 'approved', 'spam' => 'spam', 'trash' => 'trash', 'post-trashed' => 'post-trashed' );
+				$total = 0;
+				$approved = array(
+					'0'            => 'moderated',
+					'1'            => 'approved',
+					'spam'         => 'spam',
+					'trash'        => 'trash',
+					'post-trashed' => 'post-trashed',
+				);
 
-			foreach ( (array) $count as $row ) {
-				// Don't count post-trashed toward totals
-				if ( 'post-trashed' != $row['comment_approved'] && 'trash' != $row['comment_approved'] ) {
-					$total += $row['num_comments'];
+				foreach ( (array) $count as $row ) {
+					// Don't count post-trashed toward totals.
+					if ( 'post-trashed' !== $row['comment_approved'] && 'trash' !== $row['comment_approved'] ) {
+						$total += $row['num_comments'];
+					}
+					if ( isset( $approved[ $row['comment_approved'] ] ) ) {
+						$stats[ $approved[ $row['comment_approved'] ] ] = $row['num_comments'];
+					}
 				}
-				if ( isset( $approved[ $row['comment_approved'] ] ) ) {
-					$stats[ $approved[ $row['comment_approved'] ] ] = $row['num_comments'];
-				}
-			}
 
-			$stats['total_comments'] = $total;
-			foreach ( $approved as $key ) {
-				if ( empty( $stats[ $key ] ) ) {
-					$stats[ $key ] = 0;
+				$stats['total_comments'] = $total;
+				$stats['all'] = $total;
+				foreach ( $approved as $key ) {
+					if ( empty( $stats[ $key ] ) ) {
+						$stats[ $key ] = 0;
+					}
 				}
-			}
 
-			$stats = (object) $stats;
-			wp_cache_set( 'comments-0', $stats, 'counts' );
+				$stats = (object) $stats;
+				set_transient( 'hotelier_count_comments', $stats );
+			}
 		}
 
 		return $stats;
