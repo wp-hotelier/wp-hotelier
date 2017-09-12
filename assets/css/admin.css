@@ -48,6 +48,10 @@
   font-weight: 700;
 }
 
+.hotelier-settings .form-table .htl-admin-table-th {
+  padding: 15px 10px;
+}
+
 .hotelier-settings .form-table .radio-description {
   color: #666;
   font-size: 13px;
