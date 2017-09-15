@@ -3,7 +3,7 @@ Contributors: benitolopez
 Tags: booking, hotel, booking system, hostel, reservations, reservations, b&b, rooms, wphotelier
 Requires at least: 4.1
 Tested up to: 4.8
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -12,6 +12,8 @@ Easy WP Hotelier is a powerful WordPress booking plugin allows you to manage hot
 == Description ==
 
 Easy WP Hotelier is a booking plugin for WordPress, built specifically for hotels, b&bs, etc. With Easy WP Hotelier you can manage hotel reservations inside your WordPress dashboard, accept payments online, choose between three different booking modes, receive email notifications, manage room’s amenities, set seasonal or fixed prices and much more. Easy WP Hotelier it’s an all-in-one booking system for WordPress.
+
+You can see Easy WP Hotelier in action [here](http://themes.wphotelier.com/mediterraneo/).
 
 = Features =
 
@@ -99,6 +101,12 @@ Here: [Easy WP Hotelier documentation](http://docs.wphotelier.com/).
 4. Easy WP Hotelier - Admin calendar.
 
 == Changelog ==
+
+= 1.1.4 - 2017-09-15 =
+* Tweak - Show ETA (Estimated Arrival Time) in emails.
+* Tweak - New action in guest emails so 3rd party plugins can add their details.
+* Update - Hotel Datepicker library updated
+* Localization - POT file updated.
 
 = 1.1.3 - 2017-08-07 =
 * Update - Hotel Datepicker library updated
