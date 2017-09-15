@@ -665,6 +665,7 @@ class HTL_Reservation {
 	 */
 	public function mark_as_paid() {
 		update_post_meta( $this->id, '_reservation_marked_as_paid', true );
+		$this->add_reservation_note( esc_html__( 'Reservation marked as paid.', 'wp-hotelier' ) );
 
 		return true;
 	}
@@ -676,6 +677,7 @@ class HTL_Reservation {
 	 */
 	public function mark_as_unpaid() {
 		delete_post_meta( $this->id, '_reservation_marked_as_paid', false );
+		$this->add_reservation_note( esc_html__( 'Reservation marked as unpaid.', 'wp-hotelier' ) );
 
 		return true;
 	}
