@@ -97,6 +97,7 @@ class HTL_Emails {
 		add_action( 'hotelier_email_guest_details', array( $this, 'guest_details' ), 10, 3 );
 		add_action( 'hotelier_email_guest_details', array( $this, 'guest_address' ), 20, 3 );
 		add_action( 'hotelier_email_reservation_meta', array( $this, 'guest_special_requests' ), 10, 3 );
+		add_action( 'hotelier_email_reservation_meta', array( $this, 'guest_arrival_time' ), 15, 3 );
 	}
 
 	/**
@@ -208,7 +209,7 @@ class HTL_Emails {
 	}
 
 	/**
-	 * Add reservation meta to email templates.
+	 * Show special requests in emails.
 	 *
 	 * @param mixed $reservation
 	 * @param bool $sent_to_admin (default: false)
@@ -224,6 +225,26 @@ class HTL_Emails {
 			echo $special_requests . "\n";
 		} else {
 			htl_get_template( 'emails/email-guest-requests.php', array( 'label' => $label, 'special_requests' => $special_requests ) );
+		}
+	}
+
+	/**
+	 * Show ETA (Estimated Arrival Time) in emails.
+	 *
+	 * @param mixed $reservation
+	 * @param bool $sent_to_admin (default: false)
+	 * @param bool $plain_text (default: false)
+	 * @return string
+	 */
+	public function guest_arrival_time( $reservation, $sent_to_admin = false, $plain_text = false ) {
+		$label              = esc_html__( 'Estimated arrival time', 'wp-hotelier' );
+		$guest_arrival_time = wptexturize( $reservation->get_formatted_arrival_time() );
+
+		if ( $plain_text ) {
+			echo "\n" . strtoupper( $label ) . "\n\n";
+			echo $guest_arrival_time . "\n";
+		} else {
+			htl_get_template( 'emails/email-guest-arrival-time.php', array( 'label' => $label, 'guest_arrival_time' => $guest_arrival_time ) );
 		}
 	}
 
