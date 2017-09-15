@@ -50,7 +50,7 @@ msgctxt "placeholder"
 msgid "Email address"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:284, ../includes/class-htl-emails.php:257, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:57, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:260
+#: ../includes/class-htl-booking.php:284, ../includes/class-htl-emails.php:278, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:57, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:260
 msgid "Telephone"
 msgstr ""
 
@@ -121,7 +121,7 @@ msgstr ""
 msgid "I don't know"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:369, ../includes/class-htl-emails.php:219, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:302, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:348
+#: ../includes/class-htl-booking.php:369, ../includes/class-htl-emails.php:220, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:302, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:348
 msgid "Special requests"
 msgstr ""
 
@@ -201,23 +201,27 @@ msgstr ""
 msgid "Sorry, we do not have enough \"%s\" available to fulfill your reservation. Please select another room or reduce the quantity and try again. We apologise for any inconvenience caused."
 msgstr ""
 
-#: ../includes/class-htl-emails.php:220, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:303, ../templates/reservation/reservation-details.php:41
+#: ../includes/class-htl-emails.php:221, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:303, ../templates/reservation/reservation-details.php:41
 msgid "None"
 msgstr ""
 
-#: ../includes/class-htl-emails.php:243
+#: ../includes/class-htl-emails.php:240, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:93, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:292, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:311
+msgid "Estimated arrival time"
+msgstr ""
+
+#: ../includes/class-htl-emails.php:264
 msgid "Name"
 msgstr ""
 
-#: ../includes/class-htl-emails.php:250, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:253
+#: ../includes/class-htl-emails.php:271, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:253
 msgid "Email"
 msgstr ""
 
-#: ../includes/class-htl-emails.php:266, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:235, ../includes/admin/new-reservation/views/html-admin-new-reservation.php:71, ../templates/booking/form-guest-details.php:21, ../templates/emails/email-guest-details.php:19, ../templates/reservation/guest-details.php:21
+#: ../includes/class-htl-emails.php:287, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:235, ../includes/admin/new-reservation/views/html-admin-new-reservation.php:71, ../templates/booking/form-guest-details.php:21, ../templates/emails/email-guest-details.php:19, ../templates/reservation/guest-details.php:21
 msgid "Guest details"
 msgstr ""
 
-#: ../includes/class-htl-emails.php:266
+#: ../includes/class-htl-emails.php:287
 msgid "Your details"
 msgstr ""
 
@@ -735,31 +739,39 @@ msgstr ""
 msgid "Reservation status changed from %s to %s."
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:842
+#: ../includes/class-htl-reservation.php:668
+msgid "Reservation marked as paid."
+msgstr ""
+
+#: ../includes/class-htl-reservation.php:680
+msgid "Reservation marked as unpaid."
+msgstr ""
+
+#: ../includes/class-htl-reservation.php:844
 msgid "Subtotal:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:849
+#: ../includes/class-htl-reservation.php:851
 msgid "Paid Deposit:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:856
+#: ../includes/class-htl-reservation.php:858
 msgid "Required Deposit:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:863
+#: ../includes/class-htl-reservation.php:865
 msgid "Payment Method:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:871
+#: ../includes/class-htl-reservation.php:873
 msgid "Total Due:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:889, ../includes/class-htl-reservation.php:901, ../templates/booking/reservation-table.php:84, ../templates/booking/reservation-table.php:107
+#: ../includes/class-htl-reservation.php:891, ../includes/class-htl-reservation.php:903, ../templates/booking/reservation-table.php:84, ../templates/booking/reservation-table.php:107
 msgid "Total:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:894
+#: ../includes/class-htl-reservation.php:896
 msgid "Deposit Due Now:"
 msgstr ""
 
@@ -969,11 +981,11 @@ msgid "View Calendar"
 msgstr ""
 
 #: ../includes/admin/class-htl-admin-menus.php:56
-msgid "Easy WP Hotelier Extensions & Themes"
+msgid "Easy WP Hotelier Extensions"
 msgstr ""
 
 #: ../includes/admin/class-htl-admin-menus.php:56
-msgid "Extensions & Themes"
+msgid "Extensions"
 msgstr ""
 
 #: ../includes/admin/class-htl-admin-menus.php:63, ../includes/admin/class-htl-admin-menus.php:63, ../includes/admin/settings/class-htl-admin-settings.php:136, ../includes/admin/settings/class-htl-admin-settings.php:137, ../includes/admin/settings/views/html-admin-logs.php:33, ../includes/admin/settings/views/html-admin-logs.php:34
@@ -1287,10 +1299,6 @@ msgstr ""
 
 #: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:65
 msgid "Address 2"
-msgstr ""
-
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:93, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:292, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:311
-msgid "Estimated arrival time"
 msgstr ""
 
 #: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:176, ../includes/gateways/paypal-standard/includes/class-htl-gateway-paypal-request.php:123
@@ -1858,7 +1866,7 @@ msgid "Hold reservation (minutes)"
 msgstr ""
 
 #: ../includes/admin/settings/class-htl-admin-settings-default.php:459
-msgid "Hold reservation (for unpaid reservations that require a deposit) for \"XX\" minutes. When this limit is reached, the pending reservation will be cancelled. Type \"0\" to disable. Reservations created by admin are not cancelled."
+msgid "Hold reservation (for unpaid reservations that require a deposit) for \"XX\" minutes. When this limit is reached, the pending reservation will be cancelled. Type \"0\" to disable. Reservations created by admin wiil be not cancelled."
 msgstr ""
 
 #: ../includes/admin/settings/class-htl-admin-settings-default.php:471
