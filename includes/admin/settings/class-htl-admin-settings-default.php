@@ -456,7 +456,7 @@ class HTL_Admin_Settings_Default {
 					'booking_hold_minutes' => array(
 						'id'   => 'booking_hold_minutes',
 						'name' => esc_html__( 'Hold reservation (minutes)', 'wp-hotelier' ),
-						'desc' => __( 'Hold reservation (for unpaid reservations that require a deposit) for "XX" minutes. When this limit is reached, the pending reservation will be cancelled. Type "0" to disable. Reservations created by admin are not cancelled.', 'wp-hotelier' ),
+						'desc' => __( 'Hold reservation (for unpaid reservations that require a deposit) for "XX" minutes. When this limit is reached, the pending reservation will be cancelled. Type "0" to disable. Reservations created by admin will be not cancelled.', 'wp-hotelier' ),
 						'type' => 'booking_hold_minutes',
 						'size' => 'small',
 						'std'  => '60'

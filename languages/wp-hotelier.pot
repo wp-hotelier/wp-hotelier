@@ -1866,7 +1866,7 @@ msgid "Hold reservation (minutes)"
 msgstr ""
 
 #: ../includes/admin/settings/class-htl-admin-settings-default.php:459
-msgid "Hold reservation (for unpaid reservations that require a deposit) for \"XX\" minutes. When this limit is reached, the pending reservation will be cancelled. Type \"0\" to disable. Reservations created by admin wiil be not cancelled."
+msgid "Hold reservation (for unpaid reservations that require a deposit) for \"XX\" minutes. When this limit is reached, the pending reservation will be cancelled. Type \"0\" to disable. Reservations created by admin will be not cancelled."
 msgstr ""
 
 #: ../includes/admin/settings/class-htl-admin-settings-default.php:471
