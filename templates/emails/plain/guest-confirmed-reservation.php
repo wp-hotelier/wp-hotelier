@@ -45,7 +45,7 @@ if ( $totals = $reservation->get_reservation_totals() ) {
 if ( ! $reservation->can_be_cancelled() ) {
 	echo "\n=====================================================================\n\n";
 
-	esc_html_e( 'This reservation includes a non-cancellable and non-refundable room. You will be charged the total price if you cancel your booking.', 'wp-hotelier' ) . "\n";
+	esc_html_e( 'This reservation includes a non-cancellable and non-refundable room. You will be charged the total price if you cancel your booking.', 'wp-hotelier' ) . "\n\n";
 }
 
 echo "\n=====================================================================\n\n";
@@ -53,6 +53,8 @@ echo "\n=====================================================================\n\
 echo sprintf( esc_html__( 'View reservation: %s', 'wp-hotelier' ), esc_url( $reservation->get_booking_received_url() ) ) . "\n";
 
 echo "\n=====================================================================\n\n";
+
+do_action( 'hotelier_email_reservation_instructions', $reservation, $sent_to_admin, $plain_text );
 
 do_action( 'hotelier_email_guest_details', $reservation, $sent_to_admin, $plain_text );
 

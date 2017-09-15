@@ -98,6 +98,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<td>&nbsp;</td>
 </tr>
 
+<?php do_action( 'hotelier_email_reservation_instructions', $reservation, $sent_to_admin ); ?>
+
 <?php do_action( 'hotelier_email_guest_details', $reservation, $sent_to_admin ); ?>
 
 <?php do_action( 'hotelier_email_reservation_meta', $reservation, $sent_to_admin ); ?>

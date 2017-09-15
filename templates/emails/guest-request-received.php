@@ -108,6 +108,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<td style="padding-top:20px;padding-bottom:25px;padding-left:0;padding-right:0;"><a href="<?php echo esc_url( $reservation->get_booking_received_url() ); ?>" style="text-align:left;font-size:14px;line-height:20px;color:#ffffff;padding-top:12px;padding-bottom:12px;padding-left:25px;padding-right:25px;background-color:#5CC8FF;text-decoration:none;border-radius:10px;display:inline-block;font-family:Helvetica,Arial;"><?php esc_html_e( 'View reservation', 'wp-hotelier' ); ?></a></td>
 </tr>
 
+<?php do_action( 'hotelier_email_reservation_instructions', $reservation, $sent_to_admin ); ?>
+
 <?php do_action( 'hotelier_email_guest_details', $reservation, $sent_to_admin ); ?>
 
 <?php do_action( 'hotelier_email_reservation_meta', $reservation, $sent_to_admin ); ?>

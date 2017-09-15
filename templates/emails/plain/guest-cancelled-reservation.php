@@ -46,6 +46,8 @@ echo "\n" . sprintf( esc_html__( 'View reservation: %s', 'wp-hotelier'), admin_u
 
 echo "\n=====================================================================\n\n";
 
+do_action( 'hotelier_email_reservation_instructions', $reservation, $sent_to_admin, $plain_text );
+
 do_action( 'hotelier_email_guest_details', $reservation, $sent_to_admin, $plain_text );
 
 do_action( 'hotelier_email_reservation_meta', $reservation, $sent_to_admin, $plain_text );
