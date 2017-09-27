@@ -34,6 +34,7 @@ class HTL_Admin_Scripts {
 	 */
 	public function admin_styles() {
 		$screen = get_current_screen();
+		$prefix = HTL_Admin_Functions::get_prefix_screen_id();
 
 		// Menu icon
 		wp_enqueue_style( 'hotelier_menu_styles', HTL_PLUGIN_URL . 'assets/css/menu.css', array(), HTL_VERSION );
@@ -43,7 +44,7 @@ class HTL_Admin_Scripts {
 
 		if ( in_array( $screen->id, HTL_Admin_Functions::get_screen_ids() ) ) {
 
-			if ( $screen->id != 'hotelier_page_hotelier-calendar' ) {
+			if ( $screen->id != $prefix . '_hotelier-calendar' ) {
 				// Admin styles for Hotelier pages only
 				wp_enqueue_style( 'hotelier_admin_styles', HTL_PLUGIN_URL . 'assets/css/admin.css', array(), HTL_VERSION );
 			}
@@ -52,17 +53,17 @@ class HTL_Admin_Scripts {
 		}
 
 		// Settings, new reservation and calendar pages only
-		if ( $screen->id == 'toplevel_page_hotelier-settings' || $screen->id == 'hotelier_page_hotelier-calendar' || $screen->id == 'hotelier_page_hotelier-add-reservation' ) {
+		if ( $screen->id == 'toplevel_page_hotelier-settings' || $screen->id == $prefix . '_hotelier-calendar' || $screen->id == $prefix . '_hotelier-add-reservation' ) {
 			wp_enqueue_style( 'jquery-ui-css' );
 		}
 
 		// Booking calendar style
-		if ( $screen->id == 'hotelier_page_hotelier-calendar' ) {
+		if ( $screen->id == $prefix . '_hotelier-calendar' ) {
 			wp_enqueue_style( 'hotelier_calendar_styles', HTL_PLUGIN_URL . 'assets/css/calendar.css', array(), HTL_VERSION );
 		}
 
 		// Addons page style
-		if ( $screen->id == 'hotelier_page_hotelier-addons' ) {
+		if ( $screen->id == $prefix . '_hotelier-addons' ) {
 			wp_enqueue_style( 'hotelier_addons_styles', HTL_PLUGIN_URL . 'assets/css/addons.css', array(), HTL_VERSION );
 		}
 	}
@@ -75,6 +76,7 @@ class HTL_Admin_Scripts {
 	 */
 	public function admin_scripts() {
 		$screen = get_current_screen();
+		$prefix = HTL_Admin_Functions::get_prefix_screen_id();
 
 		// Use minified libraries if SCRIPT_DEBUG is turned off
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
@@ -92,7 +94,7 @@ class HTL_Admin_Scripts {
 		}
 
 		// Admin, new reservation and calendar
-		if ( $screen->id == 'toplevel_page_hotelier-settings' || $screen->id == 'hotelier_page_hotelier-calendar' || $screen->id == 'hotelier_page_hotelier-add-reservation' ) {
+		if ( $screen->id == 'toplevel_page_hotelier-settings' || $screen->id == $prefix . '_hotelier-calendar' || $screen->id == $prefix . '_hotelier-add-reservation' ) {
 			wp_enqueue_script( 'jquery-ui-datepicker' );
 		}
 
@@ -125,12 +127,12 @@ class HTL_Admin_Scripts {
 		}
 
 		// New reservation
-		if ( $screen->id == 'hotelier_page_hotelier-add-reservation' ) {
+		if ( $screen->id == $prefix . '_hotelier-add-reservation' ) {
 			wp_enqueue_script( 'htl-admin-add-reservation', HTL_PLUGIN_URL . 'assets/js/admin/new-reservation' . $suffix . '.js', array( 'jquery' ), HTL_VERSION );
 		}
 
 		// Calendar script
-		if ( $screen->id == 'hotelier_page_hotelier-calendar' ) {
+		if ( $screen->id == $prefix . '_hotelier-calendar' ) {
 			wp_enqueue_script( 'htl-admin-calendar', HTL_PLUGIN_URL . 'assets/js/admin/calendar' . $suffix . '.js', array( 'jquery' ), HTL_VERSION );
 		}
 	}

@@ -22,12 +22,14 @@ class HTL_Admin_Functions {
 	 * Get all Hotelier screen ids.
 	 */
 	public static function get_screen_ids() {
+		$prefix = self::get_prefix_screen_id();
+
 		$screen_ids   = array(
 			'toplevel_page_hotelier-settings',
-			'hotelier_page_hotelier-logs',
-			'hotelier_page_hotelier-add-reservation',
-			'hotelier_page_hotelier-calendar',
-			'hotelier_page_hotelier-addons',
+			$prefix . '_hotelier-logs',
+			$prefix . '_hotelier-add-reservation',
+			$prefix . '_hotelier-calendar',
+			$prefix . '_hotelier-addons',
 			'edit-room',
 			'room',
 			'room_reservation',
@@ -36,6 +38,17 @@ class HTL_Admin_Functions {
 		);
 
 		return apply_filters( 'hotelier_screen_ids', $screen_ids );
+	}
+
+	/**
+	 * Helper to get the screen ID in case "Hotelier" is translated.
+	 *
+	 * See https://core.trac.wordpress.org/ticket/18857
+	 */
+	public static function get_prefix_screen_id() {
+
+	    $prefix = sanitize_title( __( 'Hotelier', 'wp-hotelier' ) );
+	    return $prefix . '_page';
 	}
 
 	/**

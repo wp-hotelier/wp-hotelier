@@ -727,7 +727,7 @@ msgstr ""
 msgid "Reservation received"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:333, ../includes/class-htl-reservation.php:339, ../includes/admin/settings/class-htl-admin-settings.php:65
+#: ../includes/class-htl-reservation.php:333, ../includes/class-htl-reservation.php:339, ../includes/admin/class-htl-admin-functions.php:50, ../includes/admin/settings/class-htl-admin-settings.php:65
 msgid "Hotelier"
 msgstr ""
 
@@ -1042,15 +1042,15 @@ msgstr ""
 msgid "This reservation cannot be restored because one or more rooms are no longer available on those dates."
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-scripts.php:104
+#: ../includes/admin/class-htl-admin-scripts.php:106
 msgid "Please enter in decimal (%s) format without thousand separators."
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-scripts.php:105
+#: ../includes/admin/class-htl-admin-scripts.php:107
 msgid "Please enter in a value less than the regular price."
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-scripts.php:119
+#: ../includes/admin/class-htl-admin-scripts.php:121
 msgid "Are you sure you wish to proceed with this charge? This action cannot be undone."
 msgstr ""
 
