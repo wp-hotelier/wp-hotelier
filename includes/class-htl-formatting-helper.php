@@ -181,7 +181,7 @@ class HTL_Formatting_Helper {
 
 		// Check if arrival date is "XX" months from current date
 		if ( $months_advance !== 0 ) {
-			if ( ( $diff->m + $diff->y*12 ) >= 1 ) {
+			if ( ( $diff->m + $diff->y*12 ) >= $months_advance ) {
 				return false;
 			}
 		}
