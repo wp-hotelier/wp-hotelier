@@ -226,7 +226,7 @@ class HTL_Meta_Box_Reservation_Data {
 								<?php echo esc_html( $reservation->get_formatted_checkout() ); ?>
 							</p>
 
-							<p class="night-stay"><strong><?php printf( esc_html__( '%d-night stay' ), $reservation->get_nights() ); ?></strong></p>
+							<p class="night-stay"><strong><?php printf( esc_html__( '%d-night stay', 'wp-hotelier' ), $reservation->get_nights() ); ?></strong></p>
 						</div>
 					</div>
 
