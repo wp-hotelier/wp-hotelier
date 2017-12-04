@@ -102,6 +102,13 @@ Here: [Easy WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 1.1.8 - 2017-12-04 =
+* Deleted - Removed unused file.
+* Localization - POT file updated.
+
+= 1.1.7 - 2017-11-21 =
+* Add WordPress 4.9 support.
+
 = 1.1.6 - 2017-10-24 =
 * Fix - Fix months in advance setting (use correct value).
 * Localization - POT file updated.
