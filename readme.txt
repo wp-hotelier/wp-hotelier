@@ -104,6 +104,7 @@ Here: [Easy WP Hotelier documentation](http://docs.wphotelier.com/).
 
 = 1.1.9 - 2017-12-19 =
 * Added - New action in reservation meta boxes.
+* Tweak - Delete cron jobs when uninstalling.
 * Added - Multi-checkbox setting helper.
 * Localization - POT file updated.
 
