@@ -42,6 +42,7 @@ class HTL_Admin_Settings_Fields {
 		add_filter( 'hotelier_settings_booking_hold_minutes_callback', array( $this, 'print_booking_hold_minutes' ), 10, 2 );
 		add_filter( 'hotelier_settings_select_callback', array( $this, 'print_select' ), 10, 2 );
 		add_filter( 'hotelier_settings_checkbox_callback', array( $this, 'print_checkbox' ), 10, 2 );
+		add_filter( 'hotelier_settings_multi_checkbox_callback', array( $this, 'print_multi_checkbox' ), 10, 2 );
 		add_filter( 'hotelier_settings_radio_callback', array( $this, 'print_radio' ), 10, 2 );
 		add_filter( 'hotelier_settings_button_callback', array( $this, 'print_button' ), 10, 2 );
 		add_filter( 'hotelier_settings_card_icons_callback', array( $this, 'print_card_icons' ), 10, 2 );
@@ -318,6 +319,19 @@ class HTL_Admin_Settings_Fields {
 		}
 
 		echo $html;
+	}
+
+	/**
+	 * Print multi_checkbox input
+	 */
+	public function print_multi_checkbox( $html, $args ) {
+		foreach ( $args[ 'options' ] as $key => $option ) {
+			$enabled = ( isset( $this->options[ $args[ 'id' ] ][ $key ] ) ) ? '1' : null;
+
+			$html = '<input name="hotelier_settings[' . esc_attr( $args[ 'id' ] ) . '][' . $key . ']"" id="hotelier_settings[' . esc_attr( $args[ 'id' ] ) . '][' . esc_attr( $key ) . ']" type="checkbox" value="1" ' . checked('1', $enabled, false) . '/>&nbsp;';
+			$html .= '<label for="hotelier_settings[' . esc_attr( $args[ 'id' ] ) . '][' . $key . ']">' . wp_kses_post( $option ) . '</label><br/>';
+			echo $html;
+		}
 	}
 
 	/**
