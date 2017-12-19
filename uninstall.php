@@ -44,4 +44,10 @@ if ( ! empty( $hotelier_options[ 'remove_data_uninstall' ] ) ) {
 	// Delete posts + meta.
 	$wpdb->query( "DELETE FROM {$wpdb->posts} WHERE post_type IN ( 'room', 'room_reservation' );" );
 	$wpdb->query( "DELETE meta FROM {$wpdb->postmeta} meta LEFT JOIN {$wpdb->posts} posts ON posts.ID = meta.post_id WHERE posts.ID IS NULL;" );
+
+	// Delete cron jobs when uninstalling
+	wp_clear_scheduled_hook( 'hotelier_cancel_pending_reservations' );
+	wp_clear_scheduled_hook( 'hotelier_process_completed_reservations' );
+	wp_clear_scheduled_hook( 'hotelier_cleanup_sessions' );
+	wp_clear_scheduled_hook( 'hotelier_check_license_cron' );
 }
