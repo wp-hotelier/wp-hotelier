@@ -50,7 +50,7 @@ msgctxt "placeholder"
 msgid "Email address"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:284, ../includes/class-htl-emails.php:278, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:57, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:260
+#: ../includes/class-htl-booking.php:284, ../includes/class-htl-emails.php:278, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:57, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:262
 msgid "Telephone"
 msgstr ""
 
@@ -68,7 +68,7 @@ msgctxt "placeholder"
 msgid "Country"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:298, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:246
+#: ../includes/class-htl-booking.php:298, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:248
 msgid "Address"
 msgstr ""
 
@@ -117,11 +117,11 @@ msgstr ""
 msgid "Time is for %s time zone"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:341, ../includes/class-htl-reservation.php:227, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:96, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:315
+#: ../includes/class-htl-booking.php:341, ../includes/class-htl-reservation.php:227, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:96, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:317
 msgid "I don't know"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:369, ../includes/class-htl-emails.php:220, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:302, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:348
+#: ../includes/class-htl-booking.php:369, ../includes/class-htl-emails.php:220, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:304, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:350
 msgid "Special requests"
 msgstr ""
 
@@ -201,11 +201,11 @@ msgstr ""
 msgid "Sorry, we do not have enough \"%s\" available to fulfill your reservation. Please select another room or reduce the quantity and try again. We apologise for any inconvenience caused."
 msgstr ""
 
-#: ../includes/class-htl-emails.php:221, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:303, ../templates/reservation/reservation-details.php:41
+#: ../includes/class-htl-emails.php:221, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:305, ../templates/reservation/reservation-details.php:41
 msgid "None"
 msgstr ""
 
-#: ../includes/class-htl-emails.php:240, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:93, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:292, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:311
+#: ../includes/class-htl-emails.php:240, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:93, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:294, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:313
 msgid "Estimated arrival time"
 msgstr ""
 
@@ -213,11 +213,11 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: ../includes/class-htl-emails.php:271, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:253
+#: ../includes/class-htl-emails.php:271, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:255
 msgid "Email"
 msgstr ""
 
-#: ../includes/class-htl-emails.php:287, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:235, ../includes/admin/new-reservation/views/html-admin-new-reservation.php:71, ../templates/booking/form-guest-details.php:21, ../templates/emails/email-guest-details.php:19, ../templates/reservation/guest-details.php:21
+#: ../includes/class-htl-emails.php:287, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:237, ../includes/admin/new-reservation/views/html-admin-new-reservation.php:71, ../templates/booking/form-guest-details.php:21, ../templates/emails/email-guest-details.php:19, ../templates/reservation/guest-details.php:21
 msgid "Guest details"
 msgstr ""
 
@@ -1257,7 +1257,7 @@ msgstr ""
 msgid "Nonce verification failed"
 msgstr ""
 
-#: ../includes/admin/license-manager/class-htl-admin-license-manager.php:219
+#: ../includes/admin/license-manager/class-htl-admin-license-manager.php:219, ../includes/admin/license-manager/vendor/EDD_SL_Plugin_Updater.php:396
 msgid "Error"
 msgstr ""
 
@@ -1325,23 +1325,27 @@ msgstr ""
 msgid "Transaction ID:"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:204
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:206
 msgid "General details"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:206
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:208
 msgid "Reservation status:"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:220, ../includes/admin/new-reservation/views/html-admin-new-reservation.php:59, ../templates/emails/admin-cancelled-reservation.php:42, ../templates/emails/admin-new-reservation.php:42, ../templates/emails/guest-cancelled-reservation.php:42, ../templates/emails/guest-confirmed-reservation.php:42, ../templates/emails/guest-invoice.php:52, ../templates/emails/guest-request-received.php:42, ../templates/reservation/reservation-details.php:28
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:222, ../includes/admin/new-reservation/views/html-admin-new-reservation.php:59, ../templates/emails/admin-cancelled-reservation.php:42, ../templates/emails/admin-new-reservation.php:42, ../templates/emails/guest-cancelled-reservation.php:42, ../templates/emails/guest-confirmed-reservation.php:42, ../templates/emails/guest-invoice.php:52, ../templates/emails/guest-request-received.php:42, ../templates/reservation/reservation-details.php:28
 msgid "Check-in:"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:225, ../includes/admin/new-reservation/views/html-admin-new-reservation.php:65, ../templates/emails/admin-cancelled-reservation.php:45, ../templates/emails/admin-new-reservation.php:45, ../templates/emails/guest-cancelled-reservation.php:45, ../templates/emails/guest-confirmed-reservation.php:45, ../templates/emails/guest-invoice.php:55, ../templates/emails/guest-request-received.php:45, ../templates/reservation/reservation-details.php:32
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:227, ../includes/admin/new-reservation/views/html-admin-new-reservation.php:65, ../templates/emails/admin-cancelled-reservation.php:45, ../templates/emails/admin-new-reservation.php:45, ../templates/emails/guest-cancelled-reservation.php:45, ../templates/emails/guest-confirmed-reservation.php:45, ../templates/emails/guest-invoice.php:55, ../templates/emails/guest-request-received.php:45, ../templates/reservation/reservation-details.php:32
 msgid "Check-out:"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:282
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:231
+msgid "%d-night stay"
+msgstr ""
+
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:284
 msgid "Guest notes"
 msgstr ""
 
@@ -1361,7 +1365,7 @@ msgstr ""
 msgid "Emails"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:58, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:58, ../includes/admin/settings/class-htl-admin-settings-fields.php:489
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:58, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:58, ../includes/admin/settings/class-htl-admin-settings-fields.php:503
 msgid "Send email"
 msgstr ""
 
@@ -1481,7 +1485,7 @@ msgstr ""
 msgid "Room rate:"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:302, ../includes/admin/settings/class-htl-admin-settings-fields.php:540, ../includes/admin/settings/class-htl-admin-settings-fields.php:557, ../includes/admin/meta-boxes/views/html-meta-box-room-conditions-variation.php:40, ../includes/admin/meta-boxes/views/html-meta-box-room-conditions.php:35
+#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:302, ../includes/admin/settings/class-htl-admin-settings-fields.php:554, ../includes/admin/settings/class-htl-admin-settings-fields.php:571, ../includes/admin/meta-boxes/views/html-meta-box-room-conditions-variation.php:40, ../includes/admin/meta-boxes/views/html-meta-box-room-conditions.php:35
 msgid "Remove"
 msgstr ""
 
@@ -2117,167 +2121,167 @@ msgstr ""
 msgid "Log directory writable"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:240
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:241
 msgid "Upload"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:384
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:398
 msgid "Hard crop?"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:429
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:443
 msgid "From:"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:438
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:452
 msgid "To:"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:485
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:499
 msgid "Install pages"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:493
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:507
 msgid "Clear sessions"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:497
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:511
 msgid "Delete bookings"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:533, ../includes/admin/settings/class-htl-admin-settings-fields.php:550
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:547, ../includes/admin/settings/class-htl-admin-settings-fields.php:564
 msgid "From"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:535, ../includes/admin/settings/class-htl-admin-settings-fields.php:552
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:549, ../includes/admin/settings/class-htl-admin-settings-fields.php:566
 msgid "To"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:566
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:580
 msgid "Add new rule"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:598
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:612
 msgid "Your license key expired on %s. Please <a href=\"%s\" target=\"_blank\">renew your license key</a>."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:611
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:625
 msgid "Your license key has been disabled. Please <a href=\"%s\" target=\"_blank\">contact support</a> for more information."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:623
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:637
 msgid "Invalid license. Please <a href=\"%s\" target=\"_blank\">visit your account page</a> and verify it."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:636
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:650
 msgid "Your %s is not active for this URL. Please <a href=\"%s\" target=\"_blank\">visit your account page</a> to manage your license key URLs."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:648
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:662
 msgid "This appears to be an invalid license key for %s."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:657
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:671
 msgid "Your license key has reached its activation limit. <a href=\"%s\">View possible upgrades</a> now."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:666
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:680
 msgid "unknown_error"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:667
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:681
 msgid "There was an error with this license key: %s. Please <a href=\"%s\">contact our support team</a>."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:687
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:701
 msgid "License key never expires."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:694
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:708
 msgid "Your license key expires soon! It expires on %s. <a href=\"%s\" target=\"_blank\">Renew your license key</a>."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:704
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:718
 msgid "Your license key expires on %s."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:722
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:736
 msgid "To receive updates, please enter your valid %s license key."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:729
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:743
 msgid "License Key"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:734
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:748
 msgid "Deactivate License"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:759
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:773
 msgid "All missing Hotelier pages was installed successfully."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:773
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:787
 msgid "Test email from %s"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:778
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:792
 msgid "Email sent. This does not mean it has been delivered. See %s in the Codex for more information."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:797
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:811
 msgid "Sessions successfully cleared."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:830
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:844
 msgid "Bookings successfully deleted."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:914, ../includes/admin/settings/class-htl-admin-settings-fields.php:936
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:928, ../includes/admin/settings/class-htl-admin-settings-fields.php:950
 msgid "Page not set"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:916, ../includes/admin/settings/class-htl-admin-settings-fields.php:938
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:930, ../includes/admin/settings/class-htl-admin-settings-fields.php:952
 msgid "The page is set, but it does not exist"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:918, ../includes/admin/settings/class-htl-admin-settings-fields.php:940
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:932, ../includes/admin/settings/class-htl-admin-settings-fields.php:954
 msgid "The page is set, but it is not public"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:920, ../includes/admin/settings/class-htl-admin-settings-fields.php:942
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:934, ../includes/admin/settings/class-htl-admin-settings-fields.php:956
 msgid "The page requires this shortcode: %s"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:954, ../includes/admin/settings/class-htl-admin-settings-fields.php:967, ../includes/admin/settings/class-htl-admin-settings-fields.php:984, ../includes/admin/settings/class-htl-admin-settings-fields.php:1014, ../includes/admin/settings/class-htl-admin-settings-fields.php:1036, ../includes/admin/settings/class-htl-admin-settings-fields.php:1049
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:968, ../includes/admin/settings/class-htl-admin-settings-fields.php:981, ../includes/admin/settings/class-htl-admin-settings-fields.php:998, ../includes/admin/settings/class-htl-admin-settings-fields.php:1028, ../includes/admin/settings/class-htl-admin-settings-fields.php:1050, ../includes/admin/settings/class-htl-admin-settings-fields.php:1063
 msgid "Not available"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:971
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:985
 msgid "%s - Easy WP Hotelier requires at least PHP 5.6.0. Please update your PHP version."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:989
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:1003
 msgid "%s - We recommend setting memory to at least 64MB."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:1002, ../includes/admin/settings/class-htl-admin-settings-fields.php:1063, ../includes/admin/settings/class-htl-admin-settings-fields.php:1076
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:1016, ../includes/admin/settings/class-htl-admin-settings-fields.php:1077, ../includes/admin/settings/class-htl-admin-settings-fields.php:1090
 msgid "Enabled"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:1004
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:1018
 msgid "Disabled"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:1065
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:1079
 msgid "Your server does not have fsockopen or cURL enabled - PayPal IPN and other scripts which communicate with other servers will not work. Contact your hosting provider."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:1078
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:1092
 msgid "Your server does not have the DOMDocument class enabled - Some extensions may not work without DOMDocument"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:1091
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:1105
 msgid "To allow logging, make <code>%s</code> writable or define a custom <code>HTL_LOG_DIR</code>."
 msgstr ""
 
@@ -2403,6 +2407,18 @@ msgstr ""
 
 #: ../includes/admin/calendar/views/html-admin-calendar.php:77
 msgid "Go to date"
+msgstr ""
+
+#: ../includes/admin/license-manager/vendor/EDD_SL_Plugin_Updater.php:201
+msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s."
+msgstr ""
+
+#: ../includes/admin/license-manager/vendor/EDD_SL_Plugin_Updater.php:209
+msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s or %5$supdate now%6$s."
+msgstr ""
+
+#: ../includes/admin/license-manager/vendor/EDD_SL_Plugin_Updater.php:396
+msgid "You do not have permission to install plugin updates"
 msgstr ""
 
 #: ../includes/admin/meta-boxes/views/html-meta-box-reservation-items.php:18, ../templates/booking/form-pay.php:23, ../templates/booking/reservation-table.php:29, ../templates/emails/admin-cancelled-reservation.php:58, ../templates/emails/admin-new-reservation.php:58, ../templates/emails/guest-cancelled-reservation.php:58, ../templates/emails/guest-confirmed-reservation.php:58, ../templates/emails/guest-invoice.php:68, ../templates/emails/guest-request-received.php:58, ../templates/reservation/reservation-table.php:29
