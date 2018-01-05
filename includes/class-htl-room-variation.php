@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  1.0.0
+ * @version  1.2.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -499,7 +499,7 @@ class HTL_Room_Variation {
 	public function get_deposit() {
 		$percentage = $this->needs_deposit() ? $this->variation[ 'deposit_amount' ] : 0;
 
-		return $percentage;
+		return apply_filters( 'hotelier_room_variation_deposit', $percentage, $this );
 	}
 
 	/**
@@ -510,7 +510,7 @@ class HTL_Room_Variation {
 	public function get_formatted_deposit() {
 		$percentage = $this->get_deposit() . '%';
 
-		return apply_filters( 'hotelier_room_deposit', $percentage, $this );
+		return apply_filters( 'hotelier_room_variation_formatted_deposit', $percentage, $this );
 	}
 
 	/**
