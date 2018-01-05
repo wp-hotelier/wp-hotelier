@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin/Meta Boxes
- * @version  1.0.0
+ * @version  1.2.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -88,7 +88,7 @@ class HTL_Admin_Meta_Boxes {
 			'_seasonal_base_price'     => 'price',
 			'_seasonal_price'          => 'seasonal_price',
 			'_require_deposit'         => 'checkbox',
-			'_deposit_amount'          => 'number',
+			'_deposit_amount'          => 'select',
 			'_non_cancellable'         => 'checkbox',
 			'_room_conditions'         => 'room_conditions',
 			'_room_variations'         => 'room_variations',
