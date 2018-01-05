@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin/Meta Boxes
- * @version  1.0.0
+ * @version  1.2.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -33,6 +33,8 @@ class HTL_Meta_Boxes_Helper {
 		$field[ 'name' ]          = isset( $field[ 'name' ] ) ? $field[ 'name' ] : $field[ 'id' ];
 		$field[ 'label' ]         = isset( $field[ 'label' ] ) ? $field[ 'label' ] : '';
 		$field[ 'type' ]          = isset( $field[ 'type' ] ) ? $field[ 'type' ] : 'text';
+		$field[ 'min' ]           = isset( $field[ 'min' ] ) ? $field[ 'min' ] : false;
+		$field[ 'max' ]           = isset( $field[ 'max' ] ) ? $field[ 'max' ] : false;
 		$data_type                = empty( $field[ 'data_type' ] ) ? '' : $field[ 'data_type' ];
 
 		$field_id = '';
@@ -54,7 +56,19 @@ class HTL_Meta_Boxes_Helper {
 			$field[ 'value' ]  = HTL_Formatting_Helper::localized_amount( $field[ 'value' ] );
 		}
 
-		echo '<p class="form-field ' . esc_attr( $field[ 'wrapper_class' ] ) . '"><label><span>' . wp_kses_post( $field[ 'label' ] ) . '</span><input type="' . esc_attr( $field[ 'type' ] ) . '" class="' . esc_attr( $field[ 'class' ] ) . '" name="' . esc_attr( $field[ 'name' ] ) . '" value="' . esc_attr( $field[ 'value' ] ) . '" placeholder="' . esc_attr( $field[ 'placeholder' ] ) . '" ' . $field_id . ' /></label>';
+		$field_min_max = '';
+
+		if ( $field[ 'type' ] == 'number' ) {
+			if ( $field[ 'min' ] ) {
+				$field_min_max .= ' min="' . $field[ 'min' ] . '"';
+			}
+
+			if ( $field[ 'max' ] ) {
+				$field_min_max .= ' max="' . $field[ 'max' ] . '"';
+			}
+		}
+
+		echo '<p class="form-field ' . esc_attr( $field[ 'wrapper_class' ] ) . '"><label><span>' . wp_kses_post( $field[ 'label' ] ) . '</span><input type="' . esc_attr( $field[ 'type' ] ) . '" class="' . esc_attr( $field[ 'class' ] ) . '" name="' . esc_attr( $field[ 'name' ] ) . '" value="' . esc_attr( $field[ 'value' ] ) . '" placeholder="' . esc_attr( $field[ 'placeholder' ] ) . '" ' . $field_id . $field_min_max . ' /></label>';
 
 		if ( isset( $field[ 'after_input' ] ) ) {
 			echo '<span class="after-input">' . wp_kses_post( $field[ 'after_input' ] ) . '</span>';
