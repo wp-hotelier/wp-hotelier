@@ -3,7 +3,7 @@ Contributors: benitolopez
 Tags: booking, hotel, booking system, hostel, reservations, reservations, b&b, rooms, wphotelier
 Requires at least: 4.1
 Tested up to: 4.9
-Stable tag: 1.1.9
+Stable tag: 1.2.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -50,7 +50,10 @@ Something missing? No problem, you can extend Easy WP Hotelier with a vast numbe
 
 * [Stripe Payment Gateway](https://wphotelier.com/extensions/stripe-payment-gateway/)
 * [Disable Dates](https://wphotelier.com/extensions/disable-dates/)
+* [iCalendar Importer/Exporter](https://wphotelier.com/extensions/icalendar-importer-exporter/)
 * [Minimum/Maximum Nights](https://wphotelier.com/extensions/minimummaximum-nights/)
+* [Flat Deposit](https://wphotelier.com/extensions/flat-deposit/)
+* [Bank Transfer Payment Gateway](https://wphotelier.com/extensions/bank-transfer-payment-gateway/)
 
 == Installation ==
 
@@ -101,6 +104,13 @@ Here: [Easy WP Hotelier documentation](http://docs.wphotelier.com/).
 4. Easy WP Hotelier - Admin calendar.
 
 == Changelog ==
+
+= 1.2.0 - 2018-01-05 =
+* Changed - Save calculated deposit (and the percentage) in the reservation meta .
+* Tweak - Allow to filter line to pay in cart.
+* Tweak - Add filter for room deposit.
+* Tweak - Minor tweaks.
+* Localization - POT file updated.
 
 = 1.1.9 - 2017-12-19 =
 * Added - New action in reservation meta boxes.
