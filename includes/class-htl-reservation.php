@@ -5,7 +5,7 @@
  * @author   Lollum
  * @category Class
  * @package  Hotelier/Classes
- * @version  1.0.0
+ * @version  1.2.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -453,12 +453,13 @@ class HTL_Reservation {
 	 */
 	public function add_item( $room, $qty = 1, $args = array() ) {
 		$default_args = array(
-			'rate_name'      => false,
-			'max_guests'     => 0,
-			'price'          => 0,
-			'total'          => 0,
-			'deposit'        => 0,
-			'is_cancellable' => true
+			'rate_name'       => false,
+			'max_guests'      => 0,
+			'price'           => 0,
+			'total'           => 0,
+			'deposit'         => 0,
+			'percent_deposit' => 0,
+			'is_cancellable'  => true
 		);
 
 		$args    = wp_parse_args( $args, $default_args );
@@ -480,6 +481,7 @@ class HTL_Reservation {
 		htl_add_reservation_item_meta( $item_id, '_max_guests', absint( $args[ 'max_guests' ] ? $args[ 'max_guests' ] : 0 ) );
 		htl_add_reservation_item_meta( $item_id, '_price', absint( $args[ 'price' ] ? $args[ 'price' ] : 0 ) );
 		htl_add_reservation_item_meta( $item_id, '_total', absint( $args[ 'total' ] ? $args[ 'total' ] : 0 ) );
+		htl_add_reservation_item_meta( $item_id, '_percent_deposit', absint( $args[ 'percent_deposit' ] ? $args[ 'percent_deposit' ] : 0 ) );
 		htl_add_reservation_item_meta( $item_id, '_deposit', absint( $args[ 'deposit' ] ? $args[ 'deposit' ] : 0 ) );
 		htl_add_reservation_item_meta( $item_id, '_is_cancellable', absint( $args[ 'is_cancellable' ] ? $args[ 'is_cancellable' ] : false ) );
 

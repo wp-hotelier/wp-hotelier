@@ -71,8 +71,12 @@ $line_items = $reservation->get_items();
 							?>
 							<li>
 								<span class="item-name hastip" title="<?php echo esc_attr( $rate_name ); ?>"><?php echo esc_html( $item[ 'name' ] ); ?></span>
-								<span class="deposit"><?php echo absint( $item[ 'deposit' ] ); ?>%</span>
-								<span class="line-deposit"><?php echo htl_calculate_deposit( $item[ 'total' ], $item[ 'deposit' ], $reservation->get_reservation_currency() ); ?></span>
+
+								<?php if ( isset( $item[ 'percent_deposit' ] ) && $item[ 'percent_deposit' ] > 0 ) : ?>
+									<span class="deposit"><?php echo absint( $item[ 'percent_deposit' ] ); ?>%</span>
+								<?php endif; ?>
+
+								<span class="line-deposit"><?php echo htl_price( htl_convert_to_cents( $item[ 'deposit' ] ), $reservation->get_reservation_currency() ); ?></span>
 							</li>
 						<?php
 						endif;
