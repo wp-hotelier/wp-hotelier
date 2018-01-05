@@ -1,4 +1,4 @@
-# Copyright (C) 2017 Easy WP Hotelier
+# Copyright (C) 2018 Easy WP Hotelier
 # This file is distributed under the same license as the Easy WP Hotelier package.
 msgid ""
 msgstr ""
@@ -19,161 +19,161 @@ msgstr ""
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:160, ../includes/class-htl-booking.php:171, ../includes/class-htl-booking.php:177, ../includes/class-htl-booking.php:198, ../includes/class-htl-booking.php:216, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:321, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:327, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:343, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:361
+#: ../includes/class-htl-booking.php:160, ../includes/class-htl-booking.php:171, ../includes/class-htl-booking.php:177, ../includes/class-htl-booking.php:198, ../includes/class-htl-booking.php:226, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:321, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:327, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:343, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:361
 msgid "Error %d: Unable to create reservation. Please try again."
 msgstr ""
 
-#: ../includes/class-htl-booking.php:263, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:43
+#: ../includes/class-htl-booking.php:273, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:43
 msgid "First name"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:264
+#: ../includes/class-htl-booking.php:274
 msgctxt "placeholder"
 msgid "First name"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:269, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:47
+#: ../includes/class-htl-booking.php:279, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:47
 msgid "Last name"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:270
+#: ../includes/class-htl-booking.php:280
 msgctxt "placeholder"
 msgid "Last name"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:276, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:52
+#: ../includes/class-htl-booking.php:286, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:52
 msgid "Email address"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:277
+#: ../includes/class-htl-booking.php:287
 msgctxt "placeholder"
 msgid "Email address"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:284, ../includes/class-htl-emails.php:278, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:57, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:262
+#: ../includes/class-htl-booking.php:294, ../includes/class-htl-emails.php:278, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:57, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:262
 msgid "Telephone"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:285
+#: ../includes/class-htl-booking.php:295
 msgctxt "placeholder"
 msgid "Telephone"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:292, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:79
+#: ../includes/class-htl-booking.php:302, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:79
 msgid "Country"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:293
+#: ../includes/class-htl-booking.php:303
 msgctxt "placeholder"
 msgid "Country"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:298, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:248
+#: ../includes/class-htl-booking.php:308, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:248
 msgid "Address"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:299
+#: ../includes/class-htl-booking.php:309
 msgctxt "placeholder"
 msgid "Street address"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:304
+#: ../includes/class-htl-booking.php:314
 msgctxt "placeholder"
 msgid "Apartment, suite, unit etc. (optional)"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:309, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:69
+#: ../includes/class-htl-booking.php:319, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:69
 msgid "Town / City"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:310
+#: ../includes/class-htl-booking.php:320
 msgctxt "placeholder"
 msgid "Town / City"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:315, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:76
+#: ../includes/class-htl-booking.php:325, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:76
 msgid "State / County"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:316
+#: ../includes/class-htl-booking.php:326
 msgctxt "placeholder"
 msgid "State / County"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:321, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:72
+#: ../includes/class-htl-booking.php:331, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:72
 msgid "Postcode / Zip"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:322
+#: ../includes/class-htl-booking.php:332
 msgctxt "placeholder"
 msgid "Postcode / Zip"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:335
+#: ../includes/class-htl-booking.php:345
 msgid "Your estimated time of arrival"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:336
+#: ../includes/class-htl-booking.php:346
 msgid "Time is for %s time zone"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:341, ../includes/class-htl-reservation.php:227, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:96, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:317
+#: ../includes/class-htl-booking.php:351, ../includes/class-htl-reservation.php:227, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:96, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:317
 msgid "I don't know"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:369, ../includes/class-htl-emails.php:220, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:304, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:350
+#: ../includes/class-htl-booking.php:379, ../includes/class-htl-emails.php:220, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:304, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:350
 msgid "Special requests"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:372
+#: ../includes/class-htl-booking.php:382
 msgid "Special requests cannot be guaranteed but we will do our best to meet your needs."
 msgstr ""
 
-#: ../includes/class-htl-booking.php:412
+#: ../includes/class-htl-booking.php:422
 msgid "Book now & pay deposit"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:416, ../templates/room-list/content/add-to-cart.php:44, ../templates/room-list/content/rate/rate-add-to-cart.php:42
+#: ../includes/class-htl-booking.php:426, ../templates/room-list/content/add-to-cart.php:44, ../templates/room-list/content/rate/rate-add-to-cart.php:42
 msgid "Book now"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:422
+#: ../includes/class-htl-booking.php:432
 msgid "Send request"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:492, ../includes/class-htl-form-functions.php:129, ../includes/class-htl-form-functions.php:176, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:91
+#: ../includes/class-htl-booking.php:502, ../includes/class-htl-form-functions.php:129, ../includes/class-htl-form-functions.php:176, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:91
 msgid "We were unable to process your reservation, please try again."
 msgstr ""
 
-#: ../includes/class-htl-booking.php:505
+#: ../includes/class-htl-booking.php:515
 msgid "Sorry, your session has expired. <a href=\"%s\" class=\"htl-backward\">Return to homepage</a>"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:548
+#: ../includes/class-htl-booking.php:558
 msgid "is a required field."
 msgstr ""
 
-#: ../includes/class-htl-booking.php:558
+#: ../includes/class-htl-booking.php:568
 msgid "is not a valid email address."
 msgstr ""
 
-#: ../includes/class-htl-booking.php:565
+#: ../includes/class-htl-booking.php:575
 msgid "is not a valid number."
 msgstr ""
 
-#: ../includes/class-htl-booking.php:574
+#: ../includes/class-htl-booking.php:584
 msgid "is not a valid phone number."
 msgstr ""
 
-#: ../includes/class-htl-booking.php:587, ../includes/class-htl-form-functions.php:82
+#: ../includes/class-htl-booking.php:597, ../includes/class-htl-form-functions.php:82
 msgid "You must accept our Terms &amp; Conditions."
 msgstr ""
 
-#: ../includes/class-htl-booking.php:598, ../includes/class-htl-form-functions.php:76
+#: ../includes/class-htl-booking.php:608, ../includes/class-htl-form-functions.php:76
 msgid "Invalid payment method."
 msgstr ""
 
-#: ../includes/class-htl-booking.php:617
+#: ../includes/class-htl-booking.php:627
 msgid "List of available rooms <a href=\"%s\">here</a>"
 msgstr ""
 
@@ -181,7 +181,7 @@ msgstr ""
 msgid "Get cart should not be called before the wp_loaded action."
 msgstr ""
 
-#: ../includes/class-htl-cart.php:182, ../includes/class-htl-cart.php:521
+#: ../includes/class-htl-cart.php:182, ../includes/class-htl-cart.php:529
 msgid "%s has been removed from your cart because it can no longer be reserved. Please contact us if you need assistance."
 msgstr ""
 
@@ -193,11 +193,11 @@ msgstr ""
 msgid "Sorry, this room does not exists."
 msgstr ""
 
-#: ../includes/class-htl-cart.php:408, ../includes/class-htl-cart.php:563, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:265
+#: ../includes/class-htl-cart.php:410, ../includes/class-htl-cart.php:571, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:265
 msgid "Sorry, this room cannot be reserved."
 msgstr ""
 
-#: ../includes/class-htl-cart.php:542
+#: ../includes/class-htl-cart.php:550
 msgid "Sorry, we do not have enough \"%s\" available to fulfill your reservation. Please select another room or reduce the quantity and try again. We apologise for any inconvenience caused."
 msgstr ""
 
@@ -739,39 +739,39 @@ msgstr ""
 msgid "Reservation status changed from %s to %s."
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:668
+#: ../includes/class-htl-reservation.php:670
 msgid "Reservation marked as paid."
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:680
+#: ../includes/class-htl-reservation.php:682
 msgid "Reservation marked as unpaid."
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:844
+#: ../includes/class-htl-reservation.php:846
 msgid "Subtotal:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:851
+#: ../includes/class-htl-reservation.php:853
 msgid "Paid Deposit:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:858
+#: ../includes/class-htl-reservation.php:860
 msgid "Required Deposit:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:865
+#: ../includes/class-htl-reservation.php:867
 msgid "Payment Method:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:873
+#: ../includes/class-htl-reservation.php:875
 msgid "Total Due:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:891, ../includes/class-htl-reservation.php:903, ../templates/booking/reservation-table.php:84, ../templates/booking/reservation-table.php:107
+#: ../includes/class-htl-reservation.php:893, ../includes/class-htl-reservation.php:905, ../templates/booking/reservation-table.php:84, ../templates/booking/reservation-table.php:107
 msgid "Total:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:896
+#: ../includes/class-htl-reservation.php:898
 msgid "Deposit Due Now:"
 msgstr ""
 
@@ -1413,7 +1413,7 @@ msgstr ""
 msgid "Standard room"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:108, ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:259
+#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:108, ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:260
 msgid "Variable room"
 msgstr ""
 
@@ -1449,63 +1449,63 @@ msgstr ""
 msgid "Additional settings"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:201, ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:329
+#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:201, ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:330
 msgid "Require deposit?"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:202, ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:330
+#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:202, ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:331
 msgid "When selected, a deposit is required at the time of booking."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:213, ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:342
+#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:214, ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:344
 msgid "Deposit amount:"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:235, ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:365
+#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:236, ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:367
 msgid "Non cancellable?"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:236, ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:366
+#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:237, ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:368
 msgid "When checked, reservations that include this room will be non cancellable and non refundable."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:262, ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:399
+#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:263, ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:401
 msgid "Expand all"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:263, ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:400
+#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:264, ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:402
 msgid "Close all"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:264, ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:401
+#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:265, ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:403
 msgid "Add room rate"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:291
+#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:292
 msgid "Room rate:"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:302, ../includes/admin/settings/class-htl-admin-settings-fields.php:554, ../includes/admin/settings/class-htl-admin-settings-fields.php:571, ../includes/admin/meta-boxes/views/html-meta-box-room-conditions-variation.php:40, ../includes/admin/meta-boxes/views/html-meta-box-room-conditions.php:35
+#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:303, ../includes/admin/settings/class-htl-admin-settings-fields.php:554, ../includes/admin/settings/class-htl-admin-settings-fields.php:571, ../includes/admin/meta-boxes/views/html-meta-box-room-conditions-variation.php:40, ../includes/admin/meta-boxes/views/html-meta-box-room-conditions.php:35
 msgid "Remove"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:394
+#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:396
 msgid "Before adding variations, add and save some <a href=\"%1$s\">room rates</a>."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:409
+#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:411
 msgid "Additional room settings"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:412
+#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:414
 msgid "Back to the room settings"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:426
+#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:428
 msgid "Additional details"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:427
+#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:429
 msgid "These details are not prominent by default; however, some themes may show them."
 msgstr ""
 
@@ -2445,27 +2445,27 @@ msgstr ""
 msgid "Deposit due"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/html-meta-box-reservation-items.php:90
+#: ../includes/admin/meta-boxes/views/html-meta-box-reservation-items.php:94
 msgid "Remain deposit charged manually (%s)"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/html-meta-box-reservation-items.php:100
+#: ../includes/admin/meta-boxes/views/html-meta-box-reservation-items.php:104
 msgid "Balance due"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/html-meta-box-reservation-items.php:111, ../includes/admin/meta-boxes/views/html-meta-box-reservation-single-item.php:39, ../templates/booking/reservation-table.php:51, ../templates/emails/email-reservation-items.php:31, ../templates/reservation/item.php:29, ../templates/single-room/non-cancellable-info.php:24, ../templates/emails/plain/email-reservation-items.php:28, ../templates/room-list/content/non-cancellable-info.php:24, ../templates/single-room/rate/rate-non-cancellable-info.php:21, ../templates/room-list/content/rate/rate-non-cancellable-info.php:22
+#: ../includes/admin/meta-boxes/views/html-meta-box-reservation-items.php:115, ../includes/admin/meta-boxes/views/html-meta-box-reservation-single-item.php:39, ../templates/booking/reservation-table.php:51, ../templates/emails/email-reservation-items.php:31, ../templates/reservation/item.php:29, ../templates/single-room/non-cancellable-info.php:24, ../templates/emails/plain/email-reservation-items.php:28, ../templates/room-list/content/non-cancellable-info.php:24, ../templates/single-room/rate/rate-non-cancellable-info.php:21, ../templates/room-list/content/rate/rate-non-cancellable-info.php:22
 msgid "Non-refundable"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/html-meta-box-reservation-items.php:119
+#: ../includes/admin/meta-boxes/views/html-meta-box-reservation-items.php:123
 msgid "Charge remain deposit"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/html-meta-box-reservation-items.php:123
+#: ../includes/admin/meta-boxes/views/html-meta-box-reservation-items.php:127
 msgid "Mark as unpaid"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/html-meta-box-reservation-items.php:125
+#: ../includes/admin/meta-boxes/views/html-meta-box-reservation-items.php:129
 msgid "Mark as paid"
 msgstr ""
 
