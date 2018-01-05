@@ -327,6 +327,11 @@
   padding: 0 1em;
 }
 
+#hotelier-room-settings .room-advanced-settings .after-input {
+  font-style: italic;
+  margin-left: 1em;
+}
+
 #hotelier-room-settings h4 {
   border-bottom: 1px solid #e5e5e5;
   padding: 0 1em 1.33em;
@@ -1020,6 +1025,10 @@
   color: #444;
   display: inline-block;
   font-size: 11px;
+}
+
+#hotelier-reservation-items table.hotelier-reservation-totals tr.deposit .line-deposit {
+  display: block;
 }
 
 #hotelier-reservation-items table.hotelier-reservation-totals tr.deposit .deposit {

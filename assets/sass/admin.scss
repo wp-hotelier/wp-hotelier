@@ -412,6 +412,11 @@ $failed: #f26c4f;
 		.label-text {
 			padding: 0 1em;
 		}
+
+		.after-input {
+			font-style: italic;
+			margin-left: 1em;
+		}
 	}
 
 	h4 {
@@ -1154,6 +1159,10 @@ $failed: #f26c4f;
 				color: #444;
 				display: inline-block;
 				font-size: 11px;
+			}
+
+			.line-deposit {
+				display: block;
 			}
 
 			.deposit {
