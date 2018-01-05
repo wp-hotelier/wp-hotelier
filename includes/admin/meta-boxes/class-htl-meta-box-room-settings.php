@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin/Meta Boxes
- * @version  1.0.0
+ * @version  1.2.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -209,6 +209,7 @@ class HTL_Meta_Box_Room_Settings {
 							HTL_Meta_Boxes_Helper::select_input(
 								array(
 									'id'      => '_deposit_amount',
+									'class'   => 'deposit-amount-select',
 									'show_id' => true,
 									'label'   => esc_html__( 'Deposit amount:', 'wp-hotelier' ),
 									'options' => self::get_deposit_options()
@@ -337,6 +338,7 @@ class HTL_Meta_Box_Room_Settings {
 												HTL_Meta_Boxes_Helper::select_input(
 													array(
 														'id'      => '_room_variations',
+														'class'   => 'deposit-amount-select',
 														'name'    => '_room_variations[' . absint( $loop ) . '][deposit_amount]',
 														'depth'   => array( absint( $loop ), 'deposit_amount' ),
 														'label'   => esc_html__( 'Deposit amount:', 'wp-hotelier' ),
@@ -349,7 +351,7 @@ class HTL_Meta_Box_Room_Settings {
 												/**
 												 * A filter is provided to allow extensions to add their own deposit options
 												 */
-												do_action( 'hotelier_room_variation_deposit_options' ); ?>
+												do_action( 'hotelier_room_variation_deposit_options', absint( $loop ) ); ?>
 
 											</div><!-- .room-deposit-amount -->
 
