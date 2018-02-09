@@ -779,20 +779,20 @@ msgstr ""
 msgid "Hotel Manager"
 msgstr ""
 
-#: ../includes/class-htl-room-variation.php:346, ../includes/class-htl-room-variation.php:353, ../includes/class-htl-room.php:682, ../includes/class-htl-room.php:689
+#: ../includes/class-htl-room-variation.php:362, ../includes/class-htl-room-variation.php:369, ../includes/class-htl-room.php:698, ../includes/class-htl-room.php:705
 msgctxt "price"
 msgid "Price: %s"
 msgstr ""
 
-#: ../includes/class-htl-room-variation.php:415, ../includes/class-htl-room-variation.php:427, ../includes/class-htl-room.php:775, ../includes/class-htl-room.php:809, ../includes/class-htl-room.php:824
+#: ../includes/class-htl-room-variation.php:431, ../includes/class-htl-room-variation.php:443, ../includes/class-htl-room.php:791, ../includes/class-htl-room.php:825, ../includes/class-htl-room.php:840
 msgid "Rates from %s per night"
 msgstr ""
 
-#: ../includes/class-htl-room-variation.php:440, ../includes/class-htl-room.php:842, ../includes/class-htl-room.php:844
+#: ../includes/class-htl-room-variation.php:456, ../includes/class-htl-room.php:858, ../includes/class-htl-room.php:860
 msgid "%s per night"
 msgstr ""
 
-#: ../includes/class-htl-room.php:667
+#: ../includes/class-htl-room.php:683
 msgctxt "min_price"
 msgid "From %s"
 msgstr ""
@@ -1485,7 +1485,7 @@ msgstr ""
 msgid "Room rate:"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:303, ../includes/admin/settings/class-htl-admin-settings-fields.php:554, ../includes/admin/settings/class-htl-admin-settings-fields.php:571, ../includes/admin/meta-boxes/views/html-meta-box-room-conditions-variation.php:40, ../includes/admin/meta-boxes/views/html-meta-box-room-conditions.php:35
+#: ../includes/admin/meta-boxes/class-htl-meta-box-room-settings.php:303, ../includes/admin/settings/class-htl-admin-settings-fields.php:557, ../includes/admin/settings/class-htl-admin-settings-fields.php:576, ../includes/admin/meta-boxes/views/html-meta-box-room-conditions-variation.php:40, ../includes/admin/meta-boxes/views/html-meta-box-room-conditions.php:35
 msgid "Remove"
 msgstr ""
 
@@ -1886,7 +1886,7 @@ msgid "Price schema"
 msgstr ""
 
 #: ../includes/admin/settings/class-htl-admin-settings-default.php:482
-msgid "Each date range should have have a different price. The last rule defined overrides any previous rules."
+msgid "Each date range should have have a different price. The last rule defined overrides any previous rules. When you re-order the schema, remember to update the prices on already created rooms."
 msgstr ""
 
 #: ../includes/admin/settings/class-htl-admin-settings-default.php:492, ../includes/admin/settings/class-htl-admin-settings.php:95
@@ -2149,139 +2149,143 @@ msgstr ""
 msgid "Delete bookings"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:547, ../includes/admin/settings/class-htl-admin-settings-fields.php:564
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:548, ../includes/admin/settings/class-htl-admin-settings-fields.php:567
 msgid "From"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:549, ../includes/admin/settings/class-htl-admin-settings-fields.php:566
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:550, ../includes/admin/settings/class-htl-admin-settings-fields.php:569
 msgid "To"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:580
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:552, ../includes/admin/settings/class-htl-admin-settings-fields.php:571
+msgid "Every year?"
+msgstr ""
+
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:585
 msgid "Add new rule"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:612
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:617
 msgid "Your license key expired on %s. Please <a href=\"%s\" target=\"_blank\">renew your license key</a>."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:625
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:630
 msgid "Your license key has been disabled. Please <a href=\"%s\" target=\"_blank\">contact support</a> for more information."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:637
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:642
 msgid "Invalid license. Please <a href=\"%s\" target=\"_blank\">visit your account page</a> and verify it."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:650
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:655
 msgid "Your %s is not active for this URL. Please <a href=\"%s\" target=\"_blank\">visit your account page</a> to manage your license key URLs."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:662
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:667
 msgid "This appears to be an invalid license key for %s."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:671
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:676
 msgid "Your license key has reached its activation limit. <a href=\"%s\">View possible upgrades</a> now."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:680
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:685
 msgid "unknown_error"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:681
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:686
 msgid "There was an error with this license key: %s. Please <a href=\"%s\">contact our support team</a>."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:701
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:706
 msgid "License key never expires."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:708
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:713
 msgid "Your license key expires soon! It expires on %s. <a href=\"%s\" target=\"_blank\">Renew your license key</a>."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:718
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:723
 msgid "Your license key expires on %s."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:736
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:741
 msgid "To receive updates, please enter your valid %s license key."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:743
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:748
 msgid "License Key"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:748
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:753
 msgid "Deactivate License"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:773
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:778
 msgid "All missing Hotelier pages was installed successfully."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:787
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:792
 msgid "Test email from %s"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:792
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:797
 msgid "Email sent. This does not mean it has been delivered. See %s in the Codex for more information."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:811
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:816
 msgid "Sessions successfully cleared."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:844
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:849
 msgid "Bookings successfully deleted."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:928, ../includes/admin/settings/class-htl-admin-settings-fields.php:950
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:933, ../includes/admin/settings/class-htl-admin-settings-fields.php:955
 msgid "Page not set"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:930, ../includes/admin/settings/class-htl-admin-settings-fields.php:952
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:935, ../includes/admin/settings/class-htl-admin-settings-fields.php:957
 msgid "The page is set, but it does not exist"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:932, ../includes/admin/settings/class-htl-admin-settings-fields.php:954
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:937, ../includes/admin/settings/class-htl-admin-settings-fields.php:959
 msgid "The page is set, but it is not public"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:934, ../includes/admin/settings/class-htl-admin-settings-fields.php:956
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:939, ../includes/admin/settings/class-htl-admin-settings-fields.php:961
 msgid "The page requires this shortcode: %s"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:968, ../includes/admin/settings/class-htl-admin-settings-fields.php:981, ../includes/admin/settings/class-htl-admin-settings-fields.php:998, ../includes/admin/settings/class-htl-admin-settings-fields.php:1028, ../includes/admin/settings/class-htl-admin-settings-fields.php:1050, ../includes/admin/settings/class-htl-admin-settings-fields.php:1063
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:973, ../includes/admin/settings/class-htl-admin-settings-fields.php:986, ../includes/admin/settings/class-htl-admin-settings-fields.php:1003, ../includes/admin/settings/class-htl-admin-settings-fields.php:1033, ../includes/admin/settings/class-htl-admin-settings-fields.php:1055, ../includes/admin/settings/class-htl-admin-settings-fields.php:1068
 msgid "Not available"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:985
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:990
 msgid "%s - Easy WP Hotelier requires at least PHP 5.6.0. Please update your PHP version."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:1003
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:1008
 msgid "%s - We recommend setting memory to at least 64MB."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:1016, ../includes/admin/settings/class-htl-admin-settings-fields.php:1077, ../includes/admin/settings/class-htl-admin-settings-fields.php:1090
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:1021, ../includes/admin/settings/class-htl-admin-settings-fields.php:1082, ../includes/admin/settings/class-htl-admin-settings-fields.php:1095
 msgid "Enabled"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:1018
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:1023
 msgid "Disabled"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:1079
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:1084
 msgid "Your server does not have fsockopen or cURL enabled - PayPal IPN and other scripts which communicate with other servers will not work. Contact your hosting provider."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:1092
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:1097
 msgid "Your server does not have the DOMDocument class enabled - Some extensions may not work without DOMDocument"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:1105
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:1110
 msgid "To allow logging, make <code>%s</code> writable or define a custom <code>HTL_LOG_DIR</code>."
 msgstr ""
 
@@ -2529,11 +2533,15 @@ msgstr ""
 msgid "Default room price. Used when no rules are found."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/html-meta-box-room-price-variation.php:124, ../includes/admin/meta-boxes/views/html-meta-box-room-price.php:120
+#: ../includes/admin/meta-boxes/views/html-meta-box-room-price-variation.php:125, ../includes/admin/meta-boxes/views/html-meta-box-room-price.php:120
 msgid "Price from %s to %s:"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/html-meta-box-room-price-variation.php:130, ../includes/admin/meta-boxes/views/html-meta-box-room-price.php:130
+#: ../includes/admin/meta-boxes/views/html-meta-box-room-price-variation.php:128, ../includes/admin/meta-boxes/views/html-meta-box-room-price.php:128
+msgid "(Every year)"
+msgstr ""
+
+#: ../includes/admin/meta-boxes/views/html-meta-box-room-price-variation.php:137, ../includes/admin/meta-boxes/views/html-meta-box-room-price.php:137
 msgid "There are no seasonal prices defined. Add some date ranges <a href=\"%1$s\">here</a>."
 msgstr ""
 
