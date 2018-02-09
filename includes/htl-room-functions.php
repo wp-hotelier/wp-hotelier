@@ -435,11 +435,11 @@ function htl_get_room_price_breakdown( $checkin, $checkout, $room_id, $rate_id, 
 
 						foreach ( $rules as $key => $rule ) {
 							$begin = new DateTime( $rule[ 'from' ] );
-							$end = new DateTime( $rule[ 'to' ] );
+							$end   = new DateTime( $rule[ 'to' ] );
 
 							if ( $curr_date >= $begin->getTimestamp() && $curr_date <= $end->getTimestamp() ) {
 
-								if ( isset( $_variation->variation[ 'seasonal_price' ][ $rule[ 'index' ] ] ) ) {
+								if ( isset( $_variation->variation[ 'seasonal_price' ][ $rule[ 'index' ] ] ) && $_variation->variation[ 'seasonal_price' ][ $rule[ 'index' ] ] > 0 ) {
 									// Rule found, use seasonal price
 									$breakdown[ $date->format( 'Y-m-d' ) ] = $_variation->variation[ 'seasonal_price' ][ $rule[ 'index' ] ] * $qty;
 									$has_seasonal_price = true;
@@ -499,11 +499,11 @@ function htl_get_room_price_breakdown( $checkin, $checkout, $room_id, $rate_id, 
 
 						foreach ( $rules as $key => $rule ) {
 							$begin = new DateTime( $rule[ 'from' ] );
-							$end = new DateTime( $rule[ 'to' ] );
+							$end   = new DateTime( $rule[ 'to' ] );
 
 							if ( $curr_date >= $begin->getTimestamp() && $curr_date <= $end->getTimestamp() ) {
 
-								if ( isset( $_room->seasonal_price[ $rule[ 'index' ] ] ) ) {
+								if ( isset( $_room->seasonal_price[ $rule[ 'index' ] ] ) && $_room->seasonal_price[ $rule[ 'index' ] ] > 0 ) {
 									// Rule found, use seasonal price
 									$breakdown[ $date->format( 'Y-m-d' ) ] = $_room->seasonal_price[ $rule[ 'index' ] ] * $qty;
 									$has_seasonal_price = true;

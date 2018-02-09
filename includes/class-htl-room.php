@@ -579,13 +579,14 @@ class HTL_Room {
 
 					if ( $curr_date >= $begin->getTimestamp() && $curr_date <= $end->getTimestamp() ) {
 
-						if ( isset( $this->seasonal_price[ $rule[ 'index' ] ] ) ) {
+						if ( isset( $this->seasonal_price[ $rule[ 'index' ] ] ) && $this->seasonal_price[ $rule[ 'index' ] ] > 0 ) {
 							// Rule found, use seasonal price
 							$price += $this->seasonal_price[ $rule[ 'index' ] ];
 							$has_seasonal_price = true;
-						}
 
-						break;
+							// Exit
+							break;
+						}
 					}
 				}
 
@@ -738,7 +739,7 @@ class HTL_Room {
 					foreach ( $rules as $key => $value ) {
 
 						// check if this rule has a price
-						if ( isset( $variation->variation[ 'seasonal_price' ][ $key ] ) ) {
+						if ( isset( $variation->variation[ 'seasonal_price' ][ $key ] ) && $variation->variation[ 'seasonal_price' ][ $key ] > 0 ) {
 							$prices[] = $variation->variation[ 'seasonal_price' ][ $key ];
 						}
 					}
@@ -794,7 +795,7 @@ class HTL_Room {
 					foreach ( $rules as $key => $value ) {
 
 						// check if this rule has a price
-						if ( isset( $seasonal_prices[ $key ] ) ) {
+						if ( isset( $seasonal_prices[ $key ] ) && $seasonal_prices[ $key ] > 0 ) {
 							$prices[] = $seasonal_prices[ $key ];
 						}
 					}
