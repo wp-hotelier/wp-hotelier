@@ -172,6 +172,14 @@ class HTL_Post_Types {
 			'show_in_admin_status_list' => true,
 			'label_count'               => _n_noop( 'Failed <span class="count">(%s)</span>', 'Failed <span class="count">(%s)</span>', 'wp-hotelier' )
 		) );
+		register_post_status( 'htl-refunded', array(
+			'label'                     => esc_html_x( 'Refunded', 'Reservation status', 'wp-hotelier' ),
+			'public'                    => true,
+			'exclude_from_search'       => false,
+			'show_in_admin_all_list'    => true,
+			'show_in_admin_status_list' => true,
+			'label_count'               => _n_noop( 'Refunded <span class="count">(%s)</span>', 'Refunded <span class="count">(%s)</span>', 'wp-hotelier' )
+		) );
 
 	}
 
