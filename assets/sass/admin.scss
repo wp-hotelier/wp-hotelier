@@ -298,6 +298,14 @@ $failed: #f26c4f;
 		width: 90%;
 	}
 
+	.date-every-year-label {
+		margin-left: 2%;
+	}
+
+	input[type="checkbox"] {
+		margin-left: 5px;
+	}
+
 	.sort-rules {
 		background-color: $light_grey;
 		border: 1px solid #fff;

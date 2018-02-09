@@ -245,6 +245,14 @@
   width: 90%;
 }
 
+#hotelier-seasonal-schema-table .date-every-year-label {
+  margin-left: 2%;
+}
+
+#hotelier-seasonal-schema-table input[type="checkbox"] {
+  margin-left: 5px;
+}
+
 #hotelier-seasonal-schema-table .sort-rules {
   background-color: #f7f7f7;
   border: 1px solid #fff;
