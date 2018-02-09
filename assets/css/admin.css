@@ -785,6 +785,14 @@
   background-image: url(../images/icons/status-trash.svg);
 }
 
+.wp-list-table td.column-status span.refunded {
+  border-color: #85DCEE;
+}
+
+.wp-list-table td.column-status span.refunded:after {
+  background-image: url(../images/icons/status-refunded.svg);
+}
+
 /* reservation meta boxes */
 .add-new-reservation-form .add-new-room {
   margin-top: 15px;
