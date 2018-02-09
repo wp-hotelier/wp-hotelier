@@ -3,7 +3,7 @@ Contributors: benitolopez
 Tags: booking, hotel, booking system, hostel, reservations, reservations, b&b, rooms, wphotelier
 Requires at least: 4.1
 Tested up to: 4.9
-Stable tag: 1.2.0
+Stable tag: 1.3.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -105,8 +105,13 @@ Here: [Easy WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 1.3.0 - 2018-02-09 =
+* Added - Seasonal prices can now be repeated every year.
+* Fixed - Fixed a minor bug on seasonal prices.
+* Localization - POT file updated.
+
 = 1.2.0 - 2018-01-05 =
-* Changed - Save calculated deposit (and the percentage) in the reservation meta .
+* Changed - Save calculated deposit (and the percentage) in the reservation meta.
 * Tweak - Allow to filter line to pay in cart.
 * Tweak - Add filter for room deposit.
 * Tweak - Minor tweaks.
