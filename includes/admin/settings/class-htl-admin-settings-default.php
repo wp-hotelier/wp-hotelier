@@ -479,7 +479,7 @@ class HTL_Admin_Settings_Default {
 					'seasonal_prices_schema' => array(
 						'id'   => 'seasonal_prices_schema',
 						'name' => esc_html__( 'Price schema', 'wp-hotelier' ),
-						'desc' => __( 'Each date range should have have a different price. The last rule defined overrides any previous rules.', 'wp-hotelier' ),
+						'desc' => __( 'Each date range should have have a different price. The last rule defined overrides any previous rules. When you re-order the schema, remember to update the prices on already created rooms.', 'wp-hotelier' ),
 						'type' => 'seasonal_prices_table'
 					),
 				)
