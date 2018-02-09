@@ -272,6 +272,21 @@ class HTL_Room_Variation {
 					$begin = new DateTime( $rule[ 'from' ] );
 					$end = new DateTime( $rule[ 'to' ] );
 
+					// Check if the seasonal range repeats every year
+					$repeats_every_year = isset( $rule[ 'every_year' ] ) ? true : false;
+
+					if ( $repeats_every_year ) {
+						$checkin_year = $checkin->format('Y');
+						$begin_year   = $begin->format('Y');
+						$years_diff   = $checkin_year - $begin_year;
+
+						// Add 'x' years to the seasonal rule
+						if ( $years_diff > 0 ) {
+							$begin->add( new DateInterval( 'P' . $years_diff . 'Y' ) );
+							$end->add( new DateInterval( 'P' . $years_diff . 'Y' ) );
+						}
+					}
+
 					if ( $curr_date >= $begin->getTimestamp() && $curr_date <= $end->getTimestamp() ) {
 
 						if ( isset( $this->variation[ 'seasonal_price' ][ $rule[ 'index' ] ] ) && $this->variation[ 'seasonal_price' ][ $rule[ 'index' ] ] > 0 ) {

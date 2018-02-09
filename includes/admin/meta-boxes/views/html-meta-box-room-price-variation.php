@@ -120,8 +120,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			foreach ( $seasonal_prices_schema as $key => $rule ) {
 				$seasonal_price_current_value = isset( $seasonal_price_value[ $key ] ) ? HTL_Formatting_Helper::localized_amount( $seasonal_price_value[ $key ] ) : '';
+				$every_year = isset( $seasonal_prices_schema[ $key ][ 'every_year' ] ) ? 1 : 0;
 
-				echo '<p class="form-field price"><label><span>' . wp_kses_post( sprintf( __( 'Price from %s to %s:', 'wp-hotelier' ), '<em>' . esc_html( $rule[ 'from' ] ) . '</em>', '<em>' . esc_html( $rule[ 'to' ] ) . '</em>' ) ) . '</span><input type="text" class="htl-input-price" name="_room_variations[' . absint( $loop ) . '][seasonal_price][' . esc_attr( $key ) . ']" value="' . $seasonal_price_current_value . '" placeholder="' . self::get_price_placeholder() . '" /></label></p>';
+				echo '<p class="form-field price"><label><span>' . wp_kses_post( sprintf( __( 'Price from %s to %s:', 'wp-hotelier' ), '<em>' . esc_html( $rule[ 'from' ] ) . '</em>', '<em>' . esc_html( $rule[ 'to' ] ) . '</em>' ) ) . '</span><input type="text" class="htl-input-price" name="_room_variations[' . absint( $loop ) . '][seasonal_price][' . esc_attr( $key ) . ']" value="' . $seasonal_price_current_value . '" placeholder="' . self::get_price_placeholder() . '" /></label>';
+
+				if ( $every_year ) {
+					echo '<span class="after-input">' . esc_html__( '(Every year)', 'wp-hotelier' ) . '</span>';
+				}
+
+				echo '</p>';
 			}
 
 			echo '<p class="change-seasonal-prices-rules"><a href="admin.php?page=hotelier-settings&tab=seasonal-prices">' . esc_html( 'Change seasonal prices schema', 'wp-hotelier' ) . '</a></p>';

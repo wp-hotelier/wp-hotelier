@@ -113,15 +113,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			foreach ( $seasonal_prices_schema as $key => $rule ) {
 				$seasonal_price_current_value = isset( $seasonal_price_value[ $key ] ) ? $seasonal_price_value[ $key ] : '';
+				$every_year = isset( $seasonal_prices_schema[ $key ][ 'every_year' ] ) ? 1 : 0;
 
-				HTL_Meta_Boxes_Helper::text_input(
-					array(
-						'id'            => '_seasonal_price[' . esc_attr( $key ) . ']',
-						'label'         => sprintf( __( 'Price from %s to %s:', 'wp-hotelier' ), '<em>' . esc_html( $rule[ 'from' ] ) . '</em>', '<em>' . esc_html( $rule[ 'to' ] ) . '</em>' ),
-						'wrapper_class' => 'price',
-						'data_type'     => 'price',
-						'placeholder'   => self::get_price_placeholder(),
-						'value'         => $seasonal_price_current_value ) );
+				$input_args = array(
+					'id'            => '_seasonal_price[' . esc_attr( $key ) . ']',
+					'label'         => sprintf( __( 'Price from %s to %s:', 'wp-hotelier' ), '<em>' . esc_html( $rule[ 'from' ] ) . '</em>', '<em>' . esc_html( $rule[ 'to' ] ) . '</em>' ),
+					'wrapper_class' => 'price',
+					'data_type'     => 'price',
+					'placeholder'   => self::get_price_placeholder(),
+					'value'         => $seasonal_price_current_value
+				);
+
+				if ( $every_year ) {
+					$input_args[ 'after_input' ] = __( '(Every year)', 'wp-hotelier' );
+				}
+
+				HTL_Meta_Boxes_Helper::text_input( $input_args );
 			}
 
 			echo '<p class="change-seasonal-prices-rules"><a href="admin.php?page=hotelier-settings&tab=seasonal-prices">' . esc_html( 'Change seasonal prices schema', 'wp-hotelier' ) . '</a></p>';

@@ -541,6 +541,7 @@ class HTL_Admin_Settings_Fields {
 
 		if ( ! empty( $rules ) ) {
 			foreach( $rules as $key => $rule ) {
+				$every_year = isset( $rule[ 'every_year' ] ) ? 1 : 0;
 
 				$html .= '<tr class="rule-row" data-key="' . HTL_Formatting_Helper::sanitize_key( $key ) . '">';
 				$html .= '<td class="season-dates">
@@ -548,6 +549,8 @@ class HTL_Admin_Settings_Fields {
 							<input class="date-from" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][' . HTL_Formatting_Helper::sanitize_key( $key ) . '][from]" value="' . esc_attr__( $rule['from'] ) . '"></label>
 							<label>' . esc_html__( 'To', 'wp-hotelier' ) . '
 							<input class="date-to" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][' . HTL_Formatting_Helper::sanitize_key( $key ) . '][to]" value="' . esc_attr__( $rule['to'] ) . '"></label>
+							<label class="date-every-year-label">' . esc_html__( 'Every year?', 'wp-hotelier' ) . '
+							<input class="date-every-year" value="1" type="checkbox" name="hotelier_settings[seasonal_prices_schema][' . HTL_Formatting_Helper::sanitize_key( $key ) . '][every_year]" ' . checked( $every_year, 1, false ) . '></label>
 							<input class="rule-index" type="hidden" name="hotelier_settings[seasonal_prices_schema][' . HTL_Formatting_Helper::sanitize_key( $key ) . '][index]" value="' . esc_attr__( HTL_Formatting_Helper::sanitize_key( $key ) ) . '">
 						</td>';
 				$html .= '<td>
@@ -565,6 +568,8 @@ class HTL_Admin_Settings_Fields {
 						<input class="date-from" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][1][from]"></label>
 						<label>' . esc_html__( 'To', 'wp-hotelier' ) . '
 						<input class="date-to" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][1][to]"></label>
+						<label class="date-every-year-label">' . esc_html__( 'Every year?', 'wp-hotelier' ) . '
+						<input class="date-every-year" value="1" type="checkbox" name="hotelier_settings[seasonal_prices_schema][1][every_year]"></label>
 						<input class="rule-index" type="hidden" name="hotelier_settings[seasonal_prices_schema][1][index]" value="1">
 					</td>';
 			$html .= '<td>
@@ -1210,9 +1215,23 @@ class HTL_Admin_Settings_Fields {
 			$rules = array_combine( range( 1, count( $rules ) ), array_values( $rules ) );
 
 			foreach ( $rules as $key => $rule ) {
+				// Check date range
 				if ( ! HTL_Formatting_Helper::is_valid_date_range( $rule[ 'from' ], $rule[ 'to' ] ) ) {
 					unset( $rules[ $key ] );
 					continue;
+				}
+
+				// We can't accept repeated rules that are greater than one year
+				$from       = new DateTime( $rule[ 'from' ] );
+				$to         = new DateTime( $rule[ 'to' ] );
+				$interval   = $from->diff( $to );
+				$years_diff = $interval->y;
+
+				if ( $years_diff > 0 ) {
+					$rules[ $key ] = array(
+						'from' => $rule[ 'from' ],
+						'to'   => $rule[ 'to' ],
+					);
 				}
 			}
 		}
