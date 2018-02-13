@@ -370,8 +370,8 @@ class HTL_Reservation {
 		// Only update if they differ - and ensure post_status is a 'htl' status.
 		if ( $new_status !== $old_status || ! in_array( $this->post_status, array_keys( htl_get_reservation_statuses() ) ) ) {
 
-			// Cancelled/completed reservations cannot be restored
-			if ( $old_status == 'cancelled' || $old_status == 'completed' ) {
+			// Cancelled/completed/refunded reservations cannot be restored
+			if ( $old_status == 'cancelled' || $old_status == 'completed' || $old_status == 'refunded' ) {
 
 				$this->add_reservation_note( trim( $note . ' ' . sprintf( esc_html__( 'Error: Trying to change the status from %1$s to %2$s. %1$s reservations cannot be restored or modified.', 'wp-hotelier' ), htl_get_reservation_status_name( $old_status ), htl_get_reservation_status_name( $new_status ) ) ) );
 
