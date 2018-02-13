@@ -31,6 +31,12 @@ if ( $reservation ) : ?>
 
 			<?php do_action( 'hotelier_reservation_details', $reservation ); ?>
 
+		<?php elseif ( $reservation->has_status( 'refunded' ) ) : ?>
+
+			<p class="reservation-response reservation-response--refunded"><?php echo apply_filters( 'hotelier_reservation_refunded_text', esc_html__( 'This reservation has been refunded. The reservation was as follows.', 'wp-hotelier' ), $reservation ); ?></p>
+
+			<?php do_action( 'hotelier_reservation_details', $reservation ); ?>
+
 		<?php else : ?>
 
 			<p class="reservation-response reservation-response--received"><?php echo apply_filters( 'hotelier_reservation_received_text', esc_html__( 'Thank you. Your reservation has been received.', 'wp-hotelier' ), $reservation ); ?></p>
