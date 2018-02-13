@@ -388,8 +388,8 @@ function htl_process_completed_reservations() {
 		foreach ( $completed_reservations as $completed_reservation ) {
 			$reservation = htl_get_reservation( $completed_reservation );
 
-			// Skip already completed or cancelled reservations
-			if ( $reservation->get_status() == 'completed' || $reservation->get_status() == 'cancelled' ) {
+			// Skip already completed or cancelled/refunded reservations
+			if ( $reservation->get_status() == 'completed' || $reservation->get_status() == 'cancelled' || $reservation->get_status() == 'refunded' ) {
 				return;
 			}
 
