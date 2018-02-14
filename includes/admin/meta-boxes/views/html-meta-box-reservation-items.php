@@ -103,31 +103,45 @@ $line_items = $reservation->get_items();
 		<tr class="total">
 			<td class="label"><?php esc_html_e( 'Balance due', 'wp-hotelier' ); ?>:</td>
 			<td class="total">
-				<?php echo wp_kses_post( $reservation->get_formatted_balance_due() ); ?>
+				<?php
+				$reservation_balance_due = wp_kses_post( $reservation->get_formatted_balance_due() );
+
+				echo ( $reservation->get_status() == 'refunded' ) ? '<del>' . $reservation_balance_due . '</del>' : $reservation_balance_due;
+				?>
 			</td>
 		</tr>
 
 	</table>
 </div>
 
-<?php if ( ! $reservation->can_be_cancelled() ) : ?>
-	<div class="hotelier-reservation-no-cancellable-info">
-		<span><?php esc_html_e( 'Non-refundable', 'wp-hotelier' ); ?></span>
+<?php if ( $reservation->get_status() == 'refunded' ) : ?>
+
+	<div class="hotelier-reservation-refunded-info">
+		<span><?php esc_html_e( 'This reservation has been refunded', 'wp-hotelier' ); ?></span>
 	</div>
-<?php endif; ?>
 
-<?php if ( ! $reservation->get_remain_deposit_charge() ) : ?>
+<?php else : ?>
 
-	<div class="hotelier-pay-actions">
-		<?php if ( $reservation->can_be_charged() ) : ?>
-			<button type="submit" name="hotelier_charge_remain_deposit" class="button charge-remain-deposit" value="1"><?php esc_html_e( 'Charge remain deposit', 'wp-hotelier' ); ?></button>
-		<?php endif; ?>
+	<?php if ( ! $reservation->can_be_cancelled() ) : ?>
+		<div class="hotelier-reservation-no-cancellable-info">
+			<span><?php esc_html_e( 'Non-refundable', 'wp-hotelier' ); ?></span>
+		</div>
+	<?php endif; ?>
 
-		<?php if ( $reservation->is_marked_as_paid() ) : ?>
-			<button type="submit" name="hotelier_mark_as_paid_action" class="button button-primary" value="unpaid"><?php esc_html_e( 'Mark as unpaid', 'wp-hotelier' ); ?></button>
-		<?php else : ?>
-			<button type="submit" name="hotelier_mark_as_paid_action" class="button button-primary" value="paid"><?php esc_html_e( 'Mark as paid', 'wp-hotelier' ); ?></button>
-		<?php endif; ?>
-	</div>
+	<?php if ( ! $reservation->get_remain_deposit_charge() ) : ?>
+
+		<div class="hotelier-pay-actions">
+			<?php if ( $reservation->can_be_charged() ) : ?>
+				<button type="submit" name="hotelier_charge_remain_deposit" class="button charge-remain-deposit" value="1"><?php esc_html_e( 'Charge remain deposit', 'wp-hotelier' ); ?></button>
+			<?php endif; ?>
+
+			<?php if ( $reservation->is_marked_as_paid() ) : ?>
+				<button type="submit" name="hotelier_mark_as_paid_action" class="button button-primary" value="unpaid"><?php esc_html_e( 'Mark as unpaid', 'wp-hotelier' ); ?></button>
+			<?php else : ?>
+				<button type="submit" name="hotelier_mark_as_paid_action" class="button button-primary" value="paid"><?php esc_html_e( 'Mark as paid', 'wp-hotelier' ); ?></button>
+			<?php endif; ?>
+		</div>
+
+	<?php endif; ?>
 
 <?php endif; ?>

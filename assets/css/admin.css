@@ -1164,6 +1164,20 @@
   padding: 5px 10px;
 }
 
+.hotelier-reservation-refunded-info {
+  color: white;
+  font-size: 12px;
+  padding: 8px;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.hotelier-reservation-refunded-info span {
+  background-color: #85DCEE;
+  display: inline-block;
+  padding: 5px 10px;
+}
+
 /* tipsy and tooltip styles */
 .error-tooltip {
   background-color: #e7272d;
