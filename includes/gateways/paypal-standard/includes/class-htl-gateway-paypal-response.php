@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes/Payment
- * @version  1.0.0
+ * @version  1.4.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -244,6 +244,19 @@ class HTL_Gateway_Paypal_Response {
 	 */
 	protected function payment_status_voided( $reservation, $posted ) {
 		$this->payment_status_failed( $reservation, $posted );
+	}
+
+	/**
+	 * Handle a refunded payment
+	 * @param  HTL_Reservation $reservation
+	 * @param  array $posted
+	 */
+	protected function payment_status_refunded( $reservation, $posted ) {
+		// Log refund
+		HTL_Gateway_Paypal::log( 'Payment refunded via IPN' );
+
+		// Mark reservation as refunded.
+		$reservation->update_status( 'refunded', sprintf( esc_html__( 'Payment %s via IPN (gross %s).', 'wp-hotelier' ), strtolower( $posted[ 'payment_status' ] ), $posted[ 'mc_gross' ] ) );
 	}
 
 	/**

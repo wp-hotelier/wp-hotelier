@@ -280,6 +280,9 @@ class HTL_Form_Functions {
 			if ( $reservation->has_status( 'cancelled' ) ) {
 				// Already cancelled
 				htl_add_notice( esc_html__( 'Reservation already cancelled.', 'wp-hotelier' ), 'error' );
+			} elseif ( $reservation->has_status( 'refunded' ) ) {
+				// Already refunded
+				htl_add_notice( esc_html__( 'Reservation already refunded.', 'wp-hotelier' ), 'error' );
 			} elseif ( ! $reservation->can_be_cancelled() ) {
 				// Reservation contains non-cancellable rooms
 				htl_add_notice( esc_html__( 'Your reservation includes a non cancellable and non refundable room and it cannot be cancelled.', 'wp-hotelier' ), 'error' );

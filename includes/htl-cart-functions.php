@@ -55,7 +55,7 @@ function htl_clear_cart_after_payment() {
 
 		if ( $reservation && $reservation->id > 0 ) {
 			// If the reservation has not failed, or is not pending, the reservation must have gone through
-			if ( ! $reservation->has_status( array( 'failed', 'pending', 'cancelled' ) ) ) {
+			if ( ! $reservation->has_status( array( 'failed', 'pending', 'cancelled', 'refunded' ) ) ) {
 				HTL()->cart->empty_cart();
 			}
 		}

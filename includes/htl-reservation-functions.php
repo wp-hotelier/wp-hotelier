@@ -118,6 +118,7 @@ function htl_get_reservation_statuses() {
 		'htl-pending'    => esc_html_x( 'Pending', 'Reservation status', 'wp-hotelier' ),
 		'htl-on-hold'    => esc_html_x( 'On Hold', 'Reservation status', 'wp-hotelier' ),
 		'htl-cancelled'  => esc_html_x( 'Cancelled', 'Reservation status', 'wp-hotelier' ),
+		'htl-refunded'   => esc_html_x( 'Refunded', 'Reservation status', 'wp-hotelier' ),
 		'htl-failed'     => esc_html_x( 'Failed', 'Reservation status', 'wp-hotelier' )
 	);
 
@@ -387,8 +388,8 @@ function htl_process_completed_reservations() {
 		foreach ( $completed_reservations as $completed_reservation ) {
 			$reservation = htl_get_reservation( $completed_reservation );
 
-			// Skip already completed or cancelled reservations
-			if ( $reservation->get_status() == 'completed' || $reservation->get_status() == 'cancelled' ) {
+			// Skip already completed or cancelled/refunded reservations
+			if ( $reservation->get_status() == 'completed' || $reservation->get_status() == 'cancelled' || $reservation->get_status() == 'refunded' ) {
 				return;
 			}
 

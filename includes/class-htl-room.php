@@ -347,7 +347,7 @@ class HTL_Room {
 	public function get_reserved_rooms( $checkin, $checkout ) {
 		global $wpdb;
 
-		$sql      = $wpdb->prepare( "SELECT room_id FROM {$wpdb->prefix}hotelier_rooms_bookings rb, {$wpdb->prefix}hotelier_bookings b WHERE rb.reservation_id = b.reservation_id AND rb.room_id = %d AND (%s < b.checkout AND %s > b.checkin) AND b.status <> 'cancelled' AND b.status <> 'completed'", $this->id, $checkin, $checkout );
+		$sql      = $wpdb->prepare( "SELECT room_id FROM {$wpdb->prefix}hotelier_rooms_bookings rb, {$wpdb->prefix}hotelier_bookings b WHERE rb.reservation_id = b.reservation_id AND rb.room_id = %d AND (%s < b.checkout AND %s > b.checkin) AND b.status <> 'cancelled' AND b.status <> 'refunded' AND b.status <> 'completed'", $this->id, $checkin, $checkout );
 		$result   = $wpdb->get_results( $sql );
 		$count    = count( $result );
 

@@ -16,6 +16,7 @@ $completed: $blue;
 $cancelled: $error;
 $trash: #ccc;
 $failed: #f26c4f;
+$refunded: #85DCEE;
 
 // Mixins
 
@@ -874,6 +875,14 @@ $failed: #f26c4f;
 					background-image: url(../images/icons/status-trash.svg);
 				}
 			}
+
+			&.refunded {
+				border-color: $refunded;
+
+				&:after {
+					background-image: url(../images/icons/status-refunded.svg);
+				}
+			}
 		}
 	}
 }
@@ -1294,6 +1303,20 @@ $failed: #f26c4f;
 
 	span {
 		background-color: #dc3232;
+		display: inline-block;
+		padding: 5px 10px;
+	}
+}
+
+.hotelier-reservation-refunded-info {
+	color: white;
+	font-size: 12px;
+	padding: 8px;
+	text-align: right;
+	text-transform: uppercase;
+
+	span {
+		background-color: $refunded;
 		display: inline-block;
 		padding: 5px 10px;
 	}

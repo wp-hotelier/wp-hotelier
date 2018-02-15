@@ -785,6 +785,14 @@
   background-image: url(../images/icons/status-trash.svg);
 }
 
+.wp-list-table td.column-status span.refunded {
+  border-color: #85DCEE;
+}
+
+.wp-list-table td.column-status span.refunded:after {
+  background-image: url(../images/icons/status-refunded.svg);
+}
+
 /* reservation meta boxes */
 .add-new-reservation-form .add-new-room {
   margin-top: 15px;
@@ -1152,6 +1160,20 @@
 
 .hotelier-reservation-no-cancellable-info span {
   background-color: #dc3232;
+  display: inline-block;
+  padding: 5px 10px;
+}
+
+.hotelier-reservation-refunded-info {
+  color: white;
+  font-size: 12px;
+  padding: 8px;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.hotelier-reservation-refunded-info span {
+  background-color: #85DCEE;
   display: inline-block;
   padding: 5px 10px;
 }

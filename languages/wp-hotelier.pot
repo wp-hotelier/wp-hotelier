@@ -234,22 +234,26 @@ msgid "Reservation already cancelled."
 msgstr ""
 
 #: ../includes/class-htl-form-functions.php:285
+msgid "Reservation already refunded."
+msgstr ""
+
+#: ../includes/class-htl-form-functions.php:288
 msgid "Your reservation includes a non cancellable and non refundable room and it cannot be cancelled."
 msgstr ""
 
-#: ../includes/class-htl-form-functions.php:289
+#: ../includes/class-htl-form-functions.php:292
 msgid "Reservation cancelled by guest."
 msgstr ""
 
-#: ../includes/class-htl-form-functions.php:292
+#: ../includes/class-htl-form-functions.php:295
 msgid "Your reservation has been cancelled."
 msgstr ""
 
-#: ../includes/class-htl-form-functions.php:297
+#: ../includes/class-htl-form-functions.php:300
 msgid "Your reservation can no longer be cancelled. Please contact us if you need assistance."
 msgstr ""
 
-#: ../includes/class-htl-form-functions.php:299, ../includes/shortcodes/class-htl-shortcode-booking.php:119, ../templates/booking/received.php:51
+#: ../includes/class-htl-form-functions.php:302, ../includes/shortcodes/class-htl-shortcode-booking.php:119, ../templates/booking/received.php:57
 msgid "Invalid reservation."
 msgstr ""
 
@@ -522,7 +526,7 @@ msgid_plural "Cancelled <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../includes/class-htl-post-types.php:168, ../includes/htl-reservation-functions.php:121
+#: ../includes/class-htl-post-types.php:168, ../includes/htl-reservation-functions.php:122
 msgctxt "Reservation status"
 msgid "Failed"
 msgstr ""
@@ -533,189 +537,200 @@ msgid_plural "Failed <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../includes/class-htl-post-types.php:196
+#: ../includes/class-htl-post-types.php:176, ../includes/htl-reservation-functions.php:121
+msgctxt "Reservation status"
+msgid "Refunded"
+msgstr ""
+
+#: ../includes/class-htl-post-types.php:181
+msgid "Refunded <span class=\"count\">(%s)</span>"
+msgid_plural "Refunded <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../includes/class-htl-post-types.php:204
 msgid "Room Categories"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:197
+#: ../includes/class-htl-post-types.php:205
 msgid "Room Category"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:198
+#: ../includes/class-htl-post-types.php:206
 msgid "Categories"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:199
+#: ../includes/class-htl-post-types.php:207
 msgid "Search Room Categories"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:200
+#: ../includes/class-htl-post-types.php:208
 msgid "All Room Categories"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:201
+#: ../includes/class-htl-post-types.php:209
 msgid "Edit Room Category"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:202
+#: ../includes/class-htl-post-types.php:210
 msgid "Update Room Category"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:203
+#: ../includes/class-htl-post-types.php:211
 msgid "Add New Room Category"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:204
+#: ../includes/class-htl-post-types.php:212
 msgid "New Room Category Name"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:224
+#: ../includes/class-htl-post-types.php:232
 msgctxt "taxonomy general name"
 msgid "Rates"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:225
+#: ../includes/class-htl-post-types.php:233
 msgctxt "taxonomy singular name"
 msgid "Rate"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:226
+#: ../includes/class-htl-post-types.php:234
 msgctxt "admin menu name"
 msgid "Rates"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:227
+#: ../includes/class-htl-post-types.php:235
 msgid "Search Rates"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:228
+#: ../includes/class-htl-post-types.php:236
 msgid "All Rates"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:229
+#: ../includes/class-htl-post-types.php:237
 msgid "Edit Rate"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:230
+#: ../includes/class-htl-post-types.php:238
 msgid "Update Rate"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:231
+#: ../includes/class-htl-post-types.php:239
 msgid "Add New Rate"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:232
+#: ../includes/class-htl-post-types.php:240
 msgid "New Rate Name"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:253
+#: ../includes/class-htl-post-types.php:261
 msgctxt "taxonomy general name"
 msgid "Facilities"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:254
+#: ../includes/class-htl-post-types.php:262
 msgctxt "taxonomy singular name"
 msgid "Facility"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:255
+#: ../includes/class-htl-post-types.php:263
 msgctxt "admin menu name"
 msgid "Facilities"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:256
+#: ../includes/class-htl-post-types.php:264
 msgid "Search Facilities"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:257
+#: ../includes/class-htl-post-types.php:265
 msgid "All Facilities"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:258
+#: ../includes/class-htl-post-types.php:266
 msgid "Edit Facility"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:259
+#: ../includes/class-htl-post-types.php:267
 msgid "Update Facility"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:260
+#: ../includes/class-htl-post-types.php:268
 msgid "Add New Facility"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:261
+#: ../includes/class-htl-post-types.php:269
 msgid "New Facility Name"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:288
+#: ../includes/class-htl-post-types.php:296
 msgid "Room updated. <a href=\"%s\">View Room</a>"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:289, ../includes/class-htl-post-types.php:304
+#: ../includes/class-htl-post-types.php:297, ../includes/class-htl-post-types.php:312
 msgid "Custom field updated."
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:290, ../includes/class-htl-post-types.php:305
+#: ../includes/class-htl-post-types.php:298, ../includes/class-htl-post-types.php:313
 msgid "Custom field deleted."
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:291
+#: ../includes/class-htl-post-types.php:299
 msgid "Room updated."
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:292
+#: ../includes/class-htl-post-types.php:300
 msgid "Room restored to revision from %s"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:293
+#: ../includes/class-htl-post-types.php:301
 msgid "Room published. <a href=\"%s\">View Room</a>"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:294
+#: ../includes/class-htl-post-types.php:302
 msgid "Room saved."
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:295
+#: ../includes/class-htl-post-types.php:303
 msgid "Room submitted. <a target=\"_blank\" href=\"%s\">Preview Room</a>"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:296
+#: ../includes/class-htl-post-types.php:304
 msgid "Room scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s\">Preview Room</a>"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:297, ../includes/class-htl-post-types.php:312
+#: ../includes/class-htl-post-types.php:305, ../includes/class-htl-post-types.php:320
 msgid "M j, Y @ G:i"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:298
+#: ../includes/class-htl-post-types.php:306
 msgid "Room draft updated. <a target=\"_blank\" href=\"%s\">Preview Room</a>"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:303, ../includes/class-htl-post-types.php:306, ../includes/class-htl-post-types.php:308
+#: ../includes/class-htl-post-types.php:311, ../includes/class-htl-post-types.php:314, ../includes/class-htl-post-types.php:316
 msgid "Reservation updated."
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:307
+#: ../includes/class-htl-post-types.php:315
 msgid "Reservation restored to revision from %s"
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:309
+#: ../includes/class-htl-post-types.php:317
 msgid "Reservation saved."
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:310
+#: ../includes/class-htl-post-types.php:318
 msgid "Reservation submitted."
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:311
+#: ../includes/class-htl-post-types.php:319
 msgid "Reservation scheduled for: <strong>%1$s</strong>."
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:313
+#: ../includes/class-htl-post-types.php:321
 msgid "Reservation draft updated."
 msgstr ""
 
-#: ../includes/class-htl-post-types.php:314
+#: ../includes/class-htl-post-types.php:322
 msgid "Reservation updated and email sent."
 msgstr ""
 
@@ -926,11 +941,11 @@ msgctxt "Reservation status"
 msgid "Pending"
 msgstr ""
 
-#: ../includes/htl-reservation-functions.php:360
+#: ../includes/htl-reservation-functions.php:361
 msgid "Time limit reached."
 msgstr ""
 
-#: ../includes/htl-reservation-functions.php:396, ../includes/htl-reservation-functions.php:398
+#: ../includes/htl-reservation-functions.php:397, ../includes/htl-reservation-functions.php:399
 msgid "Check-out date reached."
 msgstr ""
 
@@ -2457,19 +2472,23 @@ msgstr ""
 msgid "Balance due"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/html-meta-box-reservation-items.php:115, ../includes/admin/meta-boxes/views/html-meta-box-reservation-single-item.php:39, ../templates/booking/reservation-table.php:51, ../templates/emails/email-reservation-items.php:31, ../templates/reservation/item.php:29, ../templates/single-room/non-cancellable-info.php:24, ../templates/emails/plain/email-reservation-items.php:28, ../templates/room-list/content/non-cancellable-info.php:24, ../templates/single-room/rate/rate-non-cancellable-info.php:21, ../templates/room-list/content/rate/rate-non-cancellable-info.php:22
+#: ../includes/admin/meta-boxes/views/html-meta-box-reservation-items.php:120
+msgid "This reservation has been refunded"
+msgstr ""
+
+#: ../includes/admin/meta-boxes/views/html-meta-box-reservation-items.php:127, ../includes/admin/meta-boxes/views/html-meta-box-reservation-single-item.php:39, ../templates/booking/reservation-table.php:51, ../templates/emails/email-reservation-items.php:31, ../templates/reservation/item.php:29, ../templates/single-room/non-cancellable-info.php:24, ../templates/emails/plain/email-reservation-items.php:28, ../templates/room-list/content/non-cancellable-info.php:24, ../templates/single-room/rate/rate-non-cancellable-info.php:21, ../templates/room-list/content/rate/rate-non-cancellable-info.php:22
 msgid "Non-refundable"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/html-meta-box-reservation-items.php:123
+#: ../includes/admin/meta-boxes/views/html-meta-box-reservation-items.php:135
 msgid "Charge remain deposit"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/html-meta-box-reservation-items.php:127
+#: ../includes/admin/meta-boxes/views/html-meta-box-reservation-items.php:139
 msgid "Mark as unpaid"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/html-meta-box-reservation-items.php:129
+#: ../includes/admin/meta-boxes/views/html-meta-box-reservation-items.php:141
 msgid "Mark as paid"
 msgstr ""
 
@@ -2605,11 +2624,15 @@ msgstr ""
 msgid "Payment %s via IPN."
 msgstr ""
 
+#: ../includes/gateways/paypal-standard/includes/class-htl-gateway-paypal-response.php:259
+msgid "Payment %s via IPN (gross %s)."
+msgstr ""
+
 #: ../templates/booking/cart-errors.php:20
 msgid "There are some issues with the items in your cart (shown above). Please go back and resolve these issues before the booking."
 msgstr ""
 
-#: ../templates/booking/cart-errors.php:24, ../templates/booking/received.php:53
+#: ../templates/booking/cart-errors.php:24, ../templates/booking/received.php:59
 msgid "List of available rooms"
 msgstr ""
 
@@ -2638,6 +2661,10 @@ msgid "This reservation has been cancelled. The reservation was as follows."
 msgstr ""
 
 #: ../templates/booking/received.php:36
+msgid "This reservation has been refunded. The reservation was as follows."
+msgstr ""
+
+#: ../templates/booking/received.php:42
 msgid "Thank you. Your reservation has been received."
 msgstr ""
 

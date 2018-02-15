@@ -23,7 +23,8 @@
     "build-sync": "npm-run-all --silent --parallel build:* sync",
     "build-server": "npm-run-all --silent --parallel build:* server",
     "build-sync-server": "npm-run-all --silent --parallel build:* sync server",
-    "dist": "rm -rf dist; mkdir -p dist/wp-hotelier; npm run zip -s"
+    "dist": "rm -rf dist; mkdir -p dist/wp-hotelier; npm run zip -s",
+    "deploy": "rsync -azP -e \"ssh -p ${npm_config_P_DEPLOYPORT}\" --delete --exclude='package.json' --exclude='README.md' --exclude='postcss.config.js' --exclude='.*/' --exclude='.*' --exclude='node_modules/' --exclude='dist/' --exclude='assets/sass/' . \"${npm_config_P_DEPLOYDEST}\""
   },
   "devDependencies": {
     "autoprefixer": "^7.1.1",
