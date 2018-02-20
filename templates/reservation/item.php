@@ -29,6 +29,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<span class="reservation-table__room-non-cancellable"><?php echo esc_html_e( 'Non-refundable', 'wp-hotelier' ); ?></span>
 		<?php endif;
 
+		// Show adults/children guests
+		htl_get_template( 'reservation/item-guests.php', array(
+			'quantity' => $item[ 'qty' ],
+			'adults'   => maybe_unserialize( $item[ 'adults' ] ),
+			'children' => maybe_unserialize( $item[ 'children' ] ),
+		) );
+
 		// Allow other plugins to add additional room information here
 		do_action( 'hotelier_reservation_item_meta', $item_id, $item, $reservation );
 		?>
