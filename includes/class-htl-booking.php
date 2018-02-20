@@ -208,6 +208,32 @@ class HTL_Booking {
 				);
 				$deposit = apply_filters( 'hotelier_get_item_deposit_for_reservation', $deposit, $values );
 
+				// Default adults/children for this room
+				$adults   = $values[ 'max_guests' ];
+				$children = 0;
+
+				if ( htl_get_option( 'booking_number_of_guests_selection', true ) ) {
+					// Adults
+					$cart_adults = isset( $this->form_data[ 'adults' ] ) ? $this->form_data[ 'adults' ] : false;
+
+					if ( $cart_adults && is_array( $cart_adults ) && isset( $cart_adults[ $cart_item_key ] ) ) {
+						$adults = $cart_adults[ $cart_item_key ];
+
+						// Sanitize values
+						$adults = array_map( 'absint', $adults );
+					}
+
+					// Children
+					$cart_children = isset( $this->form_data[ 'children' ] ) ? $this->form_data[ 'children' ] : false;
+
+					if ( $cart_children && is_array( $cart_children ) && isset( $cart_children[ $cart_item_key ] ) ) {
+						$children = $cart_children[ $cart_item_key ];
+
+						// Sanitize values
+						$children = array_map( 'absint', $children );
+					}
+				}
+
 				$item_id = $reservation->add_item(
 					$values[ 'data' ],
 					$values[ 'quantity' ],
@@ -219,6 +245,8 @@ class HTL_Booking {
 						'percent_deposit' => $deposit[ 'percent_deposit' ],
 						'deposit'         => $deposit[ 'deposit' ],
 						'is_cancellable'  => $values[ 'is_cancellable' ],
+						'adults'          => $adults,
+						'children'        => $children,
 					)
 				);
 
@@ -520,6 +548,12 @@ class HTL_Booking {
 			// Booking fields (not defined in booking_fields)
 			$this->form_data[ 'booking_terms' ]  = isset( $_POST[ 'booking_terms' ] ) ? 1 : 0;
 			$this->form_data[ 'payment_method' ] = isset( $_POST[ 'payment_method' ] ) ? sanitize_text_field( $_POST[ 'payment_method' ] ) : '';
+
+			// Add adults/children dropdowns if enabled
+			if ( htl_get_option( 'booking_number_of_guests_selection', true ) ) {
+				$this->form_data[ 'adults' ]   = isset( $_POST[ 'adults' ] ) ? $_POST[ 'adults' ] : 0;
+				$this->form_data[ 'children' ] = isset( $_POST[ 'children' ] ) ? $_POST[ 'children' ] : 0;
+			}
 
 			HTL()->session->set( 'chosen_payment_method', $this->form_data[ 'payment_method' ] );
 

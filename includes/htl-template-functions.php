@@ -1053,6 +1053,25 @@ if ( ! function_exists( 'hotelier_template_terms_checkbox' ) ) {
 
 }
 
+if ( ! function_exists( 'hotelier_reservation_table_guests' ) ) {
+
+	/**
+	 * Show selects for adults and children.
+	 */
+	function hotelier_reservation_table_guests( $room, $item_key, $quantity ) {
+		$max_adults   = $room->get_max_guests();
+		$max_children = $room->get_max_children();
+
+		htl_get_template( 'booking/reservation-table-guests.php', array(
+			'adults'   => $max_adults,
+			'children' => $max_children,
+			'item_key' => $item_key,
+			'quantity' => $quantity,
+		) );
+	}
+
+}
+
 /***** Reservation ***************************/
 
 if ( ! function_exists( 'hotelier_template_reservation_table' ) ) {
