@@ -39,10 +39,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 					if ( $_room && $_room->exists() && $cart_item[ 'quantity' ] > 0 ) : ?>
 
-						<?php
-						$item_key = htl_generate_item_key( $cart_item[ 'room_id' ], $cart_item[ 'rate_id' ] );
-						?>
-
 						<tr class="reservation-table__row reservation-table__row--body">
 							<td class="reservation-table__room-name reservation-table__room-name--body">
 								<a class="reservation-table__room-link" href="<?php echo esc_url( get_permalink( $_room_id ) ); ?>"><?php echo esc_html( $_room->get_title() ); ?></a>
@@ -54,8 +50,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 								<?php if ( ! $cart_item[ 'is_cancellable' ] ) : ?>
 									<span class="reservation-table__room-non-cancellable"><?php echo esc_html_e( 'Non-refundable', 'wp-hotelier' ); ?></span>
 								<?php endif; ?>
-
-								<?php do_action( 'hotelier_reservation_table_guests', $_room, $item_key, $cart_item[ 'quantity' ] ); ?>
 							</td>
 
 							<td class="reservation-table__room-qty reservation-table__room-qty--body"><?php echo absint( $cart_item[ 'quantity' ] ); ?></td>
@@ -64,7 +58,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								<?php echo HTL()->cart->get_room_price( $cart_item[ 'total' ] ); ?>
 
 								<?php if ( $nights > 1 ) : ?>
-								<a class="view-price-breakdown" href="#<?php echo esc_attr( $item_key ); ?>" data-closed="<?php esc_html_e( 'View price breakdown', 'wp-hotelier' ); ?>" data-open="<?php esc_html_e( 'Hide price breakdown', 'wp-hotelier' ); ?>"><?php esc_html_e( 'View price breakdown', 'wp-hotelier' ); ?></a>
+								<a class="view-price-breakdown" href="#<?php echo esc_attr( htl_generate_item_key( $cart_item[ 'room_id' ], $cart_item[ 'rate_id' ] ) ); ?>" data-closed="<?php esc_html_e( 'View price breakdown', 'wp-hotelier' ); ?>" data-open="<?php esc_html_e( 'Hide price breakdown', 'wp-hotelier' ); ?>"><?php esc_html_e( 'View price breakdown', 'wp-hotelier' ); ?></a>
 								<?php endif; ?>
 							</td>
 						</tr>
