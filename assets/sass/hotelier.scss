@@ -21,6 +21,7 @@ ELEMENTS
 	Pagination ......... Hotelier pagination styles.
 	Deposit ............ Room deposit label.
 	Min/Max info ....... Room min/max stay info.
+	Adults/Children .... Adults/Children info.
 
 PAGES
 	Room ............... Single room page.
@@ -47,6 +48,7 @@ WIDGETS
 @import "elements/pagination";
 @import "elements/deposit";
 @import "elements/min-max-info";
+@import "elements/adults-children";
 
 // PAGES
 @import "pages/single-room";

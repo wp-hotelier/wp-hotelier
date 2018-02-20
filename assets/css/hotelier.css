@@ -15,6 +15,7 @@ ELEMENTS
 	Pagination ......... Hotelier pagination styles.
 	Deposit ............ Room deposit label.
 	Min/Max info ....... Room min/max stay info.
+	Adults/Children .... Adults/Children info.
 
 PAGES
 	Room ............... Single room page.
@@ -427,6 +428,29 @@ WIDGETS
 
 .room__min-max-stay--rate-listing {
   margin-bottom: 24px;
+}
+
+/*--------------------------------------------------------------
+>>> ADULTS/CHILDREN INFO
+----------------------------------------------------------------
+*/
+.reservation-table__room-guests {
+  display: block;
+  margin-top: 6px;
+}
+
+.reservation-table__room-guests-label {
+  font-weight: bold;
+}
+
+.reservation-table__room-guests--booking label,
+.reservation-table__room-guests--booking .form-row {
+  display: inline;
+  margin-right: 6px;
+}
+
+.reservation-table__room-guests--booking .reservation-table__room-guests-label {
+  display: block;
 }
 
 /*--------------------------------------------------------------

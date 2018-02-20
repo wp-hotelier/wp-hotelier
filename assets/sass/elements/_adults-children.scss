@@ -1,0 +1,25 @@
+/*--------------------------------------------------------------
+>>> ADULTS/CHILDREN INFO
+----------------------------------------------------------------
+*/
+
+.reservation-table__room-guests {
+	display: block;
+	margin-top: $space__xs;
+}
+
+.reservation-table__room-guests-label {
+	font-weight: bold;
+}
+
+.reservation-table__room-guests--booking {
+	label,
+	.form-row {
+		display: inline;
+		margin-right: $space__xs;
+	}
+
+	.reservation-table__room-guests-label {
+		display: block;
+	}
+}
