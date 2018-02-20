@@ -421,6 +421,13 @@ class HTL_Admin_Settings_Default {
 						'type' => 'checkbox',
 						'std'  => true,
 					),
+					'booking_number_of_guests_selection' => array(
+						'id'   => 'booking_number_of_guests_selection',
+						'name' => esc_html__( 'Show number of guests selection', 'wp-hotelier' ),
+						'desc' => __( 'Show a dropdown in the booking form where the guest specifies the number of adults and children for each room.', 'wp-hotelier' ),
+						'type' => 'checkbox',
+						'std'  => true,
+					),
 					'booking_months_advance' => array(
 						'id'   => 'booking_months_advance',
 						'name' => esc_html__( 'Months in advance', 'wp-hotelier' ),

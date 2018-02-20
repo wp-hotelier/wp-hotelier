@@ -38,6 +38,41 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php if ( isset( $item[ 'is_cancellable' ] ) && ! $item[ 'is_cancellable' ] ) : ?>
 			<span class="non-refundable"><?php echo esc_html__( 'Non-refundable', 'wp-hotelier' ); ?></span>
 		<?php endif; ?>
+
+		<?php if ( htl_get_option( 'booking_number_of_guests_selection', true ) ) :
+
+			$adults   = isset( $item[ 'adults' ] ) ? maybe_unserialize( $item[ 'adults' ] ) : false;
+			$children = isset( $item[ 'children' ] ) ? maybe_unserialize( $item[ 'children' ] ) : false;
+
+			for ( $q = 0; $q < $item[ 'qty' ]; $q++ ) :
+				$line_adults   = isset( $adults[ $q ] ) && ( $adults[ $q ] > 0 ) ? $adults[ $q ] : false;
+				$line_children = isset( $children[ $q ] ) && ( $children[ $q ] > 0 ) ? $children[ $q ] : false;
+				?>
+
+				<?php if ( $line_adults || $line_children ) : ?>
+
+					<div class="adults-children">
+
+						<?php if ( $item[ 'qty' ] > 1 ) : ?>
+							<span class="adults-children__label"><?php echo sprintf( esc_html__( 'Number of guests (Room %d):', 'wp-hotelier' ), $q + 1 ); ?></span>
+						<?php else : ?>
+							<span class="adults-children__label"><?php esc_html_e( 'Number of guests:', 'wp-hotelier' ); ?></span>
+						<?php endif; ?>
+
+						<?php if ( $line_adults ) : ?>
+							<span class="adults-children__adults"><?php echo sprintf( _n( '%s Adult', '%s Adults', $line_adults, 'wp-hotelier' ), $line_adults ); ?></span>
+						<?php endif; ?>
+
+						<?php if ( $line_children ) : ?>
+							<span class="adults-children__children"><?php echo sprintf( esc_html__( '%d Children', 'wp-hotelier' ), $line_children ); ?></span>
+						<?php endif; ?>
+					</div>
+
+				<?php endif; ?>
+
+			<?php endfor; ?>
+		<?php endif; ?>
+
 	</td>
 	<td class="guests">
 	<?php
