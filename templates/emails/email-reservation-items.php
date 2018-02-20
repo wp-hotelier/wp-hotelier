@@ -31,6 +31,34 @@ foreach ( $items as $item_id => $item ) : ?>
 				echo '<br><small style="text-align:left;font-size:12px;line-height:16px;color:red;font-family:Helvetica,Arial;">' . esc_html__( 'Non-refundable', 'wp-hotelier' ) . '</small>';
 			}
 
+			if ( htl_get_option( 'booking_number_of_guests_selection', true ) ) {
+				// Adults/children info
+
+				$adults   = isset( $item[ 'adults' ] ) ? maybe_unserialize( $item[ 'adults' ] ) : false;
+				$children = isset( $item[ 'children' ] ) ? maybe_unserialize( $item[ 'children' ] ) : false;
+
+				for ( $q = 0; $q < $item[ 'qty' ]; $q++ ) {
+					$line_adults   = isset( $adults[ $q ] ) && ( $adults[ $q ] > 0 ) ? $adults[ $q ] : false;
+					$line_children = isset( $children[ $q ] ) && ( $children[ $q ] > 0 ) ? $children[ $q ] : false;
+
+					if ( $line_adults || $line_children ) {
+						if ( $item[ 'qty' ] > 1 ) {
+							echo '<br><small style="text-align:left;font-size:12px;line-height:16px;font-family:Helvetica,Arial;">' . sprintf( esc_html__( 'Number of guests (Room %d):', 'wp-hotelier' ), $q + 1 ) . '</small>';
+						} else {
+							echo '<br><small style="text-align:left;font-size:12px;line-height:16px;font-family:Helvetica,Arial;">' . esc_html__( 'Number of guests:', 'wp-hotelier' ) . '</small>';
+						}
+
+						if ( $line_adults ) {
+							echo '<small style="text-align:left;font-size:12px;line-height:16px;font-family:Helvetica,Arial;"> ' . sprintf( _n( '%s Adult', '%s Adults', $line_adults, 'wp-hotelier' ), $line_adults ) . '</small>';
+						}
+
+						if ( $line_children ) {
+							echo '<small style="text-align:left;font-size:12px;line-height:16px;font-family:Helvetica,Arial;"> ' . sprintf( esc_html__( '%d Children', 'wp-hotelier' ), $line_children ) . '</small>';
+						}
+					}
+				}
+			}
+
 			// Allow other plugins to add additional room information here
 			do_action( 'hotelier_reservation_item_meta', $item_id, $item, $reservation );
 			?>

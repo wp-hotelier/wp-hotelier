@@ -34,6 +34,34 @@ foreach ( $items as $item_id => $item ) :
 	// Cost
 	echo "\n" . sprintf( esc_html__( 'Cost: %s', 'wp-hotelier' ), $reservation->get_formatted_line_total( $item ) );
 
+	if ( htl_get_option( 'booking_number_of_guests_selection', true ) ) {
+		// Adults/children info
+
+		$adults   = isset( $item[ 'adults' ] ) ? maybe_unserialize( $item[ 'adults' ] ) : false;
+		$children = isset( $item[ 'children' ] ) ? maybe_unserialize( $item[ 'children' ] ) : false;
+
+		for ( $q = 0; $q < $item[ 'qty' ]; $q++ ) {
+			$line_adults   = isset( $adults[ $q ] ) && ( $adults[ $q ] > 0 ) ? $adults[ $q ] : false;
+			$line_children = isset( $children[ $q ] ) && ( $children[ $q ] > 0 ) ? $children[ $q ] : false;
+
+			if ( $line_adults || $line_children ) {
+				if ( $item[ 'qty' ] > 1 ) {
+					echo "\n" . sprintf( esc_html__( 'Number of guests (Room %d):', 'wp-hotelier' ), $q + 1 );
+				} else {
+					echo "\n" . esc_html__( 'Number of guests:', 'wp-hotelier' );
+				}
+
+				if ( $line_adults ) {
+					echo " " . sprintf( _n( '%s Adult', '%s Adults', $line_adults, 'wp-hotelier' ), $line_adults );
+				}
+
+				if ( $line_children ) {
+					echo " " . sprintf( esc_html__( '%d Children', 'wp-hotelier' ), $line_children );
+				}
+			}
+		}
+	}
+
 	// Allow other plugins to add additional room information here
 	do_action( 'hotelier_reservation_item_meta', $item_id, $item, $reservation );
 
