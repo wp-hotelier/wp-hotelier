@@ -459,7 +459,9 @@ class HTL_Reservation {
 			'total'           => 0,
 			'deposit'         => 0,
 			'percent_deposit' => 0,
-			'is_cancellable'  => true
+			'is_cancellable'  => true,
+			'adults'          => false,
+			'children'        => false,
 		);
 
 		$args    = wp_parse_args( $args, $default_args );
@@ -484,6 +486,12 @@ class HTL_Reservation {
 		htl_add_reservation_item_meta( $item_id, '_percent_deposit', absint( $args[ 'percent_deposit' ] ? $args[ 'percent_deposit' ] : 0 ) );
 		htl_add_reservation_item_meta( $item_id, '_deposit', absint( $args[ 'deposit' ] ? $args[ 'deposit' ] : 0 ) );
 		htl_add_reservation_item_meta( $item_id, '_is_cancellable', absint( $args[ 'is_cancellable' ] ? $args[ 'is_cancellable' ] : false ) );
+
+		$adults = $args[ 'adults' ] && is_array( $args[ 'adults' ] ) ? array_map( 'absint', $args[ 'adults' ] ) : false;
+		htl_add_reservation_item_meta( $item_id, '_adults', $adults );
+
+		$children = $args[ 'children' ] && is_array( $args[ 'children' ] ) ? array_map( 'absint', $args[ 'children' ] ) : false;
+		htl_add_reservation_item_meta( $item_id, '_children', $children );
 
 		do_action( 'hotelier_reservation_add_item', $this->id, $item_id, $room, $qty, $args );
 
