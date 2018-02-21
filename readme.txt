@@ -3,7 +3,7 @@ Contributors: benitolopez
 Tags: booking, hotel, booking system, hostel, reservations, reservations, b&b, rooms, wphotelier
 Requires at least: 4.1
 Tested up to: 4.9
-Stable tag: 1.3.0
+Stable tag: 1.4.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -104,6 +104,13 @@ Here: [Easy WP Hotelier documentation](http://docs.wphotelier.com/).
 4. Easy WP Hotelier - Admin calendar.
 
 == Changelog ==
+
+= 1.4.0 - 2018-02-21 =
+* Added - Show (and save) a dropdown where a guest can select the number of adults/children.
+* Added - Refunds via PayPal and Stripe are now detected automatically (cancelling the reservation).
+* Added - New refunded status for reservations.
+* Added - View up to 4 weeks in admin calendar.
+* Localization - POT file updated.
 
 = 1.3.0 - 2018-02-09 =
 * Added - Seasonal prices can now be repeated every year.
