@@ -42,11 +42,15 @@ class HTL_Admin_Scripts {
 		// jquery-ui
 		wp_register_style( 'jquery-ui-css', HTL_PLUGIN_URL . 'assets/css/jquery-ui.css', array(), HTL_VERSION );
 
+		// Tipsy
+		wp_register_style( 'tipsy-css', HTL_PLUGIN_URL . 'assets/css/tipsy.css', array(), HTL_VERSION );
+
 		if ( in_array( $screen->id, HTL_Admin_Functions::get_screen_ids() ) ) {
 
 			if ( $screen->id != $prefix . '_hotelier-calendar' ) {
 				// Admin styles for Hotelier pages only
 				wp_enqueue_style( 'hotelier_admin_styles', HTL_PLUGIN_URL . 'assets/css/admin.css', array(), HTL_VERSION );
+				wp_enqueue_style( 'tipsy-css' );
 			}
 
 
@@ -60,6 +64,7 @@ class HTL_Admin_Scripts {
 		// Booking calendar style
 		if ( $screen->id == $prefix . '_hotelier-calendar' ) {
 			wp_enqueue_style( 'hotelier_calendar_styles', HTL_PLUGIN_URL . 'assets/css/calendar.css', array(), HTL_VERSION );
+			wp_enqueue_style( 'tipsy-css' );
 		}
 
 		// Addons page style
@@ -133,7 +138,7 @@ class HTL_Admin_Scripts {
 
 		// Calendar script
 		if ( $screen->id == $prefix . '_hotelier-calendar' ) {
-			wp_enqueue_script( 'htl-admin-calendar', HTL_PLUGIN_URL . 'assets/js/admin/calendar' . $suffix . '.js', array( 'jquery' ), HTL_VERSION );
+			wp_enqueue_script( 'htl-admin-calendar', HTL_PLUGIN_URL . 'assets/js/admin/calendar' . $suffix . '.js', array( 'jquery', 'jquery-tipsy' ), HTL_VERSION );
 		}
 	}
 
