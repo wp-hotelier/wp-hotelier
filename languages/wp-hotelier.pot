@@ -1057,15 +1057,15 @@ msgstr ""
 msgid "This reservation cannot be restored because one or more rooms are no longer available on those dates."
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-scripts.php:106
+#: ../includes/admin/class-htl-admin-scripts.php:111
 msgid "Please enter in decimal (%s) format without thousand separators."
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-scripts.php:107
+#: ../includes/admin/class-htl-admin-scripts.php:112
 msgid "Please enter in a value less than the regular price."
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-scripts.php:121
+#: ../includes/admin/class-htl-admin-scripts.php:126
 msgid "Are you sure you wish to proceed with this charge? This action cannot be undone."
 msgstr ""
 
@@ -2428,11 +2428,11 @@ msgstr ""
 msgid "Booking calendar"
 msgstr ""
 
-#: ../includes/admin/calendar/views/html-admin-calendar.php:69
+#: ../includes/admin/calendar/views/html-admin-calendar.php:75
 msgid "Today"
 msgstr ""
 
-#: ../includes/admin/calendar/views/html-admin-calendar.php:77
+#: ../includes/admin/calendar/views/html-admin-calendar.php:83
 msgid "Go to date"
 msgstr ""
 
