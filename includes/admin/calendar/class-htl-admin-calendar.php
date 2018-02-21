@@ -26,9 +26,9 @@ class HTL_Admin_Calendar {
 		// Get weeks
 		$weeks  = ! empty( $_GET[ 'weeks' ] ) ? absint( $_GET[ 'weeks' ] ) : 1;
 
-		// Sanitize weeks parameter (allow only 1 or 2 weeks)
-		if ( $weeks != 1 ) {
-			$weeks = 2;
+		// Sanitize weeks parameter
+		if ( $weeks < 1 || $weeks > 4 ) {
+			$weeks = 1;
 		}
 
 		// Get marker date

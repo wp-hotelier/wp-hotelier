@@ -65,6 +65,12 @@ $prev_week = $prev_week->modify( '-7 days' )->format( 'Y-m-d' );
 			<li class="bc-weeks__item bc-weeks__item--2">
 				<a class="button bc-weeks__button bc-weeks__button--2" href="<?php echo esc_url( add_query_arg( 'weeks', 2 ) ); ?>">14</a>
 			</li>
+			<li class="bc-weeks__item bc-weeks__item--3">
+				<a class="button bc-weeks__button bc-weeks__button--3" href="<?php echo esc_url( add_query_arg( 'weeks', 3 ) ); ?>">21</a>
+			</li>
+			<li class="bc-weeks__item bc-weeks__item--4">
+				<a class="button bc-weeks__button bc-weeks__button--4" href="<?php echo esc_url( add_query_arg( 'weeks', 4 ) ); ?>">28</a>
+			</li>
 			<li class="bc-weeks__item bc-weeks__item--today">
 				<a class="button bc-weeks__button bc-weeks__button--roday" href="<?php echo esc_url( add_query_arg( 'marker', $today ) ); ?>"><?php esc_html_e( 'Today', 'wp-hotelier' ); ?></a>
 			</li>

@@ -146,7 +146,7 @@ $all_reservations = htl_get_all_reservations( $start_range, $end_range );
 													}
 
 													echo '<td colspan="' . absint( $colspan ) . '" data-status="' . esc_attr( $cell[ 'status' ] ) . '" data-room="' . esc_attr( $room_id ) . '" class="bc__cell bc__cell--data bc__cell--day bc__day-booked' . esc_attr( $class ) . '">
-															<a href="' . esc_url( get_edit_post_link( $cell[ 'id' ] ) ) . '" class="bc__reservation-link"><span class="bc__reservation-label">' . get_the_title( $cell[ 'id' ] ) . '</span></a>
+															<a href="' . esc_url( get_edit_post_link( $cell[ 'id' ] ) ) . '" class="bc__reservation-link hastip" title="' . esc_attr( get_the_title( $cell[ 'id' ] ) ) . '"><span class="bc__reservation-label">' . get_the_title( $cell[ 'id' ] ) . '</span></a>
 														</td>';
 												} else if ( $cell == false ) {
 													$class = '';
