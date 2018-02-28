@@ -257,62 +257,62 @@ msgstr ""
 msgid "Invalid reservation."
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:117
+#: ../includes/class-htl-frontend-scripts.php:119
 msgctxt "datepicker_selected"
 msgid "Your stay:"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:118
+#: ../includes/class-htl-frontend-scripts.php:120
 msgctxt "datepicker_night"
 msgid "Night"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:119
+#: ../includes/class-htl-frontend-scripts.php:121
 msgctxt "datepicker_nights"
 msgid "Nights"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:120
+#: ../includes/class-htl-frontend-scripts.php:122
 msgctxt "datepicker_apply"
 msgid "Close"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:124
+#: ../includes/class-htl-frontend-scripts.php:127
 msgctxt "datepicker_error_more"
 msgid "Date range should not be more than 1 night"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:125
+#: ../includes/class-htl-frontend-scripts.php:128
 msgctxt "datepicker_error_more_plural"
 msgid "Date range should not be more than %d nights"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:126
+#: ../includes/class-htl-frontend-scripts.php:129
 msgctxt "datepicker_error_less"
 msgid "Date range should not be less than 1 night"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:127
+#: ../includes/class-htl-frontend-scripts.php:130
 msgctxt "datepicker_error_less_plural"
 msgid "Date range should not be less than %d nights"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:128
+#: ../includes/class-htl-frontend-scripts.php:131
 msgctxt "datepicker_info_more"
 msgid "Please select a date range longer than 1 night"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:129
+#: ../includes/class-htl-frontend-scripts.php:132
 msgctxt "datepicker_info_more_plural"
 msgid "Please select a date range longer than %d nights"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:130
+#: ../includes/class-htl-frontend-scripts.php:133
 msgctxt "datepicker_info_range"
 msgid "Please select a date range between %d and %d nights"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:131
+#: ../includes/class-htl-frontend-scripts.php:134
 msgctxt "datepicker_info_default"
 msgid "Please select a date range"
 msgstr ""
