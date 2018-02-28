@@ -65,5 +65,5 @@ function htl_get_default_dates() {
 	$dates[ 'checkin' ]  = date( 'Y-m-d', strtotime( "+$from days" ) );
 	$dates[ 'checkout' ] = date( 'Y-m-d', strtotime( "+$to days" ) );
 
-	return $dates;
+	return apply_filters( 'hotelier_get_default_dates', $dates );
 }
