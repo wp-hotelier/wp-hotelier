@@ -33,8 +33,6 @@ jQuery(function ($) {
 
 	function init_datepicker(checkin, checkout) {
 		if (document.getElementById('hotelier-datepicker-select')) {
-			fecha.i18n.monthNamesShort = datepicker_params.month_names_short;
-
 			var date_select_input = $('#hotelier-datepicker-select');
 			var checkin_input = $('#hotelier-datepicker-checkin');
 			var checkout_input = $('#hotelier-datepicker-checkout');
@@ -64,6 +62,7 @@ jQuery(function ($) {
 				maxNights: parseInt(datepicker_params.max_nights, 10),
 				disabledDates: datepicker_params.disabled_dates,
 				enableCheckout: datepicker_params.enable_checkout,
+				disabledDaysOfWeek: datepicker_params.disabled_days_of_week,
 				autoClose: false,
 				i18n: datepicker_params.i18n,
 				getValue: function () {

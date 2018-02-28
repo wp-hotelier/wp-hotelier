@@ -81,11 +81,13 @@ class HTL_Frontend_Scripts {
 		}
 
 		// Create array of weekday names
-		$timestamp = strtotime('next Sunday');
-		$day_names = array();
+		$timestamp       = strtotime('next Sunday');
+		$day_names       = array();
+		$day_names_short = array();
 
 		for ( $i = 0; $i < 7; $i++ ) {
-			$day_names[] = date_i18n( 'D', $timestamp );
+			$day_names[] = date_i18n( 'l', $timestamp );
+			$day_names_short[] = date_i18n( 'D', $timestamp );
 			$timestamp = strtotime('+1 day', $timestamp);
 		}
 
@@ -102,39 +104,40 @@ class HTL_Frontend_Scripts {
 
 		// Datepicker params
 		$datepicker_params = array(
-			'ajax_url'          => HTL()->ajax_url(),
-			'htl_ajax_url'      => HTL_AJAX::get_endpoint( 'get_checkin_dates' ),
-			'start_of_week'     => $start_of_week,
-			'start_date'        => $start_date,
-			'end_date'          => $end_date,
-			'min_nights'        => apply_filters( 'hotelier_datepicker_min_nights', htl_get_option( 'booking_minimum_nights', 1 ) ),
-			'max_nights'        => apply_filters( 'hotelier_datepicker_max_nights', htl_get_option( 'booking_maximum_nights', 0 ) ),
-			'datepicker_format' => apply_filters( 'hotelier_datepicker_format', 'D MMM YYYY' ),
-			'disabled_dates'    => apply_filters( 'hotelier_datepicker_disabled_dates', array() ),
-			'month_names_short' => $month_names_short,
-			'enable_checkout'   => apply_filters( 'hotelier_datepicker_enable_checkout', true ),
-			'i18n'              => array(
-				'selected'        => esc_html_x( 'Your stay:', 'datepicker_selected', 'wp-hotelier' ),
-				'night'           => esc_html_x( 'Night', 'datepicker_night', 'wp-hotelier' ),
-				'nights'          => esc_html_x( 'Nights', 'datepicker_nights', 'wp-hotelier' ),
-				'button'           => esc_html_x( 'Close', 'datepicker_apply', 'wp-hotelier' ),
-				'day-names'       => $day_names,
-				'month-names'     => $month_names,
-
-				'error-more'     => esc_html_x( 'Date range should not be more than 1 night', 'datepicker_error_more', 'wp-hotelier' ),
-				'error-more-plural'     => esc_html_x( 'Date range should not be more than %d nights', 'datepicker_error_more_plural', 'wp-hotelier' ),
-				'error-less'     => esc_html_x( 'Date range should not be less than 1 night', 'datepicker_error_less', 'wp-hotelier' ),
-				'error-less-plural'     => esc_html_x( 'Date range should not be less than %d nights', 'datepicker_error_less_plural', 'wp-hotelier' ),
-				'info-more'     => esc_html_x( 'Please select a date range longer than 1 night', 'datepicker_info_more', 'wp-hotelier' ),
-				'info-more-plural'     => esc_html_x( 'Please select a date range longer than %d nights', 'datepicker_info_more_plural', 'wp-hotelier' ),
-				'info-range'     => esc_html_x( 'Please select a date range between %d and %d nights', 'datepicker_info_range', 'wp-hotelier' ),
-				'info-default'     => esc_html_x( 'Please select a date range', 'datepicker_info_default', 'wp-hotelier' )
+			'ajax_url'           => HTL()->ajax_url(),
+			'htl_ajax_url'       => HTL_AJAX::get_endpoint( 'get_checkin_dates' ),
+			'start_of_week'      => $start_of_week,
+			'start_date'         => $start_date,
+			'end_date'           => $end_date,
+			'min_nights'         => apply_filters( 'hotelier_datepicker_min_nights', htl_get_option( 'booking_minimum_nights', 1 ) ),
+			'max_nights'         => apply_filters( 'hotelier_datepicker_max_nights', htl_get_option( 'booking_maximum_nights', 0 ) ),
+			'datepicker_format'  => apply_filters( 'hotelier_datepicker_format', 'D MMM YYYY' ),
+			'disabled_dates'     => apply_filters( 'hotelier_datepicker_disabled_dates', array() ),
+			'enable_checkout'    => apply_filters( 'hotelier_datepicker_enable_checkout', true ),
+			'disabled_days_of_week' => apply_filters( 'hotelier_datepicker_disabled_days_of_week', array() ),
+			'i18n'               => array(
+				'selected'          => esc_html_x( 'Your stay:', 'datepicker_selected', 'wp-hotelier' ),
+				'night'             => esc_html_x( 'Night', 'datepicker_night', 'wp-hotelier' ),
+				'nights'            => esc_html_x( 'Nights', 'datepicker_nights', 'wp-hotelier' ),
+				'button'            => esc_html_x( 'Close', 'datepicker_apply', 'wp-hotelier' ),
+				'day-names'         => $day_names,
+				'day-names-short'   => $day_names_short,
+				'month-names'       => $month_names,
+				'month-names-short' => $month_names_short,
+				'error-more'        => esc_html_x( 'Date range should not be more than 1 night', 'datepicker_error_more', 'wp-hotelier' ),
+				'error-more-plural' => esc_html_x( 'Date range should not be more than %d nights', 'datepicker_error_more_plural', 'wp-hotelier' ),
+				'error-less'        => esc_html_x( 'Date range should not be less than 1 night', 'datepicker_error_less', 'wp-hotelier' ),
+				'error-less-plural' => esc_html_x( 'Date range should not be less than %d nights', 'datepicker_error_less_plural', 'wp-hotelier' ),
+				'info-more'         => esc_html_x( 'Please select a date range longer than 1 night', 'datepicker_info_more', 'wp-hotelier' ),
+				'info-more-plural'  => esc_html_x( 'Please select a date range longer than %d nights', 'datepicker_info_more_plural', 'wp-hotelier' ),
+				'info-range'        => esc_html_x( 'Please select a date range between %d and %d nights', 'datepicker_info_range', 'wp-hotelier' ),
+				'info-default'      => esc_html_x( 'Please select a date range', 'datepicker_info_default', 'wp-hotelier' )
 			)
 		);
 
 		// Localize and enqueue the datepicker scripts
 		wp_register_script( 'fecha', HTL_PLUGIN_URL . 'assets/js/lib/fecha/fecha' . $suffix . '.js', array(), '2.3.0', true );
-		wp_register_script( 'hotel-datepicker', HTL_PLUGIN_URL . 'assets/js/lib/hotel-datepicker/hotel-datepicker' . $suffix . '.js', array( 'fecha' ), '2.0.7', true );
+		wp_register_script( 'hotel-datepicker', HTL_PLUGIN_URL . 'assets/js/lib/hotel-datepicker/hotel-datepicker' . $suffix . '.js', array( 'fecha' ), '3.4.0', true );
 
 		wp_register_script( 'hotelier-init-datepicker', HTL_PLUGIN_URL . 'assets/js/frontend/hotelier-init-datepicker' . $suffix . '.js', array( 'jquery', 'hotel-datepicker' ), HTL_VERSION, true );
 
