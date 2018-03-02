@@ -8,6 +8,7 @@ jQuery(function ($) {
 			this.show_uploader();
 			this.show_unforce_ssl();
 			this.show_pets_message();
+			this.show_book_now_quantity();
 			this.add_seasonal_rule();
 			this.remove_rule();
 			this.sort_rules();
@@ -97,6 +98,27 @@ jQuery(function ($) {
 					pets_message.show();
 				} else {
 					pets_message.hide();
+				}
+			});
+		},
+
+		show_book_now_quantity: function () {
+			var book_now_behaviour = $('input[name="hotelier_settings[book_now_redirect_to_booking_page]"]');
+			var book_now_quantity = $('#hotelier_settings\\[book_now_allow_quantity_selection\\]').closest('tr');
+
+			book_now_quantity.hide();
+
+			if (book_now_behaviour.is(':checked')) {
+				book_now_quantity.show();
+			}
+
+			book_now_behaviour.on('click', function () {
+				var _this = $(this);
+
+				if (_this.is(':checked')) {
+					book_now_quantity.show();
+				} else {
+					book_now_quantity.hide();
 				}
 			});
 		},
