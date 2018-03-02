@@ -351,6 +351,18 @@ class HTL_Admin_Settings_Default {
 						'desc' => __( 'Show rooms that are unavailable for the selected dates.', 'wp-hotelier' ),
 						'type' => 'checkbox'
 					),
+					'book_now_redirect_to_booking_page' => array(
+						'id'   => 'book_now_redirect_to_booking_page',
+						'name' => esc_html__( 'Book now behaviour', 'wp-hotelier' ),
+						'desc' => __( 'Redirect to the booking page after successful addition (this will not allow multiple rooms on the same reservations).', 'wp-hotelier' ),
+						'type' => 'checkbox'
+					),
+					'book_now_allow_quantity_selection' => array(
+						'id'   => 'book_now_allow_quantity_selection',
+						'name' => esc_html__( 'Allow quantity selection', 'wp-hotelier' ),
+						'desc' => __( 'Allow quantity selection, then redirect to the booking page.', 'wp-hotelier' ),
+						'type' => 'checkbox'
+					),
 					'room_images' => array(
 						'id'   => 'room_images',
 						'name' => '<strong>' . esc_html__( 'Room images', 'wp-hotelier' ) . '</strong>',
