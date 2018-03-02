@@ -1,6 +1,11 @@
 jQuery(function ($) {
 	'use strict';
-	/* global jQuery */
+	/* global jQuery, hotelier_params */
+
+	// datepicker_params is required to continue, ensure the object exists
+	if (typeof hotelier_params === 'undefined') {
+		return false;
+	}
 
 	var HTL_Hotelier = {
 		listing_form: $('form.form--listing'),
@@ -29,6 +34,13 @@ jQuery(function ($) {
 				var qty = parent.find('.room-quantity');
 				var input = qty.find('input.room-quantity__input');
 
+				// Redirect to booking page directly if the option is enabled
+				if (hotelier_params.book_now_redirect_to_booking_page === '1' && hotelier_params.book_now_allow_quantity_selection !== '1') {
+					input.val(1);
+					$('#reserve-button').click();
+					return;
+				}
+
 				if (!_this.hasClass('button--selected')) {
 					var parent_room = _this.closest('li.room');
 					var selected_txt = _this.data('selected-text-singular');
@@ -40,6 +52,12 @@ jQuery(function ($) {
 					input.val(1);
 					qty.show();
 				} else if (parseInt(input.val(), 10) > 0) {
+					// Redirect to booking page directly if the option is enabled
+					if (hotelier_params.book_now_redirect_to_booking_page === '1') {
+						$('#reserve-button').click();
+						return;
+					}
+
 					$('html, body').animate({
 						scrollTop: $('#reserve-button').offset().top - 300
 					}, 600);

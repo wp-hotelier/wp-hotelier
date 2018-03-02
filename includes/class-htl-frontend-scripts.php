@@ -60,6 +60,14 @@ class HTL_Frontend_Scripts {
 		// Enqueue the main Hotelier script
 		wp_enqueue_script( 'hotelier-js', HTL_PLUGIN_URL . 'assets/js/frontend/hotelier' . $suffix . '.js', array( 'jquery' ), HTL_VERSION, true );
 
+		// Datepicker params
+		$hotelier_params = array(
+			'book_now_redirect_to_booking_page' => htl_get_option( 'book_now_redirect_to_booking_page', 0 ),
+			'book_now_allow_quantity_selection' => htl_get_option( 'book_now_allow_quantity_selection', 0 ),
+		);
+
+		wp_localize_script( 'hotelier-js', 'hotelier_params', $hotelier_params );
+
 		// Get first day of week (can be sunday or monday)
 		$start_of_week = 'monday';
 		if ( get_option( 'start_of_week' ) && ( get_option( 'start_of_week' ) === 1 ) ) {
