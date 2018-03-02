@@ -35,7 +35,7 @@ if ( $rooms && $rooms->have_posts() ) : ?>
 		do_action( 'hotelier_room_list_selected_nights' );
 	?>
 
-	<form name="room_list" method="post" class="form--listing listing" enctype="multipart/form-data">
+	<form name="room_list" method="post" id="form--listing" class="form--listing listing" enctype="multipart/form-data">
 
 		<?php do_action( 'hotelier_before_room_list_loop' ); ?>
 
