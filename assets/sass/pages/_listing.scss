@@ -20,6 +20,11 @@
 	padding: $space;
 }
 
+.listing__room--is-single {
+	border: 5px solid #9DC94A;
+	margin-bottom: $space__xl;
+}
+
 .room__gallery-link {
 	@include font-size(12px);
 }

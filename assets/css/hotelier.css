@@ -604,6 +604,11 @@ WIDGETS
   padding: 24px;
 }
 
+.listing__room--is-single {
+  border: 5px solid #9DC94A;
+  margin-bottom: 96px;
+}
+
 .room__gallery-link {
   font-size: 12px;
   font-size: 0.75rem;
