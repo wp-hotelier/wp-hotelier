@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Core
  * @package  Hotelier/Functions
- * @version  1.0.0
+ * @version  1.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -726,8 +726,8 @@ if ( ! function_exists( 'hotelier_template_room_list_content' ) ) {
 	/**
 	 * The template for displaying room content in the listing loop.
 	 */
-	function hotelier_template_room_list_content() {
-		htl_get_template( 'room-list/room-content.php' );
+	function hotelier_template_room_list_content( $single = false ) {
+		htl_get_template( 'room-list/room-content.php', array( 'is_single' => $single ) );
 	}
 
 }

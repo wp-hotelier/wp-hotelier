@@ -6,7 +6,7 @@
  *
  * @author  Benito Lopez <hello@lopezb.com>
  * @package Hotelier/Templates
- * @version 1.0.0
+ * @version 1.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -19,9 +19,16 @@ $checkin      = HTL()->session->get( 'checkin' );
 $checkout     = HTL()->session->get( 'checkout' );
 $is_available = $room->is_available( $checkin, $checkout );
 
+$listing_room_classes = array(
+	'listing__room'
+);
+
+if ( $is_single ) {
+	$listing_room_classes[] = 'listing__room--is-single';
+}
 ?>
 
-<li <?php post_class( 'listing__room' ); ?>>
+<li <?php post_class( $listing_room_classes ); ?>>
 
 	<div class="room__content room__content--listing">
 

@@ -6,7 +6,7 @@
  *
  * @author  Benito Lopez <hello@lopezb.com>
  * @package Hotelier/Templates
- * @version 1.0.0
+ * @version 1.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -39,7 +39,38 @@ if ( $rooms && $rooms->have_posts() ) : ?>
 
 		<?php do_action( 'hotelier_before_room_list_loop' ); ?>
 
+		<?php if ( $room_id ) : ?>
+			<?php if ( ! $room_id_available ) : ?>
+
+				<?php htl_get_template( 'room-list/single-room-not-available-info.php' ); ?>
+
+			<?php else : ?>
+
+				<?php htl_get_template( 'room-list/single-room-available-info.php' ); ?>
+
+			<?php endif; ?>
+		<?php endif; ?>
+
 		<?php hotelier_room_list_start(); ?>
+
+			<?php if ( $room_id && $room_id_available ) :
+				global $post;
+
+				$post = get_post( $room_id );
+				setup_postdata( $post );
+				?>
+
+				<?php
+					/**
+					 * hotelier_room_list_item_content hook
+					 *
+					 * @hooked hotelier_template_loop_room_content - 10
+					 */
+					do_action( 'hotelier_room_list_item_content', true );
+				?>
+
+				<?php wp_reset_postdata(); ?>
+			<?php endif; ?>
 
 			<?php while ( $rooms->have_posts() ) : $rooms->the_post();
 
