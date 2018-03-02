@@ -6,15 +6,17 @@
  *
  * @author  Benito Lopez <hello@lopezb.com>
  * @package Hotelier/Templates
- * @version 1.0.0
+ * @version 1.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$room_id = is_room() ? get_the_ID() : false;
+
 // extensions can hook into here to add their own pages
-$datepicker_form_url = apply_filters( 'hotelier_datepicker_form_url', HTL()->cart->get_room_list_form_url() ); ?>
+$datepicker_form_url = apply_filters( 'hotelier_datepicker_form_url', HTL()->cart->get_room_list_form_url( $room_id ) ); ?>
 
 <form name="hotelier_datepicker" method="post" id="hotelier-datepicker" class="datepicker-form" action="<?php echo esc_url( $datepicker_form_url ); ?>" enctype="multipart/form-data">
 

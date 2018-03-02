@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  1.2.0
+ * @version  1.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -649,8 +649,18 @@ class HTL_Cart {
 	 *
 	 * @return string
 	 */
-	public function get_room_list_form_url() {
+	public function get_room_list_form_url( $room_id = false ) {
 		$room_list_form_url = htl_get_page_permalink( 'listing' );
+
+		if ( $room_id ) {
+			$room_id = absint( $room_id );
+
+			$room_list_form_url = add_query_arg( array(
+				'room-id' => $room_id
+				),
+				$room_list_form_url
+			);
+		}
 
 		return apply_filters( 'hotelier_get_room_list_form_url', $room_list_form_url );
 	}

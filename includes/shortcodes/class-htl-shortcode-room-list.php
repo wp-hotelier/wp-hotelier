@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Shortcodes
  * @package  Hotelier/Classes
- * @version  1.0.0
+ * @version  1.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -49,9 +49,29 @@ class HTL_Shortcode_Room_List {
 		if ( ! HTL_Formatting_Helper::is_valid_checkin_checkout( $checkin, $checkout ) ) {
 			htl_get_template( 'room-list/no-rooms-available.php' );
 		} else {
-			$rooms = htl_get_listing_rooms_query( $checkin, $checkout );
+			$room_id           = isset( $_GET[ 'room-id' ] ) ? absint( $_GET[ 'room-id' ] ) : false;
+			$room_id_available = false;
 
-			htl_get_template( 'room-list/form-room-list.php', array( 'rooms' => $rooms ) );
+			// A room ID was passed to the query so check if it is available
+			if ( $room_id ) {
+				$_room = htl_get_room( $room_id );
+
+				if ( $_room->exists() && $_room->is_available( $checkin, $checkout ) ) {
+					$room_id_available = true;
+				}
+			}
+
+			// Get available rooms
+			$rooms = htl_get_listing_rooms_query( $checkin, $checkout, $room_id );
+
+			// Pass args to the template
+			$room_list_args = array(
+				'rooms'             => $rooms,
+				'room_id'           => $room_id,
+				'room_id_available' => $room_id_available
+			);
+
+			htl_get_template( 'room-list/form-room-list.php', $room_list_args );
 		}
 	}
 }
