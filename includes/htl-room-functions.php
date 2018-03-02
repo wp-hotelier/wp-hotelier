@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Core
  * @package  Hotelier/Functions
- * @version  1.0.0
+ * @version  1.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -213,13 +213,18 @@ function htl_get_related_rooms_query( $room_id, $limit, $order ) {
  * @param string $checkout
  * @return array.
  */
-function htl_get_listing_rooms_query( $checkin, $checkout ) {
+function htl_get_listing_rooms_query( $checkin, $checkout, $room_id = false ) {
 	// Get available rooms
 	$room_ids = htl_get_available_room_ids( $checkin, $checkout );
 
 	// Return an empty array if there are no rooms available
 	if ( ! $room_ids ) {
 		return array();
+	}
+
+	// Exclude room if we are querying a specific one
+	if ( $room_id ) {
+		$room_ids = array_diff( $room_ids, array( $room_id ) );
 	}
 
 	$query_args = array(
