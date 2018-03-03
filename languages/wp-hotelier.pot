@@ -957,15 +957,15 @@ msgstr ""
 msgid "Please check your dates."
 msgstr ""
 
-#: ../includes/htl-room-functions.php:570
+#: ../includes/htl-room-functions.php:575
 msgid "%s nights minimum stay and %s nights maximum stay"
 msgstr ""
 
-#: ../includes/htl-room-functions.php:572
+#: ../includes/htl-room-functions.php:577
 msgid "%s nights minimum stay"
 msgstr ""
 
-#: ../includes/htl-room-functions.php:574
+#: ../includes/htl-room-functions.php:579
 msgid "%s night maximum stay"
 msgid_plural "%s nights maximum stay"
 msgstr[0] ""
@@ -2874,8 +2874,16 @@ msgstr[1] ""
 msgid "Hooray this room is available! For your convenience, below you can find other rooms that are available on the same dates."
 msgstr ""
 
+#: ../templates/room-list/single-room-available-info.php:18
+msgid "Hooray this room is available!"
+msgstr ""
+
 #: ../templates/room-list/single-room-not-available-info.php:18
 msgid "We are sorry, this room is not available on your requested dates. Please try again with some different dates or have a look at the available rooms below."
+msgstr ""
+
+#: ../templates/room-list/single-room-not-available-info.php:18
+msgid "We are sorry, this room is not available on your requested dates. Please try again with some different dates."
 msgstr ""
 
 #: ../templates/single-room/conditions.php:26
