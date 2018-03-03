@@ -26,6 +26,10 @@ jQuery(function ($) {
 
 			qty_input.hide();
 
+			if (hotelier_params.book_now_redirect_to_booking_page === '1') {
+				$('#reserve-button').hide();
+			}
+
 			add_to_cart_button.on('click', function (e) {
 				e.preventDefault();
 
