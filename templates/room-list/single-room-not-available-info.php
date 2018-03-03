@@ -15,4 +15,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<p class="hotelier-notice hotelier-notice--info hotelier-notice--single-room-not-available"><?php esc_html_e( 'We are sorry, this room is not available on your requested dates. Please try again with some different dates or have a look at the available rooms below.', 'wp-hotelier' ); ?></p>
+<p class="hotelier-notice hotelier-notice--info hotelier-notice--single-room-not-available"><?php echo $rooms ? esc_html__( 'We are sorry, this room is not available on your requested dates. Please try again with some different dates or have a look at the available rooms below.', 'wp-hotelier' ) : esc_html__( 'We are sorry, this room is not available on your requested dates. Please try again with some different dates.', 'wp-hotelier' ); ?></p>

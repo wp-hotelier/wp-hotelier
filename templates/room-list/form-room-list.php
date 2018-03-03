@@ -42,11 +42,11 @@ if ( $rooms && $rooms->have_posts() || ( $room_id && $room_id_available ) ) : ?>
 		<?php if ( $room_id ) : ?>
 			<?php if ( ! $room_id_available ) : ?>
 
-				<?php htl_get_template( 'room-list/single-room-not-available-info.php' ); ?>
+				<?php htl_get_template( 'room-list/single-room-not-available-info.php', array( 'rooms' => $rooms ) ); ?>
 
 			<?php else : ?>
 
-				<?php htl_get_template( 'room-list/single-room-available-info.php' ); ?>
+				<?php htl_get_template( 'room-list/single-room-available-info.php', array( 'rooms' => $rooms ) ); ?>
 
 			<?php endif; ?>
 		<?php endif; ?>
