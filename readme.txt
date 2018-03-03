@@ -105,6 +105,12 @@ Here: [Easy WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 1.5.0 - 2018-03-05 =
+* Added - General improvements to the listing page.
+* Added - Option to redirect the user to the booking page after successful addition.
+* Update - Hotel Datepicker library updated
+* Localization - POT file updated.
+
 = 1.4.0 - 2018-02-21 =
 * Added - Show (and save) a dropdown where a guest can select the number of adults/children.
 * Added - Refunds via PayPal and Stripe are now detected automatically (cancelling the reservation).
