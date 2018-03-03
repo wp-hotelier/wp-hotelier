@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 htl_print_notices();
 
-if ( $rooms && $rooms->have_posts() ) : ?>
+if ( $rooms && $rooms->have_posts() || ( $room_id && $room_id_available ) ) : ?>
 
 	<?php
 		/**
@@ -72,27 +72,31 @@ if ( $rooms && $rooms->have_posts() ) : ?>
 				<?php wp_reset_postdata(); ?>
 			<?php endif; ?>
 
-			<?php while ( $rooms->have_posts() ) : $rooms->the_post();
+			<?php if ( $rooms && $rooms->have_posts() ) : ?>
 
-				global $room;
+				<?php while ( $rooms->have_posts() ) : $rooms->the_post();
 
-				// Ensure visibility
-				if ( ! $room || ! $room->is_visible() ) {
-					return;
-				}
+					global $room;
 
-				?>
+					// Ensure visibility
+					if ( ! $room || ! $room->is_visible() ) {
+						return;
+					}
 
-				<?php
-					/**
-					 * hotelier_room_list_item_content hook
-					 *
-					 * @hooked hotelier_template_loop_room_content - 10
-					 */
-					do_action( 'hotelier_room_list_item_content' );
-				?>
+					?>
 
-			<?php endwhile; // end of the loop. ?>
+					<?php
+						/**
+						 * hotelier_room_list_item_content hook
+						 *
+						 * @hooked hotelier_template_loop_room_content - 10
+						 */
+						do_action( 'hotelier_room_list_item_content' );
+					?>
+
+				<?php endwhile; // end of the loop. ?>
+
+			<?php endif; ?>
 
 		<?php hotelier_room_list_end(); ?>
 

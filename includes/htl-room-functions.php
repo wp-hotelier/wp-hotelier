@@ -222,6 +222,11 @@ function htl_get_listing_rooms_query( $checkin, $checkout, $room_id = false ) {
 		return array();
 	}
 
+	// Return early if only one room is available and it is the queried one
+	if ( count( $room_ids ) === 1 && $room_ids[ 0 ] === $room_id ) {
+		return array();
+	}
+
 	// Exclude room if we are querying a specific one
 	if ( $room_id ) {
 		$room_ids = array_diff( $room_ids, array( $room_id ) );
