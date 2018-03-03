@@ -604,7 +604,7 @@ WIDGETS
   padding: 24px;
 }
 
-.listing__room--is-single {
+.listing__room--queried {
   border: 5px solid #9DC94A;
   margin-bottom: 96px;
 }

@@ -24,7 +24,7 @@ $listing_room_classes = array(
 );
 
 if ( $is_single ) {
-	$listing_room_classes[] = 'listing__room--is-single';
+	$listing_room_classes[] = 'listing__room--queried';
 }
 ?>
 
