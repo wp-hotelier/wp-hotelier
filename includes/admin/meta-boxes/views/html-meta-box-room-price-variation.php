@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'name'  => '_room_variations[' . absint( $loop ) . '][price_type]',
 			'depth' => array( absint( $loop ), 'price_type' ),
 			'label' => esc_html__( 'Price:', 'wp-hotelier' ),
-			'class' => 'room-price', 'options' => $price_type
+			'class' => 'room-price', 'options' => apply_filters( 'hotelier_room_price_type', $price_type )
 		)
 	);
 	?>
@@ -138,5 +138,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		} ?>
 
 	</div><!-- .seasonal-price -->
+
+	<?php
+	/**
+	 * A filter is provided to allow extensions to add their own price settings
+	 */
+	do_action( 'hotelier_room_price_settings_variation', self::get_price_placeholder(), $loop ); ?>
 
 </div><!-- .room-price-panel -->
