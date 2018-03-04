@@ -794,20 +794,20 @@ msgstr ""
 msgid "Hotel Manager"
 msgstr ""
 
-#: ../includes/class-htl-room-variation.php:362, ../includes/class-htl-room-variation.php:369, ../includes/class-htl-room.php:698, ../includes/class-htl-room.php:705
+#: ../includes/class-htl-room-variation.php:365, ../includes/class-htl-room-variation.php:372, ../includes/class-htl-room.php:704, ../includes/class-htl-room.php:711
 msgctxt "price"
 msgid "Price: %s"
 msgstr ""
 
-#: ../includes/class-htl-room-variation.php:431, ../includes/class-htl-room-variation.php:443, ../includes/class-htl-room.php:791, ../includes/class-htl-room.php:825, ../includes/class-htl-room.php:840
+#: ../includes/class-htl-room-variation.php:434, ../includes/class-htl-room-variation.php:446, ../includes/class-htl-room.php:797, ../includes/class-htl-room.php:831, ../includes/class-htl-room.php:846
 msgid "Rates from %s per night"
 msgstr ""
 
-#: ../includes/class-htl-room-variation.php:456, ../includes/class-htl-room.php:858, ../includes/class-htl-room.php:860
+#: ../includes/class-htl-room-variation.php:459, ../includes/class-htl-room.php:864, ../includes/class-htl-room.php:866
 msgid "%s per night"
 msgstr ""
 
-#: ../includes/class-htl-room.php:683
+#: ../includes/class-htl-room.php:689
 msgctxt "min_price"
 msgid "From %s"
 msgstr ""
