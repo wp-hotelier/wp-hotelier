@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  1.2.0
+ * @version  1.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -179,10 +179,11 @@ class HTL_Room_Variation {
 			}
 		}
 
+		$price = apply_filters( 'hotelier_get_variation_regular_price', $price, $checkin, $checkout, $this );
+
 		if ( $price > 0 ) {
 
-			$price = $price;
-			return apply_filters( 'hotelier_get_variation_regular_price', $price, $this );
+			return $price;
 
 		} else {
 
@@ -230,10 +231,11 @@ class HTL_Room_Variation {
 			}
 		}
 
+		$price = apply_filters( 'hotelier_get_variation_sale_price', $price, $checkin, $checkout, $this );
+
 		if ( $price > 0 ) {
 
-			$price = $price;
-			return apply_filters( 'hotelier_get_variation_sale_price', $price, $this );
+			return $price;
 
 		} else {
 
@@ -323,9 +325,10 @@ class HTL_Room_Variation {
 	 * @return bool
 	 */
 	public function is_on_sale( $checkin, $checkout ) {
-		$checkout = $checkout ? $checkout : $checkin;
+		$checkout   = $checkout ? $checkout : $checkin;
+		$is_on_sale = ( ! $this->has_seasonal_price() && $this->get_sale_price( $checkin, $checkout ) && $this->get_regular_price( $checkin, $checkout ) && $this->get_sale_price( $checkin, $checkout ) < $this->get_regular_price( $checkin, $checkout ) ) ? true : false;
 
-		return apply_filters( 'hotelier_variation_is_on_sale', ( ! $this->has_seasonal_price() && $this->get_sale_price( $checkin, $checkout ) && $this->get_regular_price( $checkin, $checkout ) && $this->get_sale_price( $checkin, $checkout ) < $this->get_regular_price( $checkin, $checkout ) ), $this );
+		return apply_filters( 'hotelier_variation_is_on_sale', $is_on_sale, $checkin, $checkout, $this );
 	}
 
 	/**
@@ -344,7 +347,7 @@ class HTL_Room_Variation {
 			$price = $this->get_regular_price( $checkin, $checkout );
 		}
 
-		return apply_filters( 'hotelier_variation_get_price', $price, $this );
+		return apply_filters( 'hotelier_variation_get_price', $price, $checkin, $checkout, $this );
 	}
 
 	/**

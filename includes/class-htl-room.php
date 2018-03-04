@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  1.2.0
+ * @version  1.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -490,8 +490,11 @@ class HTL_Room {
 			}
 		}
 
+		$price = apply_filters( 'hotelier_get_regular_price', $price, $checkin, $checkout, $this );
+
 		if ( $price > 0 ) {
-			return apply_filters( 'hotelier_get_regular_price', $price, $this );
+
+			return $price;
 
 		} else {
 
@@ -537,8 +540,10 @@ class HTL_Room {
 			}
 		}
 
+		$price = apply_filters( 'hotelier_get_sale_price', $price, $checkin, $checkout, $this );
+
 		if ( $price > 0 ) {
-			return apply_filters( 'hotelier_get_sale_price', $price, $this );
+			return $price;
 
 		} else {
 
@@ -628,9 +633,10 @@ class HTL_Room {
 	 * @return bool
 	 */
 	public function is_on_sale( $checkin, $checkout = false ) {
-		$checkout = $checkout ? $checkout : $checkin;
+		$checkout   = $checkout ? $checkout : $checkin;
+		$is_on_sale = ( ! $this->has_seasonal_price() && $this->get_sale_price( $checkin, $checkout ) && $this->get_regular_price( $checkin, $checkout ) && $this->get_sale_price( $checkin, $checkout ) < $this->get_regular_price( $checkin, $checkout ) ) ? true : false;
 
-		return apply_filters( 'hotelier_room_is_on_sale', ( ! $this->has_seasonal_price() && $this->get_sale_price( $checkin, $checkout ) && $this->get_regular_price( $checkin, $checkout ) && $this->get_sale_price( $checkin, $checkout ) < $this->get_regular_price( $checkin, $checkout ) ), $this );
+		return apply_filters( 'hotelier_room_is_on_sale', $is_on_sale, $checkin, $checkout, $this );
 	}
 
 	/**
@@ -649,7 +655,7 @@ class HTL_Room {
 			$price = $this->get_regular_price( $checkin, $checkout );
 		}
 
-		return apply_filters( 'hotelier_get_price', $price, $this );
+		return apply_filters( 'hotelier_get_price', $price, $checkin, $checkout, $this );
 	}
 
 	/**
