@@ -969,7 +969,13 @@
 }
 
 #hotelier-reservation-items td.thumb {
+  min-height: 42px;
+  position: relative;
   width: 42px;
+}
+
+#hotelier-reservation-items td.thumb a {
+  display: inline-block;
 }
 
 #hotelier-reservation-items td.thumb img {
@@ -977,6 +983,8 @@
   height: 36px;
   margin: 0;
   padding: 1px;
+  position: absolute;
+  top: 10px;
   vertical-align: middle;
   width: 36px;
 }

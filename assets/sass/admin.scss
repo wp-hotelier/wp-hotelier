@@ -1096,13 +1096,21 @@ $refunded: #85DCEE;
 	}
 
 	td.thumb {
+		min-height: 42px;
+		position: relative;
 		width: 42px;
+
+		a {
+			display: inline-block;
+		}
 
 		img {
 			border: 1px solid $light_grey;
 			height: 36px;
 			margin: 0;
 			padding: 1px;
+			position: absolute;
+			top: 10px;
 			vertical-align: middle;
 			width: 36px;
 		}
