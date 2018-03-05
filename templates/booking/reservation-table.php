@@ -6,7 +6,7 @@
  *
  * @author  Benito Lopez <hello@lopezb.com>
  * @package Hotelier/Templates
- * @version 1.0.0
+ * @version 1.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -63,13 +63,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<td class="reservation-table__room-cost reservation-table__room-cost--body">
 								<?php echo HTL()->cart->get_room_price( $cart_item[ 'total' ] ); ?>
 
-								<?php if ( $nights > 1 ) : ?>
+								<?php if ( $nights > 1 && apply_filters( 'hotelier_show_price_breakdown', true, HTL()->session->get( 'checkin' ), HTL()->session->get( 'checkout' ), $cart_item[ 'room_id' ], $cart_item[ 'rate_id' ], $cart_item[ 'quantity' ] ) ) : ?>
 								<a class="view-price-breakdown" href="#<?php echo esc_attr( $item_key ); ?>" data-closed="<?php esc_html_e( 'View price breakdown', 'wp-hotelier' ); ?>" data-open="<?php esc_html_e( 'Hide price breakdown', 'wp-hotelier' ); ?>"><?php esc_html_e( 'View price breakdown', 'wp-hotelier' ); ?></a>
 								<?php endif; ?>
 							</td>
 						</tr>
 
-						<?php if ( $nights > 1 ) : ?>
+						<?php if ( $nights > 1 && apply_filters( 'hotelier_show_price_breakdown', true, HTL()->session->get( 'checkin' ), HTL()->session->get( 'checkout' ), $cart_item[ 'room_id' ], $cart_item[ 'rate_id' ], $cart_item[ 'quantity' ] ) ) : ?>
 						<tr class="reservation-table__row reservation-table__row--body reservation-table__row--price-breakdown">
 							<td colspan="3" class="price-breakdown-wrapper">
 								<?php echo htl_cart_price_breakdown( HTL()->session->get( 'checkin' ), HTL()->session->get( 'checkout' ), $cart_item[ 'room_id' ], $cart_item[ 'rate_id' ], $cart_item[ 'quantity' ] ); ?>
