@@ -300,9 +300,8 @@ jQuery(function ($) {
 				input.find('option:first').prop('selected', 'selected');
 			});
 			clone.find('input[type="checkbox"]').val(1);
+			clone.find('.price-panel').hide();
 			clone.find('.price-panel-global').show();
-			clone.find('.price-panel-per_day').hide();
-			clone.find('.price-panel-seasonal_price').hide();
 			clone.find('.room-deposit-amount').hide();
 			clone.find('input.variation-index').val(parseInt(key, 10));
 			clone.find('tr.room-condition').not(':first').remove();
