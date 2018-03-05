@@ -464,8 +464,9 @@ class HTL_Room_Variation {
 			$min_price = apply_filters( 'hotelier_empty_price_html', '', $this );
 		}
 
-		return $min_price;
+		$min_price = apply_filters( 'hotelier_variation_min_price_html', $min_price, $this );
 
+		return $min_price;
 	}
 
 	/**

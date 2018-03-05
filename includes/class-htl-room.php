@@ -872,6 +872,8 @@ class HTL_Room {
 
 		}
 
+		$min_price = apply_filters( 'hotelier_min_price_html', $min_price, $this );
+
 		return $min_price;
 	}
 
