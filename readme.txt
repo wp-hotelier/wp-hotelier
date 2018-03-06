@@ -105,7 +105,7 @@ Here: [Easy WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
-= 1.5.0 - 2018-03-05 =
+= 1.5.0 - 2018-03-06 =
 * Added - General improvements to the listing page.
 * Added - Option to redirect the user to the booking page after successful addition.
 * Update - Hotel Datepicker library updated
