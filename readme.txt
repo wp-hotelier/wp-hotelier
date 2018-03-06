@@ -51,8 +51,10 @@ Something missing? No problem, you can extend Easy WP Hotelier with a vast numbe
 * [Stripe Payment Gateway](https://wphotelier.com/extensions/stripe-payment-gateway/)
 * [Disable Dates](https://wphotelier.com/extensions/disable-dates/)
 * [iCalendar Importer/Exporter](https://wphotelier.com/extensions/icalendar-importer-exporter/)
-* [Minimum/Maximum Nights](https://wphotelier.com/extensions/minimummaximum-nights/)
+* [Week Bookings](https://wphotelier.com/extensions/week-bookings/)
+* [Enhanced Calendar](https://wphotelier.com/extensions/enhanced-calendar/)
 * [Flat Deposit](https://wphotelier.com/extensions/flat-deposit/)
+* [Minimum/Maximum Nights](https://wphotelier.com/extensions/minimummaximum-nights/)
 * [Bank Transfer Payment Gateway](https://wphotelier.com/extensions/bank-transfer-payment-gateway/)
 
 == Installation ==
