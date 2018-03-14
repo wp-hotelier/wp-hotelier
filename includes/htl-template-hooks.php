@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Core
  * @package  Hotelier/Functions
- * @version  1.0.0
+ * @version  1.5.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -115,8 +115,8 @@ if ( htl_get_option( 'booking_mode' ) != 'no-booking' ) {
 /**
  * Booking and form pay page
  */
-add_action( 'hotelier_booking_after_submit', 'hotelier_template_terms_checkbox', 10 );
-add_action( 'hotelier_form_pay_after_submit', 'hotelier_template_terms_checkbox', 10 );
+add_action( 'hotelier_booking_before_submit', 'hotelier_template_terms_checkbox', 10 );
+add_action( 'hotelier_form_pay_before_submit', 'hotelier_template_terms_checkbox', 10 );
 add_action( 'hotelier_reservation_table_guests', 'hotelier_reservation_table_guests', 10, 3 );
 
 /**
