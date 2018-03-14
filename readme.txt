@@ -3,7 +3,7 @@ Contributors: benitolopez
 Tags: booking, hotel, booking system, hostel, reservations, reservations, b&b, rooms, wphotelier
 Requires at least: 4.1
 Tested up to: 4.9
-Stable tag: 1.5.0
+Stable tag: 1.5.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -56,6 +56,7 @@ Something missing? No problem, you can extend Easy WP Hotelier with a vast numbe
 * [Flat Deposit](https://wphotelier.com/extensions/flat-deposit/)
 * [Minimum/Maximum Nights](https://wphotelier.com/extensions/minimummaximum-nights/)
 * [Bank Transfer Payment Gateway](https://wphotelier.com/extensions/bank-transfer-payment-gateway/)
+* [MailChimp](https://wphotelier.com/extensions/mailchimp/)
 
 == Installation ==
 
@@ -106,6 +107,9 @@ Here: [Easy WP Hotelier documentation](http://docs.wphotelier.com/).
 4. Easy WP Hotelier - Admin calendar.
 
 == Changelog ==
+
+= 1.5.1 - 2018-03-14 =
+* Tweak - Move terms checkbox before booking button.
 
 = 1.5.0 - 2018-03-06 =
 * Added - General improvements to the listing page.
