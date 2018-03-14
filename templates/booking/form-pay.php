@@ -6,7 +6,7 @@
  *
  * @author  Benito Lopez <hello@lopezb.com>
  * @package Hotelier/Templates
- * @version 1.0.0
+ * @version 1.5.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -74,6 +74,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</ul>
 
 			<div class="form-row">
+
+				<?php do_action( 'hotelier_form_pay_before_submit' ); ?>
 
 				<input type="hidden" name="hotelier_pay" value="1" />
 				<input type="hidden" id="email" value="<?php echo esc_attr( $reservation->guest_email ); ?>" />
