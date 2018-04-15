@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  1.0.0
+ * @version  1.5.2
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -286,7 +286,7 @@ class HTL_Form_Functions {
 			} elseif ( ! $reservation->can_be_cancelled() ) {
 				// Reservation contains non-cancellable rooms
 				htl_add_notice( esc_html__( 'Your reservation includes a non cancellable and non refundable room and it cannot be cancelled.', 'wp-hotelier' ), 'error' );
-			} elseif ( $reservation_can_cancel && $reservation->id == $reservation_id && $reservation->reservation_key == $reservation_key && isset( $_GET[ '_wpnonce' ] ) && wp_verify_nonce( $_GET[ '_wpnonce' ], 'hotelier-cancel_reservation' ) ) {
+			} elseif ( $reservation_can_cancel && $reservation->id == $reservation_id && $reservation->reservation_key == $reservation_key  ) {
 
 				// Cancel the reservation + restore available rooms
 				$reservation->cancel_reservation( esc_html__( 'Reservation cancelled by guest.', 'wp-hotelier' ) );
