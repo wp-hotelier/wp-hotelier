@@ -6,7 +6,7 @@
  *
  * @author  Benito Lopez <hello@lopezb.com>
  * @package Hotelier/Templates
- * @version 1.0.0
+ * @version 1.5.2
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <header class="page-header page__header">
 	<?php do_action( 'hotelier_before_page_title' ); ?>
 
-	<h1 class="page-title page__title"><?php echo esc_html( $page_title ); ?></h1>
+	<h1 class="page-title page__title"><?php echo wp_kses_post( $page_title ); ?></h1>
 
 	<?php do_action( 'hotelier_after_page_title' ); ?>
 </header>
