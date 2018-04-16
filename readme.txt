@@ -3,7 +3,7 @@ Contributors: benitolopez
 Tags: booking, hotel, booking system, hostel, reservations, reservations, b&b, rooms, wphotelier
 Requires at least: 4.1
 Tested up to: 4.9
-Stable tag: 1.5.1
+Stable tag: 1.5.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -107,6 +107,10 @@ Here: [Easy WP Hotelier documentation](http://docs.wphotelier.com/).
 4. Easy WP Hotelier - Admin calendar.
 
 == Changelog ==
+
+= 1.5.2 - 2018-03-14 =
+* Fix - Allow to cancel reservations for non logged-in users.
+* Fix - Fix escapes on archive title.
 
 = 1.5.1 - 2018-03-14 =
 * Tweak - Move terms checkbox before booking button.
