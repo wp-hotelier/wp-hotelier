@@ -1207,6 +1207,12 @@ if ( ! function_exists( 'htl_form_field' ) ) {
 
 				break;
 
+			case 'number' :
+
+				$field .= '<input type="number" class="input-text" name="' . esc_attr( $key ) . '" id="' . esc_attr( $args[ 'id' ] ) . '" placeholder="' . esc_attr( $args[ 'placeholder' ] ) . '" value="' . absint( $value ) . '" />';
+
+				break;
+
 			case 'email' :
 
 				$field .= '<input type="email" class="input-text" name="' . esc_attr( $key ) . '" id="' . esc_attr( $args[ 'id' ] ) . '" placeholder="' . esc_attr( $args[ 'placeholder' ] ) . '" value="' . esc_attr( $value ) . '" />';
