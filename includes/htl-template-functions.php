@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Core
  * @package  Hotelier/Functions
- * @version  1.5.0
+ * @version  1.5.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -179,7 +179,7 @@ if ( ! function_exists( 'hotelier_taxonomy_archive_description' ) ) {
 			$description = do_shortcode( shortcode_unautop( wpautop( term_description() ) ) );
 
 			if ( $description ) {
-				echo '<div class="taxonomy-description">' . $description . '</div>';
+				echo '<div class="taxonomy-description page__description">' . $description . '</div>';
 			}
 		}
 	}
