@@ -3,7 +3,7 @@ Contributors: benitolopez
 Tags: booking, hotel, booking system, hostel, reservations, reservations, b&b, rooms, wphotelier
 Requires at least: 4.1
 Tested up to: 4.9
-Stable tag: 1.5.2
+Stable tag: 1.5.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -13,7 +13,7 @@ Easy WP Hotelier is a powerful WordPress booking plugin allows you to manage hot
 
 Easy WP Hotelier is a booking plugin for WordPress, built specifically for hotels, b&bs, etc. With Easy WP Hotelier you can manage hotel reservations inside your WordPress dashboard, accept payments online, choose between three different booking modes, receive email notifications, manage room’s amenities, set seasonal or fixed prices and much more. Easy WP Hotelier it’s an all-in-one booking system for WordPress.
 
-You can see Easy WP Hotelier in action [here](http://themes.wphotelier.com/mediterraneo/).
+You can see Easy WP Hotelier in action [here](http://manila.wphotelier.com/). Manila is a free WordPress hotel theme developed for Easy WP hotelier specifically. You can [download it for free here](https://github.com/easy-wp-hotelier/manila/releases).
 
 = Features =
 
@@ -107,6 +107,11 @@ Here: [Easy WP Hotelier documentation](http://docs.wphotelier.com/).
 4. Easy WP Hotelier - Admin calendar.
 
 == Changelog ==
+
+= 1.5.3 - 2018-05-19 =
+* Added - New free WordPress theme for Easy WP Hotelier: Manila (http://manila.wphotelier.com/).
+* Tweak - Minor markup fixes in the listing page and room archive page.
+* Added - Input number type for booking fields.
 
 = 1.5.2 - 2018-03-14 =
 * Fix - Allow to cancel reservations for non logged-in users.
