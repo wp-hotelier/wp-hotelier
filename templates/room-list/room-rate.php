@@ -6,7 +6,7 @@
  *
  * @author  Benito Lopez <hello@lopezb.com>
  * @package Hotelier/Templates
- * @version 1.0.0
+ * @version 1.5.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -18,7 +18,7 @@ global $room;
 ?>
 
 <div class="room__rate room__rate--listing">
-	<div class="rate__content">
+	<div class="rate__content rate__content--listing">
 		<?php
 			/**
 			 * hotelier_room_list_item_rate_content hook
