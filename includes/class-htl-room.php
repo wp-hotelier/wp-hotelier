@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  1.5.0
+ * @version  1.5.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -424,6 +424,15 @@ class HTL_Room {
 		$formatted_room_size = $this->room_size ? $this->room_size . ' ' . htl_get_option( 'room_size_unit', 'm²' ) : '';
 
 		return apply_filters( 'hotelier_room_size', $formatted_room_size, $this );
+	}
+
+	/**
+	 * Returns the room's additional details.
+	 *
+	 * @return string _room_additional_details
+	 */
+	public function get_additional_details() {
+		return $this->room_additional_details;
 	}
 
 	/**
