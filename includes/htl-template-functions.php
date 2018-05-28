@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Core
  * @package  Hotelier/Functions
- * @version  1.5.3
+ * @version  1.6.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -1318,3 +1318,29 @@ if ( ! function_exists( 'htl_photoswipe_markup' ) ) {
 	}
 }
 add_action( 'wp_footer', 'htl_photoswipe_markup' );
+
+/**
+ * Replaces privacy placeholder with a link to the privacy policy page.
+ */
+function hotelier_replace_policy_page_link_placeholder( $text ) {
+	$privacy_page_id = get_option( 'wp_page_for_privacy_policy', 0 );
+	$privacy_link    = $privacy_page_id ? '<a href="' . esc_url( get_permalink( $privacy_page_id ) ) . '" class="privacy-policy-text__link" target="_blank">' . __( 'privacy policy', 'wp-hotelier' ) . '</a>' : __( 'privacy policy', 'wp-hotelier' );
+	$text            = str_replace( '[privacy_policy]', $privacy_link, $text );
+
+	return $text;
+}
+
+/**
+ * Output privacy policy text.
+ */
+function hotelier_privacy_policy_text() {
+	$snippet_text = htl_get_option( 'privacy_settings_snippet', 'Your personal data will be used to support your experience throughout this website, to process your reservations, and for other purposes described in our [privacy_policy].' );
+
+	if ( ! get_option( 'wp_page_for_privacy_policy', 0 ) || ! $snippet_text ) {
+		return;
+	}
+
+	$text = wp_kses_post( wpautop( hotelier_replace_policy_page_link_placeholder( $snippet_text ) ) );
+
+	echo '<div class="privacy-policy-text">' . $text . '</div>';
+}

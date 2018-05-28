@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes/Payment
- * @version  1.0.0
+ * @version  1.6.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -73,7 +73,7 @@ class HTL_Gateway_Paypal extends HTL_Payment_Gateway {
 				'id'   => 'paypal_log',
 				'name' => esc_html__( 'Debug log', 'wp-hotelier' ),
 				'desc' => esc_html__( 'Enable logging.', 'wp-hotelier' ),
-				'subdesc' => sprintf( __( 'Log PayPal events, such as IPN requests, inside <code>%s</code>', 'wp-hotelier' ), htl_get_log_file_path( 'paypal' ) ),
+				'subdesc' => sprintf( __( 'Log PayPal events, such as IPN requests, inside <code>%s</code>. Please note: this may log personal information. We recommend using this for debugging purposes only and deleting the logs when finished.', 'wp-hotelier' ), htl_get_log_file_path( 'paypal' ) ),
 				'type' => 'checkbox'
 			),
 			'paypal_email' => array(

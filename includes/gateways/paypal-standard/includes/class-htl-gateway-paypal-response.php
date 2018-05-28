@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes/Payment
- * @version  1.4.0
+ * @version  1.6.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -264,15 +264,6 @@ class HTL_Gateway_Paypal_Response {
 	 * @param HTL_Reservation $reservation
 	 */
 	protected function save_paypal_meta_data( $reservation, $posted ) {
-		if ( ! empty( $posted[ 'payer_email' ] ) ) {
-			update_post_meta( $reservation->id, 'Payer PayPal address', sanitize_text_field( $posted[ 'payer_email' ] ) );
-		}
-		if ( ! empty( $posted[ 'first_name' ] ) ) {
-			update_post_meta( $reservation->id, 'Payer first name', sanitize_text_field( $posted[ 'first_name' ] ) );
-		}
-		if ( ! empty( $posted[ 'last_name' ] ) ) {
-			update_post_meta( $reservation->id, 'Payer last name', sanitize_text_field( $posted[ 'last_name' ] ) );
-		}
 		if ( ! empty( $posted[ 'payment_type' ] ) ) {
 			update_post_meta( $reservation->id, 'Payment type', sanitize_text_field( $posted[ 'payment_type' ] ) );
 		}

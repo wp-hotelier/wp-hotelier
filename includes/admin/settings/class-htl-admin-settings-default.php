@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin
- * @version  1.0.0
+ * @version  1.6.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -310,6 +310,24 @@ class HTL_Admin_Settings_Default {
 						'type' => 'number',
 						'size' => 'small',
 						'std'  => '2'
+					),
+					'privacy_settings' => array(
+						'id'   => 'privacy_settings',
+						'name' => '<strong>' . esc_html__( 'Privacy settings', 'wp-hotelier' ) . '</strong>',
+						'type' => 'header'
+					),
+					'privacy_remove_reservation_data_on_erasure_request' => array(
+						'id'   => 'privacy_remove_reservation_data_on_erasure_request',
+						'name' => esc_html__( 'Account erasure requests', 'wp-hotelier' ),
+						'desc' => __( 'When handling an account erasure request, should personal data within reservations be retained or removed?', 'wp-hotelier' ),
+						'type' => 'checkbox'
+					),
+					'privacy_settings_snippet' => array(
+						'id'   => 'privacy_settings_snippet',
+						'name' => esc_html__( 'Privacy snippet', 'wp-hotelier' ),
+						'desc' => sprintf( __( 'Optionally add some text about your website privacy policy to show on the booking form. %1$s will be replaced by a link to your <a href="%2$s">privacy policy page</a>.', 'wp-hotelier' ), '<code>[privacy_policy]</code>', admin_url( 'privacy.php' ) ),
+						'std'  => esc_html__( 'Your personal data will be used to support your experience throughout this website, to process your reservations, and for other purposes described in our [privacy_policy].', 'wp-hotelier' ),
+						'type' => 'textarea'
 					),
 				)
 			),
