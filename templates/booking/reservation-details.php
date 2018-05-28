@@ -6,7 +6,7 @@
  *
  * @author  Benito Lopez <hello@lopezb.com>
  * @package Hotelier/Templates
- * @version 1.0.0
+ * @version 1.6.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -33,10 +33,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<th class="reservation-table__label"><?php esc_html_e( 'Check-out', 'wp-hotelier' ); ?></th>
 				<td class="reservation-table__data"><?php echo esc_html( $checkout ); ?></td>
 			</tr>
-			<tr class="reservation-table__row reservation-table__row--body">
-				<th class="reservation-table__label"><?php esc_html_e( 'Pets', 'wp-hotelier' ); ?></th>
-				<td class="reservation-table__data"><?php echo esc_html( $pets_message ); ?></td>
-			</tr>
+			<?php if ( apply_filters( 'hotelier_show_pets_message', true ) ) : ?>
+				<tr class="reservation-table__row reservation-table__row--body">
+					<th class="reservation-table__label"><?php esc_html_e( 'Pets', 'wp-hotelier' ); ?></th>
+					<td class="reservation-table__data"><?php echo esc_html( $pets_message ); ?></td>
+				</tr>
+			<?php endif; ?>
 
 			<?php if ( $cards ) : ?>
 			<tr class="reservation-table__row reservation-table__row--body">
