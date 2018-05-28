@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin
- * @version  1.0.0
+ * @version  1.6.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -198,7 +198,7 @@ class HTL_Admin_Settings_Fields {
 		$placeholder = isset( $args[ 'placeholder' ] ) ? $args[ 'placeholder' ] : '';
 
 		$size     = ( isset( $args[ 'size' ] ) && ! is_null( $args[ 'size' ] ) ) ? $args[ 'size' ] : 'regular';
-		$html     = '<textarea class="' . esc_attr( $size ) . '-text" id="hotelier_settings[' . esc_attr( $args[ 'id' ] ) . ']" name="hotelier_settings[' . esc_attr( $args[ 'id' ] ) . ']" placeholder="' . esc_attr( $placeholder ) . '" style="width:350px; height: 75px;">' . esc_attr( $value ) . '</textarea><br>';
+		$html     = '<textarea class="' . esc_attr( $size ) . '-text" id="hotelier_settings[' . esc_attr( $args[ 'id' ] ) . ']" name="hotelier_settings[' . esc_attr( $args[ 'id' ] ) . ']" placeholder="' . esc_attr( $placeholder ) . '" style="width:350px; height: 100px;">' . esc_attr( $value ) . '</textarea><br>';
 		$html    .= '<label for="hotelier_settings[' . esc_attr( $args[ 'id' ] ) . ']"> '  . wp_kses_post( $args[ 'desc' ] ) . '</label>';
 
 		echo $html;
