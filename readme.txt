@@ -3,7 +3,7 @@ Contributors: benitolopez
 Tags: booking, hotel, booking system, hostel, reservations, reservations, b&b, rooms, wphotelier
 Requires at least: 4.1
 Tested up to: 4.9
-Stable tag: 1.5.3
+Stable tag: 1.6.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -107,6 +107,10 @@ Here: [Easy WP Hotelier documentation](http://docs.wphotelier.com/).
 4. Easy WP Hotelier - Admin calendar.
 
 == Changelog ==
+
+= 1.6.0 - 2018-05-28 =
+* Added - GDPR support.
+* Tweak - Filter for hide pets message.
 
 = 1.5.3 - 2018-05-19 =
 * Added - New free WordPress theme for Easy WP Hotelier: Manila (http://manila.wphotelier.com/).
