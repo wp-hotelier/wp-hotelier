@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin
- * @version  1.0.0
+ * @version  1.6.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -310,6 +310,17 @@ class HTL_Admin_Settings_Default {
 						'type' => 'number',
 						'size' => 'small',
 						'std'  => '2'
+					),
+					'privacy_settings' => array(
+						'id'   => 'privacy_settings',
+						'name' => '<strong>' . esc_html__( 'Privacy settings', 'wp-hotelier' ) . '</strong>',
+						'type' => 'header'
+					),
+					'privacy_remove_reservation_data_on_erasure_request' => array(
+						'id'   => 'privacy_remove_reservation_data_on_erasure_request',
+						'name' => esc_html__( 'Account erasure requests', 'wp-hotelier' ),
+						'desc' => __( 'When handling an account erasure request, should personal data within reservations be retained or removed?', 'wp-hotelier' ),
+						'type' => 'checkbox'
 					),
 					'privacy_settings_snippet' => array(
 						'id'   => 'privacy_settings_snippet',
