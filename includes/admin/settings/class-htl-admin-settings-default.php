@@ -311,6 +311,13 @@ class HTL_Admin_Settings_Default {
 						'size' => 'small',
 						'std'  => '2'
 					),
+					'privacy_settings_snippet' => array(
+						'id'   => 'privacy_settings_snippet',
+						'name' => esc_html__( 'Privacy snippet', 'wp-hotelier' ),
+						'desc' => sprintf( __( 'Optionally add some text about your website privacy policy to show on the booking form. %1$s will be replaced by a link to your <a href="%2$s">privacy policy page</a>.', 'wp-hotelier' ), '<code>[privacy_policy]</code>', admin_url( 'privacy.php' ) ),
+						'std'  => esc_html__( 'Your personal data will be used to support your experience throughout this website, to process your reservations, and for other purposes described in our [privacy_policy].', 'wp-hotelier' ),
+						'type' => 'textarea'
+					),
 				)
 			),
 			/* Room Settings */
