@@ -44,14 +44,36 @@ $line_items = $reservation->get_items();
 <div class="hotelier-reservation-items-wrapper">
 	<table class="hotelier-reservation-totals">
 
-		<?php if ( $reservation->has_room_with_deposit() ) : ?>
+		<?php if ( $reservation->has_tax() ) : ?>
 
 			<tr class="subtotal">
-				<td class="label"><?php esc_html_e( 'Total charge', 'wp-hotelier' ); ?>:</td>
+				<td class="label"><?php esc_html_e( 'Subtotal', 'wp-hotelier' ); ?>:</td>
 				<td class="total">
-					<?php echo htl_price( htl_convert_to_cents( $reservation->get_total() ), $reservation->get_reservation_currency() ); ?>
+					<?php echo htl_price( htl_convert_to_cents( $reservation->get_subtotal() ), $reservation->get_reservation_currency() ); ?>
 				</td>
 			</tr>
+
+			<tr class="tax-total">
+				<td class="label"><?php esc_html_e( 'Tax total', 'wp-hotelier' ); ?>:</td>
+				<td class="total">
+					<?php echo htl_price( htl_convert_to_cents( $reservation->get_tax_total() ), $reservation->get_reservation_currency() ); ?>
+				</td>
+			</tr>
+
+		<?php endif; ?>
+
+		<?php if ( $reservation->has_room_with_deposit() ) : ?>
+
+			<?php if ( ! $reservation->has_tax() ) : ?>
+
+				<tr class="subtotal">
+					<td class="label"><?php esc_html_e( 'Total charge', 'wp-hotelier' ); ?>:</td>
+					<td class="total">
+						<?php echo htl_price( htl_convert_to_cents( $reservation->get_total() ), $reservation->get_reservation_currency() ); ?>
+					</td>
+				</tr>
+
+			<?php endif; ?>
 
 			<tr class="deposit">
 

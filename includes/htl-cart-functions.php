@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Core
  * @package  Hotelier/Functions
- * @version  1.0.0
+ * @version  1.7.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -83,6 +83,30 @@ function htl_cart_formatted_total() {
 	$total = htl_price( htl_convert_to_cents( HTL()->cart->get_total() ) );
 
 	echo $total;
+}
+
+/**
+ * Get the formatted subtotal.
+ *
+ * @access public
+ * @return string
+ */
+function htl_cart_formatted_subtotal() {
+	$subtotal = htl_price( htl_convert_to_cents( HTL()->cart->get_subtotal() ) );
+
+	echo $subtotal;
+}
+
+/**
+ * Get the formatted subtotal.
+ *
+ * @access public
+ * @return string
+ */
+function htl_cart_formatted_tax_total() {
+	$tax_total = htl_price( htl_convert_to_cents( HTL()->cart->get_tax_total() ) );
+
+	echo $tax_total;
 }
 
 /**

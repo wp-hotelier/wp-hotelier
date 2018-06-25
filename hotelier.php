@@ -223,6 +223,7 @@ final class Hotelier {
 		include_once HTL_PLUGIN_DIR . 'includes/class-htl-emails.php';
 		include_once HTL_PLUGIN_DIR . 'includes/class-htl-ajax.php';
 		include_once HTL_PLUGIN_DIR . 'includes/htl-core-functions.php';
+		include_once HTL_PLUGIN_DIR . 'includes/htl-tax-functions.php';
 		include_once HTL_PLUGIN_DIR . 'includes/htl-widget-functions.php';
 		include_once HTL_PLUGIN_DIR . 'includes/htl-booking-functions.php';
 		include_once HTL_PLUGIN_DIR . 'includes/privacy/class-htl-privacy.php';

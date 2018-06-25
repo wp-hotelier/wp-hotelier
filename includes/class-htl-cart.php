@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  1.5.0
+ * @version  1.7.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -71,6 +71,20 @@ class HTL_Cart {
 	public $required_deposit;
 
 	/**
+	 * Total cart tax.
+	 *
+	 * @var int
+	 */
+	public $tax_total;
+
+	/**
+	 * Total cart without tax.
+	 *
+	 * @var int
+	 */
+	public $subtotal;
+
+	/**
 	 * Cart grand total.
 	 *
 	 * @var int
@@ -85,6 +99,8 @@ class HTL_Cart {
 	public $cart_session_data = array(
 		'cart_contents_total' => 0,
 		'required_deposit'    => 0,
+		'subtotal'            => 0,
+		'tax_total'           => 0,
 		'total'               => 0
 	);
 
@@ -435,10 +451,22 @@ class HTL_Cart {
 			$this->cart_contents[ $cart_item_key ][ 'total' ] = $line_total;
 		}
 
+		// Subtotal
+		$this->subtotal = apply_filters( 'hotelier_calculated_subtotal', $this->cart_contents_total, $this );
+
+		// Calculate taxes
+		$this->tax_total        = htl_is_tax_enabled() ? htl_calculate_tax( $this->cart_contents_total ) : 0;
+
+		// Taxes on deposits
+		if ( htl_is_deposit_tax_enabled() ) {
+			$this->required_deposit = $this->required_deposit + htl_calculate_tax( $this->required_deposit );
+		}
+
 		// Allow plugins to hook and alter totals before final total is calculated
 		do_action( 'hotelier_calculate_totals', $this );
 
-		$this->total = apply_filters( 'hotelier_calculated_total', $this->cart_contents_total, $this );
+		$total       = $this->cart_contents_total + htl_calculate_tax( $this->cart_contents_total );
+		$this->total = apply_filters( 'hotelier_calculated_total', $total, $this );
 
 		do_action( 'hotelier_after_calculate_totals', $this );
 
@@ -605,6 +633,24 @@ class HTL_Cart {
 	 */
 	public function get_total() {
 		return apply_filters( 'hotelier_cart_total', $this->total );
+	}
+
+	/**
+	 * Gets subtotal (after calculation).
+	 *
+	 * @return int price
+	 */
+	public function get_subtotal() {
+		return apply_filters( 'hotelier_cart_subtotal', $this->subtotal );
+	}
+
+	/**
+	 * Gets tax total.
+	 *
+	 * @return int price
+	 */
+	public function get_tax_total() {
+		return apply_filters( 'hotelier_cart_tax_total', $this->tax_total );
 	}
 
 	/**

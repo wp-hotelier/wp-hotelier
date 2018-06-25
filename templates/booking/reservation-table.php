@@ -6,7 +6,7 @@
  *
  * @author  Benito Lopez <hello@lopezb.com>
  * @package Hotelier/Templates
- * @version 1.5.0
+ * @version 1.7.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -92,6 +92,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</tbody>
 		<tfoot class="reservation-table__footer">
 			<?php
+				if ( htl_is_tax_enabled() && htl_get_tax_rate() > 0 ) : ?>
+
+					<tr class="reservation-table__row reservation-table__row--footer">
+						<th colspan="2" class="reservation-table__label reservation-table__label--subtotal"><?php esc_html_e( 'Subtotal:', 'wp-hotelier' ); ?></th>
+						<td class="reservation-table__data reservation-table__data--subtotal"><strong><?php echo htl_cart_formatted_subtotal(); ?></strong></td>
+					</tr>
+
+					<tr class="reservation-table__row reservation-table__row--footer">
+						<th colspan="2" class="reservation-table__label reservation-table__label--tax-total"><?php esc_html_e( 'Tax total:', 'wp-hotelier' ); ?></th>
+						<td class="reservation-table__data reservation-table__data--tax-total"><strong><?php echo htl_cart_formatted_tax_total(); ?></strong></td>
+					</tr>
+
+				<?php endif;
+
 				if ( HTL()->cart->needs_payment() ) : ?>
 
 					<tr class="reservation-table__row reservation-table__row--footer">

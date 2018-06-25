@@ -5,7 +5,7 @@
  * @author   Lollum
  * @category Class
  * @package  Hotelier/Classes
- * @version  1.2.0
+ * @version  1.7.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -632,7 +632,7 @@ class HTL_Reservation {
 	public function get_item_deposit( $item ) {
 		$amount = round( ( $item[ 'price' ] * $item[ 'deposit' ] ) / 100 );
 
-		return apply_filters( 'hotelier_get_item_subtotal', $amount, $this );
+		return apply_filters( 'hotelier_get_item_deposit', $amount, $this );
 	}
 
 	/**
@@ -814,6 +814,72 @@ class HTL_Reservation {
 	}
 
 	/**
+	 * Set reservation subtotal
+	 *
+	 * @param int $amount
+	 *
+	 * @return bool
+	 */
+	public function set_subtotal( $amount ) {
+		update_post_meta( $this->id, '_reservation_subtotal', absint( $amount ) );
+
+		return true;
+	}
+
+	/**
+	 * Gets reservation subtotal.
+	 *
+	 * @return int
+	 */
+	public function get_subtotal() {
+		return apply_filters( 'hotelier_reservation_amount_subtotal', $this->reservation_subtotal, $this );
+	}
+
+	/**
+	 * Gets reservation subtotal - formatted for display.
+	 *
+	 * @return int
+	 */
+	public function get_formatted_subtotal() {
+		$amount = htl_price( htl_convert_to_cents( $this->get_subtotal() ), $this->get_reservation_currency() );
+
+		return apply_filters( 'hotelier_get_formatted_reservation_subtotal', $amount, $this );
+	}
+
+	/**
+	 * Set reservation tax total
+	 *
+	 * @param int $amount
+	 *
+	 * @return bool
+	 */
+	public function set_tax_total( $amount ) {
+		update_post_meta( $this->id, '_reservation_tax_total', absint( $amount ) );
+
+		return true;
+	}
+
+	/**
+	 * Gets reservation tax total.
+	 *
+	 * @return int
+	 */
+	public function get_tax_total() {
+		return apply_filters( 'hotelier_reservation_amount_tax_total', $this->reservation_tax_total, $this );
+	}
+
+	/**
+	 * Gets reservation tax total - formatted for display.
+	 *
+	 * @return int
+	 */
+	public function get_formatted_tax_total() {
+		$amount = htl_price( htl_convert_to_cents( $this->get_tax_total() ), $this->get_reservation_currency() );
+
+		return apply_filters( 'hotelier_get_formatted_reservation_tax_total', $amount, $this );
+	}
+
+	/**
 	 * Gets reservation balance due.
 	 *
 	 * @return int
@@ -848,12 +914,20 @@ class HTL_Reservation {
 	public function get_reservation_totals() {
 		$total_rows = array();
 
-		if ( $this->has_room_with_deposit() ) {
+		if ( $reservation->has_tax() ) {
 
 			$total_rows[ 'subtotal' ] = array(
 				'label' => esc_html__( 'Subtotal:', 'wp-hotelier' ),
-				'value'	=> $this->get_formatted_total()
+				'value'	=> $this->get_formatted_subtotal()
 			);
+
+			$total_rows[ 'tax_total' ] = array(
+				'label' => esc_html__( 'Tax total:', 'wp-hotelier' ),
+				'value'	=> $this->get_formatted_tax_total()
+			);
+		}
+
+		if ( $this->has_room_with_deposit() ) {
 
 			if ( $this->get_formatted_paid_deposit() > 0 ) {
 
@@ -895,6 +969,19 @@ class HTL_Reservation {
 	public function get_totals_before_booking() {
 		$total_rows = array();
 
+		if ( htl_is_tax_enabled() && htl_get_tax_rate() > 0 ) {
+
+			$total_rows[ 'subtotal' ] = array(
+				'label' => esc_html__( 'Subtotal:', 'wp-hotelier' ),
+				'value'	=> $this->get_formatted_subtotal()
+			);
+
+			$total_rows[ 'tax_total' ] = array(
+				'label' => esc_html__( 'Tax total:', 'wp-hotelier' ),
+				'value'	=> $this->get_formatted_tax_total()
+			);
+		}
+
 		if ( $this->has_room_with_deposit() ) {
 
 			$total_rows[ 'total' ] = array(
@@ -935,6 +1022,15 @@ class HTL_Reservation {
 		}
 
 		return $ret;
+	}
+
+	/**
+	 * Checks if the reservations includes tax.
+	 *
+	 * @return bool
+	 */
+	public function has_tax() {
+		return $this->get_tax_total() > 0 ? true : false;
 	}
 
 	/**

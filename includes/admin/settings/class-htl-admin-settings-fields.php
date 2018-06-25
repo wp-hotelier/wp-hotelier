@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin
- * @version  1.6.0
+ * @version  1.7.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -53,6 +53,7 @@ class HTL_Admin_Settings_Fields {
 		add_filter( 'hotelier_settings_info_callback', array( $this, 'print_info' ), 10, 2 );
 		add_filter( 'hotelier_settings_seasonal_prices_table_callback', array( $this, 'print_seasonal_prices_table' ), 10, 2 );
 		add_filter( 'hotelier_settings_license_key_callback', array( $this, 'print_license_key' ), 10, 2 );
+		add_filter( 'hotelier_settings_percentage_callback', array( $this, 'print_percentage' ), 10, 2 );
 
 		// Fields validation
 		add_filter( 'hotelier_settings_sanitize_text', array( $this, 'sanitize_text' ) );
@@ -64,6 +65,7 @@ class HTL_Admin_Settings_Fields {
 		add_filter( 'hotelier_settings_sanitize_booking_hold_minutes', array( $this, 'sanitize_booking_hold_minutes' ) );
 		add_filter( 'hotelier_settings_sanitize_image_size', array( $this, 'sanitize_image_size' ) );
 		add_filter( 'hotelier_settings_sanitize_seasonal_prices_table', array( $this, 'sanitize_seasonal_prices_table' ) );
+		add_filter( 'hotelier_settings_sanitize_percentage', array( $this, 'sanitize_percentage' ) );
 
 		// Actions
 		add_action( 'hotelier_settings_hook_install_pages', array( $this, 'install_pages' ) );
@@ -767,6 +769,24 @@ class HTL_Admin_Settings_Fields {
 	}
 
 	/**
+	 * Print percentage input
+	 */
+	public function print_percentage( $html, $args ) {
+		if ( isset( $this->options[ $args[ 'id' ] ] ) ) {
+			$value = $this->options[ $args[ 'id' ] ];
+		} else {
+			$value = isset( $args[ 'std' ] ) ? $args[ 'std' ] : '';
+		}
+
+		$placeholder = isset( $args[ 'placeholder' ] ) ? $args[ 'placeholder' ] : '';
+
+		$html     = '<input type="text" class="medium-text" id="hotelier_settings[' . esc_attr( $args[ 'id' ] ) . ']" name="hotelier_settings[' . esc_attr( $args[ 'id' ] ) . ']" value="' . esc_attr( $value ) . '" placeholder="' . esc_attr( $placeholder ) . '" />';
+		$html    .= '<br><label for="hotelier_settings[' . esc_attr( $args[ 'id' ] ) . ']"> '  . wp_kses_post( $args[ 'desc' ] ) . '</label>';
+
+		echo $html;
+	}
+
+	/**
 	 * Install pages
 	 */
 	public function install_pages() {
@@ -1237,6 +1257,14 @@ class HTL_Admin_Settings_Fields {
 		}
 
 		return array_combine( range( 1, count( $rules ) ), array_values( $rules ) );
+	}
+
+	/**
+	 * Sanitize percentage input
+	 */
+	public function sanitize_percentage( $input ) {
+		$input = number_format( (double) abs( $input ), 4, '.', '' );
+		return $input;
 	}
 }
 

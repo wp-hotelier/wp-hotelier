@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin
- * @version  1.0.0
+ * @version  1.7.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -45,6 +45,12 @@ class HTL_Admin_New_Reservation {
 
 	/** @var int The required deposit. */
 	protected static  $required_deposit;
+
+	/** @var int Tax total. */
+	protected static  $tax_total;
+
+	/** @var int Subtotal. */
+	protected static  $subtotal;
 
 	/** @var int Grand total. */
 	protected static  $total;
@@ -284,7 +290,14 @@ class HTL_Admin_New_Reservation {
 			self::$reservation_contents[ $reservation_item_key ][ 'total' ] = $line_total;
 		}
 
-		self::$total = self::$reservation_contents_total;
+		// Subtotal
+		self::$subtotal  = self::$reservation_contents_total;
+
+		// Calculate taxes
+		self::$tax_total = htl_is_tax_enabled() ? htl_calculate_tax( self::$reservation_contents_total ) : 0;
+
+		$total           = self::$reservation_contents_total + htl_calculate_tax( self::$reservation_contents_total );
+		self::$total     = $total;
 	}
 
 	/**
@@ -367,6 +380,8 @@ class HTL_Admin_New_Reservation {
 			$reservation->set_address( $guest_address );
 			$reservation->set_arrival_time( '-1' );
 			$reservation->set_booking_method( 'manual-booking' );
+			$reservation->set_subtotal( self::$subtotal );
+			$reservation->set_tax_total( self::$tax_total );
 			$reservation->set_total( self::$total );
 			$reservation->set_deposit( self::$required_deposit );
 

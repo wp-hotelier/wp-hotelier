@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin
- * @version  1.0.0
+ * @version  1.7.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -93,6 +93,7 @@ class HTL_Admin_Settings {
 			$settings_tabs[ 'rooms-and-reservations' ] = esc_html__( 'Rooms & reservations', 'wp-hotelier' );
 			$settings_tabs[ 'seasonal-prices' ]        = esc_html__( 'Seasonal prices', 'wp-hotelier' );
 			$settings_tabs[ 'payment' ]                = esc_html__( 'Payment gateways', 'wp-hotelier' );
+			$settings_tabs[ 'tax' ]                    = esc_html__( 'Tax', 'wp-hotelier' );
 			$settings_tabs[ 'emails' ]                 = esc_html__( 'Emails', 'wp-hotelier' );
 			$settings_tabs[ 'tools' ]                  = esc_html__( 'Tools', 'wp-hotelier' );
 

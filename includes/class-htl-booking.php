@@ -7,7 +7,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  1.2.0
+ * @version  1.7.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -263,6 +263,8 @@ class HTL_Booking {
 			$reservation->set_address( $guest_address );
 			$reservation->set_arrival_time( $this->get_form_data_field( 'arrival_time' ) );
 			$reservation->set_booking_method( $this->booking_method );
+			$reservation->set_subtotal( HTL()->cart->get_subtotal() );
+			$reservation->set_tax_total( HTL()->cart->get_tax_total() );
 			$reservation->set_total( HTL()->cart->get_total() );
 			$reservation->set_deposit( HTL()->cart->get_required_deposit() );
 			$reservation->set_payment_method( $this->payment_method );

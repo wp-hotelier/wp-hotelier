@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin
- * @version  1.6.0
+ * @version  1.7.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -536,6 +536,35 @@ class HTL_Admin_Settings_Default {
 						'type' => 'gateway_select',
 						'options' => HTL()->payment_gateways()->payment_gateways()
 					)
+				)
+			),
+			/* General Settings */
+			'tax' => apply_filters( 'hotelier_settings_tax',
+				array(
+					'tax_info' => array(
+						'id'   => 'tax_info',
+						'name' => '<strong>' . esc_html__( 'Tax settings', 'wp-hotelier' ) . '</strong>',
+						'type' => 'header'
+					),
+					'tax_enabled' => array(
+						'id'   => 'tax_enabled',
+						'name' => esc_html__( 'Enable tax', 'wp-hotelier' ),
+						'type' => 'checkbox',
+						'std'  => false,
+					),
+					'tax_rate' => array(
+						'id'          => 'tax_rate',
+						'name'        => esc_html__( 'Tax rate %', 'wp-hotelier' ),
+						'desc'        => __( 'Enter a tax rate (percentage) to 4 decimal places. Use a point (.) for the decimal separator.', 'wp-hotelier' ),
+						'type'        => 'percentage',
+						'placeholder' => '5.0000',
+					),
+					'tax_in_deposit' => array(
+						'id'   => 'tax_in_deposit',
+						'name' => esc_html__( 'Enable tax on deposits', 'wp-hotelier' ),
+						'type' => 'checkbox',
+						'std'  => false,
+					),
 				)
 			),
 			/* Emails Settings */
