@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  1.5.3
+ * @version  1.7.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -212,7 +212,7 @@ class HTL_Room {
 	 * @return int stock_rooms
 	 */
 	public function get_stock_rooms() {
-		return absint( $this->stock_rooms );
+		return absint( apply_filters( 'hotelier_get_stock_rooms', $this->stock_rooms, $this->id ) );
 	}
 
 	/**
