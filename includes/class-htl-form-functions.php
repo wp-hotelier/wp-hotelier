@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  1.5.2
+ * @version  1.7.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -29,6 +29,7 @@ class HTL_Form_Functions {
 		add_action( 'wp_loaded', array( __CLASS__, 'cancel_reservation' ), 20 );
 		add_action( 'wp_loaded', array( __CLASS__, 'datepicker_action' ), 20 );
 		add_action( 'wp', array( __CLASS__, 'pay_action' ), 20 );
+		add_action( 'wp_loaded', array( __CLASS__, 'remove_room' ), 20 );
 	}
 
 	/**
@@ -334,6 +335,40 @@ class HTL_Form_Functions {
 					HTL()->session->set( 'checkout', $dates[ 'checkout' ] );
 				}
 			}
+		}
+	}
+
+	/**
+	 * Remove room from cart.
+	 */
+	public static function remove_room() {
+		if ( ! isset( $_REQUEST[ 'remove_room' ] ) ) {
+			return;
+		}
+
+		$nonce_value = isset( $_REQUEST[ '_wpnonce' ] ) ? $_REQUEST[ '_wpnonce' ] : false;
+
+		if ( ! empty( $_GET[ 'remove_room' ] ) && wp_verify_nonce( $nonce_value ) ) {
+			$cart_item_key = sanitize_text_field( wp_unslash( $_GET[ 'remove_room' ] ) );
+			$cart_item     = HTL()->cart->get_cart_item( $cart_item_key );
+
+			if ( $cart_item ) {
+				HTL()->cart->remove_cart_item( $cart_item_key );
+
+				$_room = htl_get_room( $cart_item[ 'room_id' ] );
+
+				$item_removed_title = $_room ? sprintf( __( '&ldquo;%s&rdquo;', 'wp-hotelier' ), $_room->get_title() ) : __( 'Item', 'wp-hotelier' );
+
+				$removed_notice = sprintf( __( '%s removed.', 'wp-hotelier' ), $item_removed_title );
+
+				htl_add_notice( $removed_notice );
+			}
+
+			$listing_page_url = htl_get_page_permalink( 'listing' );
+
+			wp_safe_redirect( $listing_page_url );
+
+			exit;
 		}
 	}
 }

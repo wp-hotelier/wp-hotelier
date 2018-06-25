@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Core
  * @package  Hotelier/Functions
- * @version  1.6.0
+ * @version  1.7.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -1343,4 +1343,13 @@ function hotelier_privacy_policy_text() {
 	$text = wp_kses_post( wpautop( hotelier_replace_policy_page_link_placeholder( $snippet_text ) ) );
 
 	echo '<div class="privacy-policy-text">' . $text . '</div>';
+}
+
+/**
+ * Gets the url to remove an item from the cart.
+ */
+function htl_get_cart_remove_url( $cart_item_key ) {
+	$listing_page_url = htl_get_page_permalink( 'listing' );
+
+	return $listing_page_url ? wp_nonce_url( add_query_arg( 'remove_room', $cart_item_key, $listing_page_url ) ) : '';
 }

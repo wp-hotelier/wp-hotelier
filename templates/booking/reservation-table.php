@@ -55,6 +55,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 									<span class="reservation-table__room-non-cancellable"><?php echo esc_html_e( 'Non-refundable', 'wp-hotelier' ); ?></span>
 								<?php endif; ?>
 
+								<?php
+									echo apply_filters( 'hotelier_cart_item_remove_link', sprintf(
+										'<a href="%s" class="reservation-table__room-remove remove button">%s</a>',
+										esc_url( htl_get_cart_remove_url( $cart_item_key ) ),
+										esc_html__( 'Remove', 'wp-hotelier' )
+									), $cart_item_key );
+								?>
+
 								<?php do_action( 'hotelier_reservation_table_guests', $_room, $item_key, $cart_item[ 'quantity' ] ); ?>
 							</td>
 

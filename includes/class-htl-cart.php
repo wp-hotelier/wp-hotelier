@@ -684,6 +684,32 @@ class HTL_Cart {
 
 		return $is_cancellable;
 	}
+
+	/**
+	 * Returns a specific item in the cart.
+	 *
+	 * @param string $item_key Cart item key.
+	 * @return array Item data
+	 */
+	public function get_cart_item( $item_key ) {
+		return isset( $this->cart_contents[ $item_key ] ) ? $this->cart_contents[ $item_key ] : array();
+	}
+
+	/**
+	 * Remove a cart item.
+	 *
+	 * @param  string $cart_item_key Cart item key to remove from the cart.
+	 * @return bool
+	 */
+	public function remove_cart_item( $cart_item_key ) {
+		if ( isset( $this->cart_contents[ $cart_item_key ] ) ) {
+			unset( $this->cart_contents[ $cart_item_key ] );
+
+			return true;
+		}
+
+		return false;
+	}
 }
 
 endif;
