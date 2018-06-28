@@ -114,9 +114,9 @@ class HTL_Info {
 		$from          = isset( $checkin[ 'from' ] ) ? $checkin[ 'from' ] : 0;
 		$to            = isset( $checkin[ 'to' ] ) ? $checkin[ 'to' ] : 0;
 
-		$from          = sprintf( '%02d', $from );
-		$to            = sprintf( '%02d', $to );
-		$hotel_checkin = $from . ':00 - ' . $to . ':00';
+		$from          = sprintf( '%02d', $from ) . ':00';
+		$to            = sprintf( '%02d', $to ) . ':00';
+		$hotel_checkin = date_i18n( get_option( 'time_format' ), strtotime( $from ) ) . ' - ' . date_i18n( get_option( 'time_format' ), strtotime( $to ) );
 
 		return apply_filters( 'hotelier_get_hotel_checkin', $hotel_checkin );
 	}
@@ -131,9 +131,9 @@ class HTL_Info {
 		$from           = isset( $checkout[ 'from' ] ) ? $checkout[ 'from' ] : 0;
 		$to             = isset( $checkout[ 'to' ] ) ? $checkout[ 'to' ] : 0;
 
-		$from           = sprintf( '%02d', $from );
-		$to             = sprintf( '%02d', $to );
-		$hotel_checkout = $from . ':00 - ' . $to . ':00';
+		$from           = sprintf( '%02d', $from ) . ':00';
+		$to             = sprintf( '%02d', $to ) . ':00';
+		$hotel_checkout = date_i18n( get_option( 'time_format' ), strtotime( $from ) ) . ' - ' . date_i18n( get_option( 'time_format' ), strtotime( $to ) );
 
 		return apply_filters( 'hotelier_get_hotel_checkout', $hotel_checkout );
 	}
