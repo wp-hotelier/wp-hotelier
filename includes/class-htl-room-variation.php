@@ -164,7 +164,9 @@ class HTL_Room_Variation {
 					$day_index = $date->format( 'w' );
 
 					// We need to sum the price of each day
-					$price += $this->variation[ 'price_day' ][ $day_index ];
+					if ( $this->variation[ 'price_day' ][ $day_index ] ) {
+						$price += $this->variation[ 'price_day' ][ $day_index ];
+					}
 				}
 
 			} else {
@@ -175,7 +177,9 @@ class HTL_Room_Variation {
 		} else {
 			// Same price for all days
 			foreach( $daterange as $date ) {
-				$price += $this->variation[ 'regular_price' ];
+				if ( $this->variation[ 'regular_price' ] ) {
+					$price += $this->variation[ 'regular_price' ];
+				}
 			}
 		}
 
@@ -216,7 +220,9 @@ class HTL_Room_Variation {
 					$day_index = $date->format( 'w' );
 
 					// We need to sum the price of each day
-					$price += $this->variation[ 'sale_price_day' ][ $day_index ]; // Use integers
+					if ( $this->variation[ 'sale_price_day' ][ $day_index ] ) {
+						$price += $this->variation[ 'sale_price_day' ][ $day_index ]; // Use integers
+					}
 				}
 
 			} else {
@@ -227,7 +233,9 @@ class HTL_Room_Variation {
 		} else {
 			// Same price for all days
 			foreach( $daterange as $date ) {
-				$price += $this->variation[ 'sale_price' ];
+				if ( $this->variation[ 'sale_price' ] ) {
+					$price += $this->variation[ 'sale_price' ];
+				}
 			}
 		}
 
@@ -304,7 +312,9 @@ class HTL_Room_Variation {
 
 				if ( ! $has_seasonal_price ) {
 					// Rule not found, use default price
-					$price += $this->variation[ 'seasonal_base_price' ];
+					if ( $this->variation[ 'seasonal_base_price' ] ) {
+						$price += $this->variation[ 'seasonal_base_price' ];
+					}
 				}
 			}
 		}

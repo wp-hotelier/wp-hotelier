@@ -484,7 +484,9 @@ class HTL_Room {
 					$day_index = $date->format( 'w' );
 
 					// We need to sum the price of each day
-					$price += $this->regular_price_day[ $day_index ];
+					if ( $this->regular_price_day[ $day_index ] ) {
+						$price += $this->regular_price_day[ $day_index ];
+					}
 				}
 
 			} else {
@@ -495,7 +497,9 @@ class HTL_Room {
 		} else {
 			// Same price for all days
 			foreach( $daterange as $date ) {
-				$price += $this->regular_price;
+				if ( $this->regular_price ) {
+					$price += $this->regular_price;
+				}
 			}
 		}
 
@@ -534,7 +538,9 @@ class HTL_Room {
 					$day_index = $date->format( 'w' );
 
 					// We need to sum the price of each day
-					$price += $this->sale_price_day[ $day_index ];
+					if ( $this->sale_price_day[ $day_index ] ) {
+						$price += $this->sale_price_day[ $day_index ];
+					}
 				}
 
 			} else {
@@ -545,7 +551,9 @@ class HTL_Room {
 		} else {
 			// Same price for all days
 			foreach( $daterange as $date ) {
-				$price += $this->sale_price;
+				if ( $this->sale_price ) {
+					$price += $this->sale_price;
+				}
 			}
 		}
 
@@ -621,7 +629,9 @@ class HTL_Room {
 
 				if ( ! $has_seasonal_price ) {
 					// Rule not found, use default price
-					$price += $this->seasonal_base_price;
+					if ( $this->seasonal_base_price ) {
+						$price += $this->seasonal_base_price;
+					}
 				}
 			}
 		}
