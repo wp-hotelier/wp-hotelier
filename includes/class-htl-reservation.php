@@ -914,7 +914,7 @@ class HTL_Reservation {
 	public function get_reservation_totals() {
 		$total_rows = array();
 
-		if ( $reservation->has_tax() ) {
+		if ( $this->has_tax() ) {
 
 			$total_rows[ 'subtotal' ] = array(
 				'label' => esc_html__( 'Subtotal:', 'wp-hotelier' ),
