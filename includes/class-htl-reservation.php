@@ -654,7 +654,7 @@ class HTL_Reservation {
 	 * @return int
 	 */
 	public function get_total() {
-		return apply_filters( 'hotelier_reservation_amount_total', $this->reservation_total, $this );
+		return absint( apply_filters( 'hotelier_reservation_amount_total', $this->reservation_total, $this ) );
 	}
 
 	/**
@@ -720,7 +720,7 @@ class HTL_Reservation {
 	 * @return int
 	 */
 	public function get_deposit() {
-		return apply_filters( 'hotelier_reservation_amount_deposit', $this->reservation_deposit, $this );
+		return absint( apply_filters( 'hotelier_reservation_amount_deposit', $this->reservation_deposit, $this ) );
 	}
 
 	/**
@@ -753,7 +753,7 @@ class HTL_Reservation {
 	 * @return int
 	 */
 	public function get_paid_deposit() {
-		return apply_filters( 'hotelier_reservation_paid_deposit', $this->reservation_paid_deposit, $this );
+		return absint( apply_filters( 'hotelier_reservation_paid_deposit', $this->reservation_paid_deposit, $this ) );
 	}
 
 	/**
@@ -832,7 +832,7 @@ class HTL_Reservation {
 	 * @return int
 	 */
 	public function get_subtotal() {
-		return apply_filters( 'hotelier_reservation_amount_subtotal', $this->reservation_subtotal, $this );
+		return absint( apply_filters( 'hotelier_reservation_amount_subtotal', $this->reservation_subtotal, $this ) );
 	}
 
 	/**
@@ -865,7 +865,7 @@ class HTL_Reservation {
 	 * @return int
 	 */
 	public function get_tax_total() {
-		return apply_filters( 'hotelier_reservation_amount_tax_total', $this->reservation_tax_total, $this );
+		return absint( apply_filters( 'hotelier_reservation_amount_tax_total', $this->reservation_tax_total, $this ) );
 	}
 
 	/**
