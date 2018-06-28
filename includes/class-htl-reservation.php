@@ -5,7 +5,7 @@
  * @author   Lollum
  * @category Class
  * @package  Hotelier/Classes
- * @version  1.7.0
+ * @version  1.7.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

@@ -3,7 +3,7 @@
  * Plugin Name:       Easy WP Hotelier
  * Plugin URI:        https://wphotelier.com/?utm_source=wpadmin&utm_medium=plugin&utm_campaign=wphotelierplugin
  * Description:       Manage your hotel bookings with WordPress.
- * Version:           1.7.0
+ * Version:           1.7.1
  * Author:            Easy WP Hotelier
  * Author URI:        https://wphotelier.com/
  * Requires at least: 4.0
@@ -32,7 +32,7 @@ final class Hotelier {
 	/**
 	 * @var string
 	 */
-	public $version = '1.7.0';
+	public $version = '1.7.1';
 
 	/**
 	 * @var Hotelier The single instance of the class
