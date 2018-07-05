@@ -130,7 +130,7 @@ class HTL_Widget_Rooms extends HTL_Widget {
 
 			while ( $rooms->have_posts() ) {
 				$rooms->the_post();
-				htl_get_template( 'widgtes/content-widget-room.php', array( 'show_rating' => false ) );
+				htl_get_template( 'widgets/content-widget-room.php' );
 			}
 
 			echo apply_filters( 'hotelier_after_widget_room_list', '</ul>' );
