@@ -355,6 +355,10 @@
   display: none;
 }
 
+.hotelier_page_hotelier-calendar #ui-datepicker-div {
+  z-index: 5 !important;
+}
+
 @media (min-width: 615px) {
   .weeks-1 .bc__table--main {
     width: 100%;

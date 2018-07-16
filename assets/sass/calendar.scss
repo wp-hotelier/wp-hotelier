@@ -405,3 +405,8 @@ $failed: #fa607e;
 		display: none;
 	}
 }
+
+// Fix datepicker z-index
+.hotelier_page_hotelier-calendar #ui-datepicker-div {
+	z-index: 5 !important;
+}
