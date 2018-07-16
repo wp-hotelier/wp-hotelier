@@ -7,7 +7,7 @@
   "scripts": {
     "test": "xo",
     "run:sass": "node-sass --output .tmp assets/sass --output-style expanded",
-    "run:pot": "rm -rf dist; wp-pot --src '**/*.php' --dest-file languages/wp-hotelier.pot --domain wp-hotelier --package 'Easy WP Hotelier' --bug-report https://github.com/easy-wp-hotelier/wp-hotelier --team 'Easy WP Hotelier <support@wphotelier.com>'",
+    "run:pot": "rm -rf dist; wp-pot --src '**/*.php' --dest-file languages/wp-hotelier.pot --domain wp-hotelier --package 'Easy WP Hotelier' --bug-report https://github.com/easy-wp-hotelier/wp-hotelier --team 'Easy WP Hotelier <support@wphotelier.com>' --write-file",
     "run:sync": "rsync -azP -e \"ssh -p ${npm_config_WPHOTELIER_SSHPORT}\" --delete --exclude='package.json' --exclude='postcss.config.js' --exclude='.*/' --exclude='.*' --exclude='node_modules/' --exclude='dist/' --exclude='assets/sass/' . \"${npm_config_WPHOTELIER_SYNCDEST}\"",
     "run:xo": "xo --fix || true",
     "minify:js": "rm -f assets/js/admin/*.min.js; rm -f assets/js/frontend/*.min.js; for f in assets/js/admin/*.js assets/js/frontend/*.js; do short=${f%.js}; uglifyjs $f > $short.min.js; done",
@@ -40,7 +40,7 @@
     "xo": "^0.18.2"
   },
   "xo": {
-  	"esnext": false,
+    "esnext": false,
     "ignores": [
       "assets/js/lib/**"
     ],
