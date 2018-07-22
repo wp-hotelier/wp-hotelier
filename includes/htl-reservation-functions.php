@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Core
  * @package  Hotelier/Functions
- * @version  1.6.0
+ * @version  1.7.2
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -133,9 +133,10 @@ function htl_get_reservation_statuses() {
  * @param string $checkin
  * @param string $checkout
  * @param string $status
+ * @param bool $force
  * @return mixed
  */
-function htl_add_booking( $reservation_id, $checkin, $checkout, $status ) {
+function htl_add_booking( $reservation_id, $checkin, $checkout, $status, $force = false ) {
 	global $wpdb;
 
 	$reservation_id = absint( $reservation_id );
@@ -145,7 +146,7 @@ function htl_add_booking( $reservation_id, $checkin, $checkout, $status ) {
 	}
 
 	// Check dates
-	if ( ! HTL_Formatting_Helper::is_valid_checkin_checkout( $checkin, $checkout ) ) {
+	if ( ! HTL_Formatting_Helper::is_valid_checkin_checkout( $checkin, $checkout, $force ) ) {
 		return false;
 	}
 

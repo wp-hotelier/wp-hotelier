@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  1.0.0
+ * @version  1.7.2
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -136,64 +136,75 @@ class HTL_Formatting_Helper {
 
 	/**
 	 * Validates checkin and checkout dates.
+	 *
+	 * When passing $force, only the format of the dates
+	 * and if checkout > checkin is checked.
+	 *
 	 * @param string $checkin
 	 * @param string $checkout
+	 * @param bool $force
 	 * @return bool
 	 */
-	public static function is_valid_checkin_checkout( $checkin, $checkout ) {
+	public static function is_valid_checkin_checkout( $checkin, $checkout, $force = false ) {
 		// Check if $checkin and $checkout are valid dates
 		if ( ! self::is_valid_date( $checkin ) || ! self::is_valid_date( $checkout ) ) {
 			return false;
 		}
 
-		// Only allow reservations for "XX" months from current date (0 unlimited).
-		$months_advance = htl_get_option( 'booking_months_advance', 0 );
+		if ( ! $force ) {
+			// Only allow reservations for "XX" months from current date (0 unlimited).
+			$months_advance = htl_get_option( 'booking_months_advance', 0 );
 
-		// Check if arrival date must be "XX" days from current date.
-		$arrival_date = htl_get_option( 'booking_arrival_date', 0 );
+			// Check if arrival date must be "XX" days from current date.
+			$arrival_date = htl_get_option( 'booking_arrival_date', 0 );
 
-		// Get minimum number of nights a guest can book
-		$minimum_nights = apply_filters( 'hotelier_booking_minimum_nights', htl_get_option( 'booking_minimum_nights', 1 ) );
+			// Get minimum number of nights a guest can book
+			$minimum_nights = apply_filters( 'hotelier_booking_minimum_nights', htl_get_option( 'booking_minimum_nights', 1 ) );
 
-		// Get maximum number of nights a guest can book (0 unlimited)
-		$maximum_nights = apply_filters( 'hotelier_booking_maximum_nights', htl_get_option( 'booking_maximum_nights', 0 ) );
+			// Get maximum number of nights a guest can book (0 unlimited)
+			$maximum_nights = apply_filters( 'hotelier_booking_maximum_nights', htl_get_option( 'booking_maximum_nights', 0 ) );
+		}
 
 		// Get dates
 		$curdate       = new DateTime( current_time( 'Y-m-d' ) );
 		$checkin_temp  = new DateTime( $checkin );
 		$checkout_temp = new DateTime( $checkout );
 
-		// Check if the checkin date is greater than today
-		if ( $checkin_temp < $curdate ) {
-			return false;
-		}
-
-		// Check if the checkout date greater than the checkin date
+		// Check if the checkout date is greater than the checkin date
 		if ( $checkin_temp >= $checkout_temp ) {
 			return false;
 		}
 
-		// Check if arrival date is "XX" days from current date
-		$diff = date_diff( $curdate, $checkin_temp );
-		if ( $diff->days < $arrival_date ) {
-			return false;
-		}
-
-		// Check if arrival date is "XX" months from current date
-		if ( $months_advance !== 0 ) {
-			if ( ( $diff->m + $diff->y*12 ) >= $months_advance ) {
+		if ( ! $force ) {
+			// Check if the checkin date is greater than today
+			if ( $checkin_temp < $curdate ) {
 				return false;
 			}
+
+			// Check if arrival date is "XX" days from current date
+			$diff = date_diff( $curdate, $checkin_temp );
+			if ( $diff->days < $arrival_date ) {
+				return false;
+			}
+
+			// Check if arrival date is "XX" months from current date
+			if ( $months_advance !== 0 ) {
+				if ( ( $diff->m + $diff->y*12 ) >= $months_advance ) {
+					return false;
+				}
+			}
+
+			// Check minimum and maximum days
+			$diff_checkin_checkout = date_diff( $checkin_temp, $checkout_temp )->days;
+
+			if ( ( $minimum_nights && $diff_checkin_checkout < $minimum_nights ) || ( $maximum_nights && $diff_checkin_checkout > $maximum_nights ) ) {
+				return false;
+			}
+
+			return apply_filters( 'hotelier_is_valid_checkin_checkout', true, $checkin, $checkout );
 		}
 
-		// Check minimum and maximum days
-		$diff_checkin_checkout = date_diff( $checkin_temp, $checkout_temp )->days;
-
-		if ( ( $minimum_nights && $diff_checkin_checkout < $minimum_nights ) || ( $maximum_nights && $diff_checkin_checkout > $maximum_nights ) ) {
-			return false;
-		}
-
-		return apply_filters( 'hotelier_is_valid_checkin_checkout', true, $checkin, $checkout );
+		return true;
 	}
 
 	/**
