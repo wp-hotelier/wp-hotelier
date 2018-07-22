@@ -957,11 +957,11 @@ msgctxt "Reservation status"
 msgid "Pending"
 msgstr ""
 
-#: ../includes/htl-reservation-functions.php:361
+#: ../includes/htl-reservation-functions.php:362
 msgid "Time limit reached."
 msgstr ""
 
-#: ../includes/htl-reservation-functions.php:397, ../includes/htl-reservation-functions.php:399
+#: ../includes/htl-reservation-functions.php:398, ../includes/htl-reservation-functions.php:400
 msgid "Check-out date reached."
 msgstr ""
 
