@@ -444,14 +444,16 @@ final class Hotelier {
 
 endif;
 
-/**
- * Returns the main instance of HTL to prevent the need to use globals.
- *
- * @return Hotelier
- */
-function HTL() {
-	return Hotelier::instance();
-}
+if ( ! function_exists( 'HTL' ) ) :
+	/**
+	 * Returns the main instance of HTL to prevent the need to use globals.
+	 *
+	 * @return Hotelier
+	 */
+	function HTL() {
+		return Hotelier::instance();
+	}
+endif;
 
 // Get HTL Running
 HTL();
