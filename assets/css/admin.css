@@ -976,6 +976,7 @@
 
 #hotelier-reservation-items td.thumb a {
   display: inline-block;
+  min-height: 36px;
 }
 
 #hotelier-reservation-items td.thumb img {
