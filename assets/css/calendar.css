@@ -126,6 +126,7 @@
 .bc__table-wrapper {
   border: 1px solid #dedede;
   border-bottom: 0;
+  clear: both;
   overflow-x: auto;
 }
 
