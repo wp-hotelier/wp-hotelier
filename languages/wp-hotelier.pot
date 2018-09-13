@@ -2560,7 +2560,15 @@ msgstr ""
 msgid "Today"
 msgstr ""
 
-#: ../includes/admin/calendar/views/html-admin-calendar.php:83
+#: ../includes/admin/calendar/views/html-admin-calendar.php:88
+msgid "All Categories"
+msgstr ""
+
+#: ../includes/admin/calendar/views/html-admin-calendar.php:95
+msgid "Filter"
+msgstr ""
+
+#: ../includes/admin/calendar/views/html-admin-calendar.php:101
 msgid "Go to date"
 msgstr ""
 

@@ -77,6 +77,24 @@ $prev_week = $prev_week->modify( '-7 days' )->format( 'Y-m-d' );
 		</ul>
 
 		<form action="<?php echo admin_url( 'admin.php' ); ?>" method="get" class="form form--bc">
+			<?php
+			$room_terms = get_terms( array(
+				'taxonomy'   => 'room_cat',
+				'hide_empty' => false,
+			) );
+
+			if ( ! empty( $room_terms ) && ! is_wp_error( $room_terms ) ) : ?>
+				<select name="room_term" id="room_term">
+					<option value="0"><?php esc_html_e( 'All Categories', 'wp-hotelier' ) ?></option>
+
+					<?php foreach ( $room_terms as $room_term ) : ?>
+						<option value="<?php echo absint( $room_term->term_id ) ?>" <?php selected( $room_cat, $room_term->term_id ); ?>><?php echo esc_html( $room_term->name ) ?></option>
+					<?php endforeach; ?>
+				</select>
+
+				<input type="submit" class="button" value="<?php esc_attr_e( 'Filter', 'wp-hotelier' ); ?>">
+			<?php endif; ?>
+
 			<input type="hidden" name="page" value="hotelier-calendar">
 			<input type="hidden" name="weeks" value="<?php if ( ! empty( $_GET[ 'weeks' ] ) ) echo absint( $_GET[ 'weeks' ] ); ?>">
 			<input class="bc-datepicker" type="text" placeholder="YYYY-MM-DD" name="marker" value="<?php echo esc_attr( $marker->format( 'Y-m-d' ) ); ?>">

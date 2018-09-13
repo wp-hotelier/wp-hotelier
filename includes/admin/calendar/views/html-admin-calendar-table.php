@@ -37,6 +37,13 @@ $all_reservations = htl_get_all_reservations( $start_range, $end_range );
 
 	<tbody class="bc__content">
 		<?php foreach ( $all_reservations as $room_id => $reservations ) : ?>
+			<?php
+			if ( $room_cat && $room_cat > 0 ) {
+				if ( ! has_term( $room_cat, 'room_cat', $room_id ) ) {
+					continue;
+				}
+			}
+			?>
 			<tr class="bc__row bc__row--content">
 				<td class="bc__cell bc__cell--data bc__cell--room-name">
 					<a class="bc__room-link" href="<?php echo esc_url( get_edit_post_link( $room_id ) ); ?>"><?php echo get_the_title( $room_id ); ?></a>
