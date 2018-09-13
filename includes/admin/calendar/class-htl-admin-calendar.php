@@ -40,6 +40,9 @@ class HTL_Admin_Calendar {
 			$marker = new Datetime( $marker );
 		}
 
+		// Get room category (if any)
+		$room_cat = ! empty( $_GET[ 'room_term' ] ) ? ( $_GET[ 'room_term' ] ) : false;
+
 		include_once( 'views/html-admin-calendar.php' );
 	}
 }
