@@ -3,7 +3,7 @@ Contributors: benitolopez
 Tags: booking, hotel, booking system, hostel, reservations, reservations, b&b, rooms, wphotelier
 Requires at least: 4.1
 Tested up to: 4.9
-Stable tag: 1.7.1
+Stable tag: 1.8.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -107,6 +107,12 @@ Here: [Easy WP Hotelier documentation](http://docs.wphotelier.com/).
 4. Easy WP Hotelier - Admin calendar.
 
 == Changelog ==
+
+= 1.8.0 - 2018-09-17 =
+* Added - Filter reservations by room category in calendar page.
+* Fix - Fix datepicker z-index issue on calendar page
+* Fix - Minor CSS fix.
+* Localization - POT file updated.
 
 = 1.7.1 - 2018-06-29 =
 * Fix - Fix PHP 7.1 warnings.
