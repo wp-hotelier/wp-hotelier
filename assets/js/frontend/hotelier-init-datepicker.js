@@ -45,6 +45,11 @@ jQuery(function ($) {
 				checkin_input.val(checkin);
 				checkout_input.val(checkout);
 
+				fecha.i18n.dayNamesShort = datepicker_params.i18n['day-names-short'];
+				fecha.i18n.dayNames = datepicker_params.i18n['day-names'];
+				fecha.i18n.monthNamesShort = datepicker_params.i18n['month-names-short'];
+				fecha.i18n.monthNames = datepicker_params.i18n['month-names'];
+
 				var checkin_date = new Date(checkin.replace(/-/g, '\/'));
 				var checkout_date = new Date(checkout.replace(/-/g, '\/'));
 				var checkin_date_formatted = fecha.format(checkin_date, datepicker_params.datepicker_format);
