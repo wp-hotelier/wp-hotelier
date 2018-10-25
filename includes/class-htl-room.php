@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  1.7.1
+ * @version  1.8.2
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -347,9 +347,32 @@ class HTL_Room {
 	public function get_reserved_rooms( $checkin, $checkout ) {
 		global $wpdb;
 
-		$sql      = $wpdb->prepare( "SELECT room_id FROM {$wpdb->prefix}hotelier_rooms_bookings rb, {$wpdb->prefix}hotelier_bookings b WHERE rb.reservation_id = b.reservation_id AND rb.room_id = %d AND (%s < b.checkout AND %s > b.checkin) AND b.status <> 'cancelled' AND b.status <> 'refunded' AND b.status <> 'completed'", $this->id, $checkin, $checkout );
-		$result   = $wpdb->get_results( $sql );
-		$count    = count( $result );
+		$sql          = $wpdb->prepare( "SELECT room_id, checkin, checkout FROM {$wpdb->prefix}hotelier_rooms_bookings rb, {$wpdb->prefix}hotelier_bookings b WHERE rb.reservation_id = b.reservation_id AND rb.room_id = %d AND (%s < b.checkout AND %s > b.checkin) AND b.status <> 'cancelled' AND b.status <> 'refunded' AND b.status <> 'completed'", $this->id, $checkin, $checkout );
+		$reservations = $wpdb->get_results( $sql );
+
+		// Iterate each day to calculate the exact number of reservations
+		$checkin              = new DateTime( $checkin );
+		$checkout             = new DateTime( $checkout );
+		$interval             = new DateInterval( 'P1D' );
+		$daterange            = new DatePeriod( $checkin, $interval ,$checkout );
+		$reserved_rooms_total = array();
+
+		foreach( $daterange as $date ) {
+			$reserved_rooms = 0;
+
+			foreach ( $reservations as $reservation ) {
+				$reservation_checkin  = new DateTime( $reservation->checkin );
+				$reservation_checkout = new DateTime( $reservation->checkout );
+
+				if ( $date >= $reservation_checkin && $date < $reservation_checkout ) {
+					$reserved_rooms++;
+				}
+			}
+
+			$reserved_rooms_total[] = $reserved_rooms;
+		}
+
+		$count = max( $reserved_rooms_total );
 
 		return apply_filters( 'hotelier_get_reserved_rooms', $count, $this );
 	}
