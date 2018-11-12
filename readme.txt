@@ -2,8 +2,8 @@
 Contributors: benitolopez
 Tags: booking, hotel, booking system, hostel, reservations, reservations, b&b, rooms, wphotelier
 Requires at least: 4.1
-Tested up to: 4.9
-Stable tag: 1.8.1
+Tested up to: 5.0
+Stable tag: 1.8.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
