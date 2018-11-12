@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  1.0.0
+ * @version  1.8.2
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -27,6 +27,8 @@ class HTL_Post_Types {
 		add_action( 'init', array( $this, 'register_post_types' ), 5 );
 		add_action( 'init', array( $this, 'register_post_status' ), 9 );
 		add_filter( 'post_updated_messages', array( $this, 'post_updated_messages' ) );
+		add_filter( 'gutenberg_can_edit_post_type', array( $this, 'block_editor_can_edit_post_type' ), 10, 2 );
+		add_filter( 'use_block_editor_for_post_type', array( $this, 'block_editor_can_edit_post_type' ), 10, 2 );
 	}
 
 	/**
@@ -323,6 +325,21 @@ class HTL_Post_Types {
 		);
 
 		return $messages;
+	}
+
+	/**
+	 * Disable block editor for rooms.
+	 *
+	 * @param bool   $can_edit Whether the post type can be edited or not.
+	 * @param string $post_type The post type being checked.
+	 * @return bool
+	 */
+	public static function block_editor_can_edit_post_type( $can_edit, $post_type ) {
+		if ( 'room' === $post_type ) {
+			return false;
+		}
+
+		return $can_edit;
 	}
 }
 
