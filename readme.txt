@@ -108,6 +108,11 @@ Here: [Easy WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 1.8.2 - 2018-11-12 =
+* Added - Disable block editor for rooms
+* Fix - Fix calculation of reserved rooms on multiple days
+* Localization - POT file updated.
+
 = 1.8.1 - 2018-10-08 =
 * Fix - Localize datepicker before to set the default value
 
