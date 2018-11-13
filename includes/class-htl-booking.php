@@ -7,7 +7,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  1.7.0
+ * @version  1.8.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -409,7 +409,7 @@ class HTL_Booking {
 						'label'    => esc_html__( 'Special requests', 'wp-hotelier' ),
 						'required' => false,
 						'type'     => 'textarea',
-						'desc'     => esc_html__( 'Special requests cannot be guaranteed but we will do our best to meet your needs.', 'wp-hotelier' ),
+						'desc'     => htl_get_option( 'hotel_special_requests_message', esc_html__( 'Special requests cannot be guaranteed but we will do our best to meet your needs.', 'wp-hotelier' ) ),
 						'class'    => array( 'form-row--wide' )
 					)
 				)
