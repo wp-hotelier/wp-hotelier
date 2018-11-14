@@ -3,7 +3,7 @@ Contributors: benitolopez
 Tags: booking, hotel, booking system, hostel, reservations, reservations, b&b, rooms, wphotelier
 Requires at least: 4.1
 Tested up to: 5.0
-Stable tag: 1.8.2
+Stable tag: 1.8.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -108,9 +108,14 @@ Here: [Easy WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 1.8.3 - 2018-11-13 =
+* Added – Allow more intervals for checkin/checkout hotel hours.
+* Added – Option for special requests message description.
+* Localization - POT file updated.
+
 = 1.8.2 - 2018-11-12 =
-* Added - Disable block editor for rooms
-* Fix - Fix calculation of reserved rooms on multiple days
+* Added – Disable block editor for rooms.
+* Fix - Fix calculation of reserved rooms on multiple days.
 * Localization - POT file updated.
 
 = 1.8.1 - 2018-10-08 =

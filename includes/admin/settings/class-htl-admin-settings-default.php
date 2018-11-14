@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin
- * @version  1.7.0
+ * @version  1.8.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -192,6 +192,13 @@ class HTL_Admin_Settings_Default {
 						'desc' => __( 'If you need to give some special instructions, use this field.', 'wp-hotelier' ),
 						'type' => 'text',
 						'std'  => esc_html__( 'Pets are allowed', 'wp-hotelier' ),
+					),
+					'hotel_special_requests_message' => array(
+						'id'   => 'hotel_special_requests_message',
+						'name' => esc_html__( 'Special requests message', 'wp-hotelier' ),
+						'desc' => __( 'This description will appear under the special requests textarea.', 'wp-hotelier' ),
+						'type' => 'textarea',
+						'std'  => esc_html__( 'Special requests cannot be guaranteed but we will do our best to meet your needs.', 'wp-hotelier' ),
 					),
 					'hotel_accepted_cards' => array(
 						'id'   => 'hotel_accepted_cards',

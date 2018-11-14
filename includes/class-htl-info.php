@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  1.7.1
+ * @version  1.8.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -110,15 +110,19 @@ class HTL_Info {
 	 * @return string
 	 */
 	public static function get_hotel_checkin() {
-		$checkin       = htl_get_option( 'hotel_checkin', array() );
-		$from          = isset( $checkin[ 'from' ] ) ? $checkin[ 'from' ] : 0;
-		$to            = isset( $checkin[ 'to' ] ) ? $checkin[ 'to' ] : 0;
+		$checkin        = htl_get_option( 'hotel_checkin', array() );
+		$from           = isset( $checkin[ 'from' ] ) ? $checkin[ 'from' ] : 0;
+		$to             = isset( $checkin[ 'to' ] ) ? $checkin[ 'to' ] : 0;
+		$formatted_from = $from > 24 ? $from - 25 : $from;
+		$formatted_from = sprintf( '%02d', $formatted_from );
+		$formatted_from .= $from > 24 ? ':30' : ':00';
+		$formatted_to   = $to > 24 ? $to - 25 : $to;
+		$formatted_to   = sprintf( '%02d', $formatted_to );
+		$formatted_to   .= $to > 24 ? ':30' : ':00';
 
-		$from          = sprintf( '%02d', $from ) . ':00';
-		$to            = sprintf( '%02d', $to ) . ':00';
-		$hotel_checkin = date_i18n( get_option( 'time_format' ), strtotime( $from ) ) . ' - ' . date_i18n( get_option( 'time_format' ), strtotime( $to ) );
+		$hotel_checkin  = date_i18n( get_option( 'time_format' ), strtotime( $formatted_from ) ) . ' - ' . date_i18n( get_option( 'time_format' ), strtotime( $formatted_to ) );
 
-		return apply_filters( 'hotelier_get_hotel_checkin', $hotel_checkin );
+		return apply_filters( 'hotelier_get_hotel_checkin', $hotel_checkin, $from, $to );
 	}
 
 	/**
@@ -130,12 +134,15 @@ class HTL_Info {
 		$checkout       = htl_get_option( 'hotel_checkout', array() );
 		$from           = isset( $checkout[ 'from' ] ) ? $checkout[ 'from' ] : 0;
 		$to             = isset( $checkout[ 'to' ] ) ? $checkout[ 'to' ] : 0;
+		$formatted_from = $from > 24 ? $from - 25 : $from;
+		$formatted_from = sprintf( '%02d', $formatted_from );
+		$formatted_from .= $from > 24 ? ':30' : ':00';
+		$formatted_to   = $to > 24 ? $to - 25 : $to;
+		$formatted_to   = sprintf( '%02d', $formatted_to );
+		$formatted_to   .= $to > 24 ? ':30' : ':00';
+		$hotel_checkout = date_i18n( get_option( 'time_format' ), strtotime( $formatted_from ) ) . ' - ' . date_i18n( get_option( 'time_format' ), strtotime( $formatted_to ) );
 
-		$from           = sprintf( '%02d', $from ) . ':00';
-		$to             = sprintf( '%02d', $to ) . ':00';
-		$hotel_checkout = date_i18n( get_option( 'time_format' ), strtotime( $from ) ) . ' - ' . date_i18n( get_option( 'time_format' ), strtotime( $to ) );
-
-		return apply_filters( 'hotelier_get_hotel_checkout', $hotel_checkout );
+		return apply_filters( 'hotelier_get_hotel_checkout', $hotel_checkout, $from, $to );
 	}
 
 	/**
