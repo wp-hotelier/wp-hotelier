@@ -9,32 +9,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<div class="wrap hotelier-logs">
+<div class="wrap hotelier-settings hotelier-settings--logs">
+	<?php
+	$settings = new HTL_Admin_Settings( true );
+	$tabs     = $settings->get_settings_tabs();
 
-	<h2 class="nav-tab-wrapper">
-		<?php
-		$settings = new HTL_Admin_Settings();
-		$tabs = $settings->get_settings_tabs();
-
-		foreach( $tabs as $tab_id => $tab_name ) {
-
-			$tab_url = add_query_arg( array(
-				'settings-updated' => false,
-				'tab' => $tab_id
-				),
-				admin_url( 'admin.php?page=hotelier-settings' )
-			);
-
-			echo '<a href="' . esc_url( $tab_url ) . '" title="' . esc_attr( $tab_name ) . '" class="nav-tab">';
-				echo esc_html( $tab_name );
-			echo '</a>';
-		}
-
-		echo '<a href="' . esc_url( admin_url( 'admin.php?page=hotelier-logs' ) ) . '" title="' . esc_attr__( 'Logs', 'wp-hotelier' ) . '" class="nav-tab nav-tab-active">';
-				echo esc_html__( 'Logs', 'wp-hotelier' );
-		echo '</a>';
-		?>
-	</h2>
+	do_action( 'hotelier_settings_navigation', 'logs', $tabs ); ?>
 
 	<div id="logs-container">
 
