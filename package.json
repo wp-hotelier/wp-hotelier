@@ -14,7 +14,7 @@
     "run:js": "npm-run-all --silent --parallel run:xo minify:js",
     "build:pot": "onchange '**/*.php' -i -w -- npm run run:pot",
     "build:js": "onchange 'assets/js/**/*.js' -e 'assets/js/**/*.min.js' -e 'assets/js/lib' -i -w -- npm run run:js",
-    "build:css": "postcss --no-map -w .tmp/*.css -d assets/css",
+    "build:css": "postcss --no-map -w .tmp/**/*.css --base .tmp -d assets/css",
     "build:scss": "npm run run:sass && npm run run:sass -- -w",
     "sync": "onchange '**/*' -e 'dist' -e 'assets/sass' -e '.git' -e 'languages' -e 'assets/js/*.min.js' -e '.tmp' -w -- npm run run:sync",
     "server": "browser-sync start --proxy $npm_config_WPHOTELIER_URL --host $npm_config_WPHOTELIER_URL --reload-delay 2000 --files 'assets/*.css'",

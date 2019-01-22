@@ -73,7 +73,7 @@ class HTL_Twenty_Seventeen {
 	 * @return void
 	 */
 	public function enqueue_styles() {
-		wp_enqueue_style( 'hotelier-twenty-seventeen', HTL_PLUGIN_URL . 'assets/css/twenty-seventeen.css', array(), HTL_VERSION );
+		wp_enqueue_style( 'hotelier-twenty-seventeen', HTL_PLUGIN_URL . 'assets/css/frontend/twenty-seventeen.css', array(), HTL_VERSION );
 	}
 }
 

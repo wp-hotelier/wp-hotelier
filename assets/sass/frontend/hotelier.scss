@@ -36,8 +36,8 @@ WIDGETS
 */
 
 // SETTINGS
-@import "settings/settings";
-@import "settings/mixins";
+@import "../settings/settings";
+@import "../settings/mixins";
 @import "node_modules/sass-mq/mq";
 
 // ELEMENTS

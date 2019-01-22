@@ -37,12 +37,12 @@ class HTL_Frontend_Scripts {
 		$lightbox_enabled = htl_get_option( 'room_lightbox', true );
 
 		if ( $lightbox_enabled && ( is_listing() || is_room() ) ) {
-			wp_register_style( 'photoswipe', HTL_PLUGIN_URL . 'assets/css/photoswipe/photoswipe.css', array(), '4.1.1' );
-			wp_enqueue_style( 'photoswipe-default-skin', HTL_PLUGIN_URL . 'assets/css/photoswipe/default-skin/default-skin.css', array( 'photoswipe' ), '4.1.1' );
+			wp_register_style( 'photoswipe', HTL_PLUGIN_URL . 'assets/css/frontend/photoswipe/photoswipe.css', array(), '4.1.1' );
+			wp_enqueue_style( 'photoswipe-default-skin', HTL_PLUGIN_URL . 'assets/css/frontend/photoswipe/default-skin/default-skin.css', array( 'photoswipe' ), '4.1.1' );
 		}
 
 		if ( $default_style ) {
-			wp_enqueue_style( 'hotelier-css', HTL_PLUGIN_URL . 'assets/css/hotelier.css', array(), HTL_VERSION );
+			wp_enqueue_style( 'hotelier-css', HTL_PLUGIN_URL . 'assets/css/frontend/hotelier.css', array(), HTL_VERSION );
 		}
 	}
 

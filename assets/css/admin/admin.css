@@ -9,11 +9,11 @@
 }
 
 .htl-bars {
-  background-image: url(../images/icons/bars.svg);
+  background-image: url(../../images/icons/bars.svg);
 }
 
 .htl-help-circled {
-  background-image: url(../images/icons/help.svg);
+  background-image: url(../../images/icons/help.svg);
   border-radius: 100%;
   background-color: #ddd;
 }
@@ -98,31 +98,31 @@
 }
 
 .hotelier-settings .form-table #hotelier-accepted-cards-mastercard:before {
-  background-image: url(../images/cards/mastercard.svg);
+  background-image: url(../../images/cards/mastercard.svg);
 }
 
 .hotelier-settings .form-table #hotelier-accepted-cards-amex:before {
-  background-image: url(../images/cards/amex.svg);
+  background-image: url(../../images/cards/amex.svg);
 }
 
 .hotelier-settings .form-table #hotelier-accepted-cards-cirrus:before {
-  background-image: url(../images/cards/cirrus.svg);
+  background-image: url(../../images/cards/cirrus.svg);
 }
 
 .hotelier-settings .form-table #hotelier-accepted-cards-discover:before {
-  background-image: url(../images/cards/discover.svg);
+  background-image: url(../../images/cards/discover.svg);
 }
 
 .hotelier-settings .form-table #hotelier-accepted-cards-maestro:before {
-  background-image: url(../images/cards/maestro.svg);
+  background-image: url(../../images/cards/maestro.svg);
 }
 
 .hotelier-settings .form-table #hotelier-accepted-cards-visa:before {
-  background-image: url(../images/cards/visa.svg);
+  background-image: url(../../images/cards/visa.svg);
 }
 
 .hotelier-settings .form-table #hotelier-accepted-cards-visa_e:before {
-  background-image: url(../images/cards/visa_e.svg);
+  background-image: url(../../images/cards/visa_e.svg);
 }
 
 .hotelier-settings .form-table .subdesc {
@@ -426,7 +426,7 @@
   width: 11px;
   height: 11px;
   display: inline-block;
-  background: url(../images/icons/expand.svg) no-repeat center;
+  background: url(../../images/icons/expand.svg) no-repeat center;
   background-size: 100%;
 }
 
@@ -435,7 +435,7 @@
 }
 
 #hotelier-room-settings .variation-room-panel .toolbar .close-all:before {
-  background-image: url(../images/icons/compress.svg);
+  background-image: url(../../images/icons/compress.svg);
 }
 
 #hotelier-room-settings .room-variation {
@@ -724,7 +724,7 @@
 }
 
 .wp-list-table td.column-status span:after {
-  background-image: url(../images/icons/status-confirmed.svg);
+  background-image: url(../../images/icons/status-confirmed.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 60%;
@@ -742,7 +742,7 @@
 }
 
 .wp-list-table td.column-status span.pending:after {
-  background-image: url(../images/icons/status-pending.svg);
+  background-image: url(../../images/icons/status-pending.svg);
 }
 
 .wp-list-table td.column-status span.on-hold {
@@ -750,7 +750,7 @@
 }
 
 .wp-list-table td.column-status span.on-hold:after {
-  background-image: url(../images/icons/status-onhold.svg);
+  background-image: url(../../images/icons/status-onhold.svg);
 }
 
 .wp-list-table td.column-status span.completed {
@@ -758,7 +758,7 @@
 }
 
 .wp-list-table td.column-status span.completed:after {
-  background-image: url(../images/icons/status-completed.svg);
+  background-image: url(../../images/icons/status-completed.svg);
 }
 
 .wp-list-table td.column-status span.failed {
@@ -766,7 +766,7 @@
 }
 
 .wp-list-table td.column-status span.failed:after {
-  background-image: url(../images/icons/status-failed.svg);
+  background-image: url(../../images/icons/status-failed.svg);
 }
 
 .wp-list-table td.column-status span.cancelled {
@@ -774,7 +774,7 @@
 }
 
 .wp-list-table td.column-status span.cancelled:after {
-  background-image: url(../images/icons/status-cancelled.svg);
+  background-image: url(../../images/icons/status-cancelled.svg);
 }
 
 .wp-list-table td.column-status span.trash {
@@ -782,7 +782,7 @@
 }
 
 .wp-list-table td.column-status span.trash:after {
-  background-image: url(../images/icons/status-trash.svg);
+  background-image: url(../../images/icons/status-trash.svg);
 }
 
 .wp-list-table td.column-status span.refunded {
@@ -790,7 +790,7 @@
 }
 
 .wp-list-table td.column-status span.refunded:after {
-  background-image: url(../images/icons/status-refunded.svg);
+  background-image: url(../../images/icons/status-refunded.svg);
 }
 
 /* reservation meta boxes */

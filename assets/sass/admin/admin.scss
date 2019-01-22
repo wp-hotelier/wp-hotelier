@@ -46,11 +46,11 @@ $refunded: #85DCEE;
 }
 
 .htl-bars {
-	background-image: url(../images/icons/bars.svg);
+	background-image: url(../../images/icons/bars.svg);
 }
 
 .htl-help-circled {
-	background-image: url(../images/icons/help.svg);
+	background-image: url(../../images/icons/help.svg);
 	border-radius: 100%;
 	background-color: #ddd;
 
@@ -136,31 +136,31 @@ $refunded: #85DCEE;
 	}
 
 	#hotelier-accepted-cards-mastercard:before {
-		background-image: url(../images/cards/mastercard.svg);
+		background-image: url(../../images/cards/mastercard.svg);
 	}
 
 	#hotelier-accepted-cards-amex:before {
-		background-image: url(../images/cards/amex.svg);
+		background-image: url(../../images/cards/amex.svg);
 	}
 
 	#hotelier-accepted-cards-cirrus:before {
-		background-image: url(../images/cards/cirrus.svg);
+		background-image: url(../../images/cards/cirrus.svg);
 	}
 
 	#hotelier-accepted-cards-discover:before {
-		background-image: url(../images/cards/discover.svg);
+		background-image: url(../../images/cards/discover.svg);
 	}
 
 	#hotelier-accepted-cards-maestro:before {
-		background-image: url(../images/cards/maestro.svg);
+		background-image: url(../../images/cards/maestro.svg);
 	}
 
 	#hotelier-accepted-cards-visa:before {
-		background-image: url(../images/cards/visa.svg);
+		background-image: url(../../images/cards/visa.svg);
 	}
 
 	#hotelier-accepted-cards-visa_e:before {
-		background-image: url(../images/cards/visa_e.svg);
+		background-image: url(../../images/cards/visa_e.svg);
 	}
 
 	.subdesc {
@@ -512,7 +512,7 @@ $refunded: #85DCEE;
 					width: 11px;
 					height: 11px;
 					display: inline-block;
-					background: url(../images/icons/expand.svg) no-repeat center;
+					background: url(../../images/icons/expand.svg) no-repeat center;
 					background-size: 100%;
 				}
 			}
@@ -521,7 +521,7 @@ $refunded: #85DCEE;
 				margin-right: 0;
 
 				&:before {
-					background-image: url(../images/icons/compress.svg);
+					background-image: url(../../images/icons/compress.svg);
 				}
 			}
 		}
@@ -815,7 +815,7 @@ $refunded: #85DCEE;
 			width: 24px;
 
 			&:after {
-				background-image: url(../images/icons/status-confirmed.svg);
+				background-image: url(../../images/icons/status-confirmed.svg);
 				background-position: center;
 				background-repeat: no-repeat;
 				background-size: 60%;
@@ -832,7 +832,7 @@ $refunded: #85DCEE;
 				border-color: $pending;
 
 				&:after {
-					background-image: url(../images/icons/status-pending.svg);
+					background-image: url(../../images/icons/status-pending.svg);
 				}
 			}
 
@@ -840,7 +840,7 @@ $refunded: #85DCEE;
 				border-color: $onhold;
 
 				&:after {
-					background-image: url(../images/icons/status-onhold.svg);
+					background-image: url(../../images/icons/status-onhold.svg);
 				}
 			}
 
@@ -848,7 +848,7 @@ $refunded: #85DCEE;
 				border-color: $completed;
 
 				&:after {
-					background-image: url(../images/icons/status-completed.svg);
+					background-image: url(../../images/icons/status-completed.svg);
 				}
 			}
 
@@ -856,7 +856,7 @@ $refunded: #85DCEE;
 				border-color: $failed;
 
 				&:after {
-					background-image: url(../images/icons/status-failed.svg);
+					background-image: url(../../images/icons/status-failed.svg);
 				}
 			}
 
@@ -864,7 +864,7 @@ $refunded: #85DCEE;
 				border-color: $cancelled;
 
 				&:after {
-					background-image: url(../images/icons/status-cancelled.svg);
+					background-image: url(../../images/icons/status-cancelled.svg);
 				}
 			}
 
@@ -872,7 +872,7 @@ $refunded: #85DCEE;
 				border-color: $trash;
 
 				&:after {
-					background-image: url(../images/icons/status-trash.svg);
+					background-image: url(../../images/icons/status-trash.svg);
 				}
 			}
 
@@ -880,7 +880,7 @@ $refunded: #85DCEE;
 				border-color: $refunded;
 
 				&:after {
-					background-image: url(../images/icons/status-refunded.svg);
+					background-image: url(../../images/icons/status-refunded.svg);
 				}
 			}
 		}

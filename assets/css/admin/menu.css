@@ -2,13 +2,13 @@
  * Adds Hotelier icons to WP dashboard menu.
  */
 #adminmenu #toplevel_page_hotelier-settings div.wp-menu-image:before {
-  background: url(../images/hotelier_logo.svg) no-repeat center;
+  background: url(../../images/hotelier_logo.svg) no-repeat center;
   background-size: 90%;
   content: '';
 }
 
 #adminmenu #menu-posts-room div.wp-menu-image:before {
-  background: url(../images/icons/bed.svg) no-repeat center;
+  background: url(../../images/icons/bed.svg) no-repeat center;
   background-size: 85%;
   content: '';
 }
