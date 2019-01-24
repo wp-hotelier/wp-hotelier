@@ -39,17 +39,12 @@ class HTL_Admin_Settings {
 	/**
 	 * Constructor.
 	 */
-	public function __construct( $external = false ) {
+	public function __construct() {
 		// Add menus
 		add_action( 'admin_menu', array( $this, 'add_settings_menu_page' ), 9 );
 		add_action( 'admin_init', array( $this, 'add_settings' ) );
 		add_action( 'admin_init', array( $this, 'add_separator' ) );
 		add_action( 'init', array( $this, 'registered_settings' ) );
-
-		if ( ! $external ) {
-		// Add settings navigation
-		add_action( 'hotelier_settings_navigation', array( $this, 'create_settings_navigation' ), 10, 2 );
-	}
 
 		$this->includes();
 		$this->options = (array) get_option( 'hotelier_settings' );
@@ -109,46 +104,6 @@ class HTL_Admin_Settings {
 	}
 
 	/**
-	 * Settings navigation.
-	 */
-	public function create_settings_navigation( $active_tab, $tabs ) {
-		ob_start();
-		?>
-
-		<nav class="hotelier-settings-navigation">
-			<ul class="hotelier-settings-navigation__list">
-				<?php
-				foreach( $tabs as $tab_id => $tab_name ) {
-
-					$tab_url = add_query_arg(
-						array(
-							'settings-updated' => false,
-							'tab'              => $tab_id
-						) ,
-						admin_url( 'admin.php?page=hotelier-settings' )
-					);
-
-					$active_class = $active_tab == $tab_id ? 'active' : '';
-					?>
-
-					<li class="hotelier-settings-navigation__item hotelier-settings-navigation__item--<?php	echo esc_attr( $tab_id ); ?> <?php echo esc_attr( $active_class ); ?>">
-						<a href="<?php echo esc_url( $tab_url ); ?>" title="<?php echo esc_attr( $tab_name ); ?>" class="hotelier-settings-navigation__link hotelier-settings-navigation__link--<?php echo esc_attr( $tab_id ); ?> <?php echo esc_attr( $active_class ); ?>"><?php echo esc_html( $tab_name ); ?></a>
-					</li>
-				<?php } ?>
-
-				<li class="hotelier-settings-navigation__item hotelier-settings-navigation__item--logs <?php echo $active_tab == 'logs' ? 'active' : ''; ?>">
-					<a href="<?php echo esc_url( admin_url( 'admin.php?page=hotelier-logs' ) ); ?>" title="<?php esc_attr_e( 'Logs', 'wp-hotelier' ); ?>" class="hotelier-settings-navigation__link hotelier-settings-navigation__link--logs <?php echo $active_tab == 'logs' ? 'active' : ''; ?>"><?php esc_attr_e( 'Logs', 'wp-hotelier' ); ?></a>
-				</li>
-			</ul>
-		</nav>
-
-		<?php
-		$html = ob_get_clean();
-
-		echo $html;
-	}
-
-	/**
 	 * Settings page.
 	 *
 	 * Renders the settings page contents.
@@ -163,9 +118,11 @@ class HTL_Admin_Settings {
 		ob_start();
 		?>
 		<div class="wrap hotelier-settings hotelier-settings--<?php echo esc_attr( $active_tab ); ?>">
-			<?php do_action( 'hotelier_settings_navigation', $active_tab, $tabs ); ?>
 
-			<div id="tab_container">
+			<?php include_once HTL_PLUGIN_DIR . 'includes/admin/settings/views/html-settings-navigation.php'; ?>
+			<?php include_once HTL_PLUGIN_DIR . 'includes/admin/settings/views/html-settings-header.php'; ?>
+
+			<div class="hotelier-settings-panel">
 				<form method="post" action="options.php">
 					<table class="form-table">
 					<?php

@@ -11,10 +11,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div class="wrap hotelier-settings hotelier-settings--logs">
 	<?php
-	$settings = new HTL_Admin_Settings( true );
-	$tabs     = $settings->get_settings_tabs();
+	$settings   = new HTL_Admin_Settings();
+	$tabs       = $settings->get_settings_tabs();
+	$active_tab = 'logs';
 
-	do_action( 'hotelier_settings_navigation', 'logs', $tabs ); ?>
+	include_once HTL_PLUGIN_DIR . 'includes/admin/settings/views/html-settings-navigation.php';
+	include_once HTL_PLUGIN_DIR . 'includes/admin/settings/views/html-settings-header.php';
+	?>
 
 	<div id="logs-container">
 
