@@ -182,7 +182,9 @@ class HTL_Admin_Settings {
 						'options'      => isset( $option[ 'options' ] ) ? $option[ 'options' ] : '',
 						'std'          => isset( $option[ 'std' ] ) ? $option[ 'std' ] : '',
 						'multiple'     => isset( $option[ 'multiple' ] ) ? $option[ 'multiple' ] : null,
-						'placeholder'  => isset( $option[ 'placeholder' ] ) ? $option[ 'placeholder' ] : null
+						'placeholder'  => isset( $option[ 'placeholder' ] ) ? $option[ 'placeholder' ] : null,
+						'min'  => isset( $option[ 'min' ] ) ? $option[ 'min' ] : null,
+						'max'  => isset( $option[ 'max' ] ) ? $option[ 'max' ] : null,
 					)
 				);
 			}
@@ -232,6 +234,9 @@ class HTL_Admin_Settings {
 				// Field type specific filter
 				$input[ $key ] = apply_filters( 'hotelier_settings_sanitize_' . $type, $value, $key );
 			}
+
+			// Field ID specific filter
+			$input[ $key ] = apply_filters( 'hotelier_settings_sanitize_' . $key, $value, $key );
 		}
 
 		// Loop through the settings and unset any that are empty for the tab being saved

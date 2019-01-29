@@ -41,6 +41,19 @@ class HTL_Admin_Settings_Default {
 	}
 
 	/**
+	 * Get all registered gateways.
+	 */
+	public static function get_gateways() {
+		$gateways = array();
+
+		foreach ( HTL()->payment_gateways()->payment_gateways() as $gateway_id => $gateway ) {
+			$gateways[ $gateway[ 'id' ] ] = $gateway[ 'admin_label' ];
+		}
+
+		return $gateways;
+	}
+
+	/**
 	 * Get room size options.
 	 *
 	 * A filter is provided to allow extensions to add their own room size
@@ -501,7 +514,7 @@ class HTL_Admin_Settings_Default {
 						'id'   => 'booking_hold_minutes',
 						'name' => esc_html__( 'Hold reservation (minutes)', 'wp-hotelier' ),
 						'desc' => __( 'Hold reservation (for unpaid reservations that require a deposit) for "XX" minutes. When this limit is reached, the pending reservation will be cancelled. Type "0" to disable. Reservations created by admin will be not cancelled.', 'wp-hotelier' ),
-						'type' => 'booking_hold_minutes',
+						'type' => 'number',
 						'size' => 'small',
 						'std'  => '60'
 					),
@@ -532,17 +545,17 @@ class HTL_Admin_Settings_Default {
 			'payment' => apply_filters( 'hotelier_settings_payment',
 				array(
 					'payment_gateways' => array(
-						'id'   => 'payment_gateways',
-						'name' => esc_html__( 'Payment gateways', 'wp-hotelier' ),
-						'type' => 'gateways',
-						'options' => HTL()->payment_gateways()->payment_gateways()
+						'id'      => 'payment_gateways',
+						'name'    => esc_html__( 'Payment gateways', 'wp-hotelier' ),
+						'type'    => 'multi_checkbox',
+						'options' => self::get_gateways()
 					),
 					'default_gateway' => array(
-						'id'   => 'default_gateway',
-						'name' => esc_html__( 'Default gateway', 'wp-hotelier' ),
-						'type' => 'gateway_select',
-						'options' => HTL()->payment_gateways()->payment_gateways()
-					)
+						'id'      => 'default_gateway',
+						'name'    => esc_html__( 'Default gateway', 'wp-hotelier' ),
+						'type'    => 'select',
+						'options' => self::get_gateways()
+					),
 				)
 			),
 			/* General Settings */
@@ -824,13 +837,13 @@ class HTL_Admin_Settings_Default {
 						'id'   => 'install_pages',
 						'name' => esc_html__( 'Install Hotelier pages', 'wp-hotelier' ),
 						'desc' => __( 'This tool will install all the missing Hotelier pages. Pages already defined and set up will not be replaced.', 'wp-hotelier' ),
-						'type' => 'button'
+						'type' => 'tool_button'
 					),
 					'send_test_email' => array(
 						'id'   => 'send_test_email',
 						'name' => esc_html__( 'Send test email', 'wp-hotelier' ),
 						'desc' => __( 'Test if your WordPress installation is sending emails correctly.', 'wp-hotelier' ),
-						'type' => 'button'
+						'type' => 'tool_button'
 					),
 					'template_debug_mode' => array(
 						'id'   => 'template_debug_mode',
@@ -842,13 +855,13 @@ class HTL_Admin_Settings_Default {
 						'id'   => 'clear_sessions',
 						'name' => esc_html__( 'Cleanup guest sessions', 'wp-hotelier' ),
 						'desc' => __( 'This tool will delete all guest session data from the database (including any current live booking).', 'wp-hotelier' ),
-						'type' => 'button'
+						'type' => 'tool_button'
 					),
 					'delete_completed_bookings' => array(
 						'id'   => 'delete_completed_bookings',
 						'name' => esc_html__( 'Delete completed bookings', 'wp-hotelier' ),
 						'desc' => __( 'This tool will delete all completed bookings from the database.', 'wp-hotelier' ),
-						'type' => 'button'
+						'type' => 'tool_button'
 					),
 					'remove_data_uninstall' => array(
 						'id'   => 'remove_data_uninstall',
