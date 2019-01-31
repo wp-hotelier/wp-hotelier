@@ -232,11 +232,14 @@ class HTL_Admin_Settings {
 
 			if ( $type ) {
 				// Field type specific filter
-				$input[ $key ] = apply_filters( 'hotelier_settings_sanitize_' . $type, $value, $key );
+				$value = apply_filters( 'hotelier_settings_sanitize_' . $type, $value, $key );
 			}
 
 			// Field ID specific filter
-			$input[ $key ] = apply_filters( 'hotelier_settings_sanitize_' . $key, $value, $key );
+			$value = apply_filters( 'hotelier_settings_sanitize_' . $key, $value, $key );
+
+			// Save value
+			$input[ $key ] = $value;
 		}
 
 		// Loop through the settings and unset any that are empty for the tab being saved
