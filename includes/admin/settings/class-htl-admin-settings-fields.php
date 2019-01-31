@@ -59,6 +59,7 @@ class HTL_Admin_Settings_Fields {
 		add_filter( 'hotelier_settings_sanitize_upload', array( $this, 'sanitize_upload' ) );
 		add_filter( 'hotelier_settings_sanitize_number', array( $this, 'sanitize_number' ), 10, 2 );
 		add_filter( 'hotelier_settings_sanitize_select', array( $this, 'sanitize_select' ), 10, 2 );
+		add_filter( 'hotelier_settings_sanitize_booking_minimum_nights', array( $this, 'sanitize_booking_minimum_nights' ) );
 		add_filter( 'hotelier_settings_sanitize_booking_hold_minutes', array( $this, 'sanitize_booking_hold_minutes' ) );
 		add_filter( 'hotelier_settings_sanitize_image_size', array( $this, 'sanitize_image_size' ) );
 		add_filter( 'hotelier_settings_sanitize_seasonal_prices_table', array( $this, 'sanitize_seasonal_prices_table' ) );
@@ -644,8 +645,15 @@ class HTL_Admin_Settings_Fields {
 	 * Sanitize text-number input
 	 */
 	public function sanitize_number( $input, $key ) {
+		return absint( $input );
+	}
+
+	/**
+	 * Sanitize minimum nights field
+	 */
+	public function sanitize_booking_minimum_nights( $input ) {
 		// Min nights option must be at least 1
-		if ( 'booking_minimum_nights' == $key && $input == 0 ) {
+		if ( $input == 0 ) {
 			return 1;
 		}
 
