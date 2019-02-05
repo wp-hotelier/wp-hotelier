@@ -7,15 +7,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( isset( $options[ $args[ 'id' ] ] ) ) {
-	$value = $options[ $args[ 'id' ] ];
+if ( isset( $this->options[ $args[ 'id' ] ] ) ) {
+	$value = $this->options[ $args[ 'id' ] ];
 } else {
 	$value = isset( $args[ 'std' ] ) ? $args[ 'std' ] : '';
 }
 
 $width   = $value[ 'width' ];
 $height  = $value[ 'height' ];
-$checked = isset( $options[ $args[ 'id' ] ][ 'crop' ] ) ? checked( 1, $options[ $args[ 'id' ] ][ 'crop' ], false ) : checked( 1, isset( $value[ 'crop' ] ), false );
+$checked = isset( $this->options[ $args[ 'id' ] ][ 'crop' ] ) ? checked( 1, $this->options[ $args[ 'id' ] ][ 'crop' ], false ) : checked( 1, isset( $value[ 'crop' ] ), false );
 ?>
 
 <div class="htl-ui-setting htl-ui-setting--image-size htl-ui-setting--<?php echo esc_attr( $args[ 'id' ] ); ?>">

@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( isset( $this->options[ $args[ 'id' ] ] ) ) {
-	$value = $options[ $args[ 'id' ] ];
+	$value = $this->options[ $args[ 'id' ] ];
 } else {
 	$value = isset( $args[ 'std' ] ) ? $args[ 'std' ] : '';
 }

@@ -170,7 +170,6 @@ class HTL_Admin_Settings_Fields {
 	 * Print text input
 	 */
 	public function print_text( $html, $args ) {
-		$options = $this->options;
 		include HTL_PLUGIN_DIR . 'includes/admin/settings/views/fields/html-settings-field-input-text.php';
 	}
 
@@ -178,7 +177,6 @@ class HTL_Admin_Settings_Fields {
 	 * Print textarea input
 	 */
 	public function print_textarea( $html, $args ) {
-		$options = $this->options;
 		include HTL_PLUGIN_DIR . 'includes/admin/settings/views/fields/html-settings-field-input-textarea.php';
 	}
 
@@ -186,7 +184,6 @@ class HTL_Admin_Settings_Fields {
 	 * Print email input
 	 */
 	public function print_email( $html, $args ) {
-		$options = $this->options;
 		include HTL_PLUGIN_DIR . 'includes/admin/settings/views/fields/html-settings-field-input-email.php';
 	}
 
@@ -194,7 +191,6 @@ class HTL_Admin_Settings_Fields {
 	 * Print upload input
 	 */
 	public function print_upload( $html, $args ) {
-		$options = $this->options;
 		include HTL_PLUGIN_DIR . 'includes/admin/settings/views/fields/html-settings-field-input-upload.php';
 	}
 
@@ -202,7 +198,6 @@ class HTL_Admin_Settings_Fields {
 	 * Print text-number input
 	 */
 	public function print_number( $html, $args ) {
-		$options = $this->options;
 		include HTL_PLUGIN_DIR . 'includes/admin/settings/views/fields/html-settings-field-input-number.php';
 	}
 
@@ -210,7 +205,6 @@ class HTL_Admin_Settings_Fields {
 	 * Print select input
 	 */
 	public function print_select( $html, $args ) {
-		$options = $this->options;
 		include HTL_PLUGIN_DIR . 'includes/admin/settings/views/fields/html-settings-field-input-select.php';
 	}
 
@@ -218,7 +212,6 @@ class HTL_Admin_Settings_Fields {
 	 * Print checkbox input
 	 */
 	public function print_checkbox( $html, $args ) {
-		$options = $this->options;
 		include HTL_PLUGIN_DIR . 'includes/admin/settings/views/fields/html-settings-field-input-checkbox.php';
 	}
 
@@ -226,7 +219,6 @@ class HTL_Admin_Settings_Fields {
 	 * Print multi_checkbox input
 	 */
 	public function print_multi_checkbox( $html, $args ) {
-		$options = $this->options;
 		include HTL_PLUGIN_DIR . 'includes/admin/settings/views/fields/html-settings-field-input-multicheckbox.php';
 	}
 
@@ -234,7 +226,6 @@ class HTL_Admin_Settings_Fields {
 	 * Print card_icons input
 	 */
 	public function print_card_icons( $html, $args ) {
-		$options = $this->options;
 		include HTL_PLUGIN_DIR . 'includes/admin/settings/views/fields/html-settings-field-card-icons.php';
 	}
 
@@ -242,7 +233,6 @@ class HTL_Admin_Settings_Fields {
 	 * Print radio input
 	 */
 	public function print_radio( $html, $args ) {
-		$options = $this->options;
 		include HTL_PLUGIN_DIR . 'includes/admin/settings/views/fields/html-settings-field-input-radio.php';
 	}
 
@@ -250,7 +240,6 @@ class HTL_Admin_Settings_Fields {
 	 * Print image_size input
 	 */
 	public function print_image_size( $html, $args ) {
-		$options = $this->options;
 		include HTL_PLUGIN_DIR . 'includes/admin/settings/views/fields/html-settings-field-image-size.php';
 	}
 
@@ -258,7 +247,6 @@ class HTL_Admin_Settings_Fields {
 	 * Print from_to input
 	 */
 	public function print_from_to( $html, $args ) {
-		$options = $this->options;
 		include HTL_PLUGIN_DIR . 'includes/admin/settings/views/fields/html-settings-field-from-to.php';
 	}
 
@@ -305,7 +293,6 @@ class HTL_Admin_Settings_Fields {
 	 * Print license key input
 	 */
 	public function print_license_key( $html, $args ) {
-		$options = $this->options;
 		include HTL_PLUGIN_DIR . 'includes/admin/settings/views/fields/html-settings-field-license-keys.php';
 	}
 
@@ -313,7 +300,6 @@ class HTL_Admin_Settings_Fields {
 	 * Print percentage input
 	 */
 	public function print_percentage( $html, $args ) {
-		$options = $this->options;
 		include HTL_PLUGIN_DIR . 'includes/admin/settings/views/fields/html-settings-field-input-percentage.php';
 	}
 

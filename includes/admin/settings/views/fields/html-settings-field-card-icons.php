@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div class="htl-ui-setting htl-ui-setting--card-icons htl-ui-setting--<?php echo esc_attr( $args[ 'id' ] ); ?>">
 	<?php foreach ( $args[ 'options' ] as $key => $option ) : ?>
-		<?php $enabled = isset( $options[ $args[ 'id' ] ][ $key ] ) ? 1 : NULL; ?>
+		<?php $enabled = isset( $this->options[ $args[ 'id' ] ][ $key ] ) ? 1 : NULL; ?>
 
 		<input name="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>][<?php echo esc_attr( $key ); ?>]" id="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>][<?php echo esc_attr( $key ); ?>]" class="htl-ui-input htl-ui-input--checkbox htl-ui-input--card-icon" type="checkbox" value="1" <?php echo checked( 1, $enabled, false ); ?> />
 
