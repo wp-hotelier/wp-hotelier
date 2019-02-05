@@ -159,20 +159,22 @@ if ( ! empty( $license ) && is_object( $license ) ) {
 
 ?>
 
-<label for="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>]"><?php esc_html_e( 'License Key', 'wp-hotelier' ); ?></label>
+<div class="htl-ui-setting htl-ui-setting--license-keys htl-ui-setting--<?php echo esc_attr( $args[ 'id' ] ); ?>">
+	<label class="htl-ui-label htl-ui-label--text htl-ui-setting__description htl-ui-setting__description--license-keys htl-ui-setting__description--<?php echo esc_attr( $args[ 'id' ] ); ?>" for="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>]"><?php esc_html_e( 'License Key', 'wp-hotelier' ); ?></label>
 
-<input type="text" class="regular-text" id="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>]" name="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>]" value="<?php echo esc_attr( $value ); ?>" />
+	<input type="text" class="htl-ui-input htl-ui-input--text" id="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>]" name="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>]" value="<?php echo esc_attr( $value ); ?>" />
 
-<?php if ( ( is_object( $license ) && 'valid' == $license->license ) || 'valid' == $license ) : ?>
-	<input type="submit" class="button button-secondary" name="<?php echo esc_attr( $args[ 'id' ] ); ?>'_deactivate" value="<?php esc_attr_e( 'Deactivate License',  'wp-hotelier' ); ?>" />
-<?php endif; ?>
+	<?php if ( ( is_object( $license ) && 'valid' == $license->license ) || 'valid' == $license ) : ?>
+		<input type="submit" class="htl-ui-button htl-ui-button--deactivate-license" name="<?php echo esc_attr( $args[ 'id' ] ); ?>'_deactivate" value="<?php esc_attr_e( 'Deactivate License',  'wp-hotelier' ); ?>" />
+	<?php endif; ?>
 
-<?php if ( ! empty( $messages ) ) : ?>
-	<?php foreach( $messages as $message ) : ?>
-		<div class="hotelier-license-data hotelier-license-<?php echo esc_attr( $class ); ?> <?php echo esc_attr( $license_status ); ?>">
-			<p><?php echo wp_kses_post( $message ); ?></p>
-		</div>
-	<?php endforeach; ?>
-<?php endif; ?>
+	<?php if ( ! empty( $messages ) ) : ?>
+		<?php foreach( $messages as $message ) : ?>
+			<div class="htl-ui-license-key-notice htl-ui-license-key-notice--<?php echo esc_attr( $class ); ?> <?php echo esc_attr( $license_status ); ?>">
+				<p class="htl-ui-license-key-notice__text"><?php echo wp_kses_post( $message ); ?></p>
+			</div>
+		<?php endforeach; ?>
+	<?php endif; ?>
 
-<?php wp_nonce_field( sanitize_text_field( $args[ 'id' ] ) . '-nonce', sanitize_text_field( $args[ 'id' ] ) . '-nonce' ); ?>
+	<?php wp_nonce_field( sanitize_text_field( $args[ 'id' ] ) . '-nonce', sanitize_text_field( $args[ 'id' ] ) . '-nonce' ); ?>
+</div>

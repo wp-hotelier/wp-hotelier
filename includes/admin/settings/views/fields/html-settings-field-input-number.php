@@ -19,6 +19,8 @@ $min         = isset( $args[ 'min' ] ) ? $args[ 'min' ] : '';
 $max         = isset( $args[ 'max' ] ) ? $args[ 'max' ] : '';
 ?>
 
-<input type="number" class="<?php echo esc_attr( $size ); ?>-text" id="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>]" name="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>]" value="<?php echo esc_attr( $value ); ?>" placeholder="<?php echo esc_attr( $placeholder ); ?>" min="<?php echo esc_attr( $min ); ?>" max="<?php echo esc_attr( $max ); ?>" />
+<div class="htl-ui-setting htl-ui-setting--number htl-ui-setting--<?php echo esc_attr( $args[ 'id' ] ); ?>">
+	<input type="number" class="<?php echo esc_attr( $size ); ?>-text htl-ui-input htl-ui-input--number" id="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>]" name="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>]" value="<?php echo esc_attr( $value ); ?>" placeholder="<?php echo esc_attr( $placeholder ); ?>" min="<?php echo esc_attr( $min ); ?>" max="<?php echo esc_attr( $max ); ?>" />
 
-<label for="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>]"><?php echo wp_kses_post( $args[ 'desc' ] ); ?></label>
+	<label class="htl-ui-label htl-ui-label--text htl-ui-setting__description htl-ui-setting__description--number htl-ui-setting__description--<?php echo esc_attr( $args[ 'id' ] ); ?>" for="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>]"><?php echo wp_kses_post( $args[ 'desc' ] ); ?></label>
+</div>

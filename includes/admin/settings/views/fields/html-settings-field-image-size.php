@@ -18,6 +18,10 @@ $height  = $value[ 'height' ];
 $checked = isset( $options[ $args[ 'id' ] ][ 'crop' ] ) ? checked( 1, $options[ $args[ 'id' ] ][ 'crop' ], false ) : checked( 1, isset( $value[ 'crop' ] ), false );
 ?>
 
-<input name="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>][width]" id="<?php echo esc_attr( $args[ 'id' ] ); ?>-width" type="text" size="3" value="<?php echo absint( $width ); ?>" /> &times; <input name="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>][height]" id="<?php echo esc_attr( $args[ 'id' ] ); ?>-height" type="text" size="3" value="<?php echo absint( $height ); ?>" />px
+<div class="htl-ui-setting htl-ui-setting--image-size htl-ui-setting--<?php echo esc_attr( $args[ 'id' ] ); ?>">
+	<input class="htl-ui-input htl-ui-input--text htl-ui-input--image-size" name="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>][width]" id="<?php echo esc_attr( $args[ 'id' ] ); ?>-width" type="text" size="3" value="<?php echo absint( $width ); ?>" /> &times; <input class="htl-ui-input htl-ui-input--text htl-ui-input--image-size" name="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>][height]" id="<?php echo esc_attr( $args[ 'id' ] ); ?>-height" type="text" size="3" value="<?php echo absint( $height ); ?>" />px
 
-<label><input name="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>][crop]" id="<?php echo esc_attr( $args[ 'id' ] ); ?>-crop" type="checkbox" value="1" <?php echo $checked; ?> /><?php esc_html_e( 'Hard crop?', 'wp-hotelier' ); ?></label>
+	<label class="htl-ui-label htl-ui-label--image-size">
+		<input class="htl-ui-input htl-ui-input--checkbox htl-ui-input--image-size" name="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>][crop]" id="<?php echo esc_attr( $args[ 'id' ] ); ?>-crop" type="checkbox" value="1" <?php echo $checked; ?> /><?php esc_html_e( 'Hard crop?', 'wp-hotelier' ); ?>
+	</label>
+</div>

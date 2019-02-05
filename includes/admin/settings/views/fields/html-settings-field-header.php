@@ -9,4 +9,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<hr/>
+<hr class="htl-ui-hr htl-ui-hr--section-description" />

@@ -24,27 +24,28 @@ for ( $i = 0; $i <= 24; $i++ ) {
 }
 ?>
 
+<div class="htl-ui-setting htl-ui-setting--from-to htl-ui-setting--<?php echo esc_attr( $args[ 'id' ] ); ?>">
+	<label class="htl-ui-label htl-ui-label--from-to"><?php esc_html_e( 'From:', 'wp-hotelier' ); ?>
+		<select class="htl-ui-input htl-ui-input--select htl-ui-input--from-to" name="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>][from]">
 
-<label class="from-to"><?php esc_html_e( 'From:', 'wp-hotelier' ); ?>
-	<select name="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>][from]">
+			<?php foreach ( $options as $option => $name ) : ?>
+				<?php $selected = selected( $option, $from, false ); ?>
 
-		<?php foreach ( $options as $option => $name ) : ?>
-			<?php $selected = selected( $option, $from, false ); ?>
+				<option value="<?php echo esc_attr( $option ); ?>" <?php echo $selected; ?>><?php echo esc_html( $name ); ?></option>
+			<?php endforeach; ?>
 
-			<option value="<?php echo esc_attr( $option ); ?>" <?php echo $selected; ?>><?php echo esc_html( $name ); ?></option>
-		<?php endforeach; ?>
+		</select>
+	</label>
 
-	</select>
-</label>
+	<label class="htl-ui-label htl-ui-label--from-to"><?php esc_html_e( 'To:', 'wp-hotelier' ); ?>
+		<select class="htl-ui-input htl-ui-input--select htl-ui-input--from-to" name="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>][to]">
 
-<label class="from-to"><?php esc_html_e( 'To:', 'wp-hotelier' ); ?>
-	<select name="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>][to]">
+			<?php foreach ( $options as $option => $name ) : ?>
+				<?php $selected = selected( $option, $to, false ); ?>
 
-		<?php foreach ( $options as $option => $name ) : ?>
-			<?php $selected = selected( $option, $to, false ); ?>
+				<option value="<?php echo esc_attr( $option ); ?>" <?php echo $selected; ?>><?php echo esc_html( $name ); ?></option>
+			<?php endforeach; ?>
 
-			<option value="<?php echo esc_attr( $option ); ?>" <?php echo $selected; ?>><?php echo esc_html( $name ); ?></option>
-		<?php endforeach; ?>
-
-	</select>
-</label>
+		</select>
+	</label>
+</div>
