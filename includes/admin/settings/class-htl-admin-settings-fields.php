@@ -390,7 +390,7 @@ class HTL_Admin_Settings_Fields {
 	public function print_listing_page_info() {
 		$pages        = $this->pages;
 		$listing_page = $pages[ 'listing' ];
-		$class        = 'info-error';
+		$class        = 'error';
 
 		if ( ! $listing_page[ 'page_set' ] ) {
 			$info = __( 'Page not set', 'wp-hotelier' ) . '</mark>';
@@ -401,7 +401,7 @@ class HTL_Admin_Settings_Fields {
 		} elseif ( ! $listing_page[ 'has_shortcode' ] ) {
 			$info = sprintf( __( 'The page requires this shortcode: %s', 'wp-hotelier' ), '<code>' . $listing_page[ 'shortcode' ] . '</code>' );
 		} else {
-			$class = 'info-success';
+			$class = 'success';
 			$info = '(ID = ' . absint( $listing_page[ 'page_id' ] ) . ') ' . get_permalink( $listing_page[ 'page_id' ] );
 		}
 
@@ -414,7 +414,7 @@ class HTL_Admin_Settings_Fields {
 	public function print_booking_page_info() {
 		$pages        = $this->pages;
 		$booking_page = $pages[ 'booking' ];
-		$class        = 'info-error';
+		$class        = 'error';
 
 		if ( ! $booking_page[ 'page_set' ] ) {
 			$info = __( 'Page not set', 'wp-hotelier' );
@@ -425,7 +425,7 @@ class HTL_Admin_Settings_Fields {
 		} elseif ( ! $booking_page[ 'has_shortcode' ] ) {
 			$info = sprintf( __( 'The page requires this shortcode: %s', 'wp-hotelier' ), '<code>' . $listing_page[ 'shortcode' ] . '</code>' );
 		} else {
-			$class = 'info-success';
+			$class = 'success';
 			$info = '(ID = ' . absint( $booking_page[ 'page_id' ] ) . ') ' . get_permalink( $booking_page[ 'page_id' ] );
 		}
 
@@ -453,10 +453,10 @@ class HTL_Admin_Settings_Fields {
 
 		if ( function_exists( 'phpversion' ) ) {
 			if ( version_compare( phpversion(), '5.6.0', '<' ) ) {
-				$class = 'info-error';
+				$class = 'error';
 				$info = sprintf( esc_html__( '%s - Easy WP Hotelier requires at least PHP 5.6.0. Please update your PHP version.', 'wp-hotelier' ), phpversion() );
 			} else {
-				$class = 'info-success';
+				$class = 'success';
 				$info = phpversion();
 			}
 		}
@@ -472,10 +472,10 @@ class HTL_Admin_Settings_Fields {
 		$memory = HTL_Formatting_Helper::notation_to_int( WP_MEMORY_LIMIT );
 
 		if ( $memory < 67108864 ) {
-			$class = 'info-error';
+			$class = 'error';
 			$info = sprintf( esc_html__( '%s - We recommend setting memory to at least 64MB.', 'wp-hotelier' ), size_format( $memory ) );
 		} else {
-			$class = 'info-success';
+			$class = 'success';
 			$info = size_format( $memory );
 		}
 
@@ -561,10 +561,10 @@ class HTL_Admin_Settings_Fields {
 	 */
 	public function print_domdocument() {
 		if ( class_exists( 'DOMDocument' ) ) {
-			$class = 'info-success';
+			$class = 'success';
 			$info = esc_html__( 'Enabled', 'wp-hotelier' );
 		} else {
-			$class = 'info-error';
+			$class = 'error';
 			$info = esc_html__( 'Your server does not have the DOMDocument class enabled - Some extensions may not work without DOMDocument', 'wp-hotelier' );
 		}
 
@@ -576,10 +576,10 @@ class HTL_Admin_Settings_Fields {
 	 */
 	public function print_log_directory_writable() {
 		if ( @fopen( HTL_LOG_DIR . 'test-log.log', 'a' ) ) {
-			$class = 'info-success';
+			$class = 'success';
 			$info = HTL_LOG_DIR ;
 		} else {
-			$class = 'info-error';
+			$class = 'error';
 			$info = sprintf( wp_kses( __( 'To allow logging, make <code>%s</code> writable or define a custom (writebale) <code>HTL_LOG_DIR</code>.', 'wp-hotelier' ), array( 'code' => array() ) ), HTL_LOG_DIR );
 		}
 
