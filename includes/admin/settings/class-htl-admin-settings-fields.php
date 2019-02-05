@@ -548,9 +548,11 @@ class HTL_Admin_Settings_Fields {
 	 */
 	public function print_fsockopen_cURL() {
 		if ( function_exists( 'fsockopen' ) && function_exists( 'curl_init' ) ) {
-			$info = '<span class="info-success">' . esc_html__( 'Enabled', 'wp-hotelier' ) . '</span>';
+			$class = 'success';
+			$info = esc_html__( 'Enabled', 'wp-hotelier' );
 		} else {
-			$info = '<span class="info-error">' . esc_html__( 'Your server does not have fsockopen or cURL enabled - PayPal IPN and other scripts which communicate with other servers will not work. Contact your hosting provider.', 'wp-hotelier' ) . '</span>';
+			$class = 'error';
+			$info = esc_html__( 'Your server does not have fsockopen or cURL enabled - PayPal IPN and other scripts which communicate with other servers will not work. Contact your hosting provider.', 'wp-hotelier' );
 		}
 
 		include HTL_PLUGIN_DIR . 'includes/admin/settings/views/fields/html-settings-field-server-info.php';
