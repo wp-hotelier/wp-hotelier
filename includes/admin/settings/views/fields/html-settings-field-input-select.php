@@ -13,12 +13,14 @@ if ( isset( $this->options[ $args[ 'id' ] ] ) ) {
 	$value = isset( $args[ 'std' ] ) ? $args[ 'std' ] : '';
 }
 
+$size = ( isset( $args[ 'size' ] ) && ! is_null( $args[ 'size' ] ) ) ? 'htl-ui-input--' . $args[ 'size' ] : '';
+
 ?>
 
 <?php ob_start(); ?>
 
 <div class="htl-ui-setting htl-ui-setting--select htl-ui-setting--<?php echo esc_attr( $args[ 'id' ] ); ?>">
-	<select class="htl-ui-input htl-ui-input--select" id="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>]" name="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>]">
+	<select class="<?php echo esc_attr( $size ); ?> htl-ui-input htl-ui-input--select" id="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>]" name="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>]">
 		<?php foreach ( $args[ 'options' ] as $option => $name ) : ?>
 			<?php $selected = selected( $option, $value, false ); ?>
 
