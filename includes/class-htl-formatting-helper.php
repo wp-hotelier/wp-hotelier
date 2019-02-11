@@ -51,6 +51,9 @@ class HTL_Formatting_Helper {
 			$amount *= -1;
 		}
 
+		// Amount can't be empty
+		$amount = $amount ? $amount : 0;
+
 		// Here we have a sanitized amount with . as a decimal separator
 		// Store it as integer - e.g. 100.50 and 100.5 become 10050
 		$amount = $amount * 100;
