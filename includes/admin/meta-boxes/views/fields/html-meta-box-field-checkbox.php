@@ -12,7 +12,6 @@ global $thepostid, $post;
 $thepostid                = empty( $thepostid ) ? $post->ID : $thepostid;
 $field[ 'wrapper_class' ] = isset( $field[ 'wrapper_class' ] ) ? $field[ 'wrapper_class' ] : '';
 $field[ 'class' ]         = isset( $field[ 'class' ] ) ? $field[ 'class' ] : '';
-$field[ 'value' ]         = get_post_meta( $thepostid, $field[ 'id' ], true );
 $field[ 'name' ]          = isset( $field[ 'name' ] ) ? $field[ 'name' ] : $field[ 'id' ];
 $field[ 'label' ]         = isset( $field[ 'label' ] ) ? $field[ 'label' ] : '';
 
