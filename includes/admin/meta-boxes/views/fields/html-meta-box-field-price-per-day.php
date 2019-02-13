@@ -26,7 +26,7 @@ $locale_start_of_week = get_option( 'start_of_week' );
 
 ?>
 
-<div class="htl-ui-setting htl-ui-setting--metabox htl-ui-setting--price-per-day htl-ui-setting--<?php echo esc_attr( $field[ 'name' ] ); ?> <?php echo esc_attr( $field[ 'wrapper_class' ] ); ?> htl-ui-layout htl-ui-layout--two-columns">
+<div class="htl-ui-setting htl-ui-setting--metabox htl-ui-setting--price-per-day <?php echo esc_attr( $field[ 'wrapper_class' ] ); ?> htl-ui-layout htl-ui-layout--two-columns">
 
 	<div class="htl-ui-layout__column htl-ui-layout__column--left">
 		<h3 class="htl-ui-heading htl-ui-setting__title"><?php echo esc_html( $field[ 'label' ] ); ?></h3>

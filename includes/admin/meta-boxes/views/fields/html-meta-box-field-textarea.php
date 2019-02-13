@@ -29,7 +29,7 @@ if ( isset( $field[ 'value' ] ) && $field[ 'value' ] ) {
 
 ?>
 
-<div class="htl-ui-setting htl-ui-setting--metabox htl-ui-setting--textarea htl-ui-setting--<?php echo esc_attr( $field[ 'name' ] ); ?> <?php echo esc_attr( $field[ 'wrapper_class' ] ); ?> htl-ui-layout htl-ui-layout--two-columns">
+<div class="htl-ui-setting htl-ui-setting--metabox htl-ui-setting--textarea <?php echo esc_attr( $field[ 'wrapper_class' ] ); ?> htl-ui-layout htl-ui-layout--two-columns">
 
 	<div class="htl-ui-layout__column htl-ui-layout__column--left">
 		<h3 class="htl-ui-heading htl-ui-setting__title"><?php echo esc_html( $field[ 'label' ] ); ?></h3>
