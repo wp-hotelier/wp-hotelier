@@ -6,9 +6,6 @@ jQuery(function ($) {
 	var HTL_Room_Meta = {
 		init: function () {
 			this.show_meta();
-			this.sortable();
-			this.add_condition();
-			this.remove_condition();
 			this.show_errors();
 		},
 
@@ -52,104 +49,6 @@ jQuery(function ($) {
 				} else {
 					parent.next().hide();
 				}
-			});
-		},
-
-		sortable: function () {
-			$('.room-conditions').sortable({
-				items: 'tr',
-				handle: '.sort-conditions',
-				opacity: 0.65,
-				axis: 'y',
-				update: function () {
-					HTL_Room_Meta.update_conditions_keys($(this));
-				}
-			});
-		},
-
-		clone_condition: function (condition) {
-			var key = 1;
-			var highest = 1;
-
-			condition.parent().find('tr.room-condition').each(function () {
-				var current = $(this).data('key');
-
-				if (parseInt(current, 10) > highest) {
-					highest = current;
-				}
-			});
-
-			key = highest += 1;
-
-			var clone = condition.clone();
-
-			clone.attr('data-key', key);
-			clone.find('input').val('');
-			clone.find('input.condition-index').val(parseInt(key, 10));
-			clone.find('input').each(function () {
-				var input = $(this);
-				var name = input.attr('name');
-
-				if (name) {
-					name = name.replace(/\[(\d+)\](?!.*\[\d+\])/, '[' + parseInt(key, 10) + ']');
-					input.attr('name', name);
-				}
-			});
-
-			return clone;
-		},
-
-		add_condition: function () {
-			$('.room-advanced-settings').on('click', '.add-condition', function (e) {
-				e.preventDefault();
-
-				var button = $(this);
-				var condition = button.closest('table').find('tr.room-condition').last();
-				var clone = HTL_Room_Meta.clone_condition(condition);
-
-				clone.insertAfter(condition);
-			});
-		},
-
-		remove_condition: function () {
-			$('.room-advanced-settings').on('click', '.remove-condition', function (e) {
-				e.preventDefault();
-
-				var button = $(this);
-				var table = button.closest('table');
-				var condition = button.parent().parent();
-				var conditions = table.find('tr.room-condition');
-				var count = conditions.length;
-
-				if (count > 1) {
-					$('input', condition).val('');
-					condition.fadeOut('fast').remove();
-				} else {
-					$('input', condition).val('');
-				}
-
-				HTL_Room_Meta.update_conditions_keys(table);
-			});
-		},
-
-		update_conditions_keys: function (container) {
-			container.find('tr.room-condition').each(function (index) {
-				var row = $(this);
-				var i = index + 1;
-
-				row.attr('data-key', i);
-
-				row.find('input').each(function () {
-					var input = $(this);
-					var name = input.attr('name');
-
-					name = name.replace(/\[(\d+)\](?!.*\[\d+\])/, '[' + i + ']');
-					input.attr('name', name);
-
-					if (input.hasClass('condition-index')) {
-						input.val(i);
-					}
-				});
 			});
 		},
 
