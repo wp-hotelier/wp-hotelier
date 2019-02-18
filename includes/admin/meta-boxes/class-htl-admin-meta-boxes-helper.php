@@ -80,6 +80,23 @@ class HTL_Meta_Boxes_Helper {
 	public static function multi_text( $field ) {
 		include HTL_PLUGIN_DIR . 'includes/admin/meta-boxes/views/fields/html-meta-box-field-multi-text.php';
 	}
+
+	/**
+	 * Get the value of a field inside a variation.
+	 */
+	public static function get_variation_field_value( $variations, $field_id, $index, $default = null ) {
+		$default = $default !== null ? $default : '';
+
+		if ( ! is_array( $variations ) || empty( $variations ) ) {
+			return $default;
+		}
+
+		if ( isset( $variations[ $index ][ $field_id ] ) ) {
+			return $variations[ $index ][ $field_id ];
+		}
+
+		return $default;
+	}
 }
 
 endif;
