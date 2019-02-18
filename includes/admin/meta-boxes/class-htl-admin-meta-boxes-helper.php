@@ -73,6 +73,13 @@ class HTL_Meta_Boxes_Helper {
 	public static function switch_input( $field ) {
 		include HTL_PLUGIN_DIR . 'includes/admin/meta-boxes/views/fields/html-meta-box-field-switch.php';
 	}
+
+	/**
+	 * Output room conditions field.
+	 */
+	public static function multi_text( $field ) {
+		include HTL_PLUGIN_DIR . 'includes/admin/meta-boxes/views/fields/html-meta-box-field-multi-text.php';
+	}
 }
 
 endif;
