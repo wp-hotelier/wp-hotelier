@@ -11,7 +11,7 @@ $rules = htl_get_option( 'seasonal_prices_schema', array() );
 ?>
 
 <div class="htl-ui-setting htl-ui-setting--seasonal-prices-table htl-ui-setting--<?php echo esc_attr( $args[ 'id' ] ); ?>">
-	<table id="hotelier-seasonal-schema-table" class="htl-ui-table htl-ui-table--sortable htl-ui-table--seasonal-prices">
+	<table id="hotelier-seasonal-schema-table" class="htl-ui-table htl-ui-table--sortable htl-ui-table--seasonal-prices" data-type="seasonal-prices">
 		<tbody class="htl-ui-table__body htl-ui-table__body--sortable">
 
 			<?php if ( ! empty( $rules ) ) : ?>
@@ -75,7 +75,7 @@ $rules = htl_get_option( 'seasonal_prices_schema', array() );
 		</tbody>
 
 		<tfoot class="htl-ui-table__footer htl-ui-table__footer--sortable">
-			<tr class="htl-ui-table__row htl-ui-table__row--sortable">
+			<tr class="htl-ui-table__row">
 				<td colspan="3" class="htl-ui-table__cell htl-ui-table__cell--add-row">
 					<button type="button" class="htl-ui-button htl-ui-button--add-row"><?php esc_html_e( 'Add new rule', 'wp-hotelier' ); ?></button>
 				</td>
