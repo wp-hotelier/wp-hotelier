@@ -322,7 +322,11 @@ class HTL_Admin_Meta_Boxes {
 
 					foreach ( $keys as $key => $validation ) {
 						if ( isset( $variations[ $id ][ $key ] ) ) {
-							$variations[ $id ][ $key ] = call_user_func( array( $this, 'sanitize_' . $validation ), $variations[ $id ][ $key ] );
+							if ( method_exists( $this, 'sanitize_' . $validation ) && is_callable( array( $this, 'sanitize_' . $validation ) ) ) {
+								$variations[ $id ][ $key ] = call_user_func( array( $this, 'sanitize_' . $validation ), $variations[ $id ][ $key ] );
+							} else {
+								$variations[ $id ][ $key ] = $variations[ $id ][ $key ];
+							}
 						}
 					}
 
