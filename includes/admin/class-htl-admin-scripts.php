@@ -90,6 +90,7 @@ class HTL_Admin_Scripts {
 
 		wp_register_script( 'htl-admin-settings', HTL_PLUGIN_URL . 'assets/js/admin/settings' . $suffix . '.js', array( 'jquery' ), HTL_VERSION );
 		wp_register_script( 'htl-admin-meta-boxes', HTL_PLUGIN_URL . 'assets/js/admin/meta-boxes' . $suffix . '.js', array( 'jquery', 'jquery-ui-sortable', 'jquery-tipsy' ), HTL_VERSION );
+		wp_register_script( 'htl-admin-fields', HTL_PLUGIN_URL . 'assets/js/admin/fields' . $suffix . '.js', array( 'jquery', 'jquery-ui-sortable' ), HTL_VERSION );
 		wp_register_script( 'jquery-tipsy', HTL_PLUGIN_URL . 'assets/js/lib/jquery-tipsy/jquery-tipsy' . $suffix . '.js', array( 'jquery' ), HTL_VERSION );
 
 		// Admin settings
@@ -118,6 +119,11 @@ class HTL_Admin_Scripts {
 			wp_localize_script( 'htl-admin-room-meta-boxes', 'room_params', $room_params );
 
 			wp_enqueue_script( 'htl-admin-room-meta-boxes' );
+		}
+
+		// Admin settings and room meta boxes
+		if ( $screen->id == 'toplevel_page_hotelier-settings' || in_array( $screen->id, array( 'room', 'edit-room' ) ) ) {
+			wp_enqueue_script( 'htl-admin-fields' );
 		}
 
 		// Reservation meta boxes
