@@ -47,10 +47,12 @@ class HTL_Admin_Meta_Boxes {
 		add_filter( 'hotelier_meta_box_save_textarea', array( $this, 'sanitize_textarea' ) );
 		add_filter( 'hotelier_meta_box_save_number', array( $this, 'sanitize_number' ) );
 		add_filter( 'hotelier_meta_box_save_select', array( $this, 'sanitize_select' ) );
+		add_filter( 'hotelier_meta_box_save_select', array( $this, 'sanitize_checkbox' ) );
 		add_filter( 'hotelier_meta_box_save_price', array( $this, 'sanitize_price' ) );
 		add_filter( 'hotelier_meta_box_save_price_per_day', array( $this, 'sanitize_price_per_day' ) );
+		add_filter( 'hotelier_meta_box_save_switch', array( $this, 'sanitize_switch' ) );
 		add_filter( 'hotelier_meta_box_save_seasonal_price', array( $this, 'sanitize_seasonal_price' ) );
-		add_filter( 'hotelier_meta_box_save_room_conditions', array( $this, 'sanitize_room_conditions' ) );
+		add_filter( 'hotelier_meta_box_save_multi_text', array( $this, 'sanitize_multi_text' ) );
 		add_filter( 'hotelier_meta_box_save_room_variations', array( $this, 'sanitize_room_variations' ) );
 
 		$this->includes();
@@ -90,7 +92,7 @@ class HTL_Admin_Meta_Boxes {
 			'_require_deposit'         => 'checkbox',
 			'_deposit_amount'          => 'select',
 			'_non_cancellable'         => 'checkbox',
-			'_room_conditions'         => 'room_conditions',
+			'_room_conditions'         => 'multi_text',
 			'_room_variations'         => 'room_variations',
 			'_room_image_gallery'      => 'text',
 			'_room_additional_details' => 'textarea',
@@ -217,6 +219,13 @@ class HTL_Admin_Meta_Boxes {
 	}
 
 	/**
+	 * Sanitize checkbox input
+	 */
+	public function sanitize_checkbox( $data ) {
+		return $data ? true : false;
+	}
+
+	/**
 	 * Sanitize price amount
 	 */
 	public function sanitize_price( $price ) {
@@ -244,6 +253,13 @@ class HTL_Admin_Meta_Boxes {
 	}
 
 	/**
+	 * Sanitize switch input
+	 */
+	public function sanitize_switch( $data ) {
+		return sanitize_key( $data );
+	}
+
+	/**
 	 * Sanitize seasonal price
 	 */
 	public function sanitize_seasonal_price( $prices ) {
@@ -257,32 +273,32 @@ class HTL_Admin_Meta_Boxes {
 	}
 
 	/**
-	 * Sanitize room conditions
+	 * Sanitize multi text field
 	 */
-	public function sanitize_room_conditions( $conditions ) {
-		if ( is_array( $conditions ) ) {
-			$count = count( $conditions );
+	public function sanitize_multi_text( $values ) {
+		if ( is_array( $values ) ) {
+			$count = count( $values );
 
-			// ensures conditions are correctly mapped to an array starting with an index of 1
-			uasort( $conditions, function( $a, $b ) {
+			// ensures values are correctly mapped to an array starting with an index of 1
+			uasort( $values, function( $a, $b ) {
 				return $a[ 'index' ] - $b[ 'index' ];
 			});
 
-			$conditions = array_combine( range( 1, count( $conditions ) ), array_values( $conditions ) );
+			$values = array_combine( range( 1, count( $values ) ), array_values( $values ) );
 
-			foreach ( $conditions as $id => $condition ) {
-				if ( empty( $condition[ 'name' ] ) && ( $count > 1 ) ) {
-					unset( $conditions[ $id ] );
+			foreach ( $values as $id => $value ) {
+				if ( empty( $value[ 'name' ] ) && ( $count > 1 ) ) {
+					unset( $values[ $id ] );
 					$count --;
 					continue;
 				}
 
-				$conditions[ $id ][ 'name' ] = $this->sanitize_text( $condition[ 'name' ] );
+				$values[ $id ][ 'name' ] = $this->sanitize_text( $value[ 'name' ] );
 			}
 
 		}
 
-		return array_combine( range( 1, count( $conditions ) ), array_values( $conditions ) );
+		return array_combine( range( 1, count( $values ) ), array_values( $values ) );
 	}
 
 	/**
