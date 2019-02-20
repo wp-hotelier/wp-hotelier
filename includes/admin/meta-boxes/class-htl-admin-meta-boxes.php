@@ -331,7 +331,7 @@ class HTL_Admin_Meta_Boxes {
 						'sale_price_day'      => 'price_per_day',
 						'seasonal_base_price' => 'price',
 						'seasonal_price'      => 'seasonal_price',
-						'room_conditions'     => 'room_conditions',
+						'room_conditions'     => 'multi_text',
 						'room_rate'           => 'select',
 						'deposit_amount'      => 'select',
 					) );
