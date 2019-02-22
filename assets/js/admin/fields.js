@@ -129,15 +129,36 @@ jQuery(function ($) {
 		}
 	};
 
+	var HTL_Consitional_Fields = {
+		init: function () {
+			var switches = $('.conditional-switch');
+			var inputs = switches.find('input');
+
+			switches.each(function () {
+				var _this = $(this);
+				var show_val = _this.attr('data-show-if');
+				var show_element = _this.attr('data-show-element');
+				var dom_show_element = $('.htl-ui-setting-conditional--' + show_element);
+				var selected_val = _this.find('input:checked').val();
+				var inputs = _this.find('input');
+
+				if (selected_val !== show_val) {
+					dom_show_element.hide();
+				}
+
+				inputs.on('click', function () {
+					if ($(this).val() === show_val) {
+						dom_show_element.show();
+					} else {
+						dom_show_element.hide();
+					}
+				});
+			});
+		}
+	};
+
 	$(document).ready(function () {
 		HTL_Field_Multi_Text.init();
-		// $('table.htl-ui-table--sortable').on('htl_multi_text_after_add_row', function (e) {
-		// 	console.log(e);
-		// });
-
-		// $('table.htl-ui-table--sortable').on('htl_multi_text_before_clone_row', function (e) {
-		// 	console.log(e);
-		// 	console.log(e.row);
-		// });
+		HTL_Consitional_Fields.init();
 	});
 });

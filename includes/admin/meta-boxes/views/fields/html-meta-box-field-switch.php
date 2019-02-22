@@ -14,6 +14,12 @@ $field[ 'wrapper_class' ] = isset( $field[ 'wrapper_class' ] ) ? $field[ 'wrappe
 $field[ 'class' ]         = isset( $field[ 'class' ] ) ? $field[ 'class' ] : '';
 $field[ 'name' ]          = isset( $field[ 'name' ] ) ? $field[ 'name' ] : $field[ 'id' ];
 $field[ 'label' ]         = isset( $field[ 'label' ] ) ? $field[ 'label' ] : '';
+$field[ 'show-if' ]       = isset( $field[ 'show-if' ] ) ? $field[ 'show-if' ] : false;
+$field[ 'show-element' ]  = isset( $field[ 'show-element' ] ) ? $field[ 'show-element' ] : '';
+
+if ( $field[ 'show-if' ] && $field[ 'show-element' ] ) {
+	$field[ 'class' ] .= ' conditional-switch';
+}
 
 // Set field value
 if ( isset( $field[ 'value' ] ) && $field[ 'value' ] ) {
@@ -43,7 +49,7 @@ if ( isset( $field[ 'value' ] ) && $field[ 'value' ] ) {
 	</div>
 
 	<div class="htl-ui-layout__column htl-ui-layout__column--right">
-		<div class="<?php echo esc_attr( $field[ 'class' ] ); ?> htl-ui-input htl-ui-input--switch htl-ui-switch">
+		<div class="<?php echo esc_attr( $field[ 'class' ] ); ?> htl-ui-input htl-ui-input--switch htl-ui-switch" <?php echo $field[ 'show-if' ] ? 'data-show-if="' . esc_attr( $field[ 'show-if' ] ) . '"' : ''; ?> <?php echo $field[ 'show-element' ] ? 'data-show-element="' . esc_attr( $field[ 'show-element' ] ) . '"' : ''; ?>>
 			<?php foreach ( $field[ 'options' ] as $key => $value ) : ?>
 				<?php
 				$input_id = $field[ 'name' ] . rand();
