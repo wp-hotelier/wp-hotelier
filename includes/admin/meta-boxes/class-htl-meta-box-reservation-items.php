@@ -31,7 +31,7 @@ class HTL_Meta_Box_Reservation_Items {
 
 		$reservation = $thereservation;
 
-		include( 'views/html-meta-box-reservation-items.php' );
+		include HTL_PLUGIN_DIR . 'includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php';
 	}
 }
 

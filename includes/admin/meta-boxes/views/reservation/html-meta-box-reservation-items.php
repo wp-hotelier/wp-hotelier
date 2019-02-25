@@ -32,7 +32,7 @@ $line_items = $reservation->get_items();
 				$_room     = $reservation->get_room_from_item( $item );
 				$item_meta = $reservation->get_item_meta( $item_id );
 
-				include( 'html-meta-box-reservation-single-item.php' );
+				include HTL_PLUGIN_DIR . 'includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-single-item.php';
 
 				// do_action( 'hotelier_reservation_item_html', $item_id, $item, $reservation );
 			}
