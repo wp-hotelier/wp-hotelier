@@ -129,7 +129,7 @@ jQuery(function ($) {
 		}
 	};
 
-	var HTL_Consitional_Fields = {
+	var HTL_Conditional_Fields = {
 		init: function () {
 			var switches = $('.conditional-switch');
 			var inputs = switches.find('input');
@@ -159,6 +159,6 @@ jQuery(function ($) {
 
 	$(document).ready(function () {
 		HTL_Field_Multi_Text.init();
-		HTL_Consitional_Fields.init();
+		HTL_Conditional_Fields.init();
 	});
 });
