@@ -14,7 +14,7 @@ $field[ 'wrapper_class' ] = isset( $field[ 'wrapper_class' ] ) ? $field[ 'wrappe
 $field[ 'class' ]         = isset( $field[ 'class' ] ) ? $field[ 'class' ] : '';
 $field[ 'name' ]          = isset( $field[ 'name' ] ) ? $field[ 'name' ] : $field[ 'id' ];
 $field[ 'label' ]         = isset( $field[ 'label' ] ) ? $field[ 'label' ] : '';
-$field[ 'placeholder' ]   = isset( $field[ 'placeholder' ] ) ? $field[ 'placeholder' ] : '';
+$field[ 'placeholder' ]   = isset( $field[ 'placeholder' ] ) ? $field[ 'placeholder' ] : HTL_Meta_Box_Room_Settings::get_price_placeholder();
 
 // Set field value
 if ( isset( $field[ 'value' ] ) && $field[ 'value' ] ) {
