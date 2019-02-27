@@ -131,14 +131,19 @@ jQuery(function ($) {
 
 	var HTL_Conditional_Fields = {
 		init: function () {
-			var switches = $('.conditional-switch');
+			this.show_if_switches();
+			this.conditional_switches();
+		},
+
+		show_if_switches: function () {
+			var switches = $('.show-if-switch');
 			var inputs = switches.find('input');
 
 			switches.each(function () {
 				var _this = $(this);
 				var show_val = _this.attr('data-show-if');
 				var show_element = _this.attr('data-show-element');
-				var dom_show_element = $('.htl-ui-setting-conditional--' + show_element);
+				var dom_show_element = $('.htl-ui-setting-conditional[data-type=' + show_element + ']');
 				var selected_val = _this.find('input:checked').val();
 				var inputs = _this.find('input');
 
@@ -152,6 +157,42 @@ jQuery(function ($) {
 					} else {
 						dom_show_element.hide();
 					}
+				});
+			});
+		},
+
+		conditional_switches: function () {
+			var switches = $('.conditional-switch');
+			var inputs = switches.find('input');
+
+			switches.each(function () {
+				var _this = $(this);
+				var conditional_selector = _this.attr('data-conditional-selector');
+				var conditional_elements = $('.htl-ui-setting-conditional--' + conditional_selector);
+				var selected_val = _this.find('input:checked').val();
+
+				conditional_elements.hide();
+
+				conditional_elements.each(function (i, el) {
+					var element = $(el);
+
+					if (element.data('type') === selected_val) {
+						element.show();
+					}
+				});
+
+				inputs.on('click', function () {
+					var input_val = $(this).val();
+
+					conditional_elements.each(function (i, el) {
+						var element = $(el);
+
+						if (element.data('type') === input_val) {
+							element.show();
+						} else {
+							element.hide();
+						}
+					});
 				});
 			});
 		}

@@ -9,15 +9,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $thepostid, $post;
 
-$thepostid                = empty( $thepostid ) ? $post->ID : $thepostid;
-$field[ 'wrapper_class' ] = isset( $field[ 'wrapper_class' ] ) ? $field[ 'wrapper_class' ] : '';
-$field[ 'class' ]         = isset( $field[ 'class' ] ) ? $field[ 'class' ] : '';
-$field[ 'name' ]          = isset( $field[ 'name' ] ) ? $field[ 'name' ] : $field[ 'id' ];
-$field[ 'label' ]         = isset( $field[ 'label' ] ) ? $field[ 'label' ] : '';
-$field[ 'show-if' ]       = isset( $field[ 'show-if' ] ) ? $field[ 'show-if' ] : false;
-$field[ 'show-element' ]  = isset( $field[ 'show-element' ] ) ? $field[ 'show-element' ] : '';
+$thepostid                       = empty( $thepostid ) ? $post->ID : $thepostid;
+$field[ 'wrapper_class' ]        = isset( $field[ 'wrapper_class' ] ) ? $field[ 'wrapper_class' ] : '';
+$field[ 'class' ]                = isset( $field[ 'class' ] ) ? $field[ 'class' ] : '';
+$field[ 'name' ]                 = isset( $field[ 'name' ] ) ? $field[ 'name' ] : $field[ 'id' ];
+$field[ 'label' ]                = isset( $field[ 'label' ] ) ? $field[ 'label' ] : '';
+$field[ 'show-if' ]              = isset( $field[ 'show-if' ] ) ? $field[ 'show-if' ] : false;
+$field[ 'show-element' ]         = isset( $field[ 'show-element' ] ) ? $field[ 'show-element' ] : '';
+$field[ 'conditional' ]          = isset( $field[ 'conditional' ] ) ? $field[ 'conditional' ] : false;
+$field[ 'conditional-selector' ] = isset( $field[ 'conditional-selector' ] ) ? $field[ 'conditional-selector' ] : '';
 
-if ( $field[ 'show-if' ] && $field[ 'show-element' ] ) {
+
+if ( ! $field[ 'conditional' ] && $field[ 'show-if' ] && $field[ 'show-element' ] ) {
+	$field[ 'class' ] .= ' show-if-switch';
+}
+
+if ( ! $field[ 'show-if' ] && $field[ 'conditional' ] && $field[ 'conditional-selector' ] ) {
 	$field[ 'class' ] .= ' conditional-switch';
 }
 
@@ -49,7 +56,7 @@ if ( isset( $field[ 'value' ] ) && $field[ 'value' ] ) {
 	</div>
 
 	<div class="htl-ui-layout__column htl-ui-layout__column--right">
-		<div class="<?php echo esc_attr( $field[ 'class' ] ); ?> htl-ui-input htl-ui-input--switch htl-ui-switch" <?php echo $field[ 'show-if' ] ? 'data-show-if="' . esc_attr( $field[ 'show-if' ] ) . '"' : ''; ?> <?php echo $field[ 'show-element' ] ? 'data-show-element="' . esc_attr( $field[ 'show-element' ] ) . '"' : ''; ?>>
+		<div class="<?php echo esc_attr( $field[ 'class' ] ); ?> htl-ui-input htl-ui-input--switch htl-ui-switch" <?php echo $field[ 'show-if' ] && ! $field[ 'conditional' ] ? 'data-show-if="' . esc_attr( $field[ 'show-if' ] ) . '"' : ''; ?> <?php echo $field[ 'show-element' ] && ! $field[ 'conditional' ] ? 'data-show-element="' . esc_attr( $field[ 'show-element' ] ) . '"' : ''; ?> <?php echo $field[ 'conditional-selector' ] && ! $field[ 'show-if' ] ? 'data-conditional-selector="' . esc_attr( $field[ 'conditional-selector' ] ) . '"' : ''; ?>>
 			<?php foreach ( $field[ 'options' ] as $key => $value ) : ?>
 				<?php
 				$input_id = $field[ 'name' ] . rand();
