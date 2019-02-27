@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin/Meta Boxes
- * @version  1.2.0
+ * @version  2.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -81,7 +81,7 @@ class HTL_Admin_Meta_Boxes {
 			'_bed_size'                => 'text',
 			'_room_size'               => 'text',
 			'_stock_rooms'             => 'select',
-			'_room_type'               => 'select',
+			'_room_type'               => 'switch',
 			'_price_type'              => 'select',
 			'_regular_price'           => 'price',
 			'_sale_price'              => 'price',
