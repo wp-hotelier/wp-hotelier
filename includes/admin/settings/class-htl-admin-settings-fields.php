@@ -702,9 +702,13 @@ class HTL_Admin_Settings_Fields {
 					);
 				}
 			}
+
+			if ( count( $rules ) > 0 ) {
+				return array_combine( range( 1, count( $rules ) ), array_values( $rules ) );
+			}
 		}
 
-		return array_combine( range( 1, count( $rules ) ), array_values( $rules ) );
+		return array();
 	}
 
 	/**
