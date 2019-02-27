@@ -530,7 +530,7 @@ class HTL_Admin_Settings_Default {
 					),
 					'seasonal_prices_description' => array(
 						'id'   => 'seasonal_prices_description',
-						'desc' => __( 'Define here your global price schema, adding one rate for each date range. Rooms will have a default price (used when no rules are found) and a specific price for each season. To use this schema edit a room, select <em>Seasonal prices</em> in the <em>Price</em> dropdown, and enter the price amount of each season.', 'wp-hotelier' ),
+						'desc' => __( 'Define here your global price schema, adding one rate for each date range. Rooms will have a default price (used when no rules are found) and a specific price for each season. To use this schema edit a room, select <em>Seasonal prices</em> as your <em>Price type</em> and enter the price amount of each season.', 'wp-hotelier' ),
 						'type' => 'description'
 					),
 					'seasonal_prices_schema' => array(
