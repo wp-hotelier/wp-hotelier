@@ -34,6 +34,7 @@ class HTL_Admin {
 		include_once( 'settings/class-htl-admin-settings.php' );
 		include_once( 'class-htl-admin-functions.php' );
 		include_once( 'meta-boxes/class-htl-admin-meta-boxes-helper.php' );
+		include_once( 'meta-boxes/class-htl-admin-meta-boxes-views.php' );
 		include_once( 'class-htl-admin-post-types.php' );
 		include_once( 'class-htl-admin-menus.php' );
 		include_once( 'class-htl-admin-scripts.php' );
