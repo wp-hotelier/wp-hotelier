@@ -958,7 +958,7 @@ class HTL_Room {
 	public function needs_deposit() {
 		$require_deposit = $this->require_deposit;
 
-		return $require_deposit ? $require_deposit : false;
+		return $require_deposit && $require_deposit !== 'no' ? true : false;
 	}
 
 	/**
