@@ -16,7 +16,7 @@ $schema_price_input_name  = $settings[ 'schema_price_input_name' ] ? $settings[ 
 $schema_price_value       = $settings[ 'schema_price_value' ] ? $settings[ 'schema_price_value' ] : array();
 $seasonal_prices_schema   = htl_get_seasonal_prices_schema();
 
-$seasonal_price_notice = $seasonal_prices_schema ? sprintf( wp_kses( __( 'When the seasonal price is activated the system will calculate the final price using the date ranges defined on your seasonal schema. You can change your schema every time <a href="%1$s">here</a>.', 'wp-hotelier' ), array( 'a' => array( 'href' => array() ) ) ), 'admin.php?page=hotelier-settings&tab=seasonal-prices' ) : sprintf( wp_kses( __( 'There are no seasonal ranges defined. Add some date ranges <a href="%1$s">here</a> and then edit again this room to define your price system.', 'wp-hotelier' ), array( 'a' => array( 'href' => array() ) ) ), 'admin.php?page=hotelier-settings&tab=seasonal-prices' );
+$seasonal_price_notice = $seasonal_prices_schema ? sprintf( wp_kses( __( 'When the seasonal price is activated the system will calculate the final price using the date ranges defined on your seasonal schema. You can change your schema whenever you want <a href="%1$s">here</a>.', 'wp-hotelier' ), array( 'a' => array( 'href' => array() ) ) ), 'admin.php?page=hotelier-settings&tab=seasonal-prices' ) : sprintf( wp_kses( __( 'There are no seasonal ranges defined. Add some date ranges <a href="%1$s">here</a> and then edit again this room to define your price system.', 'wp-hotelier' ), array( 'a' => array( 'href' => array() ) ) ), 'admin.php?page=hotelier-settings&tab=seasonal-prices' );
 
 htl_ui_print_notice( $seasonal_price_notice );
 
