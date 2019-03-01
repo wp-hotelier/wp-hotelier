@@ -549,7 +549,7 @@ class HTL_Room_Variation {
 	 * @return bool
 	 */
 	public function is_cancellable() {
-		$non_cancellable = isset( $this->variation[ 'non_cancellable' ] ) ? false : true;
+		$non_cancellable = isset( $this->variation[ 'non_cancellable' ] ) && $this->variation[ 'non_cancellable' ] !== 'no' ? false : true;
 
 		return $non_cancellable;
 	}

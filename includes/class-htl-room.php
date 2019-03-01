@@ -1078,7 +1078,7 @@ class HTL_Room {
 	public function is_cancellable() {
 		$non_cancellable = $this->non_cancellable;
 
-		return $non_cancellable ? false : true;
+		return $non_cancellable && $non_cancellable !== 'no' ? false : true;
 	}
 }
 
