@@ -128,7 +128,7 @@ jQuery(function ($) {
 				e.row.find('.htl-ui-input--end-date').datepicker('destroy').removeAttr('id');
 			});
 
-			$('#hotelier-seasonal-schema-table').on('htl_multi_text_after_add_row', function (e) {
+			$('#hotelier-seasonal-schema-table').on('htl_multi_text_after_add_row', function () {
 				// Init datepicker again
 				HTL_Settings.seasonal_dates_datepicker();
 			});
