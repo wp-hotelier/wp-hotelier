@@ -137,13 +137,13 @@ jQuery(function ($) {
 
 		show_if_switches: function () {
 			var switches = $('.show-if-switch');
-			var inputs = switches.find('input');
 
 			switches.each(function () {
 				var _this = $(this);
+				var parent = _this.closest('.htl-ui-settings-wrap');
 				var show_val = _this.attr('data-show-if');
 				var show_element = _this.attr('data-show-element');
-				var dom_show_element = $('.htl-ui-setting-conditional[data-type=' + show_element + ']');
+				var dom_show_element = parent.find('.htl-ui-setting-conditional[data-type=' + show_element + ']');
 				var selected_val = _this.find('input:checked').val();
 				var inputs = _this.find('input');
 
@@ -163,12 +163,13 @@ jQuery(function ($) {
 
 		conditional_switches: function () {
 			var switches = $('.conditional-switch');
-			var inputs = switches.find('input');
 
 			switches.each(function () {
 				var _this = $(this);
+				var parent = _this.closest('.htl-ui-settings-wrap');
+				var inputs = _this.find('input');
 				var conditional_selector = _this.attr('data-conditional-selector');
-				var conditional_elements = $('.htl-ui-setting-conditional--' + conditional_selector);
+				var conditional_elements = parent.find('.htl-ui-setting-conditional--' + conditional_selector);
 				var selected_val = _this.find('input:checked').val();
 
 				conditional_elements.hide();
