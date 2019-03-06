@@ -76,26 +76,27 @@ class HTL_Admin_Meta_Boxes {
 	 */
 	private function list_room_meta_boxes() {
 		$fields = array(
-			'_max_guests'              => 'select',
-			'_max_children'            => 'select',
-			'_bed_size'                => 'text',
-			'_room_size'               => 'text',
-			'_stock_rooms'             => 'select',
 			'_room_type'               => 'switch',
-			'_price_type'              => 'select',
+			'_max_guests'              => 'number',
+			'_max_children'            => 'number',
+			'_bed_size'                => 'text',
+			'_room_size'               => 'number',
+			'_stock_rooms'             => 'number',
+			'_show_extra_settings'     => 'switch',
+			'_room_additional_details' => 'textarea',
+			'_price_type'              => 'switch',
 			'_regular_price'           => 'price',
 			'_sale_price'              => 'price',
 			'_regular_price_day'       => 'price_per_day',
 			'_sale_price_day'          => 'price_per_day',
 			'_seasonal_base_price'     => 'price',
 			'_seasonal_price'          => 'seasonal_price',
-			'_require_deposit'         => 'checkbox',
+			'_require_deposit'         => 'switch',
 			'_deposit_amount'          => 'select',
-			'_non_cancellable'         => 'checkbox',
+			'_non_cancellable'         => 'switch',
 			'_room_conditions'         => 'multi_text',
 			'_room_variations'         => 'room_variations',
 			'_room_image_gallery'      => 'text',
-			'_room_additional_details' => 'textarea',
 		);
 
 		$this->room_meta_boxes = apply_filters( 'hotelier_room_meta_boxes', $fields );
@@ -324,16 +325,18 @@ class HTL_Admin_Meta_Boxes {
 
 				foreach ( $variations as $id => $variation ) {
 					$keys = apply_filters( 'hotelier_room_variation_keys', array(
-						'price_type'          => 'select',
+						'room_rate'           => 'select',
+						'price_type'          => 'switch',
 						'regular_price'       => 'price',
 						'sale_price'          => 'price',
 						'price_day'           => 'price_per_day',
 						'sale_price_day'      => 'price_per_day',
 						'seasonal_base_price' => 'price',
 						'seasonal_price'      => 'seasonal_price',
-						'room_conditions'     => 'multi_text',
-						'room_rate'           => 'select',
+						'require_deposit'     => 'switch',
 						'deposit_amount'      => 'select',
+						'non_cancellable'     => 'switch',
+						'room_conditions'     => 'multi_text',
 					) );
 
 					foreach ( $keys as $key => $validation ) {
