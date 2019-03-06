@@ -24,6 +24,13 @@ class HTL_Meta_Boxes_Views {
 	public static function seasonal_price( $settings ) {
 		include HTL_PLUGIN_DIR . 'includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-seasonal-price.php';
 	}
+
+	/**
+	 * Variations toolbar view.
+	 */
+	public static function variations_toolbar( $position ) {
+		include HTL_PLUGIN_DIR . 'includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variations-toolbar.php';
+	}
 }
 
 endif;
