@@ -256,7 +256,7 @@ class HTL_Admin_Meta_Boxes {
 	 * Sanitize switch input
 	 */
 	public function sanitize_switch( $data ) {
-		return sanitize_key( $data );
+		return sanitize_text_field( $data );
 	}
 
 	/**
