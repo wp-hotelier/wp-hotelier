@@ -155,8 +155,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	HTL_Meta_Boxes_Helper::multi_text(
 		array(
-			'name'    => '_room_variations[' . absint( $loop ) . '][room_conditions]',
-			'value'   => HTL_Meta_Boxes_Helper::get_variation_field_value( $variations, 'room_conditions', $loop ),
+			'name'         => '_room_variations[' . absint( $loop ) . '][room_conditions]',
+			'value'        => HTL_Meta_Boxes_Helper::get_variation_field_value( $variations, 'room_conditions', $loop ),
 			'label'        => esc_html__( 'Conditions:', 'wp-hotelier' ),
 			'placeholder'  => esc_html__( 'Special condition here', 'wp-hotelier' ),
 			'button_label' => esc_html__( 'Add new condition', 'wp-hotelier' ),
