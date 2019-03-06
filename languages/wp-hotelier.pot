@@ -1,4 +1,4 @@
-# Copyright (C) 2018 Easy WP Hotelier
+# Copyright (C) 2019 Easy WP Hotelier
 # This file is distributed under the same license as the Easy WP Hotelier package.
 msgid ""
 msgstr ""
