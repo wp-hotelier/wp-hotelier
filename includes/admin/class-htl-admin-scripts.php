@@ -89,7 +89,6 @@ class HTL_Admin_Scripts {
 		// Register scripts
 
 		wp_register_script( 'htl-admin-settings', HTL_PLUGIN_URL . 'assets/js/admin/settings' . $suffix . '.js', array( 'jquery' ), HTL_VERSION );
-		wp_register_script( 'htl-admin-meta-boxes', HTL_PLUGIN_URL . 'assets/js/admin/meta-boxes' . $suffix . '.js', array( 'jquery', 'jquery-ui-sortable', 'jquery-tipsy' ), HTL_VERSION );
 		wp_register_script( 'htl-admin-fields', HTL_PLUGIN_URL . 'assets/js/admin/fields' . $suffix . '.js', array( 'jquery', 'jquery-ui-sortable' ), HTL_VERSION );
 		wp_register_script( 'jquery-tipsy', HTL_PLUGIN_URL . 'assets/js/lib/jquery-tipsy/jquery-tipsy' . $suffix . '.js', array( 'jquery' ), HTL_VERSION );
 
@@ -114,7 +113,7 @@ class HTL_Admin_Scripts {
 				'decimal_point'                     => htl_get_price_decimal_separator()
 			);
 
-			wp_register_script( 'htl-admin-room-meta-boxes', HTL_PLUGIN_URL . 'assets/js/admin/meta-boxes-room' . $suffix . '.js', array( 'htl-admin-meta-boxes', 'accounting' ), HTL_VERSION );
+			wp_register_script( 'htl-admin-room-meta-boxes', HTL_PLUGIN_URL . 'assets/js/admin/meta-boxes-room' . $suffix . '.js', array( 'accounting' ), HTL_VERSION );
 
 			wp_localize_script( 'htl-admin-room-meta-boxes', 'room_params', $room_params );
 
@@ -132,7 +131,7 @@ class HTL_Admin_Scripts {
 				'i18n_do_remain_deposit_charge' => esc_html__( 'Are you sure you wish to proceed with this charge? This action cannot be undone.', 'wp-hotelier' )
 			);
 
-			wp_enqueue_script( 'htl-admin-reservation-meta-boxes', HTL_PLUGIN_URL . 'assets/js/admin/meta-boxes-reservation' . $suffix . '.js', array( 'htl-admin-meta-boxes' ), HTL_VERSION );
+			wp_enqueue_script( 'htl-admin-reservation-meta-boxes', HTL_PLUGIN_URL . 'assets/js/admin/meta-boxes-reservation' . $suffix . '.js', array(), HTL_VERSION );
 
 			wp_localize_script( 'htl-admin-reservation-meta-boxes', 'reservation_meta_params', $reservation_params );
 		}
