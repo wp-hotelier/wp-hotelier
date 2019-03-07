@@ -28,5 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php endforeach; ?>
 
-	<div class="htl-ui-setting__description htl-ui-setting__description--radio"><?php echo wp_kses_post( $args[ 'desc' ] ); ?></div>
+	<?php if ( $args[ 'desc' ] ) : ?>
+		<div class="htl-ui-setting__description htl-ui-setting__description--radio"><?php echo wp_kses_post( $args[ 'desc' ] ); ?></div>
+	<?php endif; ?>
 </div>

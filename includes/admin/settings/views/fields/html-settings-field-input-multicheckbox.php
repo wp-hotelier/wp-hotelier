@@ -18,4 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<label class="htl-ui-label htl-ui-label--multicheckbox" for="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>][<?php echo esc_attr( $key ); ?>]"><?php echo wp_kses_post( $option ); ?></label>
 
 	<?php endforeach; ?>
+
+	<?php if ( $args[ 'desc' ] ) : ?>
+		<label class="htl-ui-label htl-ui-label--text htl-ui-setting__description htl-ui-setting__description--multicheckbox htl-ui-setting__description--<?php echo esc_attr( $args[ 'id' ] ); ?>"><?php echo wp_kses_post( $args[ 'desc' ] ); ?></label>
+	<?php endif; ?>
 </div>

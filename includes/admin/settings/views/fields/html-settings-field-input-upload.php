@@ -22,5 +22,7 @@ $size        = ( isset( $args[ 'size' ] ) && ! is_null( $args[ 'size' ] ) ) ? $a
 
 	<a href="#" class="htl-ui-button htl-ui-button--upload"><?php esc_html_e( 'Upload', 'wp-hotelier' ); ?></a>
 
-	<label class="htl-ui-label htl-ui-label--text htl-ui-setting__description htl-ui-setting__description--upload htl-ui-setting__description--<?php echo esc_attr( $args[ 'id' ] ); ?>"><?php echo wp_kses_post( $args[ 'desc' ] ); ?></label>
+	<?php if ( $args[ 'desc' ] ) : ?>
+		<label class="htl-ui-label htl-ui-label--text htl-ui-setting__description htl-ui-setting__description--upload htl-ui-setting__description--<?php echo esc_attr( $args[ 'id' ] ); ?>"><?php echo wp_kses_post( $args[ 'desc' ] ); ?></label>
+	<?php endif; ?>
 </div>

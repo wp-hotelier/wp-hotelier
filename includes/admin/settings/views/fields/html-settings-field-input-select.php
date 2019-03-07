@@ -29,7 +29,9 @@ $size = ( isset( $args[ 'size' ] ) && ! is_null( $args[ 'size' ] ) ) ? 'htl-ui-i
 
 	</select>
 
-	<label class="htl-ui-label htl-ui-label--text htl-ui-setting__description htl-ui-setting__description--select htl-ui-setting__description--<?php echo esc_attr( $args[ 'id' ] ); ?>"><?php echo wp_kses_post( $args[ 'desc' ] ); ?></label>
+	<?php if ( $args[ 'desc' ] ) : ?>
+		<label class="htl-ui-label htl-ui-label--text htl-ui-setting__description htl-ui-setting__description--select htl-ui-setting__description--<?php echo esc_attr( $args[ 'id' ] ); ?>"><?php echo wp_kses_post( $args[ 'desc' ] ); ?></label>
+	<?php endif; ?>
 </div>
 
 <?php
