@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<span class="htl-ui-icon htl-ui-icon--drag-variation"><?php esc_html_e( 'Drag variation', 'wp-hotelier' ); ?></span>
 
-		<span class="htl-ui-icon htl-ui-icon--collapse-variation"><?php esc_html_e( 'Collapse variation', 'wp-hotelier' ); ?></span>
+		<span class="htl-ui-icon htl-ui-icon--toggle-variation"><?php esc_html_e( 'Toggle variation', 'wp-hotelier' ); ?></span>
 	</div>
 
 	<input type="hidden" class="htl-ui-input htl-ui-input--hidden htl-ui-input--room-variation-index" name="_room_variations[<?php echo absint( $loop ); ?>][index]" value="<?php echo absint( $loop ); ?>">
