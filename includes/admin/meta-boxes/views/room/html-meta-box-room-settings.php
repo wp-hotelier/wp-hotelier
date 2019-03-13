@@ -302,13 +302,22 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 		if ( ! empty( $get_room_rates ) && ! is_wp_error( $get_room_rates ) ) : ?>
 
 			<div class="room-variations__list">
+
+				<div class="room-variation room-variation--placeholder htl-ui-settings-wrap" data-key="999999999999999999">
+
+					<?php HTL_Meta_Boxes_Views::variation_header( array(), $get_room_rates, 999999999999999999 ); ?>
+
+					<?php HTL_Meta_Boxes_Views::variation_content( array(), 999999999999999999 ); ?>
+
+				</div>
+
 				<?php
-				$variations            = maybe_unserialize( get_post_meta( $thepostid, '_room_variations', true ) );
-				$loop_lenght           = $variations ? count( $variations ) : 1;
+				$variations  = maybe_unserialize( get_post_meta( $thepostid, '_room_variations', true ) );
+				$loop_lenght = $variations ? count( $variations ) : 1;
 
 				for ( $loop = 1; $loop <= $loop_lenght; $loop++ ) : ?>
 
-					<div class="room-variation htl-ui-settings-wrap" data-key="<?php echo absint( $loop ); ?>">
+					<div class="room-variation room-variation--in-use htl-ui-settings-wrap" data-key="<?php echo absint( $loop ); ?>">
 
 						<?php HTL_Meta_Boxes_Views::variation_header( $variations, $get_room_rates, $loop ); ?>
 
