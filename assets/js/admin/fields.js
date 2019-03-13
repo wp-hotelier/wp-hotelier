@@ -63,7 +63,7 @@ jQuery(function ($) {
 		},
 
 		add_sortable_row: function () {
-			$('table.htl-ui-table--sortable').off().on('click', 'button.htl-ui-button--add-row', function (e) {
+			$('table.htl-ui-table--sortable').off('click', 'button.htl-ui-button--add-row').on('click', 'button.htl-ui-button--add-row', function (e) {
 				e.preventDefault();
 
 				var button = $(this);
