@@ -108,14 +108,13 @@ class HTL_Admin_Scripts {
 			wp_register_script( 'accounting', HTL_PLUGIN_URL . 'assets/js/lib/accounting/accounting' . $suffix . '.js', array( 'jquery' ), '0.4.2' );
 
 			$room_params = array(
-				'decimal_error'                => sprintf( esc_html__( 'Please enter in decimal (%s) format without thousand separators.', 'wp-hotelier' ), htl_get_price_decimal_separator() ),
-				'sale_less_than_regular_error'  => esc_html__( 'Please enter in a value less than the regular price.', 'wp-hotelier' ),
-				'decimal_point'                     => htl_get_price_decimal_separator()
+				'decimal_error' => sprintf( esc_html__( 'Please enter in decimal (%s) format without thousand separators.', 'wp-hotelier' ), htl_get_price_decimal_separator() ),
+				'decimal_point' => htl_get_price_decimal_separator()
 			);
 
 			wp_register_script( 'htl-admin-room-meta-boxes', HTL_PLUGIN_URL . 'assets/js/admin/meta-boxes-room' . $suffix . '.js', array( 'accounting' ), HTL_VERSION );
 
-			wp_localize_script( 'htl-admin-room-meta-boxes', 'room_params', $room_params );
+			wp_localize_script( 'htl-admin-room-meta-boxes', 'MetaBoxesRoomParameters', $room_params );
 
 			wp_enqueue_script( 'htl-admin-room-meta-boxes' );
 		}
