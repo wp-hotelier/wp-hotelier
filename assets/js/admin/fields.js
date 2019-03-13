@@ -1,9 +1,9 @@
 jQuery(function ($) {
 	'use strict';
-	/* global jQuery */
+	/* global jQuery, HTL_Field_Multi_Text, HTL_Conditional_Fields */
 	/* eslint-disable no-multi-assign */
 
-	var HTL_Field_Multi_Text = {
+	window.HTL_Field_Multi_Text = {
 		init: function () {
 			this.sortable();
 			this.add_sortable_row();
@@ -63,8 +63,9 @@ jQuery(function ($) {
 		},
 
 		add_sortable_row: function () {
-			$('table.htl-ui-table--sortable').on('click', 'button.htl-ui-button--add-row', function (e) {
+			$('table.htl-ui-table--sortable').off().on('click', 'button.htl-ui-button--add-row', function (e) {
 				e.preventDefault();
+				console.log('cloning');
 
 				var button = $(this);
 				var table = button.closest('table');
@@ -83,6 +84,7 @@ jQuery(function ($) {
 		remove_sortable_row: function () {
 			$('table.htl-ui-table--sortable').on('click', '.htl-ui-button--remove-row', function (e) {
 				e.preventDefault();
+				console.log('removing');
 
 				var button = $(this);
 				var table = button.closest('table');
@@ -129,7 +131,7 @@ jQuery(function ($) {
 		}
 	};
 
-	var HTL_Conditional_Fields = {
+	window.HTL_Conditional_Fields = {
 		init: function () {
 			this.show_if_switches();
 			this.conditional_switches();
