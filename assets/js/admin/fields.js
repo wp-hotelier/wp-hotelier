@@ -65,7 +65,6 @@ jQuery(function ($) {
 		add_sortable_row: function () {
 			$('table.htl-ui-table--sortable').off().on('click', 'button.htl-ui-button--add-row', function (e) {
 				e.preventDefault();
-				console.log('cloning');
 
 				var button = $(this);
 				var table = button.closest('table');
@@ -84,7 +83,6 @@ jQuery(function ($) {
 		remove_sortable_row: function () {
 			$('table.htl-ui-table--sortable').on('click', '.htl-ui-button--remove-row', function (e) {
 				e.preventDefault();
-				console.log('removing');
 
 				var button = $(this);
 				var table = button.closest('table');
