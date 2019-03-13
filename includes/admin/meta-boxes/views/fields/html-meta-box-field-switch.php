@@ -63,7 +63,7 @@ if ( isset( $field[ 'value' ] ) && $field[ 'value' ] ) {
 				$checked  = checked( $field_value, $key, false );
 				?>
 
-				<input id="<?php echo esc_attr( $input_id ); ?>" type="radio" class="htl-ui-input htl-ui-input--switch htl-ui-switch__input" name="<?php echo esc_attr( $field[ 'name' ] ); ?>" value="<?php echo esc_html( $key ); ?>" <?php echo $checked; ?>>
+				<input id="<?php echo esc_attr( $input_id ); ?>" type="radio" class="htl-ui-input htl-ui-input--switch htl-ui-switch__input htl-ui-switch__input--<?php echo esc_html( $key ); ?>" name="<?php echo esc_attr( $field[ 'name' ] ); ?>" value="<?php echo esc_html( $key ); ?>" <?php echo $checked; ?>>
 				<label class="htl-ui-label htl-ui-label--switch htl-ui-switch__label" for="<?php echo esc_attr( $input_id ); ?>"><?php echo esc_html( $value ); ?></label>
 			<?php endforeach; ?>
 		</div>
