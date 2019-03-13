@@ -112,7 +112,7 @@ class HTL_Admin_Scripts {
 				'decimal_point' => htl_get_price_decimal_separator()
 			);
 
-			wp_register_script( 'htl-admin-room-meta-boxes', HTL_PLUGIN_URL . 'assets/js/admin/meta-boxes-room' . $suffix . '.js', array( 'accounting' ), HTL_VERSION );
+			wp_register_script( 'htl-admin-room-meta-boxes', HTL_PLUGIN_URL . 'assets/js/admin/meta-boxes-room' . $suffix . '.js', array( 'accounting', 'jquery-ui-sortable' ), HTL_VERSION );
 
 			wp_localize_script( 'htl-admin-room-meta-boxes', 'MetaBoxesRoomParameters', $room_params );
 
