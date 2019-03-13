@@ -21,14 +21,15 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 		<?php
 		HTL_Meta_Boxes_Helper::switch_input(
 			array(
-				'id'      => '_room_type',
-				'value'   => get_post_meta( $thepostid, '_room_type', true ),
-				'label'   => esc_html__( 'Room type:', 'wp-hotelier' ),
-				'options' => array(
+				'id'            => '_room_type',
+				'value'         => get_post_meta( $thepostid, '_room_type', true ),
+				'label'         => esc_html__( 'Room type:', 'wp-hotelier' ),
+				'options'       => array(
 					'standard_room' => esc_html__( 'Standard room', 'wp-hotelier' ),
 					'variable_room' => esc_html__( 'Variable room', 'wp-hotelier' )
 				),
-				'std' => 'standard_room',
+				'std'           => 'standard_room',
+				'wrapper_class' => 'htl-ui-switch--room-type'
 			)
 		);
 
