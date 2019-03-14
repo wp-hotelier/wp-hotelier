@@ -316,6 +316,11 @@ class HTL_Admin_Meta_Boxes {
 
 			if ( is_array( $variations ) ) {
 
+				// Don't save placeholder variation
+				if ( array_key_exists( '999999999999999999', $variations ) ) {
+					unset( $variations[ 999999999999999999 ] );
+				}
+
 				// Ensures variations are correctly mapped to an array starting with an index of 1
 				uasort( $variations, function( $a, $b ) {
 					return $a[ 'index' ] - $b[ 'index' ];
