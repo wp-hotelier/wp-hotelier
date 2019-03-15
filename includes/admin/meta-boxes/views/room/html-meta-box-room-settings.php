@@ -93,8 +93,8 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 				'value'        => get_post_meta( $thepostid, '_show_extra_settings', true ),
 				'label'        => esc_html__( 'Show additional settings:', 'wp-hotelier' ),
 				'options'      => array(
-					'yes'          => esc_html__( 'Yes', 'wp-hotelier' ),
-					'no'           => esc_html__( 'No', 'wp-hotelier' ),
+					'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
+					'no'  => esc_html__( 'No', 'wp-hotelier' ),
 				),
 				'std'          => 'no',
 				'show-if'      => 'yes',
@@ -222,17 +222,18 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 			<?php
 			HTL_Meta_Boxes_Helper::switch_input(
 				array(
-					'id'           => '_require_deposit',
-					'value'        => get_post_meta( $thepostid, '_require_deposit', true ),
-					'label'        => esc_html__( 'Require deposit?', 'wp-hotelier' ),
-					'options'      => array(
-						'yes'          => esc_html__( 'Yes', 'wp-hotelier' ),
-						'no'           => esc_html__( 'No', 'wp-hotelier' ),
+					'id'                => '_require_deposit',
+					'value'             => get_post_meta( $thepostid, '_require_deposit', true ),
+					'label'             => esc_html__( 'Require deposit?', 'wp-hotelier' ),
+					'options'           => array(
+						'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
+						'no'  => esc_html__( 'No', 'wp-hotelier' ),
 					),
-					'std'          => 'no',
-					'show-if'      => 'yes',
-					'show-element' => 'deposit-settings',
-					'description'  => esc_html__( 'When enabled, a deposit is required at the time of booking.', 'wp-hotelier' )
+					'std'               => 'no',
+					'checkbox-fallback' => true,
+					'show-if'           => 'yes',
+					'show-element'      => 'deposit-settings',
+					'description'       => esc_html__( 'When enabled, a deposit is required at the time of booking.', 'wp-hotelier' )
 				)
 			);
 			?>
@@ -261,15 +262,16 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 		<?php
 		HTL_Meta_Boxes_Helper::switch_input(
 			array(
-				'id'           => '_non_cancellable',
-				'value'        => get_post_meta( $thepostid, '_non_cancellable', true ),
-				'label'        => esc_html__( 'Non cancellable?', 'wp-hotelier' ),
-				'options'      => array(
-					'yes'          => esc_html__( 'Yes', 'wp-hotelier' ),
-					'no'           => esc_html__( 'No', 'wp-hotelier' ),
+				'id'                => '_non_cancellable',
+				'value'             => get_post_meta( $thepostid, '_non_cancellable', true ),
+				'label'             => esc_html__( 'Non cancellable?', 'wp-hotelier' ),
+				'options'           => array(
+					'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
+					'no'  => esc_html__( 'No', 'wp-hotelier' ),
 				),
-				'std'          => 'no',
-				'description'  => esc_html__( 'When enabled, reservations that include this room will be non cancellable and non refundable.', 'wp-hotelier' )
+				'std'               => 'no',
+				'checkbox-fallback' => true,
+				'description'       => esc_html__( 'When enabled, reservations that include this room will be non cancellable and non refundable.', 'wp-hotelier' )
 			)
 		);
 

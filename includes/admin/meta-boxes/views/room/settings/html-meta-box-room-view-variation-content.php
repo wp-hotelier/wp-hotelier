@@ -102,17 +102,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php
 		HTL_Meta_Boxes_Helper::switch_input(
 			array(
-				'name'         => '_room_variations[' . absint( $loop ) . '][require_deposit]',
-				'value'        => HTL_Meta_Boxes_Helper::get_variation_field_value( $variations, 'require_deposit', $loop ),
-				'label'        => esc_html__( 'Require deposit?', 'wp-hotelier' ),
-				'options'      => array(
-					'yes'          => esc_html__( 'Yes', 'wp-hotelier' ),
-					'no'           => esc_html__( 'No', 'wp-hotelier' ),
+				'name'              => '_room_variations[' . absint( $loop ) . '][require_deposit]',
+				'value'             => HTL_Meta_Boxes_Helper::get_variation_field_value( $variations, 'require_deposit', $loop ),
+				'label'             => esc_html__( 'Require deposit?', 'wp-hotelier' ),
+				'options'           => array(
+					'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
+					'no'  => esc_html__( 'No', 'wp-hotelier' ),
 				),
-				'std'          => 'no',
-				'show-if'      => 'yes',
-				'show-element' => 'deposit-settings',
-				'description'  => esc_html__( 'When enabled, a deposit is required at the time of booking.', 'wp-hotelier' )
+				'std'               => 'no',
+				'checkbox-fallback' => true,
+				'show-if'           => 'yes',
+				'show-element'      => 'deposit-settings',
+				'description'       => esc_html__( 'When enabled, a deposit is required at the time of booking.', 'wp-hotelier' )
 			)
 		);
 		?>
@@ -141,15 +142,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php
 	HTL_Meta_Boxes_Helper::switch_input(
 		array(
-			'name'    => '_room_variations[' . absint( $loop ) . '][non_cancellable]',
-			'value'   => HTL_Meta_Boxes_Helper::get_variation_field_value( $variations, 'non_cancellable', $loop ),
-			'label'        => esc_html__( 'Non cancellable?', 'wp-hotelier' ),
-			'options'      => array(
-				'yes'          => esc_html__( 'Yes', 'wp-hotelier' ),
-				'no'           => esc_html__( 'No', 'wp-hotelier' ),
+			'name'              => '_room_variations[' . absint( $loop ) . '][non_cancellable]',
+			'value'             => HTL_Meta_Boxes_Helper::get_variation_field_value( $variations, 'non_cancellable', $loop ),
+			'label'             => esc_html__( 'Non cancellable?', 'wp-hotelier' ),
+			'options'           => array(
+				'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
+				'no'  => esc_html__( 'No', 'wp-hotelier' ),
 			),
-			'std'          => 'no',
-			'description'  => esc_html__( 'When enabled, reservations that include this room will be non cancellable and non refundable.', 'wp-hotelier' )
+			'std'               => 'no',
+			'checkbox-fallback' => true,
+			'description'       => esc_html__( 'When enabled, reservations that include this room will be non cancellable and non refundable.', 'wp-hotelier' )
 		)
 	);
 

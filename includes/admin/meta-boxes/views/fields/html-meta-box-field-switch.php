@@ -18,7 +18,7 @@ $field[ 'show-if' ]              = isset( $field[ 'show-if' ] ) ? $field[ 'show-
 $field[ 'show-element' ]         = isset( $field[ 'show-element' ] ) ? $field[ 'show-element' ] : '';
 $field[ 'conditional' ]          = isset( $field[ 'conditional' ] ) ? $field[ 'conditional' ] : false;
 $field[ 'conditional-selector' ] = isset( $field[ 'conditional-selector' ] ) ? $field[ 'conditional-selector' ] : '';
-
+$field[ 'checkbox-fallback' ]    = isset( $field[ 'checkbox-fallback' ] ) ? true : false;
 
 if ( ! $field[ 'conditional' ] && $field[ 'show-if' ] && $field[ 'show-element' ] ) {
 	$field[ 'class' ] .= ' show-if-switch';
@@ -31,6 +31,11 @@ if ( ! $field[ 'show-if' ] && $field[ 'conditional' ] && $field[ 'conditional-se
 // Set field value
 if ( isset( $field[ 'value' ] ) && $field[ 'value' ] ) {
 	$field_value = $field[ 'value' ];
+
+	// Fallback for old checkboxes
+	if ( $field[ 'checkbox-fallback' ] && $field[ 'value' ] === '1' ) {
+		$field_value = 'yes';
+	}
 } else if ( isset( $field[ 'std' ] ) ) {
 	$field_value = $field[ 'std' ];
 } else {
