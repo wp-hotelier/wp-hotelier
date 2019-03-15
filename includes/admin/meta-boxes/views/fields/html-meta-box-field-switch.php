@@ -50,7 +50,7 @@ if ( isset( $field[ 'value' ] ) && $field[ 'value' ] ) {
 
 ?>
 
-<div class="htl-ui-setting htl-ui-setting--metabox htl-ui-setting--select <?php echo esc_attr( $field[ 'wrapper_class' ] ); ?> htl-ui-layout htl-ui-layout--two-columns">
+<div class="htl-ui-setting htl-ui-setting--metabox htl-ui-setting--switch <?php echo esc_attr( $field[ 'wrapper_class' ] ); ?> htl-ui-layout htl-ui-layout--two-columns">
 
 	<div class="htl-ui-layout__column htl-ui-layout__column--left">
 		<h3 class="htl-ui-heading htl-ui-setting__title"><?php echo esc_html( $field[ 'label' ] ); ?></h3>
@@ -61,7 +61,7 @@ if ( isset( $field[ 'value' ] ) && $field[ 'value' ] ) {
 	</div>
 
 	<div class="htl-ui-layout__column htl-ui-layout__column--right">
-		<div class="<?php echo esc_attr( $field[ 'class' ] ); ?> htl-ui-input htl-ui-input--switch htl-ui-switch" <?php echo $field[ 'show-if' ] && ! $field[ 'conditional' ] ? 'data-show-if="' . esc_attr( $field[ 'show-if' ] ) . '"' : ''; ?> <?php echo $field[ 'show-element' ] && ! $field[ 'conditional' ] ? 'data-show-element="' . esc_attr( $field[ 'show-element' ] ) . '"' : ''; ?> <?php echo $field[ 'conditional-selector' ] && ! $field[ 'show-if' ] ? 'data-conditional-selector="' . esc_attr( $field[ 'conditional-selector' ] ) . '"' : ''; ?>>
+		<div class="<?php echo esc_attr( $field[ 'class' ] ); ?> htl-ui-switch" <?php echo $field[ 'show-if' ] && ! $field[ 'conditional' ] ? 'data-show-if="' . esc_attr( $field[ 'show-if' ] ) . '"' : ''; ?> <?php echo $field[ 'show-element' ] && ! $field[ 'conditional' ] ? 'data-show-element="' . esc_attr( $field[ 'show-element' ] ) . '"' : ''; ?> <?php echo $field[ 'conditional-selector' ] && ! $field[ 'show-if' ] ? 'data-conditional-selector="' . esc_attr( $field[ 'conditional-selector' ] ) . '"' : ''; ?>>
 			<?php foreach ( $field[ 'options' ] as $key => $value ) : ?>
 				<?php
 				$input_id = $field[ 'name' ] . rand();
