@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Core
  * @package  Hotelier/Functions
- * @version  1.0.0
+ * @version  2.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -36,6 +36,14 @@ add_filter( 'hotelier_short_description', 'do_shortcode', 11 ); // AFTER wpautop
 function htl_get_option( $key = '', $default = false ) {
 	$hotelier_settings = get_option( 'hotelier_settings' );
 	$value = isset( $hotelier_settings[ $key ] ) ? $hotelier_settings[ $key ] : $default;
+
+	// Fallback for options that now have "no" as a false value (eg. switches)
+	$legacy_empty_options = htl_get_legacy_empty_options();
+
+	if ( in_array( $key, $legacy_empty_options ) ) {
+		$value = $value === 'no' ? false : $value;
+	}
+
 	$value = apply_filters( 'hotelier_get_option', $value, $key, $default );
 
 	return apply_filters( 'hotelier_get_option_' . $key, $value, $key, $default );
@@ -242,3 +250,36 @@ function htl_locate_template( $template_name, $template_path = '', $default_path
 function htl_get_log_file_path( $handle ) {
 	return trailingslashit( HTL_LOG_DIR ) . $handle . '-' . sanitize_file_name( wp_hash( $handle ) ) . '.log';
 }
+
+/**
+ * Get options that now have "no" as a false value (eg. switches)
+ *
+ * @param string $handle name
+ * @return string the log file path
+ */
+function htl_get_legacy_empty_options() {
+	$legacy_options = array(
+		'hotel_pets',
+		'enforce_ssl_booking',
+		'privacy_remove_reservation_data_on_erasure_request',
+		'room_unavailable_visibility',
+		'room_lightbox',
+		'booking_additional_information',
+		'booking_number_of_guests_selection',
+		'paypal_sandbox',
+		'paypal_log',
+		'tax_enabled',
+		'tax_in_deposit',
+		'emails_new_reservation_enabled',
+		'emails_request_received_enabled',
+		'emails_confirmed_reservation_enabled',
+		'emails_guest_invoice_enabled',
+		'emails_cancelled_reservation_enabled',
+		'emails_guest_cancelled_reservation_enabled',
+		'template_debug_mode',
+		'remove_data_uninstall',
+	);
+
+	return apply_filters( 'hotelier_get_legacy_empty_options', $legacy_options );
+}
+

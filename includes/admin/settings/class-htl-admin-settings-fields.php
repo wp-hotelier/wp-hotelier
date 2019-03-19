@@ -43,6 +43,7 @@ class HTL_Admin_Settings_Fields {
 		add_filter( 'hotelier_settings_checkbox_callback', array( $this, 'print_checkbox' ), 10, 2 );
 		add_filter( 'hotelier_settings_multi_checkbox_callback', array( $this, 'print_multi_checkbox' ), 10, 2 );
 		add_filter( 'hotelier_settings_radio_callback', array( $this, 'print_radio' ), 10, 2 );
+		add_filter( 'hotelier_settings_switch_callback', array( $this, 'print_switch' ), 10, 2 );
 		add_filter( 'hotelier_settings_tool_button_callback', array( $this, 'print_tool_button' ), 10, 2 );
 		add_filter( 'hotelier_settings_card_icons_callback', array( $this, 'print_card_icons' ), 10, 2 );
 		add_filter( 'hotelier_settings_image_size_callback', array( $this, 'print_image_size' ), 10, 2 );
@@ -234,6 +235,13 @@ class HTL_Admin_Settings_Fields {
 	 */
 	public function print_radio( $html, $args ) {
 		include HTL_PLUGIN_DIR . 'includes/admin/settings/views/fields/html-settings-field-input-radio.php';
+	}
+
+	/**
+	 * Print switch input
+	 */
+	public function print_switch( $html, $args ) {
+		include HTL_PLUGIN_DIR . 'includes/admin/settings/views/fields/html-settings-field-input-switch.php';
 	}
 
 	/**

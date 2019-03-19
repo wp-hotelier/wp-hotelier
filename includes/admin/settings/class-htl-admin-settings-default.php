@@ -193,11 +193,15 @@ class HTL_Admin_Settings_Default {
 						),
 					),
 					'hotel_pets' => array(
-						'id'   => 'hotel_pets',
-						'name' => esc_html__( 'Pets', 'wp-hotelier' ),
-						'desc' => __( 'Are pets allowed?', 'wp-hotelier' ),
-						'type' => 'checkbox',
-						'std'  => ''
+						'id'                => 'hotel_pets',
+						'name'              => esc_html__( 'Are pets allowed?', 'wp-hotelier' ),
+						'type'              => 'switch',
+						'options'           => array(
+							'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
+							'no'  => esc_html__( 'No', 'wp-hotelier' ),
+						),
+						'std'               => 'no',
+						'checkbox-fallback' => true,
 					),
 					'hotel_pets_message' => array(
 						'id'   => 'hotel_pets_message',
@@ -255,10 +259,16 @@ class HTL_Admin_Settings_Default {
 						'options' => self::get_pages()
 					),
 					'enforce_ssl_booking' => array(
-						'id'   => 'enforce_ssl_booking',
-						'name' => esc_html__( 'Enforce SSL booking', 'wp-hotelier' ),
-						'desc' => __( 'Enforce SSL (HTTPS) on the booking page (you must have an SSL certificate installed to use this option).', 'wp-hotelier' ),
-						'type' => 'checkbox'
+						'id'                => 'enforce_ssl_booking',
+						'name'              => esc_html__( 'Enforce SSL booking', 'wp-hotelier' ),
+						'desc'              => __( 'Enforce SSL (HTTPS) on the booking page (you must have an SSL certificate installed to use this option).', 'wp-hotelier' ),
+						'type'              => 'switch',
+						'options'           => array(
+							'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
+							'no'  => esc_html__( 'No', 'wp-hotelier' ),
+						),
+						'std'               => 'no',
+						'checkbox-fallback' => true,
 					),
 					'unforce_ssl_booking' => array(
 						'id'   => 'unforce_ssl_booking',
@@ -337,10 +347,16 @@ class HTL_Admin_Settings_Default {
 						'type' => 'header'
 					),
 					'privacy_remove_reservation_data_on_erasure_request' => array(
-						'id'   => 'privacy_remove_reservation_data_on_erasure_request',
-						'name' => esc_html__( 'Account erasure requests', 'wp-hotelier' ),
-						'desc' => __( 'When handling an account erasure request, should personal data within reservations be retained or removed?', 'wp-hotelier' ),
-						'type' => 'checkbox'
+						'id'                => 'privacy_remove_reservation_data_on_erasure_request',
+						'name'              => esc_html__( 'Account erasure requests', 'wp-hotelier' ),
+						'desc'              => __( 'When handling an account erasure request, should personal data within reservations be retained or removed?', 'wp-hotelier' ),
+						'type'              => 'switch',
+						'options'           => array(
+							'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
+							'no'  => esc_html__( 'No', 'wp-hotelier' ),
+						),
+						'std'               => 'no',
+						'checkbox-fallback' => true,
 					),
 					'privacy_settings_snippet' => array(
 						'id'   => 'privacy_settings_snippet',
@@ -384,22 +400,40 @@ class HTL_Admin_Settings_Default {
 						'std'  => '2'
 					),
 					'room_unavailable_visibility' => array(
-						'id'   => 'room_unavailable_visibility',
-						'name' => esc_html__( 'Show rooms unavailable', 'wp-hotelier' ),
-						'desc' => __( 'Show rooms that are unavailable for the selected dates.', 'wp-hotelier' ),
-						'type' => 'checkbox'
+						'id'                => 'room_unavailable_visibility',
+						'name'              => esc_html__( 'Show rooms unavailable', 'wp-hotelier' ),
+						'desc'              => __( 'Show rooms that are unavailable for the selected dates.', 'wp-hotelier' ),
+						'type'              => 'switch',
+						'options'           => array(
+							'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
+							'no'  => esc_html__( 'No', 'wp-hotelier' ),
+						),
+						'std'               => 'no',
+						'checkbox-fallback' => true,
 					),
 					'book_now_redirect_to_booking_page' => array(
-						'id'   => 'book_now_redirect_to_booking_page',
-						'name' => esc_html__( 'Book now behaviour', 'wp-hotelier' ),
-						'desc' => __( 'Redirect to the booking page after successful addition (this will not allow multiple rooms on the same reservations).', 'wp-hotelier' ),
-						'type' => 'checkbox'
+						'id'                => 'book_now_redirect_to_booking_page',
+						'name'              => esc_html__( 'Book now behaviour', 'wp-hotelier' ),
+						'desc'              => __( 'Redirect to the booking page after successful addition (this will not allow multiple rooms on the same reservations).', 'wp-hotelier' ),
+						'type'              => 'switch',
+						'options'           => array(
+							'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
+							'no'  => esc_html__( 'No', 'wp-hotelier' ),
+						),
+						'std'               => 'no',
+						'checkbox-fallback' => true,
 					),
 					'book_now_allow_quantity_selection' => array(
-						'id'   => 'book_now_allow_quantity_selection',
-						'name' => esc_html__( 'Allow quantity selection', 'wp-hotelier' ),
-						'desc' => __( 'Allow quantity selection, then redirect to the booking page.', 'wp-hotelier' ),
-						'type' => 'checkbox'
+						'id'                => 'book_now_allow_quantity_selection',
+						'name'              => esc_html__( 'Allow quantity selection', 'wp-hotelier' ),
+						'desc'              => __( 'Allow quantity selection, then redirect to the booking page.', 'wp-hotelier' ),
+						'type'              => 'switch',
+						'options'           => array(
+							'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
+							'no'  => esc_html__( 'No', 'wp-hotelier' ),
+						),
+						'std'               => 'no',
+						'checkbox-fallback' => true,
 					),
 					'room_images' => array(
 						'id'   => 'room_images',
@@ -445,11 +479,16 @@ class HTL_Admin_Settings_Default {
 						),
 					),
 					'room_lightbox' => array(
-						'id'   => 'room_lightbox',
-						'name' => esc_html__( 'Enable lightbox for room images', 'wp-hotelier' ),
-						'desc' => __( 'Room gallery images will open in a lightbox.', 'wp-hotelier' ),
-						'type' => 'checkbox',
-						'std'  => true
+						'id'                => 'room_lightbox',
+						'name'              => esc_html__( 'Enable lightbox for room images', 'wp-hotelier' ),
+						'desc'              => __( 'Room gallery images will open in a lightbox.', 'wp-hotelier' ),
+						'type'              => 'switch',
+						'options'           => array(
+							'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
+							'no'  => esc_html__( 'No', 'wp-hotelier' ),
+						),
+						'std'               => 'yes',
+						'checkbox-fallback' => true,
 					),
 					'reservation_settings' => array(
 						'id'   => 'reservation_settings',
@@ -465,18 +504,28 @@ class HTL_Admin_Settings_Default {
 						'options' => self::get_booking_mode_options()
 					),
 					'booking_additional_information' => array(
-						'id'   => 'booking_additional_information',
-						'name' => esc_html__( 'Show additional information', 'wp-hotelier' ),
-						'desc' => __( 'Show the "arrival estimated time" and the "special requests" field in the booking form.', 'wp-hotelier' ),
-						'type' => 'checkbox',
-						'std'  => true,
+						'id'                => 'booking_additional_information',
+						'name'              => esc_html__( 'Show additional information', 'wp-hotelier' ),
+						'desc'              => __( 'Show the "arrival estimated time" and the "special requests" field in the booking form.', 'wp-hotelier' ),
+						'type'              => 'switch',
+						'options'           => array(
+							'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
+							'no'  => esc_html__( 'No', 'wp-hotelier' ),
+						),
+						'std'               => 'yes',
+						'checkbox-fallback' => true,
 					),
 					'booking_number_of_guests_selection' => array(
-						'id'   => 'booking_number_of_guests_selection',
-						'name' => esc_html__( 'Show number of guests selection', 'wp-hotelier' ),
-						'desc' => __( 'Show a dropdown in the booking form where the guest specifies the number of adults and children for each room.', 'wp-hotelier' ),
-						'type' => 'checkbox',
-						'std'  => true,
+						'id'                => 'booking_number_of_guests_selection',
+						'name'              => esc_html__( 'Show number of guests selection', 'wp-hotelier' ),
+						'desc'              => __( 'Show a dropdown in the booking form where the guest specifies the number of adults and children for each room.', 'wp-hotelier' ),
+						'type'              => 'switch',
+						'options'           => array(
+							'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
+							'no'  => esc_html__( 'No', 'wp-hotelier' ),
+						),
+						'std'               => 'yes',
+						'checkbox-fallback' => true,
 					),
 					'booking_months_advance' => array(
 						'id'   => 'booking_months_advance',
@@ -567,10 +616,15 @@ class HTL_Admin_Settings_Default {
 						'type' => 'header'
 					),
 					'tax_enabled' => array(
-						'id'   => 'tax_enabled',
-						'name' => esc_html__( 'Enable tax', 'wp-hotelier' ),
-						'type' => 'checkbox',
-						'std'  => false,
+						'id'                => 'tax_enabled',
+						'name'              => esc_html__( 'Enable tax', 'wp-hotelier' ),
+						'type'              => 'switch',
+						'options'           => array(
+							'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
+							'no'  => esc_html__( 'No', 'wp-hotelier' ),
+						),
+						'std'               => 'no',
+						'checkbox-fallback' => true,
 					),
 					'tax_rate' => array(
 						'id'          => 'tax_rate',
@@ -580,10 +634,15 @@ class HTL_Admin_Settings_Default {
 						'placeholder' => '5.0000',
 					),
 					'tax_in_deposit' => array(
-						'id'   => 'tax_in_deposit',
-						'name' => esc_html__( 'Enable tax on deposits', 'wp-hotelier' ),
-						'type' => 'checkbox',
-						'std'  => false,
+						'id'                => 'tax_in_deposit',
+						'name'              => esc_html__( 'Enable tax on deposits', 'wp-hotelier' ),
+						'type'              => 'switch',
+						'options'           => array(
+							'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
+							'no'  => esc_html__( 'No', 'wp-hotelier' ),
+						),
+						'std'               => 'no',
+						'checkbox-fallback' => true,
 					),
 				)
 			),
@@ -646,11 +705,16 @@ class HTL_Admin_Settings_Default {
 						'type' => 'description'
 					),
 					'emails_new_reservation_enabled' => array(
-						'id'   => 'emails_new_reservation_enabled',
-						'name' => esc_html__( 'Enable/disable', 'wp-hotelier' ),
-						'desc' => __( 'Enable this email notification.', 'wp-hotelier' ),
-						'type' => 'checkbox',
-						'std'  => true,
+						'id'                => 'emails_new_reservation_enabled',
+						'name'              => esc_html__( 'Enable/disable', 'wp-hotelier' ),
+						'desc'              => __( 'Enable this email notification.', 'wp-hotelier' ),
+						'type'              => 'switch',
+						'options'           => array(
+							'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
+							'no'  => esc_html__( 'No', 'wp-hotelier' ),
+						),
+						'std'               => 'yes',
+						'checkbox-fallback' => true,
 					),
 					'emails_new_reservation_subject' => array(
 						'id'   => 'emails_new_reservation_subject',
@@ -677,11 +741,16 @@ class HTL_Admin_Settings_Default {
 						'type' => 'description'
 					),
 					'emails_request_received_enabled' => array(
-						'id'   => 'emails_request_received_enabled',
-						'name' => esc_html__( 'Enable/disable', 'wp-hotelier' ),
-						'desc' => __( 'Enable this email notification.', 'wp-hotelier' ),
-						'type' => 'checkbox',
-						'std'  => true,
+						'id'                => 'emails_request_received_enabled',
+						'name'              => esc_html__( 'Enable/disable', 'wp-hotelier' ),
+						'desc'              => __( 'Enable this email notification.', 'wp-hotelier' ),
+						'type'              => 'switch',
+						'options'           => array(
+							'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
+							'no'  => esc_html__( 'No', 'wp-hotelier' ),
+						),
+						'std'               => 'yes',
+						'checkbox-fallback' => true,
 					),
 					'emails_request_received_subject' => array(
 						'id'   => 'emails_request_received_subject',
@@ -708,11 +777,16 @@ class HTL_Admin_Settings_Default {
 						'type' => 'description'
 					),
 					'emails_confirmed_reservation_enabled' => array(
-						'id'   => 'emails_confirmed_reservation_enabled',
-						'name' => esc_html__( 'Enable/disable', 'wp-hotelier' ),
-						'desc' => __( 'Enable this email notification.', 'wp-hotelier' ),
-						'type' => 'checkbox',
-						'std'  => true,
+						'id'                => 'emails_confirmed_reservation_enabled',
+						'name'              => esc_html__( 'Enable/disable', 'wp-hotelier' ),
+						'desc'              => __( 'Enable this email notification.', 'wp-hotelier' ),
+						'type'              => 'switch',
+						'options'           => array(
+							'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
+							'no'  => esc_html__( 'No', 'wp-hotelier' ),
+						),
+						'std'               => 'yes',
+						'checkbox-fallback' => true,
 					),
 					'emails_confirmed_reservation_subject' => array(
 						'id'   => 'emails_confirmed_reservation_subject',
@@ -739,11 +813,16 @@ class HTL_Admin_Settings_Default {
 						'type' => 'description'
 					),
 					'emails_guest_invoice_enabled' => array(
-						'id'   => 'emails_guest_invoice_enabled',
-						'name' => esc_html__( 'Enable/disable', 'wp-hotelier' ),
-						'desc' => __( 'Enable this email notification.', 'wp-hotelier' ),
-						'type' => 'checkbox',
-						'std'  => true,
+						'id'                => 'emails_guest_invoice_enabled',
+						'name'              => esc_html__( 'Enable/disable', 'wp-hotelier' ),
+						'desc'              => __( 'Enable this email notification.', 'wp-hotelier' ),
+						'type'              => 'switch',
+						'options'           => array(
+							'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
+							'no'  => esc_html__( 'No', 'wp-hotelier' ),
+						),
+						'std'               => 'yes',
+						'checkbox-fallback' => true,
 					),
 					'emails_guest_invoice_subject' => array(
 						'id'   => 'emails_guest_invoice_subject',
@@ -770,11 +849,16 @@ class HTL_Admin_Settings_Default {
 						'type' => 'description'
 					),
 					'emails_cancelled_reservation_enabled' => array(
-						'id'   => 'emails_cancelled_reservation_enabled',
-						'name' => esc_html__( 'Enable/disable', 'wp-hotelier' ),
-						'desc' => __( 'Enable this email notification.', 'wp-hotelier' ),
-						'type' => 'checkbox',
-						'std'  => true,
+						'id'                => 'emails_cancelled_reservation_enabled',
+						'name'              => esc_html__( 'Enable/disable', 'wp-hotelier' ),
+						'desc'              => __( 'Enable this email notification.', 'wp-hotelier' ),
+						'type'              => 'switch',
+						'options'           => array(
+							'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
+							'no'  => esc_html__( 'No', 'wp-hotelier' ),
+						),
+						'std'               => 'yes',
+						'checkbox-fallback' => true,
 					),
 					'emails_cancelled_reservation_subject' => array(
 						'id'   => 'emails_cancelled_reservation_subject',
@@ -804,11 +888,16 @@ class HTL_Admin_Settings_Default {
 						'type' => 'description'
 					),
 					'emails_guest_cancelled_reservation_enabled' => array(
-						'id'   => 'emails_guest_cancelled_reservation_enabled',
-						'name' => esc_html__( 'Enable/disable', 'wp-hotelier' ),
-						'desc' => __( 'Enable this email notification.', 'wp-hotelier' ),
-						'type' => 'checkbox',
-						'std'  => true,
+						'id'                => 'emails_guest_cancelled_reservation_enabled',
+						'name'              => esc_html__( 'Enable/disable', 'wp-hotelier' ),
+						'desc'              => __( 'Enable this email notification.', 'wp-hotelier' ),
+						'type'              => 'switch',
+						'options'           => array(
+							'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
+							'no'  => esc_html__( 'No', 'wp-hotelier' ),
+						),
+						'std'               => 'yes',
+						'checkbox-fallback' => true,
 					),
 					'emails_guest_cancelled_reservation_subject' => array(
 						'id'   => 'emails_guest_cancelled_reservation_subject',
@@ -846,10 +935,16 @@ class HTL_Admin_Settings_Default {
 						'type' => 'tool_button'
 					),
 					'template_debug_mode' => array(
-						'id'   => 'template_debug_mode',
-						'name' => esc_html__( 'Template debug mode', 'wp-hotelier' ),
-						'desc' => __( 'This tool will disable template overrides for logged-in administrators for debugging purposes.', 'wp-hotelier' ),
-						'type' => 'checkbox'
+						'id'                => 'template_debug_mode',
+						'name'              => esc_html__( 'Template debug mode', 'wp-hotelier' ),
+						'desc'              => __( 'This tool will disable template overrides for logged-in administrators for debugging purposes.', 'wp-hotelier' ),
+						'type'              => 'switch',
+						'options'           => array(
+							'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
+							'no'  => esc_html__( 'No', 'wp-hotelier' ),
+						),
+						'std'               => 'no',
+						'checkbox-fallback' => true,
 					),
 					'clear_sessions' => array(
 						'id'   => 'clear_sessions',
@@ -864,10 +959,16 @@ class HTL_Admin_Settings_Default {
 						'type' => 'tool_button'
 					),
 					'remove_data_uninstall' => array(
-						'id'   => 'remove_data_uninstall',
-						'name' => esc_html__( 'Remove data on uninstall', 'wp-hotelier' ),
-						'desc' => __( 'This tool will remove all Hotelier, Rooms and Reservations data when using the "Delete" link on the plugins screen.', 'wp-hotelier' ),
-						'type' => 'checkbox'
+						'id'                => 'remove_data_uninstall',
+						'name'              => esc_html__( 'Remove data on uninstall', 'wp-hotelier' ),
+						'desc'              => __( 'This tool will remove all Hotelier, Rooms and Reservations data when using the "Delete" link on the plugins screen.', 'wp-hotelier' ),
+						'type'              => 'switch',
+						'options'           => array(
+							'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
+							'no'  => esc_html__( 'No', 'wp-hotelier' ),
+						),
+						'std'               => 'no',
+						'checkbox-fallback' => true,
 					),
 					'server_settings' => array(
 						'id'   => 'server_settings',
