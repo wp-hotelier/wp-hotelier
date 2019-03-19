@@ -254,8 +254,7 @@ function htl_get_log_file_path( $handle ) {
 /**
  * Get options that now have "no" as a false value (eg. switches)
  *
- * @param string $handle name
- * @return string the log file path
+ * @return array keys of legacy options
  */
 function htl_get_legacy_empty_options() {
 	$legacy_options = array(
