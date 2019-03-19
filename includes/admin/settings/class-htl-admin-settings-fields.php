@@ -57,6 +57,7 @@ class HTL_Admin_Settings_Fields {
 		add_filter( 'hotelier_settings_sanitize_text', array( $this, 'sanitize_text' ) );
 		add_filter( 'hotelier_settings_sanitize_textarea', array( $this, 'sanitize_text' ) );
 		add_filter( 'hotelier_settings_sanitize_email', array( $this, 'sanitize_email' ) );
+		add_filter( 'hotelier_settings_sanitize_switch', array( $this, 'sanitize_switch' ) );
 		add_filter( 'hotelier_settings_sanitize_upload', array( $this, 'sanitize_upload' ) );
 		add_filter( 'hotelier_settings_sanitize_number', array( $this, 'sanitize_number' ), 10, 2 );
 		add_filter( 'hotelier_settings_sanitize_select', array( $this, 'sanitize_select' ), 10, 2 );
@@ -616,6 +617,13 @@ class HTL_Admin_Settings_Fields {
 	 */
 	public function sanitize_upload( $input ) {
 		return esc_url( $input );
+	}
+
+	/**
+	 * Sanitize switch input
+	 */
+	public function sanitize_switch( $input ) {
+		return sanitize_text_field( $input );
 	}
 
 	/**
