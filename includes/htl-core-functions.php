@@ -262,6 +262,8 @@ function htl_get_legacy_empty_options() {
 		'enforce_ssl_booking',
 		'privacy_remove_reservation_data_on_erasure_request',
 		'room_unavailable_visibility',
+		'book_now_allow_quantity_selection',
+		'book_now_redirect_to_booking_page',
 		'room_lightbox',
 		'booking_additional_information',
 		'booking_number_of_guests_selection',
