@@ -271,6 +271,8 @@ class HTL_Admin_Settings_Default {
 						),
 						'std'               => 'no',
 						'checkbox-fallback' => true,
+						'show-if'           => 'yes',
+						'show-element'      => 'unforce_ssl_booking',
 					),
 					'unforce_ssl_booking' => array(
 						'id'   => 'unforce_ssl_booking',
