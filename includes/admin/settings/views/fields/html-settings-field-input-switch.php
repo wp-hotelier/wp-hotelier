@@ -30,25 +30,20 @@ if ( isset( $this->options[ $args[ 'id' ] ] ) ) {
 	}
 }
 
-$show_if              = isset( $args[ 'show-if' ] ) ? $args[ 'show-if' ] : false;
-$show_element         = isset( $args[ 'show-element' ] ) ? $args[ 'show-element' ] : '';
-$conditional          = isset( $args[ 'conditional' ] ) ? $args[ 'conditional' ] : false;
-$conditional_selector = isset( $args[ 'conditional-selector' ] ) ? $args[ 'conditional-selector' ] : '';
-$switch_class         = '';
+$show_if      = isset( $args[ 'show-if' ] ) ? $args[ 'show-if' ] : false;
+$show_element = isset( $args[ 'show-element' ] ) ? $args[ 'show-element' ] : '';
+$switch_class = $show_if && $show_element ? 'show-if-setting-switch' : '';
 
-if ( ! $conditional && $show_if && $show_element ) {
-	$switch_class .= ' show-if-switch';
-}
-
-if ( ! $show_if && $conditional && $conditional_selector ) {
-	$switch_class .= ' conditional-switch';
+// Multiple elements must be comma separated
+if ( is_array( $show_element ) ) {
+	$show_element = implode( ',', $show_element );
 }
 
 ?>
 
 <div class="htl-ui-setting htl-ui-setting--switch htl-ui-setting--<?php echo esc_attr( $args[ 'id' ] ); ?>">
 
-	<div class="<?php echo esc_attr( $switch_class ); ?> htl-ui-switch" <?php echo $show_if && ! $conditional ? 'data-show-if="' . esc_attr( $show_if ) . '"' : ''; ?> <?php echo $show_element && ! $conditional ? 'data-show-element="' . esc_attr( $show_element ) . '"' : ''; ?> <?php echo $conditional_selector && ! $show_if ? 'data-conditional-selector="' . esc_attr( $conditional_selector ) . '"' : ''; ?>>
+	<div class="<?php echo esc_attr( $switch_class ); ?> htl-ui-switch" <?php echo $show_if ? 'data-show-if="' . esc_attr( $show_if ) . '"' : ''; ?> <?php echo $show_element ? 'data-show-element="' . esc_attr( $show_element ) . '"' : ''; ?>>
 
 		<?php foreach ( $args[ 'options' ] as $key => $value ) : ?>
 			<?php

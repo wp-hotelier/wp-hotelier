@@ -202,6 +202,8 @@ class HTL_Admin_Settings_Default {
 						),
 						'std'               => 'no',
 						'checkbox-fallback' => true,
+						'show-if'           => 'yes',
+						'show-element'      => 'hotel_pets_message',
 					),
 					'hotel_pets_message' => array(
 						'id'   => 'hotel_pets_message',
@@ -422,6 +424,8 @@ class HTL_Admin_Settings_Default {
 						),
 						'std'               => 'no',
 						'checkbox-fallback' => true,
+						'show-if'           => 'yes',
+						'show-element'      => 'book_now_allow_quantity_selection',
 					),
 					'book_now_allow_quantity_selection' => array(
 						'id'                => 'book_now_allow_quantity_selection',
@@ -625,6 +629,11 @@ class HTL_Admin_Settings_Default {
 						),
 						'std'               => 'no',
 						'checkbox-fallback' => true,
+						'show-if'           => 'yes',
+						'show-element'      => array(
+							'tax_rate',
+							'tax_in_deposit',
+						)
 					),
 					'tax_rate' => array(
 						'id'          => 'tax_rate',
@@ -715,6 +724,11 @@ class HTL_Admin_Settings_Default {
 						),
 						'std'               => 'yes',
 						'checkbox-fallback' => true,
+						'show-if'           => 'yes',
+						'show-element'      => array(
+							'emails_new_reservation_subject',
+							'emails_new_reservation_heading',
+						)
 					),
 					'emails_new_reservation_subject' => array(
 						'id'   => 'emails_new_reservation_subject',
@@ -751,6 +765,11 @@ class HTL_Admin_Settings_Default {
 						),
 						'std'               => 'yes',
 						'checkbox-fallback' => true,
+						'show-if'           => 'yes',
+						'show-element'      => array(
+							'emails_request_received_subject',
+							'emails_request_received_heading',
+						)
 					),
 					'emails_request_received_subject' => array(
 						'id'   => 'emails_request_received_subject',
@@ -787,6 +806,11 @@ class HTL_Admin_Settings_Default {
 						),
 						'std'               => 'yes',
 						'checkbox-fallback' => true,
+						'show-if'           => 'yes',
+						'show-element'      => array(
+							'emails_confirmed_reservation_subject',
+							'emails_confirmed_reservation_heading',
+						)
 					),
 					'emails_confirmed_reservation_subject' => array(
 						'id'   => 'emails_confirmed_reservation_subject',
@@ -823,6 +847,11 @@ class HTL_Admin_Settings_Default {
 						),
 						'std'               => 'yes',
 						'checkbox-fallback' => true,
+						'show-if'           => 'yes',
+						'show-element'      => array(
+							'emails_guest_invoice_subject',
+							'emails_guest_invoice_heading',
+						)
 					),
 					'emails_guest_invoice_subject' => array(
 						'id'   => 'emails_guest_invoice_subject',
@@ -859,6 +888,11 @@ class HTL_Admin_Settings_Default {
 						),
 						'std'               => 'yes',
 						'checkbox-fallback' => true,
+						'show-if'           => 'yes',
+						'show-element'      => array(
+							'emails_cancelled_reservation_subject',
+							'emails_cancelled_reservation_heading',
+						)
 					),
 					'emails_cancelled_reservation_subject' => array(
 						'id'   => 'emails_cancelled_reservation_subject',
@@ -898,6 +932,11 @@ class HTL_Admin_Settings_Default {
 						),
 						'std'               => 'yes',
 						'checkbox-fallback' => true,
+						'show-if'           => 'yes',
+						'show-element'      => array(
+							'emails_guest_cancelled_reservation_subject',
+							'emails_guest_cancelled_reservation_heading',
+						)
 					),
 					'emails_guest_cancelled_reservation_subject' => array(
 						'id'   => 'emails_guest_cancelled_reservation_subject',

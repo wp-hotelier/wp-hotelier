@@ -131,8 +131,46 @@ jQuery(function ($) {
 
 	window.HTL_Conditional_Fields = {
 		init: function () {
-			this.show_if_switches();
-			this.conditional_switches();
+			this.show_if_setting_switches(); // Switches on settings
+			this.show_if_switches(); // Switches on meta boxes
+			this.conditional_switches(); // Conditional switches on meta boxes
+		},
+
+		show_if_setting_switches: function () {
+			var switches = $('.show-if-setting-switch');
+
+			switches.each(function () {
+				var _this = $(this);
+				var show_val = _this.attr('data-show-if');
+				var show_elements = _this.attr('data-show-element').split(',');
+				var dom_show_elements = [];
+
+				for (var i = 0; i < show_elements.length; i++) {
+					var element = $('.htl-ui-setting--' + show_elements[i]).closest('tr');
+					dom_show_elements.push(element);
+				}
+
+				var selected_val = _this.find('input:checked').val();
+				var inputs = _this.find('input');
+
+				if (selected_val !== show_val) {
+					for (var i = 0; i < dom_show_elements.length; i++) {
+						dom_show_elements[i].hide();
+					}
+				}
+
+				inputs.on('click', function () {
+					if ($(this).val() === show_val) {
+						for (var i = 0; i < dom_show_elements.length; i++) {
+							dom_show_elements[i].show();
+						}
+					} else {
+						for (var i = 0; i < dom_show_elements.length; i++) {
+							dom_show_elements[i].hide();
+						}
+					}
+				});
+			});
 		},
 
 		show_if_switches: function () {
