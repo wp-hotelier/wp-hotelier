@@ -250,13 +250,13 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 					)
 				);
 				?>
-			</div>
 
-			<?php
-			/**
-			 * A filter is provided to allow extensions to add their own deposit options
-			 */
-			do_action( 'hotelier_room_standard_deposit_options' ); ?>
+				<?php
+				/**
+				 * A filter is provided to allow extensions to add their own deposit options
+				 */
+				do_action( 'hotelier_room_standard_deposit_options' ); ?>
+			</div>
 		</div>
 
 		<?php
