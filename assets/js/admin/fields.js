@@ -75,7 +75,8 @@ jQuery(function ($) {
 
 				table.trigger({
 					type: 'htl_multi_text_after_add_row',
-					sortable_type: table.attr('data-type')
+					sortable_type: table.attr('data-type'),
+					row: clone
 				});
 			});
 		},
