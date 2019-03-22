@@ -93,10 +93,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		/**
 		 * A filter is provided to allow extensions to add their own price settings
 		 */
-		do_action( 'hotelier_room_price_settings_variation', HTL_Meta_Box_Room_Settings::get_price_placeholder() ); ?>
+		do_action( 'hotelier_room_price_settings_variation', HTL_Meta_Box_Room_Settings::get_price_placeholder(), $loop, $variations ); ?>
 	</div>
 
-	<?php do_action( 'hotelier_room_variation_settings_after_price' ); ?>
+	<?php do_action( 'hotelier_room_variation_settings_after_price', $loop, $variations ); ?>
 
 	<div class="htl-ui-setting-group htl-ui-setting-group--metabox htl-ui-setting-group--deposit-options">
 		<?php
@@ -170,6 +170,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	/**
 	 * A filter is provided to allow extensions to add their own room variation settings
 	 */
-	do_action( 'hotelier_room_variation_settings' ); ?>
+	do_action( 'hotelier_room_variation_settings', $loop, $variations ); ?>
 
 </div>
