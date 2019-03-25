@@ -146,7 +146,8 @@ jQuery(function ($) {
 				var show_elements = _this.attr('data-show-element').split(',');
 				var dom_show_elements = [];
 
-				for (var i = 0; i < show_elements.length; i++) {
+				var i = 0;
+				for (i = 0; i < show_elements.length; i++) {
 					var element = $('.htl-ui-setting--' + show_elements[i]).closest('tr');
 					dom_show_elements.push(element);
 				}
@@ -154,19 +155,21 @@ jQuery(function ($) {
 				var selected_val = _this.find('input:checked').val();
 				var inputs = _this.find('input');
 
+				var j = 0;
 				if (selected_val !== show_val) {
-					for (var i = 0; i < dom_show_elements.length; i++) {
-						dom_show_elements[i].hide();
+					for (j = 0; j < dom_show_elements.length; j++) {
+						dom_show_elements[j].hide();
 					}
 				}
 
 				inputs.on('click', function () {
+					var i = 0;
 					if ($(this).val() === show_val) {
-						for (var i = 0; i < dom_show_elements.length; i++) {
+						for (i = 0; i < dom_show_elements.length; i++) {
 							dom_show_elements[i].show();
 						}
 					} else {
-						for (var i = 0; i < dom_show_elements.length; i++) {
+						for (i = 0; i < dom_show_elements.length; i++) {
 							dom_show_elements[i].hide();
 						}
 					}
