@@ -52,7 +52,7 @@ if ( is_array( $show_element ) ) {
 			?>
 
 			<input id="<?php echo esc_attr( $input_id ); ?>" type="radio" class="htl-ui-input htl-ui-input--switch htl-ui-switch__input htl-ui-switch__input--<?php echo esc_html( $key ); ?>" name="hotelier_settings[<?php echo esc_attr( $args[ 'id' ] ); ?>]" value="<?php echo esc_html( $key ); ?>" <?php echo $checked; ?>>
-			<label class="htl-ui-label htl-ui-label--switch htl-ui-switch__label" for="<?php echo esc_attr( $input_id ); ?>"><?php echo esc_html( $value ); ?></label>
+			<label class="htl-ui-switch__label" for="<?php echo esc_attr( $input_id ); ?>"><?php echo esc_html( $value ); ?></label>
 		<?php endforeach; ?>
 
 	</div>
