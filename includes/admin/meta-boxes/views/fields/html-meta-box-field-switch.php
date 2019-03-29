@@ -19,6 +19,7 @@ $field[ 'show-element' ]         = isset( $field[ 'show-element' ] ) ? $field[ '
 $field[ 'conditional' ]          = isset( $field[ 'conditional' ] ) ? $field[ 'conditional' ] : false;
 $field[ 'conditional-selector' ] = isset( $field[ 'conditional-selector' ] ) ? $field[ 'conditional-selector' ] : '';
 $field[ 'checkbox-fallback' ]    = isset( $field[ 'checkbox-fallback' ] ) ? true : false;
+$field[ 'options' ]              = isset( $field[ 'options' ] ) && is_array( $field[ 'options' ] ) ? $field[ 'options' ] : array();
 
 if ( ! $field[ 'conditional' ] && $field[ 'show-if' ] && $field[ 'show-element' ] ) {
 	$field[ 'class' ] .= ' show-if-switch';
@@ -35,11 +36,18 @@ if ( isset( $field[ 'value' ] ) && $field[ 'value' ] ) {
 	// Fallback for old checkboxes
 	if ( $field[ 'checkbox-fallback' ] && $field[ 'value' ] === '1' ) {
 		$field_value = 'yes';
+	} else {
+		if ( ! empty( $field[ 'options' ] ) && ! in_array( $field_value, $field[ 'options' ] ) ) {
+			// If for some reason the saved value is not in
+			// our array set the first option as selected
+			reset( $field[ 'options' ] );
+			$field_value = key( $field[ 'options' ] );
+		}
 	}
 } else if ( isset( $field[ 'std' ] ) ) {
 	$field_value = $field[ 'std' ];
 } else {
-	if ( is_array( $field[ 'options' ] ) && ! empty( $field[ 'options' ] ) ) {
+	if ( ! empty( $field[ 'options' ] ) ) {
 		// Set first option as selected
 		reset( $field[ 'options' ] );
 		$field_value = key( $field[ 'options' ] );

@@ -17,6 +17,13 @@ if ( isset( $this->options[ $args[ 'id' ] ] ) ) {
 		} else if ( $field_value === '0' || $field_value === 0 ) {
 			$field_value = 'no';
 		}
+	} else {
+		if ( is_array( $args[ 'options' ] ) && ! empty( $args[ 'options' ] ) && ! in_array( $field_value, $args[ 'options' ] )  ) {
+			// If for some reason the saved value is not in
+			// our array set the first option as selected
+			reset( $args[ 'options' ] );
+			$field_value = key( $args[ 'options' ] );
+		}
 	}
 } else if ( isset( $args[ 'std' ] ) ) {
 	$field_value = $args[ 'std' ];
