@@ -49,18 +49,18 @@ if ( isset( $field[ 'value' ] ) && $field[ 'value' ] ) {
 					$row_value = $has_row ? $field_value[ absint( $i ) ][ 'name' ] : '';
 					?>
 
-					<tr class="htl-ui-table__row htl-ui-table__row--multi-text htl-ui-table__row--sortable" data-key="<?php echo absint( $i ); ?>">
-						<td class="htl-ui-table__cell htl-ui-table__cell--row-value htl-ui-table__cell--multi-text-value">
+					<tr class="htl-ui-table__row htl-ui-table__row--body htl-ui-table__row--multi-text htl-ui-table__row--sortable" data-key="<?php echo absint( $i ); ?>">
+						<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--row-value htl-ui-table__cell--multi-text-value">
 							<input type="text" name="<?php echo esc_attr( $field[ 'name' ] ); ?>[<?php echo absint( $i ); ?>][name]" value="<?php echo esc_attr( $row_value ); ?>" placeholder="<?php echo esc_attr( $field[ 'placeholder' ] ); ?>" />
 
 							<input type="hidden" class="htl-ui-input htl-ui-input--hidden htl-ui-input--row_index" name="<?php echo esc_attr( $field[ 'name' ] ); ?>[<?php echo absint( $i ); ?>][index]" value="<?php echo absint( $i ); ?>">
 						</td>
 
-						<td class="htl-ui-table__cell htl-ui-table__cell--remove-row">
+						<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--remove-row">
 							<button type="button" class="htl-ui-button htl-ui-button--remove-row"><?php esc_html_e( 'Remove', 'wp-hotelier' ); ?></button>
 						</td>
 
-						<td class="htl-ui-table__cell htl-ui-table__cell--sort-row">
+						<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--sort-row">
 							<?php esc_html_e( 'Sort', 'wp-hotelier' ); ?>
 						</td>
 					</tr>
@@ -70,8 +70,8 @@ if ( isset( $field[ 'value' ] ) && $field[ 'value' ] ) {
 			</tbody>
 
 			<tfoot class="htl-ui-table__footer htl-ui-table__footer--multi-text htl-ui-table__footer--sortable">
-				<tr class="htl-ui-table__row htl-ui-table__row--multi-text">
-					<td colspan="3" class="htl-ui-table__cell htl-ui-table__cell--add-row">
+				<tr class="htl-ui-table__row htl-ui-table__row--footer htl-ui-table__row--multi-text">
+					<td colspan="3" class="htl-ui-table__cell htl-ui-table__cell--footer htl-ui-table__cell--add-row">
 						<button type="button" class="htl-ui-button htl-ui-button--add-row"><?php echo esc_html( $field[ 'button_label' ] ); ?></button>
 					</td>
 				</tr>

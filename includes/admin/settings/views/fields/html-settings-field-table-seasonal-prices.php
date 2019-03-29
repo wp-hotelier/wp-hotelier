@@ -19,8 +19,8 @@ $rules = htl_get_option( 'seasonal_prices_schema', array() );
 				<?php foreach( $rules as $key => $rule ) : ?>
 					<?php $every_year = isset( $rule[ 'every_year' ] ) ? 1 : 0; ?>
 
-					<tr class="htl-ui-table__row htl-ui-table__row--sortable" data-key="<?php echo HTL_Formatting_Helper::sanitize_key( $key ); ?>">
-						<td class="htl-ui-table__cell htl-ui-table__cell--seasonal-prices-dates">
+					<tr class="htl-ui-table__row htl-ui-table__row--body htl-ui-table__row--sortable" data-key="<?php echo HTL_Formatting_Helper::sanitize_key( $key ); ?>">
+						<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--seasonal-prices-dates">
 							<label class="htl-ui-label">
 								<?php esc_html_e( 'From', 'wp-hotelier' ); ?>
 								<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--start-date" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][<?php echo HTL_Formatting_Helper::sanitize_key( $key ); ?>][from]" value="<?php echo esc_attr( $rule['from'] ) ?>">
@@ -35,10 +35,10 @@ $rules = htl_get_option( 'seasonal_prices_schema', array() );
 							</label>
 							<input class="htl-ui-input htl-ui-input--hidden htl-ui-input--row_index" type="hidden" name="hotelier_settings[seasonal_prices_schema][<?php echo HTL_Formatting_Helper::sanitize_key( $key ); ?>][index]" value="<?php echo esc_attr( HTL_Formatting_Helper::sanitize_key( $key ) ); ?>">
 						</td>
-						<td class="htl-ui-table__cell htl-ui-table__cell--remove-row">
+						<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--remove-row">
 							<button type="button" class="htl-ui-button htl-ui-button--remove-row"><?php esc_html_e( 'Remove', 'wp-hotelier' ); ?></button>
 						</td>
-						<td class="htl-ui-table__cell htl-ui-table__cell--sort-row">
+						<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--sort-row">
 							<?php esc_html_e( 'Sort', 'wp-hotelier' ); ?>
 						</td>
 					</tr>
@@ -46,8 +46,8 @@ $rules = htl_get_option( 'seasonal_prices_schema', array() );
 
 			<?php else : ?>
 
-				<tr class="htl-ui-table__row htl-ui-table__row--sortable" data-key="1">
-					<td class="htl-ui-table__cell htl-ui-table__cell--seasonal-prices-dates">
+				<tr class="htl-ui-table__row htl-ui-table__row--body htl-ui-table__row--sortable" data-key="1">
+					<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--seasonal-prices-dates">
 						<label class="htl-ui-label">
 							<?php esc_html_e( 'From', 'wp-hotelier' ); ?>
 							<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--start-date" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][1][from]">
@@ -62,10 +62,10 @@ $rules = htl_get_option( 'seasonal_prices_schema', array() );
 						</label>
 						<input class="htl-ui-input htl-ui-input--hidden htl-ui-input--row_index" type="hidden" name="hotelier_settings[seasonal_prices_schema][1][index]" value="1">
 					</td>
-					<td class="htl-ui-table__cell htl-ui-table__cell--remove-row">
+					<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--remove-row">
 						<button type="button" class="htl-ui-button htl-ui-button--remove-row"><?php esc_html_e( 'Remove', 'wp-hotelier' ); ?></button>
 					</td>
-					<td class="htl-ui-table__cell htl-ui-table__cell--sort-row">
+					<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--sort-row">
 						<?php esc_html_e( 'Sort', 'wp-hotelier' ); ?>
 					</td>
 				</tr>
@@ -75,8 +75,8 @@ $rules = htl_get_option( 'seasonal_prices_schema', array() );
 		</tbody>
 
 		<tfoot class="htl-ui-table__footer htl-ui-table__footer--sortable">
-			<tr class="htl-ui-table__row">
-				<td colspan="3" class="htl-ui-table__cell htl-ui-table__cell--add-row">
+			<tr class="htl-ui-table__row htl-ui-table__row--footer">
+				<td colspan="3" class="htl-ui-table__cell htl-ui-table__cell--footer htl-ui-table__cell--add-row">
 					<button type="button" class="htl-ui-button htl-ui-button--add-row"><?php esc_html_e( 'Add new rule', 'wp-hotelier' ); ?></button>
 				</td>
 			</tr>
