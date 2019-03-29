@@ -159,7 +159,7 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 						'id'          => '_regular_price',
 						'value'       => get_post_meta( $thepostid, '_regular_price', true ),
 						'label'       => esc_html__( 'Regular price:', 'wp-hotelier' ),
-						'description' => 'Same price for all days of the week.',
+						'description' => esc_html__( 'Same price for all days of the week.', 'wp-hotelier' ),
 					)
 				);
 
@@ -168,7 +168,7 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 						'id'          => '_sale_price',
 						'value'       => get_post_meta( $thepostid, '_sale_price', true ),
 						'label'       => esc_html__( 'Sale price:', 'wp-hotelier' ),
-						'description' => 'Same price for all days of the week.',
+						'description' => esc_html__( 'Same price for all days of the week.', 'wp-hotelier' ),
 					)
 				);
 				?>
@@ -181,7 +181,7 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 						'id'          => '_regular_price_day',
 						'value'       => get_post_meta( $thepostid, '_regular_price_day', true ),
 						'label'       => esc_html__( 'Regular price:', 'wp-hotelier' ),
-						'description' => 'The regular price of the room per day.',
+						'description' => esc_html__( 'The regular price of the room per day.', 'wp-hotelier' ),
 					)
 				);
 
@@ -190,7 +190,7 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 						'id'          => '_sale_price_day',
 						'value'       => get_post_meta( $thepostid, '_sale_price_day', true ),
 						'label'       => esc_html__( 'Sale price:', 'wp-hotelier' ),
-						'description' => 'The sale price of the room per day.',
+						'description' => esc_html__( 'The sale price of the room per day.', 'wp-hotelier' ),
 					)
 				);
 				?>

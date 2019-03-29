@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					'name'        => '_room_variations[' . absint( $loop ) . '][regular_price]',
 					'value'       => HTL_Meta_Boxes_Helper::get_variation_field_value( $variations, 'regular_price', $loop ),
 					'label'       => esc_html__( 'Regular price:', 'wp-hotelier' ),
-					'description' => 'Same price for all days of the week.',
+					'description' => esc_html__( 'Same price for all days of the week.', 'wp-hotelier' ),
 				)
 			);
 
@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					'name'        => '_room_variations[' . absint( $loop ) . '][sale_price]',
 					'value'       => HTL_Meta_Boxes_Helper::get_variation_field_value( $variations, 'sale_price', $loop ),
 					'label'       => esc_html__( 'Sale price:', 'wp-hotelier' ),
-					'description' => 'Same price for all days of the week.',
+					'description' => esc_html__( 'Same price for all days of the week.', 'wp-hotelier' ),
 				)
 			);
 			?>
@@ -61,7 +61,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					'name'        => '_room_variations[' . absint( $loop ) . '][price_day]',
 					'value'       => HTL_Meta_Boxes_Helper::get_variation_field_value( $variations, 'price_day', $loop ),
 					'label'       => esc_html__( 'Regular price:', 'wp-hotelier' ),
-					'description' => 'The regular price of the room per day.',
+					'description' => esc_html__( 'The regular price of the room per day.', 'wp-hotelier' ),
 				)
 			);
 
@@ -70,7 +70,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					'name'        => '_room_variations[' . absint( $loop ) . '][sale_price_day]',
 					'value'       => HTL_Meta_Boxes_Helper::get_variation_field_value( $variations, 'sale_price_day', $loop ),
 					'label'       => esc_html__( 'Sale price:', 'wp-hotelier' ),
-					'description' => 'The sale price of the room per day.',
+					'description' => esc_html__( 'The sale price of the room per day.', 'wp-hotelier' ),
 				)
 			);
 			?>
