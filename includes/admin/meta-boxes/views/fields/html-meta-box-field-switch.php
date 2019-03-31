@@ -37,7 +37,7 @@ if ( isset( $field[ 'value' ] ) && $field[ 'value' ] ) {
 	if ( $field[ 'checkbox-fallback' ] && $field[ 'value' ] === '1' ) {
 		$field_value = 'yes';
 	} else {
-		if ( ! empty( $field[ 'options' ] ) && ! in_array( $field_value, $field[ 'options' ] ) ) {
+		if ( ! empty( $field[ 'options' ] ) && ! array_key_exists( $field_value, $field[ 'options' ] ) ) {
 			// If for some reason the saved value is not in
 			// our array set the first option as selected
 			reset( $field[ 'options' ] );

@@ -18,7 +18,7 @@ if ( isset( $this->options[ $args[ 'id' ] ] ) ) {
 			$field_value = 'no';
 		}
 	} else {
-		if ( is_array( $args[ 'options' ] ) && ! empty( $args[ 'options' ] ) && ! in_array( $field_value, $args[ 'options' ] )  ) {
+		if ( is_array( $args[ 'options' ] ) && ! empty( $args[ 'options' ] ) && ! array_key_exists( $field_value, $args[ 'options' ] )  ) {
 			// If for some reason the saved value is not in
 			// our array set the first option as selected
 			reset( $args[ 'options' ] );
