@@ -10,6 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <nav class="hotelier-settings-navigation">
+	<h3 class="hotelier-settings-navigation__title"><?php esc_html_e( 'Dashboard', 'wp-hotelier' ); ?></h3>
 	<ul class="hotelier-settings-navigation__list">
 		<?php
 		foreach( $tabs as $tab_id => $tab_name ) {
