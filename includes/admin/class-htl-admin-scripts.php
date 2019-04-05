@@ -36,8 +36,14 @@ class HTL_Admin_Scripts {
 		$screen = get_current_screen();
 		$prefix = HTL_Admin_Functions::get_prefix_screen_id();
 
+		// Use minified libraries if SCRIPT_DEBUG is turned off
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
 		// Menu icon
 		wp_enqueue_style( 'hotelier_menu_styles', HTL_PLUGIN_URL . 'assets/css/admin/menu.css', array(), HTL_VERSION );
+
+		// Font Awesome
+		wp_register_style( 'fontawesome', HTL_PLUGIN_URL . 'assets/fonts/fontawesome/css/all' . $suffix . '.css', array(), '5.8.1' );
 
 		// jquery-ui
 		wp_register_style( 'jquery-ui-css', HTL_PLUGIN_URL . 'assets/css/admin/jquery-ui.css', array(), HTL_VERSION );
@@ -50,6 +56,7 @@ class HTL_Admin_Scripts {
 			if ( $screen->id != $prefix . '_hotelier-calendar' ) {
 				// Admin styles for Hotelier pages only
 				wp_enqueue_style( 'hotelier_admin_styles', HTL_PLUGIN_URL . 'assets/css/admin/admin.css', array(), HTL_VERSION );
+				wp_enqueue_style( 'fontawesome' );
 				wp_enqueue_style( 'tipsy-css' );
 			}
 
