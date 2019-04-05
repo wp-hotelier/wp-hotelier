@@ -120,20 +120,23 @@ class HTL_Admin_Settings {
 		<div class="wrap hotelier-settings hotelier-settings--<?php echo esc_attr( $active_tab ); ?>">
 
 			<?php include_once HTL_PLUGIN_DIR . 'includes/admin/settings/views/html-settings-navigation.php'; ?>
-			<?php include_once HTL_PLUGIN_DIR . 'includes/admin/settings/views/html-settings-header.php'; ?>
 
-			<div class="hotelier-settings-panel">
-				<form method="post" action="options.php">
-					<table class="form-table">
-					<?php
-					settings_fields( 'hotelier_settings' );
-					do_action( 'hotelier_settings_tab_top_' . $active_tab );
-					do_settings_fields( 'hotelier_settings_' . $active_tab, 'hotelier_settings_' . $active_tab );
-					?>
-					</table>
-					<?php submit_button(); ?>
-				</form>
-			</div><!-- #tab_container-->
+			<div class="hotelier-settings-wrapper">
+				<?php include_once HTL_PLUGIN_DIR . 'includes/admin/settings/views/html-settings-header.php'; ?>
+
+				<div class="hotelier-settings-panel">
+					<form method="post" action="options.php">
+						<table class="hotelier-settings-table-form">
+							<?php
+							settings_fields( 'hotelier_settings' );
+							do_action( 'hotelier_settings_tab_top_' . $active_tab );
+							do_settings_fields( 'hotelier_settings_' . $active_tab, 'hotelier_settings_' . $active_tab );
+							?>
+						</table>
+						<?php submit_button( false, 'htl-ui-button htl-ui-button--save-settings', 'submit', false ); ?>
+					</form>
+				</div>
+			</div>
 		</div><!-- .wrap -->
 		<?php
 		echo ob_get_clean();
