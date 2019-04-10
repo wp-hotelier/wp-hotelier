@@ -8,6 +8,7 @@ jQuery(function ($) {
 			this.show_uploader();
 			this.seasonal_dates_datepicker();
 			this.add_seasonal_rule();
+			this.navigation();
 		},
 
 		show_uploader: function () {
@@ -91,6 +92,23 @@ jQuery(function ($) {
 				dateFormat: 'yy-mm-dd',
 				minDate: 1,
 				changeMonth: true
+			});
+		},
+
+		navigation: function () {
+			var nav_button = $('.htl-ui-text-icon--show-settings-navigation');
+			var nav = $('.hotelier-settings-navigation__list');
+			var default_text = nav_button.text();
+			var hide_text = nav_button.attr('data-hide-text');
+
+			nav_button.on('click', function () {
+				if (nav_button.hasClass('active')) {
+					nav.hide();
+					nav_button.removeClass('active').text(default_text);
+				} else {
+					nav.show();
+					nav_button.addClass('active').text(hide_text);
+				}
 			});
 		}
 	};
