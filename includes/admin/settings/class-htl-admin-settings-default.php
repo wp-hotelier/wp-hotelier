@@ -121,9 +121,10 @@ class HTL_Admin_Settings_Default {
 			'general' => apply_filters( 'hotelier_settings_general',
 				array(
 					'hotelier_info' => array(
-						'id'   => 'hotelier_info',
-						'name' => '<strong>' . esc_html__( 'Hotel info', 'wp-hotelier' ) . '</strong>',
-						'type' => 'header'
+						'id'    => 'hotelier_info',
+						'name'  => '<strong>' . esc_html__( 'Hotel info', 'wp-hotelier' ) . '</strong>',
+						'type'  => 'header',
+						'class' => 'htl-ui-row--section-description'
 					),
 					'hotel_name' => array(
 						'id'   => 'hotel_name',
@@ -235,9 +236,10 @@ class HTL_Admin_Settings_Default {
 						) ),
 					),
 					'hotelier_pages' => array(
-						'id'   => 'hotelier_pages',
-						'name' => '<strong>' . esc_html__( 'Hotelier pages', 'wp-hotelier' ) . '</strong>',
-						'type' => 'header'
+						'id'    => 'hotelier_pages',
+						'name'  => '<strong>' . esc_html__( 'Hotelier pages', 'wp-hotelier' ) . '</strong>',
+						'type'  => 'header',
+						'class' => 'htl-ui-row--section-description'
 					),
 					'listing_page' => array(
 						'id'      => 'listing_page',
@@ -281,9 +283,10 @@ class HTL_Admin_Settings_Default {
 						'type' => 'checkbox'
 					),
 					'hotelier_endpoints' => array(
-						'id'   => 'hotelier_endpoints',
-						'name' => '<strong>' . esc_html__( 'Hotelier endpoints', 'wp-hotelier' ) . '</strong>',
-						'type' => 'header'
+						'id'    => 'hotelier_endpoints',
+						'name'  => '<strong>' . esc_html__( 'Hotelier endpoints', 'wp-hotelier' ) . '</strong>',
+						'type'  => 'header',
+						'class' => 'htl-ui-row--section-description'
 					),
 					'reservation_received' => array(
 						'id'      => 'reservation_received',
@@ -300,9 +303,10 @@ class HTL_Admin_Settings_Default {
 						'std'     => 'pay-reservation'
 					),
 					'currency_settings' => array(
-						'id'   => 'currency_settings',
-						'name' => '<strong>' . esc_html__( 'Currency settings', 'wp-hotelier' ) . '</strong>',
-						'type' => 'header'
+						'id'    => 'currency_settings',
+						'name'  => '<strong>' . esc_html__( 'Currency settings', 'wp-hotelier' ) . '</strong>',
+						'type'  => 'header',
+						'class' => 'htl-ui-row--section-description'
 					),
 					'currency' => array(
 						'id'      => 'currency',
@@ -346,9 +350,10 @@ class HTL_Admin_Settings_Default {
 						'std'  => '2'
 					),
 					'privacy_settings' => array(
-						'id'   => 'privacy_settings',
-						'name' => '<strong>' . esc_html__( 'Privacy settings', 'wp-hotelier' ) . '</strong>',
-						'type' => 'header'
+						'id'    => 'privacy_settings',
+						'name'  => '<strong>' . esc_html__( 'Privacy settings', 'wp-hotelier' ) . '</strong>',
+						'type'  => 'header',
+						'class' => 'htl-ui-row--section-description'
 					),
 					'privacy_remove_reservation_data_on_erasure_request' => array(
 						'id'                => 'privacy_remove_reservation_data_on_erasure_request',
@@ -375,9 +380,10 @@ class HTL_Admin_Settings_Default {
 			'rooms-and-reservations' => apply_filters( 'hotelier_settings_rooms_and_reservations',
 				array(
 					'room_settings' => array(
-						'id'   => 'room_settings',
-						'name' => '<strong>' . esc_html__( 'Room settings', 'wp-hotelier' ) . '</strong>',
-						'type' => 'header'
+						'id'    => 'room_settings',
+						'name'  => '<strong>' . esc_html__( 'Room settings', 'wp-hotelier' ) . '</strong>',
+						'type'  => 'header',
+						'class' => 'htl-ui-row--section-description'
 					),
 					'room_size_unit' => array(
 						'id'      => 'room_size_unit',
@@ -386,9 +392,10 @@ class HTL_Admin_Settings_Default {
 						'options' => self::get_room_size_options()
 					),
 					'listing_settings' => array(
-						'id'   => 'listing_settings',
-						'name' => '<strong>' . esc_html__( 'Listing settings', 'wp-hotelier' ) . '</strong>',
-						'type' => 'header'
+						'id'    => 'listing_settings',
+						'name'  => '<strong>' . esc_html__( 'Listing settings', 'wp-hotelier' ) . '</strong>',
+						'type'  => 'header',
+						'class' => 'htl-ui-row--section-description'
 					),
 					'listing_sorting' => array(
 						'id'      => 'listing_sorting',
@@ -442,9 +449,10 @@ class HTL_Admin_Settings_Default {
 						'checkbox-fallback' => true,
 					),
 					'room_images' => array(
-						'id'   => 'room_images',
-						'name' => '<strong>' . esc_html__( 'Room images', 'wp-hotelier' ) . '</strong>',
-						'type' => 'header'
+						'id'    => 'room_images',
+						'name'  => '<strong>' . esc_html__( 'Room images', 'wp-hotelier' ) . '</strong>',
+						'type'  => 'header',
+						'class' => 'htl-ui-row--section-description'
 					),
 					'room_images_description' => array(
 						'id'   => 'room_images_description',
@@ -497,9 +505,10 @@ class HTL_Admin_Settings_Default {
 						'checkbox-fallback' => true,
 					),
 					'reservation_settings' => array(
-						'id'   => 'reservation_settings',
-						'name' => '<strong>' . esc_html__( 'Reservation settings', 'wp-hotelier' ) . '</strong>',
-						'type' => 'header'
+						'id'    => 'reservation_settings',
+						'name'  => '<strong>' . esc_html__( 'Reservation settings', 'wp-hotelier' ) . '</strong>',
+						'type'  => 'header',
+						'class' => 'htl-ui-row--section-description'
 					),
 					'booking_mode' => array(
 						'id'      => 'booking_mode',
@@ -579,9 +588,10 @@ class HTL_Admin_Settings_Default {
 			'seasonal-prices' => apply_filters( 'hotelier_settings_seasonal_prices',
 				array(
 					'seasonal_prices_info' => array(
-						'id'   => 'seasonal_prices_info',
-						'name' => '<strong>' . esc_html__( 'Seasonal prices schema', 'wp-hotelier' ) . '</strong>',
-						'type' => 'header'
+						'id'    => 'seasonal_prices_info',
+						'name'  => '<strong>' . esc_html__( 'Seasonal prices schema', 'wp-hotelier' ) . '</strong>',
+						'type'  => 'header',
+						'class' => 'htl-ui-row--section-description'
 					),
 					'seasonal_prices_description' => array(
 						'id'   => 'seasonal_prices_description',
@@ -617,9 +627,10 @@ class HTL_Admin_Settings_Default {
 			'tax' => apply_filters( 'hotelier_settings_tax',
 				array(
 					'tax_info' => array(
-						'id'   => 'tax_info',
-						'name' => '<strong>' . esc_html__( 'Tax settings', 'wp-hotelier' ) . '</strong>',
-						'type' => 'header'
+						'id'    => 'tax_info',
+						'name'  => '<strong>' . esc_html__( 'Tax settings', 'wp-hotelier' ) . '</strong>',
+						'type'  => 'header',
+						'class' => 'htl-ui-row--section-description'
 					),
 					'tax_enabled' => array(
 						'id'                => 'tax_enabled',
@@ -661,9 +672,10 @@ class HTL_Admin_Settings_Default {
 			'emails' => apply_filters( 'hotelier_settings_emails',
 				array(
 					'emails_general_options' => array(
-						'id'   => 'emails_general_options',
-						'name' => '<strong>' . esc_html__( 'Email options', 'wp-hotelier' ) . '</strong>',
-						'type' => 'header'
+						'id'    => 'emails_general_options',
+						'name'  => '<strong>' . esc_html__( 'Email options', 'wp-hotelier' ) . '</strong>',
+						'type'  => 'header',
+						'class' => 'htl-ui-row--section-description'
 					),
 					'emails_admin_notice' => array(
 						'id'       => 'emails_admin_notice',
@@ -706,9 +718,10 @@ class HTL_Admin_Settings_Default {
 						'std'  => get_bloginfo( 'name', 'display' ) . ' - ' . __( 'Powered by Easy WP Hotelier', 'wp-hotelier' ),
 					),
 					'emails_new_reservation' => array(
-						'id'   => 'emails_new_reservation',
-						'name' => '<strong>' . esc_html__( 'New reservation', 'wp-hotelier' ) . '</strong>',
-						'type' => 'header'
+						'id'    => 'emails_new_reservation',
+						'name'  => '<strong>' . esc_html__( 'New reservation', 'wp-hotelier' ) . '</strong>',
+						'type'  => 'header',
+						'class' => 'htl-ui-row--section-description'
 					),
 					'emails_new_reservation_description' => array(
 						'id'   => 'emails_new_reservation_description',
@@ -747,9 +760,10 @@ class HTL_Admin_Settings_Default {
 						'std'  => esc_html__( 'New hotel reservation', 'wp-hotelier' ),
 					),
 					'emails_request_received' => array(
-						'id'   => 'emails_request_received',
-						'name' => '<strong>' . esc_html__( 'Request received', 'wp-hotelier' ) . '</strong>',
-						'type' => 'header'
+						'id'    => 'emails_request_received',
+						'name'  => '<strong>' . esc_html__( 'Request received', 'wp-hotelier' ) . '</strong>',
+						'type'  => 'header',
+						'class' => 'htl-ui-row--section-description'
 					),
 					'emails_request_received_description' => array(
 						'id'   => 'emails_request_received_description',
@@ -788,9 +802,10 @@ class HTL_Admin_Settings_Default {
 						'std'  => esc_html__( 'Request received', 'wp-hotelier' ),
 					),
 					'emails_confirmed_reservation' => array(
-						'id'   => 'emails_confirmed_reservation',
-						'name' => '<strong>' . esc_html__( 'Confirmed reservation', 'wp-hotelier' ) . '</strong>',
-						'type' => 'header'
+						'id'    => 'emails_confirmed_reservation',
+						'name'  => '<strong>' . esc_html__( 'Confirmed reservation', 'wp-hotelier' ) . '</strong>',
+						'type'  => 'header',
+						'class' => 'htl-ui-row--section-description'
 					),
 					'emails_confirmed_reservation_description' => array(
 						'id'   => 'emails_confirmed_reservation_description',
@@ -829,9 +844,10 @@ class HTL_Admin_Settings_Default {
 						'std'  => esc_html__( 'Thank you for your reservation', 'wp-hotelier' ),
 					),
 					'emails_guest_invoice' => array(
-						'id'   => 'emails_guest_invoice',
-						'name' => '<strong>' . esc_html__( 'Guest invoice', 'wp-hotelier' ) . '</strong>',
-						'type' => 'header'
+						'id'    => 'emails_guest_invoice',
+						'name'  => '<strong>' . esc_html__( 'Guest invoice', 'wp-hotelier' ) . '</strong>',
+						'type'  => 'header',
+						'class' => 'htl-ui-row--section-description'
 					),
 					'emails_guest_invoice_description' => array(
 						'id'   => 'emails_guest_invoice_description',
@@ -870,9 +886,10 @@ class HTL_Admin_Settings_Default {
 						'std'  => esc_html__( 'Invoice for reservation #{reservation_number}', 'wp-hotelier' ),
 					),
 					'emails_cancelled_reservation' => array(
-						'id'   => 'emails_cancelled_reservation',
-						'name' => '<strong>' . esc_html__( 'Cancelled reservation', 'wp-hotelier' ) . '</strong>',
-						'type' => 'header'
+						'id'    => 'emails_cancelled_reservation',
+						'name'  => '<strong>' . esc_html__( 'Cancelled reservation', 'wp-hotelier' ) . '</strong>',
+						'type'  => 'header',
+						'class' => 'htl-ui-row--section-description'
 					),
 					'emails_cancelled_reservation_description' => array(
 						'id'   => 'emails_cancelled_reservation_description',
@@ -910,13 +927,11 @@ class HTL_Admin_Settings_Default {
 						'type' => 'text',
 						'std'  => esc_html__( 'Cancelled reservation', 'wp-hotelier' ),
 					),
-
-
-
 					'emails_guest_cancelled_reservation' => array(
-						'id'   => 'emails_guest_cancelled_reservation',
-						'name' => '<strong>' . esc_html__( 'Guest cancelled reservation', 'wp-hotelier' ) . '</strong>',
-						'type' => 'header'
+						'id'    => 'emails_guest_cancelled_reservation',
+						'name'  => '<strong>' . esc_html__( 'Guest cancelled reservation', 'wp-hotelier' ) . '</strong>',
+						'type'  => 'header',
+						'class' => 'htl-ui-row--section-description'
 					),
 					'emails_guest_cancelled_reservation_description' => array(
 						'id'   => 'emails_guest_cancelled_reservation_description',
@@ -1012,9 +1027,10 @@ class HTL_Admin_Settings_Default {
 						'checkbox-fallback' => true,
 					),
 					'server_settings' => array(
-						'id'   => 'server_settings',
-						'name' => '<strong>' . esc_html__( 'Server settings & info', 'wp-hotelier' ) . '</strong>',
-						'type' => 'header'
+						'id'    => 'server_settings',
+						'name'  => '<strong>' . esc_html__( 'Server settings & info', 'wp-hotelier' ) . '</strong>',
+						'type'  => 'header',
+						'class' => 'htl-ui-row--section-description'
 					),
 					'hotelier_version' => array(
 						'id'   => 'hotelier_version',

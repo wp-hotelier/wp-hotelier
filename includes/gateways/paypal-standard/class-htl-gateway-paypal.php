@@ -46,9 +46,10 @@ class HTL_Gateway_Paypal extends HTL_Payment_Gateway {
 	public function settings_fields( $fields ) {
 		$gateway_fields = array(
 			'paypal_settings' => array(
-				'id'   => 'paypal_settings',
-				'name' => '<strong>' . esc_html__( 'PayPal settings', 'wp-hotelier' ) . '</strong>',
-				'type' => 'header'
+				'id'    => 'paypal_settings',
+				'name'  => '<strong>' . esc_html__( 'PayPal settings', 'wp-hotelier' ) . '</strong>',
+				'type'  => 'header',
+				'class' => 'htl-ui-row--section-description'
 			),
 			'paypal_description' => array(
 				'id'   => 'paypal_description',

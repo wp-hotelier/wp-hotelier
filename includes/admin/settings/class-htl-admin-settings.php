@@ -177,6 +177,7 @@ class HTL_Admin_Settings {
 					array(
 						'section'           => $tab,
 						'id'                => isset( $option[ 'id' ] ) ? $option[ 'id' ] : null,
+						'class'             => isset( $option[ 'class' ] ) ? $option[ 'class' ] : null,
 						'type'              => isset( $option[ 'type' ] ) ? $option[ 'type' ] : 'text',
 						'desc'              => ! empty( $option[ 'desc' ] ) ? $option[ 'desc' ] : '',
 						'subdesc'           => ! empty( $option[ 'subdesc' ] ) ? $option[ 'subdesc' ] : '',
