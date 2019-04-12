@@ -244,14 +244,14 @@ class HTL_Admin_Settings_Default {
 					'listing_page' => array(
 						'id'      => 'listing_page',
 						'name'    => esc_html__( 'Listing page', 'wp-hotelier' ),
-						'desc'    => __( 'This is the page (the listing page) where guests will see the rooms that are available for the selected dates. The [hotelier_listing] shortcode must be on this page.', 'wp-hotelier' ),
+						'desc'    => __( 'This is the page (the listing page) where guests will see the rooms that are available for the selected dates. The <code>[hotelier_listing]</code> shortcode must be on this page.', 'wp-hotelier' ),
 						'type'    => 'select',
 						'options' => self::get_pages()
 					),
 					'booking_page' => array(
 						'id'      => 'booking_page',
 						'name'    => esc_html__( 'Booking page', 'wp-hotelier' ),
-						'desc'    => __( 'This is the booking page where guests will complete their reservations. The [hotelier_booking] shortcode must be on this page.', 'wp-hotelier' ),
+						'desc'    => __( 'This is the booking page where guests will complete their reservations. The <code>[hotelier_booking]</code> shortcode must be on this page.', 'wp-hotelier' ),
 						'type'    => 'select',
 						'options' => self::get_pages()
 					),
