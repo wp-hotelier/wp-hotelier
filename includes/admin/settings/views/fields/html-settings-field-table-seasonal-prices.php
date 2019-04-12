@@ -29,10 +29,16 @@ $rules = htl_get_option( 'seasonal_prices_schema', array() );
 								<?php esc_html_e( 'To', 'wp-hotelier' ); ?>
 								<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--end-date" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][<?php echo HTL_Formatting_Helper::sanitize_key( $key ); ?>][to]" value="<?php echo esc_attr( $rule['to'] ) ?>">
 							</label>
-							<label class="htl-ui-label">
-								<?php esc_html_e( 'Every year?', 'wp-hotelier' ); ?>
-								<input class="htl-ui-input htl-ui-input--checkbox" value="1" type="checkbox" name="hotelier_settings[seasonal_prices_schema][<?php echo HTL_Formatting_Helper::sanitize_key( $key ); ?>][every_year]" <?php echo checked( $every_year, 1, false ); ?>>
-							</label>
+
+							<span class="htl-ui-icon htl-ui-icon--show-advanced" data-hide-text="<?php esc_html_e( 'Hide advanced settings', 'wp-hotelier' ); ?>" data-show-text="<?php esc_html_e( 'Show advanced settings', 'wp-hotelier' ); ?>"><?php esc_html_e( 'Show advanced settings', 'wp-hotelier' ); ?></span>
+
+							<div class="htl-ui-advanced-settings-wrapper">
+								<label class="htl-ui-label">
+									<?php esc_html_e( 'Every year?', 'wp-hotelier' ); ?>
+									<input class="htl-ui-input htl-ui-input--checkbox" value="1" type="checkbox" name="hotelier_settings[seasonal_prices_schema][<?php echo HTL_Formatting_Helper::sanitize_key( $key ); ?>][every_year]" <?php echo checked( $every_year, 1, false ); ?>>
+								</label>
+							</div>
+
 							<input class="htl-ui-input htl-ui-input--hidden htl-ui-input--row_index" type="hidden" name="hotelier_settings[seasonal_prices_schema][<?php echo HTL_Formatting_Helper::sanitize_key( $key ); ?>][index]" value="<?php echo esc_attr( HTL_Formatting_Helper::sanitize_key( $key ) ); ?>">
 						</td>
 						<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--remove-row">
