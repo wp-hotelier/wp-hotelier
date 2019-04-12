@@ -514,7 +514,7 @@ class HTL_Admin_Settings_Default {
 						'id'      => 'booking_mode',
 						'name'    => esc_html__( 'Booking mode', 'wp-hotelier' ),
 						'desc'    => __( '<ul><li><strong>No booking</strong>Show only the room details.</li><li><strong>Manual booking</strong>Guests will be able to request a reservation and the admin will approve or reject the booking manually.</li><li><strong>Instant booking</strong>Guests will be able to make a reservation without manual approval from the admin.</li></ul>', 'wp-hotelier' ),
-						'type'    => 'radio',
+						'type'    => 'switch',
 						'std'     => 'manual-booking',
 						'options' => self::get_booking_mode_options()
 					),
