@@ -12,7 +12,7 @@ jQuery(function ($) {
 
 		sortable: function () {
 			$('table.htl-ui-table--sortable').sortable({
-				items: 'tr',
+				items: 'tr.htl-ui-table__row--body',
 				handle: 'td.htl-ui-table__cell--sort-row',
 				opacity: 0.65,
 				axis: 'y',
