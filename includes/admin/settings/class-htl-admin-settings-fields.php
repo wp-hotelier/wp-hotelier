@@ -89,6 +89,7 @@ class HTL_Admin_Settings_Fields {
 		add_action( 'hotelier_settings_info_php_max_input_vars', array( $this, 'print_php_max_input_vars' ) );
 		add_action( 'hotelier_settings_info_fsockopen_cURL', array( $this, 'print_fsockopen_cURL' ) );
 		add_action( 'hotelier_settings_info_domdocument', array( $this, 'print_domdocument' ) );
+		add_action( 'hotelier_settings_info_mbstring', array( $this, 'print_mbstring' ) );
 		add_action( 'hotelier_settings_info_log_directory_writable', array( $this, 'print_log_directory_writable' ) );
 	}
 
@@ -578,6 +579,21 @@ class HTL_Admin_Settings_Fields {
 		} else {
 			$class = 'error';
 			$info = sprintf( wp_kses( __( 'To allow logging, make <code>%s</code> writable or define a custom (writebale) <code>HTL_LOG_DIR</code>.', 'wp-hotelier' ), array( 'code' => array() ) ), HTL_LOG_DIR );
+		}
+
+		include HTL_PLUGIN_DIR . 'includes/admin/settings/views/fields/html-settings-field-server-info.php';
+	}
+
+	/**
+	 * Print the mbstring check field
+	 */
+	public function print_mbstring() {
+		$info  = esc_html__( 'Enabled', 'wp-hotelier' );
+		$class = 'success';
+
+		if ( ! function_exists( 'mb_detect_encoding' ) ) {
+			$class = 'error';
+			$info  = esc_html__( 'Your server does not have the mbstring extension enabled - Some extensions (Stripe) may require this module to work. Contact your hosting provider.', 'wp-hotelier' );
 		}
 
 		include HTL_PLUGIN_DIR . 'includes/admin/settings/views/fields/html-settings-field-server-info.php';
