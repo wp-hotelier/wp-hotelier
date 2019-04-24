@@ -1035,92 +1035,116 @@ class HTL_Admin_Settings_Default {
 					'hotelier_version' => array(
 						'id'   => 'hotelier_version',
 						'name' => esc_html__( 'Easy WP Hotelier version', 'wp-hotelier' ),
-						'type' => 'info'
+						'type' => 'info',
+						'class' => 'htl-ui-row--server-info'
 					),
 					'theme_name' => array(
 						'id'   => 'theme_name',
 						'name' => esc_html__( 'Theme name', 'wp-hotelier' ),
-						'type' => 'info'
+						'type' => 'info',
+						'class' => 'htl-ui-row--server-info'
 					),
 					'theme_version' => array(
 						'id'   => 'theme_version',
 						'name' => esc_html__( 'Theme version', 'wp-hotelier' ),
-						'type' => 'info'
+						'type' => 'info',
+						'class' => 'htl-ui-row--server-info'
 					),
 					'parent_theme_name' => array(
 						'id'   => 'parent_theme_name',
 						'name' => esc_html__( 'Parent theme name', 'wp-hotelier' ),
-						'type' => 'info'
+						'type' => 'info',
+						'class' => 'htl-ui-row--server-info'
 					),
 					'parent_theme_version' => array(
 						'id'   => 'parent_theme_version',
 						'name' => esc_html__( 'Parent theme version', 'wp-hotelier' ),
-						'type' => 'info'
+						'type' => 'info',
+						'class' => 'htl-ui-row--server-info'
 					),
 					'listing_page_info' => array(
 						'id'   => 'listing_page_info',
 						'name' => esc_html__( 'Listing page', 'wp-hotelier' ),
-						'type' => 'info'
+						'type' => 'info',
+						'class' => 'htl-ui-row--server-info'
 					),
 					'booking_page_info' => array(
 						'id'   => 'booking_page_info',
 						'name' => esc_html__( 'Booking page', 'wp-hotelier' ),
-						'type' => 'info'
+						'type' => 'info',
+						'class' => 'htl-ui-row--server-info'
 					),
 					'server_info' => array(
 						'id'   => 'server_info',
 						'name' => esc_html__( 'Server info', 'wp-hotelier' ),
-						'type' => 'info'
+						'type' => 'info',
+						'class' => 'htl-ui-row--server-info'
 					),
 					'php_version' => array(
 						'id'   => 'php_version',
 						'name' => esc_html__( 'PHP version', 'wp-hotelier' ),
-						'type' => 'info'
+						'type' => 'info',
+						'class' => 'htl-ui-row--server-info'
 					),
 					'wp_memory_limit' => array(
 						'id'   => 'wp_memory_limit',
 						'name' => esc_html__( 'WP memory limit', 'wp-hotelier' ),
-						'type' => 'info'
+						'type' => 'info',
+						'class' => 'htl-ui-row--server-info'
 					),
 					'wp_debug' => array(
 						'id'   => 'wp_debug',
 						'name' => esc_html__( 'WP debug', 'wp-hotelier' ),
-						'type' => 'info'
+						'type' => 'info',
+						'class' => 'htl-ui-row--server-info'
 					),
 					'php_post_max_size' => array(
 						'id'   => 'php_post_max_size',
 						'name' => esc_html__( 'PHP post max size', 'wp-hotelier' ),
-						'type' => 'info'
+						'type' => 'info',
+						'class' => 'htl-ui-row--server-info'
 					),
 					'php_post_max_upload_size' => array(
 						'id'   => 'php_post_max_upload_size',
 						'name' => esc_html__( 'PHP max upload size', 'wp-hotelier' ),
-						'type' => 'info'
+						'type' => 'info',
+						'class' => 'htl-ui-row--server-info'
 					),
 					'php_time_limit' => array(
 						'id'   => 'php_time_limit',
 						'name' => esc_html__( 'PHP time limit', 'wp-hotelier' ),
-						'type' => 'info'
+						'type' => 'info',
+						'class' => 'htl-ui-row--server-info'
 					),
 					'php_max_input_vars' => array(
 						'id'   => 'php_max_input_vars',
 						'name' => esc_html__( 'PHP max input vars', 'wp-hotelier' ),
-						'type' => 'info'
+						'type' => 'info',
+						'class' => 'htl-ui-row--server-info'
 					),
 					'fsockopen_cURL' => array(
 						'id'   => 'fsockopen_cURL',
 						'name' => esc_html__( 'fsockopen/cURL', 'wp-hotelier' ),
-						'type' => 'info'
+						'type' => 'info',
+						'class' => 'htl-ui-row--server-info'
 					),
 					'domdocument' => array(
 						'id'   => 'domdocument',
 						'name' => esc_html__( 'DOMDocument', 'wp-hotelier' ),
-						'type' => 'info'
+						'type' => 'info',
+						'class' => 'htl-ui-row--server-info'
+					),
+					'mbstring' => array(
+						'id'   => 'mbstring',
+						'name' => esc_html__( 'Multibyte string (mbstring)', 'wp-hotelier' ),
+						'type' => 'info',
+						'class' => 'htl-ui-row--server-info'
 					),
 					'log_directory_writable' => array(
 						'id'   => 'log_directory_writable',
 						'name' => esc_html__( 'Log directory writable', 'wp-hotelier' ),
-						'type' => 'info'
+						'type' => 'info',
+						'class' => 'htl-ui-row--server-info'
 					),
 				)
 			),
