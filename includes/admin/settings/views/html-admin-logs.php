@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'htl-ui-setting--section-description__text'
 	);
 
-	$notice_text = $logs ? __( 'Logs ae useful to debug events and errors. Use the dropdown below to select the log you are interested in.', 'wp-hotelier' ) : __( 'There are currently no logs to view.', 'wp-hotelier' );
+	$notice_text = $logs ? __( 'Logs are useful to debug events and errors. Use the dropdown below to select the log you are interested in.', 'wp-hotelier' ) : __( 'There are currently no logs to view.', 'wp-hotelier' );
 
 	include_once HTL_PLUGIN_DIR . 'includes/admin/settings/views/html-settings-navigation.php'; ?>
 
