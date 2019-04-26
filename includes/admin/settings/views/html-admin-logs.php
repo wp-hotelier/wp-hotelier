@@ -15,30 +15,39 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$tabs       = $settings->get_settings_tabs();
 	$active_tab = 'logs';
 
-	include_once HTL_PLUGIN_DIR . 'includes/admin/settings/views/html-settings-navigation.php';
-	include_once HTL_PLUGIN_DIR . 'includes/admin/settings/views/html-settings-header.php';
-	?>
+	include_once HTL_PLUGIN_DIR . 'includes/admin/settings/views/html-settings-navigation.php'; ?>
 
-	<div id="logs-container">
+	<div class="hotelier-settings-wrapper">
+		<?php include_once HTL_PLUGIN_DIR . 'includes/admin/settings/views/html-settings-header.php'; ?>
 
-		<?php if ( $logs ) : ?>
-			<h3><?php printf( esc_html__( 'Log file: %s (%s)', 'wp-hotelier' ), esc_html( $viewed_log ), date_i18n( get_option( 'date_format') . ' ' . get_option( 'time_format'), filemtime( HTL_LOG_DIR . $viewed_log ) ) ); ?></h3>
-			<form action="<?php echo esc_url( admin_url( 'admin.php?page=hotelier-logs' ) ); ?>" method="post">
-				<select name="log_file">
-					<?php foreach ( $logs as $log_key => $log_file ) : ?>
-						<option value="<?php echo esc_attr( $log_key ); ?>" <?php selected( sanitize_title( $viewed_log ), $log_key ); ?>><?php echo esc_html( $log_file ); ?> (<?php echo date_i18n( get_option( 'date_format') . ' ' . get_option( 'time_format'), filemtime( HTL_LOG_DIR . $log_file ) ); ?>)</option>
-					<?php endforeach; ?>
-				</select>
-				<input type="submit" class="button" value="<?php esc_attr_e( 'View', 'wp-hotelier' ); ?>" />
-			</form>
+		<div class="hotelier-settings-panel">
 
-			<div id="log-viewer">
-				<textarea cols="70" rows="25"><?php echo esc_textarea( file_get_contents( HTL_LOG_DIR . $viewed_log ) ); ?></textarea>
-			</div>
-		<?php else : ?>
-			<div class="updated below-h2"><p><?php esc_html_e( 'There are currently no logs to view.', 'wp-hotelier' ); ?></p></div>
-		<?php endif; ?>
+			<?php if ( $logs ) : ?>
+				<div class="htl-ui-setting htl-ui-setting--section-description htl-ui-notice htl-ui-notice--info">
+					<p class="htl-ui-setting--section-description__text htl-ui-notice__text htl-ui-notice--info__text"><?php esc_html_e( 'Logs ae useful to debug events and errors. Use the dropdown below to select the log you are interested in.', 'wp-hotelier' ); ?></p>
+				</div>
 
-	</div><!-- #logs-container -->
+				<strong class="selected-log-title"><?php esc_html_e( 'Current selected log file:', 'wp-hotelier' ); ?></strong>
+				<span class="selected-log-file"><?php printf( '%s (%s)', esc_html( $viewed_log ), date_i18n( get_option( 'date_format') . ' ' . get_option( 'time_format'), filemtime( HTL_LOG_DIR . $viewed_log ) ) ); ?></span>
+
+				<form class="htl-ui-form htl-ui-form--logs" action="<?php echo esc_url( admin_url( 'admin.php?page=hotelier-logs' ) ); ?>" method="post">
+					<select class="htl-ui-input htl-ui-input--select" name="log_file">
+						<?php foreach ( $logs as $log_key => $log_file ) : ?>
+							<option value="<?php echo esc_attr( $log_key ); ?>" <?php selected( sanitize_title( $viewed_log ), $log_key ); ?>><?php echo esc_html( $log_file ); ?> (<?php echo date_i18n( get_option( 'date_format') . ' ' . get_option( 'time_format'), filemtime( HTL_LOG_DIR . $log_file ) ); ?>)</option>
+						<?php endforeach; ?>
+					</select>
+					<input type="submit" class="htl-ui-button htl-ui-button--view-log" value="<?php esc_attr_e( 'View', 'wp-hotelier' ); ?>" />
+				</form>
+
+				<textarea class="htl-ui-input htl-ui-input--textarea htl-ui-input--logs" cols="70" rows="25"><?php echo esc_textarea( file_get_contents( HTL_LOG_DIR . $viewed_log ) ); ?></textarea>
+			<?php else : ?>
+				<div class="htl-ui-setting htl-ui-setting--section-description htl-ui-notice htl-ui-notice--info">
+					<p class="htl-ui-setting--section-description__text htl-ui-notice__text htl-ui-notice--info__text"><?php esc_html_e( 'There are currently no logs to view.', 'wp-hotelier' ); ?></p>
+				</div>
+			<?php endif; ?>
+
+		</div>
+
+	</div>
 
 </div><!-- .wrap -->
