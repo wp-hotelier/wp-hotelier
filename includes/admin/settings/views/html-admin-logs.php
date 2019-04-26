@@ -15,6 +15,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$tabs       = $settings->get_settings_tabs();
 	$active_tab = 'logs';
 
+	$notice_wrapper_class = array(
+		'htl-ui-setting',
+		'htl-ui-setting--section-description'
+	);
+
+	$notice_class = array(
+		'htl-ui-setting--section-description__text'
+	);
+
+	$notice_text = $logs ? __( 'Logs ae useful to debug events and errors. Use the dropdown below to select the log you are interested in.', 'wp-hotelier' ) : __( 'There are currently no logs to view.', 'wp-hotelier' );
+
 	include_once HTL_PLUGIN_DIR . 'includes/admin/settings/views/html-settings-navigation.php'; ?>
 
 	<div class="hotelier-settings-wrapper">
@@ -23,9 +34,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="hotelier-settings-panel">
 
 			<?php if ( $logs ) : ?>
-				<div class="htl-ui-setting htl-ui-setting--section-description htl-ui-notice htl-ui-notice--info">
-					<p class="htl-ui-setting--section-description__text htl-ui-notice__text htl-ui-notice--info__text"><?php esc_html_e( 'Logs ae useful to debug events and errors. Use the dropdown below to select the log you are interested in.', 'wp-hotelier' ); ?></p>
-				</div>
+
+				<?php htl_ui_print_notice( $notice_text, 'info', $notice_wrapper_class, $notice_class ); ?>
 
 				<strong class="selected-log-title"><?php esc_html_e( 'Current selected log file:', 'wp-hotelier' ); ?></strong>
 				<span class="selected-log-file"><?php printf( '%s (%s)', esc_html( $viewed_log ), date_i18n( get_option( 'date_format') . ' ' . get_option( 'time_format'), filemtime( HTL_LOG_DIR . $viewed_log ) ) ); ?></span>
@@ -40,10 +50,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</form>
 
 				<textarea class="htl-ui-input htl-ui-input--textarea htl-ui-input--logs" cols="70" rows="25"><?php echo esc_textarea( file_get_contents( HTL_LOG_DIR . $viewed_log ) ); ?></textarea>
+
 			<?php else : ?>
-				<div class="htl-ui-setting htl-ui-setting--section-description htl-ui-notice htl-ui-notice--info">
-					<p class="htl-ui-setting--section-description__text htl-ui-notice__text htl-ui-notice--info__text"><?php esc_html_e( 'There are currently no logs to view.', 'wp-hotelier' ); ?></p>
-				</div>
+
+				<?php htl_ui_print_notice( $notice_text, 'info', $notice_wrapper_class, $notice_class ); ?>
+
 			<?php endif; ?>
 
 		</div>
