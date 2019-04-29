@@ -80,7 +80,6 @@ class HTL_Admin_New_Reservation {
 	 * Show the new reservation page
 	 */
 	public static function output() {
-
 		include_once( 'views/html-admin-new-reservation.php' );
 	}
 

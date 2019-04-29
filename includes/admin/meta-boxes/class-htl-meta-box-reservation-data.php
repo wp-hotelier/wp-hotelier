@@ -40,44 +40,54 @@ class HTL_Meta_Box_Reservation_Data {
 
 		self::$guest_details = apply_filters( 'hotelier_admin_guest_details_fields', array(
 			'first_name' => array(
-				'label'    => esc_html__( 'First name', 'wp-hotelier' ),
-				'required' => true,
+				'label'       => esc_html__( 'First name', 'wp-hotelier' ),
+				'required'    => true,
+				'description' => esc_html__( 'Guest\'s first name', 'wp-hotelier' ),
 			),
 			'last_name' => array(
 				'label'         => esc_html__( 'Last name', 'wp-hotelier' ),
 				'wrapper_class' => 'form-field-last',
 				'required'      => true,
+				'description'   => esc_html__( 'Guest\'s last name', 'wp-hotelier' ),
 			),
 			'email' => array(
-				'label'    => esc_html__( 'Email address', 'wp-hotelier' ),
-				'type'     => 'email',
-				'required' => true,
+				'label'       => esc_html__( 'Email address', 'wp-hotelier' ),
+				'type'        => 'email',
+				'required'    => true,
+				'description' => esc_html__( 'Guest\'s email address', 'wp-hotelier' ),
 			),
 			'telephone' => array(
 				'label'         => esc_html__( 'Telephone', 'wp-hotelier' ),
-				'wrapper_class' => 'form-field-last'
+				'wrapper_class' => 'form-field-last',
+				'description'   => esc_html__( 'Guest\'s phone number', 'wp-hotelier' ),
 			),
 			'address1' => array(
 				'label'         => esc_html__( 'Address 1', 'wp-hotelier' ),
-				'wrapper_class' => 'form-field-wide'
+				'wrapper_class' => 'form-field-wide',
+				'description'   => esc_html__( 'Guest\'s address', 'wp-hotelier' ),
 			),
 			'address2' => array(
 				'label'         => esc_html__( 'Address 2', 'wp-hotelier' ),
-				'wrapper_class' => 'form-field-wide'
+				'wrapper_class' => 'form-field-wide',
+				'description'   => esc_html__( 'Guest\'s additional address', 'wp-hotelier' ),
 			),
 			'city' => array(
 				'label' => esc_html__( 'Town / City', 'wp-hotelier' ),
+				'description'   => esc_html__( 'Guest\'s city', 'wp-hotelier' ),
 			),
 			'postcode' => array(
 				'label'         => esc_html__( 'Postcode / Zip', 'wp-hotelier' ),
-				'wrapper_class' => 'form-field-last'
+				'wrapper_class' => 'form-field-last',
+				'description'   => esc_html__( 'Guest\'s postcode', 'wp-hotelier' ),
 			),
 			'state' => array(
-				'label' => esc_html__( 'State / County', 'wp-hotelier' ),
+				'label'       => esc_html__( 'State / County', 'wp-hotelier' ),
+				'description' => esc_html__( 'Guest\'s state', 'wp-hotelier' ),
 			),
 			'country' => array(
 				'label'         => esc_html__( 'Country', 'wp-hotelier' ),
-				'wrapper_class' => 'form-field-last'
+				'wrapper_class' => 'form-field-last',
+				'description'   => esc_html__( 'Guest\'s country', 'wp-hotelier' ),
 			)
 		) );
 	}
