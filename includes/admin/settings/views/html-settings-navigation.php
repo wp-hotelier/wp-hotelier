@@ -34,6 +34,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</li>
 		<?php } ?>
 
+		<li class="hotelier-settings-navigation__item hotelier-settings-navigation__item--new-reservation <?php echo $active_tab == 'new-reservation' ? 'active' : ''; ?>">
+			<a href="<?php echo esc_url( admin_url( 'admin.php?page=hotelier-add-reservation' ) ); ?>" title="<?php esc_attr_e( 'Logs', 'wp-hotelier' ); ?>" class="hotelier-settings-navigation__link hotelier-settings-navigation__link--new-reservation <?php echo $active_tab == 'new-reservation' ? 'active' : ''; ?>"><?php esc_attr_e( 'Add manual reservation', 'wp-hotelier' ); ?></a>
+		</li>
+
 		<li class="hotelier-settings-navigation__item hotelier-settings-navigation__item--logs <?php echo $active_tab == 'logs' ? 'active' : ''; ?>">
 			<a href="<?php echo esc_url( admin_url( 'admin.php?page=hotelier-logs' ) ); ?>" title="<?php esc_attr_e( 'Logs', 'wp-hotelier' ); ?>" class="hotelier-settings-navigation__link hotelier-settings-navigation__link--logs <?php echo $active_tab == 'logs' ? 'active' : ''; ?>"><?php esc_attr_e( 'Logs', 'wp-hotelier' ); ?></a>
 		</li>
