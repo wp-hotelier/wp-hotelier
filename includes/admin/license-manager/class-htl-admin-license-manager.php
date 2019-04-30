@@ -122,10 +122,21 @@ class HTL_License_Manager {
 			return;
 		}
 
-		echo '<p class="tab-top-help-text">' . wp_kses_post( sprintf(
+		$notice_wrapper_class = array(
+			'htl-ui-setting',
+			'htl-ui-setting--section-description'
+		);
+
+		$notice_class = array(
+			'htl-ui-setting--section-description__text'
+		);
+
+		$notice_text = sprintf(
 			__( 'Enter your extension license keys here to receive updates for purchased extensions. If your license key has expired, please <a href="%s" target="_blank">renew your license</a>.', 'wp-hotelier' ),
 			'http://docs.wphotelier.com/article/36-how-to-renew-a-license'
-		) ) . '</p>';
+		);
+
+		htl_ui_print_notice( $notice_text, 'info', $notice_wrapper_class, $notice_class );
 
 		$has_ran = true;
 	}
