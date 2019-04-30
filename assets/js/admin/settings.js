@@ -12,8 +12,8 @@ jQuery(function ($) {
 		},
 
 		show_uploader: function () {
-			var uploader_button = $('.htl-uploader');
-			var field = uploader_button.prev();
+			var uploader_button = $('.htl-ui-button--upload');
+			var field = uploader_button.closest('.htl-ui-setting').find('input.htl-ui-input--upload');
 			var file_frame;
 
 			uploader_button.on('click', function (e) {
