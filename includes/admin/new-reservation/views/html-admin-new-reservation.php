@@ -139,9 +139,23 @@ $tomorrow = $tomorrow->format( 'Y-m-d' );
 
 		<?php else : ?>
 
-			<div class="error"><p><?php esc_html_e( 'In order to create a reservation, you need to have at least one room.', 'wp-hotelier' ); ?></p></div>
+			<?php
+				$notice_wrapper_class = array(
+				'htl-ui-setting',
+				'htl-ui-setting--section-description'
+			);
 
-			<p><?php printf( wp_kses( __( 'Create a new room <a href="%s">here</a>.', 'wp-hotelier' ), array( 'a' => array( 'href' => array() ) ) ), 'post-new.php?post_type=room' ); ?></p>
+			$notice_class = array(
+				'htl-ui-setting--section-description__text',
+				'wide'
+			);
+
+			$notice_text = __( 'In order to create a reservation, you need to have at least one room. click on the button below to create your first room.', 'wp-hotelier' );
+
+			htl_ui_print_notice( $notice_text, 'error', $notice_wrapper_class, $notice_class );
+			?>
+
+			<a class="htl-ui-button" href="<?php echo esc_url( admin_url( 'post-new.php?post_type=room' ) ); ?>"><?php esc_html_e( 'Create new room', 'wp-hotelier' ); ?></a>
 
 		<?php endif; ?>
 
