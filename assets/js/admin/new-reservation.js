@@ -11,6 +11,7 @@ jQuery(function ($) {
 			this.add_room();
 			this.remove_room();
 			this.datepicker();
+			this.notices();
 		},
 
 		clone_room_row: function (row) {
@@ -94,6 +95,12 @@ jQuery(function ($) {
 				minDate: 1,
 				changeMonth: true
 			});
+		},
+
+		notices: function () {
+			if ($('.htl-ui-notice--new-reservation-message').length > 0) {
+				$('.htl-ui-notice--new-reservation-message').insertBefore('form.add-new-reservation-form').show();
+			}
 		}
 	};
 
