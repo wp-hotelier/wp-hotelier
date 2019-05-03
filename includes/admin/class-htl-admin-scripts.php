@@ -45,9 +45,6 @@ class HTL_Admin_Scripts {
 		// Font Awesome
 		wp_register_style( 'fontawesome', HTL_PLUGIN_URL . 'assets/fonts/fontawesome/css/all' . $suffix . '.css', array(), '5.8.1' );
 
-		// jquery-ui
-		wp_register_style( 'jquery-ui-css', HTL_PLUGIN_URL . 'assets/css/admin/jquery-ui.css', array(), HTL_VERSION );
-
 		// Tipsy
 		wp_register_style( 'tipsy-css', HTL_PLUGIN_URL . 'assets/css/admin/tipsy.css', array(), HTL_VERSION );
 
@@ -61,11 +58,6 @@ class HTL_Admin_Scripts {
 			}
 
 
-		}
-
-		// Settings, new reservation and calendar pages only
-		if ( $screen->id == 'toplevel_page_hotelier-settings' || $screen->id == $prefix . '_hotelier-calendar' || $screen->id == $prefix . '_hotelier-add-reservation' ) {
-			wp_enqueue_style( 'jquery-ui-css' );
 		}
 
 		// Booking calendar style

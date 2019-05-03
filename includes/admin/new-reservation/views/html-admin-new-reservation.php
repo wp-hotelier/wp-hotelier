@@ -100,7 +100,9 @@ $tomorrow = $tomorrow->format( 'Y-m-d' );
 							<th scope="row"><?php esc_html_e( 'Check-in:', 'wp-hotelier' ); ?></th>
 							<td>
 								<div class="htl-ui-setting">
-									<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--start-date" type="text" placeholder="YYYY-MM-DD" name="from" value="<?php echo esc_attr( $today ); ?>">
+									<span class="htl-ui-datepicker-wrapper">
+										<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--start-date" type="text" placeholder="YYYY-MM-DD" name="from" value="<?php echo esc_attr( $today ); ?>">
+									</span>
 								</div>
 							</td>
 						</tr>
@@ -108,7 +110,9 @@ $tomorrow = $tomorrow->format( 'Y-m-d' );
 							<th scope="row"><?php esc_html_e( 'Check-out:', 'wp-hotelier' ); ?></th>
 							<td>
 								<div class="htl-ui-setting">
-									<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--end-date" type="text" placeholder="YYYY-MM-DD" name="to" value="<?php echo esc_attr( $tomorrow ); ?>">
+									<span class="htl-ui-datepicker-wrapper">
+										<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--end-date" type="text" placeholder="YYYY-MM-DD" name="to" value="<?php echo esc_attr( $tomorrow ); ?>">
+									</span>
 								</div>
 							</td>
 						</tr>

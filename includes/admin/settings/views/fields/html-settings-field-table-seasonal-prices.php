@@ -23,11 +23,15 @@ $rules = htl_get_option( 'seasonal_prices_schema', array() );
 						<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--seasonal-prices-dates">
 							<label class="htl-ui-label">
 								<?php esc_html_e( 'From', 'wp-hotelier' ); ?>
-								<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--start-date" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][<?php echo HTL_Formatting_Helper::sanitize_key( $key ); ?>][from]" value="<?php echo esc_attr( $rule['from'] ) ?>">
+								<span class="htl-ui-datepicker-wrapper">
+									<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--start-date" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][<?php echo HTL_Formatting_Helper::sanitize_key( $key ); ?>][from]" value="<?php echo esc_attr( $rule['from'] ) ?>">
+								</span>
 							</label>
 							<label class="htl-ui-label">
 								<?php esc_html_e( 'To', 'wp-hotelier' ); ?>
-								<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--end-date" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][<?php echo HTL_Formatting_Helper::sanitize_key( $key ); ?>][to]" value="<?php echo esc_attr( $rule['to'] ) ?>">
+								<span class="htl-ui-datepicker-wrapper">
+									<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--end-date" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][<?php echo HTL_Formatting_Helper::sanitize_key( $key ); ?>][to]" value="<?php echo esc_attr( $rule['to'] ) ?>">
+								</span>
 							</label>
 
 							<span class="htl-ui-icon htl-ui-icon--show-advanced" data-hide-text="<?php esc_html_e( 'Hide advanced settings', 'wp-hotelier' ); ?>" data-show-text="<?php esc_html_e( 'Show advanced settings', 'wp-hotelier' ); ?>"><?php esc_html_e( 'Show advanced settings', 'wp-hotelier' ); ?></span>
@@ -56,11 +60,15 @@ $rules = htl_get_option( 'seasonal_prices_schema', array() );
 					<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--seasonal-prices-dates">
 						<label class="htl-ui-label">
 							<?php esc_html_e( 'From', 'wp-hotelier' ); ?>
-							<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--start-date" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][1][from]">
+							<span class="htl-ui-datepicker-wrapper">
+								<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--start-date" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][1][from]">
+							</span>
 						</label>
 						<label class="htl-ui-label">
 							<?php esc_html_e( 'To', 'wp-hotelier' ); ?>
-							<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--end-date" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][1][to]">
+							<span class="htl-ui-datepicker-wrapper">
+								<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--end-date" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][1][to]">
+							</span>
 						</label>
 						<label class="htl-ui-label">
 							<?php esc_html_e( 'Every year?', 'wp-hotelier' ); ?>

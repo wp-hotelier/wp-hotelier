@@ -85,13 +85,19 @@ jQuery(function ($) {
 						date.setDate(date.getDate() + 1);
 						$(this).closest('tr').find('.htl-ui-input--end-date').datepicker('option', 'minDate', date);
 					}
+				},
+				beforeShow: function (input, inst) {
+					$('#ui-datepicker-div').addClass('htl-ui-custom-datepicker');
 				}
 			});
 
 			to_inputs.datepicker({
 				dateFormat: 'yy-mm-dd',
 				minDate: 1,
-				changeMonth: true
+				changeMonth: true,
+				beforeShow: function (input, inst) {
+					$('#ui-datepicker-div').addClass('htl-ui-custom-datepicker');
+				}
 			});
 		},
 
