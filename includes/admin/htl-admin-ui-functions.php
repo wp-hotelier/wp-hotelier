@@ -22,7 +22,7 @@ function htl_ui_print_notice( $message, $notice_type = 'info', $wrapper_class = 
 	?>
 
 	<div class="htl-ui-notice htl-ui-notice--<?php echo esc_attr( $notice_type ); ?> <?php echo esc_attr( $wrapper_class ); ?>">
-		<p class="htl-ui-notice__text htl-ui-notice--<?php echo esc_attr( $notice_type ); ?>__text <?php echo esc_attr( $class ); ?>"><?php echo wp_kses_post( $message ); ?></p>
+		<p class="htl-ui-notice__text htl-ui-notice__text--<?php echo esc_attr( $notice_type ); ?>__text <?php echo esc_attr( $class ); ?>"><?php echo wp_kses_post( $message ); ?></p>
 	</div>
 
 	<?php
