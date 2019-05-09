@@ -13,7 +13,7 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 
 <?php wp_nonce_field( 'hotelier_save_data', 'hotelier_meta_nonce' ); ?>
 
-<div class="room-settings">
+<div class="room-settings htl-ui-scope">
 
 	<div class="room-settings__general htl-ui-settings-wrap">
 		<h3 class="htl-ui-heading htl-ui-heading--section-header"><?php esc_html_e( 'General settings', 'wp-hotelier' ); ?></h3>

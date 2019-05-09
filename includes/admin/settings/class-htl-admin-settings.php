@@ -117,7 +117,7 @@ class HTL_Admin_Settings {
 
 		ob_start();
 		?>
-		<div class="wrap hotelier-settings hotelier-settings--<?php echo esc_attr( $active_tab ); ?>">
+		<div class="wrap htl-ui-scope hotelier-settings hotelier-settings--<?php echo esc_attr( $active_tab ); ?>">
 
 			<?php include_once HTL_PLUGIN_DIR . 'includes/admin/settings/views/html-settings-navigation.php'; ?>
 

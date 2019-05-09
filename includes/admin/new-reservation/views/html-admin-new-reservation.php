@@ -14,7 +14,7 @@ $tomorrow = $tomorrow->modify( '+1 day' );
 $tomorrow = $tomorrow->format( 'Y-m-d' );
 ?>
 
-<div class="wrap hotelier-settings hotelier-settings--new-reservation">
+<div class="wrap htl-ui-scope hotelier-settings hotelier-settings--new-reservation">
 	<?php
 	$settings   = new HTL_Admin_Settings();
 	$tabs       = $settings->get_settings_tabs();

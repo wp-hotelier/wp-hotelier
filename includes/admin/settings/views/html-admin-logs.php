@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<div class="wrap hotelier-settings hotelier-settings--logs">
+<div class="wrap htl-ui-scope hotelier-settings hotelier-settings--logs">
 	<?php
 	$settings   = new HTL_Admin_Settings();
 	$tabs       = $settings->get_settings_tabs();
