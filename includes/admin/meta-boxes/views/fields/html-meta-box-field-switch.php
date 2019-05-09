@@ -80,5 +80,9 @@ if ( isset( $field[ 'value' ] ) && $field[ 'value' ] ) {
 				<label class="htl-ui-switch__label" for="<?php echo esc_attr( $input_id ); ?>"><?php echo esc_html( $value ); ?></label>
 			<?php endforeach; ?>
 		</div>
+
+		<?php if ( ! empty( $field[ 'description' ] ) ) : ?>
+			<div class="htl-ui-setting__description htl-ui-setting__description--switch"><?php echo wp_kses_post( $field[ 'description' ] ); ?></div>
+		<?php endif; ?>
 	</div>
 </div>
