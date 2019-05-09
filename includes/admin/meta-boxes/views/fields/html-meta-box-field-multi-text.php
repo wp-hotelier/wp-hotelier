@@ -51,7 +51,7 @@ if ( isset( $field[ 'value' ] ) && $field[ 'value' ] ) {
 
 					<tr class="htl-ui-table__row htl-ui-table__row--body htl-ui-table__row--multi-text htl-ui-table__row--sortable" data-key="<?php echo absint( $i ); ?>">
 						<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--row-value htl-ui-table__cell--multi-text-value">
-							<input type="text" name="<?php echo esc_attr( $field[ 'name' ] ); ?>[<?php echo absint( $i ); ?>][name]" value="<?php echo esc_attr( $row_value ); ?>" placeholder="<?php echo esc_attr( $field[ 'placeholder' ] ); ?>" />
+							<input type="text" class="htl-ui-input htl-ui-input--text" name="<?php echo esc_attr( $field[ 'name' ] ); ?>[<?php echo absint( $i ); ?>][name]" value="<?php echo esc_attr( $row_value ); ?>" placeholder="<?php echo esc_attr( $field[ 'placeholder' ] ); ?>" />
 
 							<input type="hidden" class="htl-ui-input htl-ui-input--hidden htl-ui-input--row_index" name="<?php echo esc_attr( $field[ 'name' ] ); ?>[<?php echo absint( $i ); ?>][index]" value="<?php echo absint( $i ); ?>">
 						</td>
