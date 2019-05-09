@@ -48,7 +48,7 @@ $locale_start_of_week = get_option( 'start_of_week' );
 			<div class="htl-ui-price-day">
 				<label class="htl-ui-label htl-ui-price-day__label">
 					<span class="htl-ui-price-day__name"><?php echo esc_html( $day_initial ); ?></span>
-					<input type="text" class="<?php echo esc_attr( $field[ 'class' ] ); ?> htl-ui-input htl-ui-input--text htl-ui-input--price htl-ui-price-day__input" name="<?php echo esc_attr( $field[ 'name' ] ); ?>[<?php echo absint( $day_index ); ?>]" value="<?php echo esc_attr( $value ); ?>" placeholder="<?php echo esc_attr( HTL_Meta_Box_Room_Settings::get_price_placeholder() ); ?>" />
+					<input type="text" class="<?php echo esc_attr( $field[ 'class' ] ); ?> htl-ui-input--small htl-ui-input htl-ui-input--text htl-ui-input--price htl-ui-price-day__input" name="<?php echo esc_attr( $field[ 'name' ] ); ?>[<?php echo absint( $day_index ); ?>]" value="<?php echo esc_attr( $value ); ?>" placeholder="<?php echo esc_attr( HTL_Meta_Box_Room_Settings::get_price_placeholder() ); ?>" />
 				</label>
 			</div>
 		<?php endfor; ?>

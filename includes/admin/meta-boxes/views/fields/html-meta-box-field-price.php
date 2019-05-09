@@ -42,7 +42,7 @@ $field_value = HTL_Formatting_Helper::localized_amount( $field_value );
 	</div>
 
 	<div class="htl-ui-layout__column htl-ui-layout__column--right">
-		<input type="text" class="<?php echo esc_attr( $field[ 'class' ] ); ?> htl-ui-input htl-ui-input--text htl-ui-input--price" name="<?php echo esc_attr( $field[ 'name' ] ); ?>" value="<?php echo esc_attr( $field_value ); ?>" placeholder="<?php echo esc_attr( $field[ 'placeholder' ] ); ?>" />
+		<input type="text" class="<?php echo esc_attr( $field[ 'class' ] ); ?> htl-ui-input htl-ui-input--small htl-ui-input--text htl-ui-input--price" name="<?php echo esc_attr( $field[ 'name' ] ); ?>" value="<?php echo esc_attr( $field_value ); ?>" placeholder="<?php echo esc_attr( $field[ 'placeholder' ] ); ?>" />
 
 		<?php if ( isset( $field[ 'after_input' ] ) ) : ?>
 			<span class="htl-ui-setting__after-input"><?php echo wp_kses_post( $field[ 'after_input' ] ); ?></span>

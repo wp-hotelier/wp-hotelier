@@ -42,7 +42,7 @@ if ( isset( $field[ 'value' ] ) && $field[ 'value' ] ) {
 	</div>
 
 	<div class="htl-ui-layout__column htl-ui-layout__column--right">
-		<input type="number" class="<?php echo esc_attr( $field[ 'class' ] ); ?> htl-ui-input htl-ui-input--number" name="<?php echo esc_attr( $field[ 'name' ] ); ?>" value="<?php echo esc_attr( $field_value ); ?>" placeholder="<?php echo esc_attr( $field[ 'placeholder' ] ); ?>" <?php echo $field[ 'min' ] !== false ? 'min="' . absint( $field[ 'min' ] ) . '"' : ''; ?> <?php echo $field[ 'max' ] !== false ? 'max="' . absint( $field[ 'max' ] ) . '"' : ''; ?> />
+		<input type="number" class="<?php echo esc_attr( $field[ 'class' ] ); ?> htl-ui-input htl-ui-input--small htl-ui-input--number" name="<?php echo esc_attr( $field[ 'name' ] ); ?>" value="<?php echo esc_attr( $field_value ); ?>" placeholder="<?php echo esc_attr( $field[ 'placeholder' ] ); ?>" <?php echo $field[ 'min' ] !== false ? 'min="' . absint( $field[ 'min' ] ) . '"' : ''; ?> <?php echo $field[ 'max' ] !== false ? 'max="' . absint( $field[ 'max' ] ) . '"' : ''; ?> />
 
 		<?php if ( isset( $field[ 'after_input' ] ) ) : ?>
 			<span class="htl-ui-setting__after-input"><?php echo wp_kses_post( $field[ 'after_input' ] ); ?></span>
