@@ -29,27 +29,30 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 					'variable_room' => esc_html__( 'Variable room', 'wp-hotelier' )
 				),
 				'std'           => 'standard_room',
+				'description'   => esc_html__( 'You can create a standard room or a variable room where each variation may have a different price, required deposit or conditions.', 'wp-hotelier' ),
 				'wrapper_class' => 'htl-ui-switch--room-type'
 			)
 		);
 
 		HTL_Meta_Boxes_Helper::number_input(
 			array(
-				'id'    => '_max_guests',
-				'value' => get_post_meta( $thepostid, '_max_guests', true ),
-				'label' => esc_html__( 'Max number of guests:', 'wp-hotelier' ),
-				'min'   => 1,
-				'std'   => 1,
+				'id'          => '_max_guests',
+				'value'       => get_post_meta( $thepostid, '_max_guests', true ),
+				'label'       => esc_html__( 'Max number of guests:', 'wp-hotelier' ),
+				'min'         => 1,
+				'std'         => 1,
+				'description' => esc_html__( 'The max occupancy of the room.', 'wp-hotelier' ),
 			)
 		);
 
 		HTL_Meta_Boxes_Helper::number_input(
 			array(
-				'id'    => '_max_children',
-				'value' => get_post_meta( $thepostid, '_max_children', true ),
-				'label' => esc_html__( 'Children:', 'wp-hotelier' ),
-				'min'   => 0,
-				'std'   => 0,
+				'id'          => '_max_children',
+				'value'       => get_post_meta( $thepostid, '_max_children', true ),
+				'label'       => esc_html__( 'Children:', 'wp-hotelier' ),
+				'min'         => 0,
+				'std'         => 0,
+				'description' => esc_html__( 'Maximum number of children.', 'wp-hotelier' ),
 			)
 		);
 
@@ -59,15 +62,17 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 				'value'       => get_post_meta( $thepostid, '_bed_size', true ),
 				'label'       => esc_html__( 'Bed size(s):', 'wp-hotelier' ),
 				'placeholder' => esc_html__( '1 king', 'wp-hotelier' ),
+				'description' => esc_html__( 'The size of the bed(s).', 'wp-hotelier' ),
 			)
 		);
 
 		HTL_Meta_Boxes_Helper::number_input(
 			array(
-				'id'    => '_room_size',
-				'value' => get_post_meta( $thepostid, '_room_size', true ),
-				'label' => sprintf( esc_html__( 'Room size (%s):', 'wp-hotelier' ), htl_get_option( 'room_size_unit', 'm²' ) ),
-				'min'   => 1,
+				'id'          => '_room_size',
+				'value'       => get_post_meta( $thepostid, '_room_size', true ),
+				'label'       => sprintf( esc_html__( 'Room size (%s):', 'wp-hotelier' ), htl_get_option( 'room_size_unit', 'm²' ) ),
+				'min'         => 1,
+				'description' => sprintf( __( 'The size of room. You can change the unit in the <a href="%s">admin settings</a>.', 'wp-hotelier' ), admin_url( 'admin.php?page=hotelier-settings&tab=rooms-and-reservations' ) )
 			)
 		);
 
@@ -89,16 +94,16 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 
 		HTL_Meta_Boxes_Helper::switch_input(
 			array(
-				'id'           => '_show_extra_settings',
-				'value'        => get_post_meta( $thepostid, '_show_extra_settings', true ),
-				'label'        => esc_html__( 'Show additional settings:', 'wp-hotelier' ),
-				'options'      => array(
+					'id'           => '_show_extra_settings',
+					'value'        => get_post_meta( $thepostid, '_show_extra_settings', true ),
+					'label'        => esc_html__( 'Show additional settings:', 'wp-hotelier' ),
+					'options'      => array(
 					'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
 					'no'  => esc_html__( 'No', 'wp-hotelier' ),
-				),
-				'std'          => 'no',
-				'show-if'      => 'yes',
-				'show-element' => 'extra-settings',
+					),
+					'std'          => 'no',
+					'show-if'      => 'yes',
+					'show-element' => 'extra-settings',
 			)
 		);
 		?>
@@ -148,6 +153,7 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 					'std'                  => 'global',
 					'conditional'          => true,
 					'conditional-selector' => 'price-type',
+					'description'          => esc_html__( 'Select the price type.', 'wp-hotelier' )
 				)
 			);
 			?>
@@ -242,11 +248,12 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 				<?php
 				HTL_Meta_Boxes_Helper::select_input(
 					array(
-						'id'      => '_deposit_amount',
-						'value'   => get_post_meta( $thepostid, '_deposit_amount', true ),
-						'label'   => esc_html__( 'Deposit amount:', 'wp-hotelier' ),
-						'options' => self::get_deposit_options(),
-						'class'   => 'deposit-amount-select',
+						'id'          => '_deposit_amount',
+						'value'       => get_post_meta( $thepostid, '_deposit_amount', true ),
+						'label'       => esc_html__( 'Deposit amount:', 'wp-hotelier' ),
+						'options'     => self::get_deposit_options(),
+						'class'       => 'deposit-amount-select',
+						'description' => esc_html__( 'Select the deposit amount.', 'wp-hotelier' ),
 					)
 				);
 				?>
@@ -282,6 +289,7 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 				'label'        => esc_html__( 'Conditions:', 'wp-hotelier' ),
 				'placeholder'  => esc_html__( 'Special condition here', 'wp-hotelier' ),
 				'button_label' => esc_html__( 'Add new condition', 'wp-hotelier' ),
+				'description'  => __( 'You can insert some useful info about the room using the conditions fields. Typically they appear on the <strong>listing</strong> page and in the single room page.', 'wp-hotelier' )
 			)
 		);
 		?>

@@ -28,6 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'std'                  => 'global',
 				'conditional'          => true,
 				'conditional-selector' => 'price-type',
+				'description'          => esc_html__( 'Select the price type.', 'wp-hotelier' )
 			)
 		);
 		?>
@@ -122,11 +123,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php
 			HTL_Meta_Boxes_Helper::select_input(
 				array(
-					'name'    => '_room_variations[' . absint( $loop ) . '][deposit_amount]',
-					'value'   => HTL_Meta_Boxes_Helper::get_variation_field_value( $variations, 'deposit_amount', $loop ),
-					'label'   => esc_html__( 'Deposit amount:', 'wp-hotelier' ),
-					'options' => HTL_Meta_Box_Room_Settings::get_deposit_options(),
-					'class'   => 'deposit-amount-select',
+					'name'        => '_room_variations[' . absint( $loop ) . '][deposit_amount]',
+					'value'       => HTL_Meta_Boxes_Helper::get_variation_field_value( $variations, 'deposit_amount', $loop ),
+					'label'       => esc_html__( 'Deposit amount:', 'wp-hotelier' ),
+					'options'     => HTL_Meta_Box_Room_Settings::get_deposit_options(),
+					'class'       => 'deposit-amount-select',
+					'description' => esc_html__( 'Select the deposit amount.', 'wp-hotelier' ),
 				)
 			);
 			?>
@@ -162,6 +164,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			'label'        => esc_html__( 'Conditions:', 'wp-hotelier' ),
 			'placeholder'  => esc_html__( 'Special condition here', 'wp-hotelier' ),
 			'button_label' => esc_html__( 'Add new condition', 'wp-hotelier' ),
+			'description'  => __( 'You can insert some useful info about the room using the conditions fields. Typically they appear on the <strong>listing</strong> page and in the single room page.', 'wp-hotelier' )
 		)
 	);
 	?>
