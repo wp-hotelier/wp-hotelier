@@ -104,6 +104,7 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 					'std'          => 'no',
 					'show-if'      => 'yes',
 					'show-element' => 'extra-settings',
+					'description'  => esc_html__( 'Show advanced settings.', 'wp-hotelier' ),
 			)
 		);
 		?>
