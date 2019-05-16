@@ -8,7 +8,7 @@ jQuery(function ($) {
 		},
 
 		toggle_advanced: function () {
-			$(document).on('click', '.htl-ui-icon--show-advanced', function () {
+			$(document).on('click', '.htl-ui-text-icon--show-advanced', function () {
 				var _this = $(this);
 				var show_label = _this.attr('data-show-text');
 				var hide_label = _this.attr('data-hide-text');
