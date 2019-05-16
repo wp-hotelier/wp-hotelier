@@ -34,7 +34,7 @@ $rules = htl_get_option( 'seasonal_prices_schema', array() );
 								</span>
 							</label>
 
-							<span class="htl-ui-icon htl-ui-icon--show-advanced" data-hide-text="<?php esc_html_e( 'Hide advanced settings', 'wp-hotelier' ); ?>" data-show-text="<?php esc_html_e( 'Show advanced settings', 'wp-hotelier' ); ?>"><?php esc_html_e( 'Show advanced settings', 'wp-hotelier' ); ?></span>
+							<span class="htl-ui-text-icon htl-ui-text-icon--right htl-ui-text-icon--show-advanced" data-hide-text="<?php esc_html_e( 'Hide advanced settings', 'wp-hotelier' ); ?>" data-show-text="<?php esc_html_e( 'Show advanced settings', 'wp-hotelier' ); ?>"><?php esc_html_e( 'Show advanced settings', 'wp-hotelier' ); ?></span>
 
 							<div class="htl-ui-advanced-settings-wrapper">
 								<label class="htl-ui-label">
