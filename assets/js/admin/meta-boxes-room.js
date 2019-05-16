@@ -79,8 +79,12 @@ jQuery(function ($) {
 		},
 
 		toggle_variation: function () {
-			$('.room-settings__variations').on('click', '.htl-ui-icon--toggle-variation', function () {
-				$(this).closest('.room-variation').find('.room-variation__content').stop().slideToggle();
+			$('.room-settings__variations').on('click', '.room-variation__header', function (e) {
+				var dom = $(e.target);
+
+				if (!dom.hasClass('htl-ui-input--select') && !dom.hasClass('htl-ui-icon--clone-variation') && !dom.hasClass('htl-ui-icon--delete-variation') && !dom.hasClass('htl-ui-icon--drag-variation')) {
+					$(this).closest('.room-variation').find('.room-variation__content').stop().slideToggle();
+				}
 			});
 		},
 
