@@ -45,16 +45,12 @@ class HTL_Admin_Scripts {
 		// Font Awesome
 		wp_register_style( 'fontawesome', HTL_PLUGIN_URL . 'assets/fonts/fontawesome/css/all' . $suffix . '.css', array(), '5.8.1' );
 
-		// Tipsy
-		wp_register_style( 'tipsy-css', HTL_PLUGIN_URL . 'assets/css/admin/tipsy.css', array(), HTL_VERSION );
-
 		if ( in_array( $screen->id, HTL_Admin_Functions::get_screen_ids() ) ) {
 
 			if ( $screen->id != $prefix . '_hotelier-calendar' ) {
 				// Admin styles for Hotelier pages only
 				wp_enqueue_style( 'hotelier_admin_styles', HTL_PLUGIN_URL . 'assets/css/admin/admin.css', array(), HTL_VERSION );
 				wp_enqueue_style( 'fontawesome' );
-				wp_enqueue_style( 'tipsy-css' );
 			}
 
 
@@ -63,7 +59,6 @@ class HTL_Admin_Scripts {
 		// Booking calendar style
 		if ( $screen->id == $prefix . '_hotelier-calendar' ) {
 			wp_enqueue_style( 'hotelier_calendar_styles', HTL_PLUGIN_URL . 'assets/css/admin/calendar.css', array(), HTL_VERSION );
-			wp_enqueue_style( 'tipsy-css' );
 		}
 
 		// Addons page style
@@ -90,7 +85,6 @@ class HTL_Admin_Scripts {
 		wp_register_script( 'htl-admin', HTL_PLUGIN_URL . 'assets/js/admin/admin' . $suffix . '.js', array( 'jquery' ), HTL_VERSION );
 		wp_register_script( 'htl-admin-settings', HTL_PLUGIN_URL . 'assets/js/admin/settings' . $suffix . '.js', array( 'jquery' ), HTL_VERSION );
 		wp_register_script( 'htl-admin-fields', HTL_PLUGIN_URL . 'assets/js/admin/fields' . $suffix . '.js', array( 'jquery', 'jquery-ui-sortable' ), HTL_VERSION );
-		wp_register_script( 'jquery-tipsy', HTL_PLUGIN_URL . 'assets/js/lib/jquery-tipsy/jquery-tipsy' . $suffix . '.js', array( 'jquery' ), HTL_VERSION );
 
 		// Admin settings
 		if ( $screen->id == 'toplevel_page_hotelier-settings' ) {
@@ -145,7 +139,7 @@ class HTL_Admin_Scripts {
 		// Calendar script
 		if ( $screen->id == $prefix . '_hotelier-calendar' ) {
 			wp_enqueue_script( 'htl-admin' );
-			wp_enqueue_script( 'htl-admin-calendar', HTL_PLUGIN_URL . 'assets/js/admin/calendar' . $suffix . '.js', array( 'jquery', 'jquery-tipsy' ), HTL_VERSION );
+			wp_enqueue_script( 'htl-admin-calendar', HTL_PLUGIN_URL . 'assets/js/admin/calendar' . $suffix . '.js', array( 'jquery' ), HTL_VERSION );
 		}
 	}
 
