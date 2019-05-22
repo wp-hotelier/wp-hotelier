@@ -92,11 +92,6 @@ class HTL_Admin_Scripts {
 			wp_enqueue_script( 'htl-admin-settings' );
 		}
 
-		// Admin, new reservation and calendar
-		if ( $screen->id == 'toplevel_page_hotelier-settings' || $screen->id == $prefix . '_hotelier-calendar' || $screen->id == $prefix . '_hotelier-add-reservation' ) {
-			wp_enqueue_script( 'jquery-ui-datepicker' );
-		}
-
 		// Room meta boxes
 		if ( in_array( $screen->id, array( 'room', 'edit-room' ) ) ) {
 			wp_register_script( 'accounting', HTL_PLUGIN_URL . 'assets/js/lib/accounting/accounting' . $suffix . '.js', array( 'jquery' ), '0.4.2' );
@@ -140,6 +135,11 @@ class HTL_Admin_Scripts {
 		if ( $screen->id == $prefix . '_hotelier-calendar' ) {
 			wp_enqueue_script( 'htl-admin' );
 			wp_enqueue_script( 'htl-admin-calendar', HTL_PLUGIN_URL . 'assets/js/admin/calendar' . $suffix . '.js', array( 'jquery' ), HTL_VERSION );
+		}
+
+		// Admin settings, room page, new reservation, calendar page, reservation page
+		if ( $screen->id == 'toplevel_page_hotelier-settings' || in_array( $screen->id, array( 'room', 'edit-room' ) ) || $screen->id == $prefix . '_hotelier-add-reservation' || $screen->id == $prefix . '_hotelier-calendar' || in_array( $screen->id, array( 'room_reservation', 'edit-room_reservation' ) ) ) {
+			wp_enqueue_script( 'jquery-ui-datepicker' );
 		}
 	}
 
