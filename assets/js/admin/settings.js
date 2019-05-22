@@ -86,7 +86,7 @@ jQuery(function ($) {
 						$(this).closest('tr').find('.htl-ui-input--end-date').datepicker('option', 'minDate', date);
 					}
 				},
-				beforeShow: function (input) {
+				beforeShow: function () {
 					$('#ui-datepicker-div').addClass('htl-ui-custom-datepicker');
 				}
 			});
@@ -95,7 +95,7 @@ jQuery(function ($) {
 				dateFormat: 'yy-mm-dd',
 				minDate: 1,
 				changeMonth: true,
-				beforeShow: function (input) {
+				beforeShow: function () {
 					$('#ui-datepicker-div').addClass('htl-ui-custom-datepicker');
 				}
 			});
