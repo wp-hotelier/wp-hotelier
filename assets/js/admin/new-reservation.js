@@ -87,13 +87,19 @@ jQuery(function ($) {
 						date.setDate(date.getDate() + 1);
 						to_input.datepicker('option', 'minDate', date);
 					}
+				},
+				beforeShow: function () {
+					$('#ui-datepicker-div').addClass('htl-ui-custom-datepicker');
 				}
 			});
 
 			to_input.datepicker({
 				dateFormat: 'yy-mm-dd',
 				minDate: 1,
-				changeMonth: true
+				changeMonth: true,
+				beforeShow: function () {
+					$('#ui-datepicker-div').addClass('htl-ui-custom-datepicker');
+				}
 			});
 		},
 
