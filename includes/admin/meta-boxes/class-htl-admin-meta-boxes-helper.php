@@ -89,6 +89,13 @@ class HTL_Meta_Boxes_Helper {
 	}
 
 	/**
+	 * Output plain text.
+	 */
+	public static function plain( $field ) {
+		include HTL_PLUGIN_DIR . 'includes/admin/meta-boxes/views/fields/html-meta-box-field-plain.php';
+	}
+
+	/**
 	 * Get the value of a field inside a variation.
 	 */
 	public static function get_variation_field_value( $variations, $field_id, $index, $default = null ) {
