@@ -132,7 +132,7 @@ class HTL_Admin_Meta_Boxes {
 		add_meta_box( 'postexcerpt', esc_html__( 'Room Short Description', 'wp-hotelier' ), 'HTL_Meta_Box_Room_Excerpt::output', 'room', 'normal' );
 
 		// Reservations
-		add_meta_box( 'hotelier-reservation-data', esc_html__( 'Reservation Settings', 'wp-hotelier' ), 'HTL_Meta_Box_Reservation_Data::output', 'room_reservation', 'normal', 'high' );
+		add_meta_box( 'hotelier-reservation-data', esc_html__( 'Reservation Details', 'wp-hotelier' ), 'HTL_Meta_Box_Reservation_Data::output', 'room_reservation', 'normal', 'high' );
 		add_meta_box( 'hotelier-reservation-items', esc_html__( 'Rooms', 'wp-hotelier' ), 'HTL_Meta_Box_Reservation_Items::output', 'room_reservation', 'normal', 'high' );
 		add_meta_box( 'hotelier-reservation-save', esc_html__( 'Save Reservation', 'wp-hotelier' ), 'HTL_Meta_Box_Reservation_Save::output', 'room_reservation', 'side', 'high' );
 		add_meta_box( 'hotelier-reservation-notes', esc_html__( 'Reservation Notes', 'wp-hotelier' ), 'HTL_Meta_Box_Reservation_Notes::output', 'room_reservation', 'side', 'default' );
