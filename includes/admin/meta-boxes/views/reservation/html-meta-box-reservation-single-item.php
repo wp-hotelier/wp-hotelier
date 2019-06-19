@@ -9,32 +9,38 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<tr class="item">
-	<td class="thumb">
+<tr class="htl-ui-table__row htl-ui-table__row--body">
+	<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--reservation-items-room-thumb">
 		<?php if ( $_room ) : ?>
 			<a target="_blank" href="<?php echo esc_url( admin_url( 'post.php?post=' . absint( $_room->id ) . '&action=edit' ) ); ?>"><?php echo $_room->get_image( 'room_thumbnail', array( 'title' => '' ) ); ?></a>
 		<?php else : ?>
 			<?php echo htl_placeholder_img( 'room_thumbnail' ); ?>
 		<?php endif; ?>
 	</td>
-	<td class="name">
+
+	<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--reservation-items-room-name">
 		<?php if ( $_room ) : ?>
 			<a target="_blank" href="<?php echo esc_url( admin_url( 'post.php?post=' . absint( $_room->id ) . '&action=edit' ) ); ?>">
 				<?php echo esc_html( $item[ 'name' ] ); ?>
 			</a>
+
 			<?php if ( isset( $item[ 'rate_name' ] ) ) : ?>
-				<span><?php echo esc_html__( 'Rate', 'wp-hotelier' ) . ': '; ?><span class="rate"><?php echo htl_get_formatted_room_rate( $item[ 'rate_name' ] ); ?></span></span>
+				<span class="reservation-items-rate"><?php echo wp_kses_post( sprintf( __( 'Rate: %s', 'wp-hotelier' ), '<span class="reservation-items-rate__name">' . htl_get_formatted_room_rate( $item[ 'rate_name' ] ) . '</span>' ) ); ?></span>
 			<?php else : ?>
-				<span><?php echo esc_html__( 'Standard room', 'wp-hotelier' ); ?></span>
+				<span class="reservation-items-rate"><span class="reservation-items-rate__name"><?php echo esc_html__( 'Standard room', 'wp-hotelier' ); ?></span></span>
 			<?php endif; ?>
+
 		<?php else : ?>
-			<?php echo esc_html( $item[ 'name' ] ); ?>
+			<a href="#"><?php echo esc_html( $item[ 'name' ] ); ?></a>
+
 			<?php if ( isset( $item[ 'rate_name' ] ) ) : ?>
-				<?php echo htl_get_formatted_room_rate( $item[ 'rate_name' ] ); ?>
+				<span class="reservation-items-rate"><?php echo wp_kses_post( sprintf( __( 'Rate: %s', 'wp-hotelier' ), '<span class="reservation-items-rate__name">' . htl_get_formatted_room_rate( $item[ 'rate_name' ] ) . '</span>' ) ); ?></span>
 			<?php else : ?>
-				<span><?php echo esc_html__( 'Standard room', 'wp-hotelier' ); ?></span>
+				<span class="reservation-items-rate"><span class="reservation-items-rate__name"><?php echo esc_html__( 'Standard room', 'wp-hotelier' ); ?></span></span>
 			<?php endif; ?>
+
 		<?php endif; ?>
+
 		<?php if ( isset( $item[ 'is_cancellable' ] ) && ! $item[ 'is_cancellable' ] ) : ?>
 			<span class="non-refundable"><?php echo esc_html__( 'Non-refundable', 'wp-hotelier' ); ?></span>
 		<?php endif; ?>
@@ -74,21 +80,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php endif; ?>
 
 	</td>
-	<td class="guests">
+
+	<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--reservation-items-room-guests">
 	<?php
 		$room_max_guests = absint( $item[ 'max_guests' ] );
 
 		for( $i = 0; $i < $room_max_guests; $i++ ) {
-			echo '<i class="dashicons dashicons-admin-users"></i>';
+			echo '<i class="fas fa-male"></i>';
 		} ?>
 	</td>
-	<td class="price">
+
+	<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--reservation-items-room-price">
 		<?php echo htl_price( htl_convert_to_cents( $item[ 'price' ] ), $reservation->get_reservation_currency() ); ?>
 	</td>
-	<td class="qty">
+
+	<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--reservation-items-room-qty">
 		<?php echo esc_html( $item[ 'qty' ] ); ?>
 	</td>
-	<td class="total">
+
+	<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--reservation-items-room-total">
 		<?php echo htl_price( htl_convert_to_cents( $item[ 'total' ] ), $reservation->get_reservation_currency() ); ?>
 	</td>
 </tr>
+
+<?php if ( ! $_room ) : ?>
+	<tr class="htl-ui-table__row htl-ui-table__row--body">
+		<td colspan="6" class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--reservation-items-no-room">
+			<?php htl_ui_print_notice( __( 'This room does not exist anymore', 'wp-hotelier' ), 'error' ); ?>
+		</td>
+	</tr>
+<?php endif; ?>
