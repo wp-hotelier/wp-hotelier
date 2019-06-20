@@ -45,15 +45,10 @@ class HTL_Admin_Scripts {
 		// Font Awesome
 		wp_register_style( 'fontawesome', HTL_PLUGIN_URL . 'assets/fonts/fontawesome/css/all' . $suffix . '.css', array(), '5.8.1' );
 
+		// Admin styles for all Hotelier pages
 		if ( in_array( $screen->id, HTL_Admin_Functions::get_screen_ids() ) ) {
-
-			if ( $screen->id != $prefix . '_hotelier-calendar' ) {
-				// Admin styles for Hotelier pages only
-				wp_enqueue_style( 'hotelier_admin_styles', HTL_PLUGIN_URL . 'assets/css/admin/admin.css', array(), HTL_VERSION );
-				wp_enqueue_style( 'fontawesome' );
-			}
-
-
+			wp_enqueue_style( 'hotelier_admin_styles', HTL_PLUGIN_URL . 'assets/css/admin/admin.css', array(), HTL_VERSION );
+			wp_enqueue_style( 'fontawesome' );
 		}
 
 		// Booking calendar style
@@ -86,7 +81,7 @@ class HTL_Admin_Scripts {
 		wp_register_script( 'htl-admin-fields', HTL_PLUGIN_URL . 'assets/js/admin/fields' . $suffix . '.js', array( 'jquery', 'jquery-ui-sortable' ), HTL_VERSION );
 
 		// All hotelier pages
-		if ( $screen->id == 'toplevel_page_hotelier-settings' || in_array( $screen->id, array( 'room', 'edit-room' ) ) || in_array( $screen->id, array( 'room_reservation', 'edit-room_reservation' ) ) || $screen->id == $prefix . '_hotelier-add-reservation' || $screen->id == $prefix . '_hotelier-calendar' || $screen->id == $prefix . '_hotelier-logs' ) {
+		if ( in_array( $screen->id, HTL_Admin_Functions::get_screen_ids() ) ) {
 			wp_enqueue_script( 'htl-admin' );
 		}
 
