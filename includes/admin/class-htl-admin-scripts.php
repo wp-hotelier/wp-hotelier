@@ -56,10 +56,6 @@ class HTL_Admin_Scripts {
 			wp_enqueue_style( 'hotelier_calendar_styles', HTL_PLUGIN_URL . 'assets/css/admin/calendar.css', array(), HTL_VERSION );
 		}
 
-		// Addons page style
-		if ( $screen->id == $prefix . '_hotelier-addons' ) {
-			wp_enqueue_style( 'hotelier_addons_styles', HTL_PLUGIN_URL . 'assets/css/admin/addons.css', array(), HTL_VERSION );
-		}
 	}
 
 	/**

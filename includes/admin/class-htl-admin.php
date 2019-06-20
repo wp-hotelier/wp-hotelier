@@ -42,7 +42,6 @@ class HTL_Admin {
 		include_once( 'new-reservation/class-htl-admin-new-reservation.php' );
 		include_once( 'calendar/class-htl-admin-calendar.php' );
 		include_once( 'settings/class-htl-admin-logs.php' );
-		include_once( 'addons/class-htl-admin-addons.php' );
 	}
 
 	/**
