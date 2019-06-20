@@ -59,6 +59,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		</div>
 
+		<?php include_once HTL_PLUGIN_DIR . 'includes/admin/settings/views/html-settings-pro-section.php'; ?>
+
 	</div>
 
 </div><!-- .wrap -->

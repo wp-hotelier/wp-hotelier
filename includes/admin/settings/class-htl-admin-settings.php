@@ -136,6 +136,8 @@ class HTL_Admin_Settings {
 						<?php submit_button( false, 'htl-ui-button htl-ui-button--save-settings', 'submit', false ); ?>
 					</form>
 				</div>
+
+				<?php include_once HTL_PLUGIN_DIR . 'includes/admin/settings/views/html-settings-pro-section.php'; ?>
 			</div>
 		</div><!-- .wrap -->
 		<?php

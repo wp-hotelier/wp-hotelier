@@ -166,5 +166,7 @@ $tomorrow = $tomorrow->format( 'Y-m-d' );
 		<?php do_action( 'hotelier_admin_add_new_reservation_after_rooms_query' ); ?>
 		</div>
 
+		<?php include_once HTL_PLUGIN_DIR . 'includes/admin/settings/views/html-settings-pro-section.php'; ?>
+
 	</div>
 </div>
