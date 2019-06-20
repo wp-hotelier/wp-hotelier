@@ -5,6 +5,7 @@ jQuery(function ($) {
 	var HTL_Admin = {
 		init: function () {
 			this.toggle_advanced();
+			this.see_pro_features();
 		},
 
 		toggle_advanced: function () {
@@ -21,6 +22,16 @@ jQuery(function ($) {
 				}
 
 				wrapper.toggleClass('open');
+			});
+		},
+
+		see_pro_features: function () {
+			$('.see-pro-version-features').on('click', function (e) {
+				e.preventDefault();
+
+				$('html, body').animate({
+					scrollTop: $('.hotelier-settings-pro-features').offset().top
+				}, 1000);
 			});
 		}
 	};
