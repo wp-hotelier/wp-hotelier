@@ -50,12 +50,6 @@ class HTL_Admin_Scripts {
 			wp_enqueue_style( 'hotelier_admin_styles', HTL_PLUGIN_URL . 'assets/css/admin/admin.css', array(), HTL_VERSION );
 			wp_enqueue_style( 'fontawesome' );
 		}
-
-		// Booking calendar style
-		if ( $screen->id == $prefix . '_hotelier-calendar' ) {
-			wp_enqueue_style( 'hotelier_calendar_styles', HTL_PLUGIN_URL . 'assets/css/admin/calendar.css', array(), HTL_VERSION );
-		}
-
 	}
 
 	/**
