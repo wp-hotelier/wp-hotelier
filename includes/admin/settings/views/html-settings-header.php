@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php if ( $is_hotelier_pro_installed ) : ?>
 			<?php esc_attr_e( 'Pro', 'wp-hotelier' ); ?>
 		<?php else : ?>
-			<a href="https://wphotelier.com/"><?php esc_attr_e( 'Upgrade to Pro version', 'wp-hotelier' ); ?></a>
+			<a class="see-pro-version-features" href="https://wphotelier.com/"><?php esc_attr_e( 'Upgrade to Pro version', 'wp-hotelier' ); ?></a>
 		<?php endif; ?>
 	</span>
 </div>
