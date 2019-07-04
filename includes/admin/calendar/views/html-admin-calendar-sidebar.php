@@ -9,14 +9,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<div class="booking-calendar-filter">
-	<ul class="booking-calendar-filter__list">
+<div class="booking-calendar-filters">
+	<ul class="booking-calendar-filters__list">
 		<?php foreach ( htl_get_reservation_statuses() as $id => $name ) : ?>
 			<?php
 			$id = esc_attr( str_replace( 'htl-', '', $id ) );
 			?>
 
-			<li class="booking-calendar-filter__item booking-calendar-filter__item--<?php echo esc_attr( $id ); ?>">
+			<li class="booking-calendar-filters__item booking-calendar-filters__item--<?php echo esc_attr( $id ); ?>">
 				<?php echo esc_html( $name ); ?>
 			</li>
 		<?php endforeach; ?>
