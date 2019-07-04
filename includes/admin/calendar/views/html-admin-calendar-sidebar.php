@@ -13,8 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<ul class="booking-calendar-filter__list">
 		<?php foreach ( htl_get_reservation_statuses() as $id => $name ) : ?>
 			<?php
-			$id     = esc_attr( str_replace( 'htl-', '', $id ) );
-			$status = ! empty( $_GET[ $id ] ) && 'false' == $_GET[ $id ] ? 'true' : 'false';
+			$id = esc_attr( str_replace( 'htl-', '', $id ) );
 			?>
 
 			<li class="booking-calendar-filter__item booking-calendar-filter__item--<?php echo esc_attr( $id ); ?>">
