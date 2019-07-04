@@ -26,6 +26,7 @@ $prev_week = $prev_week->modify( '-7 days' )->format( 'Y-m-d' );
 		<div class="booking-calendar__sidebar">
 			<?php include_once HTL_PLUGIN_DIR . 'includes/admin/calendar/views/html-admin-calendar-sidebar.php'; ?>
 		</div>
+		<span class="htl-ui-text-icon htl-ui-text-icon--show-booking-calendar-filters" data-show-text="<?php esc_html_e( 'Show filters', 'wp-hotelier' ); ?>"><?php esc_html_e( 'Hide filters', 'wp-hotelier' ); ?></span>
 
 		<div class="booking-calendar__content">
 			<?php include_once HTL_PLUGIN_DIR . 'includes/admin/calendar/views/html-admin-calendar-table.php'; ?>
