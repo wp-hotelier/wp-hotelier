@@ -24,9 +24,9 @@ $all_reservations = htl_get_all_reservations( $start_range, $end_range );
 		<tr class="booking-calendar-table__row booking-calendar-table__row--header">
 			<?php foreach ( $daterange as $date ) : ?>
 				<th colspan="2" class="booking-calendar-table__cell booking-calendar-table__cell--header <?php echo $date->format( 'Y-m-d' ) == $today->format( 'Y-m-d' ) ? 'booking-calendar-table__cell--today' : ''; ?>">
-					<span class="booking-calendar-table__date booking-calendar-table__date--month"><?php echo date_i18n( 'M', $date->getTimestamp() ) ?></span>
+					<span class="booking-calendar-table__date booking-calendar-table__date--day"><?php echo date_i18n( 'l', $date->getTimestamp() ) ?></span>
 					<span class="booking-calendar-table__date booking-calendar-table__date--number"><?php echo date_i18n( 'd', $date->getTimestamp() ) ?></span>
-					<span class="booking-calendar-table__date booking-calendar-table__date--day"><?php echo date_i18n( 'D', $date->getTimestamp() ) ?></span>
+					<span class="booking-calendar-table__date booking-calendar-table__date--month"><?php echo date_i18n( 'M', $date->getTimestamp() ) ?></span>
 				</th>
 			<?php endforeach; ?>
 		</tr>
@@ -34,8 +34,25 @@ $all_reservations = htl_get_all_reservations( $start_range, $end_range );
 
 	<tbody class="booking-calendar-table__body">
 		<?php foreach ( $all_reservations as $room_id => $reservations ) : ?>
+			<tr class="booking-calendar-table__row booking-calendar-table__row--body booking-calendar-table__row--room-name">
+				<td class="booking-calendar-table__cell booking-calendar-table__cell--body booking-calendar-table__cell--room-link" colspan="<?php echo absint( $weeks * 14 ); ?>"><a class="booking-calendar-table__room-link" href="<?php echo esc_url( get_edit_post_link( $room_id ) ); ?>"><?php echo get_the_title( $room_id ); ?></a></td>
+			</tr>
+			<tr class="booking-calendar-table__row booking-calendar-table__row--body booking-calendar-table__row--empty">
+				<td class="booking-calendar-table__cell booking-calendar-table__cell--body" colspan="<?php echo absint( $weeks * 14 ); ?>">
+					<table class="booking-calendar-table__table booking-calendar-table__table--week">
+						<tbody class="booking-calendar-table__body booking-calendar-table__body--week">
+							<tr class="booking-calendar-table__row booking-calendar-table__row--week booking-calendar-table__row--empty" data-room="<?php echo absint( $room_id ); ?>">
+								<?php foreach ( $daterange as $date ) : ?>
+									<td class="booking-calendar-table__cell booking-calendar-table__cell--body booking-calendar-table__cell--empty booking-calendar-table__cell--day booking-calendar-table__cell--first"><span class="booking-calendar-table__date-helper"><?php echo date_i18n( 'd', $date->getTimestamp() ) ?></span></td>
+									<td class="booking-calendar-table__cell booking-calendar-table__cell--body booking-calendar-table__cell--empty booking-calendar-table__cell--day">&nbsp;</td>
+								<?php endforeach; ?>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
 			<tr class="booking-calendar-table__row booking-calendar-table__row--body">
-				<td class="booking-calendar-table__cell booking-calendar-table__cell--data booking-calendar-table__cell--week" colspan="<?php echo absint( $weeks * 14 ); ?>">
+				<td class="booking-calendar-table__cell booking-calendar-table__cell--body booking-calendar-table__cell--week" colspan="<?php echo absint( $weeks * 14 ); ?>">
 					<table class="booking-calendar-table__table booking-calendar-table__table--week">
 						<tbody class="booking-calendar-table__body booking-calendar-table__body--week">
 							<?php if ( $reservations ) :
@@ -143,7 +160,7 @@ $all_reservations = htl_get_all_reservations( $start_range, $end_range );
 													}
 													?>
 
-													<td colspan="<?php echo absint( $colspan ); ?>" data-status="<?php echo esc_attr( $cell[ 'status' ] ); ?>" data-room="<?php echo esc_attr( $room_id ); ?>" class="booking-calendar-table__cell booking-calendar-table__cell--data booking-calendar-table__cell--day booking-calendar-table__day-booked <?php echo esc_attr( $class ); ?>">
+													<td colspan="<?php echo absint( $colspan ); ?>" data-status="<?php echo esc_attr( $cell[ 'status' ] ); ?>" data-room="<?php echo esc_attr( $room_id ); ?>" class="booking-calendar-table__cell booking-calendar-table__cell--body booking-calendar-table__cell--day booking-calendar-table__day-booked <?php echo esc_attr( $class ); ?>">
 
 														<a href="<?php echo esc_url( get_edit_post_link( $cell[ 'id' ] ) ); ?>" class="booking-calendar-table__reservation-link"><span class="booking-calendar-table__reservation-label">#<?php echo esc_html( $cell[ 'id' ] ); ?></span></a>
 
@@ -158,10 +175,10 @@ $all_reservations = htl_get_all_reservations( $start_range, $end_range );
 													}
 													?>
 
-													<td class="booking-calendar-table__cell booking-calendar-table__cell--data booking-calendar-table__cell--day <?php echo esc_attr( $class ); ?>"></td>
+													<td class="booking-calendar-table__cell booking-calendar-table__cell--body booking-calendar-table__cell--day <?php echo esc_attr( $class ); ?>"></td>
 
 													<?php if ( $index != 0 && $index != $weeks * 7 ) : ?>
-														<td class="booking-calendar-table__cell booking-calendar-table__cell--data booking-calendar-table__cell--day booking-calendar-table__cell--first"></td>
+														<td class="booking-calendar-table__cell booking-calendar-table__cell--body booking-calendar-table__cell--day booking-calendar-table__cell--first"></td>
 													<?php endif; ?>
 												<?php endif; ?>
 											<?php endif; ?>
@@ -171,11 +188,25 @@ $all_reservations = htl_get_all_reservations( $start_range, $end_range );
 							<?php else : ?>
 								<tr class="booking-calendar-table__row booking-calendar-table__row--week booking-calendar-table__row--bg" data-room="<?php echo absint( $room_id ); ?>">
 									<?php foreach ( $daterange as $date ) : ?>
-										<td class="booking-calendar-table__cell booking-calendar-table__cell--data booking-calendar-table__cell--bg booking-calendar-table__cell--day bc__cell--first">&nbsp;</td>
-										<td class="booking-calendar-table__cell booking-calendar-table__cell--data booking-calendar-table__cell--bg booking-calendar-table__cell--day">&nbsp;</td>
+										<td class="booking-calendar-table__cell booking-calendar-table__cell--body booking-calendar-table__cell--bg booking-calendar-table__cell--day booking-calendar-table__cell--first">&nbsp;</td>
+										<td class="booking-calendar-table__cell booking-calendar-table__cell--body booking-calendar-table__cell--bg booking-calendar-table__cell--day">&nbsp;</td>
 									<?php endforeach; ?>
 								</tr>
 							<?php endif; ?>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+			<tr class="booking-calendar-table__row booking-calendar-table__row--body booking-calendar-table__row--empty">
+				<td class="booking-calendar-table__cell booking-calendar-table__cell--body" colspan="<?php echo absint( $weeks * 14 ); ?>">
+					<table class="booking-calendar-table__table booking-calendar-table__table--week">
+						<tbody class="booking-calendar-table__body booking-calendar-table__body--week">
+							<tr class="booking-calendar-table__row booking-calendar-table__row--week booking-calendar-table__row--empty" data-room="<?php echo absint( $room_id ); ?>">
+								<?php foreach ( $daterange as $date ) : ?>
+									<td class="booking-calendar-table__cell booking-calendar-table__cell--body booking-calendar-table__cell--empty booking-calendar-table__cell--day booking-calendar-table__cell--first">&nbsp;</td>
+									<td class="booking-calendar-table__cell booking-calendar-table__cell--body booking-calendar-table__cell--empty booking-calendar-table__cell--day">&nbsp;</td>
+								<?php endforeach; ?>
+							</tr>
 						</tbody>
 					</table>
 				</td>
