@@ -7,12 +7,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-$today     = new Datetime();
-$today     = $today->format( 'Y-m-d' );
-$next_week = clone( $marker );
-$next_week = $next_week->modify( '+7 days' )->format( 'Y-m-d' );
-$prev_week = clone( $marker );
-$prev_week = $prev_week->modify( '-7 days' )->format( 'Y-m-d' );
+$today                     = new Datetime();
+$today                     = $today->format( 'Y-m-d' );
+$next_week                 = clone( $marker );
+$next_week                 = $next_week->modify( '+7 days' )->format( 'Y-m-d' );
+$prev_week                 = clone( $marker );
+$prev_week                 = $prev_week->modify( '-7 days' )->format( 'Y-m-d' );
+$default_disabled_statuses = apply_filters( 'hotelier_booking_calendar_default_disabled_statuses', array( 'cancelled', 'refunded', 'failed' ) );
 ?>
 
 <div class="wrap htl-ui-scope booking-calendar">

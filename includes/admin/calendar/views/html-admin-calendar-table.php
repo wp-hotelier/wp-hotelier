@@ -137,6 +137,10 @@ $all_reservations = htl_get_all_reservations( $start_range, $end_range );
 													if ( $index == 0 && $cell[ 'size' ] > 2 * $weeks * 7 ) {
 														$colspan = 2 * $weeks * 7;
 													}
+
+													if ( in_array( $cell[ 'status' ], $default_disabled_statuses ) ) {
+														$class .= ' not-active';
+													}
 													?>
 
 													<td colspan="<?php echo absint( $colspan ); ?>" data-status="<?php echo esc_attr( $cell[ 'status' ] ); ?>" data-room="<?php echo esc_attr( $room_id ); ?>" class="booking-calendar-table__cell booking-calendar-table__cell--data booking-calendar-table__cell--day booking-calendar-table__day-booked <?php echo esc_attr( $class ); ?>">
