@@ -41,7 +41,7 @@ class HTL_Admin_Menus {
 	 * Add calendar page
 	 */
 	public function admin_calendar() {
-		add_submenu_page( 'hotelier-settings', esc_html__( 'Calendar', 'wp-hotelier' ),  esc_html__( 'View Calendar', 'wp-hotelier' ) , 'manage_hotelier', 'hotelier-calendar', array( $this, 'calendar_page' ) );
+		add_submenu_page( 'hotelier-settings', esc_html__( 'Calendar', 'wp-hotelier' ),  esc_html__( 'Calendar', 'wp-hotelier' ) , 'manage_hotelier', 'hotelier-calendar', array( $this, 'calendar_page' ) );
 	}
 
 	/**
