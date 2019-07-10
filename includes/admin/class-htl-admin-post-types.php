@@ -252,8 +252,7 @@ class HTL_Admin_Post_Types {
 	 * Change reservation to 'cancelled' in 'bookings' table when the post is trashed.
 	 */
 	public function trash_reservation( $postid ) {
-		if ( get_post_type() === 'room_reservation' ) {
-
+		if ( get_post_type( $postid ) === 'room_reservation' ) {
 			$reservation = htl_get_reservation( $postid );
 			$reservation->update_table_status( 'cancelled' );
 		}
