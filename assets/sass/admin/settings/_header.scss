@@ -1,0 +1,74 @@
+.hotelier-settings-header {
+	background-color: #fff;
+	border-bottom: 1px solid $color__line__default;
+	height: 109px;
+	padding: $space__x4 $space__x4;
+
+	@media (min-width: 800px) {
+		text-align: right;
+	}
+}
+
+.hotelier-settings-header__brand--title {
+	margin: 0;
+}
+
+@media (min-width: 800px) {
+	.htl-ui-button--view-calendar {
+		float: left;
+	}
+}
+
+.hotelier-settings-header__version-number {
+	color: $color__text__default;
+	display: block;
+	line-height: $space__x4;
+
+	@media (min-width: 800px) {
+		display: inline-block;
+	}
+
+	strong {
+		margin-right: 5px;
+	}
+}
+
+.hotelier-settings-header__version-info {
+	display: none;
+
+	@media (min-width: 800px) {
+		display: inline-block;
+		margin-left: $space__x2;
+	}
+}
+
+.hotelier-settings-header__version-info--free-version a,
+.hotelier-settings-header__version-info--pro-version {
+	@include transition();
+	background: $color__accent__light;
+	border-radius: 2px;
+	color: $color__accent;
+	display: inline-block;
+	font-size: 13px;
+	font-weight: 500;
+	height: $space__x4;
+	line-height: $space__x4;
+	padding: 0 $space__x2;
+	text-decoration: none;
+
+	&:focus,
+	&:hover {
+		background: $color__accent;
+		color: #fff;
+		outline: none;
+	}
+}
+
+.hotelier-settings-header__version-info--free-version a {
+	&:focus,
+	&:hover {
+		background: $color__accent;
+		color: #fff;
+		outline: none;
+	}
+}

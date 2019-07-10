@@ -29,7 +29,6 @@ class HTL_Admin_Functions {
 			$prefix . '_hotelier-logs',
 			$prefix . '_hotelier-add-reservation',
 			$prefix . '_hotelier-calendar',
-			$prefix . '_hotelier-addons',
 			'edit-room',
 			'room',
 			'room_reservation',

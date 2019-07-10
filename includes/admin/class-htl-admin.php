@@ -30,9 +30,11 @@ class HTL_Admin {
 	 * Include any classes we need within admin.
 	 */
 	public function includes() {
+		include_once( 'htl-admin-ui-functions.php' );
 		include_once( 'settings/class-htl-admin-settings.php' );
 		include_once( 'class-htl-admin-functions.php' );
 		include_once( 'meta-boxes/class-htl-admin-meta-boxes-helper.php' );
+		include_once( 'meta-boxes/class-htl-admin-meta-boxes-views.php' );
 		include_once( 'class-htl-admin-post-types.php' );
 		include_once( 'class-htl-admin-menus.php' );
 		include_once( 'class-htl-admin-scripts.php' );
@@ -40,7 +42,6 @@ class HTL_Admin {
 		include_once( 'new-reservation/class-htl-admin-new-reservation.php' );
 		include_once( 'calendar/class-htl-admin-calendar.php' );
 		include_once( 'settings/class-htl-admin-logs.php' );
-		include_once( 'addons/class-htl-admin-addons.php' );
 	}
 
 	/**

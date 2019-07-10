@@ -1,0 +1,122 @@
+/****** Datepicker ******/
+
+$datepicker__text_color: #afb3bc;
+
+.htl-ui-custom-datepicker {
+	background: #fff !important;
+	border: 1px solid $color__line__default !important;
+	padding: .2em .2em 0 !important;
+	width: 17em !important;
+
+	.ui-datepicker-header {
+		border-bottom: 1px solid #eee !important;
+		height: $space__x5 !important;
+		margin-bottom: $space;
+		position: relative !important;
+	}
+
+	.ui-datepicker-prev,
+	.ui-datepicker-next {
+		cursor: pointer !important;
+		left: $space__x2 !important;
+		position: absolute !important;
+		text-indent: -9999px !important;
+		top: $space !important;
+		width: 20px !important;
+
+		&.ui-state-disabled {
+			display: none;
+		}
+
+		&:after {
+			@include style-icon();
+			color: $datepicker__text_color !important;
+			content: '\f053' !important;
+			float: left !important;
+			font-weight: 900 !important;
+			text-indent: 0 !important;
+		}
+	}
+
+	.ui-datepicker-next {
+		left: auto !important;
+		right: $space__x2 !important;
+
+		&:after {
+			content: '\f054' !important;
+			float: right !important;
+		}
+	}
+
+	.ui-icon-circle-triangle-w,
+	.ui-icon-circle-triangle-e {
+		display: none !important;
+	}
+
+	.ui-datepicker-title {
+		text-align: center !important;
+	}
+
+	.ui-datepicker-month {
+		border: none !important;
+		box-shadow: none !important;
+		color: $color__text__dark !important;
+		font-weight: 500 !important;
+		margin: 0 !important;
+		outline: none !important;
+		padding: 0 !important;
+	}
+
+	.ui-datepicker-year {
+		color: $datepicker__text_color !important;
+		display: block !important;
+		font-size: 11px !important;
+		margin-top: -6px !important;
+	}
+
+	.ui-datepicker-calendar {
+		width: 100% !important;
+	}
+
+	th {
+		color: $color__text__dark !important;
+		font-size: 11px !important;
+		font-weight: 500 !important;
+		padding-bottom: $space;
+	}
+
+	td {
+		font-size: 12px !important;
+		padding: 0 !important;
+		text-align: center !important;
+
+		&.ui-state-disabled {
+			color: #e8e8e8 !important;
+
+			span {
+				display: block !important;
+				padding: 5px !important;
+			}
+		}
+
+		a {
+			@include reset-link($datepicker__text_color);
+			color: $datepicker__text_color !important;
+			display: block !important;
+			padding: 5px !important;
+			text-decoration: none !important;
+			border-radius: 100% !important;
+		}
+
+		&.ui-datepicker-today a {
+			background-color: $color__accent__light !important;
+			color: $color__accent !important;
+		}
+
+		&.ui-datepicker-current-day a {
+			@include reset-link(#fff);
+			background-color: $color__accent !important;
+			color: #fff !important;
+		}
+	}
+}

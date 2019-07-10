@@ -1,0 +1,13 @@
+/****** Image Size ******/
+
+.htl-ui-setting--image-size {
+	font-weight: 500;
+
+	.htl-ui-input--text:last-of-type {
+		margin-right: 3px;
+	}
+}
+
+.htl-ui-label--image-size {
+	margin-left: $space;
+}

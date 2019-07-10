@@ -80,7 +80,6 @@ class HTL_Admin_New_Reservation {
 	 * Show the new reservation page
 	 */
 	public static function output() {
-
 		include_once( 'views/html-admin-new-reservation.php' );
 	}
 
@@ -148,11 +147,11 @@ class HTL_Admin_New_Reservation {
 					throw new Exception( $reservation_id->get_error_message() );
 				}
 
-				echo '<div class="updated"><p>' . esc_html__( 'Reservation created' ) . '</p></div>';
+				echo '<div class="htl-ui-notice htl-ui-notice--success htl-ui-notice--new-reservation-message" style="display:none;"><p class="htl-ui-notice__text htl-ui-notice__text--success">' . esc_html__( 'Reservation created' ) . '</p></div>';
 
 			} catch ( Exception $e ) {
 				if ( ! empty( $e ) ) {
-					echo '<div class="error"><p>' . esc_html( $e->getMessage() ) . '</p></div>';
+					echo '<div class="htl-ui-notice htl-ui-notice--error htl-ui-notice--new-reservation-message" style="display:none;"><p class="htl-ui-notice__text htl-ui-notice__text--error">' . esc_html( $e->getMessage() ) . '</p></div>';
 				}
 			}
 		}

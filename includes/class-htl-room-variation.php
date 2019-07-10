@@ -516,7 +516,7 @@ class HTL_Room_Variation {
 	 * @return bool
 	 */
 	public function needs_deposit() {
-		$require_deposit = isset( $this->variation[ 'require_deposit' ] ) ? $this->variation[ 'require_deposit' ] : false;
+		$require_deposit = isset( $this->variation[ 'require_deposit' ] ) && $this->variation[ 'require_deposit' ] !== 'no' ? $this->variation[ 'require_deposit' ] : false;
 
 		return $require_deposit;
 	}
@@ -549,7 +549,7 @@ class HTL_Room_Variation {
 	 * @return bool
 	 */
 	public function is_cancellable() {
-		$non_cancellable = isset( $this->variation[ 'non_cancellable' ] ) ? false : true;
+		$non_cancellable = isset( $this->variation[ 'non_cancellable' ] ) && $this->variation[ 'non_cancellable' ] !== 'no' ? false : true;
 
 		return $non_cancellable;
 	}

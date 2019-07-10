@@ -1,0 +1,62 @@
+/****** Reservation Items ******/
+
+.htl-ui-table--reservation-items {
+	color: $color__text__dark;
+
+	.adults-children {
+		color: $color__text__default;
+	}
+
+	.non-refundable {
+		color: $color__error;
+		display: block;
+		font-weight: 500;
+	}
+}
+
+.htl-ui-table__cell--reservation-items-room-total .amount {
+	font-weight: 500;
+}
+
+.htl-ui-table__cell--reservation-items-no-room {
+	padding-bottom: 0 !important;
+}
+
+.htl-ui-table__cell--reservation-items-room-price,
+.htl-ui-table__cell--reservation-items-room-total {
+	text-align: right !important;
+}
+
+.htl-ui-table__cell--reservation-items-room-qty,
+.htl-ui-table__cell--reservation-items-room-guests {
+	padding: 0 $space__x2;
+	text-align: center !important;
+}
+
+.htl-ui-table__cell--reservation-items-room-name a {
+	@include reset-link($color__accent);
+	@include transition();
+	color: $color__accent;
+	display: block;
+
+	&:hover {
+		color: $color__accent__hover;
+	}
+}
+
+.htl-ui-table__cell--reservation-items-room-thumb img {
+	height: 55px;
+	width: 55px;
+}
+
+.reservation-items-rate {
+	&__name {
+		font-style: italic;
+		font-weight: 600;
+	}
+}
+
+.htl-ui-table__cell--reservation-items-room-guests i {
+	color: $color__accent;
+	padding: 0 5px;
+}

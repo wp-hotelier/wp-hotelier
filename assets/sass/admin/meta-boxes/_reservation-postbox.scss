@@ -1,0 +1,67 @@
+/****** Reservation Postbox ******/
+
+.reservation-notes__list {
+	@include clear-list();
+}
+
+.reservation-notes__item {
+	margin-bottom: $space__x2;
+
+}
+
+.reservation-notes__text {
+	padding: $space;
+	background-color: $color__light;
+	margin-bottom: $space__x2 !important;
+	color: $color__text__dark !important;
+	position: relative;
+	border-radius: 2px;
+
+	&:after {
+		border-color: $color__light transparent;
+		border-style: solid;
+		border-width: 10px 10px 0 0;
+		bottom: -10px;
+		content: '';
+		display: block;
+		height: 0;
+		left: 20px;
+		position: absolute;
+		width: 0;
+	}
+}
+
+.reservation-notes__date {
+	font-size: 12px;
+	font-weight: 500;
+}
+
+#hotelier-reservation-save #reservation-actions {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 25px;
+  overflow: hidden;
+  padding-bottom: 25px;
+}
+
+#hotelier-reservation-save #reservation-actions p {
+  font-style: italic;
+}
+
+#hotelier-reservation-save #reservation-actions button {
+  float: right;
+}
+
+#hotelier-reservation-save #emails-action {
+  display: block;
+  margin-bottom: 10px;
+  width: 99%;
+}
+
+#hotelier-reservation-save .submitbox {
+  overflow: hidden;
+}
+
+#hotelier-reservation-save .save-reservation {
+  float: right;
+}
+

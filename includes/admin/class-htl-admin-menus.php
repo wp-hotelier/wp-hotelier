@@ -27,11 +27,6 @@ class HTL_Admin_Menus {
 		// Add Hotelier pages to WP menu
 		add_action( 'admin_menu', array( $this, 'admin_menu' ), 9 );
 		add_action( 'admin_menu', array( $this, 'admin_calendar' ), 30 );
-
-		if ( apply_filters( 'hotelier_show_addons_page', true ) ) {
-			add_action( 'admin_menu', array( $this, 'admin_addons' ), 40 );
-		}
-
 		add_action( 'admin_menu', array( $this, 'admin_logs' ), 50 );
 	}
 
@@ -46,14 +41,7 @@ class HTL_Admin_Menus {
 	 * Add calendar page
 	 */
 	public function admin_calendar() {
-		add_submenu_page( 'hotelier-settings', esc_html__( 'Calendar', 'wp-hotelier' ),  esc_html__( 'View Calendar', 'wp-hotelier' ) , 'manage_hotelier', 'hotelier-calendar', array( $this, 'calendar_page' ) );
-	}
-
-	/**
-	 * Add addons page
-	 */
-	public function admin_addons() {
-		add_submenu_page( 'hotelier-settings', esc_html__( 'Easy WP Hotelier Extensions', 'wp-hotelier' ),  esc_html__( 'Extensions', 'wp-hotelier' ) , 'manage_hotelier', 'hotelier-addons', array( $this, 'addons_page' ) );
+		add_submenu_page( 'hotelier-settings', esc_html__( 'Calendar', 'wp-hotelier' ),  esc_html__( 'Calendar', 'wp-hotelier' ) , 'manage_hotelier', 'hotelier-calendar', array( $this, 'calendar_page' ) );
 	}
 
 	/**
@@ -82,13 +70,6 @@ class HTL_Admin_Menus {
 	 */
 	public function calendar_page() {
 		HTL_Admin_Calendar::output();
-	}
-
-	/**
-	 * Init the 'Addons' page
-	 */
-	public function addons_page() {
-		HTL_Admin_Addons::output();
 	}
 }
 

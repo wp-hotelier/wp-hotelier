@@ -1,0 +1,120 @@
+.booking-calendar-table,
+.booking-calendar-table__table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin: 0;
+	padding: 0;
+	table-layout: fixed;
+	width: 100%;
+}
+
+.booking-calendar-table > .booking-calendar-table__body {
+	border-bottom: 1px solid $color__line__default;
+	border-right: 1px solid $color__line__default;
+	border-left: 1px solid $color__line__default;
+}
+
+.booking-calendar-table__cell--header {
+	font-weight: 400 !important;
+	overflow: hidden;
+	text-align: center !important;
+}
+
+.booking-calendar-table__date--day {
+	color: $color__text__default;
+	display: block;
+	font-size: 13px;
+}
+
+.booking-calendar-table__date--number {
+	display: block;
+	font-size: 33px;
+	padding: 15px 0;
+}
+
+.booking-calendar-table__cell--today {
+	.booking-calendar-table__date--number,
+	.booking-calendar-table__date--day,
+	.booking-calendar-table__date--month {
+		color: $color__accent;
+	}
+}
+
+.booking-calendar-table__date--month {
+	color: $color__text__default;
+	display: block;
+	font-size: 13px;
+	padding-bottom: $space__x2;
+}
+
+.booking-calendar-table__cell--body {
+	border: 0;
+	height: 30px;
+	margin: 0;
+	padding:0;
+}
+
+.booking-calendar-table__cell--day {}
+
+.booking-calendar-table__cell--first {
+	border-left: 1px solid $color__line__default;
+}
+
+.booking-calendar-table__row--week > .booking-calendar-table__cell--first:first-child {
+	border-left: none;
+}
+
+.booking-calendar-table__reservation-link {
+	@include reset-link(#fff);
+	background-color: $color__accent;
+	border-radius: 2px;
+	color: #fff;
+	display: block;
+	font-weight: 500;
+	margin: 0 1px;
+	padding: 5px 0;
+	text-align: center;
+	text-decoration: none;
+
+	&:hover {
+		color: #fff;
+	}
+}
+
+.booking-calendar-table__cell--room-link {
+	background-color: #EDEDED;
+	border: 1px solid $color__line__default;
+	text-align: center !important;
+}
+
+.booking-calendar-table__room-link {
+	@include reset-link($color__text__dark);
+	color: $color__text__dark;
+	display: block;
+	font-weight: 500;
+	padding: $space $space__x2;
+	text-decoration: none;
+
+	&:hover {
+		color: $color__text__dark;
+	}
+}
+
+.booking-calendar-table__date-helper {
+	color: $color__text__dark;
+	font-weight: 500;
+	margin-left: $space;
+	opacity: .3;
+}
+
+.booking-calendar-table__day-booked {
+	position: relative;
+}
+
+.booking-calendar-table__day-booked.not-active {
+	opacity: .2;
+
+	&:hover {
+		opacity: 1;
+	}
+}

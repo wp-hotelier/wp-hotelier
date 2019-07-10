@@ -46,9 +46,10 @@ class HTL_Gateway_Paypal extends HTL_Payment_Gateway {
 	public function settings_fields( $fields ) {
 		$gateway_fields = array(
 			'paypal_settings' => array(
-				'id'   => 'paypal_settings',
-				'name' => '<strong>' . esc_html__( 'PayPal settings', 'wp-hotelier' ) . '</strong>',
-				'type' => 'header'
+				'id'    => 'paypal_settings',
+				'name'  => '<strong>' . esc_html__( 'PayPal settings', 'wp-hotelier' ) . '</strong>',
+				'type'  => 'header',
+				'class' => 'htl-ui-row--section-description'
 			),
 			'paypal_description' => array(
 				'id'   => 'paypal_description',
@@ -63,18 +64,30 @@ class HTL_Gateway_Paypal extends HTL_Payment_Gateway {
 				'type' => 'textarea'
 			),
 			'paypal_sandbox' => array(
-				'id'   => 'paypal_sandbox',
-				'name' => esc_html__( 'PayPal sandbox', 'wp-hotelier' ),
-				'desc' => esc_html__( 'Enable test mode.', 'wp-hotelier' ),
-				'subdesc' => esc_html__( 'While in test mode no live transactions are processed. To fully use test mode, you must have a PayPal sandbox (test) account.', 'wp-hotelier' ),
-				'type' => 'checkbox'
+				'id'                => 'paypal_sandbox',
+				'name'              => esc_html__( 'PayPal sandbox', 'wp-hotelier' ),
+				'desc'              => esc_html__( 'Enable test mode.', 'wp-hotelier' ),
+				'subdesc'           => esc_html__( 'While in test mode no live transactions are processed. To fully use test mode, you must have a PayPal sandbox (test) account.', 'wp-hotelier' ),
+				'type'              => 'switch',
+				'options'           => array(
+					'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
+					'no'  => esc_html__( 'No', 'wp-hotelier' ),
+				),
+				'std'               => 'no',
+				'checkbox-fallback' => true,
 			),
 			'paypal_log' => array(
-				'id'   => 'paypal_log',
-				'name' => esc_html__( 'Debug log', 'wp-hotelier' ),
-				'desc' => esc_html__( 'Enable logging.', 'wp-hotelier' ),
-				'subdesc' => sprintf( __( 'Log PayPal events, such as IPN requests, inside <code>%s</code>. Please note: this may log personal information. We recommend using this for debugging purposes only and deleting the logs when finished.', 'wp-hotelier' ), htl_get_log_file_path( 'paypal' ) ),
-				'type' => 'checkbox'
+				'id'                => 'paypal_log',
+				'name'              => esc_html__( 'Debug log', 'wp-hotelier' ),
+				'desc'              => esc_html__( 'Enable logging.', 'wp-hotelier' ),
+				'subdesc'           => sprintf( __( 'Log PayPal events, such as IPN requests, inside <code>%s</code>. Please note: this may log personal information. We recommend using this for debugging purposes only and deleting the logs when finished.', 'wp-hotelier' ), htl_get_log_file_path( 'paypal' ) ),
+				'type'              => 'switch',
+				'options'           => array(
+					'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
+					'no'  => esc_html__( 'No', 'wp-hotelier' ),
+				),
+				'std'               => 'no',
+				'checkbox-fallback' => true,
 			),
 			'paypal_email' => array(
 				'id'   => 'paypal_email',

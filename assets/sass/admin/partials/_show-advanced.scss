@@ -1,0 +1,25 @@
+/****** Show Advanced ******/
+
+.htl-ui-advanced-settings-wrapper {
+	display: none;
+
+	&.open {
+		display: block;
+	}
+}
+
+.htl-ui-text-icon--show-advanced {
+	display: block;
+	font-weight: 500;
+
+	&:after {
+		content: '\f107';
+		font-weight: 900;
+		position: relative;
+		top: 1px;
+	}
+
+	&.open:after {
+		content: '\f106';
+	}
+}

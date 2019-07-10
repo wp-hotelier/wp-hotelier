@@ -1,0 +1,93 @@
+/****** Variations ******/
+
+.room-variation--placeholder {
+	display: none !important;
+}
+
+.htl-ui-toolbar--variations {
+	text-align: right;
+
+	&.top {
+		margin-bottom: $space__x4;
+	}
+
+	&.bottom {
+		margin-bottom: $space__x4;
+		margin-top: $space__x4;
+	}
+}
+
+.htl-ui-text-icon--collapse-variation,
+.htl-ui-text-icon--expand-variation {
+	font-weight: 500;
+	margin-right: $space;
+}
+
+.htl-ui-text-icon--collapse-variation {
+	&:before {
+		content: '\f066';
+		font-weight: 600;
+	}
+}
+
+.htl-ui-text-icon--expand-variation {
+	&:before {
+		content: '\f065';
+		font-weight: 600;
+	}
+}
+
+.room-variations__list {
+	background-color: #F2F2F2;
+	padding: $space__x2;
+}
+
+.room-variation {
+	margin-bottom: $space__x2;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.room-variation__header {
+	background-color: #fff;
+	border-radius: 2px;
+	cursor: pointer;
+	padding: $space__x2;
+	position: relative;
+}
+
+.room-variation__actions {
+	position: absolute;
+	right: $space;
+	top: $space__x2;
+
+	.htl-ui-icon {
+		font-size: 14px;
+
+		&:after {
+			@include transition;
+			color: $color__text__default;
+			float: left;
+		}
+	}
+
+	.htl-ui-icon:hover:after {
+		color: $color__accent;
+	}
+}
+
+.room-variation__content {
+	background-color: #fff;
+	border-top: 1px solid $color__line__default;
+	display: none;
+	padding: $space__x3 $space__x2 $space__x2;
+}
+
+.htl-ui-label--room-rate {
+	display: block;
+	font-size: 15px;
+	font-weight: 500;
+	margin-bottom: $space;
+}

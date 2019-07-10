@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin
- * @version  1.7.0
+ * @version  2.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -117,40 +117,28 @@ class HTL_Admin_Settings {
 
 		ob_start();
 		?>
-		<div class="wrap hotelier-settings hotelier-settings-<?php echo esc_attr( $active_tab ); ?>">
-			<h2 class="nav-tab-wrapper">
-				<?php
-				foreach( $tabs as $tab_id => $tab_name ) {
+		<div class="wrap htl-ui-scope hotelier-settings hotelier-settings--<?php echo esc_attr( $active_tab ); ?>">
 
-					$tab_url = add_query_arg( array(
-						'settings-updated' => false,
-						'tab' => $tab_id
-					) );
+			<?php include_once HTL_PLUGIN_DIR . 'includes/admin/settings/views/html-settings-navigation.php'; ?>
 
-					$active = $active_tab == $tab_id ? ' nav-tab-active' : '';
+			<div class="hotelier-settings-wrapper">
+				<?php include_once HTL_PLUGIN_DIR . 'includes/admin/settings/views/html-settings-header.php'; ?>
 
-					echo '<a href="' . esc_url( $tab_url ) . '" title="' . esc_attr( $tab_name ) . '" class="nav-tab' . $active . '">';
-						echo esc_html( $tab_name );
-					echo '</a>';
-				}
+				<div class="hotelier-settings-panel">
+					<form method="post" action="options.php">
+						<table class="hotelier-settings-table-form">
+							<?php
+							settings_fields( 'hotelier_settings' );
+							do_action( 'hotelier_settings_tab_top_' . $active_tab );
+							do_settings_fields( 'hotelier_settings_' . $active_tab, 'hotelier_settings_' . $active_tab );
+							?>
+						</table>
+						<?php submit_button( false, 'htl-ui-button htl-ui-button--save-settings', 'submit', false ); ?>
+					</form>
+				</div>
 
-				echo '<a href="' . esc_url( admin_url( 'admin.php?page=hotelier-logs' ) ) . '" title="' . esc_attr__( 'Logs', 'wp-hotelier' ) . '" class="nav-tab">';
-						echo esc_html__( 'Logs', 'wp-hotelier' );
-				echo '</a>';
-				?>
-			</h2>
-			<div id="tab_container">
-				<form method="post" action="options.php">
-					<table class="form-table">
-					<?php
-					settings_fields( 'hotelier_settings' );
-					do_action( 'hotelier_settings_tab_top_' . $active_tab );
-					do_settings_fields( 'hotelier_settings_' . $active_tab, 'hotelier_settings_' . $active_tab );
-					?>
-					</table>
-					<?php submit_button(); ?>
-				</form>
-			</div><!-- #tab_container-->
+				<?php include_once HTL_PLUGIN_DIR . 'includes/admin/settings/views/html-settings-pro-section.php'; ?>
+			</div>
 		</div><!-- .wrap -->
 		<?php
 		echo ob_get_clean();
@@ -189,17 +177,23 @@ class HTL_Admin_Settings {
 					'hotelier_settings_' . $tab,
 					'hotelier_settings_' . $tab,
 					array(
-						'section'      => $tab,
-						'id'           => isset( $option[ 'id' ] ) ? $option[ 'id' ] : null,
-						'type'         => isset( $option[ 'type' ] ) ? $option[ 'type' ] : 'text',
-						'desc'         => ! empty( $option[ 'desc' ] ) ? $option[ 'desc' ] : '',
-						'subdesc'      => ! empty( $option[ 'subdesc' ] ) ? $option[ 'subdesc' ] : '',
-						'name'         => isset( $option[ 'name' ] ) ? $option[ 'name' ] : null,
-						'size'         => isset( $option[ 'size' ] ) ? $option[ 'size' ] : null,
-						'options'      => isset( $option[ 'options' ] ) ? $option[ 'options' ] : '',
-						'std'          => isset( $option[ 'std' ] ) ? $option[ 'std' ] : '',
-						'multiple'     => isset( $option[ 'multiple' ] ) ? $option[ 'multiple' ] : null,
-						'placeholder'  => isset( $option[ 'placeholder' ] ) ? $option[ 'placeholder' ] : null
+						'section'           => $tab,
+						'id'                => isset( $option[ 'id' ] ) ? $option[ 'id' ] : null,
+						'class'             => isset( $option[ 'class' ] ) ? $option[ 'class' ] : null,
+						'type'              => isset( $option[ 'type' ] ) ? $option[ 'type' ] : 'text',
+						'desc'              => ! empty( $option[ 'desc' ] ) ? $option[ 'desc' ] : '',
+						'subdesc'           => ! empty( $option[ 'subdesc' ] ) ? $option[ 'subdesc' ] : '',
+						'name'              => isset( $option[ 'name' ] ) ? $option[ 'name' ] : null,
+						'size'              => isset( $option[ 'size' ] ) ? $option[ 'size' ] : null,
+						'options'           => isset( $option[ 'options' ] ) ? $option[ 'options' ] : '',
+						'std'               => isset( $option[ 'std' ] ) ? $option[ 'std' ] : null,
+						'multiple'          => isset( $option[ 'multiple' ] ) ? $option[ 'multiple' ] : null,
+						'placeholder'       => isset( $option[ 'placeholder' ] ) ? $option[ 'placeholder' ] : null,
+						'min'               => isset( $option[ 'min' ] ) ? $option[ 'min' ] : null,
+						'max'               => isset( $option[ 'max' ] ) ? $option[ 'max' ] : null,
+						'checkbox-fallback' => isset( $option[ 'checkbox-fallback' ] ) ? $option[ 'checkbox-fallback' ] : null,
+						'show-if'           => isset( $option[ 'show-if' ] ) ? $option[ 'show-if' ] : null,
+						'show-element'      => isset( $option[ 'show-element' ] ) ? $option[ 'show-element' ] : null,
 					)
 				);
 			}
@@ -247,8 +241,14 @@ class HTL_Admin_Settings {
 
 			if ( $type ) {
 				// Field type specific filter
-				$input[ $key ] = apply_filters( 'hotelier_settings_sanitize_' . $type, $value, $key );
+				$value = apply_filters( 'hotelier_settings_sanitize_' . $type, $value, $key );
 			}
+
+			// Field ID specific filter
+			$value = apply_filters( 'hotelier_settings_sanitize_' . $key, $value, $key );
+
+			// Save value
+			$input[ $key ] = $value;
 		}
 
 		// Loop through the settings and unset any that are empty for the tab being saved

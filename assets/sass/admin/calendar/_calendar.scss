@@ -1,0 +1,11 @@
+/****** Booking Calendar ******/
+
+.booking-calendar__panel {
+	background: #fff;
+	padding: $space__x4;
+}
+
+@import "header";
+@import "sidebar";
+@import "content";
+@import "card";

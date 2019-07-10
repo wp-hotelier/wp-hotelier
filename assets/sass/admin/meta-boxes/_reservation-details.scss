@@ -1,0 +1,43 @@
+/****** Reservation Details ******/
+
+.edit-reservation-page__title {
+	font-weight: 600 !important;
+	font-size: 22px !important;
+	padding: 0 !important;
+	margin: $space__x4 0 $space !important;
+}
+
+.edit-reservation-page__booking-details {
+	font-size: 16px;
+	color: $color__text__default;
+}
+
+.booking-details__payment-method {
+	&:before {
+		content: '\2013';
+		margin-left: 5px;
+		margin-right: 9px;
+	}
+}
+
+.booking-details__transaction-id {
+	display: block;
+	font-size: 13px;
+	margin-top: $space;
+
+	a {
+		@include reset-link($color__accent);
+		@include transition();
+		color: $color__accent;
+		text-decoration: none;
+
+		&:hover {
+			color: $color__accent__hover;
+		}
+	}
+}
+
+#hotelier-reservation-data .htl-ui-layout__column--right {
+	max-width: 500px;
+	width: 100%;
+}

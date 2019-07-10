@@ -1,0 +1,44 @@
+/****** Switch ******/
+
+.htl-ui-switch {
+	overflow: hidden;
+}
+.htl-ui-switch__input {
+	position: absolute !important;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	width: 1px;
+	border: 0;
+	overflow: hidden;
+}
+
+.htl-ui-switch__label {
+	@include transition();
+	background-color: $color__light;
+	color: $color__text__input;
+	display: inline-block;
+	float: left;
+	font-weight: 500;
+	height: $space__x4;
+	line-height: $space__x4;
+	margin-right: 1px;
+	padding: 0 $space__x2;
+	text-align: center;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.htl-ui-switch__input:checked + .htl-ui-switch__label {
+	color: #fff;
+	background-color: $color__accent;
+}
+
+.htl-ui-switch__label:first-of-type {
+	border-radius: 2px 0 0 2px;
+}
+
+.htl-ui-switch__label:last-of-type {
+	border-radius: 0 2px 2px 0;
+}

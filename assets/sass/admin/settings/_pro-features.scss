@@ -1,0 +1,54 @@
+.hotelier-settings-pro-features {
+	background-color: #fff;
+	margin-top: $space__x4;
+	padding: 0 $space__x4 $space__x4;
+}
+
+.pro-features__header {
+	border-bottom: 1px solid $color__line__default;
+	padding: $space__x2 0;
+	position: relative;
+
+	.htl-ui-heading {
+		font-weight: 500;
+		margin: 0;
+	}
+
+	.htl-ui-button--upgrade-to-pro {
+		margin-top: $space__x2;
+
+		@media (min-width: 800px) {
+			margin-top: 0;
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+}
+
+.pro-features__list {
+	@include clear-list();
+}
+
+.pro-features__item {
+	position: relative;
+	padding-left: $space__x4;
+
+	&:before {
+		@include style-icon();
+		color: $color__green;
+		content: '\f058';
+		font-size: 18px;
+		font-weight: 600;
+		left: 0;
+		position: absolute;
+		top: 2px;
+	}
+}
+
+.pro-features__item__title {
+	font-size: 14px !important;
+	font-weight: 500 !important;
+	margin-bottom: $space;
+}

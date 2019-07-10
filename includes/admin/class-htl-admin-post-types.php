@@ -118,11 +118,11 @@ class HTL_Admin_Post_Types {
 
 		switch ( $column ) {
 			case 'guests' :
-				echo absint( $the_room->get_max_guests() );
+				echo '<span>' . absint( $the_room->get_max_guests() ) . '</span>';
 				break;
 
 			case 'type' :
-				echo esc_html( $the_room->get_room_type_formatted() );
+				echo '<span>' . esc_html( $the_room->get_room_type_formatted() ) . '</span>';
 				break;
 
 			case 'quantity' :
@@ -181,15 +181,15 @@ class HTL_Admin_Post_Types {
 				break;
 
 			case 'check_in' :
-				echo '<span>' . esc_html( $the_reservation->get_formatted_checkin() ) . '</span>';
+				echo '<span class="htl-ui-text-icon-button htl-ui-text-icon-button--left htl-ui-text-icon-button--checkin">' . esc_html( $the_reservation->get_formatted_checkin() ) . '</span>';
 				break;
 
 			case 'check_out' :
-				echo '<span>' . esc_html( $the_reservation->get_formatted_checkout() ) . '</span>';
+				echo '<span class="htl-ui-text-icon-button htl-ui-text-icon-button--left htl-ui-text-icon-button--checkout">' . esc_html( $the_reservation->get_formatted_checkout() ) . '</span>';
 				break;
 
 			case 'status' :
-				echo '<span class="' . esc_html( $the_reservation->get_status() ) . ' hastip" title="' . esc_html( htl_get_reservation_status_name( $the_reservation->get_status() ) ) . '">' . esc_html( $the_reservation->get_status() ) . '</span>';
+				echo '<span class="htl-ui-text-icon-button htl-ui-text-icon-button--left htl-ui-text-icon-button--status htl-ui-text-icon-button--status-' . esc_html( $the_reservation->get_status() ) . '">' . esc_html( $the_reservation->get_status() ) . '</span>';
 				break;
 
 			default :

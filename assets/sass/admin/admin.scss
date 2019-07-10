@@ -1,0 +1,122 @@
+/**
+ * Admin CSS
+ */
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+--------------------------------------------------------------*/
+
+//  FRAMEWORK
+//  Settings ............... Variables and settings.
+//  Mixins ................. Default mixins
+//  Sass MQ ................ Media Queries with superpowers (https://github.com/sass-mq/sass-mq).
+
+/*
+GENERAL
+	Resets ................. CSS resets.
+	Copy ................... General styles.
+
+PARTIALS
+	Tables ................. Table styles.
+	Inputs ................. Input styles.
+	Notices ................ Notice styles.
+	Sections ............... Sections and descriptions styles.
+	Card Icons ............. Card Icons input styles.
+	Switch ................. Switch styles.
+	Image Size ............. Image Size input styles.
+	Booking Mode ........... Booking Mode input styles.
+	Multicheckbox .......... Multicheckbox input styles.
+	Icons .................. Icons styles.
+	Show Advanced .......... Show Advanced styles.
+	Server Info ............ Server Info styles.
+	Logs ................... Logs styles.
+	Datepicker ............. Datepicker styles (jquery-ui).
+	Tooltips ............... Tooltip styles.
+
+SETTINGS
+	Layout ................. Settings layout.
+
+META BOXES
+	Layout ................. Meta Boxes layout.
+	Sections ............... Sections styles.
+	Inputs ................. Inputs styles.
+	Variations ............. Variations styles.
+	Price Per Day .......... Price Per Day styles.
+	Room Gallery ........... Room gallery styles.
+	Reservation Details .... Reservation styles.
+	Reservation Items ...... Reservation items table.
+	Reservation Totals ..... Reservation totals table.
+	Reservation Postbox .... Reservation postbox elements.
+
+POST TYPES
+	Reservations ........... Overview reservations styles.
+	Rooms .................. Overview rooms styles.
+
+BOOKING CALENDAR
+	Booking Calendar ....... Calendar styles.
+*/
+
+// FRAMEWORK
+@import "../settings/admin/settings";
+@import "../settings/admin/mixins";
+@import "node_modules/sass-mq/mq";
+
+/*--------------------------------------------------------------
+>>> GENERAL:
+--------------------------------------------------------------*/
+@import "resets";
+@import "copy";
+
+/*--------------------------------------------------------------
+>>> PARTIALS:
+--------------------------------------------------------------*/
+
+@import "partials/tables";
+@import "partials/inputs";
+@import "partials/notices";
+@import "partials/sections";
+@import "partials/card-icons";
+@import "partials/switch";
+@import "partials/image-size";
+@import "partials/booking-mode";
+@import "partials/multicheckbox";
+@import "partials/icons";
+@import "partials/show-advanced";
+@import "partials/server-info";
+@import "partials/logs";
+@import "partials/datepicker";
+@import "partials/tooltips";
+
+/*--------------------------------------------------------------
+>>> SETTINGS:
+--------------------------------------------------------------*/
+
+@import "settings/layout";
+
+/*--------------------------------------------------------------
+>>> META BOXES:
+--------------------------------------------------------------*/
+
+@import "meta-boxes/layout";
+@import "meta-boxes/sections";
+@import "meta-boxes/inputs";
+@import "meta-boxes/variations";
+@import "meta-boxes/price-per-day";
+@import "meta-boxes/room-gallery";
+@import "meta-boxes/reservation-details";
+@import "meta-boxes/reservation-items";
+@import "meta-boxes/reservation-totals";
+@import "meta-boxes/reservation-postbox";
+
+/*--------------------------------------------------------------
+>>> POST TYPES:
+--------------------------------------------------------------*/
+
+@import "post-types/reservations";
+@import "post-types/rooms";
+
+/*--------------------------------------------------------------
+>>> BOOKING CALENDAR:
+--------------------------------------------------------------*/
+
+@import "calendar/calendar";

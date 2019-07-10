@@ -1,0 +1,15 @@
+/****** Booking Mode ******/
+
+.htl-ui-setting--booking_mode {
+	li {
+		margin-bottom: $space !important;
+
+		&:last-child {
+			margin-bottom: 0 !important;
+		}
+	}
+
+	strong {
+		display: block;
+	}
+}

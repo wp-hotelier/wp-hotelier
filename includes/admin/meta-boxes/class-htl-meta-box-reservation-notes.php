@@ -38,27 +38,25 @@ class HTL_Meta_Box_Reservation_Notes {
 		$notes = get_comments( $args );
 
 		add_filter( 'comments_clauses', array( 'HTL_Comments', 'exclude_reservation_comments' ), 10, 1 );
-
 		?>
-		<ul class="reservation-notes">
 
-			<?php
-			if ( $notes ) {
+		<ul class="htl-ui-scope reservation-notes__list">
 
-			foreach( $notes as $note ) {
-				?>
-				<li>
-					<p class="note-content"><?php echo esc_html( $note->comment_content ); ?><p>
-					<abbr title="<?php echo esc_attr( $note->comment_date ); ?>"><?php printf( esc_html__( 'Added on %1$s at %2$s', 'wp-hotelier' ), date_i18n( get_option( 'date_format' ), strtotime( $note->comment_date ) ), date_i18n( get_option( 'time_format' ), strtotime( $note->comment_date ) ) ); ?></abbr>
-				</li>
-				<?php
-			}
+			<?php if ( $notes ) : ?>
 
-		} else {
-			echo '<li>' . esc_html__( 'There are no notes yet.', 'wp-hotelier' ) . '</li>';
-		}
+				<?php foreach( $notes as $note ) : ?>
+					<li class="reservation-notes__item">
+						<p class="reservation-notes__text"><?php echo esc_html( $note->comment_content ); ?></p>
 
-		?>
+						<span class="reservation-notes__date"><?php printf( esc_html__( 'Added on %1$s at %2$s', 'wp-hotelier' ), date_i18n( get_option( 'date_format' ), strtotime( $note->comment_date ) ), date_i18n( get_option( 'time_format' ), strtotime( $note->comment_date ) ) ); ?></span>
+					</li>
+				<?php endforeach; ?>
+
+			<?php else: ?>
+
+				<li class="reservation-notes__item reservation-notes__item--empty"><?php esc_html_e( 'There are no notes yet.', 'wp-hotelier' ) ?></li>
+
+			<?php endif; ?>
 
 		</ul>
 

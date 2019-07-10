@@ -958,7 +958,7 @@ class HTL_Room {
 	public function needs_deposit() {
 		$require_deposit = $this->require_deposit;
 
-		return $require_deposit ? $require_deposit : false;
+		return $require_deposit && $require_deposit !== 'no' ? true : false;
 	}
 
 	/**
@@ -1078,7 +1078,7 @@ class HTL_Room {
 	public function is_cancellable() {
 		$non_cancellable = $this->non_cancellable;
 
-		return $non_cancellable ? false : true;
+		return $non_cancellable && $non_cancellable !== 'no' ? false : true;
 	}
 }
 
