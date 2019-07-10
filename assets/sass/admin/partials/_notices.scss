@@ -1,0 +1,117 @@
+/****** Notices ******/
+
+.htl-ui-notice {
+	padding: $space $space__x2 $space $space__x4;
+	margin-bottom: $space__x2;
+	position: relative;
+
+	&:before {
+		@include style-icon();
+		margin-left: $space;
+		position: absolute;
+		left: 0;
+		top: 10px;
+		font-size: 14px;
+	}
+
+	&__text {
+		letter-spacing: $letter__spacing;
+		font-size: 14px !important;
+		color: $color__text__dark !important;
+	}
+
+	a {
+		@include transition();
+	}
+
+	&--info {
+		background-color: $color__bg__notice__info;
+		border-left: 2px solid $color__info;
+
+		&:before {
+			content: '\f05a';
+			font-weight: 900;
+			color: $color__info;
+		}
+
+		a {
+			color: $color__info !important;
+			@include reset-link($color__info);
+
+			&:hover {
+				color: darken($color__info, 5%) !important;
+			}
+		}
+	}
+
+	&--success {
+		background-color: $color__bg__notice__success;
+		border-left: 2px solid $color__ok;
+
+		&:before {
+			content: '\f058';
+			font-weight: 900;
+			color: $color__ok;
+		}
+
+		a {
+			color: $color__ok !important;
+			@include reset-link($color__ok);
+
+			&:hover {
+				color: darken($color__ok, 5%) !important;
+			}
+		}
+	}
+
+	&--error {
+		background-color: $color__bg__notice__error;
+		border-left: 2px solid $color__error;
+
+		&:before {
+			content: '\f071';
+			font-weight: 900;
+			color: $color__error;
+		}
+
+		a {
+			color: $color__error !important;
+			@include reset-link($color__error);
+
+			&:hover {
+				color: darken($color__error, 5%) !important;
+			}
+		}
+	}
+
+	&--warning {
+		background-color: $color__bg__notice__warning;
+		border-left: 2px solid $color__warning;
+
+		&:before {
+			content: '\f071';
+			font-weight: 900;
+			color: $color__warning;
+		}
+
+		a {
+			color: $color__warning !important;
+			@include reset-link($color__warning);
+
+			&:hover {
+				color: darken($color__warning, 5%) !important;
+			}
+		}
+	}
+
+	&--new-reservation-message {
+		margin-bottom: $space__x4;
+	}
+}
+
+.htl-ui-setting-conditional .htl-ui-notice {
+	margin-bottom: $space__x4;
+	margin-left: 250px;
+	// margin-top: $space__x3;
+	max-width: 800px;
+}

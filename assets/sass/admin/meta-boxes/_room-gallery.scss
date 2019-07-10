@@ -1,0 +1,82 @@
+/****** Room Gallery ******/
+
+#room-images-container {
+	ul {
+		@include clearfix();
+		margin: 0;
+		padding: 0;
+
+		li.image,
+		li.add,
+		li.htl-image-sortable-placeholder {
+			background: $color__accent__light;
+			box-sizing: border-box;
+			cursor: move;
+			float: left;
+			margin: 9px 9px 0 0;
+			position: relative;
+			width: 75px;
+
+			img {
+				display: block;
+				height: auto;
+				width: 100%;
+			}
+		}
+
+		li.htl-image-sortable-placeholder {
+			border: 1px dashed $color__accent;
+			position: relative;
+
+			&:after {
+				@include style-icon();
+				color: $color__accent;
+				content: '\f1c5';
+				font-size: 24px;
+				font-weight: 600;
+				height: 100%;
+				left: 0;
+				line-height: 75px;
+				position: absolute;
+				text-align: center;
+				text-indent: 0;
+				top: 0;
+				width: 100%;
+			}
+		}
+
+		a.delete {
+			background-color: $color__accent;
+			border-radius: 100%;
+			color: #fff;
+			display: block;
+			height: 20px;
+			opacity: 0;
+			position: absolute;
+			right: -8px;
+			text-indent: -9999px;
+			top: -8px;
+			@include transition();
+			width: 20px;
+
+			&:before {
+				@include style-icon();
+				content: '\f00d';
+				font-size: 11px;
+				font-weight: 600;
+				height: 100%;
+				left: 0;
+				line-height: 20px;
+				position: absolute;
+				text-align: center;
+				text-indent: 0;
+				top: 0;
+				width: 100%;
+			}
+		}
+
+		li:hover a.delete {
+			opacity: 1;
+		}
+	}
+}

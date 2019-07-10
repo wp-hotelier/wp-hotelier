@@ -1,0 +1,17 @@
+/****** Layout ******/
+
+#hotelier-room-settings {
+	overflow: hidden;
+}
+
+.htl-ui-layout--two-columns {
+	display: flex;
+}
+
+.htl-ui-layout__column--left {
+	flex: 0 0 200px;
+
+	@media (min-width: 1200px) {
+		flex: 0 0 250px;
+	}
+}

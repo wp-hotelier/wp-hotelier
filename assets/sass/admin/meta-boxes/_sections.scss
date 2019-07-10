@@ -1,0 +1,63 @@
+/****** Sections ******/
+
+.htl-ui-heading--section-header {
+	border-bottom: 1px solid $color__line__default;
+	color: $color__text__default !important;
+	font-size: 13px !important;
+	font-weight: 500 !important;
+	margin-bottom: $space__x5;
+	margin-top: $space__x5;
+	padding-bottom: 7px;
+	text-transform: uppercase;
+}
+
+.htl-ui-setting__title {
+    font-weight: 500 !important;
+    font-size: 15px !important;
+    margin: 0;
+}
+
+.htl-ui-setting__title-description {
+	color: $color__text__default;
+	font-style: italic;
+}
+
+.htl-ui-setting-conditional {
+	border: 1px solid $color__line__default;
+	margin-bottom: $space__x3;
+	padding-top: $space__x3;
+	padding-right: $space__x2;
+	position: relative;
+
+	&:after {
+		@include style-icon();
+		background-color: #fff;
+		color: $color__accent;
+		content: '\f3be';
+		font-size: 16px;
+		font-weight: 900;
+		left: $space__x2;
+		position: absolute;
+		text-align: center;
+		top: -11px;
+		width: 25px;
+		z-index: 99;
+	}
+
+	.htl-ui-layout__column--left {
+		padding-left: $space__x2;
+	}
+
+	.htl-ui-setting-conditional {
+		margin-left: $space__x2;
+
+		.htl-ui-layout__column--left {
+			margin-right: -$space__x2;
+		}
+	}
+}
+
+.htl-ui-setting__after-input {
+	color: $color__text__default;
+	font-style: italic;
+}

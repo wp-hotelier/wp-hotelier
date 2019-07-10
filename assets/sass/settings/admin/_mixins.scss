@@ -35,14 +35,25 @@
 	margin-right: auto;
 }
 
+// Reset text
+@mixin reset-text {
+	font-family: $font__family;
+	box-sizing: border-box;
+	font-variant-ligatures: none;
+	text-rendering: optimizeLegibility;
+	font-smoothing: antialiased !important;
+	-webkit-font-smoothing: antialiased !important;
+	text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+}
+
 // Reset link
 @mixin reset-link($color) {
 	&:focus,
 	&:active,
 	&:visited {
-		color: $color;
-		box-shadow: none;
-		outline: none;
+		color: $color !important;
+		box-shadow: none !important;
+		outline: none !important;
 	}
 }
 

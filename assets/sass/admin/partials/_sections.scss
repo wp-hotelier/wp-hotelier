@@ -1,0 +1,66 @@
+/****** Sections ******/
+
+.htl-ui-setting--section-description {
+	margin-bottom: $space__x4 !important;
+}
+
+.htl-ui-setting--section-description__text {
+	max-width: 700px;
+
+	&.wide {
+		max-width: none;
+	}
+}
+
+.htl-ui-setting__description {
+	color: $color__text__default;
+	display: block;
+	font-size: $font__size;
+	font-family: $font__family;
+	font-weight: 400;
+	letter-spacing: $letter__spacing;
+	margin-top: $space;
+	max-width: 500px;
+
+	&--plain {
+		margin-top: 0;
+	}
+
+	a {
+		@include reset-link($color__accent);
+		@include transition();
+		color: $color__accent;
+
+		&:hover {
+			color: $color__accent__hover;
+		}
+	}
+}
+
+.htl-ui-hr--section-description {
+	background: $color__line__default;
+	border: none;
+	height: 1px;
+	margin-bottom: $space__x3;
+	margin-left: -1000px;
+	margin-right: -1000px;
+	margin-top: $space__x3;
+	position: relative;
+}
+
+.htl-ui-row--section-description {
+	th strong {
+		color: $color__text__default !important;
+		font-size: 13px !important;
+		font-weight: 500 !important;
+		text-transform: uppercase;
+	}
+
+	th, td {
+		padding: $space__x2 0;
+	}
+}
+
+.htl-ui-setting {
+	margin-bottom: $space__x2;
+}

@@ -1,0 +1,27 @@
+/****** Logs ******/
+
+.selected-log-title {
+	font-size: 15px;
+	font-weight: 500;
+	display: block;
+}
+
+.selected-log-file {
+	color: $color__text__default;
+	font-size: $font__size;
+	letter-spacing: $letter__spacing;
+}
+
+.htl-ui-form--logs {
+	margin-top: $space__x2;
+}
+
+.htl-ui-button--view-log {
+	height: 30px;
+    line-height: 30px;
+    padding: 0 9px;
+}
+
+.htl-ui-input--logs {
+	margin-top: $space__x2;
+}

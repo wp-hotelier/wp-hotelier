@@ -1,0 +1,77 @@
+.booking-calendar__header {
+	border-bottom: 1px solid $color__line__default;
+	margin-bottom: $space__x4;
+	padding-bottom: $space__x4;
+
+	@media (min-width: 1200px) {
+		display: flex;
+	}
+}
+
+.booking-calendar-navigation,
+.booking-calendar-weeks-navigation {
+	margin-bottom: $space__x2;
+
+	@media (min-width: 600px) {
+		display: inline-block;
+	}
+
+	@media (min-width: 1200px) {
+		margin-bottom: 0;
+	}
+}
+
+.booking-calendar-weeks-navigation {
+	@media (min-width: 600px) {
+		margin-left: $space__x2;
+	}
+}
+
+.booking-calendar-navigation__list,
+.booking-calendar-weeks-navigation__list {
+	@include clear-list();
+	display: block;
+}
+
+.booking-calendar-navigation__item,
+.booking-calendar-weeks-navigation__item {
+	display: inline-block;
+}
+
+.booking-calendar-navigation-button,
+.booking-calendar-weeks-navigation-button {
+	background-color: $color__light;
+	color: $color__text__input;
+
+	&:focus,
+	&:hover {
+		background: $color__accent;
+	}
+}
+
+.booking-calendar-navigation-button {
+	text-indent: -9999px;
+
+	&:after {
+		@include style-icon();
+		float: left;
+		text-indent: 0;
+	}
+
+	&--prev:after {
+		content: '\f053';
+		font-weight: 600;
+	}
+
+	&--next:after {
+		content: '\f054';
+		font-weight: 600;
+	}
+}
+
+.booking-calendar-datepicker {
+
+	@media (min-width: 1200px) {
+		margin-left: auto;
+	}
+}
