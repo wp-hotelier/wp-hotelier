@@ -203,7 +203,7 @@ class HTL_Room {
 	 * @return int max_children
 	 */
 	public function get_max_children() {
-		return absint( $this->max_children );
+		return absint( apply_filters( 'hotelier_get_max_children', $this->max_children, $this->id ) );
 	}
 
 	/**
