@@ -194,7 +194,7 @@ class HTL_Room {
 	 * @return int max_guests
 	 */
 	public function get_max_guests() {
-		return absint( $this->max_guests );
+		return absint( apply_filters( 'hotelier_get_max_guests', $this->max_guests, $this->id ) );
 	}
 
 	/**
