@@ -194,7 +194,9 @@ abstract class HTL_Payment_Gateway {
 	 *
 	 * Validate payment fields on the frontend.
 	 */
-	public function validate_fields() { return true; }
+	public function validate_fields() {
+		return true;
+	}
 
 	/**
 	 * has_fields function.
@@ -203,6 +205,13 @@ abstract class HTL_Payment_Gateway {
 	 */
 	public function has_fields() {
 		return $this->has_fields ? true : false;
+	}
+
+	/**
+	 * Override this in your gateway if you have some.
+	 */
+	public function payment_fields() {
+		return;
 	}
 
 	/**
