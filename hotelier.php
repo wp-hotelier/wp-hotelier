@@ -246,6 +246,7 @@ final class Hotelier {
 
 		include_once HTL_PLUGIN_DIR . 'includes/class-htl-post-types.php';
 		include_once HTL_PLUGIN_DIR . 'includes/htl-misc-functions.php';
+		include_once HTL_PLUGIN_DIR . 'includes/htl-country-functions.php';
 		include_once HTL_PLUGIN_DIR . 'includes/htl-page-functions.php';
 		include_once HTL_PLUGIN_DIR . 'includes/class-htl-info.php';
 		include_once HTL_PLUGIN_DIR . 'includes/class-htl-cache.php';

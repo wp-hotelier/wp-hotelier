@@ -86,6 +86,8 @@ class HTL_Meta_Box_Reservation_Data {
 			),
 			'country' => array(
 				'label'         => esc_html__( 'Country', 'wp-hotelier' ),
+				'type'          => 'select',
+				'options'       => htl_get_country_codes(),
 				'wrapper_class' => 'form-field-last',
 				'description'   => esc_html__( 'Guest\'s country', 'wp-hotelier' ),
 			)
@@ -271,7 +273,22 @@ class HTL_Meta_Box_Reservation_Data {
 					$field_id         = isset( $field[ 'id' ] ) ? $field[ 'id' ] : '_guest_' . $key;
 					$field[ 'value' ] = get_post_meta( $post->ID, $field_id, true );
 
-					HTL_Meta_Boxes_Helper::text_input( $field );
+					// Backward compatibility for country field
+					if ( $field_id === '_guest_country' ) {
+						$country_list = htl_get_country_codes();
+
+						if ( ! isset( $country_list[ $field[ 'value' ] ] ) ) {
+							HTL_Meta_Boxes_Helper::text_input( $field );
+
+							continue;
+						}
+					}
+
+					if ( isset( $field[ 'type' ] ) && method_exists( 'HTL_Meta_Boxes_Helper', $field[ 'type' ] . '_input' ) ) {
+						call_user_func( array( 'HTL_Meta_Boxes_Helper', $field[ 'type' ] . '_input' ), $field );
+					} else {
+						HTL_Meta_Boxes_Helper::text_input( $field );
+					}
 				}
 				?>
 

@@ -197,7 +197,9 @@ class HTL_Reservation {
 		}
 
 		if ( $this->guest_country ) {
-			$address .= $this->guest_country;
+			$country_list = htl_get_country_codes();
+			$country      = isset( $country_list[ $this->guest_country ] ) ? $country_list[ $this->guest_country ] : $this->guest_country;
+			$address     .= $country;
 		}
 
 		return apply_filters( 'hotelier_get_formatted_guest_address', $address, $this );

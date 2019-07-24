@@ -124,7 +124,15 @@ $tomorrow = $tomorrow->format( 'Y-m-d' );
 								<th scope="row"><?php echo esc_html( $field[ 'label' ] ) . $required; ?></th>
 								<td>
 									<div class="htl-ui-setting">
-										<input class="htl-ui-input htl-ui-input--text" type="<?php echo esc_attr( $type ); ?>" name="<?php echo esc_attr( $key ); ?>">
+										<?php if ( isset( $field[ 'type' ] ) && $field[ 'type' ] === 'select' ) : ?>
+											<select class="htl-ui-input htl-ui-input--select">
+												<?php foreach ( $field[ 'options' ] as $field_options_key => $field_options_value ) : ?>
+													<option value="<?php echo esc_attr( $field_options_key ); ?>"><?php echo esc_html( $field_options_value ); ?></option>
+												<?php endforeach; ?>
+											</select>
+										<?php else : ?>
+											<input class="htl-ui-input htl-ui-input--text" type="text" name="<?php echo esc_attr( $key ); ?>">
+										<?php endif; ?>
 
 										<?php if ( isset( $field[ 'description' ] ) ) : ?>
 											<div class="htl-ui-setting__description"><?php echo esc_html( $field[ 'description' ] ); ?></div>
