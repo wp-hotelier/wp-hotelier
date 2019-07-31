@@ -47,7 +47,7 @@ class HTL_Admin_Meta_Boxes {
 		add_filter( 'hotelier_meta_box_save_textarea', array( $this, 'sanitize_textarea' ) );
 		add_filter( 'hotelier_meta_box_save_number', array( $this, 'sanitize_number' ) );
 		add_filter( 'hotelier_meta_box_save_select', array( $this, 'sanitize_select' ) );
-		add_filter( 'hotelier_meta_box_save_select', array( $this, 'sanitize_checkbox' ) );
+		add_filter( 'hotelier_meta_box_save_checkbox', array( $this, 'sanitize_checkbox' ) );
 		add_filter( 'hotelier_meta_box_save_price', array( $this, 'sanitize_price' ) );
 		add_filter( 'hotelier_meta_box_save_price_per_day', array( $this, 'sanitize_price_per_day' ) );
 		add_filter( 'hotelier_meta_box_save_switch', array( $this, 'sanitize_switch' ) );
