@@ -26,6 +26,10 @@
 		margin-top: 0;
 	}
 
+	&--checkbox {
+		margin-top: $space !important;
+	}
+
 	a {
 		@include reset-link($color__accent);
 		@include transition();

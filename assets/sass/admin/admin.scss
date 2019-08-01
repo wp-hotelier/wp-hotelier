@@ -23,6 +23,7 @@ PARTIALS
 	Sections ............... Sections and descriptions styles.
 	Card Icons ............. Card Icons input styles.
 	Switch ................. Switch styles.
+	Toggle ................. Toggle styles.
 	Image Size ............. Image Size input styles.
 	Booking Mode ........... Booking Mode input styles.
 	Multicheckbox .......... Multicheckbox input styles.
@@ -77,6 +78,7 @@ BOOKING CALENDAR
 @import "partials/sections";
 @import "partials/card-icons";
 @import "partials/switch";
+@import "partials/toggle";
 @import "partials/image-size";
 @import "partials/booking-mode";
 @import "partials/multicheckbox";

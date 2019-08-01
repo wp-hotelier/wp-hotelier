@@ -16,6 +16,7 @@ PARTIALS
 	Sections ............... Sections and descriptions styles.
 	Card Icons ............. Card Icons input styles.
 	Switch ................. Switch styles.
+	Toggle ................. Toggle styles.
 	Image Size ............. Image Size input styles.
 	Booking Mode ........... Booking Mode input styles.
 	Multicheckbox .......... Multicheckbox input styles.
@@ -727,6 +728,10 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   margin-top: 0;
 }
 
+.htl-ui-setting__description--checkbox {
+  margin-top: 9px !important;
+}
+
 .htl-ui-setting__description a {
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
@@ -885,6 +890,90 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 
 .htl-ui-switch__label:last-of-type {
   border-radius: 0 2px 2px 0;
+}
+
+/****** Toggle ******/
+.htl-ui-toggle__input {
+  display: none !important;
+}
+
+.htl-ui-toggle__label {
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  display: block;
+  height: 20px;
+  position: relative;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  width: 40px;
+}
+
+.htl-ui-toggle__label:before {
+  background: #F2F2F2;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 14px;
+  left: 3px;
+  position: relative;
+  top: 3px;
+  -webkit-transition: background .2s ease;
+  transition: background .2s ease;
+  width: 34px;
+}
+
+.htl-ui-toggle__handle {
+  background: white;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 2px 5px rgba(102, 102, 102, 0.5);
+          box-shadow: 0 2px 5px rgba(102, 102, 102, 0.5);
+  display: block;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+  width: 20px;
+}
+
+.htl-ui-toggle__handle:before {
+  background: rgba(0, 160, 210, 0.5);
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 56px;
+  margin: -18px;
+  opacity: 1;
+  pointer-events: none;
+  position: absolute;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  width: 56px;
+}
+
+.htl-ui-toggle__input:checked + .htl-ui-toggle__label:before {
+  background: #dcf3fc;
+}
+
+.htl-ui-toggle__input:checked + .htl-ui-toggle__label .htl-ui-toggle__handle {
+  background: #00A0D2;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-box-shadow: 0 2px 3px rgba(0, 160, 210, 0.4);
+          box-shadow: 0 2px 3px rgba(0, 160, 210, 0.4);
+  -webkit-transform: translateX(20px);
+          transform: translateX(20px);
+  -webkit-transition: all 0.2s cubic-bezier(0.8, 0.4, 0.3, 1.25), background 0.15s ease;
+  transition: all 0.2s cubic-bezier(0.8, 0.4, 0.3, 1.25), background 0.15s ease;
+}
+
+.htl-ui-toggle__input:checked + .htl-ui-toggle__label .htl-ui-toggle__handle:before {
+  opacity: 0;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: all .4s ease;
+  transition: all .4s ease;
 }
 
 /****** Image Size ******/
