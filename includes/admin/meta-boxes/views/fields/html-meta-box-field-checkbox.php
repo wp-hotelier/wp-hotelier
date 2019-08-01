@@ -14,6 +14,8 @@ $field[ 'wrapper_class' ] = isset( $field[ 'wrapper_class' ] ) ? $field[ 'wrappe
 $field[ 'class' ]         = isset( $field[ 'class' ] ) ? $field[ 'class' ] : '';
 $field[ 'name' ]          = isset( $field[ 'name' ] ) ? $field[ 'name' ] : $field[ 'id' ];
 $field[ 'label' ]         = isset( $field[ 'label' ] ) ? $field[ 'label' ] : '';
+$field[ 'show-if' ]       = isset( $field[ 'show-if' ] ) ? $field[ 'show-if' ] : false;
+$field[ 'show-element' ]  = isset( $field[ 'show-element' ] ) ? $field[ 'show-element' ] : '';
 
 // Set field value
 if ( isset( $field[ 'value' ] ) && $field[ 'value' ] ) {
@@ -21,6 +23,12 @@ if ( isset( $field[ 'value' ] ) && $field[ 'value' ] ) {
 } else {
 	$checked = '';
 }
+
+if ( $field[ 'show-if' ] && $field[ 'show-element' ] ) {
+	$field[ 'class' ] .= ' show-if-toggle';
+}
+
+$is_toggle = isset( $field[ 'toggle' ] ) ? true : false;
 
 ?>
 
@@ -35,7 +43,19 @@ if ( isset( $field[ 'value' ] ) && $field[ 'value' ] ) {
 	</div>
 
 	<div class="htl-ui-layout__column htl-ui-layout__column--right">
-		<input type="checkbox" class="<?php echo esc_attr( $field[ 'class' ] ); ?> htl-ui-input htl-ui-input--checkbox" name="<?php echo esc_attr( $field[ 'name' ] ); ?>" value="1" <?php echo $checked; ?> />
+		<?php if ( $is_toggle ) : ?>
+			<div class="htl-ui-toggle <?php echo esc_attr( $field[ 'class' ] ); ?>" <?php echo $field[ 'show-if' ] ? 'data-show-if="true"' : ''; ?> <?php echo $field[ 'show-element' ] ? 'data-show-element="' . esc_attr( $field[ 'show-element' ] ) . '"' : ''; ?>>
+		<?php endif; ?>
+
+			<input type="checkbox" class="htl-ui-input htl-ui-input--checkbox <?php echo $is_toggle ? 'htl-ui-toggle__input' : ''; ?>" id="<?php echo esc_attr( $field[ 'name' ] ); ?>" name="<?php echo esc_attr( $field[ 'name' ] ); ?>" value="1" <?php echo $checked; ?> />
+			<label class="<?php echo $is_toggle ? 'htl-ui-toggle__label' : ''; ?>" for="<?php echo esc_attr( $field[ 'name' ] ); ?>">
+				<?php if ( $is_toggle ) : ?>
+					<span class="htl-ui-toggle__handle"></span>
+				<?php endif; ?>
+			</label>
+		<?php if ( $is_toggle ) : ?>
+			</div>
+		<?php endif; ?>
 
 		<?php if ( isset( $field[ 'after_input' ] ) ) : ?>
 			<span class="htl-ui-setting__after-input"><?php echo wp_kses_post( $field[ 'after_input' ] ); ?></span>

@@ -192,6 +192,7 @@ class HTL_Admin_Settings {
 						'min'               => isset( $option[ 'min' ] ) ? $option[ 'min' ] : null,
 						'max'               => isset( $option[ 'max' ] ) ? $option[ 'max' ] : null,
 						'checkbox-fallback' => isset( $option[ 'checkbox-fallback' ] ) ? $option[ 'checkbox-fallback' ] : null,
+						'toggle'            => isset( $option[ 'toggle' ] ) ? true : null,
 						'show-if'           => isset( $option[ 'show-if' ] ) ? $option[ 'show-if' ] : null,
 						'show-element'      => isset( $option[ 'show-element' ] ) ? $option[ 'show-element' ] : null,
 					)
