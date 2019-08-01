@@ -168,6 +168,19 @@ jQuery(function ($) {
 				}
 			});
 
+			// Fix toggle IDs
+			var toggle_inputs = clone.find('.htl-ui-toggle__input');
+
+			toggle_inputs.each(function () {
+				var _this = $(this);
+				var id_attr = _this.attr('id');
+
+				if (id_attr) {
+					id_attr = id_attr.replace(/\[(\d+)\]/, '[' + parseInt(key, 10) + ']');
+					_this.attr('id', id_attr);
+				}
+			});
+
 			return clone;
 		},
 
