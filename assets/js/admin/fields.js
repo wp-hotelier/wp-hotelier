@@ -135,6 +135,9 @@ jQuery(function ($) {
 			this.show_if_setting_switches(); // Switches on settings
 			this.show_if_switches(); // Switches on meta boxes
 			this.conditional_switches(); // Conditional switches on meta boxes
+
+			this.show_if_setting_toggles(); // Toggles on settings
+			this.show_if_toggles(); // Toggles on meta boxes
 		},
 
 		show_if_setting_switches: function () {
@@ -236,6 +239,77 @@ jQuery(function ($) {
 							element.hide();
 						}
 					});
+				});
+			});
+		},
+
+		show_if_setting_toggles: function () {
+			var toggles = $('.show-if-setting-toggle');
+
+			toggles.each(function () {
+				var _this = $(this);
+				var show_val = _this.attr('data-show-if');
+				var show_elements = _this.attr('data-show-element').split(',');
+				var dom_show_elements = [];
+
+				// Skip this toggle it doesn't have show-if attr
+				if (!show_val) {
+					return;
+				}
+
+				var i = 0;
+				for (i = 0; i < show_elements.length; i++) {
+					var element = $('.htl-ui-setting--' + show_elements[i]).closest('tr');
+					dom_show_elements.push(element);
+				}
+
+				var checkbox = _this.find('input');
+				var is_checked = checkbox.prop('checked');
+
+				var j = 0;
+				if (!is_checked) {
+					for (j = 0; j < dom_show_elements.length; j++) {
+						dom_show_elements[j].hide();
+					}
+				}
+
+				checkbox.on('change', function () {
+					var i = 0;
+					if ($(this).prop('checked')) {
+						for (i = 0; i < dom_show_elements.length; i++) {
+							dom_show_elements[i].show();
+						}
+					} else {
+						for (i = 0; i < dom_show_elements.length; i++) {
+							dom_show_elements[i].hide();
+						}
+					}
+				});
+			});
+		},
+
+		show_if_toggles: function () {
+			var toggles = $('.show-if-toggle');
+
+			toggles.each(function () {
+				var _this = $(this);
+				var parent = _this.closest('.htl-ui-settings-wrap');
+				var show_val = _this.attr('data-show-if');
+				var show_element = _this.attr('data-show-element');
+				var dom_show_element = parent.find('.htl-ui-setting-conditional[data-type=' + show_element + ']');
+				var checkbox = _this.find('input');
+				var is_checked = checkbox.prop('checked');
+
+				if (!is_checked) {
+					dom_show_element.hide();
+				}
+
+				checkbox.on('change', function () {
+					if ($(this).prop('checked')) {
+						dom_show_element.show();
+					} else {
+						dom_show_element.hide();
+					}
 				});
 			});
 		}
