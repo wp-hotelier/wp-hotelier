@@ -732,6 +732,11 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   margin-top: 9px !important;
 }
 
+.htl-ui-setting__description--empty-message {
+  margin-top: 0;
+  font-weight: 600;
+}
+
 .htl-ui-setting__description a {
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;

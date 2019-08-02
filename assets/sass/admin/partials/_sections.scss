@@ -30,6 +30,11 @@
 		margin-top: $space !important;
 	}
 
+	&--empty-message {
+		margin-top: 0;
+		font-weight: 600;
+	}
+
 	a {
 		@include reset-link($color__accent);
 		@include transition();
