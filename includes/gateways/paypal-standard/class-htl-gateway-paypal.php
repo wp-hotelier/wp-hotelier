@@ -64,30 +64,20 @@ class HTL_Gateway_Paypal extends HTL_Payment_Gateway {
 				'type' => 'textarea'
 			),
 			'paypal_sandbox' => array(
-				'id'                => 'paypal_sandbox',
-				'name'              => esc_html__( 'PayPal sandbox', 'wp-hotelier' ),
-				'desc'              => esc_html__( 'Enable test mode.', 'wp-hotelier' ),
-				'subdesc'           => esc_html__( 'While in test mode no live transactions are processed. To fully use test mode, you must have a PayPal sandbox (test) account.', 'wp-hotelier' ),
-				'type'              => 'switch',
-				'options'           => array(
-					'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
-					'no'  => esc_html__( 'No', 'wp-hotelier' ),
-				),
-				'std'               => 'no',
-				'checkbox-fallback' => true,
+				'id'      => 'paypal_sandbox',
+				'name'    => esc_html__( 'PayPal sandbox', 'wp-hotelier' ),
+				'desc'    => esc_html__( 'Enable test mode.', 'wp-hotelier' ),
+				'subdesc' => esc_html__( 'While in test mode no live transactions are processed. To fully use test mode, you must have a PayPal sandbox (test) account.', 'wp-hotelier' ),
+				'type'    => 'checkbox',
+				'toggle'  => true,
 			),
 			'paypal_log' => array(
 				'id'                => 'paypal_log',
 				'name'              => esc_html__( 'Debug log', 'wp-hotelier' ),
 				'desc'              => esc_html__( 'Enable logging.', 'wp-hotelier' ),
 				'subdesc'           => sprintf( __( 'Log PayPal events, such as IPN requests, inside <code>%s</code>. Please note: this may log personal information. We recommend using this for debugging purposes only and deleting the logs when finished.', 'wp-hotelier' ), htl_get_log_file_path( 'paypal' ) ),
-				'type'              => 'switch',
-				'options'           => array(
-					'yes' => esc_html__( 'Yes', 'wp-hotelier' ),
-					'no'  => esc_html__( 'No', 'wp-hotelier' ),
-				),
-				'std'               => 'no',
-				'checkbox-fallback' => true,
+				'type'    => 'checkbox',
+				'toggle'  => true,
 			),
 			'paypal_email' => array(
 				'id'   => 'paypal_email',
