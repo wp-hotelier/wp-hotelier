@@ -13,6 +13,7 @@ if ( isset( $this->options[ $args[ 'id' ] ] ) ) {
 	$value = isset( $args[ 'std' ] ) ? $args[ 'std' ] : '';
 }
 
+$value        = $value ? true : false;
 $is_toggle    = isset( $args[ 'toggle' ] ) ? true : false;
 $show_if      = isset( $args[ 'show-if' ] ) ? true : false;
 $show_element = isset( $args[ 'show-element' ] ) ? $args[ 'show-element' ] : '';
