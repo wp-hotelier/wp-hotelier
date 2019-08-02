@@ -300,6 +300,11 @@ jQuery(function ($) {
 				var checkbox = _this.find('input');
 				var is_checked = checkbox.prop('checked');
 
+				// Skip this toggle it doesn't have show-if attr
+				if (!show_val) {
+					return;
+				}
+
 				if (!is_checked) {
 					dom_show_element.hide();
 				}
