@@ -2197,6 +2197,10 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   color: #ED4248;
 }
 
+.htl-ui-table--reservation-totals .rooms-with-paid-deposit-total__tax {
+  font-size: 12px;
+}
+
 .htl-ui-table--reservation-totals .htl-ui-table__row--reservation-totals-total .amount {
   font-size: 20px;
 }
