@@ -61,7 +61,36 @@ jQuery(function ($) {
 			$('#htl-ui-modal-obfuscator').remove();
 		}
 	};
+
+	var HTL_Fields_Errors = {
+		init: function () {
+			this.show_errors();
+		},
+
+		show_errors: function () {
+			$(document).on('keyup change', '.htl-ui-input--price', function () {
+				var _this = $(this);
+
+				// Decimals
+				var value = _this.val();
+				var parent = _this.parent();
+				var regex = new RegExp('[^\-0-9\%\\' + AdminParameters.decimal_point + ']+', 'gi');
+				var newvalue = value.replace(regex, '');
+
+				if (value !== newvalue) {
+					_this.val(newvalue);
+					parent.css('position', 'relative').append('<div class="htl-ui-tooltip htl-ui-tooltip--error htl-ui-tooltip--decimal-error"></div>');
+					parent.find('.htl-ui-tooltip--decimal-error').text(AdminParameters.decimal_error);
+				} else {
+					parent.find('.htl-ui-tooltip--decimal-error').remove();
+				}
+			});
+		}
+	};
+
 	$(document).ready(function () {
 		HTL_Admin.init();
+		HTL_Modals.init();
+		HTL_Fields_Errors.init();
 	});
 });

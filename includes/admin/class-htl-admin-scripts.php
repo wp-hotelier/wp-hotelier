@@ -70,6 +70,13 @@ class HTL_Admin_Scripts {
 		wp_register_script( 'htl-admin-settings', HTL_PLUGIN_URL . 'assets/js/admin/settings' . $suffix . '.js', array( 'jquery' ), HTL_VERSION );
 		wp_register_script( 'htl-admin-fields', HTL_PLUGIN_URL . 'assets/js/admin/fields' . $suffix . '.js', array( 'jquery', 'jquery-ui-sortable' ), HTL_VERSION );
 
+		// Localize
+		$admin_params = array(
+			'decimal_error' => sprintf( esc_html__( 'Please enter in decimal (%s) format without thousand separators.', 'wp-hotelier' ), htl_get_price_decimal_separator() ),
+			'decimal_point' => htl_get_price_decimal_separator()
+		);
+		wp_localize_script( 'htl-admin', 'AdminParameters', $admin_params );
+
 		// All hotelier pages
 		if ( in_array( $screen->id, HTL_Admin_Functions::get_screen_ids() ) ) {
 			wp_enqueue_script( 'htl-admin' );
@@ -83,16 +90,7 @@ class HTL_Admin_Scripts {
 
 		// Room meta boxes
 		if ( in_array( $screen->id, array( 'room', 'edit-room' ) ) ) {
-
-			$room_params = array(
-				'decimal_error' => sprintf( esc_html__( 'Please enter in decimal (%s) format without thousand separators.', 'wp-hotelier' ), htl_get_price_decimal_separator() ),
-				'decimal_point' => htl_get_price_decimal_separator()
-			);
-
-			wp_register_script( 'htl-admin-room-meta-boxes', HTL_PLUGIN_URL . 'assets/js/admin/meta-boxes-room' . $suffix . '.js', array( 'accounting', 'jquery-ui-sortable' ), HTL_VERSION );
-
-			wp_localize_script( 'htl-admin-room-meta-boxes', 'MetaBoxesRoomParameters', $room_params );
-
+			wp_register_script( 'htl-admin-room-meta-boxes', HTL_PLUGIN_URL . 'assets/js/admin/meta-boxes-room' . $suffix . '.js', array( 'jquery-ui-sortable' ), HTL_VERSION );
 			wp_enqueue_script( 'htl-admin-room-meta-boxes' );
 		}
 
