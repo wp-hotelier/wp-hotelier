@@ -26,6 +26,7 @@ PARTIALS
 	Logs ................... Logs styles.
 	Datepicker ............. Datepicker styles (jquery-ui).
 	Tooltips ............... Tooltip styles.
+	Modals ................. Modal styles.
 
 SETTINGS
 	Layout ................. Settings layout.
@@ -1375,6 +1376,60 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 
 .htl-ui-tooltip--error:after {
   border-bottom: 5px solid #ED4248;
+}
+
+/****** Modals ******/
+.htl-ui-modal {
+  background-color: #fff;
+  border-radius: 2px;
+  z-index: 999999;
+  position: fixed;
+  width: 240px;
+  top: 20%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  text-align: left;
+  padding: 18px;
+  -webkit-box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.18);
+          box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.18);
+  display: none;
+}
+
+.htl-ui-modal__title {
+  margin-top: 0;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #E6E6E6;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+}
+
+.htl-ui-modal__content {
+  padding-bottom: 18px;
+}
+
+.htl-ui-modal__buttons {
+  text-align: right;
+  padding-top: 18px;
+  border-top: 1px solid #E6E6E6;
+}
+
+.htl-ui-modal .htl-ui-label {
+  font-weight: 500;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 9px;
+}
+
+#htl-ui-modal-obfuscator {
+  display: none;
+  background-color: rgba(51, 51, 51, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999998;
 }
 
 /*--------------------------------------------------------------
@@ -2806,7 +2861,16 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   color: #333;
 }
 
+@media (min-width: 480px) {
+  .htl-ui-modal {
+    width: 320px;
+  }
+}
+
 @media (min-width: 600px) {
+  .htl-ui-modal {
+    width: 480px;
+  }
   .booking-calendar-navigation,
   .booking-calendar-weeks-navigation {
     display: inline-block;

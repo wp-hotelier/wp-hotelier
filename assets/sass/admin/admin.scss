@@ -33,6 +33,7 @@ PARTIALS
 	Logs ................... Logs styles.
 	Datepicker ............. Datepicker styles (jquery-ui).
 	Tooltips ............... Tooltip styles.
+	Modals ................. Modal styles.
 
 SETTINGS
 	Layout ................. Settings layout.
@@ -88,6 +89,7 @@ BOOKING CALENDAR
 @import "partials/logs";
 @import "partials/datepicker";
 @import "partials/tooltips";
+@import "partials/modals";
 
 /*--------------------------------------------------------------
 >>> SETTINGS:

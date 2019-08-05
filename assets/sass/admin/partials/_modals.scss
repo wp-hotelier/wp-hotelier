@@ -1,0 +1,60 @@
+/****** Modals ******/
+
+.htl-ui-modal {
+	background-color: #fff;
+	border-radius: 2px;
+	z-index: 999999;
+	position: fixed;
+	width: 240px;
+	top: 20%;
+	left: 50%;
+	transform: translateX(-50%);
+	text-align: left;
+	padding: $space__x2;
+	box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.18);
+	display: none;
+
+	@media (min-width: 480px) {
+		width: 320px;
+	}
+
+	@media (min-width: 600px) {
+		width: 480px;
+	}
+
+	&__title {
+		margin-top: 0;
+		padding-bottom: $space__x2;
+		border-bottom: 1px solid $color__line__default;
+		font-size: 16px !important;
+		font-weight: 500 !important;
+	}
+
+	&__content {
+		padding-bottom: $space__x2;
+	}
+
+	&__buttons {
+		text-align: right;
+		padding-top: $space__x2;
+		border-top: 1px solid $color__line__default;
+	}
+
+	.htl-ui-label {
+		font-weight: 500;
+		font-size: 14px;
+		display: block;
+		margin-bottom: $space;
+	}
+}
+
+#htl-ui-modal-obfuscator {
+	display: none;
+	background-color: rgba( #333, .3);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 999998;
+}
