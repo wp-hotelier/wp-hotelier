@@ -1372,6 +1372,35 @@ class HTL_Reservation {
 
 		return $ret;
 	}
+
+	/**
+	 * Checks if a reservation supports captures for auth charges.
+	 * A reservation can be manually charged when has an authorized payment
+	 * and when the payment method supports this feature
+	 *
+	 * @return bool
+	 */
+	public function can_be_captured() {
+		if ( HTL()->payment_gateways() ) {
+			$payment_gateways = HTL()->payment_gateways->get_available_payment_gateways();
+		} else {
+			$payment_gateways = array();
+		}
+
+		$payment_method = $this->get_payment_method() ? $this->get_payment_method() : '';
+
+		if (
+			$payment_method &&
+			isset( $payment_gateways[ $payment_method ] ) &&
+			$payment_gateways[ $payment_method ]->supports( 'capture' ) &&
+			$payment_gateways[ $payment_method ]->can_do_capture( $this->id ) &&
+			$this->get_deposit() > 0 &&
+			! $this->is_marked_as_paid() ) {
+				return true;
+		}
+
+		return false;
+	}
 }
 
 endif;
