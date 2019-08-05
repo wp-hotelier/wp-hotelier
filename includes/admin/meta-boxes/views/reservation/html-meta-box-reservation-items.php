@@ -176,6 +176,30 @@ $line_items = $reservation->get_items();
 		<?php if ( ! $reservation->get_remain_deposit_charge() ) : ?>
 
 			<div class="reservation-totals-pay-actions">
+				<?php if ( $reservation->can_be_captured() ) : ?>
+					<div class="htl-ui-modal htl-ui-modal--capture-deposit" id="modal-capture-deposit">
+						<div class="htl-ui-modal__content">
+							<h3 class="htl-ui-heading htl-ui-modal__title"><?php esc_html_e( 'Capture deposit', 'wp-hotelier' ); ?></h3>
+
+							<label for="hotelier-capture-deposit-amount" class="htl-ui-label"><?php esc_html_e( 'Capture amount:', 'wp-hotelier' ); ?></label>
+
+							<div>
+								<input type="text" class="htl-ui-input htl-ui-input--text htl-ui-input--small htl-ui-input--price" id="hotelier-capture-deposit-amount" name="hotelier_capture_deposit_amount" placeholder="<?php echo esc_attr( HTL_Meta_Box_Room_Settings::get_price_placeholder() ); ?>" value="<?php echo esc_attr( HTL_Formatting_Helper::localized_amount( $reservation->get_deposit() ) ); ?>" data-max-amount="<?php echo esc_attr( $reservation->get_deposit() ); ?>">
+							</div>
+
+							<div class="htl-ui-setting__description htl-ui-setting__description--price"><?php esc_html_e( 'The amount to capture  must be less than or equal to the reservation deposit. And you can only capture an authorized transaction once.' ); ?></div>
+						</div>
+
+						<div class="htl-ui-modal__buttons">
+							<button type="button" class="htl-ui-button htl-ui-button--secondary htl-ui-modal__cancel"><?php esc_html_e( 'Cancel', 'wp-hotelier' ); ?></button>
+
+							<button type="submit" name="hotelier_capture_deposit" class="htl-ui-button htl-ui-button--capture-deposit htl-ui-modal__confirm" value="1"><?php esc_html_e( 'Capture', 'wp-hotelier' ); ?></button>
+						</div>
+					</div>
+
+					<button type="button" class="htl-ui-button htl-ui-button--secondary htl-ui-button--open-modal" data-open-modal="modal-capture-deposit"><?php esc_html_e( 'Capture deposit', 'wp-hotelier' ); ?></button>
+				<?php endif; ?>
+
 				<?php if ( $reservation->can_be_charged() ) : ?>
 					<button type="submit" name="hotelier_charge_remain_deposit" class="htl-ui-button htl-ui-button--secondary htl-ui-button--charge-remain-deposit" value="1"><?php esc_html_e( 'Charge remain deposit', 'wp-hotelier' ); ?></button>
 				<?php endif; ?>
