@@ -83,7 +83,6 @@ class HTL_Admin_Scripts {
 
 		// Room meta boxes
 		if ( in_array( $screen->id, array( 'room', 'edit-room' ) ) ) {
-			wp_register_script( 'accounting', HTL_PLUGIN_URL . 'assets/js/lib/accounting/accounting' . $suffix . '.js', array( 'jquery' ), '0.4.2' );
 
 			$room_params = array(
 				'decimal_error' => sprintf( esc_html__( 'Please enter in decimal (%s) format without thousand separators.', 'wp-hotelier' ), htl_get_price_decimal_separator() ),
