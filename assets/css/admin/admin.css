@@ -1421,6 +1421,11 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   margin-bottom: 9px;
 }
 
+.htl-ui-modal .htl-ui-notice {
+  margin-bottom: 0;
+  margin-top: 18px;
+}
+
 #htl-ui-modal-obfuscator {
   display: none;
   background-color: rgba(51, 51, 51, 0.3);

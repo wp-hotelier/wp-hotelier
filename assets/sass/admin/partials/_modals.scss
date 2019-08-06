@@ -46,6 +46,11 @@
 		display: block;
 		margin-bottom: $space;
 	}
+
+	.htl-ui-notice {
+		margin-bottom: 0;
+		margin-top: $space__x2;
+	}
 }
 
 #htl-ui-modal-obfuscator {
