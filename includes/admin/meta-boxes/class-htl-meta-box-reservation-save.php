@@ -140,13 +140,58 @@ class HTL_Meta_Box_Reservation_Save {
 				$available_gateways[ $reservation->get_payment_method() ]->process_manual_charge( $reservation->id );
 			}
 		}
+	/**
+	 * Set save error for later
+	 */
+	public static function set_save_error( $message ) {
+		update_option( 'hotelier_save_reservation_error', $message );
+		add_filter( 'redirect_post_location', array( __CLASS__, 'add_error_query_var' ), 99 );
+	}
+
+	/**
+	 * Add query_var for error notices
+	 *
+	 * @static
+	 * @param $location
+	 * @return string
+	 */
+	public static function add_error_query_var( $location ) {
+		remove_filter( 'redirect_post_location', array( __CLASS__, 'add_error_query_var' ), 99 );
+
+		$location = add_query_arg( array( 'save-error-reservation' => true ), $location );
+
+		return $location;
 	}
 
 	/**
 	 * Set the correct message ID
 	 *
 	 * @static
-     * @param $location
+	 * @param $location
+	 * @return string
+	 */
+	public static function print_notices() {
+		$error = get_option( 'hotelier_save_reservation_error', false );
+
+		// Delete notice
+		delete_option( 'hotelier_save_reservation_error' );
+
+		if ( ! isset( $_GET[ 'save-error-reservation' ] ) ) {
+			return;
+		}
+
+		if ( ! $error ) {
+			return;
+		}
+
+		echo '<div class="error"><p>' . wp_kses_post( $error ) . '</p></div>';
+	}
+
+	/**
+	 * Set the correct message ID
+	 *
+	 * @static
+	 * @param $location
 	 * @return string
 	 */
 	public static function set_email_sent_message( $location ) {

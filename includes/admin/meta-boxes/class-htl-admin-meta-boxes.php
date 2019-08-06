@@ -41,6 +41,7 @@ class HTL_Admin_Meta_Boxes {
 		add_action( 'save_post', array( $this, 'save_meta_boxes' ), 10, 2 );
 		add_action( 'hotelier_process_room_reservation_meta', 'HTL_Meta_Box_Reservation_Data::save', 20, 2 );
 		add_action( 'hotelier_process_room_reservation_meta', 'HTL_Meta_Box_Reservation_Save::save', 30, 2 );
+		add_action( 'admin_notices', 'HTL_Meta_Box_Reservation_Save::print_notices' );
 
 		// Filters
 		add_filter( 'hotelier_meta_box_save_text', array( $this, 'sanitize_text' ) );
