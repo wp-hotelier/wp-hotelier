@@ -187,7 +187,11 @@ $line_items = $reservation->get_items();
 								<input type="text" class="htl-ui-input htl-ui-input--text htl-ui-input--small htl-ui-input--price" id="hotelier-capture-deposit-amount" name="hotelier_capture_deposit_amount" placeholder="<?php echo esc_attr( HTL_Meta_Box_Room_Settings::get_price_placeholder() ); ?>" value="<?php echo esc_attr( HTL_Formatting_Helper::localized_amount( $reservation->get_deposit() ) ); ?>" data-max-amount="<?php echo esc_attr( $reservation->get_deposit() ); ?>">
 							</div>
 
-							<div class="htl-ui-setting__description htl-ui-setting__description--price"><?php echo sprintf( __( 'The amount to capture  must be less than or equal to the reservation deposit. And you can only capture an authorized transaction once. The max amount capturable for this reservation is %s.', 'wp-hotelier' ), '<strong>' . htl_price( htl_convert_to_cents( $reservation->get_deposit() ), $reservation->get_reservation_currency() ) . '</strong>' ); ?></div>
+							<div class="htl-ui-setting__description htl-ui-setting__description--price">
+								<?php echo sprintf( __( 'The amount to capture  must be less than or equal to the reservation deposit. And you can only capture an authorized transaction once. The max amount capturable for this reservation is %s.', 'wp-hotelier' ), '<strong>' . htl_price( htl_convert_to_cents( $reservation->get_deposit() ), $reservation->get_reservation_currency() ) . '</strong>' ); ?>
+							</div>
+
+							<?php do_action( 'hotelier_after_capture_modal' ); ?>
 						</div>
 
 						<div class="htl-ui-modal__buttons">
