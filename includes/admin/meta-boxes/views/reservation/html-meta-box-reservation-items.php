@@ -159,7 +159,7 @@ $line_items = $reservation->get_items();
 		$formatted_amount_captured = htl_price( htl_convert_to_cents( $reservation->get_paid_deposit() ), $reservation->get_reservation_currency() );
 		$formatted_required_deposit  = htl_price( htl_convert_to_cents( $reservation->get_deposit() ), $reservation->get_reservation_currency() );
 		 ?>
-		<?php htl_ui_print_notice( sprintf( esc_html__( 'The captured amount (%s) does not match the required deposit (%s). The balance has been recalculated.', 'hotelier-gateway-stripe' ), $formatted_amount_captured, $formatted_required_deposit ), 'info', array( 'reservation-totals-message' ) ); ?>
+		<?php htl_ui_print_notice( sprintf( esc_html__( 'The captured amount (%s) does not match the required deposit (%s). The balance has been recalculated.', 'wp-hotelier' ), $formatted_amount_captured, $formatted_required_deposit ), 'info', array( 'reservation-totals-message' ) ); ?>
 
 	<?php endif; ?>
 
