@@ -10,6 +10,11 @@
 .edit-reservation-page__booking-details {
 	font-size: 16px;
 	color: $color__text__default;
+
+	.htl-ui-notice {
+		margin-top: $space__x2;
+		margin-bottom: 0;
+	}
 }
 
 .booking-details__payment-method {
