@@ -188,7 +188,7 @@ $line_items = $reservation->get_items();
 							</div>
 
 							<div class="htl-ui-setting__description htl-ui-setting__description--price">
-								<?php echo sprintf( __( 'The amount to capture  must be less than or equal to the reservation deposit. And you can only capture an authorized transaction once. The max amount capturable for this reservation is %s.', 'wp-hotelier' ), '<strong>' . htl_price( htl_convert_to_cents( $reservation->get_deposit() ), $reservation->get_reservation_currency() ) . '</strong>' ); ?>
+								<?php echo sprintf( __( 'The amount to capture must be less than or equal to the the original authorized amount. And you can only capture an authorized transaction once. The max amount capturable for this reservation is %s.', 'wp-hotelier' ), '<strong>' . htl_price( htl_convert_to_cents( $reservation->get_deposit() ), $reservation->get_reservation_currency() ) . '</strong>' ); ?>
 							</div>
 
 							<?php do_action( 'hotelier_after_capture_modal' ); ?>
