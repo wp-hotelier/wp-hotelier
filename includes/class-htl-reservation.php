@@ -946,7 +946,7 @@ class HTL_Reservation {
 				);
 			}
 
-			if ( $this->get_paid_deposit() > 0 && $this->payment_method_title ) {
+			if ( ( $this->get_paid_deposit() > 0 || $this->requires_capture ) && $this->payment_method_title ) {
 				$total_rows[ 'payment_method' ] = array(
 					'label' => esc_html__( 'Payment method:', 'wp-hotelier' ),
 					'value' => $this->payment_method_title
