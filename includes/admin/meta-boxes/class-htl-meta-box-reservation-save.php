@@ -140,6 +140,47 @@ class HTL_Meta_Box_Reservation_Save {
 				$available_gateways[ $reservation->get_payment_method() ]->process_manual_charge( $reservation->id );
 			}
 		}
+
+		// Handle capture action
+		if ( ! empty( $_POST[ 'hotelier_capture_deposit' ] ) ) {
+			$amount = isset( $_POST[ 'hotelier_capture_deposit_amount' ] ) ? $_POST[ 'hotelier_capture_deposit_amount' ] : 0;
+			self::capture_deposit( $reservation, $amount );
+		}
+	}
+
+	/**
+	 * Handle captures
+	 *
+	 * @static
+	 * @param $location
+	 * @return string
+	 */
+	protected static function capture_deposit( $reservation, $amount ) {
+		$amount = HTL_Formatting_Helper::sanitize_amount( $amount );
+
+		if ( $amount > $reservation->get_deposit() ) {
+			self::set_save_error( sprintf( __( 'Cannot caputure this payment. The max amount capturable for this reservation is %s.', 'wp-hotelier' ), '<strong>' . htl_price( htl_convert_to_cents( $reservation->get_deposit() ), $reservation->get_reservation_currency() ) . '</strong>' ) );
+
+			return false;
+		}
+
+		// Do a final check here.
+		// This ensures that:
+		//      1. The reservation can be captured
+		//      2. The payment method used in this reservation
+		//         exists and supports captures
+		if ( $reservation->can_be_captured() ) {
+			$available_gateways = HTL()->payment_gateways->get_available_payment_gateways();
+			$success = $available_gateways[ $reservation->get_payment_method() ]->process_capture( $reservation->id, $amount );
+
+			if ( ! $success ) {
+				self::set_save_error( sprintf( __( 'Cannot caputure this payment. Please check the <a href="%s">logs</a>.', 'wp-hotelier' ), admin_url( 'admin.php?page=hotelier-logs' ) ) );
+
+				return false;
+			}
+		}
+	}
+
 	/**
 	 * Set save error for later
 	 */
