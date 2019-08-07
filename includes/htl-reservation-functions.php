@@ -358,11 +358,6 @@ function htl_cancel_pending_reservations() {
 		foreach ( $pending_reservations as $pending_reservation ) {
 			$reservation = htl_get_reservation( $pending_reservation );
 
-			// Don't cancel reservations that require captures
-			if ( $reservation->requires_capture && apply_filters( 'hotelier_skip_requires_capture_reservation_on_cancel_pending', true ) ) {
-				continue;
-			}
-
 			if ( apply_filters( 'hotelier_cancel_pending_reservation', 'booking' === get_post_meta( $pending_reservation, '_created_via', true ), $reservation ) ) {
 				$reservation->update_status( 'cancelled', esc_html__( 'Time limit reached.', 'wp-hotelier' ) );
 			}
