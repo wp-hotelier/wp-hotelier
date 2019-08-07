@@ -209,7 +209,7 @@ class HTL_Meta_Box_Reservation_Data {
 					} ?>
 				<?php endif; ?>
 
-				<?php do_action( 'hotelier_reservation_after_booking_details' ); ?>
+				<?php do_action( 'hotelier_reservation_after_booking_details', $reservation ); ?>
 			</div>
 
 
