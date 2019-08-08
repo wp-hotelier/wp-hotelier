@@ -146,6 +146,12 @@ class HTL_Meta_Box_Reservation_Save {
 			$amount = isset( $_POST[ 'hotelier_capture_deposit_amount' ] ) ? $_POST[ 'hotelier_capture_deposit_amount' ] : 0;
 			self::capture_deposit( $reservation, $amount );
 		}
+
+		// Handle refund action
+		if ( ! empty( $_POST[ 'hotelier_refund_deposit' ] ) ) {
+			$amount = isset( $_POST[ 'hotelier_refund_amount' ] ) ? $_POST[ 'hotelier_refund_amount' ] : 0;
+			self::refund_deposit( $reservation, $amount );
+		}
 	}
 
 	/**
@@ -181,6 +187,45 @@ class HTL_Meta_Box_Reservation_Save {
 
 			if ( ! $success ) {
 				self::set_save_error( sprintf( __( 'Cannot capture this payment. Please check the <a href="%s">logs</a>.', 'wp-hotelier' ), admin_url( 'admin.php?page=hotelier-logs' ) ) );
+
+				return false;
+			}
+		}
+	}
+
+	/**
+	 * Handle refunds
+	 *
+	 * @static
+	 * @param $location
+	 * @return string
+	 */
+	protected static function refund_deposit( $reservation, $amount ) {
+		$amount = HTL_Formatting_Helper::sanitize_amount( $amount );
+
+		if ( ! $amount ) {
+			self::set_save_error( esc_html__( 'Please set a correct amount.', 'wp-hotelier' ) );
+
+			return false;
+		}
+
+		if ( $amount > $reservation->get_paid_deposit() ) {
+			self::set_save_error( sprintf( __( 'Cannot refund this payment. The max amount refundable for this reservation is %s.', 'wp-hotelier' ), '<strong>' . htl_price( htl_convert_to_cents( $reservation->get_paid_deposit() ), $reservation->get_reservation_currency() ) . '</strong>' ) );
+
+			return false;
+		}
+
+		// Do a final check here.
+		// This ensures that:
+		//      1. The reservation can be refunded
+		//      2. The payment method used in this reservation
+		//         exists and supports refunds
+		if ( $reservation->can_be_refunded() ) {
+			$available_gateways = HTL()->payment_gateways->get_available_payment_gateways();
+			$success = $available_gateways[ $reservation->get_payment_method() ]->process_refund( $reservation->id, $amount );
+
+			if ( ! $success ) {
+				self::set_save_error( sprintf( __( 'Cannot refund this payment. Please check the <a href="%s">logs</a>.', 'wp-hotelier' ), admin_url( 'admin.php?page=hotelier-logs' ) ) );
 
 				return false;
 			}
