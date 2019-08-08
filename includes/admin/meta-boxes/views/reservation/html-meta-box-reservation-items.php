@@ -110,8 +110,6 @@ $line_items = $reservation->get_items();
 						endforeach; ?>
 						</ul>
 
-
-
 						<span class="rooms-with-paid-deposit-total <?php echo ( $reservation->get_paid_deposit() > 0 ) ? 'rooms-with-paid-deposit-total--paid' : 'rooms-with-paid-deposit-total--due'; ?>">
 							<?php if ( $reservation->get_paid_deposit() > 0 ) : ?>
 								<?php echo htl_price( htl_convert_to_cents( $reservation->get_paid_deposit(), $reservation->get_reservation_currency() ) ); ?>
@@ -123,6 +121,16 @@ $line_items = $reservation->get_items();
 								<span class="rooms-with-paid-deposit-total__tax"><?php esc_html_e( '(incl. tax)', 'wp-hotelier' ); ?></span>
 							<?php endif; ?>
 						</span>
+
+						<?php if ( $reservation->requires_capture() ) : ?>
+							<span class="deposit-needs-capture-info">
+								<?php if ( $reservation->can_be_captured() ) : ?>
+									<?php esc_html_e( 'Authorized only. Must be captured.', 'wp-hotelier' ); ?>
+								<?php else : ?>
+									<?php esc_html_e( 'Authorization expired. Cannot be captured.', 'wp-hotelier' ); ?>
+								<?php endif; ?>
+							</span>
+						<?php endif; ?>
 					</td>
 				</tr>
 

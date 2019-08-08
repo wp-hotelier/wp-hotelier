@@ -2274,6 +2274,11 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   font-style: italic;
 }
 
+.htl-ui-table--reservation-totals .deposit-needs-capture-info {
+  display: block;
+  font-style: italic;
+}
+
 .reservation-totals-message {
   margin-top: 18px;
 }
