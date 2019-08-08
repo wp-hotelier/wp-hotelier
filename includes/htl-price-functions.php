@@ -188,6 +188,27 @@ if ( ! function_exists( 'htl_price' ) ) {
 	}
 }
 
+if ( ! function_exists( 'htl_price_raw' ) ) {
+	/**
+	 * Format the price with a currency symbol. Without HTML tags.
+	 *
+	 * @param float $price
+	 * @param string $currency
+	 * @return string
+	 */
+	function htl_price_raw( $price, $currency = '' ) {
+		$thousands_sep = htl_get_price_thousand_separator();
+		$decimal_sep   = htl_get_price_decimal_separator();
+		$decimals      = htl_get_price_decimals();
+		$position      = htl_get_option( 'currency_position', 'before' );
+		$price         = number_format( (double) $price, $decimals, $decimal_sep, $thousands_sep );
+		$price         = ( $position == 'before' ) ? htl_get_currency_symbol( $currency ) . $price : $price . htl_get_currency_symbol( $currency );
+		$return        = $price;
+
+		return apply_filters( 'hotelier_price_raw', $return, $price );
+	}
+}
+
 /**
  * Count cents in prices (prices are stored as integers).
  *
