@@ -1401,6 +1401,17 @@ class HTL_Reservation {
 
 		return false;
 	}
+
+	/**
+	 * Checks if a reservation requires a capture
+	 *
+	 * @return bool
+	 */
+	public function requires_capture() {
+		$requires_capture = $this->requires_capture ? true : false;
+
+		return ( apply_filters( 'hotelier_reservation_requires_capture', $requires_capture, $this ) );
+	}
 }
 
 endif;
