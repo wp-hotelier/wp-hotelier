@@ -184,6 +184,34 @@ $line_items = $reservation->get_items();
 		<?php if ( ! $reservation->get_remain_deposit_charge() ) : ?>
 
 			<div class="reservation-totals-pay-actions">
+				<?php if ( $reservation->can_be_refunded() ) : ?>
+					<div class="htl-ui-modal htl-ui-modal--refund-deposit" id="modal-refund-deposit">
+						<div class="htl-ui-modal__content">
+							<h3 class="htl-ui-heading htl-ui-modal__title"><?php esc_html_e( 'Refund deposit', 'wp-hotelier' ); ?></h3>
+
+							<label for="hotelier-refund-amount" class="htl-ui-label"><?php esc_html_e( 'Refund amount:', 'wp-hotelier' ); ?></label>
+
+							<div>
+								<input type="text" class="htl-ui-input htl-ui-input--text htl-ui-input--small htl-ui-input--price" id="hotelier-refund-amount" name="hotelier_refund_amount" placeholder="<?php echo esc_attr( HTL_Meta_Box_Room_Settings::get_price_placeholder() ); ?>" value="<?php echo esc_attr( HTL_Formatting_Helper::localized_amount( $reservation->get_paid_deposit() ) ); ?>" data-max-amount="<?php echo esc_attr( $reservation->get_paid_deposit() ); ?>">
+							</div>
+
+							<div class="htl-ui-setting__description htl-ui-setting__description--price">
+								<?php echo sprintf( __( 'The max amount refundable for this reservation is %s.', 'wp-hotelier' ), '<strong>' . htl_price( htl_convert_to_cents( $reservation->get_paid_deposit() ), $reservation->get_reservation_currency() ) . '</strong>' ); ?>
+							</div>
+
+							<?php do_action( 'hotelier_after_refund_modal' ); ?>
+						</div>
+
+						<div class="htl-ui-modal__buttons">
+							<button type="button" class="htl-ui-button htl-ui-button--secondary htl-ui-modal__cancel"><?php esc_html_e( 'Cancel', 'wp-hotelier' ); ?></button>
+
+							<button type="submit" name="hotelier_refund_deposit" class="htl-ui-button htl-ui-button--refund-deposit htl-ui-modal__confirm" value="1"><?php esc_html_e( 'Refund', 'wp-hotelier' ); ?></button>
+						</div>
+					</div>
+
+					<button type="button" class="htl-ui-button htl-ui-button--secondary htl-ui-button--open-modal" data-open-modal="modal-refund-deposit"><?php esc_html_e( 'Refund deposit', 'wp-hotelier' ); ?></button>
+				<?php endif; ?>
+
 				<?php if ( $reservation->can_be_captured() ) : ?>
 					<div class="htl-ui-modal htl-ui-modal--capture-deposit" id="modal-capture-deposit">
 						<div class="htl-ui-modal__content">
