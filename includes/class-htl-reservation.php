@@ -1412,6 +1412,34 @@ class HTL_Reservation {
 
 		return ( apply_filters( 'hotelier_reservation_requires_capture', $requires_capture, $this ) );
 	}
+
+	/**
+	 * Checks if a reservation supports a refund.
+	 * A reservation can be manually refunded when has a paid deposit
+	 * and when the payment method supports this feature
+	 *
+	 * @return bool
+	 */
+	public function can_be_refunded() {
+		if ( HTL()->payment_gateways() ) {
+			$payment_gateways = HTL()->payment_gateways->get_available_payment_gateways();
+		} else {
+			$payment_gateways = array();
+		}
+
+		$payment_method = $this->get_payment_method() ? $this->get_payment_method() : '';
+
+		if (
+			$payment_method &&
+			isset( $payment_gateways[ $payment_method ] ) &&
+			$payment_gateways[ $payment_method ]->supports( 'refund' ) &&
+			$payment_gateways[ $payment_method ]->can_do_refund( $this->id ) &&
+			$this->get_paid_deposit() > 0 ) {
+				return true;
+		}
+
+		return false;
+	}
 }
 
 endif;
