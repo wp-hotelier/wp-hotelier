@@ -931,11 +931,11 @@ class HTL_Reservation {
 
 		if ( $this->has_room_with_deposit() ) {
 
-			if ( $this->get_formatted_paid_deposit() > 0 ) {
+			if ( $this->get_formatted_paid_deposit() > 0 || $this->requires_capture() ) {
 
 				$total_rows[ 'paid_deposit' ] = array(
 					'label' => esc_html__( 'Paid deposit:', 'wp-hotelier' ),
-					'value'	=> $this->get_formatted_paid_deposit()
+					'value'	=> $this->requires_capture() ? $this->get_formatted_deposit() : $this->get_formatted_paid_deposit()
 				);
 
 			} else {
@@ -946,7 +946,7 @@ class HTL_Reservation {
 				);
 			}
 
-			if ( ( $this->get_paid_deposit() > 0 || $this->requires_capture ) && $this->payment_method_title ) {
+			if ( ( $this->get_paid_deposit() > 0 || $this->requires_capture() ) && $this->payment_method_title ) {
 				$total_rows[ 'payment_method' ] = array(
 					'label' => esc_html__( 'Payment method:', 'wp-hotelier' ),
 					'value' => $this->payment_method_title
@@ -956,7 +956,7 @@ class HTL_Reservation {
 		}
 
 		$total_rows[ 'total' ] = array(
-			'label' => esc_html__( 'Total due:', 'wp-hotelier' ),
+			'label' => $this->requires_capture() ? esc_html__( 'Total:', 'wp-hotelier' ) : esc_html__( 'Total due:', 'wp-hotelier' ),
 			'value'	=> $this->get_formatted_balance_due()
 		);
 
