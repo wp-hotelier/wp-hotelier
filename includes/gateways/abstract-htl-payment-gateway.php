@@ -266,4 +266,14 @@ abstract class HTL_Payment_Gateway {
 	public function can_do_capture( $reservation_id ) {
 		return false;
 	}
+
+	/**
+	 * Checks if a gateway can refund a payment from the admin.
+	 *
+	 * @param int $reservation_id
+	 * @return bool
+	 */
+	public function can_do_refund( $reservation_id ) {
+		return false;
+	}
 }
