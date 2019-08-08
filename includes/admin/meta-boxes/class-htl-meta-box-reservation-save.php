@@ -165,7 +165,7 @@ class HTL_Meta_Box_Reservation_Save {
 		}
 
 		if ( $amount > $reservation->get_deposit() ) {
-			self::set_save_error( sprintf( __( 'Cannot caputure this payment. The max amount capturable for this reservation is %s.', 'wp-hotelier' ), '<strong>' . htl_price( htl_convert_to_cents( $reservation->get_deposit() ), $reservation->get_reservation_currency() ) . '</strong>' ) );
+			self::set_save_error( sprintf( __( 'Cannot capture this payment. The max amount capturable for this reservation is %s.', 'wp-hotelier' ), '<strong>' . htl_price( htl_convert_to_cents( $reservation->get_deposit() ), $reservation->get_reservation_currency() ) . '</strong>' ) );
 
 			return false;
 		}
@@ -180,7 +180,7 @@ class HTL_Meta_Box_Reservation_Save {
 			$success = $available_gateways[ $reservation->get_payment_method() ]->process_capture( $reservation->id, $amount );
 
 			if ( ! $success ) {
-				self::set_save_error( sprintf( __( 'Cannot caputure this payment. Please check the <a href="%s">logs</a>.', 'wp-hotelier' ), admin_url( 'admin.php?page=hotelier-logs' ) ) );
+				self::set_save_error( sprintf( __( 'Cannot capture this payment. Please check the <a href="%s">logs</a>.', 'wp-hotelier' ), admin_url( 'admin.php?page=hotelier-logs' ) ) );
 
 				return false;
 			}
