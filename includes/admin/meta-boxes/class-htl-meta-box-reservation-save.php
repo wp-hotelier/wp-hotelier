@@ -158,6 +158,12 @@ class HTL_Meta_Box_Reservation_Save {
 	protected static function capture_deposit( $reservation, $amount ) {
 		$amount = HTL_Formatting_Helper::sanitize_amount( $amount );
 
+		if ( ! $amount ) {
+			self::set_save_error( esc_html__( 'Please set a correct amount.', 'wp-hotelier' ) );
+
+			return false;
+		}
+
 		if ( $amount > $reservation->get_deposit() ) {
 			self::set_save_error( sprintf( __( 'Cannot caputure this payment. The max amount capturable for this reservation is %s.', 'wp-hotelier' ), '<strong>' . htl_price( htl_convert_to_cents( $reservation->get_deposit() ), $reservation->get_reservation_currency() ) . '</strong>' ) );
 
