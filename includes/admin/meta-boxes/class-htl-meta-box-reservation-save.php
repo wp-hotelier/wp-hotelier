@@ -280,7 +280,7 @@ class HTL_Meta_Box_Reservation_Save {
 	}
 
 	/**
-	 * Set the correct message ID
+	 * Set message ID for email sent action
 	 *
 	 * @static
 	 * @param $location
