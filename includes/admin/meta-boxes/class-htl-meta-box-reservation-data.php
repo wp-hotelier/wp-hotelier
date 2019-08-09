@@ -88,6 +88,7 @@ class HTL_Meta_Box_Reservation_Data {
 				'label'         => esc_html__( 'Country', 'wp-hotelier' ),
 				'type'          => 'select',
 				'options'       => htl_get_country_codes(),
+				'required'      => true,
 				'wrapper_class' => 'form-field-last',
 				'description'   => esc_html__( 'Guest\'s country', 'wp-hotelier' ),
 			)
