@@ -303,6 +303,10 @@ class HTL_Admin_New_Reservation {
 		// Calculate taxes
 		self::$tax_total = htl_is_tax_enabled() ? htl_calculate_tax( self::$reservation_contents_total ) : 0;
 
+		// Taxes on deposits
+		if ( htl_is_deposit_tax_enabled() ) {
+			self::$required_deposit = self::$required_deposit + htl_calculate_tax( self::$required_deposit );
+		}
 		$total           = self::$reservation_contents_total + htl_calculate_tax( self::$reservation_contents_total );
 		self::$total     = $total;
 	}
