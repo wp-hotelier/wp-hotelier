@@ -248,15 +248,17 @@ class HTL_Admin_New_Reservation {
 	 */
 	public static function calculate_totals() {
 		foreach ( self::$reservation_contents as $reservation_item_key => $values ) {
-			$_room   = $values[ 'data' ];
-			$rate_id = $values[ 'rate_id' ];
-			$qty     = $values[ 'quantity' ];
+			$_room     = $values[ 'data' ];
+			$rate_id   = $values[ 'rate_id' ];
+			$qty       = $values[ 'quantity' ];
+			$room_type = 'standard';
 
 			// Price for variable room - We already know that if we pass a $rate_id is a variable room ( in self::add_to_reservation() )
 			if ( $rate_id ) {
 				$_variation   = $_room->get_room_variation( $rate_id );
 				$line_price   = $_variation->get_price( self::$checkin, self::$checkout );
 				$line_deposit = $_variation->get_deposit();
+				$room_type    = 'variation';
 
 			} else {
 				// Price for standard room
@@ -276,6 +278,12 @@ class HTL_Admin_New_Reservation {
 			// The total required deposit of the room
 			$line_to_pay = ( ( $line_price * $line_deposit ) / 100 );
 			$line_to_pay = round( $line_to_pay ) * $qty;
+
+			// Hold room details so we can pass them to the filter
+			$room_data = $room_type == 'standard' ? $_room : $_variation;
+
+			// Allow plugins to filter the deposit
+			$line_to_pay = apply_filters( 'hotelier_line_to_pay', $line_to_pay, $line_price, $line_deposit, $qty, $room_type, $room_data );
 
 			// This is the total deposit required to confirm a reservation
 			// Deposits are per line (room)
