@@ -191,6 +191,9 @@ class HTL_Meta_Box_Reservation_Save {
 				return false;
 			}
 		}
+
+		// Change the post saved message
+		add_filter( 'redirect_post_location', array( __CLASS__, 'set_needs_reload_message' ) );
 	}
 
 	/**
@@ -230,6 +233,9 @@ class HTL_Meta_Box_Reservation_Save {
 				return false;
 			}
 		}
+
+		// Change the post saved message
+		add_filter( 'redirect_post_location', array( __CLASS__, 'set_needs_reload_message' ) );
 	}
 
 	/**
@@ -288,6 +294,17 @@ class HTL_Meta_Box_Reservation_Save {
 	 */
 	public static function set_email_sent_message( $location ) {
 		return add_query_arg( 'message', 11, $location );
+	}
+
+	/**
+	 * Set message ID when page needs reload
+	 *
+	 * @static
+	 * @param $location
+	 * @return string
+	 */
+	public static function set_needs_reload_message( $location ) {
+		return add_query_arg( 'message', 12, $location );
 	}
 }
 
