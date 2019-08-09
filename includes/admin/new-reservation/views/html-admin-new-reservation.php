@@ -125,7 +125,7 @@ $tomorrow = $tomorrow->format( 'Y-m-d' );
 								<td>
 									<div class="htl-ui-setting">
 										<?php if ( isset( $field[ 'type' ] ) && $field[ 'type' ] === 'select' ) : ?>
-											<select class="htl-ui-input htl-ui-input--select">
+											<select class="htl-ui-input htl-ui-input--select" name="<?php echo esc_attr( $key ); ?>">
 												<?php foreach ( $field[ 'options' ] as $field_options_key => $field_options_value ) : ?>
 													<option value="<?php echo esc_attr( $field_options_key ); ?>"><?php echo esc_html( $field_options_value ); ?></option>
 												<?php endforeach; ?>
