@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="hotelier-settings-header">
 	<a href="<?php echo esc_url( admin_url( 'admin.php?page=hotelier-calendar' ) ) ?>" class="htl-ui-button htl-ui-button--view-calendar"><?php esc_attr_e( 'View calendar', 'wp-hotelier' ); ?></a>
 
-	<span class="hotelier-settings-header__version-number"><strong><?php esc_attr_e( 'Easy WP Hotelier', 'wp-hotelier' ); ?></strong><?php echo sprintf( esc_html__( 'Version %s', 'wp-hotelier' ), HTL_VERSION ); ?></span>
+	<span class="hotelier-settings-header__version-number"><strong><?php esc_attr_e( 'WP Hotelier', 'wp-hotelier' ); ?></strong><?php echo sprintf( esc_html__( 'Version %s', 'wp-hotelier' ), HTL_VERSION ); ?></span>
 
 	<?php $is_hotelier_pro_installed = class_exists( 'HotelierPro' ) ? true : false; ?>
 

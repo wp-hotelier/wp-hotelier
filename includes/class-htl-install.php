@@ -251,7 +251,7 @@ class HTL_Install {
 	public static function plugin_row_meta( $links, $file ) {
 		if ( $file == HTL_PLUGIN_BASENAME ) {
 			$row_meta = array(
-				'docs'    => '<a href="http://docs.wphotelier.com/" title="' . esc_attr__( 'View Easy WP Hotelier documentation', 'wp-hotelier' ) . '">' . esc_html__( 'Docs', 'wp-hotelier' ) . '</a>',
+				'docs'    => '<a href="http://docs.wphotelier.com/" title="' . esc_attr__( 'View WP Hotelier documentation', 'wp-hotelier' ) . '">' . esc_html__( 'Docs', 'wp-hotelier' ) . '</a>',
 			);
 
 			return array_merge( $links, $row_meta );

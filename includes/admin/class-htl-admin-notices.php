@@ -99,7 +99,7 @@ class HTL_Admin_Notices {
 	 * Get notice text for old extensions.
 	 */
 	public static function get_notice_for_old_extension( $plugin_name ) {
-		$text = sprintf( wp_kses( __( 'You are using an old version of <strong>"%1$s"</strong> that is not supported by the current version of <strong>"Easy WP Hotelier"</strong>. Please update <strong>"%1$s"</strong> to the last version to ensure the correct functionality of your installation.', 'wp-hotelier' ), array( 'strong' => array() ) ), $plugin_name );
+		$text = sprintf( wp_kses( __( 'You are using an old version of <strong>"%1$s"</strong> that is not supported by the current version of <strong>"WP Hotelier"</strong>. Please update <strong>"%1$s"</strong> to the last version to ensure the correct functionality of your installation.', 'wp-hotelier' ), array( 'strong' => array() ) ), $plugin_name );
 
 		return $text;
 	}
