@@ -8,10 +8,21 @@
 	padding: $space__x4;
 	position: absolute;
 	top: 14px;
+	width: 320px;
 	z-index: 999999;
 
-	&:hover {
-		display: block;
+	@media (min-width: 480px) {
+		&:hover {
+			display: block;
+		}
+	}
+
+	@media (min-width: 680px) {
+		width: 400px;
+
+		&:hover {
+			display: block;
+		}
 	}
 }
 
