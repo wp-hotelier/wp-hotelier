@@ -1,0 +1,28 @@
+.hotelier-settings {
+	margin: 20px 20px 20px 0;
+}
+
+.hotelier-settings-wrapper {
+	overflow: hidden;
+}
+
+@media (min-width: 1200px) {
+	.hotelier-settings {
+		display: flex;
+	}
+
+	.hotelier-settings-wrapper {
+		flex: 1;
+	}
+}
+
+.hotelier-settings-panel {
+	background-color: #fff;
+	padding: $space__x2 $space__x4 73px;
+
+	@media (min-width: 1200px) {
+		// height: 100%;
+	}
+}
+
+

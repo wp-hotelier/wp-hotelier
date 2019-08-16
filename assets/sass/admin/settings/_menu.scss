@@ -1,0 +1,157 @@
+.hotelier-settings-navigation {
+	padding: 0 0 $space__x4 0;
+
+	@media (min-width: 1200px) {
+		flex: 0 0 300px;
+	}
+}
+
+.hotelier-settings-navigation__title {
+	font-size: 18px;
+	margin: $space__x3 $space__x2 $space__x4 $space__x2;
+	padding-bottom: $space__x2;
+	padding-top: $space__x3;
+
+	@media (min-width: 1200px) {
+		padding-top: 0;
+	}
+}
+
+.hotelier-settings-navigation__list {
+	@include clear-list();
+	display: none;
+	font-family: $font__family;
+	font-size: 15px;
+	font-weight: 500;
+	letter-spacing: $letter__spacing;
+	line-height: $line__height;
+	margin-top: $space__x3 !important;
+
+	@media (min-width: 1200px) {
+		margin-top: 0 !important;
+		display: block !important;
+	}
+}
+
+.hotelier-settings-navigation__link {
+	border-radius: 0 20px 20px 0;
+	color: $color__text__medium;
+	display: block;
+	margin-right: $space__x2;
+	padding: $space $space__x2 $space $space__x5;
+	position: relative;
+	text-decoration: none;
+
+	@include transition();
+	@include reset-link($color__text__medium);
+
+	&:hover,
+	&.active {
+		color: $color__text__dark;
+	}
+
+	&.active {
+		background-color: #ddd;
+
+		&:before {
+			color: $color__text__dark;
+		}
+	}
+
+	&:before {
+		@include style-icon();
+		left: $space__x2;
+		margin-right: $space;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		color: $color__text__default;
+	}
+}
+
+.hotelier-settings-navigation__link--general:before {
+	content: '\f0fd';
+	font-weight: 900;
+}
+
+.hotelier-settings-navigation__link--rooms-and-reservations:before {
+	content: '\f562';
+	font-weight: 900;
+}
+
+.hotelier-settings-navigation__link--seasonal-prices:before {
+	content: '\f073';
+	font-weight: 900;
+}
+
+.hotelier-settings-navigation__link--payment:before {
+	content: '\f09d';
+	font-weight: 900;
+}
+
+.hotelier-settings-navigation__link--tax:before {
+	content: '\f51e';
+	font-weight: 900;
+}
+
+.hotelier-settings-navigation__link--emails:before {
+	content: '\f0e0';
+	font-weight: 900;
+}
+
+.hotelier-settings-navigation__link--tools:before {
+	content: '\f0ad';
+	font-weight: 900;
+}
+
+.hotelier-settings-navigation__link--licenses:before {
+	content: '\f2c1';
+	font-weight: 400;
+}
+
+.hotelier-settings-navigation__link--disabled_dates:before {
+	content: '\f273';
+	font-weight: 900;
+}
+
+.hotelier-settings-navigation__link--icalendar:before {
+	content: '\f019';
+	font-weight: 900;
+}
+
+.hotelier-settings-navigation__link--mailchimp:before {
+	content: '\f59e';
+	font-family: 'Font Awesome 5 Brands';
+	font-weight: 400;
+}
+
+.hotelier-settings-navigation__link--new-reservation:before {
+	content: '\f271';
+	font-weight: 400;
+}
+
+.hotelier-settings-navigation__link--logs:before {
+	content: '\f15c';
+	font-weight: 400;
+}
+
+.htl-ui-text-icon--show-settings-navigation {
+	font-weight: 500;
+	margin-left: $space__x2;
+	cursor: pointer;
+	font-size: 15px;
+	letter-spacing: $letter__spacing;
+
+	@media (min-width: 1200px) {
+		display: none;
+	}
+
+	&:after {
+		margin-left: $space;
+		@include style-icon();
+		content: '\f105';
+		font-weight: 900;
+		font-size: 13px;
+		// line-height: 1.5;
+	}
+}

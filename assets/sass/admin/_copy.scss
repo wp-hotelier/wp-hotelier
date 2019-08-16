@@ -1,0 +1,49 @@
+/****** Copy ******/
+
+.htl-ui-scope {
+	h1, h2, h3, h4, h5, h6 {
+		font-family: $font__family;
+		line-height: $line__height;
+		font-weight: 600;
+		letter-spacing: $letter__spacing;
+		color: $color__text__dark;
+	}
+
+	h1 { font-size: 24px;}
+	h2 { font-size: 22px;}
+	h3 { font-size: 18px;}
+	h4 { font-size: 16px;}
+	h5 { font-size: 12px;}
+	h6 { font-size: 10px;}
+
+	p {
+		color: $color__text__default;
+		font-family: $font__family;
+		font-size: $font__size;
+		font-weight: 400;
+		line-height: $line__height;
+	}
+
+	strong {
+		font-weight: 600;
+		color: $color__text__dark;
+	}
+
+	th {
+		text-align: left;
+		color: $color__text__dark;
+		letter-spacing: $letter__spacing;
+		font-weight: 500;
+		font-size: 15px;
+	}
+
+	code {
+		background: $color__light;
+		color: $color__text__medium;
+		font-weight: 500;
+	}
+}
+
+.htl-ui-required-symbol {
+	color: $color__red;
+}

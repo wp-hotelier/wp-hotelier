@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Core
  * @package  Hotelier/Functions
- * @version  1.0.0
+ * @version  2.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -35,8 +35,8 @@ add_filter( 'hotelier_short_description', 'do_shortcode', 11 ); // AFTER wpautop
  */
 function htl_get_option( $key = '', $default = false ) {
 	$hotelier_settings = get_option( 'hotelier_settings' );
-	$value = isset( $hotelier_settings[ $key ] ) ? $hotelier_settings[ $key ] : $default;
-	$value = apply_filters( 'hotelier_get_option', $value, $key, $default );
+	$value             = isset( $hotelier_settings[ $key ] ) ? $hotelier_settings[ $key ] : $default;
+	$value             = apply_filters( 'hotelier_get_option', $value, $key, $default );
 
 	return apply_filters( 'hotelier_get_option_' . $key, $value, $key, $default );
 }

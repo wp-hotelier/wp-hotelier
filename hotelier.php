@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name:       Easy WP Hotelier
+ * Plugin Name:       WP Hotelier
  * Plugin URI:        https://wphotelier.com/?utm_source=wpadmin&utm_medium=plugin&utm_campaign=wphotelierplugin
  * Description:       Manage your hotel bookings with WordPress.
- * Version:           1.8.4
- * Author:            Easy WP Hotelier
+ * Version:           2.0.0
+ * Author:            WP Hotelier
  * Author URI:        https://wphotelier.com/
  * Requires at least: 4.0
- * Tested up to:      5.0
+ * Tested up to:      5.2
  * License:           GPLv3
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain:       wp-hotelier
@@ -32,7 +32,7 @@ final class Hotelier {
 	/**
 	 * @var string
 	 */
-	public $version = '1.8.4';
+	public $version = '2.0.0';
 
 	/**
 	 * @var Hotelier The single instance of the class
@@ -246,6 +246,7 @@ final class Hotelier {
 
 		include_once HTL_PLUGIN_DIR . 'includes/class-htl-post-types.php';
 		include_once HTL_PLUGIN_DIR . 'includes/htl-misc-functions.php';
+		include_once HTL_PLUGIN_DIR . 'includes/htl-country-functions.php';
 		include_once HTL_PLUGIN_DIR . 'includes/htl-page-functions.php';
 		include_once HTL_PLUGIN_DIR . 'includes/class-htl-info.php';
 		include_once HTL_PLUGIN_DIR . 'includes/class-htl-cache.php';

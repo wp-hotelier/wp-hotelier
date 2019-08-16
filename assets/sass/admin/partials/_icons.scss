@@ -1,0 +1,70 @@
+/****** Icons ******/
+
+.htl-ui-icon {
+	cursor: pointer;
+	text-indent: -9999px;
+	display: inline-block;
+	width: 20px;
+
+	&:after {
+		@include style-icon();
+		float: left;
+		text-indent: 0;
+	}
+
+	&--clone-variation:after {
+		content: '\f0c5';
+		font-weight: 500;
+	}
+
+	&--delete-variation:after {
+		content: '\f2ed';
+		font-weight: 500;
+	}
+
+	&--drag-variation:after {
+		content: '\f0b2';
+		font-weight: 900;
+	}
+
+	&--toggle-variation:after {
+		content: '\f0d7';
+		font-weight: 900;
+	}
+}
+
+.htl-ui-text-icon {
+	cursor: pointer;
+
+	&--left:before {
+		@include style-icon();
+		margin-right: $space;
+	}
+
+	&--right:after {
+		@include style-icon();
+		margin-left: $space;
+	}
+}
+
+.htl-ui-text-icon-button {
+	background-color: $color__accent;
+	border-radius: 2px;
+	color: #fff;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 13px;
+	height: $space__x3;
+	line-height: $space__x3;
+	padding: 0 $space;
+
+	&--left:before {
+		@include style-icon();
+		margin-right: $space;
+	}
+
+	&--right:after {
+		@include style-icon();
+		margin-left: $space;
+	}
+}

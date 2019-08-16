@@ -1,0 +1,110 @@
+/****** Reservation ******/
+
+.htl-ui-text-icon-button--status {
+	@include reset-text;
+	text-transform: capitalize;
+	font-weight: 500;
+
+	&-cancelled {
+		background-color: $color__bg__status__cancelled;
+		color: $color__status__cancelled;
+
+		&:before {
+			content: '\f00d';
+			font-weight: 900;
+		}
+	}
+
+	&-completed {
+		background-color: $color__bg__status__completed;
+		color: $color__status__completed;
+
+		&:before {
+			content: '\f560';
+			font-weight: 900;
+		}
+	}
+
+	&-confirmed {
+		background-color: $color__bg__status__confirmed;
+		color: $color__status__confirmed;
+
+		&:before {
+			content: '\f00c';
+			font-weight: 900;
+		}
+	}
+
+	&-failed {
+		background-color: $color__bg__status__failed;
+		color: $color__status__failed;
+
+		&:before {
+			content: '\f12a';
+			font-weight: 900;
+		}
+	}
+
+	&-on-hold {
+		background-color: $color__bg__status__onhold;
+		color: $color__status__onhold;
+
+		&:before {
+			content: '\f017';
+			font-weight: 400;
+		}
+	}
+
+	&-pending {
+		background-color: $color__bg__status__pending;
+		color: $color__status__pending;
+
+		&:before {
+			content: '\f068';
+			font-weight: 900;
+		}
+	}
+
+	&-refunded {
+		background-color: $color__bg__status__refunded;
+		color: $color__status__refunded;
+
+		&:before {
+			content: '\f2ea';
+			font-weight: 900;
+		}
+	}
+
+	&-trash {
+		background-color: $color__bg__status__trash;
+		color: $color__status__trash;
+
+		&:before {
+			content: '\f2ed';
+			font-weight: 400;
+		}
+	}
+}
+
+.htl-ui-text-icon-button--checkin,
+.htl-ui-text-icon-button--checkout {
+	@include reset-text;
+	background-color: #EEEDED;
+	color: $color__text__dark;
+}
+
+.post-type-room_reservation {
+	.column-nights span {
+		@include reset-text;
+		background-color: $color__accent__light;
+		border-radius: 2px;
+		color: $color__accent;
+		cursor: pointer;
+		display: inline-block;
+		font-size: 13px;
+		font-weight: 500;
+		height: $space__x3;
+		line-height: $space__x3;
+		padding: 0 $space;
+	}
+}

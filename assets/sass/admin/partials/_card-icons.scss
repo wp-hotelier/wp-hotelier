@@ -1,0 +1,63 @@
+/****** Card Icons ******/
+
+.htl-ui-setting__description--card-icons {
+	margin-top: 0;
+}
+
+.htl-ui-card-icon-wrapper {
+	margin-bottom: 14px;
+}
+
+.htl-ui-label--card-icon {
+	height: 25px;
+}
+
+.htl-ui-card-icon {
+	padding-left: 48px;
+	padding-right: 10px;
+	position: relative;
+	display: inline-block;
+	font-weight: 500;
+
+	&:before {
+		background-color: #fff;
+		background-position: 0 0;
+		background-repeat: no-repeat;
+		content: '';
+		display: inline-block;
+		height: 24px;
+		left: 0;
+		position: absolute;
+		top: -3px;
+		width: 38px;
+		border: 1px solid $color__line__default;
+	}
+
+	&--mastercard:before {
+		background-image: url(../../images/cards/mastercard.svg);
+	}
+
+	&--amex:before {
+		background-image: url(../../images/cards/amex.svg);
+	}
+
+	&--cirrus:before {
+		background-image: url(../../images/cards/cirrus.svg);
+	}
+
+	&--discover:before {
+		background-image: url(../../images/cards/discover.svg);
+	}
+
+	&--maestro:before {
+		background-image: url(../../images/cards/maestro.svg);
+	}
+
+	&--visa:before {
+		background-image: url(../../images/cards/visa.svg);
+	}
+
+	&--visa_e:before {
+		background-image: url(../../images/cards/visa_e.svg);
+	}
+}

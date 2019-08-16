@@ -1,6 +1,6 @@
 <?php
 /**
- * Admin View: Calendar table
+ * Calendar table
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -19,38 +19,42 @@ $daterange        = new DatePeriod( $begin, $interval, $end );
 $all_reservations = htl_get_all_reservations( $start_range, $end_range );
 ?>
 
-<table class="bc__table bc__table--main">
-	<thead class="bc__header">
-		<tr class="bc__row bc__row--header">
-			<th class="bc__cell bc__cell--header bc__cell--room-name">
-				&nbsp;
-			</th>
+<table class="htl-ui-table htl-ui-table--booking-calendar booking-calendar-table">
+	<thead class="booking-calendar-table__header">
+		<tr class="booking-calendar-table__row booking-calendar-table__row--header">
 			<?php foreach ( $daterange as $date ) : ?>
-				<th colspan="2" class="bc__cell bc__cell--header <?php echo $date->format( 'Y-m-d' ) == $today->format( 'Y-m-d' ) ? 'bc__cell--today' : ''; ?>">
-					<span class="bc__date bc__date--month"><?php echo date_i18n( 'M', $date->getTimestamp() ) ?></span>
-					<span class="bc__date bc__date--number"><?php echo date_i18n( 'd', $date->getTimestamp() ) ?></span>
-					<span class="bc__date bc__date--day"><?php echo date_i18n( 'D', $date->getTimestamp() ) ?></span>
+				<th colspan="2" class="booking-calendar-table__cell booking-calendar-table__cell--header <?php echo $date->format( 'Y-m-d' ) == $today->format( 'Y-m-d' ) ? 'booking-calendar-table__cell--today' : ''; ?>">
+					<span class="booking-calendar-table__date booking-calendar-table__date--day"><?php echo date_i18n( 'l', $date->getTimestamp() ) ?></span>
+					<span class="booking-calendar-table__date booking-calendar-table__date--number"><?php echo date_i18n( 'd', $date->getTimestamp() ) ?></span>
+					<span class="booking-calendar-table__date booking-calendar-table__date--month"><?php echo date_i18n( 'M', $date->getTimestamp() ) ?></span>
 				</th>
 			<?php endforeach; ?>
 		</tr>
 	</thead>
 
-	<tbody class="bc__content">
+	<tbody class="booking-calendar-table__body">
 		<?php foreach ( $all_reservations as $room_id => $reservations ) : ?>
-			<?php
-			if ( $room_cat && $room_cat > 0 ) {
-				if ( ! has_term( $room_cat, 'room_cat', $room_id ) ) {
-					continue;
-				}
-			}
-			?>
-			<tr class="bc__row bc__row--content">
-				<td class="bc__cell bc__cell--data bc__cell--room-name">
-					<a class="bc__room-link" href="<?php echo esc_url( get_edit_post_link( $room_id ) ); ?>"><?php echo get_the_title( $room_id ); ?></a>
+			<tr class="booking-calendar-table__row booking-calendar-table__row--body booking-calendar-table__row--room-name">
+				<td class="booking-calendar-table__cell booking-calendar-table__cell--body booking-calendar-table__cell--room-link" colspan="<?php echo absint( $weeks * 14 ); ?>"><a class="booking-calendar-table__room-link" href="<?php echo esc_url( get_edit_post_link( $room_id ) ); ?>"><?php echo get_the_title( $room_id ); ?></a></td>
+			</tr>
+			<tr class="booking-calendar-table__row booking-calendar-table__row--body booking-calendar-table__row--empty">
+				<td class="booking-calendar-table__cell booking-calendar-table__cell--body" colspan="<?php echo absint( $weeks * 14 ); ?>">
+					<table class="booking-calendar-table__table booking-calendar-table__table--week">
+						<tbody class="booking-calendar-table__body booking-calendar-table__body--week">
+							<tr class="booking-calendar-table__row booking-calendar-table__row--week booking-calendar-table__row--empty" data-room="<?php echo absint( $room_id ); ?>">
+								<?php foreach ( $daterange as $date ) : ?>
+									<td class="booking-calendar-table__cell booking-calendar-table__cell--body booking-calendar-table__cell--empty booking-calendar-table__cell--day booking-calendar-table__cell--first"><span class="booking-calendar-table__date-helper"><?php echo date_i18n( 'd', $date->getTimestamp() ) ?></span></td>
+									<td class="booking-calendar-table__cell booking-calendar-table__cell--body booking-calendar-table__cell--empty booking-calendar-table__cell--day">&nbsp;</td>
+								<?php endforeach; ?>
+							</tr>
+						</tbody>
+					</table>
 				</td>
-				<td class="bc__cell bc__cell--data bc__cell--week" colspan="<?php echo absint( $weeks * 14 ); ?>">
-					<table class="bc__table bc__table--week">
-						<tbody class="bc__content bc__content--week">
+			</tr>
+			<tr class="booking-calendar-table__row booking-calendar-table__row--body">
+				<td class="booking-calendar-table__cell booking-calendar-table__cell--body booking-calendar-table__cell--week" colspan="<?php echo absint( $weeks * 14 ); ?>">
+					<table class="booking-calendar-table__table booking-calendar-table__table--week">
+						<tbody class="booking-calendar-table__body booking-calendar-table__body--week">
 							<?php if ( $reservations ) :
 								$rows      = array();
 								$empty_row = array();
@@ -119,32 +123,31 @@ $all_reservations = htl_get_all_reservations( $start_range, $end_range );
 									}
 								} ?>
 
-								<?php
-								foreach ($rows as $row) : ?>
-									<tr class="bc__row bc__row--week bc__row--bookings" data-room="<?php echo absint( $room_id ); ?>">
-										<?php
+								<?php foreach ($rows as $row) : ?>
+									<tr class="booking-calendar-table__row booking-calendar-table__row--week booking-calendar-table__row--bookings" data-room="<?php echo absint( $room_id ); ?>">
 
-										foreach ( $row as $index => $cell ) {
-											if ( $index <= $weeks * 7 ) {
-												if ( is_array( $cell ) ) {
+										<?php foreach ( $row as $index => $cell ) : ?>
+											<?php if ( $index <= $weeks * 7 ) : ?>
+												<?php if ( is_array( $cell ) ) : ?>
+													<?php
 													$colspan = $index == 0 || $index == $weeks * 7 ? $cell[ 'size' ] - 1 : $cell[ 'size' ];
 
 													$class = '';
 
 													if ( $index == 0 ) {
-														$class .= ' bc__day-booked--past-week';
+														$class .= ' booking-calendar-table__day-booked--past-week';
 
 														if ( $cell[ 'size' ] < 3 ) {
-															$class .= ' bc__day-booked--hidden';
+															$class .= ' booking-calendar-table__day-booked--hidden';
 														}
 													}
 
 													if ( $index + $cell[ 'size' ] / 2 > $weeks * 7  ) {
 														$colspan = 2 * ( $weeks * 7 - $index ) + 1;
-														$class .= ' bc__day-booked--next-week';
+														$class .= ' booking-calendar-table__day-booked--next-week';
 
 														if ( $cell[ 'size' ] < 3 ) {
-															$class .= ' bc__day-booked--hidden';
+															$class .= ' booking-calendar-table__day-booked--hidden';
 														}
 													}
 
@@ -152,33 +155,58 @@ $all_reservations = htl_get_all_reservations( $start_range, $end_range );
 														$colspan = 2 * $weeks * 7;
 													}
 
-													echo '<td colspan="' . absint( $colspan ) . '" data-status="' . esc_attr( $cell[ 'status' ] ) . '" data-room="' . esc_attr( $room_id ) . '" class="bc__cell bc__cell--data bc__cell--day bc__day-booked' . esc_attr( $class ) . '">
-															<a href="' . esc_url( get_edit_post_link( $cell[ 'id' ] ) ) . '" class="bc__reservation-link hastip" title="' . esc_attr( get_the_title( $cell[ 'id' ] ) ) . '"><span class="bc__reservation-label">' . get_the_title( $cell[ 'id' ] ) . '</span></a>
-														</td>';
-												} else if ( $cell == false ) {
+													if ( in_array( $cell[ 'status' ], $default_disabled_statuses ) ) {
+														$class .= ' not-active';
+													}
+													?>
+
+													<td colspan="<?php echo absint( $colspan ); ?>" data-status="<?php echo esc_attr( $cell[ 'status' ] ); ?>" data-room="<?php echo esc_attr( $room_id ); ?>" class="booking-calendar-table__cell booking-calendar-table__cell--body booking-calendar-table__cell--day booking-calendar-table__day-booked <?php echo esc_attr( $class ); ?>">
+
+														<a href="<?php echo esc_url( get_edit_post_link( $cell[ 'id' ] ) ); ?>" class="booking-calendar-table__reservation-link"><span class="booking-calendar-table__reservation-label">#<?php echo esc_html( $cell[ 'id' ] ); ?></span></a>
+
+														<?php include HTL_PLUGIN_DIR . 'includes/admin/calendar/views/html-admin-calendar-booking-card.php'; ?>
+													</td>
+												<?php elseif ( $cell == false ) : ?>
+													<?php
 													$class = '';
 
 													if ( $index == 0 ) {
-														$class = ' bc__cell--first';
+														$class = ' booking-calendar-table__cell--first';
 													}
+													?>
 
-													echo '<td class="bc__cell bc__cell--data bc__cell--day' . esc_attr( $class ) . '"></td>';
-													if ( $index != 0 && $index != $weeks * 7 ) {
-														echo '<td class="bc__cell bc__cell--data bc__cell--day bc__cell--first"></td>';
-													}
-												}
-											}
-										} ?>
+													<td class="booking-calendar-table__cell booking-calendar-table__cell--body booking-calendar-table__cell--day <?php echo esc_attr( $class ); ?>"></td>
+
+													<?php if ( $index != 0 && $index != $weeks * 7 ) : ?>
+														<td class="booking-calendar-table__cell booking-calendar-table__cell--body booking-calendar-table__cell--day booking-calendar-table__cell--first"></td>
+													<?php endif; ?>
+												<?php endif; ?>
+											<?php endif; ?>
+										<?php endforeach; ?>
 									</tr>
 								<?php endforeach; ?>
 							<?php else : ?>
-								<tr class="bc__row bc__row--week bc__row--bg" data-room="<?php echo absint( $room_id ); ?>">
+								<tr class="booking-calendar-table__row booking-calendar-table__row--week booking-calendar-table__row--bg" data-room="<?php echo absint( $room_id ); ?>">
 									<?php foreach ( $daterange as $date ) : ?>
-										<td class="bc__cell bc__cell--data bc__cell--bg bc__cell--day bc__cell--first">&nbsp;</td>
-										<td class="bc__cell bc__cell--data bc__cell--bg bc__cell--day">&nbsp;</td>
+										<td class="booking-calendar-table__cell booking-calendar-table__cell--body booking-calendar-table__cell--bg booking-calendar-table__cell--day booking-calendar-table__cell--first">&nbsp;</td>
+										<td class="booking-calendar-table__cell booking-calendar-table__cell--body booking-calendar-table__cell--bg booking-calendar-table__cell--day">&nbsp;</td>
 									<?php endforeach; ?>
 								</tr>
 							<?php endif; ?>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+			<tr class="booking-calendar-table__row booking-calendar-table__row--body booking-calendar-table__row--empty">
+				<td class="booking-calendar-table__cell booking-calendar-table__cell--body" colspan="<?php echo absint( $weeks * 14 ); ?>">
+					<table class="booking-calendar-table__table booking-calendar-table__table--week">
+						<tbody class="booking-calendar-table__body booking-calendar-table__body--week">
+							<tr class="booking-calendar-table__row booking-calendar-table__row--week booking-calendar-table__row--empty" data-room="<?php echo absint( $room_id ); ?>">
+								<?php foreach ( $daterange as $date ) : ?>
+									<td class="booking-calendar-table__cell booking-calendar-table__cell--body booking-calendar-table__cell--empty booking-calendar-table__cell--day booking-calendar-table__cell--first">&nbsp;</td>
+									<td class="booking-calendar-table__cell booking-calendar-table__cell--body booking-calendar-table__cell--empty booking-calendar-table__cell--day">&nbsp;</td>
+								<?php endforeach; ?>
+							</tr>
 						</tbody>
 					</table>
 				</td>

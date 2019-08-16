@@ -122,10 +122,21 @@ class HTL_License_Manager {
 			return;
 		}
 
-		echo '<p class="tab-top-help-text">' . wp_kses_post( sprintf(
+		$notice_wrapper_class = array(
+			'htl-ui-setting',
+			'htl-ui-setting--section-description'
+		);
+
+		$notice_class = array(
+			'htl-ui-setting--section-description__text'
+		);
+
+		$notice_text = sprintf(
 			__( 'Enter your extension license keys here to receive updates for purchased extensions. If your license key has expired, please <a href="%s" target="_blank">renew your license</a>.', 'wp-hotelier' ),
 			'http://docs.wphotelier.com/article/36-how-to-renew-a-license'
-		) ) . '</p>';
+		);
+
+		htl_ui_print_notice( $notice_text, 'info', $notice_wrapper_class, $notice_class );
 
 		$has_ran = true;
 	}
@@ -182,7 +193,7 @@ class HTL_License_Manager {
 		$response = wp_remote_post(
 			$this->api_url,
 			array(
-				'user-agent' => 'Easy WP Hotelier License Manager',
+				'user-agent' => 'WP Hotelier License Manager',
 				'timeout'    => 15,
 				'sslverify'  => false,
 				'body'       => $api_params
@@ -238,7 +249,7 @@ class HTL_License_Manager {
 			$response = wp_remote_post(
 				$this->api_url,
 				array(
-					'user-agent' => 'Easy WP Hotelier License Manager',
+					'user-agent' => 'WP Hotelier License Manager',
 					'timeout'    => 15,
 					'sslverify'  => false,
 					'body'       => $api_params
@@ -281,7 +292,7 @@ class HTL_License_Manager {
 		$response = wp_remote_post(
 			$this->api_url,
 			array(
-				'user-agent' => 'Easy WP Hotelier License Manager',
+				'user-agent' => 'WP Hotelier License Manager',
 				'timeout'    => 15,
 				'sslverify'  => false,
 				'body'       => $api_params
@@ -342,7 +353,7 @@ class HTL_License_Manager {
 		if ( is_object( $license ) && 'valid' !== $license->license && empty( $showed_invalid_message ) ) {
 			if ( empty( $_GET[ 'tab' ] ) || 'licenses' !== $_GET[ 'tab' ] ) {
 				$messages[] = sprintf(
-					__( 'You have invalid or expired license keys for Easy WP Hotelier. Please go to the <a href="%s">Licenses page</a> to correct this issue.', 'wp-hotelier' ),
+					__( 'You have invalid or expired license keys for WP Hotelier. Please go to the <a href="%s">Licenses page</a> to correct this issue.', 'wp-hotelier' ),
 					admin_url( 'admin.php?page=hotelier-settings&tab=licenses' )
 				);
 

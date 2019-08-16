@@ -1,0 +1,257 @@
+/****** Tables ******/
+
+table.hotelier-settings-table-form {
+	width: 100%;
+	overflow: hidden;
+
+	@media (max-width: 800px) {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	> tbody {
+		vertical-align: top;
+
+		> tr {
+			border-bottom: 1px solid $color__line__default;
+
+			> th,
+			> td {}
+
+			> th {
+				width: 200px;
+
+				@media (min-width: 800px) {
+					width: 250px;
+				}
+			}
+		}
+	}
+
+	tr {
+		max-width: 100%;
+	}
+
+	td {
+		table {
+			width: 100%;
+
+			&.htl-ui-table--bank-transfer {
+				table-layout: fixed;
+			}
+		}
+
+		table input {
+			max-width: 100%;
+			margin: 0;
+		}
+	}
+
+	tr.htl-ui-row--server-info {
+		&:nth-child(even) {
+			background-color: $color__light;
+		}
+	}
+
+	@media (max-width: 800px) {
+		.htl-ui-input--text,
+		.htl-ui-input--email,
+		.htl-ui-input--textarea,
+		.htl-ui-input--select {
+			max-width: 100%;
+		}
+	}
+}
+
+.htl-ui-table,
+.htl-ui-table__row,
+.htl-ui-table__cell {
+	border: none;
+	border-collapse: collapse;
+}
+
+.htl-ui-table {
+	text-align: left;
+}
+
+.htl-ui-setting--metabox .htl-ui-table {
+	margin-top: $space;
+}
+
+.htl-ui-table__cell--head {
+	font-size: 13px !important;
+	padding-bottom: $space;
+}
+
+.htl-ui-table__body--sortable .htl-ui-table__row--sortable {
+	&:first-child {
+		border-top: 1px solid $color__line__default;
+	}
+
+	.htl-ui-table__cell {
+		border-bottom: 1px solid $color__line__default;
+		padding: $space 0;
+	}
+}
+
+.htl-ui-table__cell--footer {
+	padding: $space 0;
+}
+
+.htl-ui-table__cell--remove-row {
+	width: 150px;
+	text-align: right;
+	vertical-align: top;
+}
+
+.htl-ui-table__cell--sort-row {
+	vertical-align: top;
+	width: 30px;
+	text-indent: -9999px;
+	cursor: pointer;
+
+	&:before {
+		@include style-icon();
+		content: '\f0b2';
+		font-weight: 900;
+		height: 30px;
+		left: 9999px;
+		line-height: 30px;
+		position: relative;
+		text-align: center;
+		text-indent: 0;
+		width: 30px;
+		@include transition();
+		top: 4px;
+	}
+
+	&:hover:before {
+		color: $color__accent;
+	}
+}
+
+table.hotelier-settings-table-form {
+	.htl-ui-table__cell--disabled-dates-dates,
+	.htl-ui-table__cell--seasonal-prices-dates {
+		label {
+			display: block;
+			margin-bottom: $space;
+
+			@media (min-width: 1450px) {
+				display: inline;
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+.htl-ui-table__cell--disabled-dates-dates,
+.htl-ui-table__cell--seasonal-prices-dates {
+	.htl-ui-input {
+		margin-left: 4px;
+	}
+
+	.htl-ui-label {
+		margin-right: $space;
+		font-weight: 500;
+		color: $color__text__default;
+	}
+}
+
+.htl-ui-table--disabled-dates,
+.htl-ui-table--seasonal-prices {
+	.htl-ui-text-icon--show-advanced {
+		margin-top: $space;
+	}
+
+	.htl-ui-advanced-settings-wrapper {
+		&.open {
+			padding-top: $space;
+		}
+
+		.htl-ui-label {
+			font-style: italic;
+		}
+	}
+}
+
+.htl-ui-row--server-info {
+	th,
+	td {
+		padding: $space;
+		letter-spacing: $letter__spacing;
+	}
+
+	th {
+		font-size: 13px;
+	}
+}
+
+.htl-ui-table--add-new-room-to-reservation {
+	@media (max-width: 800px) {
+		max-width: 100%;
+		table-layout: fixed;
+
+		.htl-ui-table__cell {
+			display: block;
+		}
+	}
+
+	.htl-ui-table__cell--room-select {
+		padding-right: $space__x2 !important;
+
+		@media (min-width: 1600px) {
+			width: 500px;
+		}
+	}
+
+	.htl-ui-input--select {
+		width: auto;
+
+		@media (min-width: 1600px) {
+			width: 500px;
+		}
+	}
+
+	.htl-ui-input--number {
+		width: 60px;
+	}
+
+	.htl-ui-table__cell--remove-room {
+		@media (min-width: 800px) {
+			text-align: right;
+		}
+	}
+}
+
+.htl-ui-table--reservation-items {
+	width: 100%;
+
+	th {
+		padding: $space__x2 0;
+	}
+
+	th,
+	td {
+		vertical-align: top;
+	}
+
+	td {
+		vertical-align: top;
+		padding-bottom: $space__x2;
+	}
+
+	.htl-ui-table__cell--reservation-items-room-thumb {
+		min-height: 55px;
+		width: 55px + $space__x3;
+	}
+}
+
+.htl-ui-table--reservation-totals {
+	width: 100%;
+
+	td {
+		vertical-align: top;
+		padding: $space__x2 0;
+	}
+}

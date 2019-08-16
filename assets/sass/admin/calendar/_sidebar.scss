@@ -1,0 +1,54 @@
+.booking-calendar__sidebar {
+	margin-bottom: $space__x4;
+	border-bottom: 1px solid $color__line__default;
+	padding-bottom: $space__x2;
+
+	@media (min-width: 1200px) {
+		width: 200px;
+		padding-top: 120px;
+
+		border-bottom: none;
+		padding-bottom: 0;
+	}
+}
+
+.booking-calendar-filters__item {
+	@include transition();
+	cursor: pointer;
+	display: block;
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: $letter__spacing;
+	margin-bottom: $space__x2 !important;
+	position: relative;
+
+	&:before {
+		@include style-icon();
+		@include transition();
+		background-color: $color__accent;
+		border-radius: 2px;
+		color: #fff;
+		content: '\f00c';
+		font-size: 8px;
+		font-weight: 900;
+		height: 18px;
+		line-height: 18px;
+		margin-right: $space__x2;
+		position: relative;
+		text-align: center;
+		top: -2px;
+		width: 18px;
+	}
+
+	&:hover {
+		opacity: .3;
+	}
+
+	&.not-active {
+		opacity: .3;
+
+		&:before {
+			text-indent: -999999px;
+		}
+	}
+}

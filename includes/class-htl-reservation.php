@@ -197,7 +197,9 @@ class HTL_Reservation {
 		}
 
 		if ( $this->guest_country ) {
-			$address .= $this->guest_country;
+			$country_list = htl_get_country_codes();
+			$country      = isset( $country_list[ $this->guest_country ] ) ? $country_list[ $this->guest_country ] : $this->guest_country;
+			$address     .= $country;
 		}
 
 		return apply_filters( 'hotelier_get_formatted_guest_address', $address, $this );
@@ -929,24 +931,24 @@ class HTL_Reservation {
 
 		if ( $this->has_room_with_deposit() ) {
 
-			if ( $this->get_formatted_paid_deposit() > 0 ) {
+			if ( $this->get_formatted_paid_deposit() > 0 || $this->requires_capture() ) {
 
 				$total_rows[ 'paid_deposit' ] = array(
-					'label' => esc_html__( 'Paid Deposit:', 'wp-hotelier' ),
-					'value'	=> $this->get_formatted_paid_deposit()
+					'label' => esc_html__( 'Paid deposit:', 'wp-hotelier' ),
+					'value'	=> $this->requires_capture() ? $this->get_formatted_deposit() : $this->get_formatted_paid_deposit()
 				);
 
 			} else {
 
 				$total_rows[ 'required_deposit' ] = array(
-					'label' => esc_html__( 'Required Deposit:', 'wp-hotelier' ),
+					'label' => esc_html__( 'Required deposit:', 'wp-hotelier' ),
 					'value'	=> $this->get_formatted_deposit()
 				);
 			}
 
-			if ( $this->get_paid_deposit() > 0 && $this->payment_method_title ) {
+			if ( ( $this->get_paid_deposit() > 0 || $this->requires_capture() ) && $this->payment_method_title ) {
 				$total_rows[ 'payment_method' ] = array(
-					'label' => esc_html__( 'Payment Method:', 'wp-hotelier' ),
+					'label' => esc_html__( 'Payment method:', 'wp-hotelier' ),
 					'value' => $this->payment_method_title
 				);
 			}
@@ -954,7 +956,7 @@ class HTL_Reservation {
 		}
 
 		$total_rows[ 'total' ] = array(
-			'label' => esc_html__( 'Total Due:', 'wp-hotelier' ),
+			'label' => $this->requires_capture() ? esc_html__( 'Total:', 'wp-hotelier' ) : esc_html__( 'Total due:', 'wp-hotelier' ),
 			'value'	=> $this->get_formatted_balance_due()
 		);
 
@@ -1369,6 +1371,74 @@ class HTL_Reservation {
 		}
 
 		return $ret;
+	}
+
+	/**
+	 * Checks if a reservation supports captures for auth charges.
+	 * A reservation can be manually charged when has an authorized payment
+	 * and when the payment method supports this feature
+	 *
+	 * @return bool
+	 */
+	public function can_be_captured() {
+		if ( HTL()->payment_gateways() ) {
+			$payment_gateways = HTL()->payment_gateways->get_available_payment_gateways();
+		} else {
+			$payment_gateways = array();
+		}
+
+		$payment_method = $this->get_payment_method() ? $this->get_payment_method() : '';
+
+		if (
+			$payment_method &&
+			isset( $payment_gateways[ $payment_method ] ) &&
+			$payment_gateways[ $payment_method ]->supports( 'capture' ) &&
+			$payment_gateways[ $payment_method ]->can_do_capture( $this->id ) &&
+			$this->get_deposit() > 0 &&
+			! $this->is_marked_as_paid() ) {
+				return true;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Checks if a reservation requires a capture
+	 *
+	 * @return bool
+	 */
+	public function requires_capture() {
+		$requires_capture = $this->requires_capture ? true : false;
+
+		return ( apply_filters( 'hotelier_reservation_requires_capture', $requires_capture, $this ) );
+	}
+
+	/**
+	 * Checks if a reservation supports a refund.
+	 * A reservation can be manually refunded when has a paid deposit
+	 * and when the payment method supports this feature
+	 *
+	 * @return bool
+	 */
+	public function can_be_refunded() {
+		if ( HTL()->payment_gateways() ) {
+			$payment_gateways = HTL()->payment_gateways->get_available_payment_gateways();
+		} else {
+			$payment_gateways = array();
+		}
+
+		$payment_method = $this->get_payment_method() ? $this->get_payment_method() : '';
+
+		if (
+			$payment_method &&
+			isset( $payment_gateways[ $payment_method ] ) &&
+			$payment_gateways[ $payment_method ]->supports( 'refund' ) &&
+			$payment_gateways[ $payment_method ]->can_do_refund( $this->id ) &&
+			$this->get_paid_deposit() > 0 ) {
+				return true;
+		}
+
+		return false;
 	}
 }
 

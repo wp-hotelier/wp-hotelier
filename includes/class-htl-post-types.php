@@ -322,6 +322,7 @@ class HTL_Post_Types {
 			date_i18n( __( 'M j, Y @ G:i', 'wp-hotelier' ), strtotime( $post->post_date ) ) ),
 			10 => esc_html__( 'Reservation draft updated.', 'wp-hotelier' ),
 			11 => esc_html__( 'Reservation updated and email sent.', 'wp-hotelier' ),
+			12 => esc_html__( 'Reservation updated. Please reload this page again.', 'wp-hotelier' ),
 		);
 
 		return $messages;

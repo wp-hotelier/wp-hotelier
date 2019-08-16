@@ -80,7 +80,6 @@ class HTL_Admin_New_Reservation {
 	 * Show the new reservation page
 	 */
 	public static function output() {
-
 		include_once( 'views/html-admin-new-reservation.php' );
 	}
 
@@ -148,11 +147,11 @@ class HTL_Admin_New_Reservation {
 					throw new Exception( $reservation_id->get_error_message() );
 				}
 
-				echo '<div class="updated"><p>' . esc_html__( 'Reservation created' ) . '</p></div>';
+				echo '<div class="htl-ui-notice htl-ui-notice--success htl-ui-notice--new-reservation-message" style="display:none;"><p class="htl-ui-notice__text htl-ui-notice__text--success">' . esc_html__( 'Reservation created' ) . '</p></div>';
 
 			} catch ( Exception $e ) {
 				if ( ! empty( $e ) ) {
-					echo '<div class="error"><p>' . esc_html( $e->getMessage() ) . '</p></div>';
+					echo '<div class="htl-ui-notice htl-ui-notice--error htl-ui-notice--new-reservation-message" style="display:none;"><p class="htl-ui-notice__text htl-ui-notice__text--error">' . esc_html( $e->getMessage() ) . '</p></div>';
 				}
 			}
 		}
@@ -249,15 +248,17 @@ class HTL_Admin_New_Reservation {
 	 */
 	public static function calculate_totals() {
 		foreach ( self::$reservation_contents as $reservation_item_key => $values ) {
-			$_room   = $values[ 'data' ];
-			$rate_id = $values[ 'rate_id' ];
-			$qty     = $values[ 'quantity' ];
+			$_room     = $values[ 'data' ];
+			$rate_id   = $values[ 'rate_id' ];
+			$qty       = $values[ 'quantity' ];
+			$room_type = 'standard';
 
 			// Price for variable room - We already know that if we pass a $rate_id is a variable room ( in self::add_to_reservation() )
 			if ( $rate_id ) {
 				$_variation   = $_room->get_room_variation( $rate_id );
 				$line_price   = $_variation->get_price( self::$checkin, self::$checkout );
 				$line_deposit = $_variation->get_deposit();
+				$room_type    = 'variation';
 
 			} else {
 				// Price for standard room
@@ -278,6 +279,12 @@ class HTL_Admin_New_Reservation {
 			$line_to_pay = ( ( $line_price * $line_deposit ) / 100 );
 			$line_to_pay = round( $line_to_pay ) * $qty;
 
+			// Hold room details so we can pass them to the filter
+			$room_data = $room_type == 'standard' ? $_room : $_variation;
+
+			// Allow plugins to filter the deposit
+			$line_to_pay = apply_filters( 'hotelier_line_to_pay', $line_to_pay, $line_price, $line_deposit, $qty, $room_type, $room_data );
+
 			// This is the total deposit required to confirm a reservation
 			// Deposits are per line (room)
 			self::$required_deposit += $line_to_pay;
@@ -296,8 +303,18 @@ class HTL_Admin_New_Reservation {
 		// Calculate taxes
 		self::$tax_total = htl_is_tax_enabled() ? htl_calculate_tax( self::$reservation_contents_total ) : 0;
 
+		// Taxes on deposits
+		if ( htl_is_deposit_tax_enabled() ) {
+			self::$required_deposit = self::$required_deposit + htl_calculate_tax( self::$required_deposit );
+		}
+
+		// Allow plugins to hook and alter totals before final total is calculated
+		do_action( 'hotelier_calculate_totals' );
+
 		$total           = self::$reservation_contents_total + htl_calculate_tax( self::$reservation_contents_total );
 		self::$total     = $total;
+
+		do_action( 'hotelier_after_calculate_totals' );
 	}
 
 	/**

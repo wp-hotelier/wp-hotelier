@@ -194,7 +194,7 @@ class HTL_Room {
 	 * @return int max_guests
 	 */
 	public function get_max_guests() {
-		return absint( $this->max_guests );
+		return absint( apply_filters( 'hotelier_get_max_guests', $this->max_guests, $this->id ) );
 	}
 
 	/**
@@ -203,7 +203,7 @@ class HTL_Room {
 	 * @return int max_children
 	 */
 	public function get_max_children() {
-		return absint( $this->max_children );
+		return absint( apply_filters( 'hotelier_get_max_children', $this->max_children, $this->id ) );
 	}
 
 	/**
@@ -958,7 +958,7 @@ class HTL_Room {
 	public function needs_deposit() {
 		$require_deposit = $this->require_deposit;
 
-		return $require_deposit ? $require_deposit : false;
+		return $require_deposit ? true : false;
 	}
 
 	/**

@@ -1,0 +1,20 @@
+/****** Resets ******/
+
+.htl-ui-scope * {
+	@include reset-text;
+}
+
+.htl-ui-scope {
+	p {
+		margin: 0;
+	}
+
+	ul {
+		margin: 0;
+		@include clear-list();
+
+		li {
+			margin: 0;
+		}
+	}
+}

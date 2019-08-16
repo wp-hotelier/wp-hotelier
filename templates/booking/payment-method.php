@@ -25,6 +25,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php if ( $gateway->get_description() ) : ?>
 		<div class="payment-method__description">
 			<?php echo wp_kses_post( $gateway->get_description() ); ?>
+
+			<?php if ( $gateway->has_fields() ) : ?>
+				<?php $gateway->payment_fields(); ?>
+			<?php endif; ?>
 		</div>
 	<?php endif; ?>
 </li>

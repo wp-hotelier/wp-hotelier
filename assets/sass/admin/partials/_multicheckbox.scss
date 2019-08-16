@@ -1,0 +1,11 @@
+/****** Multicheckbox ******/
+
+.htl-ui-label--multicheckbox {
+	font-weight: 500;
+
+	&:after {
+		content: '';
+		display: block;
+		margin-bottom: 5px;
+	}
+}

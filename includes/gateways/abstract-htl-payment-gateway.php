@@ -194,7 +194,9 @@ abstract class HTL_Payment_Gateway {
 	 *
 	 * Validate payment fields on the frontend.
 	 */
-	public function validate_fields() { return true; }
+	public function validate_fields() {
+		return true;
+	}
 
 	/**
 	 * has_fields function.
@@ -203,6 +205,13 @@ abstract class HTL_Payment_Gateway {
 	 */
 	public function has_fields() {
 		return $this->has_fields ? true : false;
+	}
+
+	/**
+	 * Override this in your gateway if you have some.
+	 */
+	public function payment_fields() {
+		return;
 	}
 
 	/**
@@ -245,6 +254,26 @@ abstract class HTL_Payment_Gateway {
 	 * @param int $reservation_id
 	 */
 	public function process_manual_charge( $reservation_id ) {
+		return false;
+	}
+
+	/**
+	 * Checks if a gateway can capture a previous authorized payment.
+	 *
+	 * @param int $reservation_id
+	 * @return bool
+	 */
+	public function can_do_capture( $reservation_id ) {
+		return false;
+	}
+
+	/**
+	 * Checks if a gateway can refund a payment from the admin.
+	 *
+	 * @param int $reservation_id
+	 * @return bool
+	 */
+	public function can_do_refund( $reservation_id ) {
 		return false;
 	}
 }

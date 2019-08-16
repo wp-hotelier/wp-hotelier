@@ -1,0 +1,31 @@
+/****** Rooms ******/
+
+.post-type-room {
+	.column-guests span {
+		@include reset-text;
+		background-color: $color__accent__light;
+		border-radius: 2px;
+		color: $color__accent;
+		cursor: pointer;
+		display: inline-block;
+		font-size: 13px;
+		font-weight: 500;
+		height: $space__x3;
+		line-height: $space__x3;
+		padding: 0 $space;
+	}
+
+	.column-quantity mark {
+		@include reset-text;
+		background-color: #EEEDED;
+		border-radius: 2px;
+		color: $color__text__dark;
+		cursor: pointer;
+		display: inline-block;
+		font-size: 13px;
+		font-weight: 500;
+		height: $space__x3;
+		line-height: $space__x3;
+		padding: 0 $space;
+	}
+}

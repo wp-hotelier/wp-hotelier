@@ -1,0 +1,68 @@
+///*--------------------------------------------------------------
+//>>> MIXINS
+//----------------------------------------------------------------
+//*/
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+// CSS transitions
+@mixin transition {
+	transition-duration: 0.2s;
+	transition-property: color, background-color, border-color;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// Remove bullets from lists and any indentation
+@mixin clear-list() {
+	list-style: none;
+	margin-left: 0;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Reset text
+@mixin reset-text {
+	font-family: $font__family;
+	box-sizing: border-box;
+	font-variant-ligatures: none;
+	text-rendering: optimizeLegibility;
+	font-smoothing: antialiased !important;
+	-webkit-font-smoothing: antialiased !important;
+	text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+}
+
+// Reset link
+@mixin reset-link($color) {
+	&:focus,
+	&:active,
+	&:visited {
+		color: $color !important;
+		box-shadow: none !important;
+		outline: none !important;
+	}
+}
+
+// Better icons
+@mixin style-icon($family: 'Font Awesome 5 Free') {
+	font-family: $family;
+	display: inline-block;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+}

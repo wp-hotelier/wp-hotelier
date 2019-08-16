@@ -1,0 +1,59 @@
+.booking-calendar-card {
+	background-color: #fff;
+	border-radius: 2px;
+	box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.18);
+	color: $color__text__default;
+	display: none;
+	left: 50%;
+	padding: $space__x4;
+	position: absolute;
+	top: 14px;
+	width: 320px;
+	z-index: 999999;
+
+	@media (min-width: 480px) {
+		&:hover {
+			display: block;
+		}
+	}
+
+	@media (min-width: 680px) {
+		width: 400px;
+
+		&:hover {
+			display: block;
+		}
+	}
+}
+
+.booking-calendar-table__reservation-link:hover + .booking-calendar-card {
+	display: block;
+}
+
+.booking-calendar-card__title {
+	font-size: 16px;
+	font-weight: 500 !important;
+	margin-bottom: 5px;
+	margin-top: 0;
+}
+
+.booking-calendar-card-details__list {
+	margin: $space__x2 0 !important;
+}
+
+.booking-calendar-card-details__view-link {
+	@include reset-link($color__text__default);
+	color: $color__text__default;
+	position: absolute;
+	right: $space__x2;
+	top: $space__x2;
+
+	&:after {
+		content: '\f303';
+		font-weight: 900;
+	}
+
+	&:hover {
+		color: $color__text__dark;
+	}
+}

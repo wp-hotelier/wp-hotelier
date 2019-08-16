@@ -1,0 +1,51 @@
+// Accent color
+$color__accent: #1ea7de;
+$color__accent: #1277E9;
+$color__accent: #00A0D2;
+
+$color__accent__light: #dcf3fc;
+// $color__accent__light: #ddecfd;
+
+$color__accent__hover: #0073AA;
+
+// Utilities
+$color__light: #F2F2F2;
+$color__dark: #333;
+$color__green: #3EC170;
+$color__ok: $color__green;
+$color__red: #ED4248;
+$color__error: $color__red;
+$color__info: #D5782C;
+$color__warning: $color__accent;
+$color__bg__notice__info: #FCF9EA;
+$color__bg__notice__success: #edfbf2;
+$color__bg__notice__error: #fbe7e8;
+$color__bg__notice__warning: $color__accent__light;
+
+// Reservation status
+$color__status__pending: $color__info;
+$color__bg__status__pending: $color__bg__notice__info;
+$color__status__cancelled: $color__error;
+$color__bg__status__cancelled: $color__bg__notice__error;
+$color__status__completed: $color__accent;
+$color__bg__status__completed: $color__accent__light;
+$color__status__confirmed: $color__green;
+$color__bg__status__confirmed: $color__bg__notice__success;
+$color__status__onhold: #5542AA;
+$color__bg__status__onhold: #EDEAFF;
+$color__status__refunded: #6E6B6C;
+$color__bg__status__refunded: #EEEDED;
+$color__status__failed: $color__status__onhold;
+$color__bg__status__failed: $color__bg__status__onhold;
+$color__status__trash: $color__status__cancelled;
+$color__bg__status__trash: $color__bg__status__cancelled;
+
+// Text colors
+$color__text__medium: #666;
+$color__text__default: #818181;
+$color__text__dark: #333;
+$color__text__input: #555;
+
+// Lines
+$color__line__default: #E6E6E6;
+$color__line__medium: #d6d6d6;

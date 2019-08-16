@@ -1,0 +1,27 @@
+/****** Price Per Day ******/
+
+.htl-ui-price-per-day-wrapper {
+	margin-top: -$space;
+}
+
+.htl-ui-price-day {
+	display: inline-block;
+	margin-right: $space;
+	text-align: center;
+}
+
+.htl-ui-price-day__name {
+	color: $color__text__dark;
+	display: block;
+	font-size: 12px;
+	font-weight: 500;
+	margin-top: $space;
+	margin-bottom: 4px;
+}
+
+.htl-ui-price-day__input {
+	padding-left: 0;
+	padding-right: 0;
+	text-align: center;
+	width: 80px;
+}

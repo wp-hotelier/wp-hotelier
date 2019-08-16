@@ -1,0 +1,76 @@
+/****** Toggle ******/
+
+.htl-ui-toggle__input {
+	display: none !important;
+}
+
+.htl-ui-toggle__label {
+	-webkit-tap-highlight-color: transparent;
+	cursor: pointer;
+	display: block;
+	height: 20px;
+	position: relative;
+	transform: translate3d(0,0,0);
+	width: 40px;
+
+	&:before {
+		background: $color__light;
+		border-radius: 8px;
+		content: "";
+		display: block;
+		height: 14px;
+		left: 3px;
+		position: relative;
+		top: 3px;
+		transition: background .2s ease;
+		width: 34px;
+	}
+}
+
+.htl-ui-toggle__handle {
+	background: white;
+	border-radius: 10px;
+	box-shadow: 0 2px 5px rgba($color__text__medium,.5);
+	display: block;
+	height: 20px;
+	left: 0;
+	position: absolute;
+	top: 0;
+	transition: all .2s ease;
+	width: 20px;
+
+	&:before {
+		background: rgba($color__accent,.5);
+		border-radius: 50%;
+		content: "";
+		display: block;
+		height: 56px;
+		margin: -18px;
+		opacity: 1;
+		pointer-events: none;
+		position: absolute;
+		transform: scale(0);
+		width: 56px;
+	}
+}
+
+.htl-ui-toggle__input:checked + .htl-ui-toggle__label {
+	&:before {
+		background: $color__accent__light;
+	}
+
+	.htl-ui-toggle__handle {
+		background: $color__accent;
+		box-shadow: none;
+		box-shadow: 0 2px 3px rgba($color__accent,.4);
+		transform: translateX(20px);
+		transition: all .2s cubic-bezier(.8,.4,.3,1.25), background .15s ease;
+
+		&:before {
+			opacity: 0;
+			transform: scale(1);
+			transition: all .4s ease;
+		}
+	}
+}
+

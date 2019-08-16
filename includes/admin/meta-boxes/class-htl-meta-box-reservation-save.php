@@ -140,17 +140,171 @@ class HTL_Meta_Box_Reservation_Save {
 				$available_gateways[ $reservation->get_payment_method() ]->process_manual_charge( $reservation->id );
 			}
 		}
+
+		// Handle capture action
+		if ( ! empty( $_POST[ 'hotelier_capture_deposit' ] ) ) {
+			$amount = isset( $_POST[ 'hotelier_capture_deposit_amount' ] ) ? $_POST[ 'hotelier_capture_deposit_amount' ] : 0;
+			self::capture_deposit( $reservation, $amount );
+		}
+
+		// Handle refund action
+		if ( ! empty( $_POST[ 'hotelier_refund_deposit' ] ) ) {
+			$amount = isset( $_POST[ 'hotelier_refund_amount' ] ) ? $_POST[ 'hotelier_refund_amount' ] : 0;
+			self::refund_deposit( $reservation, $amount );
+		}
+	}
+
+	/**
+	 * Handle captures
+	 *
+	 * @static
+	 * @param $location
+	 * @return string
+	 */
+	protected static function capture_deposit( $reservation, $amount ) {
+		$amount = HTL_Formatting_Helper::sanitize_amount( $amount );
+
+		if ( ! $amount ) {
+			self::set_save_error( esc_html__( 'Please set a correct amount.', 'wp-hotelier' ) );
+
+			return false;
+		}
+
+		if ( $amount > $reservation->get_deposit() ) {
+			self::set_save_error( sprintf( __( 'Cannot capture this payment. The max amount capturable for this reservation is %s.', 'wp-hotelier' ), '<strong>' . htl_price( htl_convert_to_cents( $reservation->get_deposit() ), $reservation->get_reservation_currency() ) . '</strong>' ) );
+
+			return false;
+		}
+
+		// Do a final check here.
+		// This ensures that:
+		//      1. The reservation can be captured
+		//      2. The payment method used in this reservation
+		//         exists and supports captures
+		if ( $reservation->can_be_captured() ) {
+			$available_gateways = HTL()->payment_gateways->get_available_payment_gateways();
+			$success = $available_gateways[ $reservation->get_payment_method() ]->process_capture( $reservation->id, $amount );
+
+			if ( ! $success ) {
+				self::set_save_error( sprintf( __( 'Cannot capture this payment. Please check the <a href="%s">logs</a>.', 'wp-hotelier' ), admin_url( 'admin.php?page=hotelier-logs' ) ) );
+
+				return false;
+			}
+		}
+
+		// Change the post saved message
+		add_filter( 'redirect_post_location', array( __CLASS__, 'set_needs_reload_message' ) );
+	}
+
+	/**
+	 * Handle refunds
+	 *
+	 * @static
+	 * @param $location
+	 * @return string
+	 */
+	protected static function refund_deposit( $reservation, $amount ) {
+		$amount = HTL_Formatting_Helper::sanitize_amount( $amount );
+
+		if ( ! $amount ) {
+			self::set_save_error( esc_html__( 'Please set a correct amount.', 'wp-hotelier' ) );
+
+			return false;
+		}
+
+		if ( $amount > $reservation->get_paid_deposit() ) {
+			self::set_save_error( sprintf( __( 'Cannot refund this payment. The max amount refundable for this reservation is %s.', 'wp-hotelier' ), '<strong>' . htl_price( htl_convert_to_cents( $reservation->get_paid_deposit() ), $reservation->get_reservation_currency() ) . '</strong>' ) );
+
+			return false;
+		}
+
+		// Do a final check here.
+		// This ensures that:
+		//      1. The reservation can be refunded
+		//      2. The payment method used in this reservation
+		//         exists and supports refunds
+		if ( $reservation->can_be_refunded() ) {
+			$available_gateways = HTL()->payment_gateways->get_available_payment_gateways();
+			$success = $available_gateways[ $reservation->get_payment_method() ]->process_refund( $reservation->id, $amount );
+
+			if ( ! $success ) {
+				self::set_save_error( sprintf( __( 'Cannot refund this payment. Please check the <a href="%s">logs</a>.', 'wp-hotelier' ), admin_url( 'admin.php?page=hotelier-logs' ) ) );
+
+				return false;
+			}
+		}
+
+		// Change the post saved message
+		add_filter( 'redirect_post_location', array( __CLASS__, 'set_needs_reload_message' ) );
+	}
+
+	/**
+	 * Set save error for later
+	 */
+	public static function set_save_error( $message ) {
+		update_option( 'hotelier_save_reservation_error', $message );
+		add_filter( 'redirect_post_location', array( __CLASS__, 'add_error_query_var' ), 99 );
+	}
+
+	/**
+	 * Add query_var for error notices
+	 *
+	 * @static
+	 * @param $location
+	 * @return string
+	 */
+	public static function add_error_query_var( $location ) {
+		remove_filter( 'redirect_post_location', array( __CLASS__, 'add_error_query_var' ), 99 );
+
+		$location = add_query_arg( array( 'save-error-reservation' => true ), $location );
+
+		return $location;
 	}
 
 	/**
 	 * Set the correct message ID
 	 *
 	 * @static
-     * @param $location
+	 * @param $location
+	 * @return string
+	 */
+	public static function print_notices() {
+		$error = get_option( 'hotelier_save_reservation_error', false );
+
+		// Delete notice
+		delete_option( 'hotelier_save_reservation_error' );
+
+		if ( ! isset( $_GET[ 'save-error-reservation' ] ) ) {
+			return;
+		}
+
+		if ( ! $error ) {
+			return;
+		}
+
+		echo '<div class="error"><p>' . wp_kses_post( $error ) . '</p></div>';
+	}
+
+	/**
+	 * Set message ID for email sent action
+	 *
+	 * @static
+	 * @param $location
 	 * @return string
 	 */
 	public static function set_email_sent_message( $location ) {
 		return add_query_arg( 'message', 11, $location );
+	}
+
+	/**
+	 * Set message ID when page needs reload
+	 *
+	 * @static
+	 * @param $location
+	 * @return string
+	 */
+	public static function set_needs_reload_message( $location ) {
+		return add_query_arg( 'message', 12, $location );
 	}
 }
 

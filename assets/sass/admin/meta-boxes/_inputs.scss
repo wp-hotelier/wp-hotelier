@@ -1,0 +1,63 @@
+/****** Inputs ******/
+
+.htl-ui-layout__column--right {
+	.htl-ui-table--disabled-dates {
+		width: 100%;
+
+		td {
+			display: block;
+
+			@media (min-width: 1200px) {
+				display: table-cell;
+			}
+		}
+
+		.htl-ui-table__cell--sort-row {
+			display: none;
+
+			@media (min-width: 1200px) {
+				display: table-cell;
+			}
+		}
+
+		.htl-ui-table__cell--remove-row {
+			text-align: left;
+			padding-bottom: $space__x4;
+			border-width: 0;
+
+			@media (min-width: 1200px) {
+				text-align: right;
+				border-width: 1px;
+				padding-bottom: 0;
+			}
+		}
+	}
+
+	.htl-ui-table__cell--disabled-dates-dates {
+		label {
+			display: block;
+			margin-bottom: $space;
+
+			@media (min-width: 1450px) {
+				display: inline;
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.htl-ui-input--text,
+	.htl-ui-input--email,
+	.htl-ui-input--textarea,
+	.htl-ui-input--select {
+		max-width: 100%;
+		width: 100%;
+
+		@media (min-width: 1400px) {
+			width: 500px;
+		}
+	}
+
+	.htl-ui-table__cell--multi-text-value {
+		max-width: 400px;
+	}
+}

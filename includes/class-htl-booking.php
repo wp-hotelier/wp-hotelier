@@ -331,6 +331,8 @@ class HTL_Booking {
 					'country' => array(
 						'label'       => esc_html__( 'Country', 'wp-hotelier' ),
 						'placeholder' => esc_html_x( 'Country', 'placeholder', 'wp-hotelier' ),
+						'type'        => 'select',
+						'options'     => htl_get_country_codes(),
 						'required'    => true,
 						'class'       => array( 'form-row--wide' ),
 					),

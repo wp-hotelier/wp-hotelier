@@ -1,0 +1,90 @@
+/****** Reservation Totals ******/
+
+.htl-ui-table--reservation-totals {
+	color: $color__text__dark;
+
+	.htl-ui-table__cell {
+		border-bottom: 1px dotted $color__line__default;
+	}
+
+	.htl-ui-table__cell--label {
+		color: #333;
+		font-size: 14px;
+		font-weight: 500;
+		letter-spacing: -0.25px;
+		text-align: left;
+	}
+
+	.htl-ui-table__cell--total {
+		text-align: right;
+
+		.amount {
+			font-weight: 500;
+		}
+	}
+
+	.rooms-with-paid-deposit__list {
+		@include clear-list();
+		line-height: 1.8;
+	}
+
+	.rooms-with-paid-deposit__item {
+		margin-bottom: $space__x2;
+
+	}
+
+	.rooms-with-paid-deposit__name {
+		display: block;
+		font-weight: 500;
+	}
+
+	.rooms-with-paid-deposit__rate {
+		display: block;
+		font-style: italic;
+	}
+
+	.rooms-with-paid-deposit__percentage {
+		color: $color__green;
+		display: block;
+	}
+
+	.rooms-with-paid-deposit-total {
+		font-size: 17px;
+
+		&--paid {
+			color: $color__green;
+		}
+
+		&--due {
+			color: $color__red;
+		}
+	}
+
+	.rooms-with-paid-deposit-total__tax {
+		font-size: 12px;
+	}
+
+	.htl-ui-table__row--reservation-totals-total {
+		.amount {
+			font-size: 20px;
+		}
+	}
+
+	.remain-deposit-charge-label {
+		font-style: italic;
+	}
+
+	.deposit-needs-capture-info {
+		display: block;
+		font-style: italic;
+	}
+}
+
+.reservation-totals-message {
+	margin-top: $space__x2;
+}
+
+.reservation-totals-pay-actions {
+	margin-top: $space__x2;
+	text-align: right;
+}

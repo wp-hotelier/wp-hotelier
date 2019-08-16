@@ -358,7 +358,7 @@ function htl_get_list_of_rooms_html( $name ) {
 	$rooms = new WP_Query( $args );
 
 	if ( $rooms->have_posts() ) {
-		$select = '<select name="' . esc_attr( $name ) . '">';
+		$select = '<select class="htl-ui-input htl-ui-input--select" name="' . esc_attr( $name ) . '">';
 
 		while ( $rooms->have_posts() ) {
 			$rooms->the_post();

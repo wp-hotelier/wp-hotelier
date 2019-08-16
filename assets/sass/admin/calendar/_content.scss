@@ -1,0 +1,34 @@
+.htl-ui-text-icon--show-booking-calendar-filters {
+	cursor: pointer;
+	display: inline-block;
+	font-size: 13px;
+	font-weight: 500;
+	letter-spacing: $letter__spacing;
+	margin-bottom: $space__x4;
+
+	&:before {
+		margin-right: $space;
+		@include style-icon();
+		content: '\f104';
+		font-weight: 900;
+		font-size: 13px;
+	}
+
+	&.not-visible:before {
+		content: '\f105';
+	}
+}
+
+.booking-calendar__content {
+	@media (min-width: 1200px) {
+		display: flex;
+	}
+}
+
+.booking-calendar__table {
+	@media (min-width: 1200px) {
+		flex: 1;
+	}
+}
+
+@import "table";
