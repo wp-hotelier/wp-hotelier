@@ -13,7 +13,7 @@ WP Hotelier is a powerful WordPress booking plugin allows you to manage hotel, h
 
 WP Hotelier is a booking plugin for WordPress, built specifically for hotels, b&bs, etc. With WP Hotelier you can manage hotel reservations inside your WordPress dashboard, accept payments online, choose between three different booking modes, receive email notifications, manage room’s amenities, set seasonal or fixed prices and much more. WP Hotelier it’s an all-in-one booking system for WordPress.
 
-You can see WP Hotelier in action [here](http://manila.wphotelier.com/). Manila is a free WordPress hotel theme developed for WP hotelier specifically. You can [download it for free here](https://github.com/easy-wp-hotelier/manila/releases).
+You can see WP Hotelier in action [here](http://manila.wphotelier.com/). Manila is a free WordPress hotel theme developed for WP hotelier specifically. You can [download it for free here](https://github.com/wp-hotelier/manila/releases).
 
 = Features =
 

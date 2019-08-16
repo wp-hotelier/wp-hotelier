@@ -8,8 +8,8 @@ Welcome to the [WP Hotelier](https://wphotelier.com) GitHub repository. The docu
 
 For detailed setup instructions, visit the official [WP Hotelier Documentation](http://docs.wphotelier.com) website.
 
-1. Clone the GitHub repository: `https://github.com/easy-wp-hotelier/wp-hotelier.git`
-2. Or download it directly as a ZIP file: `https://github.com/easy-wp-hotelier/wp-hotelier/archive/master.zip`
+1. Clone the GitHub repository: `https://github.com/wp-hotelier/wp-hotelier.git`
+2. Or download it directly as a ZIP file: `https://github.com/wp-hotelier/wp-hotelier/archive/master.zip`
 
 Like any other WordPress plugin, place it in `/wp-content/plugins/` (the extracted `wp-hotelier` folder).
 

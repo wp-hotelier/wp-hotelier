@@ -7,7 +7,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: WP Hotelier <support@wphotelier.com>\n"
-"Report-Msgid-Bugs-To: https://github.com/easy-wp-hotelier/wp-hotelier\n"
+"Report-Msgid-Bugs-To: https://github.com/wp-hotelier/wp-hotelier\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -3564,11 +3564,11 @@ msgstr ""
 msgid "Version %s"
 msgstr ""
 
-#: ../includes/admin/settings/views/html-settings-header.php:21
+#: ../includes/admin/settings/views/html-settings-header.php:23
 msgid "Pro"
 msgstr ""
 
-#: ../includes/admin/settings/views/html-settings-header.php:23, ../includes/admin/settings/views/html-settings-pro-section.php:15
+#: ../includes/admin/settings/views/html-settings-header.php:25, ../includes/admin/settings/views/html-settings-pro-section.php:17
 msgid "Upgrade to Pro version"
 msgstr ""
 
@@ -3588,39 +3588,39 @@ msgstr ""
 msgid "Add manual reservation"
 msgstr ""
 
-#: ../includes/admin/settings/views/html-settings-pro-section.php:14
+#: ../includes/admin/settings/views/html-settings-pro-section.php:16
 msgid "Pro features"
 msgstr ""
 
-#: ../includes/admin/settings/views/html-settings-pro-section.php:20
+#: ../includes/admin/settings/views/html-settings-pro-section.php:22
 msgid "Disable dates"
 msgstr ""
 
-#: ../includes/admin/settings/views/html-settings-pro-section.php:21
+#: ../includes/admin/settings/views/html-settings-pro-section.php:23
 msgid "Stop bookings being made for a certain date. Select one (or more) date range or a single date that need to be blocked. And optionally, you can make it repeat every year."
 msgstr ""
 
-#: ../includes/admin/settings/views/html-settings-pro-section.php:25
+#: ../includes/admin/settings/views/html-settings-pro-section.php:27
 msgid "iCalendar Importer/Exporter"
 msgstr ""
 
-#: ../includes/admin/settings/views/html-settings-pro-section.php:26
+#: ../includes/admin/settings/views/html-settings-pro-section.php:28
 msgid "Import your reservations from popular external services including Airbnb and Google Calendar. And generate automatically a public iCal file for each room."
 msgstr ""
 
-#: ../includes/admin/settings/views/html-settings-pro-section.php:30
+#: ../includes/admin/settings/views/html-settings-pro-section.php:32
 msgid "Stripe Payment Gateway"
 msgstr ""
 
-#: ../includes/admin/settings/views/html-settings-pro-section.php:31
+#: ../includes/admin/settings/views/html-settings-pro-section.php:33
 msgid "Take payments on your site and accept all major credit cards from customers in every country. Without living your site, using a pre-built, conversion-optimized form."
 msgstr ""
 
-#: ../includes/admin/settings/views/html-settings-pro-section.php:35
+#: ../includes/admin/settings/views/html-settings-pro-section.php:37
 msgid "Always improving"
 msgstr ""
 
-#: ../includes/admin/settings/views/html-settings-pro-section.php:36
+#: ../includes/admin/settings/views/html-settings-pro-section.php:38
 msgid "An always-improving toolkit for hotel managers that gains new features every month. Actively developed and fast bug fixing."
 msgstr ""
 
