@@ -9,6 +9,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
+<?php if ( false ) : // temp hide this banner ?>
+
 <div class="hotelier-settings-pro-features pro-features">
 	<div class="pro-features__header">
 		<h3 class="htl-ui-heading"><?php esc_html_e( 'Pro features', 'wp-hotelier' ); ?></h3>
@@ -37,3 +39,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</li>
 	</ul>
 </div>
+
+<?php endif; ?>
