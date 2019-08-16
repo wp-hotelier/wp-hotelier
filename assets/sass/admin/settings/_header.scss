@@ -1,11 +1,12 @@
 .hotelier-settings-header {
 	background-color: #fff;
 	border-bottom: 1px solid $color__line__default;
-	height: 109px;
+
 	padding: $space__x4 $space__x4;
 
 	@media (min-width: 800px) {
 		text-align: right;
+		height: 109px;
 	}
 }
 
@@ -22,10 +23,12 @@
 .hotelier-settings-header__version-number {
 	color: $color__text__default;
 	display: block;
-	line-height: $space__x4;
+	margin-top: $space__x2;
 
 	@media (min-width: 800px) {
 		display: inline-block;
+		line-height: $space__x4;
+		margin-top: 0;
 	}
 
 	strong {
