@@ -1,4 +1,4 @@
-=== Easy WP Hotelier ===
+=== WP Hotelier ===
 Contributors: benitolopez
 Tags: booking, hotel, booking system, hostel, reservations, reservations, b&b, rooms, wphotelier
 Requires at least: 4.1
@@ -7,17 +7,17 @@ Stable tag: 2.0.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Easy WP Hotelier is a powerful WordPress booking plugin allows you to manage hotel, hostel, b&b reservations with ease.
+WP Hotelier is a powerful WordPress booking plugin allows you to manage hotel, hostel, b&b reservations with ease.
 
 == Description ==
 
-Easy WP Hotelier is a booking plugin for WordPress, built specifically for hotels, b&bs, etc. With Easy WP Hotelier you can manage hotel reservations inside your WordPress dashboard, accept payments online, choose between three different booking modes, receive email notifications, manage room’s amenities, set seasonal or fixed prices and much more. Easy WP Hotelier it’s an all-in-one booking system for WordPress.
+WP Hotelier is a booking plugin for WordPress, built specifically for hotels, b&bs, etc. With WP Hotelier you can manage hotel reservations inside your WordPress dashboard, accept payments online, choose between three different booking modes, receive email notifications, manage room’s amenities, set seasonal or fixed prices and much more. WP Hotelier it’s an all-in-one booking system for WordPress.
 
-You can see Easy WP Hotelier in action [here](http://manila.wphotelier.com/). Manila is a free WordPress hotel theme developed for Easy WP hotelier specifically. You can [download it for free here](https://github.com/easy-wp-hotelier/manila/releases).
+You can see WP Hotelier in action [here](http://manila.wphotelier.com/). Manila is a free WordPress hotel theme developed for WP hotelier specifically. You can [download it for free here](https://github.com/easy-wp-hotelier/manila/releases).
 
 = Features =
 
-Easy WP Hotelier is a complete booking system for WordPress. Some of the features are:
+WP Hotelier is a complete booking system for WordPress. Some of the features are:
 
 * Three different booking modes: instant booking, manual booking (requires admin approval) and booking disabled.
 * Accept payments: require a deposit at the time of booking or charge the entire stay.
@@ -29,7 +29,7 @@ Easy WP Hotelier is a complete booking system for WordPress. Some of the feature
 
 = How it works? =
 
-Easy WP Hotelier allows you to create two types of rooms: standard or with rates. A room with rates (variable room) lets you define variations of a room where each variation may have a different price, required deposit or conditions.
+WP Hotelier allows you to create two types of rooms: standard or with rates. A room with rates (variable room) lets you define variations of a room where each variation may have a different price, required deposit or conditions.
 
 A room represents a type of room or accommodation available at your hotel. For example, if your hotel offers three "double rooms" with the same price, amenities, etc., just create only one room and set the stock quantity to 3.
 
@@ -46,7 +46,7 @@ Three different pricing options are supported out of the box: global price, diff
 
 = Extensions =
 
-Something missing? No problem, you can extend Easy WP Hotelier with a vast number of features and integrations (more to come). Visit our [extensions page](https://wphotelier.com/extensions/) to supercharge your hotel website.
+Something missing? No problem, you can extend WP Hotelier with a vast number of features and integrations (more to come). Visit our [extensions page](https://wphotelier.com/extensions/) to supercharge your hotel website.
 
 * [Stripe Payment Gateway](https://wphotelier.com/extensions/stripe-payment-gateway/)
 * [Disable Dates](https://wphotelier.com/extensions/disable-dates/)
@@ -69,42 +69,42 @@ Something missing? No problem, you can extend Easy WP Hotelier with a vast numbe
 = Automatic =
 
 1. Visit 'Plugins > Add New'.
-2. Search for 'Easy WP Hotelier'.
-3. Activate Easy WP Hotelier from your 'Plugins' page.
+2. Search for 'WP Hotelier'.
+3. Activate WP Hotelier from your 'Plugins' page.
 
-You should see the 'Easy WP Hotelier' menu in your WordPress admin panel.
+You should see the 'WP Hotelier' menu in your WordPress admin panel.
 
 = Manually =
 
 1. Upload the entire `wp-hotelier` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 
-You should see the 'Easy WP Hotelier' menu in your WordPress admin panel.
+You should see the 'WP Hotelier' menu in your WordPress admin panel.
 
 = Dummy Data =
 
-Easy WP Hotelier comes with some sample data you can use to see how rooms look. You can find the sample_data.xml file in `wp-hotelier/sample-data/sample_data.xml`. To import the data, use the [WordPress importer](https://wordpress.org/plugins/wordpress-importer/) plugin.
+WP Hotelier comes with some sample data you can use to see how rooms look. You can find the sample_data.xml file in `wp-hotelier/sample-data/sample_data.xml`. To import the data, use the [WordPress importer](https://wordpress.org/plugins/wordpress-importer/) plugin.
 
 = Extra =
 
-Easy WP Hotelier requires two pages to work: the `listing` page and the `booking` page. Make sure that you have them and that they are set correctly in the [Easy WP Hotelier's settings](http://docs.wphotelier.com/article/9-general-settings#hotelier-pages)
+WP Hotelier requires two pages to work: the `listing` page and the `booking` page. Make sure that you have them and that they are set correctly in the [WP Hotelier's settings](http://docs.wphotelier.com/article/9-general-settings#hotelier-pages)
 
 == Frequently Asked Questions ==
 
-= Will Easy WP Hotelier work with my theme? =
+= Will WP Hotelier work with my theme? =
 
-Yes; Easy WP Hotelier will work with any theme, but may require some styling to make it match nicely.
+Yes; WP Hotelier will work with any theme, but may require some styling to make it match nicely.
 
-= Where can I find the Easy WP Hotelier documentation? =
+= Where can I find the WP Hotelier documentation? =
 
-Here: [Easy WP Hotelier documentation](http://docs.wphotelier.com/).
+Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Screenshots ==
 
-1. Easy WP Hotelier - General settings panel.
-2. Easy WP Hotelier - Room data panel.
-3. Easy WP Hotelier - List of reservations.
-4. Easy WP Hotelier - Admin calendar.
+1. WP Hotelier - General settings panel.
+2. WP Hotelier - Room data panel.
+3. WP Hotelier - List of reservations.
+4. WP Hotelier - Admin calendar.
 
 == Changelog ==
 
@@ -146,7 +146,7 @@ Here: [Easy WP Hotelier documentation](http://docs.wphotelier.com/).
 * Tweak - Filter for hide pets message.
 
 = 1.5.3 - 2018-05-19 =
-* Added - New free WordPress theme for Easy WP Hotelier: Manila (http://manila.wphotelier.com/).
+* Added - New free WordPress theme for WP Hotelier: Manila (http://manila.wphotelier.com/).
 * Tweak - Minor markup fixes in the listing page and room archive page.
 * Added - Input number type for booking fields.
 

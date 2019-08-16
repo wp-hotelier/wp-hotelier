@@ -64,7 +64,7 @@ class HTL_Admin_Settings {
 	public function add_settings_menu_page() {
 		add_menu_page( '', esc_html__( 'Hotelier', 'wp-hotelier' ), 'manage_hotelier', 'hotelier-settings', array( $this, 'create_settings_page' ), '', '45.5' );
 
-		add_submenu_page( 'hotelier-settings', esc_html__( 'Easy WP Hotelier Settings', 'wp-hotelier' ), esc_html__( 'Settings', 'wp-hotelier' ), 'manage_hotelier', 'hotelier-settings', array( $this, 'create_settings_page' ) );
+		add_submenu_page( 'hotelier-settings', esc_html__( 'WP Hotelier Settings', 'wp-hotelier' ), esc_html__( 'Settings', 'wp-hotelier' ), 'manage_hotelier', 'hotelier-settings', array( $this, 'create_settings_page' ) );
 	}
 
 	/**

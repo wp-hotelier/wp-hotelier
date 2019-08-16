@@ -351,7 +351,7 @@ class EDD_SL_Plugin_Updater {
 			'beta'       => ! empty( $data['beta'] ),
 		);
 
-		$request = wp_remote_post( $this->api_url, array( 'user-agent' => 'Easy WP Hotelier License Manager', 'timeout' => 15, 'sslverify' => false, 'body' => $api_params ) );
+		$request = wp_remote_post( $this->api_url, array( 'user-agent' => 'WP Hotelier License Manager', 'timeout' => 15, 'sslverify' => false, 'body' => $api_params ) );
 
 		if ( ! is_wp_error( $request ) ) {
 			$request = json_decode( wp_remote_retrieve_body( $request ) );
@@ -413,7 +413,7 @@ class EDD_SL_Plugin_Updater {
 				'beta'       => ! empty( $data['beta'] )
 			);
 
-			$request = wp_remote_post( $this->api_url, array( 'user-agent' => 'Easy WP Hotelier License Manager', 'timeout' => 15, 'sslverify' => false, 'body' => $api_params ) );
+			$request = wp_remote_post( $this->api_url, array( 'user-agent' => 'WP Hotelier License Manager', 'timeout' => 15, 'sslverify' => false, 'body' => $api_params ) );
 
 			if ( ! is_wp_error( $request ) ) {
 				$version_info = json_decode( wp_remote_retrieve_body( $request ) );

@@ -665,7 +665,7 @@ class HTL_Admin_Settings_Default {
 						'name' => esc_html__( 'Email footer text', 'wp-hotelier' ),
 						'desc' => __( 'The text to appear in the footer of Hotelier emails.', 'wp-hotelier' ),
 						'type' => 'text',
-						'std'  => get_bloginfo( 'name', 'display' ) . ' - ' . __( 'Powered by Easy WP Hotelier', 'wp-hotelier' ),
+						'std'  => get_bloginfo( 'name', 'display' ) . ' - ' . __( 'Powered by WP Hotelier', 'wp-hotelier' ),
 					),
 					'emails_new_reservation' => array(
 						'id'    => 'emails_new_reservation',
@@ -950,7 +950,7 @@ class HTL_Admin_Settings_Default {
 					),
 					'hotelier_version' => array(
 						'id'   => 'hotelier_version',
-						'name' => esc_html__( 'Easy WP Hotelier version', 'wp-hotelier' ),
+						'name' => esc_html__( 'WP Hotelier version', 'wp-hotelier' ),
 						'type' => 'info',
 						'class' => 'htl-ui-row--server-info'
 					),

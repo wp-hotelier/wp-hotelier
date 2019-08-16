@@ -450,7 +450,7 @@ class HTL_Admin_Settings_Fields {
 		if ( function_exists( 'phpversion' ) ) {
 			if ( version_compare( phpversion(), '5.6.0', '<' ) ) {
 				$class = 'error';
-				$info = sprintf( esc_html__( '%s - Easy WP Hotelier requires at least PHP 5.6.0. Please update your PHP version.', 'wp-hotelier' ), phpversion() );
+				$info = sprintf( esc_html__( '%s - WP Hotelier requires at least PHP 5.6.0. Please update your PHP version.', 'wp-hotelier' ), phpversion() );
 			} else {
 				$class = 'success';
 				$info = phpversion();

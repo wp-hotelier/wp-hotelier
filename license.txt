@@ -1,4 +1,4 @@
-Easy WP Hotelier - Manage your hotel with WordPress
+WP Hotelier - Manage your hotel with WordPress
 
 Copyright (c) 2017 by Benito Lopez
 

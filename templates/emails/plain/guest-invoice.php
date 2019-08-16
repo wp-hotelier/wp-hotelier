@@ -69,4 +69,4 @@ do_action( 'hotelier_email_reservation_meta', $reservation, $sent_to_admin, $pla
 
 echo "\n=====================================================================\n\n";
 
-echo apply_filters( 'hotelier_email_footer_text', htl_get_option( 'emails_footer_text', 'Powered by Easy WP Hotelier' ) );
+echo apply_filters( 'hotelier_email_footer_text', htl_get_option( 'emails_footer_text', 'Powered by WP Hotelier' ) );

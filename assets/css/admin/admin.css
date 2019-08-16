@@ -2831,11 +2831,8 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   padding: 36px;
   position: absolute;
   top: 14px;
+  width: 320px;
   z-index: 999999;
-}
-
-.booking-calendar-card:hover {
-  display: block;
 }
 
 .booking-calendar-table__reservation-link:hover + .booking-calendar-card {
@@ -2880,6 +2877,9 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   .htl-ui-modal {
     width: 320px;
   }
+  .booking-calendar-card:hover {
+    display: block;
+  }
 }
 
 @media (min-width: 600px) {
@@ -2892,6 +2892,15 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   }
   .booking-calendar-weeks-navigation {
     margin-left: 18px;
+  }
+}
+
+@media (min-width: 680px) {
+  .booking-calendar-card {
+    width: 400px;
+  }
+  .booking-calendar-card:hover {
+    display: block;
   }
 }
 
