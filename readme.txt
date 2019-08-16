@@ -108,6 +108,17 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 2.0.0 - 2019-08-16 =
+* Tweak - New admin UI.
+* Tweak - Better admin calendar page.
+* Tweak - Several improvements in the admin pages.
+* Fix – Reservations are deleted correctly when trashed (bulk).
+* Added – Make htl_price() function pluggable.
+* Added – Allow auth payments (no immediate capture) if the gateway supports it.
+* Added – Allow capture from admin if the gateway supports it.
+* Added – Allow refunds from admin if the gateway supports it.
+* Localization - POT file updated.
+
 = 1.8.4 - 2019-03-06 =
 * Fix – Fix widget folder name (SVN repo).
 * Localization - POT file updated.
