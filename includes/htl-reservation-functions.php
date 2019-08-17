@@ -391,7 +391,7 @@ function htl_process_completed_reservations() {
 
 			// Skip already completed or cancelled/refunded reservations
 			if ( $reservation->get_status() == 'completed' || $reservation->get_status() == 'cancelled' || $reservation->get_status() == 'refunded' ) {
-				return;
+				continue;
 			}
 
 			if ( $reservation->get_status() == 'confirmed' ) {
