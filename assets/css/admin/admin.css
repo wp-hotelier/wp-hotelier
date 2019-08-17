@@ -520,6 +520,10 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   width: 100px !important;
 }
 
+.htl-ui-input.htl-ui-price-day__input {
+  width: 80px !important;
+}
+
 .htl-ui-input:focus {
   border-color: #00A0D2 !important;
   outline: none !important;

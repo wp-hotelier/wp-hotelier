@@ -144,6 +144,10 @@
 		width: 100px !important;
 	}
 
+	&.htl-ui-price-day__input {
+		width: 80px !important;
+	}
+
 	&:focus {
 		border-color: $color__accent !important;
 		outline: none !important;
