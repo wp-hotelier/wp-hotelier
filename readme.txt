@@ -108,11 +108,12 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
-= 2.0.0 - 2019-08-16 =
+= 2.0.0 - 2019-08-17 =
+* Fix – Reservations are deleted correctly when trashed (bulk).
+* Fix – Cron now processes completed reservations correctly.
 * Tweak - New admin UI.
 * Tweak - Better admin calendar page.
 * Tweak - Several improvements in the admin pages.
-* Fix – Reservations are deleted correctly when trashed (bulk).
 * Added – Make htl_price() function pluggable.
 * Added – Allow auth payments (no immediate capture) if the gateway supports it.
 * Added – Allow capture from admin if the gateway supports it.
