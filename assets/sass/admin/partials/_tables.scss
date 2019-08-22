@@ -160,6 +160,10 @@ table.hotelier-settings-table-form {
 
 .htl-ui-table--disabled-dates,
 .htl-ui-table--seasonal-prices {
+	.htl-ui-label.hidden {
+		display: none;
+	}
+
 	.htl-ui-text-icon--show-advanced {
 		margin-top: $space;
 	}
