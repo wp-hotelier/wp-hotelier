@@ -6,7 +6,6 @@ jQuery(function ($) {
 	var HTL_Room_Meta = {
 		init: function () {
 			this.show_room_type_panel();
-			this.show_errors();
 		},
 
 		show_room_type_panel: function () {
@@ -31,23 +30,6 @@ jQuery(function ($) {
 				} else {
 					standard_room_settings.hide();
 					variations_room_settings.show();
-				}
-			});
-		},
-
-		show_errors: function () {
-			$('.room-settings').on('keyup change', '.htl-ui-input--price', function () {
-				var value = $(this).val();
-				var parent = $(this).parent();
-				var regex = new RegExp('[^\-0-9\%\\' + MetaBoxesRoomParameters.decimal_point + ']+', 'gi');
-				var newvalue = value.replace(regex, '');
-
-				if (value !== newvalue) {
-					$(this).val(newvalue);
-					parent.css('position', 'relative').append('<div class="htl-ui-tooltip htl-ui-tooltip--error htl-ui-tooltip--decimal-error"></div>');
-					parent.find('.htl-ui-tooltip--decimal-error').text(MetaBoxesRoomParameters.decimal_error);
-				} else {
-					parent.find('.htl-ui-tooltip--decimal-error').remove();
 				}
 			});
 		}
