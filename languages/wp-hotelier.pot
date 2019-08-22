@@ -3656,11 +3656,11 @@ msgstr ""
 msgid "Add new"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/fields/html-meta-box-field-multi-text.php:60, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:49, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:80, ../templates/booking/reservation-table.php:62
+#: ../includes/admin/meta-boxes/views/fields/html-meta-box-field-multi-text.php:60, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:49, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:86, ../templates/booking/reservation-table.php:62
 msgid "Remove"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/fields/html-meta-box-field-multi-text.php:64, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:52, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:83
+#: ../includes/admin/meta-boxes/views/fields/html-meta-box-field-multi-text.php:64, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:52, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:89
 msgid "Sort"
 msgstr ""
 
@@ -4046,19 +4046,19 @@ msgstr ""
 msgid "To"
 msgstr ""
 
-#: ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:37
+#: ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:37, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:74
 msgid "Hide advanced settings"
 msgstr ""
 
-#: ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:37, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:37
+#: ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:37, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:37, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:74, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:74
 msgid "Show advanced settings"
 msgstr ""
 
-#: ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:41, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:74
+#: ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:41, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:78
 msgid "Every year?"
 msgstr ""
 
-#: ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:94
+#: ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:100
 msgid "Add new rule"
 msgstr ""
 
