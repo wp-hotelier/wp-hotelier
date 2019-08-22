@@ -108,6 +108,10 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 2.0.1 - 2019-08-22 =
+* Fix – Fixed minor issues on seasonal prices table.
+* Localization - POT file updated.
+
 = 2.0.0 - 2019-08-17 =
 * Fix – Reservations are deleted correctly when trashed (bulk).
 * Fix – Cron now processes completed reservations correctly.
