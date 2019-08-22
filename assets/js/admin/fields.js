@@ -48,6 +48,7 @@ jQuery(function ($) {
 
 			clone.attr('data-key', key);
 			clone.find('input').val('');
+			clone.find('input').prop('checked', false);
 			clone.find('input.htl-ui-input--row_index').val(parseInt(key, 10));
 			clone.find('input').each(function () {
 				var input = $(this);
