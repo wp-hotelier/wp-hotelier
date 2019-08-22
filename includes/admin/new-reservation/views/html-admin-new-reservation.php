@@ -101,7 +101,7 @@ $tomorrow = $tomorrow->format( 'Y-m-d' );
 							<td>
 								<div class="htl-ui-setting">
 									<span class="htl-ui-datepicker-wrapper">
-										<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--start-date" type="text" placeholder="YYYY-MM-DD" name="from" value="<?php echo esc_attr( $today ); ?>">
+										<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--start-date" type="text" placeholder="YYYY-MM-DD" name="from" value="<?php echo esc_attr( $today ); ?>" autocomplete="off">
 									</span>
 								</div>
 							</td>
@@ -111,7 +111,7 @@ $tomorrow = $tomorrow->format( 'Y-m-d' );
 							<td>
 								<div class="htl-ui-setting">
 									<span class="htl-ui-datepicker-wrapper">
-										<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--end-date" type="text" placeholder="YYYY-MM-DD" name="to" value="<?php echo esc_attr( $tomorrow ); ?>">
+										<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--end-date" type="text" placeholder="YYYY-MM-DD" name="to" value="<?php echo esc_attr( $tomorrow ); ?>" autocomplete="off">
 									</span>
 								</div>
 							</td>

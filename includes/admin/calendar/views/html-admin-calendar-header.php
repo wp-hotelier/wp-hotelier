@@ -41,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<input type="hidden" name="weeks" value="<?php echo absint( $weeks ); ?>">
 
 		<span class="htl-ui-datepicker-wrapper">
-			<input class="htl-ui-input htl-ui-input--datepicker" type="text" placeholder="YYYY-MM-DD" name="marker" value="<?php echo esc_attr( $marker->format( 'Y-m-d' ) ); ?>">
+			<input class="htl-ui-input htl-ui-input--datepicker" type="text" placeholder="YYYY-MM-DD" name="marker" value="<?php echo esc_attr( $marker->format( 'Y-m-d' ) ); ?>" autocomplete="off">
 		</span>
 
 		<input type="submit" class="htl-ui-button" value="<?php esc_attr_e( 'Go to date', 'wp-hotelier' ); ?>">

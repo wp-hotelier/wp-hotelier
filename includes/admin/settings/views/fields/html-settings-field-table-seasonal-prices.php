@@ -24,13 +24,13 @@ $rules = htl_get_option( 'seasonal_prices_schema', array() );
 							<label class="htl-ui-label">
 								<?php esc_html_e( 'From', 'wp-hotelier' ); ?>
 								<span class="htl-ui-datepicker-wrapper">
-									<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--start-date" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][<?php echo HTL_Formatting_Helper::sanitize_key( $key ); ?>][from]" value="<?php echo esc_attr( $rule['from'] ) ?>">
+									<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--start-date" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][<?php echo HTL_Formatting_Helper::sanitize_key( $key ); ?>][from]" value="<?php echo esc_attr( $rule['from'] ) ?>" autocomplete="off">
 								</span>
 							</label>
 							<label class="htl-ui-label">
 								<?php esc_html_e( 'To', 'wp-hotelier' ); ?>
 								<span class="htl-ui-datepicker-wrapper">
-									<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--end-date" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][<?php echo HTL_Formatting_Helper::sanitize_key( $key ); ?>][to]" value="<?php echo esc_attr( $rule['to'] ) ?>">
+									<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--end-date" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][<?php echo HTL_Formatting_Helper::sanitize_key( $key ); ?>][to]" value="<?php echo esc_attr( $rule['to'] ) ?>" autocomplete="off">
 								</span>
 							</label>
 
@@ -61,13 +61,13 @@ $rules = htl_get_option( 'seasonal_prices_schema', array() );
 						<label class="htl-ui-label">
 							<?php esc_html_e( 'From', 'wp-hotelier' ); ?>
 							<span class="htl-ui-datepicker-wrapper">
-								<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--start-date" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][1][from]">
+								<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--start-date" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][1][from]" autocomplete="off">
 							</span>
 						</label>
 						<label class="htl-ui-label">
 							<?php esc_html_e( 'To', 'wp-hotelier' ); ?>
 							<span class="htl-ui-datepicker-wrapper">
-								<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--end-date" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][1][to]">
+								<input class="htl-ui-input htl-ui-input--datepicker htl-ui-input--end-date" type="text" placeholder="YYYY-MM-DD" name="hotelier_settings[seasonal_prices_schema][1][to]" autocomplete="off">
 							</span>
 						</label>
 
