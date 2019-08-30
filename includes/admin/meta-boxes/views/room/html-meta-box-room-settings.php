@@ -15,6 +15,8 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 
 <div class="room-settings htl-ui-scope">
 
+	<?php do_action( 'hotelier_room_before_general_settings' ); ?>
+
 	<div class="room-settings__general htl-ui-settings-wrap">
 		<h3 class="htl-ui-heading htl-ui-heading--section-header"><?php esc_html_e( 'General settings', 'wp-hotelier' ); ?></h3>
 
@@ -129,6 +131,8 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 		</div>
 
 	</div>
+
+	<?php do_action( 'hotelier_room_after_general_settings' ); ?>
 
 	<div class="room-settings__standard htl-ui-settings-wrap">
 		<h3 class="htl-ui-heading htl-ui-heading--section-header"><?php esc_html_e( 'Standard room settings', 'wp-hotelier' ); ?></h3>
