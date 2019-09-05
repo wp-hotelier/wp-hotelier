@@ -1,6 +1,6 @@
 jQuery(function ($) {
 	'use strict';
-	/* global jQuery */
+	/* global jQuery, AdminParameters */
 
 	var HTL_Admin = {
 		init: function () {
