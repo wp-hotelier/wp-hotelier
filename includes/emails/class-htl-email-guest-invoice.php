@@ -28,7 +28,7 @@ class HTL_Email_Guest_Invoice extends HTL_Email {
 		$this->title            = esc_html__( 'Guest invoice', 'wp-hotelier' );
 
 		$this->heading          = htl_get_option( 'emails_guest_invoice_heading', __( 'Invoice for reservation #{reservation_number}', 'wp-hotelier' ) );
-		$this->subject          = htl_get_option( 'emails_guest_invoice_subject', __( '{site_title} - Cancelled reservation #{reservation_number}', 'wp-hotelier' ) );
+		$this->subject          = htl_get_option( 'emails_guest_invoice_subject', __( '{site_title} - Invoice for reservation #{reservation_number}', 'wp-hotelier' ) );
 
 		$this->template_html    = 'emails/guest-invoice.php';
 		$this->template_plain   = 'emails/plain/guest-invoice.php';
