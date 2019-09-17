@@ -19,7 +19,7 @@ msgstr ""
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:160, ../includes/class-htl-booking.php:171, ../includes/class-htl-booking.php:177, ../includes/class-htl-booking.php:198, ../includes/class-htl-booking.php:254, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:351, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:357, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:373, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:391
+#: ../includes/class-htl-booking.php:160, ../includes/class-htl-booking.php:171, ../includes/class-htl-booking.php:177, ../includes/class-htl-booking.php:198, ../includes/class-htl-booking.php:254, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:351, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:357, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:373, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:401
 msgid "Error %d: Unable to create reservation. Please try again."
 msgstr ""
 
@@ -2125,7 +2125,7 @@ msgstr ""
 msgid "Cancelled reservation"
 msgstr ""
 
-#: ../includes/emails/class-htl-email-cancelled-reservation.php:31, ../includes/emails/class-htl-email-guest-invoice.php:31, ../includes/admin/settings/class-htl-admin-settings-default.php:851
+#: ../includes/emails/class-htl-email-cancelled-reservation.php:31, ../includes/admin/settings/class-htl-admin-settings-default.php:851
 msgid "{site_title} - Cancelled reservation #{reservation_number}"
 msgstr ""
 
@@ -2147,6 +2147,10 @@ msgstr ""
 
 #: ../includes/emails/class-htl-email-guest-invoice.php:30, ../includes/admin/settings/class-htl-admin-settings-default.php:813, ../includes/admin/settings/class-htl-admin-settings-default.php:820
 msgid "Invoice for reservation #{reservation_number}"
+msgstr ""
+
+#: ../includes/emails/class-htl-email-guest-invoice.php:31
+msgid "{site_title} - Invoice for reservation #{reservation_number}"
 msgstr ""
 
 #: ../includes/emails/class-htl-email-guest-request-received.php:28, ../includes/emails/class-htl-email-guest-request-received.php:30, ../includes/admin/settings/class-htl-admin-settings-default.php:710, ../includes/admin/settings/class-htl-admin-settings-default.php:744
@@ -2588,7 +2592,7 @@ msgstr ""
 msgid "Please fill the required fields."
 msgstr ""
 
-#: ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:406
+#: ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:416
 msgid "Reservation manually created by admin."
 msgstr ""
 
