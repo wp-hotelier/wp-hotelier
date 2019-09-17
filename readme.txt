@@ -108,6 +108,11 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 2.0.2 - 2019-09-17 =
+* Fix – Save correct meta in manual reservations.
+* Fix – Add correct default subject for guest invoices.
+* Localization - POT file updated.
+
 = 2.0.1 - 2019-08-22 =
 * Fix – Fixed minor issues on seasonal prices table.
 * Localization - POT file updated.
