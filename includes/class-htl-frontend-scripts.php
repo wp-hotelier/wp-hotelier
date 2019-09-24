@@ -159,8 +159,8 @@ class HTL_Frontend_Scripts {
 		if ( $lightbox_enabled && ( is_listing() || is_room() ) ) {
 
 			// PhotoSwipe
-			wp_enqueue_script( 'photoswipe', HTL_PLUGIN_URL . 'assets/js/lib/photoswipe/photoswipe' . $suffix . '.js', array(), '4.1.1', true );
-			wp_enqueue_script( 'photoswipe-ui', HTL_PLUGIN_URL . 'assets/js/lib/photoswipe/photoswipe-ui-default' . $suffix . '.js', array( 'photoswipe' ), '4.1.1', true );
+			wp_enqueue_script( 'photoswipe', HTL_PLUGIN_URL . 'assets/js/lib/photoswipe/photoswipe.min.js', array(), '4.1.1', true );
+			wp_enqueue_script( 'photoswipe-ui', HTL_PLUGIN_URL . 'assets/js/lib/photoswipe/photoswipe-ui-default.min.js', array( 'photoswipe' ), '4.1.1', true );
 			wp_enqueue_script( 'photoswipe-init', HTL_PLUGIN_URL . 'assets/js/frontend/photoswipe.init' . $suffix . '.js', array( 'jquery', 'photoswipe-ui' ), HTL_VERSION, true );
 		}
 	}
