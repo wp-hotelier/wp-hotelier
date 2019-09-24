@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  1.0.0
+ * @version  2.0.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -144,8 +144,8 @@ class HTL_Frontend_Scripts {
 		);
 
 		// Localize and enqueue the datepicker scripts
-		wp_register_script( 'fecha', HTL_PLUGIN_URL . 'assets/js/lib/fecha/fecha' . $suffix . '.js', array(), '2.3.0', true );
-		wp_register_script( 'hotel-datepicker', HTL_PLUGIN_URL . 'assets/js/lib/hotel-datepicker/hotel-datepicker' . $suffix . '.js', array( 'fecha' ), '3.4.0', true );
+		wp_register_script( 'fecha', HTL_PLUGIN_URL . 'assets/js/lib/fecha/fecha.min.js', array(), '3.3.0', true );
+		wp_register_script( 'hotel-datepicker', HTL_PLUGIN_URL . 'assets/js/lib/hotel-datepicker/hotel-datepicker.min.js', array( 'fecha' ), '3.6.9', true );
 
 		wp_register_script( 'hotelier-init-datepicker', HTL_PLUGIN_URL . 'assets/js/frontend/hotelier-init-datepicker' . $suffix . '.js', array( 'jquery', 'hotel-datepicker' ), HTL_VERSION, true );
 
