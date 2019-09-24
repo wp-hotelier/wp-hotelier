@@ -109,9 +109,9 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 == Changelog ==
 
 = 2.0.3 - 2019-09-24 =
-* Update - Hotel Datepicker library updated
-* Update - Fecha library updated
-* Tweak - Use min versions only for vendor libraries
+* Update - Hotel Datepicker library updated.
+* Update - Fecha library updated.
+* Tweak - Use min version only for vendor libraries.
 
 = 2.0.2 - 2019-09-17 =
 * Fix – Save correct meta in manual reservations.
