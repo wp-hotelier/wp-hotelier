@@ -6,6 +6,7 @@ jQuery(function ($) {
 	var HTL_Reservation_Meta = {
 		init: function () {
 			this.charge_remain_deposit();
+			this.reservation_dates_datepicker();
 		},
 
 		charge_remain_deposit: function () {
@@ -24,6 +25,37 @@ jQuery(function ($) {
 
 					// We can now submit the form
 					form.submit();
+				}
+			});
+		},
+
+		reservation_dates_datepicker: function () {
+			var from_input = $('.edit-reservation-page__general-details').find('.htl-ui-input--start-date');
+			var to_input = $('.edit-reservation-page__general-details').find('.htl-ui-input--end-date');
+
+			from_input.datepicker({
+				dateFormat: 'yy-mm-dd',
+				minDate: 0,
+				changeMonth: true,
+				onClose: function () {
+					var date = $(this).datepicker('getDate');
+
+					if (date) {
+						date.setDate(date.getDate() + 1);
+						to_input.datepicker('option', 'minDate', date);
+					}
+				},
+				beforeShow: function () {
+					$('#ui-datepicker-div').addClass('htl-ui-custom-datepicker');
+				}
+			});
+
+			to_input.datepicker({
+				dateFormat: 'yy-mm-dd',
+				minDate: 1,
+				changeMonth: true,
+				beforeShow: function () {
+					$('#ui-datepicker-div').addClass('htl-ui-custom-datepicker');
 				}
 			});
 		}
