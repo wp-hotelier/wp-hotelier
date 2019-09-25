@@ -3,7 +3,7 @@ Contributors: benitolopez
 Tags: booking, hotel, booking system, hostel, reservations, reservations, b&b, rooms, wphotelier
 Requires at least: 4.1
 Tested up to: 5.2
-Stable tag: 2.0.1
+Stable tag: 2.0.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -107,6 +107,16 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 4. WP Hotelier - Admin calendar.
 
 == Changelog ==
+
+= 2.0.3 - 2019-09-24 =
+* Update - Hotel Datepicker library updated.
+* Update - Fecha library updated.
+* Tweak - Use min version only for vendor libraries.
+
+= 2.0.2 - 2019-09-17 =
+* Fix – Save correct meta in manual reservations.
+* Fix – Add correct default subject for guest invoices.
+* Localization - POT file updated.
 
 = 2.0.1 - 2019-08-22 =
 * Fix – Fixed minor issues on seasonal prices table.

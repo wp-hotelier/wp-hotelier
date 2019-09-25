@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  1.0.0
+ * @version  2.0.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -144,8 +144,8 @@ class HTL_Frontend_Scripts {
 		);
 
 		// Localize and enqueue the datepicker scripts
-		wp_register_script( 'fecha', HTL_PLUGIN_URL . 'assets/js/lib/fecha/fecha' . $suffix . '.js', array(), '2.3.0', true );
-		wp_register_script( 'hotel-datepicker', HTL_PLUGIN_URL . 'assets/js/lib/hotel-datepicker/hotel-datepicker' . $suffix . '.js', array( 'fecha' ), '3.4.0', true );
+		wp_register_script( 'fecha', HTL_PLUGIN_URL . 'assets/js/lib/fecha/fecha.min.js', array(), '3.3.0', true );
+		wp_register_script( 'hotel-datepicker', HTL_PLUGIN_URL . 'assets/js/lib/hotel-datepicker/hotel-datepicker.min.js', array( 'fecha' ), '3.6.9', true );
 
 		wp_register_script( 'hotelier-init-datepicker', HTL_PLUGIN_URL . 'assets/js/frontend/hotelier-init-datepicker' . $suffix . '.js', array( 'jquery', 'hotel-datepicker' ), HTL_VERSION, true );
 
@@ -159,8 +159,8 @@ class HTL_Frontend_Scripts {
 		if ( $lightbox_enabled && ( is_listing() || is_room() ) ) {
 
 			// PhotoSwipe
-			wp_enqueue_script( 'photoswipe', HTL_PLUGIN_URL . 'assets/js/lib/photoswipe/photoswipe' . $suffix . '.js', array(), '4.1.1', true );
-			wp_enqueue_script( 'photoswipe-ui', HTL_PLUGIN_URL . 'assets/js/lib/photoswipe/photoswipe-ui-default' . $suffix . '.js', array( 'photoswipe' ), '4.1.1', true );
+			wp_enqueue_script( 'photoswipe', HTL_PLUGIN_URL . 'assets/js/lib/photoswipe/photoswipe.min.js', array(), '4.1.1', true );
+			wp_enqueue_script( 'photoswipe-ui', HTL_PLUGIN_URL . 'assets/js/lib/photoswipe/photoswipe-ui-default.min.js', array( 'photoswipe' ), '4.1.1', true );
 			wp_enqueue_script( 'photoswipe-init', HTL_PLUGIN_URL . 'assets/js/frontend/photoswipe.init' . $suffix . '.js', array( 'jquery', 'photoswipe-ui' ), HTL_VERSION, true );
 		}
 	}

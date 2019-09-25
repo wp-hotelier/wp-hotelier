@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin
- * @version  1.7.0
+ * @version  2.0.2
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -374,15 +374,25 @@ class HTL_Admin_New_Reservation {
 					}
 				}
 
+				// Since the version 1.2.0, the calculated deposit is saved into
+				// the reservation meta (as well as the percent deposit)
+				$deposit = round( ( $values[ 'price' ] * $values[ 'deposit' ] ) / 100 );
+				$deposit = array(
+					'deposit'         => $deposit,
+					'percent_deposit' => $values[ 'deposit' ],
+				);
+				$deposit = apply_filters( 'hotelier_get_item_deposit_for_reservation', $deposit, $values );
+
 				$item_id = $reservation->add_item(
 					$values[ 'data' ],
 					$values[ 'quantity' ],
 					array(
-						'rate_name'  => $values[ 'rate_name' ],
-						'max_guests' => $values[ 'max_guests' ],
-						'price'      => $values[ 'price' ],
-						'total'      => $values[ 'total' ],
-						'deposit'    => $values[ 'deposit' ],
+						'rate_name'       => $values[ 'rate_name' ],
+						'max_guests'      => $values[ 'max_guests' ],
+						'price'           => $values[ 'price' ],
+						'total'           => $values[ 'total' ],
+						'percent_deposit' => $deposit[ 'percent_deposit' ],
+						'deposit'         => $deposit[ 'deposit' ],
 						// 'is_cancellable' => $values[ 'is_cancellable' ],
 					)
 				);
