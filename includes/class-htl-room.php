@@ -326,11 +326,10 @@ class HTL_Room {
 	 * @param string $checkin
 	 * @param string $checkout
 	 * @param int $qty
-	 * @param int $rate_id
 	 * @param array $exclude
 	 * @return bool
 	 */
-	public function is_available( $checkin, $checkout = false, $qty = 1, $rate_id = false, $exclude = array() ) {
+	public function is_available( $checkin, $checkout = false, $qty = 1, $exclude = array() ) {
 		$checkout       = $checkout ? $checkout : $checkin;
 		$is_available   = false;
 
