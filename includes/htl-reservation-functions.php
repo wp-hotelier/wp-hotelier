@@ -294,25 +294,6 @@ function htl_get_reservation_status_name( $status ) {
 }
 
 /**
- * Get the nice name of a rate name
- *
- * @param  string $rate
- * @return string
- */
-function htl_get_formatted_room_rate( $rate ) {
-	$term = term_exists( $rate, 'room_rate' );
-
-	if ( $term !== 0 && $term !== null ) {
-		$rate = get_term_by( 'id', $term[ 'term_id' ], 'room_rate' );
-		$rate = $rate->name;
-	} else {
-		$rate = ucfirst( str_replace('-', ' ', $rate ) );
-	}
-
-	return $rate;
-}
-
-/**
  * Finds a Reservation ID based on an reservation key.
  *
  * @access public
