@@ -212,7 +212,15 @@ class HTL_Cart_Totals {
 
 		} catch ( Exception $e ) {
 			if ( $e->getMessage() ) {
-				htl_add_notice( $e->getMessage(), 'error' );
+				if ( function_exists( 'htl_add_notice' ) ) {
+					htl_add_notice( $e->getMessage(), 'error' );
+				} else {
+					// We are on admin. Return an array with the error message
+					return array(
+						'error'   => true,
+						'message' => $e->getMessage()
+					);
+				}
 			}
 
 			return false;
