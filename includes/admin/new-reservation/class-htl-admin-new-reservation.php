@@ -115,7 +115,13 @@ class HTL_Admin_New_Reservation {
 
 				// Add rooms to the reservation
 				foreach ( self::$rooms as $room ) {
-					$cart_totals->add_to_cart( $room[ 'room_id' ], $room[ 'qty' ], $room[ 'rate_id' ] );
+					$added_to_cart = $cart_totals->add_to_cart( $room[ 'room_id' ], $room[ 'qty' ], $room[ 'rate_id' ] );
+
+					if ( is_array( $added_to_cart ) && isset( $added_to_cart[ 'error' ] ) ) {
+						$error = $added_to_cart[ 'message' ] ? esc_html( $added_to_cart[ 'message' ] ) : esc_html__( 'Sorry, this room is not available.', 'wp-hotelier' );
+
+						throw new Exception( $error );
+					}
 				}
 
 				// Calculate totals
