@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Core
  * @package  Hotelier/Functions
- * @version  1.5.0
+ * @version  2.1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -601,4 +601,25 @@ function htl_get_formatted_room_rate( $rate ) {
 	}
 
 	return $rate;
+}
+
+/**
+ * Get rate ID from rate name
+ */
+function htl_get_room_rate_id_from_rate_name( $room, $rate_name ) {
+	$rate_id = 0;
+
+	if ( $room->is_variable_room() && $rate_name && $room->rate_term_exists( $rate_name ) ) {
+		$variations = $room->get_room_variations();
+
+		// Get first index
+		foreach ( $variations as $key => $variation ) {
+			if ( isset( $variation[ 'room_rate' ] ) && $variation[ 'room_rate' ] === $rate_name ) {
+				$rate_id = $key;
+				break;
+			}
+		}
+	}
+
+	return $rate_id;
 }
