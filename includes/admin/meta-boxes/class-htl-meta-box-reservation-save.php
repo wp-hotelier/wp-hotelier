@@ -152,14 +152,15 @@ class HTL_Meta_Box_Reservation_Save {
 			$amount = isset( $_POST[ 'hotelier_refund_amount' ] ) ? $_POST[ 'hotelier_refund_amount' ] : 0;
 			self::refund_deposit( $reservation, $amount );
 		}
+
+		// Handle new checkin/checkout dates
+		if ( ! empty( $_POST[ 'reservation_checkin' ] ) && ! empty( $_POST[ 'reservation_checkout' ] ) ) {
+			self::change_reservation_dates( $reservation, $_POST[ 'reservation_checkin' ], $_POST[ 'reservation_checkout' ] );
+		}
 	}
 
 	/**
 	 * Handle captures
-	 *
-	 * @static
-	 * @param $location
-	 * @return string
 	 */
 	protected static function capture_deposit( $reservation, $amount ) {
 		$amount = HTL_Formatting_Helper::sanitize_amount( $amount );
@@ -198,10 +199,6 @@ class HTL_Meta_Box_Reservation_Save {
 
 	/**
 	 * Handle refunds
-	 *
-	 * @static
-	 * @param $location
-	 * @return string
 	 */
 	protected static function refund_deposit( $reservation, $amount ) {
 		$amount = HTL_Formatting_Helper::sanitize_amount( $amount );
@@ -239,6 +236,116 @@ class HTL_Meta_Box_Reservation_Save {
 	}
 
 	/**
+	 * Handle new reservation dates
+	 */
+	protected static function change_reservation_dates( $reservation, $checkin, $checkout ) {
+		$checkin  = sanitize_text_field( $checkin );
+		$checkout = sanitize_text_field( $checkout );
+
+		// Save new dates only if they are different
+		if ( $checkin !== $reservation->get_checkin() || $checkout !== $reservation->get_checkout() ) {
+			try {
+				// Init HTL_Cart_Totals()
+				$cart_totals = new HTL_Cart_Totals( $checkin, $checkout );
+				$line_items  = $reservation->get_items();
+
+				foreach ( $line_items as $item_id => $item ) {
+					$room      = $reservation->get_room_from_item( $item );
+					$quantity  = absint( $item[ 'qty' ] );
+					$rate_name = $item[ 'rate_name' ];
+					$rate_id   = isset( $item[ 'rate_id' ] ) ? $item[ 'rate_id' ] : 0;
+
+					if ( ! $room->exists() || ! $room || 'publish' !== $room->post->post_status ) {
+						// Oops, check failed so throw an error (this this room does not exists)
+						throw new Exception( esc_html__( 'Sorry, this room does not exists.', 'wp-hotelier' ) );
+					}
+
+					// Check existence of room rate
+					if ( $room->is_variable_room() && $rate_name ) {
+						if ( ! $rate_id ) {
+							// Fallback for old reservations that don't have
+							// the rate_id meta (WP Hotelier 2.1.0 +)
+							$rate_id = htl_get_room_rate_id_from_rate_name( $room, $rate_name );
+						}
+
+						if ( ! ( $rate_id > 0 ) ) {
+							throw new Exception( esc_html__( 'Sorry, this room rate does not exists anymore.', 'wp-hotelier' ) );
+						}
+					}
+
+					$added_to_cart = $cart_totals->add_to_cart( $room->id, $quantity, $rate_id, true, array( $reservation->id ) );
+
+					if ( is_array( $added_to_cart ) && isset( $added_to_cart[ 'error' ] ) ) {
+						$error = $added_to_cart[ 'message' ] ? esc_html( $added_to_cart[ 'message' ] ) : esc_html__( 'Sorry, this room is not available.', 'wp-hotelier' );
+
+						throw new Exception( $error );
+					}
+				}
+
+				// Calculate totals
+				$cart_totals->calculate_totals();
+
+				// If we got here, the dates of this reservation can be changed
+				// We need to update the totals of the reservations as well
+				$reservation_items = htl_get_reservation_items_id( $reservation->id );
+
+				foreach ( $reservation_items as $reservation_item ) {
+					$reservation_item_room_id   = absint( htl_get_reservation_item_meta( $reservation_item, '_room_id', true ) );
+					$reservation_item_rate_name = htl_get_reservation_item_meta( $reservation_item, '_rate_name', true );
+					$reservation_item_rate_id   = htl_get_reservation_item_meta( $reservation_item, '_rate_id', true );
+
+					if ( $reservation_item_rate_name ) {
+						if ( ! $reservation_item_rate_id ) {
+							// Fallback for old reservations that don't have
+							// the rate_id meta (WP Hotelier 2.1.0 +)
+							$_reservation_item_room   = htl_get_room( $reservation_item_room_id );
+							$reservation_item_rate_id = htl_get_room_rate_id_from_rate_name( $_reservation_item_room, $reservation_item_rate_name );
+						}
+					}
+
+					$reservation_item_rate_id = $reservation_item_rate_id ? $reservation_item_rate_id : 0;
+					$reservation_item_key     = htl_generate_item_key( $reservation_item_room_id, $reservation_item_rate_id );
+
+					if ( ! isset( $cart_totals->cart_contents[ $reservation_item_key ] ) ) {
+						throw new Exception( esc_html__( 'Sorry, something went wrong during the calculation of the totals.', 'wp-hotelier' ) );
+					}
+
+					$reservation_cart_item = $cart_totals->cart_contents[ $reservation_item_key ];
+					$new_max_guests        = isset( $reservation_cart_item[ 'max_guests' ] ) ? $reservation_cart_item[ 'max_guests' ] : 0;
+					$new_price             = isset( $reservation_cart_item[ 'price' ] ) ? $reservation_cart_item[ 'price' ] : 0;
+					$new_total             = isset( $reservation_cart_item[ 'total' ] ) ? $reservation_cart_item[ 'total' ] : 0;
+					$new_percent_deposit   = isset( $reservation_cart_item[ 'percent_deposit' ] ) ? $reservation_cart_item[ 'percent_deposit' ] : 0;
+					$new_deposit           = isset( $reservation_cart_item[ 'deposit' ] ) ? $reservation_cart_item[ 'deposit' ] : 0;
+					$new_is_cancellable    = isset( $reservation_cart_item[ 'is_cancellable' ] ) ? $reservation_cart_item[ 'is_cancellable' ] : false;
+
+					htl_update_reservation_item_meta( $reservation_item, '_max_guests', $new_max_guests );
+					htl_update_reservation_item_meta( $reservation_item, '_price', $new_price );
+					htl_update_reservation_item_meta( $reservation_item, '_total', $new_total );
+					htl_update_reservation_item_meta( $reservation_item, '_percent_deposit', $new_percent_deposit );
+					htl_update_reservation_item_meta( $reservation_item, '_deposit', $new_deposit );
+					htl_update_reservation_item_meta( $reservation_item, '_is_cancellable', $new_is_cancellable );
+				}
+
+				$reservation->set_checkin( $checkin );
+				$reservation->set_checkout( $checkout );
+				$reservation->set_subtotal( $cart_totals->subtotal );
+				$reservation->set_tax_total( $cart_totals->tax_total );
+				$reservation->set_total( $cart_totals->total );
+				$reservation->set_deposit( $cart_totals->required_deposit );
+				$reservation->update_table_reservation_dates( $checkin, $checkout );
+				$reservation->add_reservation_note( esc_html__( 'Reservation dates updated. Totals have been recalculated.', 'wp-hotelier' ) );
+
+			} catch ( Exception $e ) {
+				if ( ! empty( $e ) ) {
+					self::set_save_error( esc_html( $e->getMessage() ) );
+				}
+
+				return false;
+			}
+		}
+	}
+
+	/**
 	 * Set save error for later
 	 */
 	public static function set_save_error( $message ) {
@@ -248,10 +355,6 @@ class HTL_Meta_Box_Reservation_Save {
 
 	/**
 	 * Add query_var for error notices
-	 *
-	 * @static
-	 * @param $location
-	 * @return string
 	 */
 	public static function add_error_query_var( $location ) {
 		remove_filter( 'redirect_post_location', array( __CLASS__, 'add_error_query_var' ), 99 );
@@ -263,10 +366,6 @@ class HTL_Meta_Box_Reservation_Save {
 
 	/**
 	 * Set the correct message ID
-	 *
-	 * @static
-	 * @param $location
-	 * @return string
 	 */
 	public static function print_notices() {
 		$error = get_option( 'hotelier_save_reservation_error', false );
@@ -287,10 +386,6 @@ class HTL_Meta_Box_Reservation_Save {
 
 	/**
 	 * Set message ID for email sent action
-	 *
-	 * @static
-	 * @param $location
-	 * @return string
 	 */
 	public static function set_email_sent_message( $location ) {
 		return add_query_arg( 'message', 11, $location );
@@ -298,10 +393,6 @@ class HTL_Meta_Box_Reservation_Save {
 
 	/**
 	 * Set message ID when page needs reload
-	 *
-	 * @static
-	 * @param $location
-	 * @return string
 	 */
 	public static function set_needs_reload_message( $location ) {
 		return add_query_arg( 'message', 12, $location );
