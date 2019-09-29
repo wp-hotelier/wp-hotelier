@@ -277,6 +277,19 @@ function htl_add_reservation_item_meta( $item_id, $meta_key, $meta_value, $uniqu
 function htl_update_reservation_item_meta( $item_id, $meta_key, $meta_value ) {
 	return update_metadata( 'reservation_item', $item_id, $meta_key, $meta_value );
 }
+
+/**
+ * Get reservation item meta
+ *
+ * @access public
+ * @param mixed $item_id
+ * @param mixed $meta_key
+ * @param bool $single (default: false)
+ * @return bool
+ */
+function htl_get_reservation_item_meta( $item_id, $key, $single = false ) {
+	return get_metadata( 'reservation_item', $item_id, $key, $single );
+}
 /**
  * Set table name
  */
