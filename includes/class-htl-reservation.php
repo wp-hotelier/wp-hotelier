@@ -456,6 +456,7 @@ class HTL_Reservation {
 	public function add_item( $room, $qty = 1, $args = array() ) {
 		$default_args = array(
 			'rate_name'       => false,
+			'rate_id'         => 0,
 			'max_guests'      => 0,
 			'price'           => 0,
 			'total'           => 0,
@@ -480,6 +481,7 @@ class HTL_Reservation {
 
 		if ( $args[ 'rate_name' ] ) {
 			htl_add_reservation_item_meta( $item_id, '_rate_name', $args[ 'rate_name' ] );
+			htl_add_reservation_item_meta( $item_id, '_rate_id', absint( $args[ 'rate_id' ] ) );
 		}
 
 		htl_add_reservation_item_meta( $item_id, '_max_guests', absint( $args[ 'max_guests' ] ? $args[ 'max_guests' ] : 0 ) );

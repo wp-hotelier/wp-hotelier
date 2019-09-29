@@ -215,6 +215,7 @@ class HTL_Admin_New_Reservation {
 					$values[ 'quantity' ],
 					array(
 						'rate_name'       => $values[ 'rate_name' ],
+						'rate_id'         => $values[ 'rate_id' ],
 						'max_guests'      => $values[ 'max_guests' ],
 						'price'           => $values[ 'price' ],
 						'total'           => $values[ 'total' ],
