@@ -307,6 +307,24 @@ function htl_get_reservation_items_id( $reservation_id ) {
 
 	return $items;
 }
+
+/**
+ * Get room ID from reservation item
+ */
+function htl_get_room_id_from_reservation_item( $reservation_item ) {
+	global $wpdb;
+
+	$items         = array();
+	$get_items_sql = $wpdb->prepare( "SELECT reservation_item_id FROM {$wpdb->prefix}hotelier_reservation_items WHERE reservation_id = %d ", $reservation_id );
+	$line_items    = $wpdb->get_results( $get_items_sql );
+
+	foreach ( $line_items as $item ) {
+		$items[] = absint( $item->reservation_item_id );
+	}
+
+	return $items;
+}
+
 /**
  * Set table name
  */
