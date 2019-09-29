@@ -437,6 +437,29 @@ class HTL_Reservation {
 	}
 
 	/**
+	 * Update reservation dates in table 'hotelier_bookings'.
+	 */
+	public function update_table_reservation_dates( $checkin, $checkout ) {
+		global $wpdb;
+
+		$wpdb->update(
+			$wpdb->prefix . "hotelier_bookings",
+			array(
+				'checkin'  => $checkin,
+				'checkout' => $checkout,
+			),
+			array(
+				'reservation_id' => $this->id,
+			),
+			array(
+				'%s',
+				'%s',
+			),
+			array( '%d' )
+		);
+	}
+
+	/**
 	 * Get transaction id for the reservation.
 	 *
 	 * @return string
