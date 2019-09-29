@@ -290,6 +290,23 @@ function htl_update_reservation_item_meta( $item_id, $meta_key, $meta_value ) {
 function htl_get_reservation_item_meta( $item_id, $key, $single = false ) {
 	return get_metadata( 'reservation_item', $item_id, $key, $single );
 }
+
+/**
+ * Get reservation item ID(s) from reservation items table
+ */
+function htl_get_reservation_items_id( $reservation_id ) {
+	global $wpdb;
+
+	$items         = array();
+	$get_items_sql = $wpdb->prepare( "SELECT reservation_item_id FROM {$wpdb->prefix}hotelier_reservation_items WHERE reservation_id = %d ", $reservation_id );
+	$line_items    = $wpdb->get_results( $get_items_sql );
+
+	foreach ( $line_items as $item ) {
+		$items[] = absint( $item->reservation_item_id );
+	}
+
+	return $items;
+}
 /**
  * Set table name
  */
