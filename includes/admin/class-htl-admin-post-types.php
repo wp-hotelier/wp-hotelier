@@ -219,8 +219,8 @@ class HTL_Admin_Post_Types {
 			$cart_contents_quantity = array();
 			$reservation            = htl_get_reservation( $postid );
 			$old_status             = get_post_meta( $postid, '_wp_trash_meta_status', true );
-			$checkin                = $reservation->guest_checkin;
-			$checkout               = $reservation->guest_checkout;
+			$checkin                = $reservation->get_checkin();
+			$checkout               = $reservation->get_checkout();
 			$items                  = $reservation->get_items();
 
 			$ret = true;
