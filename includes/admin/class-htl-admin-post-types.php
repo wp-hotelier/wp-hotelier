@@ -216,12 +216,12 @@ class HTL_Admin_Post_Types {
 	public function untrash_reservation( $postid ) {
 		// When a reservation is restored from trash, we need to ensure that the rooms are still available on the given dates. If not, change the status to 'cancelled'.
 		if ( get_post_type() === 'room_reservation' ) {
-
-			$reservation = htl_get_reservation( $postid );
-			$old_status  = get_post_meta( $postid, '_wp_trash_meta_status', true );
-			$checkin     = $reservation->guest_checkin;
-			$checkout    = $reservation->guest_checkout;
-			$items       = $reservation->get_items();
+			$cart_contents_quantity = array();
+			$reservation            = htl_get_reservation( $postid );
+			$old_status             = get_post_meta( $postid, '_wp_trash_meta_status', true );
+			$checkin                = $reservation->guest_checkin;
+			$checkout               = $reservation->guest_checkout;
+			$items                  = $reservation->get_items();
 
 			$ret = true;
 
@@ -229,18 +229,27 @@ class HTL_Admin_Post_Types {
 				$_room = $reservation->get_room_from_item( $item );
 				$qty   = $item[ 'qty' ];
 
+				// Check the real quantity (rates have the same ID and stock)
+				if ( isset( $cart_contents_quantity[ $_room->id ] ) ) {
+					$real_qty = $cart_contents_quantity[ $_room->id ] + $qty;
+				} else {
+					$real_qty = $qty;
+				}
+
 				if ( ! $_room || ! $_room->exists() || $_room->post->post_status == 'trash' ) {
 					$ret = false;
 				}
 
-				if ( ! $_room->is_available( $checkin, $checkout, $qty ) ) {
+				if ( ! $_room->is_available( $checkin, $checkout, $real_qty ) ) {
 					$ret = false;
 				}
 			}
 
+			$cart_contents_quantity[ $_room->id ] = $real_qty;
+
 			if ( ! $ret ) {
 				// One or more rooms are not available anymore. Change status to cancelled.
-				$reservation->update_status( 'cancelled', esc_html__( 'This reservation cannot be restored because one or more rooms are no longer available on those dates.', 'wp-hotelier' ) );
+				$reservation->update_status( 'cancelled', esc_html__( 'This reservation cannot be restored because one or more rooms are no longer available.', 'wp-hotelier' ) );
 			} else {
 				// The reservation can be restored. Update the 'bookings' table to the old status
 				$reservation->update_table_status( $old_status );
