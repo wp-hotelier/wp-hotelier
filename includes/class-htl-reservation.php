@@ -372,14 +372,53 @@ class HTL_Reservation {
 		// Only update if they differ - and ensure post_status is a 'htl' status.
 		if ( $new_status !== $old_status || ! in_array( $this->post_status, array_keys( htl_get_reservation_statuses() ) ) ) {
 
-			// Cancelled/completed/refunded reservations cannot be restored
-			if ( $old_status == 'cancelled' || $old_status == 'completed' || $old_status == 'refunded' ) {
+			// Refunded reservations cannot be restored
+			if ( $old_status == 'refunded' ) {
 
 				$this->add_reservation_note( trim( $note . ' ' . sprintf( esc_html__( 'Error: Trying to change the status from %1$s to %2$s. %1$s reservations cannot be restored or modified.', 'wp-hotelier' ), htl_get_reservation_status_name( $old_status ), htl_get_reservation_status_name( $new_status ) ) ) );
 
 			} else {
+				// We need to ensure that the rooms are still available on the given dates.
+				// If not, change the status to 'cancelled'.
+				if ( $old_status == 'cancelled' || $old_status == 'completed' ) {
+					$cart_contents_quantity = array();
+					$checkin                = $this->get_checkin();
+					$checkout               = $this->checkout();
+					$items                  = $this->get_items();
+
+					$ret = true;
+
+					foreach ( $items as $item ) {
+						$_room = $reservation->get_room_from_item( $item );
+						$qty   = $item[ 'qty' ];
+
+						// Check the real quantity (rates have the same ID and stock)
+						if ( isset( $cart_contents_quantity[ $_room->id ] ) ) {
+							$real_qty = $cart_contents_quantity[ $_room->id ] + $qty;
+						} else {
+							$real_qty = $qty;
+						}
+
+						if ( ! $_room || ! $_room->exists() || $_room->post->post_status == 'trash' ) {
+							$ret = false;
+						}
+
+						if ( ! $_room->is_available( $checkin, $checkout, $real_qty ) ) {
+							$ret = false;
+						}
+					}
+
+					$cart_contents_quantity[ $_room->id ] = $real_qty;
+
+					if ( ! $ret ) {
+						$this->add_reservation_note( trim( $note . ' ' . esc_html__( 'This reservation cannot be restored because one or more rooms are no longer available.', 'wp-hotelier' ) ) );
+
+						return false;
+					}
+				}
+
 				// Temporarily remove reservation save action to
-				// avoid email triggering twice
+				// avoid email triggering twice and other actions
 				remove_action( 'hotelier_process_room_reservation_meta', 'HTL_Meta_Box_Reservation_Save::save', 30, 2 );
 
 				// Update the reservation
