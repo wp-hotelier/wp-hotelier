@@ -383,13 +383,13 @@ class HTL_Reservation {
 				if ( $old_status == 'cancelled' || $old_status == 'completed' ) {
 					$cart_contents_quantity = array();
 					$checkin                = $this->get_checkin();
-					$checkout               = $this->checkout();
+					$checkout               = $this->get_checkout();
 					$items                  = $this->get_items();
 
 					$ret = true;
 
 					foreach ( $items as $item ) {
-						$_room = $reservation->get_room_from_item( $item );
+						$_room = $this->get_room_from_item( $item );
 						$qty   = $item[ 'qty' ];
 
 						// Check the real quantity (rates have the same ID and stock)
