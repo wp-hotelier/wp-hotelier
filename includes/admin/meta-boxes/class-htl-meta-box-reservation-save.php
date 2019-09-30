@@ -239,12 +239,38 @@ class HTL_Meta_Box_Reservation_Save {
 	 * Handle new reservation dates
 	 */
 	protected static function change_reservation_dates( $reservation, $checkin, $checkout ) {
-		$checkin  = sanitize_text_field( $checkin );
-		$checkout = sanitize_text_field( $checkout );
+		$checkin         = sanitize_text_field( $checkin );
+		$checkout        = sanitize_text_field( $checkout );
+		$new_post_status = sanitize_text_field( $_POST[ 'reservation_status' ] );
+		$new_post_status = 'htl-' === substr( $new_post_status, 0, 4 ) ? substr( $new_post_status, 4 ) : $new_post_status;
+		$old_post_status = $reservation->get_status();
+		$to_occupancy    = false;
+
+		$status_with_occupancy = array(
+			'confirmed',
+			'pending',
+			'on-hold',
+			'failed'
+		);
+
+		$status_without_occupancy = array(
+			'completed',
+			'cancelled',
+		);
+
+		if ( in_array( $new_post_status, $status_with_occupancy ) && in_array( $old_post_status, $status_without_occupancy ) ) {
+			$to_occupancy = true;
+		}
 
 		// Save new dates only if they are different
 		if ( $checkin !== $reservation->get_checkin() || $checkout !== $reservation->get_checkout() ) {
 			try {
+				// When changing the status and the dates of a reservation at the same time
+				// throw an error if the new status chnages the occupancy. Just in case.
+				if ( $new_post_status !== $old_post_status && $to_occupancy ) {
+					throw new Exception( esc_html__( 'Sorry, you cannnot change the status and the dates at the same time.', 'wp-hotelier' ) );
+				}
+
 				// Init HTL_Cart_Totals()
 				$cart_totals = new HTL_Cart_Totals( $checkin, $checkout );
 				$line_items  = $reservation->get_items();
