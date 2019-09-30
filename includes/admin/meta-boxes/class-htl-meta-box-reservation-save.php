@@ -1,6 +1,6 @@
 <?php
 /**
- * Reservation Save Button.
+ * Reservation Save Actions.
  *
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
