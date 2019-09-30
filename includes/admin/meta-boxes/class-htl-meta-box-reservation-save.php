@@ -266,6 +266,12 @@ class HTL_Meta_Box_Reservation_Save {
 			}
 
 			try {
+				// Return early if the reservation has been paid
+				// or has an auhtorized payment
+				if ( $reservation->get_paid_deposit() > 0 || $reservation->requires_capture() ) {
+					throw new Exception( esc_html__( 'Sorry, you cannnot edit paid reservations.', 'wp-hotelier' ) );
+				}
+
 				// When changing the status and the dates of a reservation at the same time
 				// throw an error if the new status chnages the occupancy. Just in case.
 				if ( $new_post_status !== $old_post_status && $to_occupancy ) {
