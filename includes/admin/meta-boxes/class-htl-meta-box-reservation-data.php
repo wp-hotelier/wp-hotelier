@@ -230,7 +230,7 @@ class HTL_Meta_Box_Reservation_Data {
 				?>
 
 				<?php
-				if ( $reservation->get_paid_deposit() > 0 ) {
+				if ( $reservation->get_paid_deposit() > 0 || $reservation->requires_capture() ) {
 					HTL_Meta_Boxes_Helper::plain(
 						array(
 							'label'       => esc_html__( 'Check-in:', 'wp-hotelier' ),
@@ -251,7 +251,7 @@ class HTL_Meta_Box_Reservation_Data {
 				?>
 
 				<?php
-				if ( $reservation->get_paid_deposit() > 0 ) {
+				if ( $reservation->get_paid_deposit() > 0 || $reservation->requires_capture() ) {
 					HTL_Meta_Boxes_Helper::plain(
 						array(
 							'label'       => esc_html__( 'Check-out:', 'wp-hotelier' ),
