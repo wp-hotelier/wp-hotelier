@@ -76,7 +76,9 @@ class HTL_Frontend_Scripts {
 
 		// Start date
 		$arrival_date = htl_get_option( 'booking_arrival_date', 0 );
-		$start_date   = date( 'Y-m-d', strtotime( "+$arrival_date days" ) );
+		$start_date = new DateTime( current_time( 'Y-m-d' ) );
+		$start_date->modify( "+$arrival_date days" );
+		$start_date = $start_date->format( 'Y-m-d' );
 
 		// End date
 		$end_date = false;
@@ -85,7 +87,9 @@ class HTL_Frontend_Scripts {
 		$months_advance = htl_get_option( 'booking_months_advance', 0 );
 
 		if ( $months_advance ) {
-			$end_date = date( 'Y-m-d', strtotime( "+$months_advance months" ) );
+			$end_date = new DateTime( current_time( 'Y-m-d' ) );
+			$end_date->modify( "+$months_advance months" );
+			$end_date = $end_date->format( 'Y-m-d' );
 		}
 
 		// Create array of weekday names
