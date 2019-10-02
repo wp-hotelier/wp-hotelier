@@ -368,6 +368,9 @@ class HTL_Meta_Box_Reservation_Save {
 				$reservation->update_table_reservation_dates( $checkin, $checkout );
 				$reservation->add_reservation_note( esc_html__( 'Reservation dates updated. Totals have been recalculated.', 'wp-hotelier' ) );
 
+				// Change reservation modified date
+				$reservation->update_last_modified();
+
 			} catch ( Exception $e ) {
 				if ( ! empty( $e ) ) {
 					self::set_save_error( esc_html( $e->getMessage() ) );
