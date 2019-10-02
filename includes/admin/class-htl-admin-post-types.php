@@ -37,6 +37,9 @@ class HTL_Admin_Post_Types {
 		add_filter( 'manage_room_reservation_posts_columns', array( $this, 'reservation_columns' ) );
 		add_filter( 'manage_room_reservation_posts_custom_column', array( $this, 'render_room_reservation_columns' ) );
 
+		// Change label of "Date" column on reservations
+		add_filter( 'post_date_column_status', array( $this, 'post_date_column_label' ), 10, 2 );
+
 		// Reservation post type row actions
 		add_filter( 'post_row_actions', array( $this, 'delete_actions' ) );
 
@@ -195,6 +198,17 @@ class HTL_Admin_Post_Types {
 			default :
 				break;
 		}
+	}
+
+	/**
+	 * Change reservation date label column.
+	 */
+	public function post_date_column_label( $status, $post ) {
+		if ( isset( $post->post_type ) && $post->post_type === 'room_reservation' ) {
+			$status = esc_html__( 'Created', 'wp-hotelier' );
+		}
+
+		return $status;
 	}
 
 	/**
