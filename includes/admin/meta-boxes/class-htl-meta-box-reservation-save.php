@@ -273,7 +273,7 @@ class HTL_Meta_Box_Reservation_Save {
 				}
 
 				// When changing the status and the dates of a reservation at the same time
-				// throw an error if the new status chnages the occupancy. Just in case.
+				// throw an error if the new status changes the occupancy. Just in case.
 				if ( $new_post_status !== $old_post_status && $to_occupancy ) {
 					throw new Exception( esc_html__( 'Sorry, you cannnot change the status and the dates at the same time.', 'wp-hotelier' ) );
 				}
