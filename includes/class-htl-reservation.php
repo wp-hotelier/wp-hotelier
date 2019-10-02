@@ -499,6 +499,32 @@ class HTL_Reservation {
 	}
 
 	/**
+	 * Update modified date.
+	 */
+	public function update_last_modified() {
+		global $wpdb;
+
+		$post_modified     = current_time( 'mysql' );
+		$post_modified_gmt = current_time( 'mysql', 1 );
+
+		$wpdb->update(
+			$wpdb->posts,
+			array(
+				'post_modified'     => $post_modified,
+				'post_modified_gmt' => $post_modified_gmt,
+			),
+			array(
+				'ID' => $this->id,
+			),
+			array(
+				'%s',
+				'%s',
+			),
+			array( '%d' )
+		);
+	}
+
+	/**
 	 * Get transaction id for the reservation.
 	 *
 	 * @return string
