@@ -1,6 +1,6 @@
 jQuery(function ($) {
 	'use strict';
-	/* global MetaBoxesRoomParameters, HTL_Field_Multi_Text, HTL_Conditional_Fields, jQuery, wp */
+	/* global HTL_Field_Multi_Text, HTL_Conditional_Fields, jQuery, wp */
 	/* eslint-disable no-multi-assign */
 
 	var HTL_Room_Meta = {
