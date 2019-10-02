@@ -108,6 +108,13 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 2.1.0 - 2019-10-02 =
+* Fix - Fixed a minor timezone issue.
+* Tweak - Allow the possibility to edit the dates of a reservation.
+* Tweak - Allow the possibility to restore completed and cancelled reservations.
+* Tweak - Refactory on cart class.
+* Localization - POT file updated.
+
 = 2.0.3 - 2019-09-24 =
 * Update - Hotel Datepicker library updated.
 * Update - Fecha library updated.
