@@ -5,7 +5,7 @@
  * @author   Lollum
  * @category Class
  * @package  Hotelier/Classes
- * @version  1.7.1
+ * @version  2.1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -372,14 +372,53 @@ class HTL_Reservation {
 		// Only update if they differ - and ensure post_status is a 'htl' status.
 		if ( $new_status !== $old_status || ! in_array( $this->post_status, array_keys( htl_get_reservation_statuses() ) ) ) {
 
-			// Cancelled/completed/refunded reservations cannot be restored
-			if ( $old_status == 'cancelled' || $old_status == 'completed' || $old_status == 'refunded' ) {
+			// Refunded reservations cannot be restored
+			if ( $old_status == 'refunded' ) {
 
 				$this->add_reservation_note( trim( $note . ' ' . sprintf( esc_html__( 'Error: Trying to change the status from %1$s to %2$s. %1$s reservations cannot be restored or modified.', 'wp-hotelier' ), htl_get_reservation_status_name( $old_status ), htl_get_reservation_status_name( $new_status ) ) ) );
 
 			} else {
+				// We need to ensure that the rooms are still available on the given dates.
+				// If not, change the status to 'cancelled'.
+				if ( $old_status == 'cancelled' || $old_status == 'completed' ) {
+					$cart_contents_quantity = array();
+					$checkin                = $this->get_checkin();
+					$checkout               = $this->get_checkout();
+					$items                  = $this->get_items();
+
+					$ret = true;
+
+					foreach ( $items as $item ) {
+						$_room = $this->get_room_from_item( $item );
+						$qty   = $item[ 'qty' ];
+
+						// Check the real quantity (rates have the same ID and stock)
+						if ( isset( $cart_contents_quantity[ $_room->id ] ) ) {
+							$real_qty = $cart_contents_quantity[ $_room->id ] + $qty;
+						} else {
+							$real_qty = $qty;
+						}
+
+						if ( ! $_room || ! $_room->exists() || $_room->post->post_status == 'trash' ) {
+							$ret = false;
+						}
+
+						if ( ! $_room->is_available( $checkin, $checkout, $real_qty ) ) {
+							$ret = false;
+						}
+					}
+
+					$cart_contents_quantity[ $_room->id ] = $real_qty;
+
+					if ( ! $ret ) {
+						$this->add_reservation_note( trim( $note . ' ' . esc_html__( 'This reservation cannot be restored because one or more rooms are no longer available.', 'wp-hotelier' ) ) );
+
+						return false;
+					}
+				}
+
 				// Temporarily remove reservation save action to
-				// avoid email triggering twice
+				// avoid email triggering twice and other actions
 				remove_action( 'hotelier_process_room_reservation_meta', 'HTL_Meta_Box_Reservation_Save::save', 30, 2 );
 
 				// Update the reservation
@@ -437,6 +476,55 @@ class HTL_Reservation {
 	}
 
 	/**
+	 * Update reservation dates in table 'hotelier_bookings'.
+	 */
+	public function update_table_reservation_dates( $checkin, $checkout ) {
+		global $wpdb;
+
+		$wpdb->update(
+			$wpdb->prefix . "hotelier_bookings",
+			array(
+				'checkin'  => $checkin,
+				'checkout' => $checkout,
+			),
+			array(
+				'reservation_id' => $this->id,
+			),
+			array(
+				'%s',
+				'%s',
+			),
+			array( '%d' )
+		);
+	}
+
+	/**
+	 * Update modified date.
+	 */
+	public function update_last_modified() {
+		global $wpdb;
+
+		$post_modified     = current_time( 'mysql' );
+		$post_modified_gmt = current_time( 'mysql', 1 );
+
+		$wpdb->update(
+			$wpdb->posts,
+			array(
+				'post_modified'     => $post_modified,
+				'post_modified_gmt' => $post_modified_gmt,
+			),
+			array(
+				'ID' => $this->id,
+			),
+			array(
+				'%s',
+				'%s',
+			),
+			array( '%d' )
+		);
+	}
+
+	/**
 	 * Get transaction id for the reservation.
 	 *
 	 * @return string
@@ -456,6 +544,7 @@ class HTL_Reservation {
 	public function add_item( $room, $qty = 1, $args = array() ) {
 		$default_args = array(
 			'rate_name'       => false,
+			'rate_id'         => 0,
 			'max_guests'      => 0,
 			'price'           => 0,
 			'total'           => 0,
@@ -480,6 +569,7 @@ class HTL_Reservation {
 
 		if ( $args[ 'rate_name' ] ) {
 			htl_add_reservation_item_meta( $item_id, '_rate_name', $args[ 'rate_name' ] );
+			htl_add_reservation_item_meta( $item_id, '_rate_id', absint( $args[ 'rate_id' ] ) );
 		}
 
 		htl_add_reservation_item_meta( $item_id, '_max_guests', absint( $args[ 'max_guests' ] ? $args[ 'max_guests' ] : 0 ) );

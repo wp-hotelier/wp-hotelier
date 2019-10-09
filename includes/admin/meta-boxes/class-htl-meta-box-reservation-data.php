@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin/Meta Boxes
- * @version  1.0.0
+ * @version  2.1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -230,21 +230,45 @@ class HTL_Meta_Box_Reservation_Data {
 				?>
 
 				<?php
-				HTL_Meta_Boxes_Helper::plain(
-					array(
-						'label'       => esc_html__( 'Check-in:', 'wp-hotelier' ),
-						'description' => $reservation->get_formatted_checkin(),
-					)
-				);
+				if ( $reservation->get_paid_deposit() > 0 || $reservation->requires_capture() ) {
+					HTL_Meta_Boxes_Helper::plain(
+						array(
+							'label'       => esc_html__( 'Check-in:', 'wp-hotelier' ),
+							'description' => $reservation->get_formatted_checkin(),
+						)
+					);
+				} else {
+					HTL_Meta_Boxes_Helper::datepicker(
+						array(
+							'name'        => 'reservation_checkin',
+							'label'       => esc_html__( 'Check-in:', 'wp-hotelier' ),
+							'value'       => $reservation->get_checkin(),
+							'description' => esc_html__( 'Check-in date.', 'wp-hotelier' ),
+							'class'       => 'htl-ui-input--start-date'
+						)
+					);
+				}
 				?>
 
 				<?php
-				HTL_Meta_Boxes_Helper::plain(
-					array(
-						'label'       => esc_html__( 'Check-out:', 'wp-hotelier' ),
-						'description' => $reservation->get_formatted_checkout(),
-					)
-				);
+				if ( $reservation->get_paid_deposit() > 0 || $reservation->requires_capture() ) {
+					HTL_Meta_Boxes_Helper::plain(
+						array(
+							'label'       => esc_html__( 'Check-out:', 'wp-hotelier' ),
+							'description' => $reservation->get_formatted_checkout(),
+						)
+					);
+				} else {
+					HTL_Meta_Boxes_Helper::datepicker(
+						array(
+							'name'        => 'reservation_checkout',
+							'label'       => esc_html__( 'Check-out:', 'wp-hotelier' ),
+							'value'       => $reservation->get_checkout(),
+							'description' => esc_html__( 'Check-out date.', 'wp-hotelier' ),
+							'class'       => 'htl-ui-input--end-date'
+						)
+					);
+				}
 				?>
 
 				<?php

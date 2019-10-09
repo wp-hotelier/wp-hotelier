@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Core
  * @package  Hotelier/Functions
- * @version  1.0.0
+ * @version  2.1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -62,8 +62,13 @@ function htl_get_default_dates() {
 	// Set default checkout
 	$to = $from + $minimum_nights;
 
-	$dates[ 'checkin' ]  = date( 'Y-m-d', strtotime( "+$from days" ) );
-	$dates[ 'checkout' ] = date( 'Y-m-d', strtotime( "+$to days" ) );
+	$checkin = new DateTime( current_time( 'Y-m-d' ) );
+	$checkin->modify( "+$from days" );
+	$checkout = new DateTime( current_time( 'Y-m-d' ) );
+	$checkout->modify( "+$to days" );
+
+	$dates[ 'checkin' ]  = $checkin->format( 'Y-m-d' );
+	$dates[ 'checkout' ] = $checkout->format( 'Y-m-d' );
 
 	return apply_filters( 'hotelier_get_default_dates', $dates );
 }

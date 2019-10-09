@@ -34,28 +34,6 @@ class HTL_Admin_New_Reservation {
 	protected static $rooms = array();
 
 	/**
-	 * Contains an array of reservation items.
-	 *
-	 * @var array
-	 */
-	protected static $reservation_contents = array();
-
-	/** @var int The total cost of the reservation. */
-	protected static  $reservation_contents_total;
-
-	/** @var int The required deposit. */
-	protected static  $required_deposit;
-
-	/** @var int Tax total. */
-	protected static  $tax_total;
-
-	/** @var int Subtotal. */
-	protected static  $subtotal;
-
-	/** @var int Grand total. */
-	protected static  $total;
-
-	/**
 	 * Checkin date.
 	 *
 	 * @var string
@@ -132,16 +110,25 @@ class HTL_Admin_New_Reservation {
 					throw new Exception( esc_html__( 'Sorry, this room is not available on the given dates.', 'wp-hotelier' ) );
 				}
 
+				// Init HTL_Cart_Totals()
+				$cart_totals = new HTL_Cart_Totals( self::$checkin, self::$checkout );
+
 				// Add rooms to the reservation
 				foreach ( self::$rooms as $room ) {
-					self::add_to_reservation( $room );
+					$added_to_cart = $cart_totals->add_to_cart( $room[ 'room_id' ], $room[ 'qty' ], $room[ 'rate_id' ] );
+
+					if ( is_array( $added_to_cart ) && isset( $added_to_cart[ 'error' ] ) ) {
+						$error = $added_to_cart[ 'message' ] ? esc_html( $added_to_cart[ 'message' ] ) : esc_html__( 'Sorry, this room is not available.', 'wp-hotelier' );
+
+						throw new Exception( $error );
+					}
 				}
 
 				// Calculate totals
-				self::calculate_totals();
+				$cart_totals->calculate_totals();
 
 				// Create the reservation
-				$reservation_id = self::create_reservation();
+				$reservation_id = self::create_reservation( $cart_totals );
 
 				if ( is_wp_error( $reservation_id ) ) {
 					throw new Exception( $reservation_id->get_error_message() );
@@ -158,166 +145,6 @@ class HTL_Admin_New_Reservation {
 	}
 
 	/**
-	 * Add a room to the reservation.
-	 */
-	public static function add_to_reservation( $room ) {
-		$room_id  = absint( $room[ 'room_id' ] );
-		$rate_id  = absint( $room[ 'rate_id' ] );
-		$quantity = absint( $room[ 'qty' ] );
-
-		// Get the room
-		$_room = htl_get_room( $room_id );
-
-		if ( ! $_room->exists() ) {
-			// Oops, check failed so throw an error (this this room does not exists)
-			throw new Exception( esc_html__( 'Sorry, this room does not exists.', 'wp-hotelier' ) );
-		}
-
-		// Sanitity check
-		if ( $quantity <= 0 || ! $_room || 'publish' !== $_room->post->post_status ) {
-			throw new Exception();
-		}
-
-		// Check room is_available on the given dates
-		if ( ! $_room->is_available( self::$checkin, self::$checkout, $quantity ) ) {
-			throw new Exception( esc_html__( 'Sorry, this room is not available on the given dates.', 'wp-hotelier' ) );
-		}
-
-		// If a $rate_id > 0 is passed, then this is (technically) a variable room
-		if ( $rate_id > 0 ) {
-
-			if ( ! $_room->is_variable_room() ) {
-				// Oops, check failed so throw an error (this is not a variable room)
-				throw new Exception( esc_html__( 'Sorry, this room does not exists.', 'wp-hotelier' ) );
-			}
-
-			// Check if the room has this rate and get it (we need the slug)
-			$rate_name = $_room->get_rate_name( $rate_id );
-
-			// Final check - Check if the rate exists in the room_rate taxonomy
-			// We need to make this check because the rate_name (term slug) is stored in a meta box (and we do not know if it still exists).
-			if ( $rate_name && $_room->rate_term_exists( $rate_name ) ) {
-
-				// Ok, we can load the variation
-				$_variation = $_room->get_room_variation( $rate_id );
-
-				// Deposit
-				$deposit = $_variation->get_deposit();
-
-				// Check if it is cancellable
-				$is_cancellable = $_variation->is_cancellable();
-			} else {
-
-				// Oops, check failed so throw an error (rate does not exist in the room_rate taxonomy)
-				throw new Exception( esc_html__( 'Sorry, this room does not exists.', 'wp-hotelier' ) );
-			}
-		} elseif ( $rate_id === 0 && $_room->is_variable_room() ) {
-			// Oops, check failed so throw an error (passed rate_id = 0 but this is a variable room)
-			throw new Exception( esc_html__( 'Sorry, this room does not exists.', 'wp-hotelier' ) );
-		} else {
-			// This is a standard room
-			$rate_name  = false;
-			$_variation = false;
-
-			// Deposit
-			$deposit = $_room->get_deposit();
-
-			// Check if it is cancellable
-			$is_cancellable = $_room->is_cancellable();
-		}
-
-		// Generate an ID based on room ID and rate ID - this also avoid duplicates
-		$reservation_item_key = htl_generate_item_key( $room_id, $rate_id );
-
-		self::$reservation_contents[ $reservation_item_key ] = array(
-			'data'           => $_room,
-			'room_id'        => $_room->id,
-			'quantity'       => $quantity,
-			'rate_id'        => $rate_id,
-			'rate_name'      => $rate_name,
-			'max_guests'     => $_room->get_max_guests(),
-			'deposit'        => $deposit,
-			'is_cancellable' => $is_cancellable,
-		);
-
-		return $reservation_item_key;
-	}
-
-	/**
-	 * Calculate totals for the items in the reservation.
-	 */
-	public static function calculate_totals() {
-		foreach ( self::$reservation_contents as $reservation_item_key => $values ) {
-			$_room     = $values[ 'data' ];
-			$rate_id   = $values[ 'rate_id' ];
-			$qty       = $values[ 'quantity' ];
-			$room_type = 'standard';
-
-			// Price for variable room - We already know that if we pass a $rate_id is a variable room ( in self::add_to_reservation() )
-			if ( $rate_id ) {
-				$_variation   = $_room->get_room_variation( $rate_id );
-				$line_price   = $_variation->get_price( self::$checkin, self::$checkout );
-				$line_deposit = $_variation->get_deposit();
-				$room_type    = 'variation';
-
-			} else {
-				// Price for standard room
-				$line_price   = $_room->get_price( self::$checkin, self::$checkout );
-				$line_deposit = $_room->get_deposit();
-			}
-
-			if ( ! $line_price ) {
-				// Remove room from reservation if has not price and throw an error
-				unset( self::$reservation_contents[ $reservation_item_key ] );
-				throw new Exception( esc_html__( 'Sorry, this room cannot be reserved.', 'wp-hotelier' ) );
-			}
-
-			// The total price of the room
-			$line_total  = $line_price * $qty;
-
-			// The total required deposit of the room
-			$line_to_pay = ( ( $line_price * $line_deposit ) / 100 );
-			$line_to_pay = round( $line_to_pay ) * $qty;
-
-			// Hold room details so we can pass them to the filter
-			$room_data = $room_type == 'standard' ? $_room : $_variation;
-
-			// Allow plugins to filter the deposit
-			$line_to_pay = apply_filters( 'hotelier_line_to_pay', $line_to_pay, $line_price, $line_deposit, $qty, $room_type, $room_data );
-
-			// This is the total deposit required to confirm a reservation
-			// Deposits are per line (room)
-			self::$required_deposit += $line_to_pay;
-
-			// This is the total cost of the reservation (deposit included)
-			self::$reservation_contents_total += $line_total;
-
-			// Set prices
-			self::$reservation_contents[ $reservation_item_key ][ 'price' ] = $line_price;
-			self::$reservation_contents[ $reservation_item_key ][ 'total' ] = $line_total;
-		}
-
-		// Subtotal
-		self::$subtotal  = self::$reservation_contents_total;
-
-		// Calculate taxes
-		self::$tax_total = htl_is_tax_enabled() ? htl_calculate_tax( self::$reservation_contents_total ) : 0;
-
-		// Taxes on deposits
-		if ( htl_is_deposit_tax_enabled() ) {
-			self::$required_deposit = self::$required_deposit + htl_calculate_tax( self::$required_deposit );
-		}
-
-		// Allow plugins to hook and alter totals before final total is calculated
-		do_action( 'hotelier_calculate_totals' );
-
-		$total           = self::$reservation_contents_total + htl_calculate_tax( self::$reservation_contents_total );
-		self::$total     = $total;
-
-		do_action( 'hotelier_after_calculate_totals' );
-	}
-
-	/**
 	 * Create the reservation.
 	 *
 	 * Error codes:
@@ -330,7 +157,7 @@ class HTL_Admin_New_Reservation {
 	 * @throws Exception
 	 * @return int|WP_ERROR
 	 */
-	public static function create_reservation() {
+	public static function create_reservation( $cart_totals ) {
 		global $wpdb;
 
 		try {
@@ -365,7 +192,7 @@ class HTL_Admin_New_Reservation {
 				$guest_address[ $address_key ] = self::get_form_data_field( $address_key );
 			}
 
-			foreach ( self::$reservation_contents as $reservation_item_key => $values ) {
+			foreach ( $cart_totals->cart_contents as $cart_item_key => $values ) {
 				for ( $i = 0; $i < $values[ 'quantity' ]; $i++ ) {
 					$rooms_bookings_id = htl_populate_rooms_bookings( $reservation_id, $values[ 'room_id' ] );
 
@@ -388,12 +215,13 @@ class HTL_Admin_New_Reservation {
 					$values[ 'quantity' ],
 					array(
 						'rate_name'       => $values[ 'rate_name' ],
+						'rate_id'         => $values[ 'rate_id' ],
 						'max_guests'      => $values[ 'max_guests' ],
 						'price'           => $values[ 'price' ],
 						'total'           => $values[ 'total' ],
 						'percent_deposit' => $deposit[ 'percent_deposit' ],
 						'deposit'         => $deposit[ 'deposit' ],
-						// 'is_cancellable' => $values[ 'is_cancellable' ],
+						'is_cancellable'  => $values[ 'is_cancellable' ],
 					)
 				);
 
@@ -407,10 +235,10 @@ class HTL_Admin_New_Reservation {
 			$reservation->set_address( $guest_address );
 			$reservation->set_arrival_time( '-1' );
 			$reservation->set_booking_method( 'manual-booking' );
-			$reservation->set_subtotal( self::$subtotal );
-			$reservation->set_tax_total( self::$tax_total );
-			$reservation->set_total( self::$total );
-			$reservation->set_deposit( self::$required_deposit );
+			$reservation->set_subtotal( $cart_totals->subtotal );
+			$reservation->set_tax_total( $cart_totals->tax_total );
+			$reservation->set_total( $cart_totals->total );
+			$reservation->set_deposit( $cart_totals->required_deposit );
 
 			// Add a note to the reservation
 			$reservation->add_reservation_note( esc_html__( 'Reservation manually created by admin.', 'wp-hotelier' ) );

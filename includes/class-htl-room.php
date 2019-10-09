@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  1.8.2
+ * @version  2.1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -220,9 +220,10 @@ class HTL_Room {
 	 *
 	 * @param string $checkin
 	 * @param string $checkout
+	 * @param array $exclude
 	 * @return int
 	 */
-	public function get_available_rooms( $checkin, $checkout = false ) {
+	public function get_available_rooms( $checkin, $checkout = false, $exclude = array() ) {
 		// Add 1 day to checkin if checkout is not provided
 		if ( ! $checkout ) {
 			$checkout = new DateTime( $checkin );
@@ -230,7 +231,7 @@ class HTL_Room {
 			$checkout = $checkout->format( 'Y-m-d' );
 		}
 
-		$reserved_rooms  = $this->get_reserved_rooms( $checkin, $checkout );
+		$reserved_rooms  = $this->get_reserved_rooms( $checkin, $checkout, $exclude );
 		$available_rooms = $this->get_stock_rooms() - $reserved_rooms;
 		$available_rooms = ( $available_rooms < 0 ) ? 0 : $available_rooms;
 
@@ -302,11 +303,13 @@ class HTL_Room {
 	 *
 	 * @param string $checkin
 	 * @param string $checkout
+	 * @param int $qty
+	 * @param array $exclude
 	 * @return bool
 	 */
-	public function has_enough_rooms( $checkin, $checkout, $qty ) {
+	public function has_enough_rooms( $checkin, $checkout, $qty, $exclude = array() ) {
 		$qty            = absint( $qty );
-		$reserved_rooms = $this->get_reserved_rooms( $checkin, $checkout );
+		$reserved_rooms = $this->get_reserved_rooms( $checkin, $checkout, $exclude );
 		$pending_rooms  = $this->get_pending_rooms();
 		$has_enough     = false;
 
@@ -323,14 +326,14 @@ class HTL_Room {
 	 * @param string $checkin
 	 * @param string $checkout
 	 * @param int $qty
-	 * @param int $rate_id
+	 * @param array $exclude
 	 * @return bool
 	 */
-	public function is_available( $checkin, $checkout = false, $qty = 1, $rate_id = false ) {
+	public function is_available( $checkin, $checkout = false, $qty = 1, $exclude = array() ) {
 		$checkout       = $checkout ? $checkout : $checkin;
 		$is_available   = false;
 
-		if ( $this->has_enough_rooms( $checkin, $checkout, $qty ) && $this->check_min_nights( $checkin, $checkout ) && $this->check_max_nights( $checkin, $checkout ) ) {
+		if ( $this->has_enough_rooms( $checkin, $checkout, $qty, $exclude ) && $this->check_min_nights( $checkin, $checkout ) && $this->check_max_nights( $checkin, $checkout ) ) {
 			$is_available = true;
 		}
 
@@ -342,12 +345,13 @@ class HTL_Room {
 	 *
 	 * @param string $checkin
 	 * @param string $checkout
+	 * @param array $exclude
 	 * @return int
 	 */
-	public function get_reserved_rooms( $checkin, $checkout ) {
+	public function get_reserved_rooms( $checkin, $checkout, $exclude = array() ) {
 		global $wpdb;
 
-		$sql          = $wpdb->prepare( "SELECT room_id, checkin, checkout FROM {$wpdb->prefix}hotelier_rooms_bookings rb, {$wpdb->prefix}hotelier_bookings b WHERE rb.reservation_id = b.reservation_id AND rb.room_id = %d AND (%s < b.checkout AND %s > b.checkin) AND b.status <> 'cancelled' AND b.status <> 'refunded' AND b.status <> 'completed'", $this->id, $checkin, $checkout );
+		$sql          = $wpdb->prepare( "SELECT room_id, checkin, checkout, rb.reservation_id FROM {$wpdb->prefix}hotelier_rooms_bookings rb, {$wpdb->prefix}hotelier_bookings b WHERE rb.reservation_id = b.reservation_id AND rb.room_id = %d AND (%s < b.checkout AND %s > b.checkin) AND b.status <> 'cancelled' AND b.status <> 'refunded' AND b.status <> 'completed'", $this->id, $checkin, $checkout );
 		$reservations = $wpdb->get_results( $sql );
 
 		// Iterate each day to calculate the exact number of reservations
@@ -361,6 +365,10 @@ class HTL_Room {
 			$reserved_rooms = 0;
 
 			foreach ( $reservations as $reservation ) {
+				if ( is_array( $exclude ) && in_array( $reservation->reservation_id, $exclude ) ) {
+					continue;
+				}
+
 				$reservation_checkin  = new DateTime( $reservation->checkin );
 				$reservation_checkout = new DateTime( $reservation->checkout );
 
@@ -372,7 +380,7 @@ class HTL_Room {
 			$reserved_rooms_total[] = $reserved_rooms;
 		}
 
-		$count = max( $reserved_rooms_total );
+		$count = count( $reserved_rooms_total ) > 0 ? max( $reserved_rooms_total ) : 0;
 
 		return apply_filters( 'hotelier_get_reserved_rooms', $count, $this );
 	}

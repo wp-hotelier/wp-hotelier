@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Core
  * @package  Hotelier/Functions
- * @version  1.7.2
+ * @version  2.1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -266,6 +266,66 @@ function htl_add_reservation_item_meta( $item_id, $meta_key, $meta_value, $uniqu
 }
 
 /**
+ * Update reservation item meta
+ *
+ * @access public
+ * @param mixed $item_id
+ * @param mixed $meta_key
+ * @param mixed $meta_value
+ * @return bool
+ */
+function htl_update_reservation_item_meta( $item_id, $meta_key, $meta_value ) {
+	return update_metadata( 'reservation_item', $item_id, $meta_key, $meta_value );
+}
+
+/**
+ * Get reservation item meta
+ *
+ * @access public
+ * @param mixed $item_id
+ * @param mixed $meta_key
+ * @param bool $single (default: false)
+ * @return bool
+ */
+function htl_get_reservation_item_meta( $item_id, $key, $single = false ) {
+	return get_metadata( 'reservation_item', $item_id, $key, $single );
+}
+
+/**
+ * Get reservation item ID(s) from reservation items table
+ */
+function htl_get_reservation_items_id( $reservation_id ) {
+	global $wpdb;
+
+	$items         = array();
+	$get_items_sql = $wpdb->prepare( "SELECT reservation_item_id FROM {$wpdb->prefix}hotelier_reservation_items WHERE reservation_id = %d ", $reservation_id );
+	$line_items    = $wpdb->get_results( $get_items_sql );
+
+	foreach ( $line_items as $item ) {
+		$items[] = absint( $item->reservation_item_id );
+	}
+
+	return $items;
+}
+
+/**
+ * Get room ID from reservation item
+ */
+function htl_get_room_id_from_reservation_item( $reservation_item ) {
+	global $wpdb;
+
+	$items         = array();
+	$get_items_sql = $wpdb->prepare( "SELECT reservation_item_id FROM {$wpdb->prefix}hotelier_reservation_items WHERE reservation_id = %d ", $reservation_id );
+	$line_items    = $wpdb->get_results( $get_items_sql );
+
+	foreach ( $line_items as $item ) {
+		$items[] = absint( $item->reservation_item_id );
+	}
+
+	return $items;
+}
+
+/**
  * Set table name
  */
 function htl_taxonomy_metadata_wpdbfix() {
@@ -291,25 +351,6 @@ function htl_get_reservation_status_name( $status ) {
 	$status   = isset( $statuses[ 'htl-' . $status ] ) ? $statuses[ 'htl-' . $status ] : $status;
 
 	return $status;
-}
-
-/**
- * Get the nice name of a rate name
- *
- * @param  string $rate
- * @return string
- */
-function htl_get_formatted_room_rate( $rate ) {
-	$term = term_exists( $rate, 'room_rate' );
-
-	if ( $term !== 0 && $term !== null ) {
-		$rate = get_term_by( 'id', $term[ 'term_id' ], 'room_rate' );
-		$rate = $rate->name;
-	} else {
-		$rate = ucfirst( str_replace('-', ' ', $rate ) );
-	}
-
-	return $rate;
 }
 
 /**
