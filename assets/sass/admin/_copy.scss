@@ -42,6 +42,17 @@
 		color: $color__text__medium;
 		font-weight: 500;
 	}
+
+	.htl-ui-list {
+		margin-top: $space;
+		margin-bottom: $space;
+		margin-left: $space__x2;
+		list-style-type: disc;
+
+		li {
+			margin-left: $space;
+		}
+	}
 }
 
 .htl-ui-required-symbol {

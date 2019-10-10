@@ -140,6 +140,17 @@ BOOKING CALENDAR
   font-weight: 500;
 }
 
+.htl-ui-scope .htl-ui-list {
+  margin-top: 9px;
+  margin-bottom: 9px;
+  margin-left: 18px;
+  list-style-type: disc;
+}
+
+.htl-ui-scope .htl-ui-list li {
+  margin-left: 9px;
+}
+
 .htl-ui-required-symbol {
   color: #ED4248;
 }
