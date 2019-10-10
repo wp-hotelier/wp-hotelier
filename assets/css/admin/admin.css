@@ -1821,6 +1821,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 
 .htl-ui-setting-conditional .htl-ui-setting-conditional .htl-ui-layout__column--left {
   margin-right: -18px;
+  padding-right: 36px;
 }
 
 .htl-ui-setting__after-input {
