@@ -34,6 +34,7 @@ PARTIALS
 	Datepicker ............. Datepicker styles (jquery-ui).
 	Tooltips ............... Tooltip styles.
 	Modals ................. Modal styles.
+	Links .................. Links styles.
 
 SETTINGS
 	Layout ................. Settings layout.
@@ -90,6 +91,7 @@ BOOKING CALENDAR
 @import "partials/datepicker";
 @import "partials/tooltips";
 @import "partials/modals";
+@import "partials/links";
 
 /*--------------------------------------------------------------
 >>> SETTINGS:

@@ -1,0 +1,11 @@
+/****** Links ******/
+
+.htl-ui-link {
+	@include reset-link($color__accent);
+	@include transition();
+	color: $color__accent;
+
+	&:hover {
+		color: $color__accent__hover;
+	}
+}

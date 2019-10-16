@@ -27,6 +27,7 @@ PARTIALS
 	Datepicker ............. Datepicker styles (jquery-ui).
 	Tooltips ............... Tooltip styles.
 	Modals ................. Modal styles.
+	Links .................. Links styles.
 
 SETTINGS
 	Layout ................. Settings layout.
@@ -1457,6 +1458,28 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   right: 0;
   bottom: 0;
   z-index: 999998;
+}
+
+/****** Links ******/
+.htl-ui-link {
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  -webkit-transition-property: color, background-color, border-color;
+  transition-property: color, background-color, border-color;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  color: #00A0D2;
+}
+
+.htl-ui-link:focus, .htl-ui-link:active, .htl-ui-link:visited {
+  color: #00A0D2 !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  outline: none !important;
+}
+
+.htl-ui-link:hover {
+  color: #0073AA;
 }
 
 /*--------------------------------------------------------------
