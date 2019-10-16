@@ -455,7 +455,8 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   margin-right: 9px;
 }
 
-.htl-ui-button--add-row, .htl-ui-button--add-room-rate,
+.htl-ui-button--small, .htl-ui-button--add-row, .htl-ui-button--add-room-rate,
+.button.htl-ui-button--small,
 .button.htl-ui-button--add-row,
 .button.htl-ui-button--add-room-rate {
   height: 27px;
