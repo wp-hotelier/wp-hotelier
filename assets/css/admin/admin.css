@@ -568,6 +568,61 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   color: #00A0D2;
 }
 
+.htl-ui-button.htl-ui-button--loading {
+  position: relative;
+  padding-left: 45px;
+}
+
+.htl-ui-button.htl-ui-button--loading:before {
+  -webkit-animation: spinner--loading .8s infinite linear;
+          animation: spinner--loading .8s infinite linear;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  border-right: 2px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  border-left: 2px solid #fff;
+  border-top-color: rgba(255, 255, 255, 0.2);
+  border-right-color: rgba(255, 255, 255, 0.2);
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+  border-left-color: #fff;
+  font-size: 14px;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+}
+
+.htl-ui-button.htl-ui-button--loading:before, .htl-ui-button.htl-ui-button--loading:after {
+  position: absolute;
+  content: '';
+  border-radius: 50%;
+  display: block;
+  width: 14px;
+  height: 14px;
+  top: 50%;
+  margin-top: -9px;
+  left: 18px;
+}
+
+@-webkit-keyframes spinner--loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner--loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
 /****** Notices ******/
 .htl-ui-notice {
   padding: 9px 18px 9px 36px;

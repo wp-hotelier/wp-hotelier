@@ -171,3 +171,45 @@
 		color: $color__accent;
 	}
 }
+
+.htl-ui-button.htl-ui-button--loading {
+	position: relative;
+	padding-left: 45px;
+
+	&:before {
+		animation: spinner--loading .8s infinite linear;
+		border-top: 2px solid rgba(255, 255, 255, 0.2);
+		border-right: 2px solid rgba(255, 255, 255, 0.2);
+		border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+		border-left: 2px solid #fff;
+		border-top-color: rgba(255, 255, 255, 0.2);
+		border-right-color: rgba(255, 255, 255, 0.2);
+		border-bottom-color: rgba(255, 255, 255, 0.2);
+		border-left-color: #fff;
+		font-size: 14px;
+		transform: translateZ(0);
+	}
+
+	&:before,
+	&:after {
+		position: absolute;
+		content: '';
+		border-radius: 50%;
+		display: block;
+		width: 14px;
+		height: 14px;
+		top: 50%;
+		margin-top: -9px;
+		left: 18px;
+	}
+
+}
+
+@keyframes spinner--loading {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
