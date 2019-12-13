@@ -177,10 +177,6 @@ class HTL_Admin_Meta_Boxes {
 				// Each field is passed to a custom filter that validates the input
 				$data = apply_filters( 'hotelier_meta_box_save_' . $type, $_POST[ $field ] );
 
-				// In the previous line, data is passed to a filter. Malicious code can
-				// use that filter to alter the data. So we do a final validation here.
-				$data = HTL_Formatting_Helper::clean_input( $data );
-
 				update_post_meta( $post_id, $field, $data );
 			} else {
 				delete_post_meta( $post_id, $field );
