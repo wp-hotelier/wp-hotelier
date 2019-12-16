@@ -328,6 +328,7 @@ class HTL_Meta_Box_Reservation_Data {
 					array(
 						'name'    => 'guest_arrival_time',
 						'value'   => $reservation->get_arrival_time(),
+						'std'     => $reservation->get_arrival_time(),
 						'label'   => esc_html__( 'Estimated arrival time:', 'wp-hotelier' ),
 						'options' => array(
 							'-1' => esc_html__( 'I don\'t know', 'wp-hotelier' ),
