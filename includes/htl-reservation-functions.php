@@ -389,9 +389,8 @@ function htl_cancel_pending_reservations() {
 	$pending_reservations = $wpdb->get_col( $wpdb->prepare( "
 		SELECT posts.ID
 		FROM {$wpdb->posts} AS posts
-		WHERE 	posts.post_type   IN ('room_reservation')
-		AND 	posts.post_status = 'htl-pending'
-		OR 		posts.post_status = 'htl-failed'
+		WHERE 	posts.post_type   IN ('room_reservation')		
+		AND 	posts.post_status IN('htl-pending','htl-failed')
 		AND 	posts.post_modified < %s
 	", $date ) );
 
