@@ -105,7 +105,7 @@ function htl_get_room_ids_unavailable( $checkin, $checkout, $args = array() ) {
 		}
 
 		// query already reserved rooms and check if there is enough stock
-		$sql            = $wpdb->prepare( "SELECT room_id, count(room_id) AS count FROM {$wpdb->prefix}hotelier_rooms_bookings rb, {$wpdb->prefix}hotelier_bookings b WHERE rb.reservation_id = b.reservation_id AND (%s < b.checkout AND %s > b.checkin) GROUP by room_id", $checkin, $checkout );
+		$sql            = $wpdb->prepare( "SELECT room_id, count(room_id) AS count FROM {$wpdb->prefix}hotelier_rooms_bookings rb, {$wpdb->prefix}hotelier_bookings b WHERE rb.reservation_id = b.reservation_id AND (%s < b.checkout AND %s > b.checkin) AND b.status NOT IN ( 'cancelled', 'refunded', 'completed') GROUP by room_id", $checkin, $checkout );
 		$reserved_rooms = $wpdb->get_results( $sql, ARRAY_A );
 
 		$ids = array();
