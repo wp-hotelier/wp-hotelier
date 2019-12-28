@@ -53,10 +53,16 @@ jQuery(function ($) {
 			clone.find('input').each(function () {
 				var input = $(this);
 				var name = input.attr('name');
+				var id = input.attr('id');
 
 				if (name) {
 					name = name.replace(/\[(\d+)\](?!.*\[\d+\])/, '[' + parseInt(key, 10) + ']');
 					input.attr('name', name);
+				}
+
+				if (id) {
+					id = id.replace(/\[(\d+)\](?!.*\[\d+\])/, '[' + parseInt(key, 10) + ']');
+					input.attr('id', id);
 				}
 			});
 
