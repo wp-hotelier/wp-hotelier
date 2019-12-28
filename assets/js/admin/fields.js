@@ -85,6 +85,8 @@ jQuery(function ($) {
 					sortable_type: table.attr('data-type'),
 					row: clone
 				});
+
+				$(window).trigger('htl_window_multi_text_after_add_row');
 			});
 		},
 
