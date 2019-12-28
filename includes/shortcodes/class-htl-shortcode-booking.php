@@ -157,7 +157,10 @@ class HTL_Shortcode_Booking {
 	private static function booking() {
 		// Hide booking page when booking_mode is set to 'no-booking'
 		if ( htl_get_option( 'booking_mode' ) != 'no-booking' ) {
-			
+
+			// Show non-cart errors
+			htl_print_notices();
+
 			// Check cart has contents
 			if ( HTL()->cart->is_empty() ) {
 				return;
