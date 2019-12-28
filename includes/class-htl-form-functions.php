@@ -355,16 +355,14 @@ class HTL_Form_Functions {
 
 			if ( $cart_item ) {
 				if ( HTL()->cart->remove_cart_item( $cart_item_key ) ) {
-					
+
 					if ( HTL()->cart->is_empty() ){
 						$redirect_page = 'listing';
 					}
-					
-					$_room = ( $cart_item['data'] instanceof HTL_Room ) ? $cart_item['data'] : htl_get_room( $cart_item['room_id'] );
-										
-					$item_removed_title = $_room ? sprintf( __( '&ldquo;%s&rdquo;', 'wp-hotelier' ), $_room->get_title() ) : __( 'Item', 'wp-hotelier' );
 
-					$removed_notice = sprintf( __( '%s removed.', 'wp-hotelier' ), $item_removed_title );
+					$_room              = ( $cart_item[ 'data' ] instanceof HTL_Room ) ? $cart_item['data'] : htl_get_room( $cart_item[ 'room_id' ] );
+					$item_removed_title = $_room ? sprintf( __( '&ldquo;%s&rdquo;', 'wp-hotelier' ), $_room->get_title() ) : __( 'Item', 'wp-hotelier' );
+					$removed_notice     = sprintf( __( '%s removed.', 'wp-hotelier' ), $item_removed_title );
 
 					htl_add_notice( $removed_notice );
 
