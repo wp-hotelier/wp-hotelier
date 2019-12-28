@@ -367,9 +367,8 @@ class HTL_Form_Functions {
 					$removed_notice = sprintf( __( '%s removed.', 'wp-hotelier' ), $item_removed_title );
 
 					htl_add_notice( $removed_notice );
-					
-					HTL()->cart->set_session();
-					
+
+					HTL()->cart->calculate_totals();
 				}
 			}
 
