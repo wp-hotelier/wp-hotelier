@@ -117,7 +117,7 @@ msgstr ""
 msgid "Time is for %s time zone"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:384, ../includes/class-htl-reservation.php:229, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:109, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:333
+#: ../includes/class-htl-booking.php:384, ../includes/class-htl-reservation.php:229, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:109, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:334
 msgid "I don't know"
 msgstr ""
 
@@ -257,15 +257,15 @@ msgstr ""
 msgid "Invalid reservation."
 msgstr ""
 
-#: ../includes/class-htl-form-functions.php:360
+#: ../includes/class-htl-form-functions.php:364
 msgid "&ldquo;%s&rdquo;"
 msgstr ""
 
-#: ../includes/class-htl-form-functions.php:360
+#: ../includes/class-htl-form-functions.php:364
 msgid "Item"
 msgstr ""
 
-#: ../includes/class-htl-form-functions.php:362
+#: ../includes/class-htl-form-functions.php:365
 msgid "%s removed."
 msgstr ""
 
@@ -1961,11 +1961,11 @@ msgctxt "Reservation status"
 msgid "Pending"
 msgstr ""
 
-#: ../includes/htl-reservation-functions.php:403
+#: ../includes/htl-reservation-functions.php:402
 msgid "Time limit reached."
 msgstr ""
 
-#: ../includes/htl-reservation-functions.php:439, ../includes/htl-reservation-functions.php:441
+#: ../includes/htl-reservation-functions.php:438, ../includes/htl-reservation-functions.php:440
 msgid "Check-out date reached."
 msgstr ""
 
@@ -2516,11 +2516,11 @@ msgstr ""
 msgid "Guest notes"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:331
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:332
 msgid "Estimated arrival time:"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:372, ../templates/reservation/reservation-details.php:40
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:373, ../templates/reservation/reservation-details.php:40
 msgid "Special requests:"
 msgstr ""
 
