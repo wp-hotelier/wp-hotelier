@@ -351,22 +351,28 @@ class HTL_Form_Functions {
 		if ( ! empty( $_GET[ 'remove_room' ] ) && wp_verify_nonce( $nonce_value ) ) {
 			$cart_item_key = sanitize_text_field( wp_unslash( $_GET[ 'remove_room' ] ) );
 			$cart_item     = HTL()->cart->get_cart_item( $cart_item_key );
+			$redirect_page = 'booking';
 
 			if ( $cart_item ) {
-				HTL()->cart->remove_cart_item( $cart_item_key );
+				if ( HTL()->cart->remove_cart_item( $cart_item_key ) ) {
 
-				$_room = htl_get_room( $cart_item[ 'room_id' ] );
+					if ( HTL()->cart->is_empty() ){
+						$redirect_page = 'listing';
+					}
 
-				$item_removed_title = $_room ? sprintf( __( '&ldquo;%s&rdquo;', 'wp-hotelier' ), $_room->get_title() ) : __( 'Item', 'wp-hotelier' );
+					$_room              = ( $cart_item[ 'data' ] instanceof HTL_Room ) ? $cart_item['data'] : htl_get_room( $cart_item[ 'room_id' ] );
+					$item_removed_title = $_room ? sprintf( __( '&ldquo;%s&rdquo;', 'wp-hotelier' ), $_room->get_title() ) : __( 'Item', 'wp-hotelier' );
+					$removed_notice     = sprintf( __( '%s removed.', 'wp-hotelier' ), $item_removed_title );
 
-				$removed_notice = sprintf( __( '%s removed.', 'wp-hotelier' ), $item_removed_title );
+					htl_add_notice( $removed_notice );
 
-				htl_add_notice( $removed_notice );
+					HTL()->cart->calculate_totals();
+				}
 			}
 
-			$listing_page_url = htl_get_page_permalink( 'listing' );
+			$redirect_page_url = htl_get_page_permalink( $redirect_page );
 
-			wp_safe_redirect( $listing_page_url );
+			wp_safe_redirect( $redirect_page_url );
 
 			exit;
 		}
