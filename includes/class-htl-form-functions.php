@@ -375,7 +375,7 @@ class HTL_Form_Functions {
 
 			$redirect_page_url = htl_get_page_permalink( $redirect_page );
 
-			wp_safe_redirect( $listing_page_url );
+			wp_safe_redirect( $redirect_page_url );
 
 			exit;
 		}
