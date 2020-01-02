@@ -1736,11 +1736,6 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   font-weight: 400;
 }
 
-.hotelier-settings-navigation__link--advanced-prices:before {
-  content: '\f783';
-  font-weight: 900;
-}
-
 .htl-ui-text-icon--show-settings-navigation {
   font-weight: 500;
   margin-left: 18px;
