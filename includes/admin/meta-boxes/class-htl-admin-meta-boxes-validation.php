@@ -177,7 +177,9 @@ class HTL_Admin_Meta_Boxes_Validation {
 							if ( method_exists( __CLASS__, 'sanitize_' . $validation ) && is_callable( array( __CLASS__, 'sanitize_' . $validation ) ) ) {
 								$variations[ $id ][ $key ] = call_user_func( array( __CLASS__, 'sanitize_' . $validation ), $variations[ $id ][ $key ] );
 							} else {
-								$variations[ $id ][ $key ] = $variations[ $id ][ $key ];
+								// Each field is passed to a custom filter that validates the input
+								$value = $variations[ $id ][ $key ];
+								$variations[ $id ][ $key ] = apply_filters( 'hotelier_meta_box_save_variation_field_' . $key, $value );
 							}
 						}
 					}
