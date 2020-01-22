@@ -571,6 +571,40 @@ class HTL_Room_Variation {
 	public function get_max_nights() {
 		return apply_filters( 'hotelier_per_variation_maximum_nights', htl_get_option( 'booking_maximum_nights', 0 ), $this );
 	}
+
+	/**
+	 * Returns the variation's advanced price settings.
+	 *
+	 * @return string array
+	 */
+	public function get_advanced_room_rate_price_settings() {
+		$settings = array(
+			'type'                  => 'amount',
+			'modifier'              => 'decrease',
+			'modifier_amount_price' => 0,
+			'modifier_percentage'   => 0,
+		);
+
+		$price_settings = $this->variation[ 'advanced_variation_price' ];
+
+		if ( isset( $price_settings[ 'type' ] ) && $price_settings[ 'type' ] === 'percentage' ) {
+			$settings[ 'type' ] = 'percentage';
+		}
+
+		if ( isset( $price_settings[ 'modifier' ] ) && $price_settings[ 'modifier' ] === 'increase' ) {
+			$settings[ 'modifier' ] = 'increase';
+		}
+
+		if ( $settings[ 'type' ] === 'amount' && isset( $price_settings[ 'modifier_amount_price' ] ) ) {
+			$settings[ 'modifier_amount_price' ] = $price_settings[ 'modifier_amount_price' ];
+		}
+
+		if ( $settings[ 'type' ] === 'percentage' && isset( $price_settings[ 'modifier_percentage' ] ) ) {
+			$settings[ 'modifier_percentage' ] = $price_settings[ 'modifier_percentage' ];
+		}
+
+		return $settings;
+	}
 }
 
 endif;
