@@ -145,8 +145,8 @@ class HTL_Admin_Meta_Boxes_Validation {
 			if ( is_array( $variations ) ) {
 
 				// Don't save placeholder variation
-				if ( array_key_exists( '999999999999999999', $variations ) ) {
-					unset( $variations[ 999999999999999999 ] );
+				if ( array_key_exists( '99999', $variations ) ) {
+					unset( $variations[ 99999 ] );
 				}
 
 				// Ensures variations are correctly mapped to an array starting with an index of 1

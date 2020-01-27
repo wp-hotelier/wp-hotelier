@@ -304,11 +304,11 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 
 			<div class="room-variations__list">
 
-				<div class="room-variation room-variation--placeholder htl-ui-settings-wrap" data-key="999999999999999999">
+				<div class="room-variation room-variation--placeholder htl-ui-settings-wrap" data-key="99999">
 
-					<?php HTL_Meta_Boxes_Views::variation_header( array(), $get_room_rates, 999999999999999999 ); ?>
+					<?php HTL_Meta_Boxes_Views::variation_header( array(), $get_room_rates, 99999 ); ?>
 
-					<?php HTL_Meta_Boxes_Views::variation_content( array(), 999999999999999999 ); ?>
+					<?php HTL_Meta_Boxes_Views::variation_content( array(), 99999 ); ?>
 
 				</div>
 

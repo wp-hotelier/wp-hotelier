@@ -3,7 +3,7 @@ Contributors: benitolopez
 Tags: booking, hotel, booking system, hostel, reservations, reservations, b&b, rooms, wphotelier
 Requires at least: 4.1
 Tested up to: 5.3
-Stable tag: 2.1.1
+Stable tag: 2.1.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -107,6 +107,13 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 4. WP Hotelier - Admin calendar.
 
 == Changelog ==
+
+= 2.1.2 - 2020-01-27 =
+* Add - Allow extensions to know when reservation dates updated
+* Tweak - Room can be removed from the booking page.
+* Fix - Max variation index on 32bit architecture.
+* Fix - Guest arrival time default value.
+* Fix - Don't delete pending reservations before hold minutes.
 
 = 2.1.1 - 2019-11-12 =
 * Add - WP 5.3 ready.
