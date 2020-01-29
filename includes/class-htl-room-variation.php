@@ -579,20 +579,37 @@ class HTL_Room_Variation {
 	 */
 	public function get_advanced_room_rate_price_settings() {
 		$settings = array(
-			'type'                  => 'amount',
+			'type'                  => 'fixed',
 			'modifier'              => 'decrease',
+			'fixed_price'           => 0,
 			'modifier_amount_price' => 0,
 			'modifier_percentage'   => 0,
 		);
 
 		$price_settings = $this->variation[ 'advanced_variation_price' ];
 
-		if ( isset( $price_settings[ 'type' ] ) && $price_settings[ 'type' ] === 'percentage' ) {
-			$settings[ 'type' ] = 'percentage';
+		if ( isset( $price_settings[ 'type' ] ) && $price_settings[ 'type' ] ) {
+			$settings[ 'type' ] = $price_settings[ 'type' ];
+		}
+
+		$allowed_types = apply_filters( 'hotelier_allowed_advanced_room_rate_price_types',
+			array(
+				'fixed',
+				'amount',
+				'percentage',
+			)
+		);
+
+		if ( ! in_array( $settings[ 'type' ], $allowed_types ) ) {
+			$settings[ 'type' ] = 'fixed';
 		}
 
 		if ( isset( $price_settings[ 'modifier' ] ) && $price_settings[ 'modifier' ] === 'increase' ) {
 			$settings[ 'modifier' ] = 'increase';
+		}
+
+		if ( $settings[ 'type' ] === 'fixed' && isset( $price_settings[ 'fixed_price' ] ) ) {
+			$settings[ 'fixed_price' ] = $price_settings[ 'fixed_price' ];
 		}
 
 		if ( $settings[ 'type' ] === 'amount' && isset( $price_settings[ 'modifier_amount_price' ] ) ) {
