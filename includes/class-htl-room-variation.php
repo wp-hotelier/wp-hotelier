@@ -671,6 +671,52 @@ class HTL_Room_Variation {
 
 		return $price;
 	}
+
+	/**
+	 * Get advanced restriction type.
+	 *
+	 * @return string
+	 */
+	public function get_advanced_restriction_type() {
+		$restriction_type = $this->variation[ 'variation_restrictions' ];
+
+		return apply_filters( 'hotelier_room_variation_advanced_restriction_type', $restriction_type, $this );
+	}
+
+	/**
+	 * Check if variation has restriction.
+	 *
+	 * @return bool
+	 */
+	public function has_advanced_restriction() {
+		$has_restriction = false;
+
+		if ( $this->get_advanced_restriction_type() && $this->get_advanced_restriction_type() !== 'none' ) {
+			$has_restriction = true;
+		}
+
+		return apply_filters( 'hotelier_room_variation_has_advanced_restriction', $has_restriction, $this );
+	}
+
+	/**
+	 * Get restriction value.
+	 *
+	 * @return int
+	 */
+	public function get_advanced_restriction_value() {
+		$restriction_value = 0;
+
+		if ( $this->has_advanced_restriction() ) {
+			$type = $this->get_advanced_restriction_type();
+			$key  = 'restriction_' . str_replace( '-', '_', $type );
+
+			if ( isset( $this->variation[ $key ] ) ) {
+				$restriction_value = $this->variation[ $key ];
+			}
+		}
+
+		return apply_filters( 'hotelier_room_variation_get_advanced_restriction_value', $restriction_value, $this );
+	}
 }
 
 endif;
