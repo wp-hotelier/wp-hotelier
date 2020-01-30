@@ -577,7 +577,7 @@ class HTL_Room_Variation {
 	 *
 	 * @return string array
 	 */
-	public function get_advanced_room_rate_price_settings() {
+	public function get_advanced_price_settings() {
 		$settings = array(
 			'type'                  => 'fixed',
 			'modifier'              => 'decrease',
@@ -621,6 +621,55 @@ class HTL_Room_Variation {
 		}
 
 		return $settings;
+	}
+
+	/**
+	 * Check if variation has a custom price.
+	 *
+	 * @return bool
+	 */
+	public function has_advanced_custom_price() {
+		$has_custom_price = false;
+
+		if ( $this->variation[ 'custom_price' ] ) {
+			$has_custom_price = true;
+		}
+
+		return $has_custom_price;
+	}
+
+	/**
+	 * Calculate variation price.
+	 *
+	 * @return int
+	 */
+	public function calculate_advanced_custom_price( $price, $nights ) {
+		if ( ! $this->has_advanced_custom_price() ) {
+			return $price;
+		}
+
+		$price_settings = $this->get_advanced_price_settings();
+
+		if ( $price_settings[ 'type' ] === 'fixed' ) {
+			$fixed_price = $price_settings[ 'fixed_price' ];
+			$price       = $nights * $fixed_price;
+		} else if ( $price_settings[ 'type' ] === 'amount' ) {
+			$modifier              = $price_settings[ 'modifier' ];
+			$modifier_amount_price = $price_settings[ 'modifier_amount_price' ];
+			$amount_to_sum         = $nights * $modifier_amount_price;
+
+			// sum or reduce the amount
+			$price = $modifier === 'increase' ? $price + $amount_to_sum : $price - $amount_to_sum;
+		} else {
+			$modifier          = $price_settings[ 'modifier' ];
+			$percentage        = $price_settings[ 'modifier_percentage' ];
+			$percentage_amount = ( $price * $percentage ) / 100;
+
+			// sum or reduce the percentage amount
+			$price = $modifier === 'increase' ? $price + $percentage_amount : $price - $percentage_amount;
+		}
+
+		return $price;
 	}
 }
 
