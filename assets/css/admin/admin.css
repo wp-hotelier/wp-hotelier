@@ -3069,6 +3069,9 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
         -ms-flex: 1;
             flex: 1;
   }
+  .hotelier-settings-panel {
+    height: 100%;
+  }
   .htl-ui-layout__column--left {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 250px;
