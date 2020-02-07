@@ -346,15 +346,22 @@ class HTL_Room_Variation {
 	 *
 	 * @return mixed int price or false if there are none
 	 */
-	public function get_price( $checkin, $checkout = false ) {
+	public function get_price( $checkin, $checkout = false, $use_this = false ) {
 		$checkout = $checkout ? $checkout : $checkin;
 
-		if ( $this->has_seasonal_price() ) {
-			$price = $this->get_seasonal_price( $checkin, $checkout );
-		} else if ( $this->is_on_sale( $checkin, $checkout ) ) {
-			$price = $this->get_sale_price( $checkin, $checkout );
+		if ( class_exists( 'HTL_APS_Room_Variation' ) && ! $use_this ) {
+			$variation = new HTL_APS_Room_Variation( $this );
+			$price     = $variation->get_price( $checkin, $checkout );
+
 		} else {
-			$price = $this->get_regular_price( $checkin, $checkout );
+
+			if ( $this->has_seasonal_price() ) {
+				$price = $this->get_seasonal_price( $checkin, $checkout );
+			} else if ( $this->is_on_sale( $checkin, $checkout ) ) {
+				$price = $this->get_sale_price( $checkin, $checkout );
+			} else {
+				$price = $this->get_regular_price( $checkin, $checkout );
+			}
 		}
 
 		return apply_filters( 'hotelier_variation_get_price', $price, $checkin, $checkout, $this );
@@ -365,32 +372,41 @@ class HTL_Room_Variation {
 	 *
 	 * @return string
 	 */
-	public function get_price_html( $checkin, $checkout ) {
-		if ( $get_price = $this->get_price( $checkin, $checkout ) ) {
+	public function get_price_html( $checkin, $checkout, $use_this = false ) {
+		if ( class_exists( 'HTL_APS_Room_Variation' ) && ! $use_this ) {
 
-			if ( $this->is_on_sale( $checkin, $checkout ) ) {
+			$variation = new HTL_APS_Room_Variation( $this );
 
-				$from  = $this->get_regular_price( $checkin, $checkout ) / 100; // (prices are stored as integers)
-				$to    = $this->get_sale_price( $checkin, $checkout ) / 100; // (prices are stored as integers)
-				$price = sprintf( _x( 'Price: %s', 'price', 'wp-hotelier' ), $this->get_price_html_from_to( $from, $to ) );
-
-				$price = apply_filters( 'hotelier_sale_price_html', $price, $this );
-
-			} else {
-
-				$price = htl_price( $get_price / 100 ); // (prices are stored as integers)
-				$price = sprintf( _x( 'Price: %s', 'price', 'wp-hotelier' ), $price );
-				$price = apply_filters( 'hotelier_get_price_html', $price, $this );
-
-			}
+			return $variation->get_price_html( $checkin, $checkout );
 
 		} else {
 
-			$price = apply_filters( 'hotelier_empty_price_html', '', $this );
+			if ( $get_price = $this->get_price( $checkin, $checkout ) ) {
 
+				if ( $this->is_on_sale( $checkin, $checkout ) ) {
+
+					$from  = $this->get_regular_price( $checkin, $checkout ) / 100; // (prices are stored as integers)
+					$to    = $this->get_sale_price( $checkin, $checkout ) / 100; // (prices are stored as integers)
+					$price = sprintf( _x( 'Price: %s', 'price', 'wp-hotelier' ), $this->get_price_html_from_to( $from, $to ) );
+
+					$price = apply_filters( 'hotelier_sale_price_html', $price, $this );
+
+				} else {
+
+					$price = htl_price( $get_price / 100 ); // (prices are stored as integers)
+					$price = sprintf( _x( 'Price: %s', 'price', 'wp-hotelier' ), $price );
+					$price = apply_filters( 'hotelier_get_price_html', $price, $this );
+
+				}
+
+			} else {
+
+				$price = apply_filters( 'hotelier_empty_price_html', '', $this );
+
+			}
+
+			return $price;
 		}
-
-		return $price;
 	}
 
 	/**
@@ -411,72 +427,79 @@ class HTL_Room_Variation {
 	 *
 	 * @return string
 	 */
-	public function get_min_price_html() {
-		$min_price = 0;
+	public function get_min_price_html( $use_this = false ) {
+		if ( class_exists( 'HTL_APS_Room_Variation' ) && ! $use_this ) {
+			$variation = new HTL_APS_Room_Variation( $this );
 
-		if ( $this->has_seasonal_price() ) {
-			$prices = array();
-
-			// seasonal price schema
-			$rules = htl_get_seasonal_prices_schema();
-
-			if ( is_array( $rules ) ) {
-				// get variation seasonal prices
-				$seasonal_prices = $this->variation[ 'seasonal_price' ];
-
-				// check only the rules stored in the schema
-				// we don't allow 'orphan' rules
-				foreach ( $rules as $key => $value ) {
-
-					// check if this rule has a price
-					if ( isset( $this->variation[ 'seasonal_price' ][ $key ] ) && $this->variation[ 'seasonal_price' ][ $key ] > 0 ) {
-						$prices[] = $this->variation[ 'seasonal_price' ][ $key ];
-					}
-				}
-
-				// get also the default price
-				$prices[] = $this->variation[ 'seasonal_base_price' ];
-			}
-
-			$min_price = min( $prices ) / 100; // (prices are stored as integers)
-
-			if ( $min_price > 0 ) {
-				$min_price = sprintf( __( 'Rates from %s per night', 'wp-hotelier' ), htl_price( $min_price ) );
-			}
-
-		} else if  ( $this->is_price_per_day() ) {
-			if ( $this->variation[ 'sale_price_day' ] ) {
-				$min_price = min( $this->variation[ 'sale_price_day' ] ) / 100; // (prices are stored as integers)
-
-			} elseif ( $this->variation[ 'price_day' ] ) {
-				$min_price = min( $this->variation[ 'price_day' ] ) / 100; // (prices are stored as integers)
-			}
-
-			if ( $min_price > 0 ) {
-				$min_price = sprintf( __( 'Rates from %s per night', 'wp-hotelier' ), htl_price( $min_price ) );
-			}
-
+			return $variation->get_min_price_html();
 		} else {
 
-			if ( $this->variation[ 'sale_price' ] ) {
-				$min_price = $this->variation[ 'sale_price' ] / 100; // (prices are stored as integers)
+			$min_price = 0;
 
-			} elseif ( $this->variation[ 'regular_price' ] ) {
-				$min_price = $this->variation[ 'regular_price' ] / 100; // (prices are stored as integers)
+			if ( $this->has_seasonal_price() ) {
+				$prices = array();
+
+				// seasonal price schema
+				$rules = htl_get_seasonal_prices_schema();
+
+				if ( is_array( $rules ) ) {
+					// get variation seasonal prices
+					$seasonal_prices = $this->variation[ 'seasonal_price' ];
+
+					// check only the rules stored in the schema
+					// we don't allow 'orphan' rules
+					foreach ( $rules as $key => $value ) {
+
+						// check if this rule has a price
+						if ( isset( $this->variation[ 'seasonal_price' ][ $key ] ) && $this->variation[ 'seasonal_price' ][ $key ] > 0 ) {
+							$prices[] = $this->variation[ 'seasonal_price' ][ $key ];
+						}
+					}
+
+					// get also the default price
+					$prices[] = $this->variation[ 'seasonal_base_price' ];
+				}
+
+				$min_price = min( $prices ) / 100; // (prices are stored as integers)
+
+				if ( $min_price > 0 ) {
+					$min_price = sprintf( __( 'Rates from %s per night', 'wp-hotelier' ), htl_price( $min_price ) );
+				}
+
+			} else if  ( $this->is_price_per_day() ) {
+				if ( $this->variation[ 'sale_price_day' ] ) {
+					$min_price = min( $this->variation[ 'sale_price_day' ] ) / 100; // (prices are stored as integers)
+
+				} elseif ( $this->variation[ 'price_day' ] ) {
+					$min_price = min( $this->variation[ 'price_day' ] ) / 100; // (prices are stored as integers)
+				}
+
+				if ( $min_price > 0 ) {
+					$min_price = sprintf( __( 'Rates from %s per night', 'wp-hotelier' ), htl_price( $min_price ) );
+				}
+
+			} else {
+
+				if ( $this->variation[ 'sale_price' ] ) {
+					$min_price = $this->variation[ 'sale_price' ] / 100; // (prices are stored as integers)
+
+				} elseif ( $this->variation[ 'regular_price' ] ) {
+					$min_price = $this->variation[ 'regular_price' ] / 100; // (prices are stored as integers)
+				}
+
+				if ( $min_price > 0 ) {
+					$min_price = sprintf( __( '%s per night', 'wp-hotelier' ), htl_price( $min_price ) );
+				}
 			}
 
-			if ( $min_price > 0 ) {
-				$min_price = sprintf( __( '%s per night', 'wp-hotelier' ), htl_price( $min_price ) );
+			if ( $min_price === 0 ) {
+				$min_price = apply_filters( 'hotelier_empty_price_html', '', $this );
 			}
+
+			$min_price = apply_filters( 'hotelier_variation_min_price_html', $min_price, $this );
+
+			return $min_price;
 		}
-
-		if ( $min_price === 0 ) {
-			$min_price = apply_filters( 'hotelier_empty_price_html', '', $this );
-		}
-
-		$min_price = apply_filters( 'hotelier_variation_min_price_html', $min_price, $this );
-
-		return $min_price;
 	}
 
 	/**
