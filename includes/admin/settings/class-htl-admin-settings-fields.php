@@ -729,8 +729,9 @@ class HTL_Admin_Settings_Fields {
 
 				if ( $years_diff > 0 ) {
 					$rules[ $key ] = array(
-						'from' => $rule[ 'from' ],
-						'to'   => $rule[ 'to' ],
+						'from'  => $rule[ 'from' ],
+						'to'    => $rule[ 'to' ],
+						'index' => $rule[ 'index' ],
 					);
 				}
 			}
