@@ -781,7 +781,6 @@ class HTL_Room {
 				$price = apply_filters( 'hotelier_empty_price_html', '', $this );
 
 			}
-			var_dump('expression');
 
 			return $price;
 		}
