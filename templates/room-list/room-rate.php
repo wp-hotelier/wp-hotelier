@@ -28,6 +28,7 @@ global $room;
 			 * @hooked hotelier_template_loop_room_rate_conditions - 20
 			 * @hooked hotelier_template_loop_room_rate_deposit - 25
 			 * @hooked hotelier_template_loop_room_rate_min_max_info - 30
+			 * @hooked hotelier_template_loop_room_rate_fees - 40
 			 */
 			do_action( 'hotelier_room_list_item_rate_content', $variation );
 		?>

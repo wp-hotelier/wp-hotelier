@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Core
  * @package  Hotelier/Functions
- * @version  1.6.0
+ * @version  2.3.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -90,6 +90,7 @@ add_action( 'hotelier_room_list_item_price', 'hotelier_template_loop_room_price'
 add_action( 'hotelier_room_list_not_available_info', 'hotelier_template_loop_room_not_available_info', 10, 2 );
 add_action( 'hotelier_room_list_min_max_info', 'hotelier_template_loop_room_min_max_info', 10 );
 add_action( 'hotelier_room_list_item_before_add_to_cart', 'hotelier_template_loop_room_non_cancellable_info', 10 );
+add_action( 'hotelier_room_list_after_standard_content', 'hotelier_template_loop_room_fees', 10 );
 
 // Hide book button when booking_mode is set to 'no-booking'
 if ( htl_get_option( 'booking_mode' ) != 'no-booking' ) {
@@ -103,6 +104,7 @@ add_action( 'hotelier_room_list_item_rate_content', 'hotelier_template_loop_room
 add_action( 'hotelier_room_list_item_rate_content', 'hotelier_template_loop_room_rate_conditions', 20, 2 );
 add_action( 'hotelier_room_list_item_rate_content', 'hotelier_template_loop_room_rate_deposit', 25, 2 );
 add_action( 'hotelier_room_list_item_rate_content', 'hotelier_template_loop_room_rate_min_max_info', 30, 2 );
+add_action( 'hotelier_room_list_item_rate_content', 'hotelier_template_loop_room_rate_fees', 40, 2 );
 add_action( 'hotelier_room_list_item_rate_actions', 'hotelier_template_loop_room_rate_price', 10, 4 );
 add_action( 'hotelier_room_list_item_rate_actions', 'hotelier_template_loop_room_rate_non_cancellable_info', 12, 4 );
 

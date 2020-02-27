@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Core
  * @package  Hotelier/Functions
- * @version  1.7.0
+ * @version  2.3.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -1025,6 +1025,28 @@ if ( ! function_exists( 'hotelier_template_loop_room_reserve_button' ) ) {
 	 */
 	function hotelier_template_loop_room_reserve_button() {
 		htl_get_template( 'room-list/reserve-button.php' );
+	}
+
+}
+
+if ( ! function_exists( 'hotelier_template_loop_room_fees' ) ) {
+
+	/**
+	 * Show the room fees.
+	 */
+	function hotelier_template_loop_room_fees() {
+		htl_get_template( 'room-list/content/fees.php' );
+	}
+
+}
+
+if ( ! function_exists( 'hotelier_template_loop_room_rate_fees' ) ) {
+
+	/**
+	 * Show the room rate fees.
+	 */
+	function hotelier_template_loop_room_rate_fees( $variation ) {
+		htl_get_template( 'room-list/content/rate/rate-fees.php', array( 'variation' => $variation ) );
 	}
 
 }
