@@ -120,6 +120,19 @@ if ( $is_single ) {
 
 			<?php do_action( 'hotelier_room_list_after_content' ); ?>
 
+			<?php if ( ! $room->is_variable_room() ) : ?>
+
+				<?php
+					/**
+					 * hotelier_room_list_after_standard_content hook
+					 *
+					 * @hooked hotelier_template_loop_room_fees - 10
+					 */
+					do_action( 'hotelier_room_list_after_standard_content' );
+				?>
+
+			<?php endif; ?>
+
 		</div><!-- .room__content -->
 
 		<div class="room__actions">
