@@ -105,11 +105,12 @@ class HTL_Cart_Totals {
 	 * @param integer $room_id contains the id of the room to add to the cart
 	 * @param integer $quantity contains the quantity of the item to add
 	 * @param integer $rate_id
+	 * @param array $fees array of fees
 	 * @param bool $force checks only if checkout > checkin
 	 * @param array $exclude reservation IDs to exclude when checking the available rooms
 	 * @return string $cart_item_key
 	 */
-	public function add_to_cart( $room_id = 0, $quantity = 1, $rate_id = 0, $force = false, $exclude = array() ) {
+	public function add_to_cart( $room_id = 0, $quantity = 1, $rate_id = 0, $fees = false, $force = false, $exclude = array() ) {
 		// Wrap in try catch so plugins can throw an exception to prevent adding to cart
 		try {
 			$room_id  = absint( $room_id );
@@ -188,6 +189,9 @@ class HTL_Cart_Totals {
 				$is_cancellable = $_room->is_cancellable();
 			}
 
+			// Fees
+			$fees = $fees && is_array( $fees ) ? $fees : array();
+
 			// Generate an ID based on room ID and rate ID - this also avoid duplicates
 			$cart_item_key = htl_generate_item_key( $room_id, $rate_id );
 
@@ -201,6 +205,7 @@ class HTL_Cart_Totals {
 				'max_guests'     => $_room->get_max_guests(),
 				'deposit'        => $deposit,
 				'is_cancellable' => $is_cancellable,
+				'fees'           => $fees,
 			) );
 
 			// Set the quantity
@@ -247,6 +252,7 @@ class HTL_Cart_Totals {
 			} else {
 				// Price for standard room
 				$line_price   = $_room->get_price( $this->checkin, $this->checkout );
+				$line_price   = $this->calculate_fees( $line_price, $values[ 'fees' ], $_room );
 				$line_deposit = $_room->get_deposit();
 			}
 
@@ -299,6 +305,13 @@ class HTL_Cart_Totals {
 		$this->total = apply_filters( 'hotelier_calculated_total', $total, $this );
 
 		do_action( 'hotelier_after_calculate_totals' );
+	}
+
+	/**
+	 * Calculate fees.
+	 */
+	public function calculate_fees( $line_price, $fees, $room ) {
+		return $line_price;
 	}
 
 }

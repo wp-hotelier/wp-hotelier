@@ -284,13 +284,13 @@ class HTL_Cart {
 	 * @param integer $rate_id
 	 * @return string $cart_item_key
 	 */
-	public function add_to_cart( $room_id = 0, $quantity = 1, $rate_id = 0 ) {
+	public function add_to_cart( $room_id = 0, $quantity = 1, $rate_id = 0, $fees = false ) {
 		// Wrap in try catch so plugins can throw an exception to prevent adding to cart
 		try {
 			$room_id                      = absint( $room_id );
 			$quantity                     = absint( $quantity );
 			$rate_id                      = absint( $rate_id );
-			$cart_item_key                = $this->cart_totals->add_to_cart( $room_id, $quantity, $rate_id );
+			$cart_item_key                = $this->cart_totals->add_to_cart( $room_id, $quantity, $rate_id, $fees );
 			$this->cart_contents          = $this->cart_totals->cart_contents;
 			$this->cart_contents_quantity = $this->cart_totals->cart_contents_quantity;
 

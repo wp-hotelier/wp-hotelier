@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  1.7.0
+ * @version  2.3.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -148,12 +148,20 @@ class HTL_Form_Functions {
 							// And the room_id and rate_id are passed
 							if ( isset( $_POST[ 'add_to_cart_room' ][ $key ] ) && isset( $_POST[ 'rate_id' ][ $key ] ) ) {
 
-								// Add room to the $items array
-								$items[] = array(
+								// Item data
+								$item_to_add = array(
 									'room_id'  => absint( $_POST[ 'add_to_cart_room' ][ $key ] ),
 									'rate_id'  => absint( $_POST[ 'rate_id' ][ $key ] ),
 									'quantity' => absint( $_POST[ 'quantity' ][ $key ] ),
+									'fees'     => array(),
 								);
+
+								if ( isset( $_POST[ 'fees' ][ $key ] ) ) {
+									$item_to_add[ 'fees' ] = $_POST[ 'fees' ][ $key ];
+								}
+
+								// Add room to the $items array
+								$items[] = $item_to_add;
 							}
 						}
 					}
@@ -169,9 +177,10 @@ class HTL_Form_Functions {
 					$room_id           = absint( $item[ 'room_id' ] );
 					$quantity          = absint( $item[ 'quantity' ] );
 					$rate_id           = absint( $item[ 'rate_id' ] );
+					$fees              = $item[ 'fees' ];
 
 					$was_added_to_cart = false;
-					$was_added_to_cart = self::add_to_cart_from_room_list_handler( $room_id, $quantity, $rate_id );
+					$was_added_to_cart = self::add_to_cart_from_room_list_handler( $room_id, $quantity, $rate_id, $fees );
 
 					if ( ! $was_added_to_cart ) {
 						throw new Exception( esc_html__( 'We were unable to process your reservation, please try again.', 'wp-hotelier' ) );
@@ -257,10 +266,10 @@ class HTL_Form_Functions {
 	 * @param int $rate_id
 	 * @return bool success or not
 	 */
-	private static function add_to_cart_from_room_list_handler( $room_id, $quantity, $rate_id ) {
+	private static function add_to_cart_from_room_list_handler( $room_id, $quantity, $rate_id, $fees ) {
 		$passed_validation = apply_filters( 'hotelier_add_to_cart_validation', true, $room_id, $quantity, $rate_id );
 
-		if ( $passed_validation && HTL()->cart->add_to_cart( $room_id, $quantity, $rate_id ) !== false ) {
+		if ( $passed_validation && HTL()->cart->add_to_cart( $room_id, $quantity, $rate_id, $fees ) !== false ) {
 			return true;
 		}
 		return false;
