@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Core
  * @package  Hotelier/Functions
- * @version  1.7.0
+ * @version  2.3.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -149,4 +149,13 @@ function htl_cart_price_breakdown( $checkin, $checkout, $room_id, $rate_id, $qty
 	$html .= '</tbody></table>';
 
 	echo apply_filters( 'hotelier_room_price_breakdown_table', $html, $checkin, $checkout, $room_id, $rate_id );
+}
+
+/**
+ * Calculate value of a fee.
+ */
+function htl_calculate_fee( $key, $value, $line_price, $checkin, $checkout, $room, $rate_id = 0) {
+	$fee_to_add = apply_filters( 'hotelier_fee_to_add', 0, $key, $value, $line_price, $checkin, $checkout, $room, $rate_id );
+
+	return $fee_to_add;
 }
