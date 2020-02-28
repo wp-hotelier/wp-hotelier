@@ -246,6 +246,7 @@ class HTL_Cart_Totals {
 			if ( $rate_id ) {
 				$_variation   = $_room->get_room_variation( $rate_id );
 				$line_price   = $_variation->get_price( $this->checkin, $this->checkout );
+				$line_price   = $this->calculate_fees( $line_price, $values[ 'fees' ], $_room );
 				$line_deposit = $_variation->get_deposit();
 				$room_type    = 'variation';
 
