@@ -310,10 +310,14 @@ class HTL_Cart_Totals {
 	/**
 	 * Calculate fees.
 	 */
-	public function calculate_fees( $line_price, $fees, $room ) {
+	public function calculate_fees( $line_price, $fees, $room, $rate_id = 0 ) {
+		foreach ( $fees as $key => $value ) {
+			$fee_to_add = htl_calculate_fee( $key, $value, $line_price, $this->checkin, $this->checkout, $room, $rate_id );
+			$line_price += $fee_to_add;
+		}
+
 		return $line_price;
 	}
-
 }
 
 endif;
