@@ -418,11 +418,11 @@ function htl_get_room_price_breakdown( $checkin, $checkout, $room_id, $rate_id, 
 
 			if ( $_variation->is_price_per_day() ) {
 				foreach( $daterange as $date ) {
-					$breakdown[ $date->format( 'Y-m-d' ) ] = $_variation->variation[ 'sale_price_day' ][ $date->format( 'w' ) ] * $qty;
+					$breakdown[ $date->format( 'Y-m-d' ) ] = absint( $_variation->variation[ 'sale_price_day' ][ $date->format( 'w' ) ] ) * $qty;
 				}
 			} else {
 				foreach( $daterange as $date ) {
-					$breakdown[ $date->format( 'Y-m-d' ) ] = $_variation->variation[ 'sale_price' ] * $qty;
+					$breakdown[ $date->format( 'Y-m-d' ) ] = absint( $_variation->variation[ 'sale_price' ] ) * $qty;
 				}
 			}
 
@@ -451,7 +451,7 @@ function htl_get_room_price_breakdown( $checkin, $checkout, $room_id, $rate_id, 
 
 								if ( isset( $_variation->variation[ 'seasonal_price' ][ $rule[ 'index' ] ] ) && $_variation->variation[ 'seasonal_price' ][ $rule[ 'index' ] ] > 0 ) {
 									// Rule found, use seasonal price
-									$breakdown[ $date->format( 'Y-m-d' ) ] = $_variation->variation[ 'seasonal_price' ][ $rule[ 'index' ] ] * $qty;
+									$breakdown[ $date->format( 'Y-m-d' ) ] = absint( $_variation->variation[ 'seasonal_price' ][ $rule[ 'index' ] ] ) * $qty;
 									$has_seasonal_price = true;
 								}
 
@@ -461,17 +461,17 @@ function htl_get_room_price_breakdown( $checkin, $checkout, $room_id, $rate_id, 
 
 						if ( ! $has_seasonal_price ) {
 							// Rule not found, use default price
-							$breakdown[ $date->format( 'Y-m-d' ) ] = $_variation->variation[ 'seasonal_base_price' ] * $qty;
+							$breakdown[ $date->format( 'Y-m-d' ) ] = absint( $_variation->variation[ 'seasonal_base_price' ] ) * $qty;
 						}
 					}
 				}
 			} else if ( $_variation->is_price_per_day() ) {
 				foreach( $daterange as $date ) {
-					$breakdown[ $date->format( 'Y-m-d' ) ] = $_variation->variation[ 'price_day' ][ $date->format( 'w' ) ] * $qty;
+					$breakdown[ $date->format( 'Y-m-d' ) ] = absint( $_variation->variation[ 'price_day' ][ $date->format( 'w' ) ] ) * $qty;
 				}
 			} else {
 				foreach( $daterange as $date ) {
-					$breakdown[ $date->format( 'Y-m-d' ) ] = $_variation->variation[ 'regular_price' ] * $qty;
+					$breakdown[ $date->format( 'Y-m-d' ) ] = absint( $_variation->variation[ 'regular_price' ] ) * $qty;
 				}
 			}
 		}
@@ -482,11 +482,11 @@ function htl_get_room_price_breakdown( $checkin, $checkout, $room_id, $rate_id, 
 
 			if ( $_room->is_price_per_day() ) {
 				foreach( $daterange as $date ) {
-					$breakdown[ $date->format( 'Y-m-d' ) ] = $_room->sale_price_day[ $date->format( 'w' ) ] * $qty;
+					$breakdown[ $date->format( 'Y-m-d' ) ] = absint( $_room->sale_price_day[ $date->format( 'w' ) ] ) * $qty;
 				}
 			} else {
 				foreach( $daterange as $date ) {
-					$breakdown[ $date->format( 'Y-m-d' ) ] = $_room->sale_price * $qty;
+					$breakdown[ $date->format( 'Y-m-d' ) ] = absint( $_room->sale_price ) * $qty;
 				}
 			}
 
@@ -515,7 +515,7 @@ function htl_get_room_price_breakdown( $checkin, $checkout, $room_id, $rate_id, 
 
 								if ( isset( $_room->seasonal_price[ $rule[ 'index' ] ] ) && $_room->seasonal_price[ $rule[ 'index' ] ] > 0 ) {
 									// Rule found, use seasonal price
-									$breakdown[ $date->format( 'Y-m-d' ) ] = $_room->seasonal_price[ $rule[ 'index' ] ] * $qty;
+									$breakdown[ $date->format( 'Y-m-d' ) ] = absint( $_room->seasonal_price[ $rule[ 'index' ] ] ) * $qty;
 									$has_seasonal_price = true;
 								}
 
@@ -525,17 +525,17 @@ function htl_get_room_price_breakdown( $checkin, $checkout, $room_id, $rate_id, 
 
 						if ( ! $has_seasonal_price ) {
 							// Rule not found, use default price
-							$breakdown[ $date->format( 'Y-m-d' ) ] = $_room->seasonal_base_price * $qty;
+							$breakdown[ $date->format( 'Y-m-d' ) ] = absint( $_room->seasonal_base_price ) * $qty;
 						}
 					}
 				}
 			} else if ( $_room->is_price_per_day() ) {
 				foreach( $daterange as $date ) {
-					$breakdown[ $date->format( 'Y-m-d' ) ] = $_room->regular_price_day[ $date->format( 'w' ) ] * $qty;
+					$breakdown[ $date->format( 'Y-m-d' ) ] = absint( $_room->regular_price_day[ $date->format( 'w' ) ] ) * $qty;
 				}
 			} else {
 				foreach( $daterange as $date ) {
-					$breakdown[ $date->format( 'Y-m-d' ) ] = $_room->regular_price * $qty;
+					$breakdown[ $date->format( 'Y-m-d' ) ] = absint( $_room->regular_price ) * $qty;
 				}
 			}
 		}
