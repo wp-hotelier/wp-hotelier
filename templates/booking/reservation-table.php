@@ -71,6 +71,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<td class="reservation-table__room-cost reservation-table__room-cost--body">
 								<?php echo HTL()->cart->get_room_price( $cart_item[ 'total' ] ); ?>
 
+								<?php do_action( 'hotelier_reservation_table_after_price', $_room, $item_key, $cart_item ); ?>
+
 								<?php if ( $nights > 1 && apply_filters( 'hotelier_show_price_breakdown', true, HTL()->session->get( 'checkin' ), HTL()->session->get( 'checkout' ), $cart_item[ 'room_id' ], $cart_item[ 'rate_id' ], $cart_item[ 'quantity' ] ) ) : ?>
 								<a class="view-price-breakdown" href="#<?php echo esc_attr( $item_key ); ?>" data-closed="<?php esc_html_e( 'View price breakdown', 'wp-hotelier' ); ?>" data-open="<?php esc_html_e( 'Hide price breakdown', 'wp-hotelier' ); ?>"><?php esc_html_e( 'View price breakdown', 'wp-hotelier' ); ?></a>
 								<?php endif; ?>
