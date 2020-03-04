@@ -553,6 +553,7 @@ class HTL_Reservation {
 			'is_cancellable'  => true,
 			'adults'          => false,
 			'children'        => false,
+			'fees'            => array(),
 		);
 
 		$args    = wp_parse_args( $args, $default_args );
@@ -584,6 +585,9 @@ class HTL_Reservation {
 
 		$children = $args[ 'children' ] && is_array( $args[ 'children' ] ) ? array_map( 'absint', $args[ 'children' ] ) : false;
 		htl_add_reservation_item_meta( $item_id, '_children', $children );
+
+		$fees = $args[ 'fees' ] && is_array( $args[ 'fees' ] ) ? $args[ 'fees' ] : false;
+		htl_add_reservation_item_meta( $item_id, '_fees', $fees );
 
 		do_action( 'hotelier_reservation_add_item', $this->id, $item_id, $room, $qty, $args );
 

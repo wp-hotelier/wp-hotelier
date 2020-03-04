@@ -234,6 +234,9 @@ class HTL_Booking {
 					}
 				}
 
+				// Fees
+				$values[ 'fees' ] = isset( $values[ 'fees' ] ) && is_array( $values[ 'fees' ] ) ? $values[ 'fees' ] : array();
+
 				$item_id = $reservation->add_item(
 					$values[ 'data' ],
 					$values[ 'quantity' ],
@@ -248,6 +251,7 @@ class HTL_Booking {
 						'is_cancellable'  => $values[ 'is_cancellable' ],
 						'adults'          => $adults,
 						'children'        => $children,
+						'fees'            => $values[ 'fees' ],
 					)
 				);
 
