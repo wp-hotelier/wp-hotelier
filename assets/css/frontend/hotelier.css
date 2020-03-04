@@ -811,6 +811,13 @@ WIDGETS
   font-style: italic;
 }
 
+.reservation-table__extra-guests-fee {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.71429;
+  display: block;
+}
+
 /*--------------------------------------------------------------
 >>> WIDGET: SEARCH
 ----------------------------------------------------------------

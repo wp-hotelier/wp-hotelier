@@ -66,3 +66,8 @@
 .reservation-non-cancellable-disclaimer__text {
 	font-style: italic;
 }
+
+.reservation-table__extra-guests-fee {
+	@include font-size(14px);
+	display: block;
+}
