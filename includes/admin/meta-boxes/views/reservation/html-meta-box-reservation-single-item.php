@@ -79,6 +79,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php endfor; ?>
 		<?php endif; ?>
 
+		<?php do_action( 'hotelier_reservation_item_after_name', $_room, $item ); ?>
+
 	</td>
 
 	<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--reservation-items-room-guests">
