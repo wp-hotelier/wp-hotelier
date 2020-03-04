@@ -41,5 +41,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 	</td>
 	<td class="reservation-table__room-qty reservation-table__room-qty--body"><?php echo esc_html( $item[ 'qty' ] ); ?></td>
-	<td class="reservation-table__room-cost reservation-table__room-cost--body"><?php echo $reservation->get_formatted_line_total( $item ); ?></td>
+	<td class="reservation-table__room-cost reservation-table__room-cost--body">
+		<?php echo $reservation->get_formatted_line_total( $item ); ?>
+		<?php do_action( 'hotelier_reservation_item_after_price', $room, $item ); ?>
+	</td>
 </tr>
