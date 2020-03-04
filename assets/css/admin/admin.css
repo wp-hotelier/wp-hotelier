@@ -2250,6 +2250,11 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   font-weight: 500;
 }
 
+.htl-ui-table--reservation-items .reservation-item__extra-guests-fee {
+  color: #818181;
+  display: block;
+}
+
 .htl-ui-table__cell--reservation-items-room-total .amount {
   font-weight: 500;
 }
