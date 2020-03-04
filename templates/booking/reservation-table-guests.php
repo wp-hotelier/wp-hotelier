@@ -13,9 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! htl_get_option( 'booking_number_of_guests_selection', true ) ) {
-	return;
-}
 ?>
 
 <?php for ( $q = 0; $q < $quantity; $q++ ) : ?>
