@@ -713,6 +713,30 @@ WIDGETS
   margin-bottom: 24px;
 }
 
+.room__fees {
+  margin-bottom: 24px;
+}
+
+.room__rate .room__fees {
+  margin-bottom: 0;
+}
+
+.room-fee + .room-fee {
+  margin-top: 6px;
+}
+
+.room-fee__title {
+  display: block;
+}
+
+.room-fee__label {
+  display: block;
+}
+
+.room-fee__label input {
+  margin-right: 6px;
+}
+
 /*--------------------------------------------------------------
 >>> PAGE: BOOKING
 ----------------------------------------------------------------
