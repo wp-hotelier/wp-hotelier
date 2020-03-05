@@ -31,7 +31,7 @@ jQuery(function ($) {
 			var clone = row.clone();
 
 			clone.attr('data-key', key);
-			clone.find('input').val(1);
+			clone.find('input').not('.htl-ui-input--fixed-value').val(1);
 			clone.find('input, select').each(function () {
 				var input = $(this);
 				var name = input.attr('name');
