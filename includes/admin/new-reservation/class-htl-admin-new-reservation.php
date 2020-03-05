@@ -85,7 +85,19 @@ class HTL_Admin_New_Reservation {
 
 						foreach ( $_POST[ $key ] as $index => $room_value ) {
 							$room_id_index = explode( '-', $room_value );
-							self::$rooms[] = array( 'room_id' => $room_id_index[ 0 ], 'rate_id' => $room_id_index[ 1 ], 'qty' => absint( $_POST[ 'room_qty' ][ $index ] ) );
+
+							$item_to_add = array(
+								'room_id' => $room_id_index[ 0 ],
+								'rate_id' => $room_id_index[ 1 ],
+								'qty'     => absint( $_POST[ 'room_qty' ][ $index ] ),
+								'fees'    => array(),
+							);
+
+							if ( isset( $_POST[ 'fees' ][ $index ] ) && isset( $_POST[ 'fees' ][ $index ][ $room_id_index[ 0 ] ] ) ) {
+								$item_to_add[ 'fees' ] = $_POST[ 'fees' ][ $index ][ $room_id_index[ 0 ] ];
+							}
+
+							self::$rooms[] = $item_to_add;
 						}
 
 					} elseif ( $key == 'from' ) {
@@ -115,7 +127,7 @@ class HTL_Admin_New_Reservation {
 
 				// Add rooms to the reservation
 				foreach ( self::$rooms as $room ) {
-					$added_to_cart = $cart_totals->add_to_cart( $room[ 'room_id' ], $room[ 'qty' ], $room[ 'rate_id' ] );
+					$added_to_cart = $cart_totals->add_to_cart( $room[ 'room_id' ], $room[ 'qty' ], $room[ 'rate_id' ], $room[ 'fees' ] );
 
 					if ( is_array( $added_to_cart ) && isset( $added_to_cart[ 'error' ] ) ) {
 						$error = $added_to_cart[ 'message' ] ? esc_html( $added_to_cart[ 'message' ] ) : esc_html__( 'Sorry, this room is not available.', 'wp-hotelier' );
