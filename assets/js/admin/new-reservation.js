@@ -53,6 +53,8 @@ jQuery(function ($) {
 				var clone = HTL_New_Reservation.clone_room_row(row);
 
 				clone.insertAfter(row);
+
+				$(window).trigger('htl_window_add_manual_reservation_after_add_room');
 			});
 		},
 
