@@ -150,12 +150,3 @@ function htl_cart_price_breakdown( $checkin, $checkout, $room_id, $rate_id, $qty
 
 	echo apply_filters( 'hotelier_room_price_breakdown_table', $html, $checkin, $checkout, $room_id, $rate_id );
 }
-
-/**
- * Calculate value of a fee.
- */
-function htl_calculate_fee( $key, $value, $line_price, $checkin, $checkout, $room, $rate_id = 0) {
-	$fee_to_add = apply_filters( 'hotelier_fee_to_add', 0, $key, $value, $line_price, $checkin, $checkout, $room, $rate_id );
-
-	return $fee_to_add;
-}

@@ -623,3 +623,12 @@ function htl_get_room_rate_id_from_rate_name( $room, $rate_name ) {
 
 	return $rate_id;
 }
+
+/**
+ * Calculate value of a fee.
+ */
+function htl_calculate_fee( $key, $value, $line_price, $checkin, $checkout, $room, $rate_id = 0) {
+	$fee_to_add = apply_filters( 'hotelier_fee_to_add', 0, $key, $value, $line_price, $checkin, $checkout, $room, $rate_id );
+
+	return $fee_to_add;
+}
