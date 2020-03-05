@@ -63,7 +63,7 @@ foreach ( $items as $item_id => $item ) :
 	}
 
 	// Allow other plugins to add additional room information here
-	do_action( 'hotelier_email_reservation_item_meta', $item_id, $item, $reservation );
+	do_action( 'hotelier_email_reservation_item_meta', $item_id, $item, $reservation, true );
 
 	echo "\n\n";
 
