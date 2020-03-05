@@ -60,7 +60,7 @@ foreach ( $items as $item_id => $item ) : ?>
 			}
 
 			// Allow other plugins to add additional room information here
-			do_action( 'hotelier_reservation_item_meta', $item_id, $item, $reservation );
+			do_action( 'hotelier_email_reservation_item_meta', $item_id, $item, $reservation );
 			?>
 		</td>
 		<td style="text-align:left;font-size:14px;line-height:20px;color:#999999;padding-top:10px;padding-bottom:10px;padding-left:0;padding-right:0;font-family:Helvetica,Arial;"><?php echo esc_html( $item[ 'qty' ] ); ?></td>
