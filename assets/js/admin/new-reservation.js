@@ -37,7 +37,7 @@ jQuery(function ($) {
 				var name = input.attr('name');
 
 				if (name) {
-					name = name.replace(/\[(\d+)\](?!.*\[\d+\])/, '[' + parseInt(key, 10) + ']');
+					name = name.replace(/\[(\d+)\]/, '[' + parseInt(key, 10) + ']');
 					input.attr('name', name);
 				}
 			});
