@@ -75,6 +75,7 @@ $tomorrow = $tomorrow->format( 'Y-m-d' );
 											<tr class="htl-ui-table__row htl-ui-table__row--body htl-ui-table__row--sortable" data-key="1">
 												<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--room-select">
 													<?php echo htl_get_list_of_rooms_html( 'room[1]' ); ?>
+													<?php do_action( 'hotelier_admin_add_new_reservation_after_rooms_select' ); ?>
 												</td>
 												<td class="htl-ui-table__cell htl-ui-table__cell--body">
 													<input class="htl-ui-input htl-ui-input--small htl-ui-input--number" type="number" name="room_qty[1]" value="1">
