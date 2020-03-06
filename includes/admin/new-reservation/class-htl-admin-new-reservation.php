@@ -136,6 +136,8 @@ class HTL_Admin_New_Reservation {
 					}
 				}
 
+				do_action( 'hotelier_save_manual_reservation_before_calculate_totals' );
+
 				// Calculate totals
 				$cart_totals->calculate_totals();
 

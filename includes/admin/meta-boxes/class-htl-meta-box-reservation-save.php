@@ -324,6 +324,8 @@ class HTL_Meta_Box_Reservation_Save {
 					}
 				}
 
+				do_action( 'hotelier_change_reservation_dates_before_calculate_totals' );
+
 				// Calculate totals
 				$cart_totals->calculate_totals();
 
