@@ -222,6 +222,9 @@ class HTL_Admin_New_Reservation {
 				);
 				$deposit = apply_filters( 'hotelier_get_item_deposit_for_reservation', $deposit, $values );
 
+				// Fees
+				$values[ 'fees' ] = isset( $values[ 'fees' ] ) && is_array( $values[ 'fees' ] ) ? $values[ 'fees' ] : array();
+
 				$item_id = $reservation->add_item(
 					$values[ 'data' ],
 					$values[ 'quantity' ],
@@ -234,6 +237,7 @@ class HTL_Admin_New_Reservation {
 						'percent_deposit' => $deposit[ 'percent_deposit' ],
 						'deposit'         => $deposit[ 'deposit' ],
 						'is_cancellable'  => $values[ 'is_cancellable' ],
+						'fees'            => $values[ 'fees' ],
 					)
 				);
 
