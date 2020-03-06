@@ -244,20 +244,22 @@ class HTL_Cart_Totals {
 
 			// Price for variable room - We already know that if we pass a $rate_id is a variable room ( in $this->add_to_cart() )
 			if ( $rate_id ) {
-				$_variation   = $_room->get_room_variation( $rate_id );
-				$line_price   = $_variation->get_price( $this->checkin, $this->checkout );
-				$line_price   = $this->calculate_fees( $line_price, $values[ 'fees' ], $_room );
-				$line_deposit = $_variation->get_deposit();
-				$room_type    = 'variation';
+				$_variation              = $_room->get_room_variation( $rate_id );
+				$line_price              = $_variation->get_price( $this->checkin, $this->checkout );
+				$line_price_without_fees = $line_price;
+				$line_price              = $this->calculate_fees( $line_price, $values[ 'fees' ], $_room );
+				$line_deposit            = $_variation->get_deposit();
+				$room_type               = 'variation';
 
 			} else {
 				// Price for standard room
-				$line_price   = $_room->get_price( $this->checkin, $this->checkout );
-				$line_price   = $this->calculate_fees( $line_price, $values[ 'fees' ], $_room );
-				$line_deposit = $_room->get_deposit();
+				$line_price              = $_room->get_price( $this->checkin, $this->checkout );
+				$line_price_without_fees = $line_price;
+				$line_price              = $this->calculate_fees( $line_price, $values[ 'fees' ], $_room );
+				$line_deposit            = $_room->get_deposit();
 			}
 
-			if ( ! $line_price ) {
+			if ( ! $line_price_without_fees ) {
 				// Remove room from reservation if has not price and throw an error
 				unset( $this->cart_contents[ $cart_item_key ] );
 				throw new Exception( esc_html__( 'Sorry, this room cannot be reserved.', 'wp-hotelier' ) );
