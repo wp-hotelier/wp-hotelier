@@ -306,7 +306,16 @@ class HTL_Meta_Box_Reservation_Save {
 						}
 					}
 
-					$added_to_cart = $cart_totals->add_to_cart( $room->id, $quantity, $rate_id, true, array( $reservation->id ) );
+					// Fees
+					$fees = array();
+
+					if ( isset( $item[ 'fees' ] ) ) {
+						$fees = maybe_unserialize( $item[ 'fees' ] );
+					}
+
+					$fees = is_array( $fees ) ? $fees : array();
+
+					$added_to_cart = $cart_totals->add_to_cart( $room->id, $quantity, $rate_id, $fees, true, array( $reservation->id ) );
 
 					if ( is_array( $added_to_cart ) && isset( $added_to_cart[ 'error' ] ) ) {
 						$error = $added_to_cart[ 'message' ] ? esc_html( $added_to_cart[ 'message' ] ) : esc_html__( 'Sorry, this room is not available.', 'wp-hotelier' );
@@ -367,9 +376,9 @@ class HTL_Meta_Box_Reservation_Save {
 				$reservation->set_deposit( $cart_totals->required_deposit );
 				$reservation->update_table_reservation_dates( $checkin, $checkout );
 				$reservation->add_reservation_note( esc_html__( 'Reservation dates updated. Totals have been recalculated.', 'wp-hotelier' ) );
-								
+
 				do_action( 'hotelier_reservation_dates_changed' , $reservation->id, $checkin, $checkout );
-				
+
 				// Change reservation modified date
 				$reservation->update_last_modified();
 
