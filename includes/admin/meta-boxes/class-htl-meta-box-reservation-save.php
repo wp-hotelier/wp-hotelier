@@ -285,7 +285,7 @@ class HTL_Meta_Box_Reservation_Save {
 				foreach ( $line_items as $item_id => $item ) {
 					$room      = $reservation->get_room_from_item( $item );
 					$quantity  = absint( $item[ 'qty' ] );
-					$rate_name = $item[ 'rate_name' ];
+					$rate_name = isset( $item[ 'rate_name' ] ) ? $item[ 'rate_name' ] : false;
 					$rate_id   = isset( $item[ 'rate_id' ] ) ? $item[ 'rate_id' ] : 0;
 
 					if ( ! $room->exists() || ! $room || 'publish' !== $room->post->post_status ) {
