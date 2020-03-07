@@ -701,7 +701,7 @@ class HTL_Room_Variation {
 	 * @return string
 	 */
 	public function get_advanced_restriction_type() {
-		$restriction_type = $this->variation[ 'variation_restrictions' ];
+		$restriction_type = isset( $this->variation[ 'variation_restrictions' ] ) ? $this->variation[ 'variation_restrictions' ] : false;
 
 		return apply_filters( 'hotelier_room_variation_advanced_restriction_type', $restriction_type, $this );
 	}
