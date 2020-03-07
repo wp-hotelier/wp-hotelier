@@ -165,14 +165,18 @@ if ( $is_single ) {
 				foreach ( $varitations as $variation ) :
 					$variation = new HTL_Room_Variation( $variation, $room->id ); ?>
 
-					<?php
-						/**
-						 * hotelier_room_list_item_rate hook
-						 *
-						 * @hooked hotelier_template_loop_room_rate - 10
-						 */
-						do_action( 'hotelier_room_list_item_rate', $variation, $is_available, $checkin, $checkout );
-					?>
+					<?php if ( apply_filters( 'hotelier_room_list_show_item_rate', true, $variation, $checkin, $checkout ) ) : ?>
+
+						<?php
+							/**
+							 * hotelier_room_list_item_rate hook
+							 *
+							 * @hooked hotelier_template_loop_room_rate - 10
+							 */
+							do_action( 'hotelier_room_list_item_rate', $variation, $is_available, $checkin, $checkout );
+						?>
+
+					<?php endif; ?>
 
 				<?php endforeach; ?>
 
