@@ -337,7 +337,7 @@ class HTL_Room {
 			$is_available = true;
 		}
 
-		return apply_filters( 'hotelier_room_is_available', $is_available, $this->id, $checkin, $checkout );
+		return apply_filters( 'hotelier_room_is_available', $is_available, $this->id, $checkin, $checkout, $qty );
 	}
 
 	/**
