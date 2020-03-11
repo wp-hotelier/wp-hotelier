@@ -729,9 +729,10 @@ class HTL_Admin_Settings_Fields {
 
 				if ( $years_diff > 0 ) {
 					$rules[ $key ] = array(
-						'from'  => $rule[ 'from' ],
-						'to'    => $rule[ 'to' ],
-						'index' => $rule[ 'index' ],
+						'from'        => $rule[ 'from' ],
+						'to'          => $rule[ 'to' ],
+						'index'       => $rule[ 'index' ],
+						'season_name' => isset( $rule[ 'season_name' ] ) ? sanitize_text_field( $rule[ 'season_name' ] ) : '',
 					);
 				}
 			}

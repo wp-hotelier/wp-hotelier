@@ -41,6 +41,11 @@ $rules = htl_get_option( 'seasonal_prices_schema', array() );
 									<?php esc_html_e( 'Every year?', 'wp-hotelier' ); ?>
 									<input class="htl-ui-input htl-ui-input--checkbox" value="1" type="checkbox" name="hotelier_settings[seasonal_prices_schema][<?php echo HTL_Formatting_Helper::sanitize_key( $key ); ?>][every_year]" <?php echo checked( $every_year, 1, false ); ?>>
 								</label>
+
+								<label class="htl-ui-label htl-ui-label--season-name">
+									<?php esc_html_e( 'Season name', 'wp-hotelier' ); ?>
+									<input class="htl-ui-input htl-ui-input--text" value="<?php echo esc_attr( isset( $rule['season_name'] ) ? $rule['season_name'] : '' ); ?>" type="text" name="hotelier_settings[seasonal_prices_schema][<?php echo HTL_Formatting_Helper::sanitize_key( $key ); ?>][season_name]">
+								</label>
 							</div>
 
 							<input class="htl-ui-input htl-ui-input--hidden htl-ui-input--row_index" type="hidden" name="hotelier_settings[seasonal_prices_schema][<?php echo HTL_Formatting_Helper::sanitize_key( $key ); ?>][index]" value="<?php echo esc_attr( HTL_Formatting_Helper::sanitize_key( $key ) ); ?>">

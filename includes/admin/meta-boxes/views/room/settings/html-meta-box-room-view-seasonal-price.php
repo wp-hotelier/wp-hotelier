@@ -34,11 +34,13 @@ if ( is_array( $seasonal_prices_schema ) ) {
 	foreach ( $seasonal_prices_schema as $key => $rule ) {
 		$seasonal_price_current_value = isset( $schema_price_value[ $key ] ) ? $schema_price_value[ $key ] : '';
 		$every_year                   = isset( $seasonal_prices_schema[ $key ][ 'every_year' ] ) ? 1 : 0;
+		$after_label                  = isset( $rule[ 'season_name' ] ) && $rule[ 'season_name' ] ? '<strong class="htl-ui-setting__title-description__season-name">' . $rule[ 'season_name' ] . '</strong>' : '';
+		$after_label                  .= sprintf( __( 'From %s to %s', 'wp-hotelier' ), $rule[ 'from' ], $rule[ 'to' ] );
 
 		$input_args = array(
 			'id'          => $schema_price_input_name . '[' . esc_attr( $key ) . ']',
 			'label'       => esc_html__( 'Price of this range:', 'wp-hotelier' ),
-			'after_label' => sprintf( __( 'From %s to %s', 'wp-hotelier' ), esc_html( $rule[ 'from' ] ), esc_html( $rule[ 'to' ] ) ),
+			'after_label' => $after_label,
 			'description' => esc_html__( 'This is the price of one night on this date range.', 'wp-hotelier' ),
 			'value'       => $seasonal_price_current_value
 		);

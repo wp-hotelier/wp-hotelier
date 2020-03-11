@@ -155,6 +155,11 @@ table.hotelier-settings-table-form {
 		margin-right: $space;
 		font-weight: 500;
 		color: $color__text__default;
+
+		&--season-name {
+			display: block !important;
+			margin-top: $space;
+		}
 	}
 }
 

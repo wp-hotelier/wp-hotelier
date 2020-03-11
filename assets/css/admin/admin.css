@@ -291,6 +291,12 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   color: #818181;
 }
 
+.htl-ui-table__cell--disabled-dates-dates .htl-ui-label--season-name,
+.htl-ui-table__cell--seasonal-prices-dates .htl-ui-label--season-name {
+  display: block !important;
+  margin-top: 9px;
+}
+
 .htl-ui-table--disabled-dates .htl-ui-label.hidden,
 .htl-ui-table--seasonal-prices .htl-ui-label.hidden {
   display: none;
@@ -1873,6 +1879,10 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 .htl-ui-setting__title-description {
   color: #818181;
   font-style: italic;
+}
+
+.htl-ui-setting__title-description__season-name {
+  display: block;
 }
 
 .htl-ui-setting-conditional {
