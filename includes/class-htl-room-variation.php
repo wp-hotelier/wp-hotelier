@@ -654,7 +654,7 @@ class HTL_Room_Variation {
 	public function has_advanced_custom_price() {
 		$has_custom_price = false;
 
-		if ( $this->variation[ 'custom_price' ] ) {
+		if ( isset( $this->variation[ 'custom_price' ] ) && $this->variation[ 'custom_price' ] ) {
 			$has_custom_price = true;
 		}
 
