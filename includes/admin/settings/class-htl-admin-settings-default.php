@@ -420,6 +420,13 @@ class HTL_Admin_Settings_Default {
 						'type'    => 'checkbox',
 						'toggle'  => true,
 					),
+					'datepicker_move_both_months' => array(
+						'id'      => 'datepicker_move_both_months',
+						'name'    => esc_html__( 'Move both months in datepicker', 'wp-hotelier' ),
+						'subdesc' => __( 'Move both months when selecting a date in the datepicker.', 'wp-hotelier' ),
+						'type'    => 'checkbox',
+						'toggle'  => true,
+					),
 					'room_images' => array(
 						'id'    => 'room_images',
 						'name'  => '<strong>' . esc_html__( 'Room images', 'wp-hotelier' ) . '</strong>',

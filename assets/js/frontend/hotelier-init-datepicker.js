@@ -68,6 +68,7 @@ jQuery(function ($) {
 				disabledDates: datepicker_params.disabled_dates,
 				enableCheckout: datepicker_params.enable_checkout,
 				disabledDaysOfWeek: datepicker_params.disabled_days_of_week,
+				moveBothMonths: datepicker_params.move_both_months === '1',
 				autoClose: false,
 				i18n: datepicker_params.i18n,
 				getValue: function () {

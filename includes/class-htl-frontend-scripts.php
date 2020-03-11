@@ -121,6 +121,7 @@ class HTL_Frontend_Scripts {
 			'start_of_week'      => $start_of_week,
 			'start_date'         => $start_date,
 			'end_date'           => $end_date,
+			'move_both_months'   => htl_get_option( 'datepicker_move_both_months', false ),
 			'min_nights'         => apply_filters( 'hotelier_datepicker_min_nights', htl_get_option( 'booking_minimum_nights', 1 ) ),
 			'max_nights'         => apply_filters( 'hotelier_datepicker_max_nights', htl_get_option( 'booking_maximum_nights', 0 ) ),
 			'datepicker_format'  => apply_filters( 'hotelier_datepicker_format', 'D MMM YYYY' ),
