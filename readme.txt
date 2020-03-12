@@ -48,6 +48,7 @@ Three different pricing options are supported out of the box: global price, diff
 
 Something missing? No problem, you can extend WP Hotelier with a vast number of features and integrations (more to come). Visit our [extensions page](https://wphotelier.com/extensions/) to supercharge your hotel website.
 
+* [Advanced Pricing System](https://wphotelier.com/extensions/advanced-pricing-system/)
 * [Stripe Payment Gateway](https://wphotelier.com/extensions/stripe-payment-gateway/)
 * [Disable Dates](https://wphotelier.com/extensions/disable-dates/)
 * [iCalendar Importer/Exporter](https://wphotelier.com/extensions/icalendar-importer-exporter/)
@@ -107,6 +108,12 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 4. WP Hotelier - Admin calendar.
 
 == Changelog ==
+
+= 2.2.0 - 2020-03-13 =
+* Add - Add the possibility to name seasons.
+* Add - Add new option that moves both months in the datepicker.
+* Tweak - Several hooks for third party plugins.
+* Fix - Minor CSS fixes in admin.
 
 = 2.1.2 - 2020-01-27 =
 * Add - Allow extensions to know when reservation dates updated
