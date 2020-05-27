@@ -21,6 +21,8 @@ if ( $related_rooms && $related_rooms->have_posts() ) : ?>
 
 		<div class="hotelier room-loop room-loop--related-rooms room-loop--columns-<?php echo absint( $columns ); ?>">
 
+			<?php do_action( 'hotelier_before_related_room_loop', $columns ); ?>
+
 			<?php hotelier_room_loop_start(); ?>
 
 				<?php while ( $related_rooms->have_posts() ) : $related_rooms->the_post(); ?>
@@ -30,6 +32,8 @@ if ( $related_rooms && $related_rooms->have_posts() ) : ?>
 				<?php endwhile; // end of the loop. ?>
 
 			<?php hotelier_room_loop_end(); ?>
+
+			<?php do_action( 'hotelier_after_related_room_loop', $columns ); ?>
 
 		</div>
 
