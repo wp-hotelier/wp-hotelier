@@ -91,7 +91,7 @@ class HTL_Shortcodes {
 
 		if ( $rooms->have_posts() ) : ?>
 
-			<?php do_action( "hotelier_shortcode_before_{$loop_name}_loop" ); ?>
+			<?php do_action( "hotelier_shortcode_before_{$loop_name}_loop", $columns ); ?>
 
 			<?php hotelier_room_loop_start(); ?>
 
@@ -103,7 +103,7 @@ class HTL_Shortcodes {
 
 			<?php hotelier_room_loop_end(); ?>
 
-			<?php do_action( "hotelier_shortcode_after_{$loop_name}_loop" ); ?>
+			<?php do_action( "hotelier_shortcode_after_{$loop_name}_loop", $columns ); ?>
 
 		<?php endif;
 
