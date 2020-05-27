@@ -112,7 +112,9 @@ class HTL_Shortcodes {
 		hotelier_reset_loop();
 		wp_reset_postdata();
 
-		return '<div class="hotelier room-loop room-loop--shortcode-rooms room-loop--columns-' . $columns . '">' . ob_get_clean() . '</div>';
+		$custom_class = apply_filters( 'hotelier_shortcode_room_loop_wrapper_class', '', $columns );
+
+		return '<div class="hotelier room-loop room-loop--shortcode-rooms room-loop--columns-' . $columns . ' ' . esc_attr( $custom_class ) . '">' . ob_get_clean() . '</div>';
 	}
 
 	/**
