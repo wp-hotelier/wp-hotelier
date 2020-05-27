@@ -66,6 +66,8 @@ class HTL_Shortcodes {
 	) {
 		ob_start();
 
+		$wrapper[ 'class' ] = apply_filters( 'hotelier_shortcode_wrapper_class', $wrapper[ 'class' ] );
+
 		echo empty( $wrapper[ 'before' ] ) ? '<div class="' . esc_attr( $wrapper[ 'class' ] ) . '">' : $wrapper[ 'before' ];
 		call_user_func( $function, $atts );
 		echo empty( $wrapper[ 'after' ] ) ? '</div>' : $wrapper[ 'after' ];
