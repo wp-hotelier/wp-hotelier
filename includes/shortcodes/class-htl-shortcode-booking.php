@@ -45,15 +45,15 @@ class HTL_Shortcode_Booking {
 		// Handle booking actions
 		if ( ! empty( $wp->query_vars[ 'pay-reservation' ] ) ) {
 
-			self::pay_reservation( $wp->query_vars[ 'pay-reservation' ] );
+			self::pay_reservation( $wp->query_vars[ 'pay-reservation' ], $atts );
 
 		} elseif ( isset( $wp->query_vars[ 'reservation-received' ] ) ) {
 
-			self::reservation_received( $wp->query_vars[ 'reservation-received' ] );
+			self::reservation_received( $wp->query_vars[ 'reservation-received' ], $atts );
 
 		} else {
 
-			self::booking();
+			self::booking( $atts );
 
 		}
 	}
@@ -63,9 +63,9 @@ class HTL_Shortcode_Booking {
 	 *
 	 * @param int $reservation_id
 	 */
-	private static function pay_reservation( $reservation_id ) {
+	private static function pay_reservation( $reservation_id, $atts ) {
 
-		do_action( 'before_hotelier_pay' );
+		do_action( 'before_hotelier_pay', $atts );
 
 		htl_print_notices();
 
@@ -121,7 +121,7 @@ class HTL_Shortcode_Booking {
 
 		htl_print_notices();
 
-		do_action( 'after_hotelier_pay' );
+		do_action( 'after_hotelier_pay', $atts );
 	}
 
 	/**
@@ -129,7 +129,7 @@ class HTL_Shortcode_Booking {
 	 *
 	 * @param int $reservation_id
 	 */
-	private static function reservation_received( $reservation_id = 0 ) {
+	private static function reservation_received( $reservation_id = 0, $atts ) {
 
 		htl_print_notices();
 
@@ -148,13 +148,13 @@ class HTL_Shortcode_Booking {
 		// Empty awaiting payment session
 		HTL()->session->set( 'reservation_awaiting_payment', null );
 
-		htl_get_template( 'booking/received.php', array( 'reservation' => $reservation ) );
+		htl_get_template( 'booking/received.php', array( 'reservation' => $reservation, 'shortcode_atts' => $atts ) );
 	}
 
 	/**
 	 * Show the booking form
 	 */
-	private static function booking() {
+	private static function booking( $atts ) {
 		// Hide booking page when booking_mode is set to 'no-booking'
 		if ( htl_get_option( 'booking_mode' ) != 'no-booking' ) {
 
@@ -177,11 +177,11 @@ class HTL_Shortcode_Booking {
 
 			if ( empty( $_POST ) && htl_notice_count( 'error' ) > 0 ) {
 
-				htl_get_template( 'booking/cart-errors.php', array( 'booking' => $booking ) );
+				htl_get_template( 'booking/cart-errors.php', array( 'booking' => $booking, 'shortcode_atts' => $atts ) );
 
 			} else {
 
-				htl_get_template( 'booking/form-booking.php', array( 'booking' => $booking ) );
+				htl_get_template( 'booking/form-booking.php', array( 'booking' => $booking, 'shortcode_atts' => $atts ) );
 
 			}
 		}

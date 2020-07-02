@@ -68,7 +68,8 @@ class HTL_Shortcode_Room_List {
 			$room_list_args = array(
 				'rooms'             => $rooms,
 				'room_id'           => $room_id,
-				'room_id_available' => $room_id_available
+				'room_id_available' => $room_id_available,
+				'shortcode_atts'    => $atts
 			);
 
 			htl_get_template( 'room-list/form-room-list.php', $room_list_args );

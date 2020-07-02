@@ -49,7 +49,7 @@ class HTL_Shortcode_Datepicker {
 		// Enqueue the datepicker scripts
 		wp_enqueue_script( 'hotelier-init-datepicker' );
 
-		htl_get_template( 'global/datepicker.php', array( 'checkin' => $checkin, 'checkout' => $checkout ) );
+		htl_get_template( 'global/datepicker.php', array( 'checkin' => $checkin, 'checkout' => $checkout, 'shortcode_atts' => $atts ) );
 	}
 }
 
