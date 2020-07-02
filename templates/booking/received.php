@@ -13,6 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+do_action( 'hotelier_before_reservation_received_page', $shortcode_atts );
+
 if ( $reservation ) : ?>
 
 	<div class="reservation-received__section">
@@ -61,3 +63,5 @@ if ( $reservation ) : ?>
 	</div>
 
 <?php endif; ?>
+
+<?php do_action( 'hotelier_after_reservation_received_page', $shortcode_atts ); ?>

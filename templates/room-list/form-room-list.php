@@ -15,6 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 htl_print_notices();
 
+do_action( 'hotelier_before_room_list_form', $shortcode_atts );
+
 if ( $rooms && $rooms->have_posts() || ( $room_id && $room_id_available ) ) : ?>
 
 	<?php
@@ -121,4 +123,4 @@ if ( $rooms && $rooms->have_posts() || ( $room_id && $room_id_available ) ) : ?>
 
 <?php endif;  ?>
 
-<?php do_action( 'hotelier_after_room_list_form' ); ?>
+<?php do_action( 'hotelier_after_room_list_form', $shortcode_atts );
