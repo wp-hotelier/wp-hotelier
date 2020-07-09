@@ -134,12 +134,6 @@ class HTL_Shortcodes {
 	 * @return string
 	 */
 	public static function room_list( $atts ) {
-		$atts = shortcode_atts( array(
-			'per_page' => '10',
-			'orderby'  => 'title',
-			'order'    => 'asc'
-		), $atts );
-
 		return self::shortcode_wrapper( array( 'HTL_Shortcode_Room_List', 'output' ), $atts );
 	}
 
