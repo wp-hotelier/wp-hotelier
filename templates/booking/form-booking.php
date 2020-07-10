@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 htl_print_notices();
 
-do_action( 'hotelier_before_booking_form', $booking );
+do_action( 'hotelier_before_booking_form', $booking, $shortcode_atts );
 
 // extensions can hook into here to add their own pages
 $booking_form_url = apply_filters( 'hotelier_booking_form_url', HTL()->cart->get_booking_form_url() ); ?>
@@ -45,4 +45,4 @@ $booking_form_url = apply_filters( 'hotelier_booking_form_url', HTL()->cart->get
 
 </form>
 
-<?php do_action( 'hotelier_after_booking_form', $booking ); ?>
+<?php do_action( 'hotelier_after_booking_form', $booking, $shortcode_atts ); ?>
