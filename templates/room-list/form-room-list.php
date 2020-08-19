@@ -68,7 +68,7 @@ if ( $rooms && $rooms->have_posts() || ( $room_id && $room_id_available ) ) : ?>
 					 *
 					 * @hooked hotelier_template_loop_room_content - 10
 					 */
-					do_action( 'hotelier_room_list_item_content', true );
+					do_action( 'hotelier_room_list_item_content', true, $shortcode_atts );
 				?>
 
 				<?php wp_reset_postdata(); ?>
@@ -93,7 +93,7 @@ if ( $rooms && $rooms->have_posts() || ( $room_id && $room_id_available ) ) : ?>
 						 *
 						 * @hooked hotelier_template_loop_room_content - 10
 						 */
-						do_action( 'hotelier_room_list_item_content' );
+						do_action( 'hotelier_room_list_item_content', false, $shortcode_atts );
 					?>
 
 				<?php endwhile; // end of the loop. ?>
