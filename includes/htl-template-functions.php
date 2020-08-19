@@ -731,6 +731,14 @@ if ( ! function_exists( 'hotelier_template_room_list_content' ) ) {
 	}
 
 }
+
+if ( ! function_exists( 'hotelier_template_loop_toggle_rates_button' ) ) {
+
+	/**
+	 * The template for displaying the toggle rates button in the listing loop.
+	 */
+	function hotelier_template_loop_toggle_rates_button( $atts ) {
+		htl_get_template( 'room-list/content/toggle-rates-button.php', array( 'shortcode_atts' => $atts ) );
 	}
 
 }

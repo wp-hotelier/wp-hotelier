@@ -91,6 +91,7 @@ add_action( 'hotelier_room_list_not_available_info', 'hotelier_template_loop_roo
 add_action( 'hotelier_room_list_min_max_info', 'hotelier_template_loop_room_min_max_info', 10 );
 add_action( 'hotelier_room_list_item_before_add_to_cart', 'hotelier_template_loop_room_non_cancellable_info', 10 );
 add_action( 'hotelier_room_list_after_standard_content', 'hotelier_template_loop_room_fees', 10 );
+add_action( 'hotelier_room_list_print_toggle_rates_button', 'hotelier_template_loop_toggle_rates_button', 10 );
 
 // Hide book button when booking_mode is set to 'no-booking'
 if ( htl_get_option( 'booking_mode' ) != 'no-booking' ) {

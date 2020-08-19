@@ -148,7 +148,14 @@ if ( $is_single ) {
 
 		<?php if ( $room->is_variable_room() ) : ?>
 
-				<a href="#room-variations-<?php echo absint( $room->id ); ?>" data-closed="<?php esc_html_e( 'Show rates', 'wp-hotelier' ); ?>" data-open="<?php esc_html_e( 'Hide rates', 'wp-hotelier' ); ?>" class="button button--toggle-rates"><?php esc_html_e( 'Hide rates', 'wp-hotelier' ); ?></a>
+				<?php
+					/**
+					 * hotelier_room_list_print_toggle_rates_button hook
+					 *
+					 * @hooked hotelier_template_loop_toggle_rates_button - 10
+					 */
+					do_action( 'hotelier_room_list_print_toggle_rates_button', $shortcode_atts );
+				?>
 
 				</div><!-- .room__actions -->
 
