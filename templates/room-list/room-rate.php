@@ -43,7 +43,7 @@ global $room;
 			 * @hooked hotelier_template_loop_room_rate_non_cancellable_info - 12
 			 * @hooked hotelier_template_loop_room_rate_add_to_cart - 15
 			 */
-			do_action( 'hotelier_room_list_item_rate_actions', $variation, $is_available, $checkin, $checkout );
+			do_action( 'hotelier_room_list_item_rate_actions', $variation, $is_available, $checkin, $checkout, $shortcode_atts );
 		?>
 	</div><!-- .rate__actions -->
 </div>

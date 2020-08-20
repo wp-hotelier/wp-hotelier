@@ -180,7 +180,7 @@ if ( $is_single ) {
 							 *
 							 * @hooked hotelier_template_loop_room_rate - 10
 							 */
-							do_action( 'hotelier_room_list_item_rate', $variation, $is_available, $checkin, $checkout );
+							do_action( 'hotelier_room_list_item_rate', $variation, $is_available, $checkin, $checkout, $shortcode_atts );
 						?>
 
 					<?php endif; ?>
@@ -206,7 +206,7 @@ if ( $is_single ) {
 					 *
 					 * @hooked hotelier_template_loop_room_add_to_cart - 10
 					 */
-					do_action( 'hotelier_room_list_item_add_to_cart', $is_available );
+					do_action( 'hotelier_room_list_item_add_to_cart', $is_available, $shortcode_atts );
 				?>
 
 				</div><!-- .room__actions -->

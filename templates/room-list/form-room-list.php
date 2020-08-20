@@ -25,7 +25,7 @@ if ( $rooms && $rooms->have_posts() || ( $room_id && $room_id_available ) ) : ?>
 		 *
 		 * @hooked hotelier_template_datepicker - 10
 		 */
-		do_action( 'hotelier_room_list_datepicker' );
+		do_action( 'hotelier_room_list_datepicker', $shortcode_atts );
 	?>
 
 	<?php
@@ -110,7 +110,7 @@ if ( $rooms && $rooms->have_posts() || ( $room_id && $room_id_available ) ) : ?>
 			 *
 			 * @hooked hotelier_template_loop_room_reserve_button - 10
 			 */
-			do_action( 'hotelier_reserve_button' );
+			do_action( 'hotelier_reserve_button', $shortcode_atts );
 		?>
 
 		<?php do_action( 'hotelier_after_room_list_loop' ); ?>

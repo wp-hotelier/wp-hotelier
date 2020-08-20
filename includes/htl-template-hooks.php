@@ -111,7 +111,7 @@ add_action( 'hotelier_room_list_item_rate_actions', 'hotelier_template_loop_room
 
 // Hide book button when booking_mode is set to 'no-booking'
 if ( htl_get_option( 'booking_mode' ) != 'no-booking' ) {
-	add_action( 'hotelier_room_list_item_rate_actions', 'hotelier_template_loop_room_rate_add_to_cart', 15, 4 );
+	add_action( 'hotelier_room_list_item_rate_actions', 'hotelier_template_loop_room_rate_add_to_cart', 15, 5 );
 }
 
 

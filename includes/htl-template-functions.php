@@ -917,8 +917,8 @@ if ( ! function_exists( 'hotelier_template_loop_room_add_to_cart' ) ) {
 	/**
 	 * Show the room add to cart button in the room list loop.
 	 */
-	function hotelier_template_loop_room_add_to_cart( $is_available ) {
-		htl_get_template( 'room-list/content/add-to-cart.php', array( 'is_available' => $is_available ) );
+	function hotelier_template_loop_room_add_to_cart( $is_available, $atts ) {
+		htl_get_template( 'room-list/content/add-to-cart.php', array( 'is_available' => $is_available, 'shortcode_atts' => $atts ) );
 	}
 
 }
@@ -928,8 +928,8 @@ if ( ! function_exists( 'hotelier_template_loop_room_rate' ) ) {
 	/**
 	 * Output the rate in the room list loop.
 	 */
-	function hotelier_template_loop_room_rate( $variation, $is_available, $checkin, $checkout ) {
-		htl_get_template( 'room-list/room-rate.php', array( 'variation' => $variation, 'is_available' => $is_available, 'checkin' => $checkin, 'checkout' => $checkout ) );
+	function hotelier_template_loop_room_rate( $variation, $is_available, $checkin, $checkout, $atts ) {
+		htl_get_template( 'room-list/room-rate.php', array( 'variation' => $variation, 'is_available' => $is_available, 'checkin' => $checkin, 'checkout' => $checkout, 'shortcode_atts' => $atts ) );
 	}
 
 }
@@ -1023,8 +1023,8 @@ if ( ! function_exists( 'hotelier_template_loop_room_rate_add_to_cart' ) ) {
 	/**
 	 * Show the rate add to cart button.
 	 */
-	function hotelier_template_loop_room_rate_add_to_cart( $variation, $is_available, $checkin, $checkout ) {
-		htl_get_template( 'room-list/content/rate/rate-add-to-cart.php', array( 'variation' => $variation, 'is_available' => $is_available, 'checkin' => $checkin, 'checkout' => $checkout ) );
+	function hotelier_template_loop_room_rate_add_to_cart( $variation, $is_available, $checkin, $checkout, $atts ) {
+		htl_get_template( 'room-list/content/rate/rate-add-to-cart.php', array( 'variation' => $variation, 'is_available' => $is_available, 'checkin' => $checkin, 'checkout' => $checkout, 'shortcode_atts' => $atts ) );
 	}
 
 }
@@ -1034,8 +1034,8 @@ if ( ! function_exists( 'hotelier_template_loop_room_reserve_button' ) ) {
 	/**
 	 * Show the reserve button in the room list loop.
 	 */
-	function hotelier_template_loop_room_reserve_button() {
-		htl_get_template( 'room-list/reserve-button.php' );
+	function hotelier_template_loop_room_reserve_button( $atts ) {
+		htl_get_template( 'room-list/reserve-button.php', array( 'shortcode_atts' => $atts ) );
 	}
 
 }
