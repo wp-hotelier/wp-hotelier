@@ -30,7 +30,7 @@ global $room;
 			 * @hooked hotelier_template_loop_room_rate_min_max_info - 30
 			 * @hooked hotelier_template_loop_room_rate_fees - 40
 			 */
-			do_action( 'hotelier_room_list_item_rate_content', $variation );
+			do_action( 'hotelier_room_list_item_rate_content', $variation, $shortcode_atts );
 		?>
 	</div><!-- .rate__content -->
 

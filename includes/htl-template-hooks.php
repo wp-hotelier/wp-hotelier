@@ -77,7 +77,7 @@ add_action( 'hotelier_room_list_datepicker', 'hotelier_template_datepicker', 10 
 add_action( 'hotelier_room_list_selected_nights', 'hotelier_template_selected_nights', 10 );
 add_action( 'hotelier_room_list_item_content', 'hotelier_template_room_list_content', 10, 2 );
 add_action( 'hotelier_room_list_item_title', 'hotelier_template_rooms_left', 10, 4 );
-add_action( 'hotelier_room_list_item_title', 'hotelier_template_room_list_title', 20 );
+add_action( 'hotelier_room_list_item_title', 'hotelier_template_room_list_title', 20, 4 );
 add_action( 'hotelier_room_list_item_images', 'hotelier_template_loop_room_image', 10 );
 add_action( 'hotelier_room_list_item_images', 'hotelier_template_loop_room_thumbnails', 20 );
 add_action( 'hotelier_room_list_item_description', 'hotelier_template_loop_room_short_description', 10 );

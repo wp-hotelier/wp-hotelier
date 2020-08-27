@@ -759,8 +759,8 @@ if ( ! function_exists( 'hotelier_template_room_list_title' ) ) {
 	/**
 	 * Show the room title in the room list loop.
 	 */
-	function hotelier_template_room_list_title() {
-		htl_get_template( 'room-list/content/title.php' );
+	function hotelier_template_room_list_title( $is_available, $checkin, $checkout, $atts ) {
+		htl_get_template( 'room-list/content/title.php', array( 'shortcode_atts' => $atts ) );
 	}
 
 }
@@ -939,8 +939,8 @@ if ( ! function_exists( 'hotelier_template_loop_room_rate_name' ) ) {
 	/**
 	 * Show the rate name.
 	 */
-	function hotelier_template_loop_room_rate_name( $variation ) {
-		htl_get_template( 'room-list/content/rate/rate-name.php', array( 'variation' => $variation ) );
+	function hotelier_template_loop_room_rate_name( $variation, $atts ) {
+		htl_get_template( 'room-list/content/rate/rate-name.php', array( 'variation' => $variation, 'shortcode_atts' => $atts ) );
 	}
 
 }

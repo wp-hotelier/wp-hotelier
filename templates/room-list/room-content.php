@@ -41,7 +41,7 @@ if ( $is_single ) {
 				 * @hooked hotelier_template_rooms_left - 10
 				 * @hooked hotelier_template_loop_room_title - 20
 				 */
-				do_action( 'hotelier_room_list_item_title', $is_available, $checkin, $checkout );
+				do_action( 'hotelier_room_list_item_title', $is_available, $checkin, $checkout, $shortcode_atts );
 			?>
 
 			<div class="room__gallery room__gallery--listing">
