@@ -17,6 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <tr class="reservation-table__row reservation-table__row--body">
 	<td class="reservation-table__room-name reservation-table__room-name--body"><?php
+		do_action( 'hotelier_reservation_received_table_before_room_name', $room, $item );
+
 		$is_visible = $room && $room->is_visible( true );
 
 		echo $is_visible ? sprintf( '<a class="reservation-table__room-link" href="%s">%s</a>', get_permalink( $item[ 'room_id' ] ), $item[ 'name' ] ) : $item[ 'name' ];

@@ -45,6 +45,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 						<tr class="reservation-table__row reservation-table__row--body">
 							<td class="reservation-table__room-name reservation-table__room-name--body">
+								<?php do_action( 'hotelier_reservation_table_before_room_name', $_room, $item_key, $cart_item[ 'quantity' ] ); ?>
+
 								<a class="reservation-table__room-link" href="<?php echo esc_url( get_permalink( $_room_id ) ); ?>"><?php echo esc_html( $_room->get_title() ); ?></a>
 
 								<?php if ( $cart_item[ 'rate_name' ] ) : ?>
