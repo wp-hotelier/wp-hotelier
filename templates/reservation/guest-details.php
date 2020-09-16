@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="reservation-received__section">
 
 	<header class="section-header">
-		<h3 class="section-header__title"><?php esc_html_e( 'Guest details', 'wp-hotelier' ); ?></h3>
+		<h3 class="<?php echo esc_attr( apply_filters( 'hotelier_booking_section_title_class', 'section-header__title' ) ); ?>"><?php esc_html_e( 'Guest details', 'wp-hotelier' ); ?></h3>
 	</header>
 
 	<table class="table table--guest-details hotelier-table">
@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div class="reservation-received__section">
 	<header class="section-header">
-		<h3 class="section-header__title"><?php esc_html_e( 'Guest address', 'wp-hotelier' ); ?></h3>
+		<h3 class="<?php echo esc_attr( apply_filters( 'hotelier_booking_section_title_class', 'section-header__title' ) ); ?>"><?php esc_html_e( 'Guest address', 'wp-hotelier' ); ?></h3>
 	</header>
 
 	<address class="address address--guest-address">

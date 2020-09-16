@@ -56,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<div id="payment" class="booking__section booking__section--payment">
 			<header class="section-header">
-				<h3 class="section-header__title"><?php esc_html_e( 'Payment method', 'wp-hotelier' ); ?></h3>
+				<h3 class="<?php echo esc_attr( apply_filters( 'hotelier_booking_section_title_class', 'section-header__title' ) ); ?>"><?php esc_html_e( 'Payment method', 'wp-hotelier' ); ?></h3>
 			</header>
 
 			<ul class="payment-methods">

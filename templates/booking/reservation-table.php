@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div id="reservation-table" class="booking__section booking__section--reservation-table">
 
 	<header class="section-header">
-		<h3 class="section-header__title"><?php esc_html_e( 'Your reservation', 'wp-hotelier' ); ?></h3>
+		<h3 class="<?php echo esc_attr( apply_filters( 'hotelier_booking_section_title_class', 'section-header__title' ) ); ?>"><?php esc_html_e( 'Your reservation', 'wp-hotelier' ); ?></h3>
 	</header>
 
 	<?php do_action( 'hotelier_booking_before_booking_table' ); ?>

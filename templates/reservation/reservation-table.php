@@ -20,7 +20,7 @@ $reservation = htl_get_reservation( $reservation_id );
 <div class="reservation-received__section">
 
 	<header class="section-header">
-		<h3 class="section-header__title"><?php esc_html_e( 'Reservation details', 'wp-hotelier' ); ?></h3>
+		<h3 class="<?php echo esc_attr( apply_filters( 'hotelier_booking_section_title_class', 'section-header__title' ) ); ?>"><?php esc_html_e( 'Reservation details', 'wp-hotelier' ); ?></h3>
 	</header>
 
 	<table class="table table--reservation-table reservation-table hotelier-table">
