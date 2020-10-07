@@ -13,9 +13,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+do_action( 'hotelier_before_pay_form' );
 ?>
 
 <form id="pay-reservation-form" class="form form--pay-reservation" method="post">
+
+	<?php do_action( 'hotelier_form_pay_before_reservation_table' ); ?>
 
 	<table class="table table--reservation-table reservation-table hotelier-table">
 		<thead class="reservation-table__heading">
@@ -52,7 +55,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</tfoot>
 	</table>
 
+	<?php do_action( 'hotelier_form_pay_after_reservation_table' ); ?>
+
 	<?php if ( $reservation->needs_payment() ) : ?>
+
+		<?php do_action( 'hotelier_form_pay_before_payment_div' ); ?>
 
 		<div id="payment" class="booking__section booking__section--payment">
 			<header class="section-header">
@@ -89,6 +96,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		</div>
 
+		<?php do_action( 'hotelier_form_pay_after_payment_div' ); ?>
+
 	<?php endif; ?>
 
 </form>
+
+<?php do_action( 'hotelier_after_pay_form' ); ?>
