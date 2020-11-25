@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Shortcodes
  * @package  Hotelier/Classes
- * @version  1.0.0
+ * @version  2.3.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -129,7 +129,7 @@ class HTL_Shortcode_Booking {
 	 *
 	 * @param int $reservation_id
 	 */
-	private static function reservation_received( $reservation_id = 0, $atts ) {
+	private static function reservation_received( $reservation_id = 0, $atts = array() ) {
 
 		htl_print_notices();
 

@@ -726,7 +726,7 @@ if ( ! function_exists( 'hotelier_template_room_list_content' ) ) {
 	/**
 	 * The template for displaying room content in the listing loop.
 	 */
-	function hotelier_template_room_list_content( $single = false, $atts ) {
+	function hotelier_template_room_list_content( $single = false, $atts = array() ) {
 		htl_get_template( 'room-list/room-content.php', array( 'is_single' => $single, 'shortcode_atts' => $atts ) );
 	}
 
