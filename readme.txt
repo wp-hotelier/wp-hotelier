@@ -2,8 +2,8 @@
 Contributors: benitolopez
 Tags: booking, hotel, booking system, hostel, reservations, reservations, b&b, rooms, wphotelier
 Requires at least: 4.1
-Tested up to: 5.5
-Stable tag: 2.2.0
+Tested up to: 5.6
+Stable tag: 2.3.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -108,6 +108,13 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 4. WP Hotelier - Admin calendar.
 
 == Changelog ==
+
+= 2.3.0 - 2020-11-25 =
+* Add - WP 5.6 ready.
+* Add - PHP 8 ready.
+* Add - New template for the search form.
+* Add - New template for the toggle rates button.
+* Tweak - Introduced several hooks to facilitate third party integrations.
 
 = 2.2.0 - 2020-03-13 =
 * Add - Add the possibility to name seasons.
