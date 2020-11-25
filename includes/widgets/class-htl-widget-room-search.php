@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Widgets
  * @package  Hotelier/Widgets
- * @version  1.0.0
+ * @version  2.3.0
  * @extends  HTL_Widget
  */
 
