@@ -98,7 +98,7 @@ class HTL_Admin_Notices {
 	/**
 	 * Get notice text for old extensions.
 	 */
-	public static function get_notice_for_old_extension( $plugin_name ) {
+	public function get_notice_for_old_extension( $plugin_name ) {
 		$text = sprintf( wp_kses( __( 'You are using an old version of <strong>"%1$s"</strong> that is not supported by the current version of <strong>"WP Hotelier"</strong>. Please update <strong>"%1$s"</strong> to the last version to ensure the correct functionality of your installation.', 'wp-hotelier' ), array( 'strong' => array() ) ), $plugin_name );
 
 		return $text;
@@ -107,7 +107,7 @@ class HTL_Admin_Notices {
 	/**
 	 * Notice for old extensions.
 	 */
-	public static function show_notice_for_ext_disabled_dates() {
+	public function show_notice_for_ext_disabled_dates() {
 		$plugin_name = esc_html__( 'Disabled Dates', 'wp-hotelier' );
 
 		echo '<div class="error"><p>' . $this->get_notice_for_old_extension( $plugin_name ) . '</p></div>';
@@ -116,7 +116,7 @@ class HTL_Admin_Notices {
 	/**
 	 * Notice for extension Stripe.
 	 */
-	public static function show_notice_for_ext_stripe() {
+	public function show_notice_for_ext_stripe() {
 		$plugin_name = esc_html__( 'Gateway Stripe', 'wp-hotelier' );
 
 		echo '<div class="error"><p>' . $this->get_notice_for_old_extension( $plugin_name ) . '</p></div>';
@@ -125,7 +125,7 @@ class HTL_Admin_Notices {
 	/**
 	 * Notice for extension iCalendar.
 	 */
-	public static function show_notice_for_ext_icalendar() {
+	public function show_notice_for_ext_icalendar() {
 		$plugin_name = esc_html__( 'iCalendar', 'wp-hotelier' );
 
 		echo '<div class="error"><p>' . $this->get_notice_for_old_extension( $plugin_name ) . '</p></div>';
@@ -134,7 +134,7 @@ class HTL_Admin_Notices {
 	/**
 	 * Notice for extension Flat Deposit.
 	 */
-	public static function show_notice_for_ext_flat_deposit() {
+	public function show_notice_for_ext_flat_deposit() {
 		$plugin_name = esc_html__( 'Flat Deposit', 'wp-hotelier' );
 
 		echo '<div class="error"><p>' . $this->get_notice_for_old_extension( $plugin_name ) . '</p></div>';
@@ -143,7 +143,7 @@ class HTL_Admin_Notices {
 	/**
 	 * Notice for extension Bank Transfer.
 	 */
-	public static function show_notice_for_ext_bank_transfer() {
+	public function show_notice_for_ext_bank_transfer() {
 		$plugin_name = esc_html__( 'Gateway Bank Transfer', 'wp-hotelier' );
 
 		echo '<div class="error"><p>' . $this->get_notice_for_old_extension( $plugin_name ) . '</p></div>';
@@ -152,7 +152,7 @@ class HTL_Admin_Notices {
 	/**
 	 * Notice for extension Eurobank.
 	 */
-	public static function show_notice_for_ext_eurobank() {
+	public function show_notice_for_ext_eurobank() {
 		$plugin_name = esc_html__( 'Gateway Eurobank', 'wp-hotelier' );
 
 		echo '<div class="error"><p>' . $this->get_notice_for_old_extension( $plugin_name ) . '</p></div>';
@@ -161,7 +161,7 @@ class HTL_Admin_Notices {
 	/**
 	 * Notice for extension Week Bookings.
 	 */
-	public static function show_notice_for_ext_week_bookings() {
+	public function show_notice_for_ext_week_bookings() {
 		$plugin_name = esc_html__( 'Week Bookings', 'wp-hotelier' );
 
 		echo '<div class="error"><p>' . $this->get_notice_for_old_extension( $plugin_name ) . '</p></div>';
@@ -170,7 +170,7 @@ class HTL_Admin_Notices {
 	/**
 	 * Notice for extension Min/Max Nights.
 	 */
-	public static function show_notice_for_ext_min_max_nights() {
+	public function show_notice_for_ext_min_max_nights() {
 		$plugin_name = esc_html__( 'Min/Max Nights', 'wp-hotelier' );
 
 		echo '<div class="error"><p>' . $this->get_notice_for_old_extension( $plugin_name ) . '</p></div>';
@@ -179,7 +179,7 @@ class HTL_Admin_Notices {
 	/**
 	 * Notice for extension MailChimp.
 	 */
-	public static function show_notice_for_ext_mailchimp() {
+	public function show_notice_for_ext_mailchimp() {
 		$plugin_name = esc_html__( 'MailChimp', 'wp-hotelier' );
 
 		echo '<div class="error"><p>' . $this->get_notice_for_old_extension( $plugin_name ) . '</p></div>';
@@ -188,7 +188,7 @@ class HTL_Admin_Notices {
 	/**
 	 * Notice for extension Hotelier Multilingual.
 	 */
-	public static function show_notice_for_ext_wpml() {
+	public function show_notice_for_ext_wpml() {
 		$plugin_name = esc_html__( 'Hotelier Multilingual', 'wp-hotelier' );
 
 		echo '<div class="error"><p>' . $this->get_notice_for_old_extension( $plugin_name ) . '</p></div>';
