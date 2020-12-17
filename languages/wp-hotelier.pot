@@ -19,7 +19,7 @@ msgstr ""
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:160, ../includes/class-htl-booking.php:171, ../includes/class-htl-booking.php:177, ../includes/class-htl-booking.php:198, ../includes/class-htl-booking.php:259, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:192, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:198, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:214, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:247
+#: ../includes/class-htl-booking.php:177, ../includes/class-htl-booking.php:171, ../includes/class-htl-booking.php:160, ../includes/class-htl-booking.php:198, ../includes/class-htl-booking.php:259, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:208, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:202, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:224, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:257
 msgid "Error %d: Unable to create reservation. Please try again."
 msgstr ""
 
@@ -129,19 +129,19 @@ msgstr ""
 msgid "Special requests cannot be guaranteed but we will do our best to meet your needs."
 msgstr ""
 
-#: ../includes/class-htl-booking.php:459
-msgid "Book now & pay deposit"
+#: ../includes/class-htl-booking.php:469
+msgid "Send request"
 msgstr ""
 
 #: ../includes/class-htl-booking.php:463, ../templates/room-list/content/add-to-cart.php:44, ../templates/room-list/content/rate/rate-add-to-cart.php:42
 msgid "Book now"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:469
-msgid "Send request"
+#: ../includes/class-htl-booking.php:459
+msgid "Book now & pay deposit"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:539, ../includes/class-htl-form-functions.php:130, ../includes/class-htl-form-functions.php:186, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:74
+#: ../includes/class-htl-booking.php:539, ../includes/class-htl-form-functions.php:130, ../includes/class-htl-form-functions.php:186, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:81
 msgid "We were unable to process your reservation, please try again."
 msgstr ""
 
@@ -177,11 +177,11 @@ msgstr ""
 msgid "List of available rooms <a href=\"%s\">here</a>"
 msgstr ""
 
-#: ../includes/class-htl-cart-totals.php:121, ../includes/class-htl-cart-totals.php:146, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:122
+#: ../includes/class-htl-cart-totals.php:121, ../includes/class-htl-cart-totals.php:146
 msgid "Sorry, this room is not available on the given dates."
 msgstr ""
 
-#: ../includes/class-htl-cart-totals.php:129, ../includes/class-htl-cart-totals.php:154, ../includes/class-htl-cart-totals.php:175, ../includes/class-htl-cart-totals.php:179, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:293
+#: ../includes/class-htl-cart-totals.php:129, ../includes/class-htl-cart-totals.php:179, ../includes/class-htl-cart-totals.php:154, ../includes/class-htl-cart-totals.php:175, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:293
 msgid "Sorry, this room does not exists."
 msgstr ""
 
@@ -229,16 +229,12 @@ msgstr ""
 msgid "Please select at least one room."
 msgstr ""
 
-#: ../includes/class-htl-form-functions.php:292
-msgid "Reservation already cancelled."
+#: ../includes/class-htl-form-functions.php:312, ../includes/shortcodes/class-htl-shortcode-booking.php:119, ../templates/booking/received.php:59
+msgid "Invalid reservation."
 msgstr ""
 
-#: ../includes/class-htl-form-functions.php:295
-msgid "Reservation already refunded."
-msgstr ""
-
-#: ../includes/class-htl-form-functions.php:298
-msgid "Your reservation includes a non cancellable and non refundable room and it cannot be cancelled."
+#: ../includes/class-htl-form-functions.php:310
+msgid "Your reservation can no longer be cancelled. Please contact us if you need assistance."
 msgstr ""
 
 #: ../includes/class-htl-form-functions.php:302
@@ -249,12 +245,16 @@ msgstr ""
 msgid "Your reservation has been cancelled."
 msgstr ""
 
-#: ../includes/class-htl-form-functions.php:310
-msgid "Your reservation can no longer be cancelled. Please contact us if you need assistance."
+#: ../includes/class-htl-form-functions.php:298
+msgid "Your reservation includes a non cancellable and non refundable room and it cannot be cancelled."
 msgstr ""
 
-#: ../includes/class-htl-form-functions.php:312, ../includes/shortcodes/class-htl-shortcode-booking.php:119, ../templates/booking/received.php:59
-msgid "Invalid reservation."
+#: ../includes/class-htl-form-functions.php:295
+msgid "Reservation already refunded."
+msgstr ""
+
+#: ../includes/class-htl-form-functions.php:292
+msgid "Reservation already cancelled."
 msgstr ""
 
 #: ../includes/class-htl-form-functions.php:373
@@ -762,16 +762,16 @@ msgstr ""
 msgid "Hotelier"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:378
-msgid "Error: Trying to change the status from %1$s to %2$s. %1$s reservations cannot be restored or modified."
-msgstr ""
-
 #: ../includes/class-htl-reservation.php:414, ../includes/admin/class-htl-admin-post-types.php:266
 msgid "This reservation cannot be restored because one or more rooms are no longer available."
 msgstr ""
 
 #: ../includes/class-htl-reservation.php:435
 msgid "Reservation status changed from %s to %s."
+msgstr ""
+
+#: ../includes/class-htl-reservation.php:378
+msgid "Error: Trying to change the status from %1$s to %2$s. %1$s reservations cannot be restored or modified."
 msgstr ""
 
 #: ../includes/class-htl-reservation.php:774
@@ -790,19 +790,19 @@ msgstr ""
 msgid "Tax total:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:1031
-msgid "Paid deposit:"
-msgstr ""
-
 #: ../includes/class-htl-reservation.php:1038
 msgid "Required deposit:"
+msgstr ""
+
+#: ../includes/class-htl-reservation.php:1031
+msgid "Paid deposit:"
 msgstr ""
 
 #: ../includes/class-htl-reservation.php:1045
 msgid "Payment method:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:1053, ../includes/class-htl-reservation.php:1084, ../includes/class-htl-reservation.php:1096, ../templates/booking/reservation-table.php:116, ../templates/booking/reservation-table.php:139
+#: ../includes/class-htl-reservation.php:1053, ../includes/class-htl-reservation.php:1096, ../includes/class-htl-reservation.php:1084, ../templates/booking/reservation-table.php:139, ../templates/booking/reservation-table.php:116
 msgid "Total:"
 msgstr ""
 
@@ -818,20 +818,20 @@ msgstr ""
 msgid "Hotel Manager"
 msgstr ""
 
-#: ../includes/class-htl-room-variation.php:390, ../includes/class-htl-room-variation.php:397, ../includes/class-htl-room.php:767, ../includes/class-htl-room.php:774
+#: ../includes/class-htl-room-variation.php:397, ../includes/class-htl-room-variation.php:390, ../includes/class-htl-room.php:781, ../includes/class-htl-room.php:774
 msgctxt "price"
 msgid "Price: %s"
 msgstr ""
 
-#: ../includes/class-htl-room-variation.php:466, ../includes/class-htl-room-variation.php:478, ../includes/class-htl-room.php:866, ../includes/class-htl-room.php:900, ../includes/class-htl-room.php:915
-msgid "Rates from %s per night"
-msgstr ""
-
-#: ../includes/class-htl-room-variation.php:491, ../includes/class-htl-room.php:933, ../includes/class-htl-room.php:935
+#: ../includes/class-htl-room-variation.php:491, ../includes/class-htl-room.php:942, ../includes/class-htl-room.php:940
 msgid "%s per night"
 msgstr ""
 
-#: ../includes/class-htl-room.php:752
+#: ../includes/class-htl-room-variation.php:478, ../includes/class-htl-room-variation.php:466, ../includes/class-htl-room.php:922, ../includes/class-htl-room.php:907, ../includes/class-htl-room.php:873
+msgid "Rates from %s per night"
+msgstr ""
+
+#: ../includes/class-htl-room.php:759
 msgctxt "min_price"
 msgid "From %s"
 msgstr ""
@@ -1965,7 +1965,7 @@ msgstr ""
 msgid "Time limit reached."
 msgstr ""
 
-#: ../includes/htl-reservation-functions.php:438, ../includes/htl-reservation-functions.php:440
+#: ../includes/htl-reservation-functions.php:440, ../includes/htl-reservation-functions.php:438
 msgid "Check-out date reached."
 msgstr ""
 
@@ -1977,19 +1977,23 @@ msgstr ""
 msgid "Please check your dates."
 msgstr ""
 
-#: ../includes/htl-room-functions.php:575
-msgid "%s nights minimum stay and %s nights maximum stay"
-msgstr ""
-
-#: ../includes/htl-room-functions.php:577
-msgid "%s nights minimum stay"
-msgstr ""
-
 #: ../includes/htl-room-functions.php:579
 msgid "%s night maximum stay"
 msgid_plural "%s nights maximum stay"
 msgstr[0] ""
 msgstr[1] ""
+
+#: ../includes/htl-room-functions.php:577
+msgid "%s nights minimum stay"
+msgstr ""
+
+#: ../includes/htl-room-functions.php:575
+msgid "%s nights minimum stay and %s nights maximum stay"
+msgstr ""
+
+#: ../includes/htl-template-functions.php:230
+msgid "Rooms archive"
+msgstr ""
 
 #: ../includes/htl-template-functions.php:219
 msgid "Search results for: \"%s\""
@@ -1997,10 +2001,6 @@ msgstr ""
 
 #: ../includes/htl-template-functions.php:222
 msgid "&nbsp;&ndash; Page %s"
-msgstr ""
-
-#: ../includes/htl-template-functions.php:230
-msgid "Rooms archive"
 msgstr ""
 
 #: ../includes/htl-template-functions.php:1214
@@ -2079,15 +2079,15 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
+#: ../includes/admin/class-htl-admin-post-types.php:140
+msgid "No rooms left!"
+msgstr ""
+
 #: ../includes/admin/class-htl-admin-post-types.php:136
 msgid "%s room left"
 msgid_plural "%s rooms left"
 msgstr[0] ""
 msgstr[1] ""
-
-#: ../includes/admin/class-htl-admin-post-types.php:140
-msgid "No rooms left!"
-msgstr ""
 
 #: ../includes/admin/class-htl-admin-post-types.php:161
 msgid "Guest"
@@ -2173,12 +2173,12 @@ msgstr ""
 msgid "{site_title} - New hotel reservation #{reservation_number}"
 msgstr ""
 
-#: ../includes/privacy/class-htl-privacy-erasers.php:43
-msgid "Removed personal data from reservation %s."
-msgstr ""
-
 #: ../includes/privacy/class-htl-privacy-erasers.php:46
 msgid "Personal data within reservation %s has been retained."
+msgstr ""
+
+#: ../includes/privacy/class-htl-privacy-erasers.php:43
+msgid "Removed personal data from reservation %s."
 msgstr ""
 
 #: ../includes/privacy/class-htl-privacy-erasers.php:138
@@ -2217,16 +2217,16 @@ msgstr ""
 msgid "Guest Reservations"
 msgstr ""
 
-#: ../includes/shortcodes/class-htl-shortcode-booking.php:107, ../templates/emails/guest-invoice.php:119
-msgid "Pay deposit"
+#: ../includes/shortcodes/class-htl-shortcode-booking.php:115
+msgid "Sorry, this reservation is invalid and cannot be paid for."
 msgstr ""
 
 #: ../includes/shortcodes/class-htl-shortcode-booking.php:111
 msgid "Hi there! Seems that this reservation does not require a deposit. Please contact us if you need assistance."
 msgstr ""
 
-#: ../includes/shortcodes/class-htl-shortcode-booking.php:115
-msgid "Sorry, this reservation is invalid and cannot be paid for."
+#: ../includes/shortcodes/class-htl-shortcode-booking.php:107, ../templates/emails/guest-invoice.php:119
+msgid "Pay deposit"
 msgstr ""
 
 #: ../includes/widgets/class-htl-widget-booking.php:25
@@ -2249,7 +2249,7 @@ msgstr ""
 msgid "Modify"
 msgstr ""
 
-#: ../includes/widgets/class-htl-widget-booking.php:108, ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-single-item.php:28, ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-single-item.php:37, ../templates/booking/reservation-table.php:53, ../templates/emails/email-reservation-items.php:26, ../templates/reservation/item.php:27, ../templates/emails/plain/email-reservation-items.php:23
+#: ../includes/widgets/class-htl-widget-booking.php:108, ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-single-item.php:37, ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-single-item.php:28, ../templates/booking/reservation-table.php:53, ../templates/emails/email-reservation-items.php:26, ../templates/reservation/item.php:27, ../templates/emails/plain/email-reservation-items.php:23
 msgid "Rate: %s"
 msgstr ""
 
@@ -2469,7 +2469,7 @@ msgstr ""
 msgid "Reservation status:"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:236, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:244, ../includes/admin/new-reservation/views/html-admin-new-reservation.php:101, ../templates/emails/admin-cancelled-reservation.php:42, ../templates/emails/admin-new-reservation.php:42, ../templates/emails/guest-cancelled-reservation.php:42, ../templates/emails/guest-confirmed-reservation.php:42, ../templates/emails/guest-invoice.php:52, ../templates/emails/guest-request-received.php:42, ../templates/reservation/reservation-details.php:28
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:244, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:236, ../includes/admin/new-reservation/views/html-admin-new-reservation.php:101, ../templates/emails/admin-cancelled-reservation.php:42, ../templates/emails/admin-new-reservation.php:42, ../templates/emails/guest-cancelled-reservation.php:42, ../templates/emails/guest-confirmed-reservation.php:42, ../templates/emails/guest-invoice.php:52, ../templates/emails/guest-request-received.php:42, ../templates/reservation/reservation-details.php:28
 msgid "Check-in:"
 msgstr ""
 
@@ -2477,7 +2477,7 @@ msgstr ""
 msgid "Check-in date."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:257, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:265, ../includes/admin/new-reservation/views/html-admin-new-reservation.php:111, ../templates/emails/admin-cancelled-reservation.php:45, ../templates/emails/admin-new-reservation.php:45, ../templates/emails/guest-cancelled-reservation.php:45, ../templates/emails/guest-confirmed-reservation.php:45, ../templates/emails/guest-invoice.php:55, ../templates/emails/guest-request-received.php:45, ../templates/reservation/reservation-details.php:32
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:265, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:257, ../includes/admin/new-reservation/views/html-admin-new-reservation.php:111, ../templates/emails/admin-cancelled-reservation.php:45, ../templates/emails/admin-new-reservation.php:45, ../templates/emails/guest-cancelled-reservation.php:45, ../templates/emails/guest-confirmed-reservation.php:45, ../templates/emails/guest-invoice.php:55, ../templates/emails/guest-request-received.php:45, ../templates/reservation/reservation-details.php:32
 msgid "Check-out:"
 msgstr ""
 
@@ -2505,12 +2505,12 @@ msgstr ""
 msgid "Special requests:"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-notes.php:51
-msgid "Added on %1$s at %2$s"
-msgstr ""
-
 #: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-notes.php:57
 msgid "There are no notes yet."
+msgstr ""
+
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-notes.php:51
+msgid "Added on %1$s at %2$s"
 msgstr ""
 
 #: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:38
@@ -2525,15 +2525,15 @@ msgstr ""
 msgid "Send email"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:66
-msgid "Delete Permanently"
-msgstr ""
-
 #: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:68
 msgid "Move to Trash"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:75, ../includes/admin/new-reservation/views/html-admin-new-reservation.php:148
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:66
+msgid "Delete Permanently"
+msgstr ""
+
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:75, ../includes/admin/new-reservation/views/html-admin-new-reservation.php:164
 msgid "Save reservation"
 msgstr ""
 
@@ -2573,7 +2573,7 @@ msgstr ""
 msgid "Sorry, this room rate does not exists anymore."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:321, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:133
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:321, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:143
 msgid "Sorry, this room is not available."
 msgstr ""
 
@@ -2605,11 +2605,15 @@ msgstr ""
 msgid "Add room gallery images"
 msgstr ""
 
-#: ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:116
+#: ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:123
 msgid "Please fill the required fields."
 msgstr ""
 
-#: ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:262
+#: ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:132
+msgid "Sorryd, this room is not available on the given dates."
+msgstr ""
+
+#: ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:272
 msgid "Reservation manually created by admin."
 msgstr ""
 
@@ -3317,20 +3321,20 @@ msgstr ""
 msgid "Delete bookings"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:392, ../includes/admin/settings/class-htl-admin-settings-fields.php:416
-msgid "Page not set"
-msgstr ""
-
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:394, ../includes/admin/settings/class-htl-admin-settings-fields.php:418
-msgid "The page is set, but it does not exist"
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:398, ../includes/admin/settings/class-htl-admin-settings-fields.php:422
+msgid "The page requires this shortcode: %s"
 msgstr ""
 
 #: ../includes/admin/settings/class-htl-admin-settings-fields.php:396, ../includes/admin/settings/class-htl-admin-settings-fields.php:420
 msgid "The page is set, but it is not public"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:398, ../includes/admin/settings/class-htl-admin-settings-fields.php:422
-msgid "The page requires this shortcode: %s"
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:394, ../includes/admin/settings/class-htl-admin-settings-fields.php:418
+msgid "The page is set, but it does not exist"
+msgstr ""
+
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:392, ../includes/admin/settings/class-htl-admin-settings-fields.php:416
+msgid "Page not set"
 msgstr ""
 
 #: ../includes/admin/settings/class-htl-admin-settings-fields.php:435, ../includes/admin/settings/class-htl-admin-settings-fields.php:448, ../includes/admin/settings/class-htl-admin-settings-fields.php:467, ../includes/admin/settings/class-htl-admin-settings-fields.php:498, ../includes/admin/settings/class-htl-admin-settings-fields.php:520, ../includes/admin/settings/class-htl-admin-settings-fields.php:533
@@ -3345,12 +3349,12 @@ msgstr ""
 msgid "%s - We recommend setting memory to at least 64MB."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:486, ../includes/admin/settings/class-htl-admin-settings-fields.php:548, ../includes/admin/settings/class-htl-admin-settings-fields.php:563, ../includes/admin/settings/class-htl-admin-settings-fields.php:591
-msgid "Enabled"
-msgstr ""
-
 #: ../includes/admin/settings/class-htl-admin-settings-fields.php:488
 msgid "Disabled"
+msgstr ""
+
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:486, ../includes/admin/settings/class-htl-admin-settings-fields.php:548, ../includes/admin/settings/class-htl-admin-settings-fields.php:563, ../includes/admin/settings/class-htl-admin-settings-fields.php:591
+msgid "Enabled"
 msgstr ""
 
 #: ../includes/admin/settings/class-htl-admin-settings-fields.php:551
@@ -3521,16 +3525,24 @@ msgstr ""
 msgid "Hide filters"
 msgstr ""
 
-#: ../includes/admin/license-manager/vendor/EDD_SL_Plugin_Updater.php:201
-msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s."
-msgstr ""
-
 #: ../includes/admin/license-manager/vendor/EDD_SL_Plugin_Updater.php:209
 msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s or %5$supdate now%6$s."
 msgstr ""
 
+#: ../includes/admin/license-manager/vendor/EDD_SL_Plugin_Updater.php:201
+msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s."
+msgstr ""
+
 #: ../includes/admin/license-manager/vendor/EDD_SL_Plugin_Updater.php:396
 msgid "You do not have permission to install plugin updates"
+msgstr ""
+
+#: ../includes/admin/new-reservation/views/html-admin-new-reservation.php:182
+msgid "In order to create a reservation, you need to have at least one room. click on the button below to create your first room."
+msgstr ""
+
+#: ../includes/admin/new-reservation/views/html-admin-new-reservation.php:187
+msgid "Create new room"
 msgstr ""
 
 #: ../includes/admin/new-reservation/views/html-admin-new-reservation.php:54
@@ -3557,12 +3569,12 @@ msgstr ""
 msgid "Add another room"
 msgstr ""
 
-#: ../includes/admin/new-reservation/views/html-admin-new-reservation.php:166
-msgid "In order to create a reservation, you need to have at least one room. click on the button below to create your first room."
+#: ../includes/admin/new-reservation/views/html-admin-new-reservation.php:121
+msgid "Force booking:"
 msgstr ""
 
-#: ../includes/admin/new-reservation/views/html-admin-new-reservation.php:171
-msgid "Create new room"
+#: ../includes/admin/new-reservation/views/html-admin-new-reservation.php:131
+msgid "Enable this option to ignore booking rules (disabled dates, minimum nights, etc)."
 msgstr ""
 
 #: ../includes/admin/settings/views/html-admin-logs.php:27
@@ -3593,12 +3605,12 @@ msgstr ""
 msgid "Version %s"
 msgstr ""
 
-#: ../includes/admin/settings/views/html-settings-header.php:23
-msgid "Pro"
-msgstr ""
-
 #: ../includes/admin/settings/views/html-settings-header.php:25, ../includes/admin/settings/views/html-settings-pro-section.php:17
 msgid "Upgrade to Pro version"
+msgstr ""
+
+#: ../includes/admin/settings/views/html-settings-header.php:23
+msgid "Pro"
 msgstr ""
 
 #: ../includes/admin/settings/views/html-settings-navigation.php:13
@@ -3665,12 +3677,12 @@ msgstr ""
 msgid "Validation error: PayPal IPN response from a different email address (%s)."
 msgstr ""
 
-#: ../includes/gateways/paypal-standard/includes/class-htl-gateway-paypal-response.php:197
-msgid "IPN payment completed"
-msgstr ""
-
 #: ../includes/gateways/paypal-standard/includes/class-htl-gateway-paypal-response.php:205
 msgid "Payment pending: %s"
+msgstr ""
+
+#: ../includes/gateways/paypal-standard/includes/class-htl-gateway-paypal-response.php:197
+msgid "IPN payment completed"
 msgstr ""
 
 #: ../includes/gateways/paypal-standard/includes/class-htl-gateway-paypal-response.php:222
@@ -3685,11 +3697,11 @@ msgstr ""
 msgid "Add new"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/fields/html-meta-box-field-multi-text.php:60, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:54, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:91, ../templates/booking/reservation-table.php:64
+#: ../includes/admin/meta-boxes/views/fields/html-meta-box-field-multi-text.php:60, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:91, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:54, ../templates/booking/reservation-table.php:64
 msgid "Remove"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/fields/html-meta-box-field-multi-text.php:64, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:57, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:94
+#: ../includes/admin/meta-boxes/views/fields/html-meta-box-field-multi-text.php:64, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:94, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:57
 msgid "Sort"
 msgstr ""
 
@@ -3717,24 +3729,24 @@ msgstr ""
 msgid "Total charge"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php:82
-msgid "Paid deposit"
-msgstr ""
-
 #: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php:84
 msgid "Deposit due"
+msgstr ""
+
+#: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php:82
+msgid "Paid deposit"
 msgstr ""
 
 #: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php:121
 msgid "(incl. tax)"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php:128
-msgid "Authorized only. Must be captured."
-msgstr ""
-
 #: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php:130
 msgid "Authorization expired. Cannot be captured."
+msgstr ""
+
+#: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php:128
+msgid "Authorized only. Must be captured."
 msgstr ""
 
 #: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php:141
@@ -3747,10 +3759,6 @@ msgstr ""
 
 #: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php:170
 msgid "The captured amount (%s) does not match the required deposit (%s). The balance has been recalculated."
-msgstr ""
-
-#: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php:176
-msgid "This reservation has been refunded"
 msgstr ""
 
 #: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php:181, ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-single-item.php:45, ../templates/booking/reservation-table.php:57, ../templates/emails/email-reservation-items.php:31, ../templates/reservation/item.php:31, ../templates/single-room/non-cancellable-info.php:24, ../templates/emails/plain/email-reservation-items.php:28, ../templates/room-list/content/non-cancellable-info.php:24, ../templates/single-room/rate/rate-non-cancellable-info.php:21, ../templates/room-list/content/rate/rate-non-cancellable-info.php:22
@@ -3797,24 +3805,28 @@ msgstr ""
 msgid "Charge remain deposit"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php:248
-msgid "Mark as unpaid"
-msgstr ""
-
 #: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php:250
 msgid "Mark as paid"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-single-item.php:30, ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-single-item.php:39, ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:30
-msgid "Standard room"
+#: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php:248
+msgid "Mark as unpaid"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-single-item.php:63, ../templates/booking/reservation-table-guests.php:23, ../templates/emails/email-reservation-items.php:46, ../templates/reservation/item-guests.php:33, ../templates/emails/plain/email-reservation-items.php:49
-msgid "Number of guests (Room %d):"
+#: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php:176
+msgid "This reservation has been refunded"
+msgstr ""
+
+#: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-single-item.php:39, ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-single-item.php:30, ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:30
+msgid "Standard room"
 msgstr ""
 
 #: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-single-item.php:65, ../templates/booking/reservation-table-guests.php:25, ../templates/emails/email-reservation-items.php:48, ../templates/reservation/item-guests.php:35, ../templates/emails/plain/email-reservation-items.php:51
 msgid "Number of guests:"
+msgstr ""
+
+#: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-single-item.php:63, ../templates/booking/reservation-table-guests.php:23, ../templates/emails/email-reservation-items.php:46, ../templates/reservation/item-guests.php:33, ../templates/emails/plain/email-reservation-items.php:49
+msgid "Number of guests (Room %d):"
 msgstr ""
 
 #: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-single-item.php:69, ../templates/emails/email-reservation-items.php:52, ../templates/reservation/item-guests.php:39, ../templates/emails/plain/email-reservation-items.php:55
@@ -4015,6 +4027,18 @@ msgstr ""
 msgid "Upload"
 msgstr ""
 
+#: ../includes/admin/settings/views/fields/html-settings-field-license-keys.php:113
+msgid "Your license key expires on %s."
+msgstr ""
+
+#: ../includes/admin/settings/views/fields/html-settings-field-license-keys.php:105
+msgid "Your license key expires soon! It expires on %s. <a href=\"%s\" target=\"_blank\">Renew your license key</a>."
+msgstr ""
+
+#: ../includes/admin/settings/views/fields/html-settings-field-license-keys.php:98
+msgid "License key never expires."
+msgstr ""
+
 #: ../includes/admin/settings/views/fields/html-settings-field-license-keys.php:29
 msgid "Your license key expired on %s. Please <a href=\"%s\" target=\"_blank\">renew your license key</a>."
 msgstr ""
@@ -4047,18 +4071,6 @@ msgstr ""
 msgid "There was an error with this license key: %s. Please <a href=\"%s\">contact our support team</a>."
 msgstr ""
 
-#: ../includes/admin/settings/views/fields/html-settings-field-license-keys.php:98
-msgid "License key never expires."
-msgstr ""
-
-#: ../includes/admin/settings/views/fields/html-settings-field-license-keys.php:105
-msgid "Your license key expires soon! It expires on %s. <a href=\"%s\" target=\"_blank\">Renew your license key</a>."
-msgstr ""
-
-#: ../includes/admin/settings/views/fields/html-settings-field-license-keys.php:113
-msgid "Your license key expires on %s."
-msgstr ""
-
 #: ../includes/admin/settings/views/fields/html-settings-field-license-keys.php:129
 msgid "Deactivate License"
 msgstr ""
@@ -4067,23 +4079,23 @@ msgstr ""
 msgid "To receive updates, please enter your valid %s license key."
 msgstr ""
 
-#: ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:25, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:67
+#: ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:67, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:25
 msgid "From"
 msgstr ""
 
-#: ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:31, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:73
+#: ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:73, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:31
 msgid "To"
 msgstr ""
 
-#: ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:37, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:79
+#: ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:79, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:37
 msgid "Hide advanced settings"
 msgstr ""
 
-#: ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:37, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:37, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:79, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:79
+#: ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:79, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:79, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:37, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:37
 msgid "Show advanced settings"
 msgstr ""
 
-#: ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:41, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:83
+#: ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:83, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:41
 msgid "Every year?"
 msgstr ""
 
@@ -4179,24 +4191,24 @@ msgstr ""
 msgid "Sorry, it seems that there are no available payment methods. Please contact us if you require assistance."
 msgstr ""
 
-#: ../templates/booking/received.php:24
-msgid "Unfortunately your reservation cannot be processed as the originating bank/merchant has declined your transaction. Please attempt your purchase again."
-msgstr ""
-
-#: ../templates/booking/received.php:27
-msgid "Pay"
-msgstr ""
-
-#: ../templates/booking/received.php:32
-msgid "This reservation has been cancelled. The reservation was as follows."
+#: ../templates/booking/received.php:44
+msgid "Thank you. Your reservation has been received."
 msgstr ""
 
 #: ../templates/booking/received.php:38
 msgid "This reservation has been refunded. The reservation was as follows."
 msgstr ""
 
-#: ../templates/booking/received.php:44
-msgid "Thank you. Your reservation has been received."
+#: ../templates/booking/received.php:32
+msgid "This reservation has been cancelled. The reservation was as follows."
+msgstr ""
+
+#: ../templates/booking/received.php:24
+msgid "Unfortunately your reservation cannot be processed as the originating bank/merchant has declined your transaction. Please attempt your purchase again."
+msgstr ""
+
+#: ../templates/booking/received.php:27
+msgid "Pay"
 msgstr ""
 
 #: ../templates/booking/reservation-details.php:21
@@ -4223,12 +4235,12 @@ msgstr ""
 msgid "Hide price breakdown"
 msgstr ""
 
-#: ../templates/booking/reservation-table.php:123
-msgid "Deposit due now:"
-msgstr ""
-
 #: ../templates/booking/reservation-table.php:130
 msgid "Deposit due after confirm:"
+msgstr ""
+
+#: ../templates/booking/reservation-table.php:123
+msgid "Deposit due now:"
 msgstr ""
 
 #: ../templates/booking/reservation-table.php:151, ../templates/emails/guest-confirmed-reservation.php:103, ../templates/emails/guest-invoice.php:113, ../templates/emails/guest-request-received.php:103, ../templates/reservation/reservation-table.php:64, ../templates/emails/plain/guest-confirmed-reservation.php:48, ../templates/emails/plain/guest-invoice.php:55, ../templates/emails/plain/guest-request-received.php:48
@@ -4279,12 +4291,12 @@ msgstr ""
 msgid "Hello %s, your reservation has been confirmed. Your reservation details are shown below for your reference."
 msgstr ""
 
-#: ../templates/emails/guest-invoice.php:24
-msgid "Hello %s, a reservation has been created for you on %s. To pay for this reservation please use the button below."
-msgstr ""
-
 #: ../templates/emails/guest-invoice.php:28, ../templates/emails/plain/guest-invoice.php:23
 msgid "Hello %s, a reservation has been created for you on %s."
+msgstr ""
+
+#: ../templates/emails/guest-invoice.php:24
+msgid "Hello %s, a reservation has been created for you on %s. To pay for this reservation please use the button below."
 msgstr ""
 
 #: ../templates/emails/guest-request-received.php:21, ../templates/emails/plain/guest-request-received.php:18
