@@ -24,6 +24,10 @@ class HTL_Formatting_Helper {
  	 * Sanitize and remove locale formatting
 	 */
 	public static function sanitize_amount( $amount ) {
+		if ( ! $amount ) {
+			return 0;
+		}
+
 		$is_negative   = false;
 		$thousands_sep = htl_get_price_thousand_separator();
 		$decimal_sep   = htl_get_price_decimal_separator();
