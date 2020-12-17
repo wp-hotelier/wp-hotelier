@@ -109,6 +109,11 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 2.3.1 - 2020-12-17 =
+* Add - Allow to force a reservation (ignoring rules) when it is manual.
+* Fix - Minor PHP 8 fix.
+* Tweak - Default font system on admin.
+
 = 2.3.0 - 2020-11-25 =
 * Add - WP 5.6 ready.
 * Add - PHP 8 ready.
