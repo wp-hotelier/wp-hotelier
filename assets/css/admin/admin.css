@@ -56,7 +56,7 @@ BOOKING CALENDAR
 --------------------------------------------------------------*/
 /****** Resets ******/
 .htl-ui-scope * {
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-font-variant-ligatures: none;
@@ -83,7 +83,7 @@ BOOKING CALENDAR
 
 /****** Copy ******/
 .htl-ui-scope h1, .htl-ui-scope h2, .htl-ui-scope h3, .htl-ui-scope h4, .htl-ui-scope h5, .htl-ui-scope h6 {
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   line-height: 1.5;
   font-weight: 600;
   letter-spacing: -0.25px;
@@ -116,7 +116,7 @@ BOOKING CALENDAR
 
 .htl-ui-scope p {
   color: #818181;
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 13px;
   font-weight: 400;
   line-height: 1.5;
@@ -488,7 +488,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
   color: #555 !important;
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 14px !important;
   font-weight: 500;
   line-height: 1.5 !important;
@@ -796,7 +796,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   color: #818181;
   display: block;
   font-size: 13px;
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-weight: 400;
   letter-spacing: -0.25px;
   margin-top: 9px;
@@ -1617,7 +1617,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   list-style: none;
   margin-left: 0;
   display: none;
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 15px;
   font-weight: 500;
   letter-spacing: -0.25px;
@@ -2480,7 +2480,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 --------------------------------------------------------------*/
 /****** Reservation ******/
 .htl-ui-text-icon-button--status {
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-font-variant-ligatures: none;
@@ -2575,7 +2575,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 
 .htl-ui-text-icon-button--checkin,
 .htl-ui-text-icon-button--checkout {
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-font-variant-ligatures: none;
@@ -2589,7 +2589,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 }
 
 .post-type-room_reservation .column-nights span {
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-font-variant-ligatures: none;
@@ -2612,7 +2612,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 
 /****** Rooms ******/
 .post-type-room .column-guests span {
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-font-variant-ligatures: none;
@@ -2634,7 +2634,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 }
 
 .post-type-room .column-quantity mark {
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-font-variant-ligatures: none;
