@@ -117,6 +117,22 @@ $tomorrow = $tomorrow->format( 'Y-m-d' );
 								</div>
 							</td>
 						</tr>
+						<tr>
+							<th scope="row"><?php esc_html_e( 'Force booking:', 'wp-hotelier' ); ?></th>
+							<td>
+								<div class="htl-ui-setting">
+									<div class="htl-ui-toggle">
+										<input type="checkbox" class="htl-ui-input htl-ui-input--checkbox htl-ui-toggle__input" name="force_booking" id="force_booking" value="1" />
+
+										<label class="htl-ui-label htl-ui-label--checkbox htl-ui-toggle__label" for="force_booking">
+											<span class="htl-ui-toggle__handle"></span>
+										</label>
+
+										<p class="htl-ui-setting__description htl-ui-setting__description--checkbox "><?php esc_html_e( 'Enable this option to ignore booking rules (disabled dates, minimum nights, etc).', 'wp-hotelier' ); ?></p>
+									</div>
+								</div>
+							</td>
+						</tr>
 						<?php foreach ( HTL_Meta_Box_Reservation_Data::get_guest_details_fields() as $key => $field ) :
 							$type     = isset( $field[ 'type' ] ) ? $field[ 'type' ] : 'text';
 							$required = isset( $field[ 'required' ] ) ? '<span class="htl-ui-required-symbol"> * </span>' : '';

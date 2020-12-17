@@ -48,6 +48,13 @@ class HTL_Admin_New_Reservation {
 	protected static $checkout;
 
 	/**
+	 * Force booking.
+	 *
+	 * @var bool
+	 */
+	protected static $force_booking = false;
+
+	/**
 	 * Hook in methods
 	 */
 	public static function init() {
@@ -117,9 +124,12 @@ class HTL_Admin_New_Reservation {
 					}
 				}
 
+				// Force booking?
+				self::$force_booking = isset( $_POST[ 'force_booking' ] ) && $_POST[ 'force_booking' ] ? true : false;
+
 				// Check checkin and checkout dates
-				if ( ! HTL_Formatting_Helper::is_valid_checkin_checkout( self::$checkin, self::$checkout ) ) {
-					throw new Exception( esc_html__( 'Sorry, this room is not available on the given dates.', 'wp-hotelier' ) );
+				if ( ! HTL_Formatting_Helper::is_valid_checkin_checkout( self::$checkin, self::$checkout, self::$force_booking ) ) {
+					throw new Exception( esc_html__( 'Sorryd, this room is not available on the given dates.', 'wp-hotelier' ) );
 				}
 
 				// Init HTL_Cart_Totals()
@@ -127,7 +137,7 @@ class HTL_Admin_New_Reservation {
 
 				// Add rooms to the reservation
 				foreach ( self::$rooms as $room ) {
-					$added_to_cart = $cart_totals->add_to_cart( $room[ 'room_id' ], $room[ 'qty' ], $room[ 'rate_id' ], $room[ 'fees' ] );
+					$added_to_cart = $cart_totals->add_to_cart( $room[ 'room_id' ], $room[ 'qty' ], $room[ 'rate_id' ], $room[ 'fees' ], self::$force_booking );
 
 					if ( is_array( $added_to_cart ) && isset( $added_to_cart[ 'error' ] ) ) {
 						$error = $added_to_cart[ 'message' ] ? esc_html( $added_to_cart[ 'message' ] ) : esc_html__( 'Sorry, this room is not available.', 'wp-hotelier' );
@@ -192,7 +202,7 @@ class HTL_Admin_New_Reservation {
 				throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'wp-hotelier' ), 400 ) );
 			} else {
 				$reservation_id = $reservation->id;
-				$booking_id = htl_add_booking( $reservation_id, self::$checkin, self::$checkout, 'pending' );
+				$booking_id = htl_add_booking( $reservation_id, self::$checkin, self::$checkout, 'pending', self::$force_booking );
 
 				if ( ! $booking_id ) {
 					throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'wp-hotelier' ), 401 ) );

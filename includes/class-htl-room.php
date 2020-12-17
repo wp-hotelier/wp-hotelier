@@ -327,17 +327,24 @@ class HTL_Room {
 	 * @param string $checkout
 	 * @param int $qty
 	 * @param array $exclude
+	 * @param bool $force
 	 * @return bool
 	 */
-	public function is_available( $checkin, $checkout = false, $qty = 1, $exclude = array() ) {
-		$checkout       = $checkout ? $checkout : $checkin;
-		$is_available   = false;
+	public function is_available( $checkin, $checkout = false, $qty = 1, $exclude = array(), $force = false ) {
+		$checkout         = $checkout ? $checkout : $checkin;
+		$is_available     = false;
+		$has_enough_rooms = $this->has_enough_rooms( $checkin, $checkout, $qty, $exclude ) ? true : false;
 
-		if ( $this->has_enough_rooms( $checkin, $checkout, $qty, $exclude ) && $this->check_min_nights( $checkin, $checkout ) && $this->check_max_nights( $checkin, $checkout ) ) {
+		if ( $has_enough_rooms && $this->check_min_nights( $checkin, $checkout ) && $this->check_max_nights( $checkin, $checkout ) ) {
 			$is_available = true;
 		}
 
-		return apply_filters( 'hotelier_room_is_available', $is_available, $this->id, $checkin, $checkout, $qty, $exclude );
+		$is_available = apply_filters( 'hotelier_room_is_available', $is_available, $this->id, $checkin, $checkout, $qty, $exclude );
+
+		// When forcing a booking, we want at least the number of rooms to be available
+		$is_available = $force && $has_enough_rooms ? true : $is_available;
+
+		return $is_available;
 	}
 
 	/**

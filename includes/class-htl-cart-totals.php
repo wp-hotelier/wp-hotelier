@@ -142,7 +142,7 @@ class HTL_Cart_Totals {
 			}
 
 			// Check room is_available on the given dates
-			if ( ! $_room->is_available( $this->checkin, $this->checkout, $real_qty, $exclude ) ) {
+			if ( ! $_room->is_available( $this->checkin, $this->checkout, $real_qty, $exclude, $force ) ) {
 				throw new Exception( esc_html__( 'Sorry, this room is not available on the given dates.', 'wp-hotelier' ) );
 			}
 
