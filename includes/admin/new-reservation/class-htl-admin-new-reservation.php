@@ -127,6 +127,13 @@ class HTL_Admin_New_Reservation {
 				// Force booking?
 				self::$force_booking = isset( $_POST[ 'force_booking' ] ) && $_POST[ 'force_booking' ] ? true : false;
 
+				if ( self::$force_booking ) {
+					add_filter( 'hotelier_booking_minimum_nights', '__return_true' );
+					add_filter( 'hotelier_booking_maximum_nights', '__return_zero' );
+					add_filter( 'hotelier_check_min_nights_passed', '__return_true' );
+					add_filter( 'hotelier_check_max_nights_passed', '__return_true' );
+				}
+
 				// Check checkin and checkout dates
 				if ( ! HTL_Formatting_Helper::is_valid_checkin_checkout( self::$checkin, self::$checkout, self::$force_booking ) ) {
 					throw new Exception( esc_html__( 'Sorryd, this room is not available on the given dates.', 'wp-hotelier' ) );
@@ -156,6 +163,13 @@ class HTL_Admin_New_Reservation {
 
 				if ( is_wp_error( $reservation_id ) ) {
 					throw new Exception( $reservation_id->get_error_message() );
+				}
+
+				if ( self::$force_booking ) {
+					remove_filter( 'hotelier_booking_minimum_nights', '__return_true' );
+					remove_filter( 'hotelier_booking_maximum_nights', '__return_zero' );
+					remove_filter( 'hotelier_check_min_nights_passed', '__return_true' );
+					remove_filter( 'hotelier_check_max_nights_passed', '__return_true' );
 				}
 
 				echo '<div class="htl-ui-notice htl-ui-notice--success htl-ui-notice--new-reservation-message" style="display:none;"><p class="htl-ui-notice__text htl-ui-notice__text--success">' . esc_html__( 'Reservation created' ) . '</p></div>';
