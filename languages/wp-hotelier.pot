@@ -1,4 +1,4 @@
-# Copyright (C) 2020 WP Hotelier
+# Copyright (C) 2021 WP Hotelier
 # This file is distributed under the same license as the WP Hotelier package.
 msgid ""
 msgstr ""
@@ -19,7 +19,7 @@ msgstr ""
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:177, ../includes/class-htl-booking.php:171, ../includes/class-htl-booking.php:160, ../includes/class-htl-booking.php:198, ../includes/class-htl-booking.php:259, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:208, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:202, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:224, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:257
+#: ../includes/class-htl-booking.php:177, ../includes/class-htl-booking.php:171, ../includes/class-htl-booking.php:160, ../includes/class-htl-booking.php:198, ../includes/class-htl-booking.php:259, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:222, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:216, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:238, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:271
 msgid "Error %d: Unable to create reservation. Please try again."
 msgstr ""
 
@@ -818,20 +818,20 @@ msgstr ""
 msgid "Hotel Manager"
 msgstr ""
 
-#: ../includes/class-htl-room-variation.php:397, ../includes/class-htl-room-variation.php:390, ../includes/class-htl-room.php:781, ../includes/class-htl-room.php:774
+#: ../includes/class-htl-room-variation.php:397, ../includes/class-htl-room-variation.php:390, ../includes/class-htl-room.php:789, ../includes/class-htl-room.php:782
 msgctxt "price"
 msgid "Price: %s"
 msgstr ""
 
-#: ../includes/class-htl-room-variation.php:491, ../includes/class-htl-room.php:942, ../includes/class-htl-room.php:940
+#: ../includes/class-htl-room-variation.php:491, ../includes/class-htl-room.php:950, ../includes/class-htl-room.php:948
 msgid "%s per night"
 msgstr ""
 
-#: ../includes/class-htl-room-variation.php:478, ../includes/class-htl-room-variation.php:466, ../includes/class-htl-room.php:922, ../includes/class-htl-room.php:907, ../includes/class-htl-room.php:873
+#: ../includes/class-htl-room-variation.php:478, ../includes/class-htl-room-variation.php:466, ../includes/class-htl-room.php:930, ../includes/class-htl-room.php:915, ../includes/class-htl-room.php:881
 msgid "Rates from %s per night"
 msgstr ""
 
-#: ../includes/class-htl-room.php:759
+#: ../includes/class-htl-room.php:767
 msgctxt "min_price"
 msgid "From %s"
 msgstr ""
@@ -2573,7 +2573,7 @@ msgstr ""
 msgid "Sorry, this room rate does not exists anymore."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:321, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:143
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:321, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:150
 msgid "Sorry, this room is not available."
 msgstr ""
 
@@ -2609,11 +2609,11 @@ msgstr ""
 msgid "Please fill the required fields."
 msgstr ""
 
-#: ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:132
+#: ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:139
 msgid "Sorryd, this room is not available on the given dates."
 msgstr ""
 
-#: ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:272
+#: ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:286
 msgid "Reservation manually created by admin."
 msgstr ""
 
