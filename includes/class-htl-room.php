@@ -270,11 +270,15 @@ class HTL_Room {
 
 		$min_nights = $this->get_min_nights();
 
+		$passed_check = true;
+
 		if ( $min_nights && $diff_checkin_checkout < $min_nights ) {
-			return false;
-		} else {
-			return true;
+			$passed_check = false;
 		}
+
+		$passed_check = apply_filters( 'hotelier_check_min_nights_passed', $passed_check, $checkin, $checkout, $this );
+
+		return $passed_check;
 	}
 
 	/**
@@ -291,11 +295,15 @@ class HTL_Room {
 
 		$max_nights = $this->get_max_nights();
 
+		$passed_check = true;
+
 		if ( $max_nights && $diff_checkin_checkout > $max_nights ) {
-			return false;
-		} else {
-			return true;
+			$passed_check = false;
 		}
+
+		$passed_check = apply_filters( 'hotelier_check_max_nights_passed', $passed_check, $checkin, $checkout, $this );
+
+		return $passed_check;
 	}
 
 	/**
