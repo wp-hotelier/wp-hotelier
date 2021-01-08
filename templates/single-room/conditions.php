@@ -23,7 +23,9 @@ if ( ! $room->has_conditions() ) {
 
 <div class="room__conditions room__conditions--single">
 
-	<h3 class="room__conditions-title room__conditions-title--single"><?php esc_html_e( 'Room conditions', 'wp-hotelier' ); ?></h3>
+	<?php if ( apply_filters( 'hotelier_single_room_conditions_show_title', true ) ) : ?>
+		<h3 class="room__conditions-title room__conditions-title--single"><?php esc_html_e( 'Room conditions', 'wp-hotelier' ); ?></h3>
+	<?php endif; ?>
 
 	<ul class="room__conditions-list room__conditions-list--single">
 

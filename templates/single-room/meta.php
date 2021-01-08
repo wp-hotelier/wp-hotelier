@@ -19,7 +19,9 @@ global $room;
 
 <div class="room__meta room__meta--single">
 
-	<h3 class="room__meta-title room__meta-title--single"><?php esc_html_e( 'Room details', 'wp-hotelier' ); ?></h3>
+	<?php if ( apply_filters( 'hotelier_single_room_meta_show_title', true ) ) : ?>
+		<h3 class="room__meta-title room__meta-title--single"><?php esc_html_e( 'Room details', 'wp-hotelier' ); ?></h3>
+	<?php endif; ?>
 
 	<ul class="room__meta-list room__meta-list--single">
 		<li class="room__meta-item room__meta-item--guests"><strong><?php esc_html_e( 'Guests:', 'wp-hotelier' ); ?></strong> <?php echo absint( $room->get_max_guests() ); ?></li>

@@ -21,7 +21,9 @@ global $room;
 
 <div class="room__facilities room__facilities--single">
 
-	<h3 class="room__facilities-title room__facilities-title--single"><?php esc_html_e( 'Facilities', 'wp-hotelier' ); ?></h3>
+	<?php if ( apply_filters( 'hotelier_single_room_facilities_show_title', true ) ) : ?>
+		<h3 class="room__facilities-title room__facilities-title--single"><?php esc_html_e( 'Facilities', 'wp-hotelier' ); ?></h3>
+	<?php endif; ?>
 
 	<p class="room__facilities-content room__facilities-content--single"><?php echo $facilities; ?></p>
 
