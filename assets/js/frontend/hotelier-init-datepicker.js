@@ -45,10 +45,12 @@ jQuery(function ($) {
 				checkin_input.val(checkin);
 				checkout_input.val(checkout);
 
-				fecha.i18n.dayNamesShort = datepicker_params.i18n['day-names-short'];
-				fecha.i18n.dayNames = datepicker_params.i18n['day-names'];
-				fecha.i18n.monthNamesShort = datepicker_params.i18n['month-names-short'];
-				fecha.i18n.monthNames = datepicker_params.i18n['month-names'];
+				fecha.setGlobalDateI18n({
+					dayNamesShort: datepicker_params.i18n['day-names-short'],
+					dayNames: datepicker_params.i18n['day-names'],
+					monthNamesShort: datepicker_params.i18n['month-names-short'],
+					monthNames: datepicker_params.i18n['month-names']
+				});
 
 				var checkin_date = new Date(checkin.replace(/-/g, '\/'));
 				var checkout_date = new Date(checkout.replace(/-/g, '\/'));
