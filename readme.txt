@@ -112,6 +112,15 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 2.4.0 - 2021-02-17 =
+* Update - Hotel Datepicker library updated
+* Update - Fecha library updated
+* Add - Allow to filter the room min/max nights value.
+* Add - Add the ability to hide the room details titles via filter.
+* Fix - Conflict with Advanced Pricing System extension when forcing a manual reservation.
+* Fix - Minor PHP 8 fix.
+* Tweak - Default font system on admin.
+
 = 2.3.1 - 2020-12-17 =
 * Add - Allow to force a reservation (ignoring rules) when it is manual.
 * Fix - Minor PHP 8 fix.
