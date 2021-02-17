@@ -24,7 +24,7 @@ class HTL_Admin_Notices {
 	 */
 	public function __construct() {
 		add_action( 'admin_notices', array( $this, 'show_notices' ) );
-		add_action( 'init', array( $this, 'show_notices_for_old_extensions' ), 100 );
+		add_action( 'init', array( $this, 'show_notices_for_extensions' ), 100 );
 	}
 
 	/**
@@ -40,9 +40,9 @@ class HTL_Admin_Notices {
 	}
 
 	/**
-	 * Show notices in admin for old extensions.
+	 * Show notices in admin for extensions.
 	 */
-	public function show_notices_for_old_extensions() {
+	public function show_notices_for_extensions() {
 
 		// Disabled Dates
 		if ( defined( 'HTL_DISABLE_DATES_VERSION' ) && version_compare( HTL_DISABLE_DATES_VERSION, '1.1.0', '<' ) ) {
@@ -92,6 +92,11 @@ class HTL_Admin_Notices {
 		// Hotelier Multilingual
 		if ( defined( 'HTL_WPML_VERSION' ) && version_compare( HTL_WPML_VERSION, '1.3.0', '<' ) ) {
 			add_action( 'admin_notices', array( $this, 'show_notice_for_ext_wpml' ) );
+		}
+
+		// Uncode integration
+		if ( defined( 'UNCODE_VERSION' ) && ! defined( 'HTL_UNCODE_VERSION' ) ) {
+			add_action( 'admin_notices', array( $this, 'show_notice_for_uncode_integration' ) );
 		}
 	}
 
@@ -192,6 +197,13 @@ class HTL_Admin_Notices {
 		$plugin_name = esc_html__( 'Hotelier Multilingual', 'wp-hotelier' );
 
 		echo '<div class="error"><p>' . $this->get_notice_for_old_extension( $plugin_name ) . '</p></div>';
+	}
+
+	/**
+	 * Notice for extension WP Hotelier Uncode.
+	 */
+	public function show_notice_for_uncode_integration() {
+		echo '<div class="error"><p>' . sprintf( wp_kses_post( __( 'Looks like you are using Uncode without the official WP Hotelier integration. You can download the plugin for free <a href="%s" target="_blank">at this address</a>. Once you have downloaded the zip file, upload it to <a href="%s">Plugins > Add New</a> like any other plugin.', 'wp-hotelier' ) ), 'https://github.com/wp-hotelier/wp-hotelier-uncode/releases', admin_url( 'plugin-install.php' ) ) . '</p></div>';
 	}
 }
 
