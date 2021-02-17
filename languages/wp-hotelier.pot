@@ -2019,48 +2019,52 @@ msgstr ""
 msgid "Logs"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-notices.php:102
+#: ../includes/admin/class-htl-admin-notices.php:107
 msgid "You are using an old version of <strong>\"%1$s\"</strong> that is not supported by the current version of <strong>\"WP Hotelier\"</strong>. Please update <strong>\"%1$s\"</strong> to the last version to ensure the correct functionality of your installation."
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-notices.php:111
+#: ../includes/admin/class-htl-admin-notices.php:116
 msgid "Disabled Dates"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-notices.php:120
+#: ../includes/admin/class-htl-admin-notices.php:125
 msgid "Gateway Stripe"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-notices.php:129
+#: ../includes/admin/class-htl-admin-notices.php:134
 msgid "iCalendar"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-notices.php:138
+#: ../includes/admin/class-htl-admin-notices.php:143
 msgid "Flat Deposit"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-notices.php:147
+#: ../includes/admin/class-htl-admin-notices.php:152
 msgid "Gateway Bank Transfer"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-notices.php:156
+#: ../includes/admin/class-htl-admin-notices.php:161
 msgid "Gateway Eurobank"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-notices.php:165
+#: ../includes/admin/class-htl-admin-notices.php:170
 msgid "Week Bookings"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-notices.php:174
+#: ../includes/admin/class-htl-admin-notices.php:179
 msgid "Min/Max Nights"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-notices.php:183
+#: ../includes/admin/class-htl-admin-notices.php:188
 msgid "MailChimp"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-notices.php:192
+#: ../includes/admin/class-htl-admin-notices.php:197
 msgid "Hotelier Multilingual"
+msgstr ""
+
+#: ../includes/admin/class-htl-admin-notices.php:206
+msgid "Looks like you are using Uncode without the official WP Hotelier integration. You can download the plugin for free <a href=\"%s\" target=\"_blank\">at this address</a>. Once you have downloaded the zip file, upload it to <a href=\"%s\">Plugins > Add New</a> like any other plugin."
 msgstr ""
 
 #: ../includes/admin/class-htl-admin-post-types.php:100, ../includes/widgets/class-htl-widget-rooms-filter.php:197, ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php:24
@@ -3847,7 +3851,7 @@ msgstr ""
 msgid "General settings"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:28, ../templates/single-room/meta.php:39
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:28, ../templates/single-room/meta.php:41
 msgid "Room type:"
 msgstr ""
 
@@ -3867,7 +3871,7 @@ msgstr ""
 msgid "The max occupancy of the room."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:54, ../templates/single-room/meta.php:28
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:54, ../templates/single-room/meta.php:30
 msgid "Children:"
 msgstr ""
 
@@ -3875,7 +3879,7 @@ msgstr ""
 msgid "Maximum number of children."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:65, ../templates/single-room/meta.php:36, ../templates/room-list/content/meta.php:27
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:65, ../templates/single-room/meta.php:38, ../templates/room-list/content/meta.php:27
 msgid "Bed size(s):"
 msgstr ""
 
@@ -4375,7 +4379,7 @@ msgstr ""
 msgid "We are sorry, this room is not available on your requested dates. Please try again with some different dates."
 msgstr ""
 
-#: ../templates/single-room/conditions.php:26
+#: ../templates/single-room/conditions.php:27
 msgid "Room conditions"
 msgstr ""
 
@@ -4383,7 +4387,7 @@ msgstr ""
 msgid "Deposit required"
 msgstr ""
 
-#: ../templates/single-room/facilities.php:24
+#: ../templates/single-room/facilities.php:25
 msgid "Facilities"
 msgstr ""
 
@@ -4391,15 +4395,15 @@ msgstr ""
 msgid "View room gallery"
 msgstr ""
 
-#: ../templates/single-room/meta.php:22
+#: ../templates/single-room/meta.php:23
 msgid "Room details"
 msgstr ""
 
-#: ../templates/single-room/meta.php:25, ../templates/room-list/content/max-guests.php:24
+#: ../templates/single-room/meta.php:27, ../templates/room-list/content/max-guests.php:24
 msgid "Guests:"
 msgstr ""
 
-#: ../templates/single-room/meta.php:32, ../templates/room-list/content/meta.php:23
+#: ../templates/single-room/meta.php:34, ../templates/room-list/content/meta.php:23
 msgid "Room size:"
 msgstr ""
 
