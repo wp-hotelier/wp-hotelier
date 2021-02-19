@@ -369,6 +369,23 @@ class HTL_Post_Types {
 			12 => esc_html__( 'Reservation updated. Please reload this page again.', 'wp-hotelier' ),
 		);
 
+		$messages[ 'coupon' ] = array(
+			0 => '', // Unused. Messages start at index 1.
+			1 => esc_html__( 'Coupon updated.', 'wp-hotelier' ),
+			2 => esc_html__( 'Custom field updated.', 'wp-hotelier' ),
+			3 => esc_html__( 'Custom field deleted.', 'wp-hotelier' ),
+			4 => esc_html__( 'Coupon updated.', 'wp-hotelier' ),
+			5 => isset( $_GET['revision'] ) ? sprintf( __( 'Coupon restored to revision from %s', 'wp-hotelier' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+			6 => esc_html__( 'Coupon updated.', 'wp-hotelier' ),
+			7 => esc_html__( 'Coupon saved.', 'wp-hotelier' ),
+			8 => esc_html__( 'Coupon submitted.', 'wp-hotelier' ),
+			9 => sprintf( __( 'Coupon scheduled for: <strong>%1$s</strong>.', 'wp-hotelier' ),
+			date_i18n( __( 'M j, Y @ G:i', 'wp-hotelier' ), strtotime( $post->post_date ) ) ),
+			10 => esc_html__( 'Coupon draft updated.', 'wp-hotelier' ),
+			11 => esc_html__( 'Coupon updated and email sent.', 'wp-hotelier' ),
+			12 => esc_html__( 'Coupon updated. Please reload this page again.', 'wp-hotelier' ),
+		);
+
 		return $messages;
 	}
 
