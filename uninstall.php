@@ -42,7 +42,7 @@ if ( ! empty( $hotelier_options[ 'remove_data_uninstall' ] ) ) {
 	$wpdb->query("DELETE FROM $wpdb->options WHERE option_name LIKE 'hotelier\_%';");
 
 	// Delete posts + meta.
-	$wpdb->query( "DELETE FROM {$wpdb->posts} WHERE post_type IN ( 'room', 'room_reservation' );" );
+	$wpdb->query( "DELETE FROM {$wpdb->posts} WHERE post_type IN ( 'room', 'room_reservation', 'coupon' );" );
 	$wpdb->query( "DELETE meta FROM {$wpdb->postmeta} meta LEFT JOIN {$wpdb->posts} posts ON posts.ID = meta.post_id WHERE posts.ID IS NULL;" );
 
 	// Delete cron jobs when uninstalling
