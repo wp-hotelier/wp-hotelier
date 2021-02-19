@@ -103,7 +103,7 @@ class HTL_Roles {
 	public function get_core_caps() {
 		$capabilities = array();
 
-		$capability_types = array( 'room', 'room_reservation' );
+		$capability_types = array( 'room', 'room_reservation', 'coupon' );
 
 		foreach ( $capability_types as $capability_type ) {
 			$capabilities[ $capability_type ] = array(
