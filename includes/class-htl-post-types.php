@@ -120,6 +120,50 @@ class HTL_Post_Types {
 			)
 		);
 		register_post_type( 'room_reservation', apply_filters( 'hotelier_reservation_post_type_args', $reservation_args ) );
+
+		// Coupon Post Type
+		if ( htl_get_option( 'enable_coupons' ) ) {
+			$coupon_labels = apply_filters( 'hotelier_coupon_labels', array(
+				'name'               => esc_html_x( 'Coupons', 'post type general name', 'wp-hotelier' ),
+				'singular_name'      => esc_html_x( 'Coupon', 'post type singular name', 'wp-hotelier' ),
+				'add_new'            => esc_html__( 'Add Coupon', 'wp-hotelier' ),
+				'add_new_item'       => esc_html__( 'Add New Coupon', 'wp-hotelier' ),
+				'edit'               => esc_html__( 'Edit', 'wp-hotelier' ),
+				'edit_item'          => esc_html__( 'Edit Coupon', 'wp-hotelier' ),
+				'new_item'           => esc_html__( 'New Coupon', 'wp-hotelier' ),
+				'view'               => esc_html__( 'View Coupon', 'wp-hotelier' ),
+				'view_item'          => esc_html__( 'View Coupon', 'wp-hotelier' ),
+				'search_items'       => esc_html__( 'Search Coupons', 'wp-hotelier' ),
+				'not_found'          => esc_html__( 'No Coupons found', 'wp-hotelier' ),
+				'not_found_in_trash' => esc_html__( 'No Coupons found in Trash', 'wp-hotelier' ),
+				'parent'             => esc_html__( 'Parent Coupon', 'wp-hotelier' ),
+				'menu_name'          => esc_html_x( 'Coupons', 'admin menu name', 'wp-hotelier' )
+			) );
+
+			$coupon_args = array(
+				'labels'              => $coupon_labels,
+				'description'         => esc_html__( 'This is where you can add new coupons that guests can use to book a room.', 'wp-hotelier' ),
+				'public'              => false,
+				'show_ui'             => true,
+				'query_var'           => false,
+				'rewrite'             => false,
+				'publicly_queryable'  => false,
+				'exclude_from_search' => true,
+				'show_in_menu'        => current_user_can( 'manage_hotelier' ) ? 'hotelier-settings' : true,
+				'capability_type'     => 'coupon',
+				'map_meta_cap'        => true,
+				'hierarchical'        => false,
+				'show_in_nav_menus'   => false,
+				'rewrite'             => false,
+				'query_var'           => false,
+				'has_archive'         => false,
+				'supports'            => array( 'title' ),
+				'capabilities'        => array(
+					'create_posts' => 'do_not_allow',
+				)
+			);
+			register_post_type( 'coupon', apply_filters( 'hotelier_coupon_post_type_args', $coupon_args ) );
+		}
 	}
 
 	/**
