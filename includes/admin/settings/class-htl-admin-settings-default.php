@@ -341,6 +341,19 @@ class HTL_Admin_Settings_Default {
 						'size' => 'small',
 						'std'  => '2'
 					),
+					'coupon_settings' => array(
+						'id'    => 'coupon_settings',
+						'name'  => '<strong>' . esc_html__( 'Coupon settings', 'wp-hotelier' ) . '</strong>',
+						'type'  => 'header',
+						'class' => 'htl-ui-row--section-description'
+					),
+					'enable_coupons' => array(
+						'id'     => 'enable_coupons',
+						'name'   => esc_html__( 'Enable coupons', 'wp-hotelier' ),
+						'subdesc'   => __( 'Enable the use of coupon codes.', 'wp-hotelier' ),
+						'type'   => 'checkbox',
+						'toggle' => true,
+					),
 					'privacy_settings' => array(
 						'id'    => 'privacy_settings',
 						'name'  => '<strong>' . esc_html__( 'Privacy settings', 'wp-hotelier' ) . '</strong>',
