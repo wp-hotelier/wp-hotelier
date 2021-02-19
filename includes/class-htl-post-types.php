@@ -98,7 +98,7 @@ class HTL_Post_Types {
 		) );
 
 		$reservation_args = array(
-			'labels'              => apply_filters( 'hotelier_reservation_labels', $reservation_labels ),
+			'labels'              => $reservation_labels,
 			'description'         => esc_html__( 'This is where hotel reservations are stored.', 'wp-hotelier' ),
 			'public'              => false,
 			'show_ui'             => true,
