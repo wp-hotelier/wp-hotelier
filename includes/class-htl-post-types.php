@@ -158,9 +158,6 @@ class HTL_Post_Types {
 				'query_var'           => false,
 				'has_archive'         => false,
 				'supports'            => array( 'title' ),
-				'capabilities'        => array(
-					'create_posts' => 'do_not_allow',
-				)
 			);
 			register_post_type( 'coupon', apply_filters( 'hotelier_coupon_post_type_args', $coupon_args ) );
 		}
