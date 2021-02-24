@@ -131,6 +131,23 @@ class HTL_Admin_Meta_Boxes {
 	}
 
 	/**
+	 * Coupon meta boxes list.
+	 */
+	private function list_coupon_meta_boxes() {
+		$fields = array(
+			'_coupon_enabled'           => 'switch',
+			'_coupon_code'              => 'text',
+			'_coupon_description'       => 'textarea',
+			'_coupon_type'              => 'switch',
+			'_coupon_amount_percentage' => 'number',
+			'_coupon_amount_fixed'      => 'price',
+			'_coupon_expiration_date'      => 'price',
+		);
+
+		$this->coupon_meta_boxes = apply_filters( 'hotelier_coupon_meta_boxes', $fields );
+	}
+
+	/**
 	 * Add Hotelier meta boxes
 	 */
 	public function add_meta_boxes() {
