@@ -17,6 +17,7 @@ include( 'htl-conditional-functions.php' );
 include( 'htl-price-functions.php' );
 include( 'htl-room-functions.php' );
 include( 'htl-reservation-functions.php' );
+include( 'htl-coupon-functions.php' );
 
 /**
  * Short Description (excerpt)
