@@ -203,6 +203,17 @@ class HTL_Admin_Meta_Boxes_Validation {
 
 		return $variations;
 	}
+
+	/**
+	 * Sanitize date input
+	 */
+	public static function sanitize_date( $data ) {
+		if ( HTL_Formatting_Helper::is_valid_date( $data ) ) {
+			return $data;
+		}
+
+		return '';
+	}
 }
 
 endif;

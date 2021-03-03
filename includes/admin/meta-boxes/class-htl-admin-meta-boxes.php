@@ -61,6 +61,7 @@ class HTL_Admin_Meta_Boxes {
 		add_filter( 'hotelier_meta_box_save_seasonal_price', array( 'HTL_Admin_Meta_Boxes_Validation', 'sanitize_seasonal_price' ) );
 		add_filter( 'hotelier_meta_box_save_multi_text', array( 'HTL_Admin_Meta_Boxes_Validation', 'sanitize_multi_text' ) );
 		add_filter( 'hotelier_meta_box_save_room_variations', array( 'HTL_Admin_Meta_Boxes_Validation', 'sanitize_room_variations' ) );
+		add_filter( 'hotelier_meta_box_save_date', array( 'HTL_Admin_Meta_Boxes_Validation', 'sanitize_date' ) );
 
 		$this->includes();
 	}
@@ -141,7 +142,7 @@ class HTL_Admin_Meta_Boxes {
 			'_coupon_type'              => 'switch',
 			'_coupon_amount_percentage' => 'number',
 			'_coupon_amount_fixed'      => 'price',
-			'_coupon_expiration_date'      => 'price',
+			'_coupon_expiration_date'   => 'date',
 		);
 
 		$this->coupon_meta_boxes = apply_filters( 'hotelier_coupon_meta_boxes', $fields );
