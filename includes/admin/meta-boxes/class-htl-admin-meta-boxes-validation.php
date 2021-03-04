@@ -48,6 +48,19 @@ class HTL_Admin_Meta_Boxes_Validation {
 	}
 
 	/**
+	 * Sanitize multiselect input
+	 */
+	public static function sanitize_multiselect( $data ) {
+		if ( is_array( $data ) ) {
+			$data = array_map( 'sanitize_key', $data );
+		} else {
+			$data = array();
+		}
+
+		return $data;
+	}
+
+	/**
 	 * Sanitize checkbox input
 	 */
 	public static function sanitize_checkbox( $data ) {

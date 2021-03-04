@@ -47,6 +47,13 @@ class HTL_Meta_Boxes_Helper {
 	}
 
 	/**
+	 * Output a multiselect input field.
+	 */
+	public static function multiselect_input( $field ) {
+		include HTL_PLUGIN_DIR . 'includes/admin/meta-boxes/views/fields/html-meta-box-field-multiselect.php';
+	}
+
+	/**
 	 * Output a checkbox input field.
 	 */
 	public static function checkbox_input( $field ) {

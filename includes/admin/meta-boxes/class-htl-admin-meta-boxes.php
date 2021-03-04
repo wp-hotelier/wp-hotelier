@@ -54,6 +54,7 @@ class HTL_Admin_Meta_Boxes {
 		add_filter( 'hotelier_meta_box_save_textarea', array( 'HTL_Admin_Meta_Boxes_Validation', 'sanitize_textarea' ) );
 		add_filter( 'hotelier_meta_box_save_number', array( 'HTL_Admin_Meta_Boxes_Validation', 'sanitize_number' ) );
 		add_filter( 'hotelier_meta_box_save_select', array( 'HTL_Admin_Meta_Boxes_Validation', 'sanitize_select' ) );
+		add_filter( 'hotelier_meta_box_save_multiselect', array( 'HTL_Admin_Meta_Boxes_Validation', 'sanitize_multiselect' ) );
 		add_filter( 'hotelier_meta_box_save_checkbox', array( 'HTL_Admin_Meta_Boxes_Validation', 'sanitize_checkbox' ) );
 		add_filter( 'hotelier_meta_box_save_price', array( 'HTL_Admin_Meta_Boxes_Validation', 'sanitize_price' ) );
 		add_filter( 'hotelier_meta_box_save_price_per_day', array( 'HTL_Admin_Meta_Boxes_Validation', 'sanitize_price_per_day' ) );
