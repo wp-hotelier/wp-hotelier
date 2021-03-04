@@ -2672,7 +2672,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 }
 
 .htl-ui-icon--coupon-status-disabled:after {
-  content: '\f28b';
+  content: '\f05e';
   font-weight: 600;
   color: #d6d6d6;
 }
