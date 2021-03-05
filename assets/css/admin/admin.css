@@ -1968,6 +1968,10 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   max-width: 400px;
 }
 
+.htl-ui-layout__column--right .htl-ui-input--multiselect {
+  min-height: 150px;
+}
+
 /****** Variations ******/
 .room-variation--placeholder {
   display: none !important;
