@@ -244,7 +244,7 @@ class HTL_Admin_Post_Types {
 				break;
 
 			case 'coupon_status' :
-				$status = $the_coupon->is_enabled() ? 'enabled' : 'disabled';
+				$status = $the_coupon->is_active() ? 'enabled' : 'disabled';
 
 				echo '<span class="htl-ui-icon htl-ui-icon--coupon-status-' . $status . '"></span>';
 				break;
