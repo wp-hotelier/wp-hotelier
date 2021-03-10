@@ -114,6 +114,30 @@ class HTL_Coupon {
 	}
 
 	/**
+	 * Checks if the coupon is active
+	 *
+	 * @return string
+	 */
+	public function is_active() {
+		$active = true;
+
+		if ( $this->is_enabled() ) {
+			if ( $expiration_date = $this->expiration_date() ) {
+				$curdate         = new DateTime( current_time( 'Y-m-d' ) );
+				$expiration_date = new DateTime( $expiration_date );
+
+				if ( $curdate > $expiration_date ) {
+					$active = false;
+				}
+			}
+		} else {
+			$active = false;
+		}
+
+		return apply_filters( 'hotelier_is_coupon_active', $active, $this->id, $this );
+	}
+
+	/**
 	 * Checks if the coupon is enabled
 	 *
 	 * @return string
