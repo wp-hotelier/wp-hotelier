@@ -216,7 +216,7 @@ class HTL_Admin_Post_Types {
 
 		switch ( $column ) {
 			case 'coupon_code' :
-				echo '<span>' . esc_attr( $the_coupon->get_code() ) . '</span>';
+				echo '<span>' . esc_html( $the_coupon->get_code() ) . '</span>';
 				break;
 
 			case 'coupon_type' :
@@ -240,7 +240,7 @@ class HTL_Admin_Post_Types {
 				$expiration_date = $the_coupon->expiration_date();
 				$expiration_date = $expiration_date ? $expiration_date : '-';
 
-				echo '<span>' . esc_attr( $expiration_date ) . '</span>';
+				echo '<span>' . esc_html( $expiration_date ) . '</span>';
 				break;
 
 			case 'coupon_status' :
