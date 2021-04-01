@@ -82,6 +82,17 @@ class HTL_Coupon {
 	}
 
 	/**
+	 * Gets the coupon description
+	 *
+	 * @return string
+	 */
+	public function get_description() {
+		$coupon_description = $this->coupon_description;
+
+		return apply_filters( 'hotelier_get_coupon_description', $coupon_description, $this->id, $this );
+	}
+
+	/**
 	 * Gets the coupon type
 	 *
 	 * @return string
