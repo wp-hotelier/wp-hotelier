@@ -59,3 +59,40 @@ function htl_calculate_coupon( $amount, $coupon_id ) {
 
 	return absint( $calculated_coupon );
 }
+
+/**
+ * Get coupon ID from code.
+ *
+ * @param  string $coupon_code Coupon code.
+ * @return mixed
+ */
+function htl_get_coupon_id_from_code( $coupon_code ) {
+	global $wpdb;
+
+	if ( empty( $coupon_code ) ) {
+		return false;
+	}
+
+	$coupon_id = false;
+
+	$coupons = get_posts( array(
+		'post_type'           => 'coupon',
+		'post_status'         => 'publish',
+		'ignore_sticky_posts' => 1,
+		'posts_per_page'      => 1,
+		'meta_query'          => array(
+			array(
+				'key'   => '_coupon_code',
+				'value' => $coupon_code,
+			),
+		),
+	) );
+
+	if ( is_array( $coupons ) && count( $coupons ) > 0 ) {
+		foreach ( $coupons as $coupon ) {
+			$coupon_id = $coupon->ID;
+		}
+	}
+
+	return $coupon_id;
+}
