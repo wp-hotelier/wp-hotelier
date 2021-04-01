@@ -21,3 +21,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 function htl_get_coupon( $the_coupon = false ) {
 	return new HTL_Coupon( $the_coupon );
 }
+
+/**
+ * Check if coupons are enabled.
+ *
+ * @return bool
+ */
+function htl_coupons_enabled() {
+	return apply_filters( 'hotelier_coupons_enabled', htl_get_option( 'enable_coupons' ) );
+}
