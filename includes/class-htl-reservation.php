@@ -1202,6 +1202,83 @@ class HTL_Reservation {
 	}
 
 	/**
+	 * Set reservation discount
+	 *
+	 * @param int $amount
+	 *
+	 * @return bool
+	 */
+	public function set_discount_total( $amount ) {
+		update_post_meta( $this->id, '_reservation_discount_total', absint( $amount ) );
+
+		return true;
+	}
+
+	/**
+	 * Gets reservation discount.
+	 *
+	 * @return int
+	 */
+	public function get_discount_total() {
+		return absint( apply_filters( 'hotelier_get_reservation_discount_total', $this->reservation_discount_total, $this ) );
+	}
+
+	/**
+	 * Gets reservation discount - formatted for display.
+	 *
+	 * @return int
+	 */
+	public function get_formatted_discount_total() {
+		$amount = '-' . htl_price( htl_convert_to_cents( $this->get_discount_total() ), $this->get_reservation_currency() );
+
+		return apply_filters( 'hotelier_get_formatted_reservation_discount_total', $amount, $this );
+	}
+
+	/**
+	 * Set coupon ID
+	 *
+	 * @param int $coupon_id
+	 *
+	 * @return bool
+	 */
+	public function set_coupon_id( $coupon_id ) {
+		update_post_meta( $this->id, '_reservation_coupon_id', absint( $coupon_id ) );
+
+		return true;
+	}
+
+	/**
+	 * Gets coupon ID.
+	 *
+	 * @return int
+	 */
+	public function get_coupon_id() {
+		return absint( apply_filters( 'hotelier_get_reservation_coupon_id', $this->reservation_coupon_id, $this ) );
+	}
+
+	/**
+	 * Set coupon ID
+	 *
+	 * @param int $coupon_code
+	 *
+	 * @return bool
+	 */
+	public function set_coupon_code( $coupon_code ) {
+		update_post_meta( $this->id, '_reservation_coupon_code', trim( $coupon_code ) );
+
+		return true;
+	}
+
+	/**
+	 * Gets coupon code.
+	 *
+	 * @return int
+	 */
+	public function get_coupon_code() {
+		return apply_filters( 'hotelier_get_reservation_coupon_code', $this->reservation_coupon_code, $this );
+	}
+
+	/**
 	 * Gets reservation currency
 	 *
 	 * @return string
