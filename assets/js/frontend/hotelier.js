@@ -17,6 +17,7 @@ jQuery(function ($) {
 			this.show_price_breakdown();
 			this.scroll_to_rates_button();
 			this.scroll_to_datpicker_from_rates();
+			this.apply_coupon();
 		},
 
 		// Show the quantity input and update the text button
@@ -200,6 +201,61 @@ jQuery(function ($) {
 				$('html, body').stop().animate({
 					scrollTop: target
 				}, 600);
+			});
+		},
+
+		// Handle coupon form
+		apply_coupon: function () {
+			$('.table--reservation-table').on('click', '.coupon-form__apply', function (e) {
+				e.preventDefault();
+
+				var _this = $(this);
+				var table = _this.closest('table');
+				var form = _this.closest('.coupon-form');
+				var coupon_input = form.find('input.coupon-form__input');
+
+				var form_data = {
+					coupon_nonce: hotelier_params.apply_coupon_nonce,
+					coupon_code: coupon_input.val(),
+					action: 'hotelier_apply_coupon'
+				};
+
+				table.removeClass('loading');
+				table.addClass('loading');
+				form.find('.htl-ui-notice').remove();
+
+				// Check if field is empty
+				if (!coupon_input.val()) {
+					form.append('<div class="htl-ui-notice htl-ui-notice--error">' + hotelier_params.apply_coupon_i18n.empty_coupon + '</div>');
+					table.removeClass('loading');
+
+					return;
+				}
+
+				$.ajax({
+					method: 'POST',
+					url: hotelier_params.ajax_url.toString(),
+					data: form_data
+				})
+				.done(function (response) {
+					if (response.success === true) {
+						if (response.data.html) {
+							var new_template = response.data.html;
+							var new_table = $(new_template).find('table').html();
+
+							table.html(new_table);
+						}
+					} else {
+						form.append('<div class="htl-ui-notice htl-ui-notice--error">' + response.data.message + '</div>');
+					}
+				})
+				.fail(function (response) {
+					if (hotelier_params.enable_debug) {
+						console.log(response);
+					}
+				}).always(function () {
+					table.removeClass('loading');
+				});
 			});
 		}
 	};
