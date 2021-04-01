@@ -96,3 +96,39 @@ function htl_get_coupon_id_from_code( $coupon_code ) {
 
 	return $coupon_id;
 }
+
+/**
+ * Check if we can apply this coupon.
+ *
+ * @param  int $coupon_id Coupon ID.
+ * @return array
+ */
+function htl_can_apply_coupon( $coupon_id ) {
+	$can_apply = true;
+	$reason    = false;
+
+	$coupon = htl_get_coupon( $coupon_id );
+
+	// Check if coupon exists
+	if ( ! $coupon->exists() ) {
+		$reason    = esc_html__( 'This coupon does not exists.', 'wp-hotelier' );
+		$can_apply = false;
+	}
+
+	// Check if coupon is active and enabled
+	if ( ! $coupon->is_active() ) {
+		$reason    = esc_html__( 'This coupon has expired.', 'wp-hotelier' );
+		$can_apply = false;
+	}
+
+	$data = apply_filters(
+		'hotelier_can_apply_coupon',
+		array(
+			'can_apply' => $can_apply,
+			'reason'    => $reason
+		),
+		$coupon_id
+	);
+
+	return $data;
+}
