@@ -1009,6 +1009,7 @@ class HTL_Reservation {
 	 */
 	public function get_reservation_totals() {
 		$total_rows = array();
+		$discount_printed = false;
 
 		if ( $this->has_tax() ) {
 
@@ -1017,9 +1018,30 @@ class HTL_Reservation {
 				'value'	=> $this->get_formatted_subtotal()
 			);
 
+			if ( $this->get_discount_total() > 0  ) {
+				$discount_printed = true;
+
+				$total_rows[ 'discount_total' ] = array(
+					'label' => esc_html__( 'Discount:', 'wp-hotelier' ),
+					'value'	=> $this->get_formatted_discount_total() . ' <small class="reservation-table__coupon-code">' . $this->get_coupon_code() . '</small>'
+				);
+			}
+
 			$total_rows[ 'tax_total' ] = array(
 				'label' => esc_html__( 'Tax total:', 'wp-hotelier' ),
 				'value'	=> $this->get_formatted_tax_total()
+			);
+		}
+
+		if ( ! $discount_printed && $this->get_discount_total() > 0 ) {
+			$total_rows[ 'subtotal' ] = array(
+				'label' => esc_html__( 'Subtotal:', 'wp-hotelier' ),
+				'value'	=> $this->get_formatted_subtotal()
+			);
+
+			$total_rows[ 'discount_total' ] = array(
+				'label' => esc_html__( 'Discount:', 'wp-hotelier' ),
+				'value'	=> $this->get_formatted_discount_total() . ' <small class="reservation-table__coupon-code">' . $this->get_coupon_code() . '</small>'
 			);
 		}
 
