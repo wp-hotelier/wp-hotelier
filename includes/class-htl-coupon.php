@@ -61,6 +61,15 @@ class HTL_Coupon {
 	}
 
 	/**
+	 * Returns whether or not the coupon post exists.
+	 *
+	 * @return bool
+	 */
+	public function exists() {
+		return empty( $this->post ) ? false : true;
+	}
+
+	/**
 	 * Gets the coupon code
 	 *
 	 * @return string
