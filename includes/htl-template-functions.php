@@ -1107,6 +1107,17 @@ if ( ! function_exists( 'hotelier_reservation_table_guests' ) ) {
 
 }
 
+if ( ! function_exists( 'hotelier_reservation_show_coupon_form' ) ) {
+
+	/**
+	 * Show coupon form.
+	 */
+	function hotelier_reservation_show_coupon_form() {
+		htl_get_template( 'booking/form-coupon.php' );
+	}
+
+}
+
 /***** Reservation ***************************/
 
 if ( ! function_exists( 'hotelier_template_reservation_table' ) ) {

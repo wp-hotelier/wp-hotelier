@@ -123,6 +123,7 @@ add_action( 'hotelier_booking_before_submit', 'hotelier_template_terms_checkbox'
 add_action( 'hotelier_form_pay_before_submit', 'hotelier_privacy_policy_text', 5 );
 add_action( 'hotelier_form_pay_before_submit', 'hotelier_template_terms_checkbox', 10 );
 add_action( 'hotelier_reservation_table_guests', 'hotelier_reservation_table_guests', 10, 3 );
+add_action( 'hotelier_reservation_table_coupon_form', 'hotelier_reservation_show_coupon_form', 10 );
 
 /**
  * Reservation details
