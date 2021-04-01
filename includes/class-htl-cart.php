@@ -92,6 +92,20 @@ class HTL_Cart {
 	public $total;
 
 	/**
+	 * Cart discount.
+	 *
+	 * @var int
+	 */
+	public $discount_total;
+
+	/**
+	 * Applied coupon.
+	 *
+	 * @var int
+	 */
+	public $coupon_id;
+
+	/**
 	 * Array of data the cart calculates and stores in the session with defaults.
 	 *
 	 * @var array
@@ -101,6 +115,8 @@ class HTL_Cart {
 		'required_deposit'    => 0,
 		'subtotal'            => 0,
 		'tax_total'           => 0,
+		'discount_total'      => 0,
+		'coupon_id'           => 0,
 		'total'               => 0
 	);
 
@@ -128,7 +144,7 @@ class HTL_Cart {
 		$this->checkout = HTL()->session->get( 'checkout' );
 
 		// Init HTL_Cart_Totals()
-		$this->cart_totals = new HTL_Cart_Totals( $this->checkin, $this->checkout );
+		$this->cart_totals = new HTL_Cart_Totals( $this->checkin, $this->checkout, $this->coupon_id );
 
 		add_action( 'hotelier_booking_check_rooms_availability', array( $this, 'check_cart_items' ), 1 );
 	}
@@ -263,6 +279,7 @@ class HTL_Cart {
 		HTL()->session->set( 'cart', null );
 		HTL()->session->set( 'reservation_awaiting_payment', null );
 		HTL()->session->set( 'cart_contents_quantity', null );
+		HTL()->session->set( 'coupon_id', null );
 
 		do_action( 'hotelier_cart_emptied' );
 	}
@@ -322,13 +339,14 @@ class HTL_Cart {
 		$cart = $this->get_cart();
 
 		try {
-			$cart_totals = new HTL_Cart_Totals( $this->checkin, $this->checkout );
+			$cart_totals = new HTL_Cart_Totals( $this->checkin, $this->checkout, $this->coupon_id );
 			$cart_totals->calculate_totals( $cart );
 
 			$this->cart_contents    = $cart_totals->cart_contents;
 			$this->subtotal         = $cart_totals->subtotal;
 			$this->tax_total        = $cart_totals->tax_total;
 			$this->required_deposit = $cart_totals->required_deposit;
+			$this->discount_total   = $cart_totals->discount_total;
 			$this->total            = $cart_totals->total;
 
 			$this->set_session();
@@ -369,6 +387,10 @@ class HTL_Cart {
 	 */
 	private function reset() {
 		foreach ( $this->cart_session_data as $key => $default ) {
+			if ( $key === 'coupon_id' ) {
+				continue;
+			}
+
 			$this->$key = $default;
 			HTL()->session->set( $key, $default );
 		}
@@ -529,6 +551,34 @@ class HTL_Cart {
 	 */
 	public function get_required_deposit() {
 		return apply_filters( 'hotelier_cart_required_deposit', $this->required_deposit );
+	}
+
+	/**
+	 * Sets coupon ID.
+	 *
+	 * @return int price
+	 */
+	public function set_coupon_id( $coupon_id ) {
+		$this->coupon_id = $coupon_id;
+		HTL()->session->set( 'coupon_id', $coupon_id );
+	}
+
+	/**
+	 * Gets coupon ID.
+	 *
+	 * @return int price
+	 */
+	public function get_coupon_id() {
+		return apply_filters( 'hotelier_cart_coupon_id', $this->coupon_id );
+	}
+
+	/**
+	 * Gets discount.
+	 *
+	 * @return int price
+	 */
+	public function get_discount_total() {
+		return apply_filters( 'hotelier_cart_discount_total', $this->discount_total );
 	}
 
 	/**
