@@ -98,7 +98,7 @@ class HTL_Coupon {
 			$amount = $this->coupon_amount_percentage;
 		}
 
-		return apply_filters( 'hotelier_get_coupon_amount', $amount, $this->id, $this );
+		return apply_filters( 'hotelier_get_coupon_amount', absint( $amount ), $this->id, $this );
 	}
 
 	/**
