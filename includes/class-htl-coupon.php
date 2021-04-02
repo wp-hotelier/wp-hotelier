@@ -170,7 +170,7 @@ class HTL_Coupon {
 	}
 
 	/**
-	 * Gets the coupon has usage limit
+	 * Gets the coupon usage limit setting
 	 *
 	 * @return int
 	 */
@@ -181,7 +181,7 @@ class HTL_Coupon {
 	}
 
 	/**
-	 * Gets coupon usage
+	 * Gets coupon usage (the times it has been used)
 	 *
 	 * @return int
 	 */
