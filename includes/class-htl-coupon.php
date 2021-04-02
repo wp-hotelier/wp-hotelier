@@ -168,45 +168,6 @@ class HTL_Coupon {
 
 		return apply_filters( 'hotelier_is_coupon_enabled', $enabled, $this->id, $this );
 	}
-
-	/**
-	 * Gets the coupon usage limit setting
-	 *
-	 * @return int
-	 */
-	public function get_usage_limit() {
-		$usage_limit = absint( $this->coupon_usage_limit );
-
-		return apply_filters( 'hotelier_get_coupon_usage_limit', $usage_limit, $this->id, $this );
-	}
-
-	/**
-	 * Gets coupon usage (the times it has been used)
-	 *
-	 * @return int
-	 */
-	public function get_usage_count() {
-		$usage_count = absint( $this->usage_count );
-
-		return apply_filters( 'hotelier_get_coupon_usage', $usage_count, $this->id, $this );
-	}
-
-	/**
-	 * Checks if the coupon has exceeded its usage limit
-	 *
-	 * @return bool
-	 */
-	public function is_coupon_usage_exceeded() {
-		$usage_exceeded = false;
-		$usage_limit    = $this->get_usage_limit();
-		$usage_count    = $this->get_usage_count();
-
-		if ( $usage_limit > 0 && $usage_count > 0 && $usage_count >= $usage_limit ) {
-			$usage_exceeded = true;
-		}
-
-		return apply_filters( 'hotelier_is_coupon_usage_exceeded', $usage_exceeded, $this->id, $this );
-	}
 }
 
 endif;
