@@ -103,7 +103,7 @@ function htl_get_coupon_id_from_code( $coupon_code ) {
  * @param  int $coupon_id Coupon ID.
  * @return array
  */
-function htl_can_apply_coupon( $coupon_id ) {
+function htl_can_apply_coupon( $coupon_id, $force = false ) {
 	$can_apply = true;
 	$reason    = false;
 
@@ -113,6 +113,10 @@ function htl_can_apply_coupon( $coupon_id ) {
 	if ( ! $coupon->exists() ) {
 		$reason    = esc_html__( 'This coupon does not exists.', 'wp-hotelier' );
 		$can_apply = false;
+	}
+
+	if ( $force ) {
+		return array( 'can_apply' => true, 'reason' => '' );
 	}
 
 	// Check if coupon is active and enabled
