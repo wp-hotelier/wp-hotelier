@@ -136,7 +136,7 @@ class HTL_Admin_New_Reservation {
 
 				// Check checkin and checkout dates
 				if ( ! HTL_Formatting_Helper::is_valid_checkin_checkout( self::$checkin, self::$checkout, self::$force_booking ) ) {
-					throw new Exception( esc_html__( 'Sorryd, this room is not available on the given dates.', 'wp-hotelier' ) );
+					throw new Exception( esc_html__( 'Sorry, this room is not available on the given dates.', 'wp-hotelier' ) );
 				}
 
 				// Init HTL_Cart_Totals()
