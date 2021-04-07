@@ -180,7 +180,7 @@ class HTL_Gateway_Paypal_Request {
 	 * @param integer $amount
 	 * @return bool successfully added or not
 	 */
-	protected function add_line_item( $item_name, $quantity = 1, $amount = 0, $currency ) {
+	protected function add_line_item( $item_name, $quantity = 1, $amount = 0, $currency = '' ) {
 		$index = ( sizeof( $this->line_items ) / 3 ) + 1;
 
 		if ( $amount < 0 || $index > 9 ) {
