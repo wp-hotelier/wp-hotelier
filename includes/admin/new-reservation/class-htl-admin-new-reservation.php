@@ -41,6 +41,13 @@ class HTL_Admin_New_Reservation {
 	protected static $checkin;
 
 	/**
+	 * Coupon ID.
+	 *
+	 * @var string
+	 */
+	protected static $coupon_id;
+
+	/**
 	 * Checkout date.
 	 *
 	 * @var string
@@ -114,6 +121,10 @@ class HTL_Admin_New_Reservation {
 					} elseif ( $key == 'to' ) {
 
 						self::$checkout = sanitize_text_field( $_POST[ 'to' ] );
+
+					} elseif ( $key == 'coupon_code' ) {
+
+						self::$coupon_id = htl_get_coupon_id_from_code( trim( $_POST[ 'coupon_code' ] ) );
 					}
 				}
 
@@ -140,7 +151,7 @@ class HTL_Admin_New_Reservation {
 				}
 
 				// Init HTL_Cart_Totals()
-				$cart_totals = new HTL_Cart_Totals( self::$checkin, self::$checkout );
+				$cart_totals = new HTL_Cart_Totals( self::$checkin, self::$checkout, self::$coupon_id );
 
 				// Add rooms to the reservation
 				foreach ( self::$rooms as $room ) {
@@ -190,6 +201,7 @@ class HTL_Admin_New_Reservation {
 	 * 		401 - Cannot insert booking into the database (bookings table)
 	 * 		402 - Cannot populate room_bookings
 	 * 		403 - Cannot add item to reservation
+	 * 		405 - Cannot apply coupon
 	 *
 	 * @access public
 	 * @throws Exception
@@ -281,6 +293,21 @@ class HTL_Admin_New_Reservation {
 			$reservation->set_tax_total( $cart_totals->tax_total );
 			$reservation->set_total( $cart_totals->total );
 			$reservation->set_deposit( $cart_totals->required_deposit );
+
+			// Save coupon data
+			if ( htl_coupons_enabled() ) {
+				$coupon_id   = $cart_totals->coupon_id;
+				$coupon      = htl_get_coupon( $coupon_id );
+				$coupon_code = $coupon->get_code();
+
+				if ( htl_can_apply_coupon( $coupon_id, true ) ) {
+					$reservation->set_discount_total( $cart_totals->discount_total );
+					$reservation->set_coupon_id( $coupon_id );
+					$reservation->set_coupon_code( $coupon_code );
+				} else {
+					throw new Exception( sprintf( esc_html__( 'Error %d: Unable to apply this coupon. Please try again.', 'wp-hotelier' ), 405 ) );
+				}
+			}
 
 			// Add a note to the reservation
 			$reservation->add_reservation_note( esc_html__( 'Reservation manually created by admin.', 'wp-hotelier' ) );

@@ -133,6 +133,18 @@ $tomorrow = $tomorrow->format( 'Y-m-d' );
 								</div>
 							</td>
 						</tr>
+						<?php if ( htl_coupons_enabled() ) : ?>
+							<tr>
+								<th scope="row"><?php esc_html_e( 'Apply coupon:', 'wp-hotelier' ); ?></th>
+								<td>
+									<div class="htl-ui-setting">
+										<input class="htl-ui-input htl-ui-input--text" type="text" name="coupon_code">
+
+										<div class="htl-ui-setting__description"><?php esc_html_e( 'Type a coupon code or leave empty', 'wp-hotelier' ); ?></div>
+									</div>
+								</td>
+							</tr>
+						<?php endif; ?>
 						<?php foreach ( HTL_Meta_Box_Reservation_Data::get_guest_details_fields() as $key => $field ) :
 							$type     = isset( $field[ 'type' ] ) ? $field[ 'type' ] : 'text';
 							$required = isset( $field[ 'required' ] ) ? '<span class="htl-ui-required-symbol"> * </span>' : '';
