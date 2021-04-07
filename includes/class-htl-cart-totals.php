@@ -309,7 +309,7 @@ class HTL_Cart_Totals {
 		$this->subtotal  = apply_filters( 'hotelier_calculated_subtotal', $this->cart_contents_total, $this );
 
 		// Calculate coupons
-		if ( htl_coupons_enabled() ) {
+		if ( htl_coupons_enabled() && $this->coupon_id > 0 ) {
 			$this->discount_total = htl_calculate_coupon( $this->cart_contents_total, $this->coupon_id );
 
 			if ( $this->discount_total > 0 ) {
