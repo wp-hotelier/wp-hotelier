@@ -286,6 +286,7 @@ class HTL_Form_Functions {
 			$reservation            = htl_get_reservation( $reservation_id );
 			$reservation_can_cancel = $reservation->has_status( apply_filters( 'hotelier_valid_reservation_statuses_for_cancel', array( 'pending', 'confirmed', 'failed' ) ) );
 			$redirect               = $_GET[ 'redirect' ];
+			$is_payment             = isset( $_GET['is_payment'] ) && $_GET['is_payment'] ? true : false;
 
 			if ( $reservation->has_status( 'cancelled' ) ) {
 				// Already cancelled
@@ -293,7 +294,7 @@ class HTL_Form_Functions {
 			} elseif ( $reservation->has_status( 'refunded' ) ) {
 				// Already refunded
 				htl_add_notice( esc_html__( 'Reservation already refunded.', 'wp-hotelier' ), 'error' );
-			} elseif ( ! $reservation->can_be_cancelled() ) {
+			} elseif ( ! $reservation->can_be_cancelled() && ! $is_payment ) {
 				// Reservation contains non-cancellable rooms
 				htl_add_notice( esc_html__( 'Your reservation includes a non cancellable and non refundable room and it cannot be cancelled.', 'wp-hotelier' ), 'error' );
 			} elseif ( $reservation_can_cancel && $reservation->id == $reservation_id && $reservation->reservation_key == $reservation_key  ) {
