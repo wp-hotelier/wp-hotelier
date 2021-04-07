@@ -1371,6 +1371,28 @@ class HTL_Reservation {
 	}
 
 	/**
+	 * Generates a raw (unescaped) URL so that a customer can cancel their (unpaid - pending) reservation.
+	 * Also confirmed reservations can be cancelled if they don't contain non-cancellable rooms.
+	 *
+	 * @param string $redirect
+	 *
+	 * @return string
+	 */
+	public function get_booking_cancel_url_raw( $is_payment = false, $redirect = '' ) {
+
+		// Get cancel endpoint
+		$cancel_endpoint = $this->get_cancel_endpoint();
+
+		return apply_filters( 'hotelier_get_booking_cancel_url_raw', add_query_arg( array(
+			'cancel_reservation' => 'true',
+			'reservation'        => $this->reservation_key,
+			'reservation_id'     => $this->id,
+			'is_payment'         => $is_payment,
+			'redirect'           => $redirect
+		), $cancel_endpoint ) );
+	}
+
+	/**
 	 * Helper method to return the cancel endpoint.
 	 *
 	 * @return string the cancel endpoint; either the listing page or the home page.
