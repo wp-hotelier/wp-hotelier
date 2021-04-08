@@ -65,7 +65,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</tbody>
 			<tfoot>
 				<?php
-				if ( $totals = $reservation->get_reservation_totals() ) {
+				if ( $totals = $reservation->get_reservation_totals( true ) ) {
 					$count_totals = count( $totals );
 					$i = 1;
 
@@ -83,7 +83,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 						?>
 						<tr>
 							<th scope="row" colspan="2" style="text-align:left;font-size:14px;line-height:20px;color:#444444;<?php echo $padding; ?>padding-left:0;padding-right:0;<?php echo $border; ?>font-family:Helvetica,Arial;"><?php echo esc_html( $total[ 'label' ] ); ?></th>
-							<td style="text-align:left;font-size:14px;line-height:20px;color:#999999;padding-top:10px;padding-bottom:5px;padding-left:0;padding-right:0;<?php echo $border; ?>font-family:Helvetica,Arial;"><?php echo $total[ 'value' ]; ?></td>
+							<td style="text-align:left;font-size:14px;line-height:20px;color:#999999;padding-top:10px;padding-bottom:5px;padding-left:0;padding-right:0;<?php echo $border; ?>font-family:Helvetica,Arial;">
+								<?php echo $total[ 'value' ]; ?>
+
+								<?php if ( isset( $total[ 'extra' ] ) ) : ?>
+									<br><small style="text-align:left;font-size:12px;line-height:16px;color:#999999;font-family:Helvetica,Arial;"><?php echo $total[ 'extra' ]; ?></small>
+								<?php endif; ?>
+							</td>
 						</tr>
 						<?php
 						$i++;

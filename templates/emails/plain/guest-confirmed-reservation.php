@@ -36,9 +36,10 @@ echo "\n" . $reservation->email_reservation_items_table( true );
 
 echo "==========\n\n";
 
-if ( $totals = $reservation->get_reservation_totals() ) {
+if ( $totals = $reservation->get_reservation_totals( true ) ) {
 	foreach ( $totals as $total ) {
-		echo esc_html( $total[ 'label' ] ) . " " . wp_kses_post( $total[ 'value' ] ) . "\n";
+		$extra = isset( $total[ 'extra' ] ) ? '(' . $total[ 'extra' ] . ')' : '';
+		echo esc_html( $total[ 'label' ] ) . " " . wp_kses_post( $total[ 'value' ] ) . " " . $extra . "\n";
 	}
 }
 

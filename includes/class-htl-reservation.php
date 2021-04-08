@@ -1007,7 +1007,7 @@ class HTL_Reservation {
 	 *
 	 * @return array
 	 */
-	public function get_reservation_totals() {
+	public function get_reservation_totals( $is_email = false ) {
 		$total_rows = array();
 		$discount_printed = false;
 
@@ -1023,7 +1023,8 @@ class HTL_Reservation {
 
 				$total_rows[ 'discount_total' ] = array(
 					'label' => esc_html__( 'Discount:', 'wp-hotelier' ),
-					'value'	=> $this->get_formatted_discount_total() . ' <small class="reservation-table__coupon-code">' . $this->get_coupon_code() . '</small>'
+					'value'	=> $is_email ? $this->get_formatted_discount_total() : $this->get_formatted_discount_total() . ' <small class="reservation-table__coupon-code">' . $this->get_coupon_code() . '</small>',
+					'extra'	=> $this->get_coupon_code()
 				);
 			}
 
@@ -1041,7 +1042,8 @@ class HTL_Reservation {
 
 			$total_rows[ 'discount_total' ] = array(
 				'label' => esc_html__( 'Discount:', 'wp-hotelier' ),
-				'value'	=> $this->get_formatted_discount_total() . ' <small class="reservation-table__coupon-code">' . $this->get_coupon_code() . '</small>'
+				'value'	=> $is_email ? $this->get_formatted_discount_total() : $this->get_formatted_discount_total() . ' <small class="reservation-table__coupon-code">' . $this->get_coupon_code() . '</small>',
+				'extra'	=> $this->get_coupon_code()
 			);
 		}
 
