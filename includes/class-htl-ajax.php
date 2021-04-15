@@ -133,42 +133,46 @@ class HTL_Ajax {
 				);
 			}
 
-			// Check coupon
-			if ( ! isset( $_POST[ 'coupon_code' ] ) || ! $_POST[ 'coupon_code' ] ) {
-				// Empty coupon code
-				wp_send_json_error(
-					array(
-						'message' => esc_html__( 'Please insert a valid coupon code.', 'wp-hotelier' )
-					)
-				);
-			}
+			$is_removing_coupon = isset( $_POST[ 'is_removing' ] ) && $_POST[ 'is_removing' ] === 'true' ? true : false;
 
-			// Get coupon ID
-			$coupon_code = trim( sanitize_text_field( $_POST[ 'coupon_code' ] ) );
-			$coupon_id   = htl_get_coupon_id_from_code( $coupon_code );
+			if ( ! $is_removing_coupon ) {
+				// Check coupon
+				if ( ! isset( $_POST[ 'coupon_code' ] ) || ! $_POST[ 'coupon_code' ] ) {
+					// Empty coupon code
+					wp_send_json_error(
+						array(
+							'message' => esc_html__( 'Please insert a valid coupon code.', 'wp-hotelier' )
+						)
+					);
+				}
 
-			if ( ! $coupon_id ) {
-				// Invalid coupon code
-				wp_send_json_error(
-					array(
-						'message' => esc_html__( 'Invalid coupon code.', 'wp-hotelier' )
-					)
-				);
-			}
+				// Get coupon ID
+				$coupon_code = trim( sanitize_text_field( $_POST[ 'coupon_code' ] ) );
+				$coupon_id   = htl_get_coupon_id_from_code( $coupon_code );
 
-			// Check if coupon is valid
-			$can_apply_coupon = htl_can_apply_coupon( $coupon_id );
+				if ( ! $coupon_id ) {
+					// Invalid coupon code
+					wp_send_json_error(
+						array(
+							'message' => esc_html__( 'Invalid coupon code.', 'wp-hotelier' )
+						)
+					);
+				}
 
-			if ( ! isset( $can_apply_coupon['can_apply'] ) || ! $can_apply_coupon['can_apply'] ) {
-				$reason = isset( $can_apply_coupon['reason'] ) ? $can_apply_coupon['reason'] : false;
-				$reason = $reason ? $reason : esc_html__( 'This coupon cannot be applied.', 'wp-hotelier' );
+				// Check if coupon is valid
+				$can_apply_coupon = htl_can_apply_coupon( $coupon_id );
 
-				// Can't apply this coupon
-				wp_send_json_error(
-					array(
-						'message' => $reason
-					)
-				);
+				if ( ! isset( $can_apply_coupon['can_apply'] ) || ! $can_apply_coupon['can_apply'] ) {
+					$reason = isset( $can_apply_coupon['reason'] ) ? $can_apply_coupon['reason'] : false;
+					$reason = $reason ? $reason : esc_html__( 'This coupon cannot be applied.', 'wp-hotelier' );
+
+					// Can't apply this coupon
+					wp_send_json_error(
+						array(
+							'message' => $reason
+						)
+					);
+				}
 			}
 
 			ob_start();
@@ -179,6 +183,7 @@ class HTL_Ajax {
 			$nights   = $checkin->diff( $checkout )->days;
 
 			// Set coupon ID
+			$coupon_id = $is_removing_coupon ? 0 : $coupon_id;
 			HTL()->cart->set_coupon_id( $coupon_id );
 
 			// Refresh totals

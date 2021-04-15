@@ -206,17 +206,19 @@ jQuery(function ($) {
 
 		// Handle coupon form
 		apply_coupon: function () {
-			$('.table--reservation-table').on('click', '.coupon-form__apply', function (e) {
+			$('.table--reservation-table').on('click', '.coupon-form__apply, .coupon-form__remove', function (e) {
 				e.preventDefault();
 
 				var _this = $(this);
 				var table = _this.closest('table');
 				var form = _this.closest('.coupon-form');
 				var coupon_input = form.find('input.coupon-form__input');
+				var isRemoving = Boolean(_this.hasClass('coupon-form__remove button'));
 
 				var form_data = {
 					coupon_nonce: hotelier_params.apply_coupon_nonce,
 					coupon_code: coupon_input.val(),
+					is_removing: isRemoving,
 					action: 'hotelier_apply_coupon'
 				};
 
@@ -225,7 +227,7 @@ jQuery(function ($) {
 				form.find('.htl-ui-notice').remove();
 
 				// Check if field is empty
-				if (!coupon_input.val()) {
+				if (!isRemoving && !coupon_input.val()) {
 					form.append('<div class="htl-ui-notice htl-ui-notice--error">' + hotelier_params.apply_coupon_i18n.empty_coupon + '</div>');
 					table.removeClass('loading');
 
