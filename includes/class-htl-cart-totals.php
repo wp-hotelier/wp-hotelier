@@ -313,7 +313,7 @@ class HTL_Cart_Totals {
 			$this->discount_total = htl_calculate_coupon( $this->cart_contents_total, $this->coupon_id );
 
 			if ( $this->discount_total > 0 ) {
-				$this->cart_contents_total = $this->cart_contents_total - $this->discount_total;
+				$this->cart_contents_total = $this->discount_total > $this->cart_contents_total ? 0 : $this->cart_contents_total - $this->discount_total;
 			}
 		} else {
 			$this->discount_total = 0;
