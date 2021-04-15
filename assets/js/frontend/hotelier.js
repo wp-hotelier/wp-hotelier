@@ -246,6 +246,7 @@ jQuery(function ($) {
 							var new_table = $(new_template).find('table').html();
 
 							table.html(new_table);
+							HTL_Hotelier.show_price_breakdown();
 						}
 					} else {
 						form.append('<div class="htl-ui-notice htl-ui-notice--error">' + response.data.message + '</div>');
