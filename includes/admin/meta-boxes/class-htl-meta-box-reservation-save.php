@@ -236,14 +236,48 @@ class HTL_Meta_Box_Reservation_Save {
 	}
 
 	/**
-	 * Handle new reservation dates
+	 * Handle new reservation totals
 	 */
-	protected static function change_reservation_dates( $reservation, $checkin, $checkout ) {
-		$checkin         = sanitize_text_field( $checkin );
-		$checkout        = sanitize_text_field( $checkout );
+	protected static function change_reservation_totals( $reservation, $checkin, $checkout ) {
+		$needs_recalculation = false;
+		$checkin             = sanitize_text_field( $checkin );
+		$checkout            = sanitize_text_field( $checkout );
+		$coupon_id           = 0;
 
-		// Save new dates only if they are different
+		// Check coupon
+		if ( isset( $_POST[ 'coupon_id' ] ) ) {
+			switch ( $_POST[ 'coupon_id' ] ) {
+				case '-1':
+					if ( $reservation->get_coupon_id() > 0 ) {
+						$coupon_id = $reservation->get_coupon_id();
+					}
+					break;
+
+				case '0':
+					if ( $reservation->get_coupon_id() > 0 ) {
+						$needs_recalculation = true;
+						// $remove_coupon     = true;
+					}
+
+					break;
+
+				default:
+					$current_coupon_id = $reservation->get_coupon_id();
+					$coupon_id         = absint( $_POST[ 'coupon_id' ] ) ;
+
+					if ( $current_coupon_id !== $coupon_id ) {
+						$needs_recalculation = true;
+					}
+					break;
+			}
+		}
+
 		if ( $checkin !== $reservation->get_checkin() || $checkout !== $reservation->get_checkout() ) {
+			$needs_recalculation = true;
+		}
+
+		// Change totals only if dates are different or if there is a new coupon to apply/remove
+		if ( $needs_recalculation ) {
 			$new_post_status = sanitize_text_field( $_POST[ 'reservation_status' ] );
 			$new_post_status = 'htl-' === substr( $new_post_status, 0, 4 ) ? substr( $new_post_status, 4 ) : $new_post_status;
 			$old_post_status = $reservation->get_status();
@@ -279,7 +313,7 @@ class HTL_Meta_Box_Reservation_Save {
 				}
 
 				// Init HTL_Cart_Totals()
-				$cart_totals = new HTL_Cart_Totals( $checkin, $checkout );
+				$cart_totals = new HTL_Cart_Totals( $checkin, $checkout, $coupon_id );
 				$line_items  = $reservation->get_items();
 
 				foreach ( $line_items as $item_id => $item ) {
@@ -376,6 +410,22 @@ class HTL_Meta_Box_Reservation_Save {
 				$reservation->set_tax_total( $cart_totals->tax_total );
 				$reservation->set_total( $cart_totals->total );
 				$reservation->set_deposit( $cart_totals->required_deposit );
+
+				// Save coupon data
+				if ( htl_coupons_enabled() ) {
+					$coupon_id   = $cart_totals->coupon_id;
+					$coupon      = htl_get_coupon( $coupon_id );
+					$coupon_code = $coupon->get_code();
+
+					if ( htl_can_apply_coupon( $coupon_id, true ) ) {
+						$reservation->set_discount_total( $cart_totals->discount_total );
+						$reservation->set_coupon_id( $coupon_id );
+						$reservation->set_coupon_code( $coupon_code );
+					} else {
+						throw new Exception( esc_html__( 'Unable to apply this coupon. Please try again.', 'wp-hotelier' ) );
+					}
+				}
+
 				$reservation->update_table_reservation_dates( $checkin, $checkout );
 				$reservation->add_reservation_note( esc_html__( 'Reservation dates updated. Totals have been recalculated.', 'wp-hotelier' ) );
 
