@@ -61,36 +61,55 @@ function htl_calculate_coupon( $amount, $coupon_id ) {
 }
 
 /**
+ * Get all available coupons.
+ *
+ * @param  string $coupon_code Coupon code.
+ * @return mixed
+ */
+function htl_get_all_coupons() {
+	$all_coupons = array();
+
+	$coupons = get_posts( array(
+		'post_type'           => 'coupon',
+		'post_status'         => 'publish',
+		'ignore_sticky_posts' => 1,
+		'posts_per_page'      => -1
+	) );
+
+	if ( is_array( $coupons ) && count( $coupons ) > 0 ) {
+		foreach ( $coupons as $coupon ) {
+			$_coupon = htl_get_coupon( $coupon->ID );
+
+			$all_coupons[$coupon->ID] = array(
+				'title' => $coupon->post_title,
+				'code'  => $_coupon->get_code(),
+			);
+		}
+	}
+
+	return $all_coupons;
+}
+
+/**
  * Get coupon ID from code.
  *
  * @param  string $coupon_code Coupon code.
  * @return mixed
  */
 function htl_get_coupon_id_from_code( $coupon_code ) {
-	global $wpdb;
-
 	if ( empty( $coupon_code ) ) {
 		return false;
 	}
 
 	$coupon_id = false;
-
-	$coupons = get_posts( array(
-		'post_type'           => 'coupon',
-		'post_status'         => 'publish',
-		'ignore_sticky_posts' => 1,
-		'posts_per_page'      => 1,
-		'meta_query'          => array(
-			array(
-				'key'   => '_coupon_code',
-				'value' => $coupon_code,
-			),
-		),
-	) );
+	$coupons   = htl_get_all_coupons();
 
 	if ( is_array( $coupons ) && count( $coupons ) > 0 ) {
-		foreach ( $coupons as $coupon ) {
-			$coupon_id = $coupon->ID;
+		foreach ( $coupons as $coupon_id => $coupon ) {
+			if ( isset( $coupon['code'] ) && $coupon['code'] === $coupon_code ) {
+				$coupon_id = $coupon_id;
+				break;
+			}
 		}
 	}
 
