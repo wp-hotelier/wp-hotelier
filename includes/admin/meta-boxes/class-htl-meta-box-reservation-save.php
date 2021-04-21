@@ -153,9 +153,9 @@ class HTL_Meta_Box_Reservation_Save {
 			self::refund_deposit( $reservation, $amount );
 		}
 
-		// Handle new checkin/checkout dates
+		// Handle new checkin/checkout dates or new coupon
 		if ( ! empty( $_POST[ 'reservation_checkin' ] ) && ! empty( $_POST[ 'reservation_checkout' ] ) ) {
-			self::change_reservation_dates( $reservation, $_POST[ 'reservation_checkin' ], $_POST[ 'reservation_checkout' ] );
+			self::change_reservation_totals( $reservation, $_POST[ 'reservation_checkin' ], $_POST[ 'reservation_checkout' ] );
 		}
 	}
 
