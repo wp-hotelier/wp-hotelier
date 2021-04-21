@@ -105,9 +105,9 @@ function htl_get_coupon_id_from_code( $coupon_code ) {
 	$coupons   = htl_get_all_coupons();
 
 	if ( is_array( $coupons ) && count( $coupons ) > 0 ) {
-		foreach ( $coupons as $coupon_id => $coupon ) {
-			if ( isset( $coupon['code'] ) && $coupon['code'] === $coupon_code ) {
-				$coupon_id = $coupon_id;
+		foreach ( $coupons as $coupon_key => $coupon ) {
+			if ( isset( $coupon['code'] ) && strtolower( $coupon['code'] ) === strtolower( $coupon_code ) ) {
+				$coupon_id = $coupon_key;
 				break;
 			}
 		}
