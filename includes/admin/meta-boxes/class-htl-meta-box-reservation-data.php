@@ -219,6 +219,8 @@ class HTL_Meta_Box_Reservation_Data {
 				<h3 class="htl-ui-heading htl-ui-heading--section-header"><?php esc_html_e( 'General details', 'wp-hotelier' ); ?></h3>
 
 				<?php
+				$can_be_modified = $reservation->get_paid_deposit() > 0 || $reservation->requires_capture() ? false : true;
+
 				HTL_Meta_Boxes_Helper::select_input(
 					array(
 						'name'    => 'reservation_status',
@@ -230,7 +232,7 @@ class HTL_Meta_Box_Reservation_Data {
 				?>
 
 				<?php
-				if ( $reservation->get_paid_deposit() > 0 || $reservation->requires_capture() ) {
+				if ( ! $can_be_modified ) {
 					HTL_Meta_Boxes_Helper::plain(
 						array(
 							'label'       => esc_html__( 'Check-in:', 'wp-hotelier' ),
@@ -251,7 +253,7 @@ class HTL_Meta_Box_Reservation_Data {
 				?>
 
 				<?php
-				if ( $reservation->get_paid_deposit() > 0 || $reservation->requires_capture() ) {
+				if ( ! $can_be_modified ) {
 					HTL_Meta_Boxes_Helper::plain(
 						array(
 							'label'       => esc_html__( 'Check-out:', 'wp-hotelier' ),
