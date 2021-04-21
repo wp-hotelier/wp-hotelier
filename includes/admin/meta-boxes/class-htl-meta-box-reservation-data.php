@@ -274,6 +274,43 @@ class HTL_Meta_Box_Reservation_Data {
 				?>
 
 				<?php
+				if ( htl_coupons_enabled() && $can_be_modified ) {
+					$all_coupons   = htl_get_all_coupons();
+					$coupon_values = array(
+						'-1' => '--- ' . esc_html__( "Don't apply a new coupon (leave current one if any)", "wp-hotelier" )
+					);
+
+					if ( $reservation->get_coupon_id() ) {
+						$coupon_values['0'] = '--- ' . esc_html__( 'Remove existing coupon', 'wp-hotelier' );
+					}
+
+					if ( is_array( $all_coupons ) ) {
+						foreach ( $all_coupons as $coupon_id => $coupon_value ) {
+							if ( isset( $coupon_value['code'] ) ) {
+								$coupon_code = $coupon_value['code'];
+
+								if ( isset( $coupon_value['title'] ) ) {
+									$coupon_code .= ' (' . $coupon_value['title'] . ')';
+								}
+
+								$coupon_values[$coupon_id] = $coupon_code;
+							}
+						}
+					}
+
+					HTL_Meta_Boxes_Helper::select_input(
+						array(
+							'name'        => 'coupon_id',
+							'label'       => esc_html__( 'Apply a coupon:', 'wp-hotelier' ),
+							'description' => esc_html__( 'Select the coupon you want to apply.', 'wp-hotelier' ),
+							'options'     => $coupon_values,
+							'std'         => $reservation->get_coupon_id(),
+						)
+					);
+				}
+				?>
+
+				<?php
 				HTL_Meta_Boxes_Helper::plain(
 					array(
 						'label'       => esc_html__( 'Number of nights:', 'wp-hotelier' ),
