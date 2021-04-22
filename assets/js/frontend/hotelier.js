@@ -224,11 +224,11 @@ jQuery(function ($) {
 
 				table.removeClass('loading');
 				table.addClass('loading');
-				form.find('.htl-ui-notice').remove();
+				form.find('.hotelier-notice').remove();
 
 				// Check if field is empty
 				if (!isRemoving && !coupon_input.val()) {
-					form.append('<div class="htl-ui-notice htl-ui-notice--error">' + hotelier_params.apply_coupon_i18n.empty_coupon + '</div>');
+					form.append('<div class="hotelier-notice hotelier-notice--error">' + hotelier_params.apply_coupon_i18n.empty_coupon + '</div>');
 					table.removeClass('loading');
 
 					return;
@@ -249,7 +249,7 @@ jQuery(function ($) {
 							HTL_Hotelier.show_price_breakdown();
 						}
 					} else {
-						form.append('<div class="htl-ui-notice htl-ui-notice--error">' + response.data.message + '</div>');
+						form.append('<div class="hotelier-notice hotelier-notice--error">' + response.data.message + '</div>');
 					}
 				})
 				.fail(function (response) {
