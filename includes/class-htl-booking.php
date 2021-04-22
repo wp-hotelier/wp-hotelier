@@ -127,7 +127,6 @@ class HTL_Booking {
 	 * 		402 - Cannot populate room_bookings
 	 * 		403 - Cannot add item to reservation
 	 * 		404 - Cannot update existing reservation
-	 * 		405 - Cannot apply coupon
 	 *
 	 * @access public
 	 * @throws Exception
@@ -281,12 +280,18 @@ class HTL_Booking {
 				$coupon      = htl_get_coupon( $coupon_id );
 				$coupon_code = $coupon->get_code();
 
-				if ( htl_can_apply_coupon( $coupon_id ) ) {
+				// Check if coupon is valid
+				$can_apply_coupon = htl_can_apply_coupon( $coupon_id );
+
+				if ( isset( $can_apply_coupon['can_apply'] ) && $can_apply_coupon['can_apply'] ) {
 					$reservation->set_discount_total( HTL()->cart->get_discount_total() );
 					$reservation->set_coupon_id( $coupon_id );
 					$reservation->set_coupon_code( $coupon_code );
 				} else {
-					throw new Exception( sprintf( esc_html__( 'Error %d: Unable to apply this coupon. Please try again.', 'wp-hotelier' ), 405 ) );
+					$reason = isset( $can_apply_coupon['reason'] ) ? $can_apply_coupon['reason'] : false;
+					$reason = $reason ? $reason : esc_html__( 'This coupon cannot be applied.', 'wp-hotelier' );
+
+					throw new Exception( $reason );
 				}
 			}
 

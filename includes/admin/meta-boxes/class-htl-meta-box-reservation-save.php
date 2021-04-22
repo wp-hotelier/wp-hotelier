@@ -417,12 +417,18 @@ class HTL_Meta_Box_Reservation_Save {
 					$coupon      = htl_get_coupon( $coupon_id );
 					$coupon_code = $coupon->get_code();
 
-					if ( htl_can_apply_coupon( $coupon_id, true ) ) {
+					// Check if coupon is valid
+					$can_apply_coupon = htl_can_apply_coupon( $coupon_id, true );
+
+					if ( isset( $can_apply_coupon['can_apply'] ) && $can_apply_coupon['can_apply'] ) {
 						$reservation->set_discount_total( $cart_totals->discount_total );
 						$reservation->set_coupon_id( $coupon_id );
 						$reservation->set_coupon_code( $coupon_code );
 					} else {
-						throw new Exception( esc_html__( 'Unable to apply this coupon. Please try again.', 'wp-hotelier' ) );
+						$reason = isset( $can_apply_coupon['reason'] ) ? $can_apply_coupon['reason'] : false;
+						$reason = $reason ? $reason : esc_html__( 'This coupon cannot be applied.', 'wp-hotelier' );
+
+						throw new Exception( $reason );
 					}
 				}
 
