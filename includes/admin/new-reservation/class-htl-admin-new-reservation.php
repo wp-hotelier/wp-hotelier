@@ -122,9 +122,9 @@ class HTL_Admin_New_Reservation {
 
 						self::$checkout = sanitize_text_field( $_POST[ 'to' ] );
 
-					} elseif ( $key == 'coupon_code' ) {
+					} elseif ( $key == 'coupon_id' ) {
 
-						self::$coupon_id = htl_get_coupon_id_from_code( trim( $_POST[ 'coupon_code' ] ) );
+						self::$coupon_id = $_POST[ 'coupon_id' ];
 					}
 				}
 
