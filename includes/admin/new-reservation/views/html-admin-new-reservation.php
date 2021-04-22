@@ -164,7 +164,7 @@ $tomorrow = $tomorrow->format( 'Y-m-d' );
 											<span class="htl-ui-toggle__handle"></span>
 										</label>
 
-										<p class="htl-ui-setting__description htl-ui-setting__description--checkbox "><?php esc_html_e( 'Enable this option to ignore booking rules (disabled dates, minimum nights, etc).', 'wp-hotelier' ); ?></p>
+										<p class="htl-ui-setting__description htl-ui-setting__description--checkbox "><?php esc_html_e( 'Enable this option to ignore booking rules (disabled dates, minimum nights, coupon rules, etc)', 'wp-hotelier' ); ?></p>
 									</div>
 								</div>
 							</td>
