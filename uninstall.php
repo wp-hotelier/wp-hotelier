@@ -7,7 +7,7 @@
  * @author      Benito Lopez <hello@lopezb.com>
  * @category    Core
  * @package     HTL/Uninstaller
- * @version     1.0.0
+ * @version     2.5.0
  */
 
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
