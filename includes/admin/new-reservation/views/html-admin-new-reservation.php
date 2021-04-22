@@ -117,6 +117,42 @@ $tomorrow = $tomorrow->format( 'Y-m-d' );
 								</div>
 							</td>
 						</tr>
+						<?php if ( htl_coupons_enabled() ) :
+							$all_coupons = htl_get_all_coupons();
+
+							$coupon_values = array(
+								0 => '--- ' . esc_html__( "Don't apply a coupon", "wp-hotelier" )
+							);
+
+							if ( is_array( $all_coupons ) ) {
+								foreach ( $all_coupons as $coupon_id => $coupon_value ) {
+									if ( isset( $coupon_value['code'] ) ) {
+										$coupon_code = $coupon_value['code'];
+
+										if ( isset( $coupon_value['title'] ) ) {
+											$coupon_code .= ' (' . $coupon_value['title'] . ')';
+										}
+
+										$coupon_values[$coupon_id] = $coupon_code;
+									}
+								}
+							}
+							?>
+							<tr>
+								<th scope="row"><?php esc_html_e( 'Apply coupon:', 'wp-hotelier' ); ?></th>
+								<td>
+									<div class="htl-ui-setting">
+										<select class="htl-ui-input htl-ui-input--select" name="coupon_id">
+											<?php foreach ( $coupon_values as $coupon_id => $coupon_value ) : ?>
+												<option value="<?php echo esc_attr( $coupon_id ); ?>"><?php echo esc_html( $coupon_value ) ?></option>
+											<?php endforeach; ?>
+										</select>
+
+										<div class="htl-ui-setting__description"><?php esc_html_e( 'Select the coupon you want to apply', 'wp-hotelier' ); ?></div>
+									</div>
+								</td>
+							</tr>
+						<?php endif; ?>
 						<tr>
 							<th scope="row"><?php esc_html_e( 'Force booking:', 'wp-hotelier' ); ?></th>
 							<td>
@@ -133,18 +169,6 @@ $tomorrow = $tomorrow->format( 'Y-m-d' );
 								</div>
 							</td>
 						</tr>
-						<?php if ( htl_coupons_enabled() ) : ?>
-							<tr>
-								<th scope="row"><?php esc_html_e( 'Apply coupon:', 'wp-hotelier' ); ?></th>
-								<td>
-									<div class="htl-ui-setting">
-										<input class="htl-ui-input htl-ui-input--text" type="text" name="coupon_code">
-
-										<div class="htl-ui-setting__description"><?php esc_html_e( 'Type a coupon code or leave empty', 'wp-hotelier' ); ?></div>
-									</div>
-								</td>
-							</tr>
-						<?php endif; ?>
 						<?php foreach ( HTL_Meta_Box_Reservation_Data::get_guest_details_fields() as $key => $field ) :
 							$type     = isset( $field[ 'type' ] ) ? $field[ 'type' ] : 'text';
 							$required = isset( $field[ 'required' ] ) ? '<span class="htl-ui-required-symbol"> * </span>' : '';
