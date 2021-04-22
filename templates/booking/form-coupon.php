@@ -20,8 +20,10 @@ $has_coupon = HTL()->cart->get_coupon_id() > 0 && HTL()->cart->get_discount_tota
 	<td colspan="3" class="reservation-table__coupon-form">
 		<div class="coupon-form">
 
-			<input type="text" class="input-text coupon-form__input" name="coupon" id="coupon" placeholder="<?php esc_attr_e( 'Gift or discount code', 'wp-hotelier' ); ?>" value="">
-			<button type="button" class="coupon-form__apply button"><?php esc_html_e( 'Apply', 'wp-hotelier' ); ?></button>
+			<div class="coupon-form-input-wrapper">
+				<input type="text" class="input-text coupon-form__input" name="coupon" id="coupon" placeholder="<?php esc_attr_e( 'Gift or discount code', 'wp-hotelier' ); ?>" value="">
+				<button type="button" class="coupon-form__apply button"><?php esc_html_e( 'Apply', 'wp-hotelier' ); ?></button>
+			</div>
 
 			<?php if ( $has_coupon ) : ?>
 				<?php
