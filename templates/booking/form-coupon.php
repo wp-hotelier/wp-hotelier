@@ -13,7 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$has_coupon = HTL()->cart->get_coupon_id() > 0 && HTL()->cart->get_discount_total() > 0 ? true : false;
+$has_coupon            = HTL()->cart->get_coupon_id() > 0 && HTL()->cart->get_discount_total() > 0 ? true : false;
+$coupon_button_classes = apply_filters( 'hotelier_form_coupon_button_classes', array() );
 ?>
 
 <tr class="reservation-table__row reservation-table__row--footer reservation-table__row--coupon-form">
@@ -22,7 +23,7 @@ $has_coupon = HTL()->cart->get_coupon_id() > 0 && HTL()->cart->get_discount_tota
 
 			<div class="coupon-form-input-wrapper">
 				<input type="text" class="input-text coupon-form__input" name="coupon" id="coupon" placeholder="<?php esc_attr_e( 'Gift or discount code', 'wp-hotelier' ); ?>" value="">
-				<button type="button" class="coupon-form__apply button"><?php esc_html_e( 'Apply', 'wp-hotelier' ); ?></button>
+				<button type="button" class="coupon-form__apply button <?php echo esc_attr( implode( ' ', $coupon_button_classes ) ); ?>"><?php esc_html_e( 'Apply', 'wp-hotelier' ); ?></button>
 			</div>
 
 			<?php if ( $has_coupon ) : ?>
@@ -40,7 +41,7 @@ $has_coupon = HTL()->cart->get_coupon_id() > 0 && HTL()->cart->get_discount_tota
 					</div>
 					<div class="coupon-card__total">
 						<strong><?php echo htl_cart_formatted_discount(); ?></strong>
-						<button type="button" class="coupon-form__remove button"><?php esc_html_e( 'Remove', 'wp-hotelier' ); ?></button>
+						<button type="button" class="coupon-form__remove button <?php echo esc_attr( implode( ' ', $coupon_button_classes ) ); ?>"><?php esc_html_e( 'Remove', 'wp-hotelier' ); ?></button>
 					</div>
 				</div>
 			<?php endif; ?>
