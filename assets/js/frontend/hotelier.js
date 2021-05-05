@@ -250,6 +250,7 @@ jQuery(function ($) {
 
 							table.html(new_table);
 							HTL_Hotelier.show_price_breakdown();
+							$(window).trigger('htl_window_coupon_applied');
 						}
 					} else {
 						coupon_form.append('<div class="hotelier-notice hotelier-notice--error">' + response.data.message + '</div>');
