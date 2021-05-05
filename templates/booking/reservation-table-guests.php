@@ -32,11 +32,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$adults_options[ $i ] = $i;
 		}
 
+		$adults_std = htl_get_reservation_table_guests_default_adults_selection( $adults, $item_key, $q );
+		$adults_std = apply_filters( 'hotelier_reservation_table_guests_default_selection_adults', $adults_std );
+
 		$adults_args = array(
 			'type'    => 'select',
 			'label'   => esc_html__( 'Adults', 'wp-hotelier' ),
 			'class'   => array(),
-			'default' => $adults,
+			'default' => $adults_std,
 			'options' => $adults_options
 		);
 
@@ -49,10 +52,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 				$children_options[ $i ] = $i;
 			}
 
+			$children_std = htl_get_reservation_table_guests_default_children_selection( 0, $item_key, $q );
+			$children_std = apply_filters( 'hotelier_reservation_table_guests_default_selection_children', $children_std );
+
 			$children_args = array(
 				'type'    => 'select',
 				'label'   => esc_html__( 'Children', 'wp-hotelier' ),
 				'class'   => array(),
+				'default' => $children_std,
 				'options' => $children_options
 			);
 
