@@ -211,11 +211,14 @@ jQuery(function ($) {
 
 				var _this = $(this);
 				var table = _this.closest('table');
-				var form = _this.closest('.coupon-form');
-				var coupon_input = form.find('input.coupon-form__input');
+				var main_form = _this.closest('form');
+				var coupon_form = _this.closest('.coupon-form');
+				var coupon_input = coupon_form.find('input.coupon-form__input');
 				var isRemoving = Boolean(_this.hasClass('coupon-form__remove button'));
+				var form_data = main_form.serialize();
 
-				var form_data = {
+				var coupon_data = {
+					form_data: form_data,
 					coupon_nonce: hotelier_params.apply_coupon_nonce,
 					coupon_code: coupon_input.val(),
 					is_removing: isRemoving,
@@ -224,11 +227,11 @@ jQuery(function ($) {
 
 				table.removeClass('loading');
 				table.addClass('loading');
-				form.find('.hotelier-notice').remove();
+				coupon_form.find('.hotelier-notice').remove();
 
 				// Check if field is empty
 				if (!isRemoving && !coupon_input.val()) {
-					form.append('<div class="hotelier-notice hotelier-notice--error">' + hotelier_params.apply_coupon_i18n.empty_coupon + '</div>');
+					coupon_form.append('<div class="hotelier-notice hotelier-notice--error">' + hotelier_params.apply_coupon_i18n.empty_coupon + '</div>');
 					table.removeClass('loading');
 
 					return;
@@ -237,7 +240,7 @@ jQuery(function ($) {
 				$.ajax({
 					method: 'POST',
 					url: hotelier_params.ajax_url.toString(),
-					data: form_data
+					data: coupon_data
 				})
 				.done(function (response) {
 					if (response.success === true) {
@@ -249,7 +252,7 @@ jQuery(function ($) {
 							HTL_Hotelier.show_price_breakdown();
 						}
 					} else {
-						form.append('<div class="hotelier-notice hotelier-notice--error">' + response.data.message + '</div>');
+						coupon_form.append('<div class="hotelier-notice hotelier-notice--error">' + response.data.message + '</div>');
 					}
 				})
 				.fail(function (response) {
