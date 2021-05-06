@@ -2440,7 +2440,7 @@ msgstr ""
 msgid "Room rate"
 msgstr ""
 
-#: ../includes/widgets/class-htl-widget-rooms-filter.php:241, ../templates/booking/reservation-table-guests.php:54
+#: ../includes/widgets/class-htl-widget-rooms-filter.php:241, ../templates/booking/reservation-table-guests.php:60
 msgid "Children"
 msgstr ""
 
@@ -3952,7 +3952,7 @@ msgstr ""
 msgid "Add new"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/fields/html-meta-box-field-multi-text.php:60, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:91, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:54, ../templates/booking/form-coupon.php:43, ../templates/booking/reservation-table.php:64
+#: ../includes/admin/meta-boxes/views/fields/html-meta-box-field-multi-text.php:60, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:91, ../includes/admin/settings/views/fields/html-settings-field-table-seasonal-prices.php:54, ../templates/booking/form-coupon.php:44, ../templates/booking/reservation-table.php:64
 msgid "Remove"
 msgstr ""
 
@@ -4442,11 +4442,11 @@ msgstr ""
 msgid "Additional information"
 msgstr ""
 
-#: ../templates/booking/form-coupon.php:24
+#: ../templates/booking/form-coupon.php:25
 msgid "Gift or discount code"
 msgstr ""
 
-#: ../templates/booking/form-coupon.php:25
+#: ../templates/booking/form-coupon.php:26
 msgid "Apply"
 msgstr ""
 
@@ -4486,7 +4486,7 @@ msgstr ""
 msgid "Pets"
 msgstr ""
 
-#: ../templates/booking/reservation-table-guests.php:37
+#: ../templates/booking/reservation-table-guests.php:40
 msgid "Adults"
 msgstr ""
 
