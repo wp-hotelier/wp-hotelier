@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin
- * @version  2.1.0
+ * @version  2.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -36,6 +36,10 @@ class HTL_Admin_Post_Types {
 		// Reservation post type columns
 		add_filter( 'manage_room_reservation_posts_columns', array( $this, 'reservation_columns' ) );
 		add_filter( 'manage_room_reservation_posts_custom_column', array( $this, 'render_room_reservation_columns' ) );
+
+		// Coupon post type columns
+		add_filter( 'manage_coupon_posts_columns', array( $this, 'coupon_columns' ) );
+		add_filter( 'manage_coupon_posts_custom_column', array( $this, 'render_coupon_columns' ) );
 
 		// Change label of "Date" column on reservations
 		add_filter( 'post_date_column_status', array( $this, 'post_date_column_label' ), 10, 2 );
@@ -201,6 +205,56 @@ class HTL_Admin_Post_Types {
 	}
 
 	/**
+	 * Ouput custom columns for coupons.
+	 */
+	public function render_coupon_columns( $column ) {
+		global $post, $the_coupon;
+
+		if ( empty( $the_coupon ) || $the_coupon->id != $post->ID ) {
+			$the_coupon = htl_get_coupon( $post );
+		}
+
+		switch ( $column ) {
+			case 'coupon_code' :
+				echo '<span>' . esc_html( $the_coupon->get_code() ) . '</span>';
+				break;
+
+			case 'coupon_type' :
+				$get_coupon_type_text = $the_coupon->get_type() === 'percentage' ? __( 'Percentage discount', 'wp-hotelier' ) : __( 'Fixed discount', 'wp-hotelier' );
+				echo '<span>' . esc_html( apply_filters( 'holteier_get_admin_columns_coupon_type_text', $get_coupon_type_text ) ) . '</span>';
+				break;
+
+			case 'coupon_amount' :
+				$amount = $the_coupon->get_amount();
+
+				if ( $the_coupon->get_type() === 'fixed' ) {
+					$amount = htl_price( htl_convert_to_cents( $amount ) );
+				} else if ( $the_coupon->get_type() === 'percentage' ) {
+					$amount = $amount . '%';
+				}
+
+				echo '<span>' . wp_kses_post( apply_filters( 'holteier_get_admin_columns_coupon_amount', $amount ) ) . '</span>';
+				break;
+
+			case 'coupon_exp_date' :
+				$expiration_date = $the_coupon->expiration_date();
+				$expiration_date = $expiration_date ? $expiration_date : '-';
+
+				echo '<span>' . esc_html( $expiration_date ) . '</span>';
+				break;
+
+			case 'coupon_status' :
+				$status = $the_coupon->is_active() ? 'enabled' : 'disabled';
+
+				echo '<span class="htl-ui-icon htl-ui-icon--coupon-status-' . $status . '"></span>';
+				break;
+
+			default :
+				break;
+		}
+	}
+
+	/**
 	 * Change reservation date label column.
 	 */
 	public function post_date_column_label( $status, $post ) {
@@ -212,12 +266,33 @@ class HTL_Admin_Post_Types {
 	}
 
 	/**
+	 * Define custom columns for coupons.
+	 */
+	public function coupon_columns( $existing_columns ) {
+		if ( empty( $existing_columns ) && ! is_array( $existing_columns ) ) {
+			$existing_columns = array();
+		}
+
+		unset( $existing_columns[ 'date' ] );
+
+		$columns                    = array();
+		$columns['coupon_code']     = esc_html__( 'Coupon code', 'wp-hotelier' );
+		$columns['coupon_type']     = esc_html__( 'Coupon type', 'wp-hotelier' );
+		$columns['coupon_amount']   = esc_html__( 'Coupon amount', 'wp-hotelier' );
+		$columns['coupon_exp_date'] = esc_html__( 'Expiration date', 'wp-hotelier' );
+		$columns['coupon_status']   = esc_html__( 'Status', 'wp-hotelier' );
+
+		return array_merge( $existing_columns, $columns );
+	}
+
+	/**
 	 * Delete unused actions.
 	 */
 	public function delete_actions( $actions ) {
 		if ( get_post_type() === 'room_reservation' ) {
-
 			unset( $actions[ 'trash' ] );
+			unset( $actions[ 'inline hide-if-no-js' ] );
+		} else if ( get_post_type() === 'coupon' ) {
 			unset( $actions[ 'inline hide-if-no-js' ] );
 		}
 

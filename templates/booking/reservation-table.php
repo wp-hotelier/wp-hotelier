@@ -6,7 +6,7 @@
  *
  * @author  Benito Lopez <hello@lopezb.com>
  * @package Hotelier/Templates
- * @version 2.3.0
+ * @version 2.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -96,12 +96,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</tbody>
 		<tfoot class="reservation-table__footer">
 			<?php
+				do_action( 'hotelier_reservation_table_before_footer' );
+
+				$coupon_printed = false;
+
 				if ( htl_is_tax_enabled() && htl_get_tax_rate() > 0 ) : ?>
 
 					<tr class="reservation-table__row reservation-table__row--footer">
 						<th colspan="2" class="reservation-table__label reservation-table__label--subtotal"><?php esc_html_e( 'Subtotal:', 'wp-hotelier' ); ?></th>
 						<td class="reservation-table__data reservation-table__data--subtotal"><strong><?php echo htl_cart_formatted_subtotal(); ?></strong></td>
 					</tr>
+
+					<?php if ( htl_coupons_enabled() ) : ?>
+
+						<?php
+						do_action( 'hotelier_reservation_table_coupon_form' );
+						$coupon_printed = true;
+						?>
+
+					<?php endif; ?>
 
 					<tr class="reservation-table__row reservation-table__row--footer">
 						<th colspan="2" class="reservation-table__label reservation-table__label--tax-total"><?php esc_html_e( 'Tax total:', 'wp-hotelier' ); ?></th>
@@ -111,6 +124,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php endif;
 
 				if ( HTL()->cart->needs_payment() ) : ?>
+
+					<?php if ( htl_coupons_enabled() && ! $coupon_printed ) : ?>
+
+						<tr class="reservation-table__row reservation-table__row--footer">
+							<th colspan="2" class="reservation-table__label reservation-table__label--subtotal"><?php esc_html_e( 'Subtotal:', 'wp-hotelier' ); ?></th>
+							<td class="reservation-table__data reservation-table__data--subtotal"><strong><?php echo htl_cart_formatted_subtotal(); ?></strong></td>
+						</tr>
+
+						<?php
+						do_action( 'hotelier_reservation_table_coupon_form' );
+						$coupon_printed = true;
+						?>
+
+					<?php endif; ?>
 
 					<tr class="reservation-table__row reservation-table__row--footer">
 						<th colspan="2" class="reservation-table__label reservation-table__label--total"><?php esc_html_e( 'Total:', 'wp-hotelier' ); ?></th>
@@ -135,12 +162,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 				<?php else : ?>
 
+					<?php if ( htl_coupons_enabled() && ! $coupon_printed ) : ?>
+
+						<tr class="reservation-table__row reservation-table__row--footer">
+							<th colspan="2" class="reservation-table__label reservation-table__label--subtotal"><?php esc_html_e( 'Subtotal:', 'wp-hotelier' ); ?></th>
+							<td class="reservation-table__data reservation-table__data--subtotal"><strong><?php echo htl_cart_formatted_subtotal(); ?></strong></td>
+						</tr>
+
+						<?php
+						do_action( 'hotelier_reservation_table_coupon_form' );
+						$coupon_printed = true;
+						?>
+
+					<?php endif; ?>
+
 					<tr class="reservation-table__row reservation-table__row--footer">
 						<th colspan="2" class="reservation-table__label reservation-table__label--total"><?php esc_html_e( 'Total:', 'wp-hotelier' ); ?></th>
 						<td class="reservation-table__data reservation-table__data--total"><strong><?php echo htl_cart_formatted_total(); ?></strong></td>
 					</tr>
 
 				<?php endif;
+
+				do_action( 'hotelier_reservation_table_after_footer' );
 			?>
 		</tfoot>
 	</table>

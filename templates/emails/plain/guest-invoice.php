@@ -6,7 +6,7 @@
  *
  * @author  Benito Lopez <hello@lopezb.com>
  * @package Hotelier/Templates
- * @version 1.0.0
+ * @version 2.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -43,9 +43,10 @@ echo "\n" . $reservation->email_reservation_items_table( true );
 
 echo "==========\n\n";
 
-if ( $totals = $reservation->get_totals_before_booking() ) {
+if ( $totals = $reservation->get_totals_before_booking( true ) ) {
 	foreach ( $totals as $total ) {
-		echo esc_html( $total[ 'label' ] ) . " " . wp_kses_post( $total[ 'value' ] ) . "\n";
+		$extra = isset( $total[ 'extra' ] ) ? '(' . $total[ 'extra' ] . ')' : '';
+		echo esc_html( $total[ 'label' ] ) . " " . wp_kses_post( $total[ 'value' ] ) . " " . $extra . "\n";
 	}
 }
 

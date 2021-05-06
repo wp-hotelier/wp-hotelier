@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  2.2.0
+ * @version  2.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -64,6 +64,12 @@ class HTL_Frontend_Scripts {
 		$hotelier_params = array(
 			'book_now_redirect_to_booking_page' => htl_get_option( 'book_now_redirect_to_booking_page', 0 ),
 			'book_now_allow_quantity_selection' => htl_get_option( 'book_now_allow_quantity_selection', 0 ),
+			'apply_coupon_nonce'                => wp_create_nonce( 'hotelier-apply-coupon-nonce' ),
+			'apply_coupon_i18n'                 => array(
+				'empty_coupon' => esc_html__( 'Please insert a valid coupon code.', 'wp-hotelier' ),
+			),
+			'ajax_url'                          => HTL()->ajax_url(),
+			'enable_debug'                      => defined('WP_DEBUG') && true === WP_DEBUG ? true : false
 		);
 
 		wp_localize_script( 'hotelier-js', 'hotelier_params', $hotelier_params );

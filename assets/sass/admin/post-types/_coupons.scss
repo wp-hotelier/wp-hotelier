@@ -1,0 +1,21 @@
+/****** Coupons ******/
+
+.htl-ui-icon--coupon-status-enabled {
+	font-size: 20px;
+
+	&:after {
+		content: '\f058';
+		font-weight: 600;
+		color: $color__ok;
+	}
+}
+
+.htl-ui-icon--coupon-status-disabled {
+	font-size: 20px;
+
+	&:after {
+		content: '\f05e';
+		font-weight: 600;
+		color: $color__line__medium;
+	}
+}

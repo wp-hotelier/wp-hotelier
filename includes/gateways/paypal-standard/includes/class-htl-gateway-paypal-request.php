@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes/Payment
- * @version  1.0.0
+ * @version  2.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -80,8 +80,8 @@ class HTL_Gateway_Paypal_Request {
 				'charset'       => 'utf-8',
 				'rm'            => is_ssl() ? 2 : 1,
 				'upload'        => 1,
-				'return'        => esc_url( add_query_arg( 'utm_nooverride', '1', $this->gateway->get_return_url( $reservation ) ) ),
-				'cancel_return' => esc_url( $reservation->get_booking_cancel_url() ),
+				'return'        => esc_url_raw( add_query_arg( 'utm_nooverride', '1', $this->gateway->get_return_url( $reservation ) ) ),
+				'cancel_return' => esc_url_raw( $reservation->get_booking_cancel_url_raw( true ) ),
 				'page_style'    => htl_get_option( 'paypal_page_style' ),
 				'bn'            => 'Hotelier_Cart',
 				'invoice'       => $reservation->get_reservation_number(),
@@ -180,7 +180,7 @@ class HTL_Gateway_Paypal_Request {
 	 * @param integer $amount
 	 * @return bool successfully added or not
 	 */
-	protected function add_line_item( $item_name, $quantity = 1, $amount = 0, $currency ) {
+	protected function add_line_item( $item_name, $quantity = 1, $amount = 0, $currency = '' ) {
 		$index = ( sizeof( $this->line_items ) / 3 ) + 1;
 
 		if ( $amount < 0 || $index > 9 ) {

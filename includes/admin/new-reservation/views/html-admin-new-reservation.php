@@ -117,6 +117,42 @@ $tomorrow = $tomorrow->format( 'Y-m-d' );
 								</div>
 							</td>
 						</tr>
+						<?php if ( htl_coupons_enabled() ) :
+							$all_coupons = htl_get_all_coupons();
+
+							$coupon_values = array(
+								0 => '--- ' . esc_html__( "Don't apply a coupon", "wp-hotelier" )
+							);
+
+							if ( is_array( $all_coupons ) ) {
+								foreach ( $all_coupons as $coupon_id => $coupon_value ) {
+									if ( isset( $coupon_value['code'] ) ) {
+										$coupon_code = $coupon_value['code'];
+
+										if ( isset( $coupon_value['title'] ) ) {
+											$coupon_code .= ' (' . $coupon_value['title'] . ')';
+										}
+
+										$coupon_values[$coupon_id] = $coupon_code;
+									}
+								}
+							}
+							?>
+							<tr>
+								<th scope="row"><?php esc_html_e( 'Apply coupon:', 'wp-hotelier' ); ?></th>
+								<td>
+									<div class="htl-ui-setting">
+										<select class="htl-ui-input htl-ui-input--select" name="coupon_id">
+											<?php foreach ( $coupon_values as $coupon_id => $coupon_value ) : ?>
+												<option value="<?php echo esc_attr( $coupon_id ); ?>"><?php echo esc_html( $coupon_value ) ?></option>
+											<?php endforeach; ?>
+										</select>
+
+										<div class="htl-ui-setting__description"><?php esc_html_e( 'Select the coupon you want to apply', 'wp-hotelier' ); ?></div>
+									</div>
+								</td>
+							</tr>
+						<?php endif; ?>
 						<tr>
 							<th scope="row"><?php esc_html_e( 'Force booking:', 'wp-hotelier' ); ?></th>
 							<td>
@@ -128,7 +164,7 @@ $tomorrow = $tomorrow->format( 'Y-m-d' );
 											<span class="htl-ui-toggle__handle"></span>
 										</label>
 
-										<p class="htl-ui-setting__description htl-ui-setting__description--checkbox "><?php esc_html_e( 'Enable this option to ignore booking rules (disabled dates, minimum nights, etc).', 'wp-hotelier' ); ?></p>
+										<p class="htl-ui-setting__description htl-ui-setting__description--checkbox "><?php esc_html_e( 'Enable this option to ignore booking rules (disabled dates, minimum nights, coupon rules, etc)', 'wp-hotelier' ); ?></p>
 									</div>
 								</div>
 							</td>

@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  2.3.1
+ * @version  2.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -92,11 +92,26 @@ class HTL_Cart_Totals {
 	public $total;
 
 	/**
+	 * Cart discount.
+	 *
+	 * @var int
+	 */
+	public $discount_total;
+
+	/**
+	 * Applied coupon.
+	 *
+	 * @var int
+	 */
+	public $coupon_id;
+
+	/**
 	 * Get things going.
 	 */
-	public function __construct( $checkin, $checkout ) {
-		$this->checkin  = $checkin;
-		$this->checkout = $checkout;
+	public function __construct( $checkin, $checkout, $coupon_id = 0 ) {
+		$this->checkin   = $checkin;
+		$this->checkout  = $checkout;
+		$this->coupon_id = $coupon_id;
 	}
 
 	/**
@@ -292,6 +307,20 @@ class HTL_Cart_Totals {
 
 		// Subtotal
 		$this->subtotal  = apply_filters( 'hotelier_calculated_subtotal', $this->cart_contents_total, $this );
+
+		// Calculate coupons
+		if ( htl_coupons_enabled() && $this->coupon_id > 0 ) {
+			$this->discount_total = htl_calculate_coupon( $this->cart_contents_total, $this->coupon_id );
+
+			if ( $this->discount_total > 0 ) {
+				$this->cart_contents_total = $this->discount_total > $this->cart_contents_total ? 0 : $this->cart_contents_total - $this->discount_total;
+			}
+		} else {
+			$this->discount_total = 0;
+		}
+
+		// Ensure deposit is never > cart totals
+		$this->required_deposit = $this->required_deposit > $this->cart_contents_total ? $this->cart_contents_total : $this->required_deposit;
 
 		// Calculate taxes
 		$this->tax_total = htl_is_tax_enabled() ? htl_calculate_tax( $this->cart_contents_total ) : 0;

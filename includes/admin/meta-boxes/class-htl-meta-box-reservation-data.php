@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin/Meta Boxes
- * @version  2.2.0
+ * @version  2.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -219,6 +219,8 @@ class HTL_Meta_Box_Reservation_Data {
 				<h3 class="htl-ui-heading htl-ui-heading--section-header"><?php esc_html_e( 'General details', 'wp-hotelier' ); ?></h3>
 
 				<?php
+				$can_be_modified = $reservation->get_paid_deposit() > 0 || $reservation->requires_capture() ? false : true;
+
 				HTL_Meta_Boxes_Helper::select_input(
 					array(
 						'name'    => 'reservation_status',
@@ -230,7 +232,7 @@ class HTL_Meta_Box_Reservation_Data {
 				?>
 
 				<?php
-				if ( $reservation->get_paid_deposit() > 0 || $reservation->requires_capture() ) {
+				if ( ! $can_be_modified ) {
 					HTL_Meta_Boxes_Helper::plain(
 						array(
 							'label'       => esc_html__( 'Check-in:', 'wp-hotelier' ),
@@ -251,7 +253,7 @@ class HTL_Meta_Box_Reservation_Data {
 				?>
 
 				<?php
-				if ( $reservation->get_paid_deposit() > 0 || $reservation->requires_capture() ) {
+				if ( ! $can_be_modified ) {
 					HTL_Meta_Boxes_Helper::plain(
 						array(
 							'label'       => esc_html__( 'Check-out:', 'wp-hotelier' ),
@@ -266,6 +268,43 @@ class HTL_Meta_Box_Reservation_Data {
 							'value'       => $reservation->get_checkout(),
 							'description' => esc_html__( 'Check-out date.', 'wp-hotelier' ),
 							'class'       => 'htl-ui-input--end-date'
+						)
+					);
+				}
+				?>
+
+				<?php
+				if ( htl_coupons_enabled() && $can_be_modified ) {
+					$all_coupons   = htl_get_all_coupons();
+					$coupon_values = array(
+						'-1' => '--- ' . esc_html__( "Don't apply a new coupon (leave current one if any)", "wp-hotelier" )
+					);
+
+					if ( $reservation->get_coupon_id() ) {
+						$coupon_values['0'] = '--- ' . esc_html__( 'Remove existing coupon', 'wp-hotelier' );
+					}
+
+					if ( is_array( $all_coupons ) ) {
+						foreach ( $all_coupons as $coupon_id => $coupon_value ) {
+							if ( isset( $coupon_value['code'] ) ) {
+								$coupon_code = $coupon_value['code'];
+
+								if ( isset( $coupon_value['title'] ) ) {
+									$coupon_code .= ' (' . $coupon_value['title'] . ')';
+								}
+
+								$coupon_values[$coupon_id] = $coupon_code;
+							}
+						}
+					}
+
+					HTL_Meta_Boxes_Helper::select_input(
+						array(
+							'name'        => 'coupon_id',
+							'label'       => esc_html__( 'Apply a coupon:', 'wp-hotelier' ),
+							'description' => esc_html__( 'Select the coupon you want to apply.', 'wp-hotelier' ),
+							'options'     => $coupon_values,
+							'std'         => $reservation->get_coupon_id(),
 						)
 					);
 				}

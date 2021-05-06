@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin/Meta Boxes
- * @version  2.2.0
+ * @version  2.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -45,6 +45,19 @@ class HTL_Admin_Meta_Boxes_Validation {
 	 */
 	public static function sanitize_select( $data ) {
 		return sanitize_key( $data );
+	}
+
+	/**
+	 * Sanitize multiselect input
+	 */
+	public static function sanitize_multiselect( $data ) {
+		if ( is_array( $data ) ) {
+			$data = array_map( 'sanitize_key', $data );
+		} else {
+			$data = array();
+		}
+
+		return $data;
 	}
 
 	/**
@@ -202,6 +215,17 @@ class HTL_Admin_Meta_Boxes_Validation {
 		wp_set_object_terms( $post->ID, $term_ids, 'room_rate' );
 
 		return $variations;
+	}
+
+	/**
+	 * Sanitize date input
+	 */
+	public static function sanitize_date( $data ) {
+		if ( HTL_Formatting_Helper::is_valid_date( $data ) ) {
+			return $data;
+		}
+
+		return '';
 	}
 }
 

@@ -43,6 +43,7 @@ $line_items = $reservation->get_items();
 
 	<div class="hotelier-reservation-items-wrapper">
 		<table cellpadding="0" cellspacing="0" class="htl-ui-table htl-ui-table--reservation-totals">
+			<?php $discount_printed = false; ?>
 
 			<?php if ( $reservation->has_tax() ) : ?>
 
@@ -53,6 +54,17 @@ $line_items = $reservation->get_items();
 					</td>
 				</tr>
 
+				<?php if ( $reservation->get_discount_total() > 0 ) : ?>
+					<?php $discount_printed = true; ?>
+
+					<tr class="htl-ui-table__row htl-ui-table__row--reservation-totals-discount-total">
+						<td class="htl-ui-table__cell htl-ui-table__cell--label"><?php esc_html_e( 'Discount', 'wp-hotelier' ); ?>:</td>
+						<td class="htl-ui-table__cell htl-ui-table__cell--total">
+							<?php echo $reservation->get_formatted_discount_total(); ?> <small><?php echo $reservation->get_coupon_code(); ?></small>
+						</td>
+					</tr>
+				<?php endif; ?>
+
 				<tr class="htl-ui-table__row htl-ui-table__row--reservation-totals-tax-total">
 					<td class="htl-ui-table__cell htl-ui-table__cell--label"><?php esc_html_e( 'Tax total', 'wp-hotelier' ); ?>:</td>
 					<td class="htl-ui-table__cell htl-ui-table__cell--total">
@@ -60,6 +72,22 @@ $line_items = $reservation->get_items();
 					</td>
 				</tr>
 
+			<?php endif; ?>
+
+			<?php if ( ! $discount_printed && $reservation->get_discount_total() > 0 ) : ?>
+				<tr class="htl-ui-table__row htl-ui-table__row--reservation-totals-subtotal">
+					<td class="htl-ui-table__cell htl-ui-table__cell--label"><?php esc_html_e( 'Subtotal', 'wp-hotelier' ); ?>:</td>
+					<td class="htl-ui-table__cell htl-ui-table__cell--total">
+						<?php echo htl_price( htl_convert_to_cents( $reservation->get_subtotal() ), $reservation->get_reservation_currency() ); ?>
+					</td>
+				</tr>
+
+				<tr class="htl-ui-table__row htl-ui-table__row--reservation-totals-discount-total">
+					<td class="htl-ui-table__cell htl-ui-table__cell--label"><?php esc_html_e( 'Discount', 'wp-hotelier' ); ?>:</td>
+					<td class="htl-ui-table__cell htl-ui-table__cell--total">
+						<?php echo $reservation->get_formatted_discount_total(); ?> <small><?php echo $reservation->get_coupon_code(); ?></small>
+					</td>
+				</tr>
 			<?php endif; ?>
 
 			<?php if ( $reservation->has_room_with_deposit() ) : ?>
@@ -103,7 +131,14 @@ $line_items = $reservation->get_items();
 										<span class="rooms-with-paid-deposit__percentage"><?php echo absint( $item[ 'percent_deposit' ] ); ?>%</span>
 									<?php endif; ?>
 
-									<span class="rooms-with-paid-deposit__amount"><?php echo htl_price( htl_convert_to_cents( $item[ 'deposit' ] ), $reservation->get_reservation_currency() ); ?></span>
+									<span class="rooms-with-paid-deposit__amount">
+										<?php echo htl_price( htl_convert_to_cents( $item[ 'deposit' ] ), $reservation->get_reservation_currency() ); ?>
+
+										<?php if ( $reservation->get_discount_total() > 0 ) : ?>
+											<small><?php esc_html_e( '(Discounts excluded)', 'wp-hotelier' ); ?></small>
+										<?php endif; ?>
+
+									</span>
 								</li>
 							<?php
 							endif;

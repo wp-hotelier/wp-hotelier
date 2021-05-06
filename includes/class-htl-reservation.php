@@ -5,7 +5,7 @@
  * @author   Lollum
  * @category Class
  * @package  Hotelier/Classes
- * @version  2.2.0
+ * @version  2.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -1007,8 +1007,9 @@ class HTL_Reservation {
 	 *
 	 * @return array
 	 */
-	public function get_reservation_totals() {
+	public function get_reservation_totals( $is_email = false ) {
 		$total_rows = array();
+		$discount_printed = false;
 
 		if ( $this->has_tax() ) {
 
@@ -1017,9 +1018,32 @@ class HTL_Reservation {
 				'value'	=> $this->get_formatted_subtotal()
 			);
 
+			if ( $this->get_discount_total() > 0  ) {
+				$discount_printed = true;
+
+				$total_rows[ 'discount_total' ] = array(
+					'label' => esc_html__( 'Discount:', 'wp-hotelier' ),
+					'value'	=> $is_email ? $this->get_formatted_discount_total() : $this->get_formatted_discount_total() . ' <small class="reservation-table__coupon-code">' . $this->get_coupon_code() . '</small>',
+					'extra'	=> $this->get_coupon_code()
+				);
+			}
+
 			$total_rows[ 'tax_total' ] = array(
 				'label' => esc_html__( 'Tax total:', 'wp-hotelier' ),
 				'value'	=> $this->get_formatted_tax_total()
+			);
+		}
+
+		if ( ! $discount_printed && $this->get_discount_total() > 0 ) {
+			$total_rows[ 'subtotal' ] = array(
+				'label' => esc_html__( 'Subtotal:', 'wp-hotelier' ),
+				'value'	=> $this->get_formatted_subtotal()
+			);
+
+			$total_rows[ 'discount_total' ] = array(
+				'label' => esc_html__( 'Discount:', 'wp-hotelier' ),
+				'value'	=> $is_email ? $this->get_formatted_discount_total() : $this->get_formatted_discount_total() . ' <small class="reservation-table__coupon-code">' . $this->get_coupon_code() . '</small>',
+				'extra'	=> $this->get_coupon_code()
 			);
 		}
 
@@ -1062,8 +1086,9 @@ class HTL_Reservation {
 	 *
 	 * @return array
 	 */
-	public function get_totals_before_booking() {
+	public function get_totals_before_booking( $is_email = false ) {
 		$total_rows = array();
+		$discount_printed = false;
 
 		if ( htl_is_tax_enabled() && htl_get_tax_rate() > 0 ) {
 
@@ -1072,9 +1097,32 @@ class HTL_Reservation {
 				'value'	=> $this->get_formatted_subtotal()
 			);
 
+			if ( $this->get_discount_total() > 0  ) {
+				$discount_printed = true;
+
+				$total_rows[ 'discount_total' ] = array(
+					'label' => esc_html__( 'Discount:', 'wp-hotelier' ),
+					'value'	=> $is_email ? $this->get_formatted_discount_total() : $this->get_formatted_discount_total() . ' <small class="reservation-table__coupon-code">' . $this->get_coupon_code() . '</small>',
+					'extra'	=> $this->get_coupon_code()
+				);
+			}
+
 			$total_rows[ 'tax_total' ] = array(
 				'label' => esc_html__( 'Tax total:', 'wp-hotelier' ),
 				'value'	=> $this->get_formatted_tax_total()
+			);
+		}
+
+		if ( ! $discount_printed && $this->get_discount_total() > 0 ) {
+			$total_rows[ 'subtotal' ] = array(
+				'label' => esc_html__( 'Subtotal:', 'wp-hotelier' ),
+				'value'	=> $this->get_formatted_subtotal()
+			);
+
+			$total_rows[ 'discount_total' ] = array(
+				'label' => esc_html__( 'Discount:', 'wp-hotelier' ),
+				'value'	=> $is_email ? $this->get_formatted_discount_total() : $this->get_formatted_discount_total() . ' <small class="reservation-table__coupon-code">' . $this->get_coupon_code() . '</small>',
+				'extra'	=> $this->get_coupon_code()
 			);
 		}
 
@@ -1202,6 +1250,83 @@ class HTL_Reservation {
 	}
 
 	/**
+	 * Set reservation discount
+	 *
+	 * @param int $amount
+	 *
+	 * @return bool
+	 */
+	public function set_discount_total( $amount ) {
+		update_post_meta( $this->id, '_reservation_discount_total', absint( $amount ) );
+
+		return true;
+	}
+
+	/**
+	 * Gets reservation discount.
+	 *
+	 * @return int
+	 */
+	public function get_discount_total() {
+		return absint( apply_filters( 'hotelier_get_reservation_discount_total', $this->reservation_discount_total, $this ) );
+	}
+
+	/**
+	 * Gets reservation discount - formatted for display.
+	 *
+	 * @return int
+	 */
+	public function get_formatted_discount_total() {
+		$amount = '-' . htl_price( htl_convert_to_cents( $this->get_discount_total() ), $this->get_reservation_currency() );
+
+		return apply_filters( 'hotelier_get_formatted_reservation_discount_total', $amount, $this );
+	}
+
+	/**
+	 * Set coupon ID
+	 *
+	 * @param int $coupon_id
+	 *
+	 * @return bool
+	 */
+	public function set_coupon_id( $coupon_id ) {
+		update_post_meta( $this->id, '_reservation_coupon_id', absint( $coupon_id ) );
+
+		return true;
+	}
+
+	/**
+	 * Gets coupon ID.
+	 *
+	 * @return int
+	 */
+	public function get_coupon_id() {
+		return absint( apply_filters( 'hotelier_get_reservation_coupon_id', $this->reservation_coupon_id, $this ) );
+	}
+
+	/**
+	 * Set coupon ID
+	 *
+	 * @param int $coupon_code
+	 *
+	 * @return bool
+	 */
+	public function set_coupon_code( $coupon_code ) {
+		update_post_meta( $this->id, '_reservation_coupon_code', trim( $coupon_code ) );
+
+		return true;
+	}
+
+	/**
+	 * Gets coupon code.
+	 *
+	 * @return int
+	 */
+	public function get_coupon_code() {
+		return apply_filters( 'hotelier_get_reservation_coupon_code', $this->reservation_coupon_code, $this );
+	}
+
+	/**
 	 * Gets reservation currency
 	 *
 	 * @return string
@@ -1269,6 +1394,28 @@ class HTL_Reservation {
 			'reservation_id'     => $this->id,
 			'redirect'           => $redirect
 		), $cancel_endpoint ), 'hotelier-cancel_reservation' ) );
+	}
+
+	/**
+	 * Generates a raw (unescaped) URL so that a customer can cancel their (unpaid - pending) reservation.
+	 * Also confirmed reservations can be cancelled if they don't contain non-cancellable rooms.
+	 *
+	 * @param string $redirect
+	 *
+	 * @return string
+	 */
+	public function get_booking_cancel_url_raw( $is_payment = false, $redirect = '' ) {
+
+		// Get cancel endpoint
+		$cancel_endpoint = $this->get_cancel_endpoint();
+
+		return apply_filters( 'hotelier_get_booking_cancel_url_raw', add_query_arg( array(
+			'cancel_reservation' => 'true',
+			'reservation'        => $this->reservation_key,
+			'reservation_id'     => $this->id,
+			'is_payment'         => $is_payment,
+			'redirect'           => $redirect
+		), $cancel_endpoint ) );
 	}
 
 	/**

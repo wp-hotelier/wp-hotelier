@@ -17,6 +17,7 @@ jQuery(function ($) {
 			this.show_price_breakdown();
 			this.scroll_to_rates_button();
 			this.scroll_to_datpicker_from_rates();
+			this.apply_coupon();
 		},
 
 		// Show the quantity input and update the text button
@@ -200,6 +201,68 @@ jQuery(function ($) {
 				$('html, body').stop().animate({
 					scrollTop: target
 				}, 600);
+			});
+		},
+
+		// Handle coupon form
+		apply_coupon: function () {
+			$('.table--reservation-table').on('click', '.coupon-form__apply, .coupon-form__remove', function (e) {
+				e.preventDefault();
+
+				var _this = $(this);
+				var table = _this.closest('table');
+				var main_form = _this.closest('form');
+				var coupon_form = _this.closest('.coupon-form');
+				var coupon_input = coupon_form.find('input.coupon-form__input');
+				var isRemoving = Boolean(_this.hasClass('coupon-form__remove button'));
+				var form_data = main_form.serialize();
+
+				var coupon_data = {
+					form_data: form_data,
+					coupon_nonce: hotelier_params.apply_coupon_nonce,
+					coupon_code: coupon_input.val(),
+					is_removing: isRemoving,
+					action: 'hotelier_apply_coupon'
+				};
+
+				table.removeClass('loading');
+				table.addClass('loading');
+				coupon_form.find('.hotelier-notice').remove();
+
+				// Check if field is empty
+				if (!isRemoving && !coupon_input.val()) {
+					coupon_form.append('<div class="hotelier-notice hotelier-notice--error">' + hotelier_params.apply_coupon_i18n.empty_coupon + '</div>');
+					table.removeClass('loading');
+
+					return;
+				}
+
+				$.ajax({
+					method: 'POST',
+					url: hotelier_params.ajax_url.toString(),
+					data: coupon_data
+				})
+				.done(function (response) {
+					if (response.success === true) {
+						if (response.data.html) {
+							var new_template = response.data.html;
+							var new_table = $(new_template).find('table').html();
+
+							table.html(new_table);
+							HTL_Hotelier.show_price_breakdown();
+							$(window).trigger('htl_window_coupon_applied');
+						}
+					} else {
+						coupon_form.append('<div class="hotelier-notice hotelier-notice--error">' + response.data.message + '</div>');
+					}
+				})
+				.fail(function (response) {
+					if (hotelier_params.enable_debug) {
+						console.log(response);
+					}
+				}).always(function () {
+					table.removeClass('loading');
+				});
 			});
 		}
 	};

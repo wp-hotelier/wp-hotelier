@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin
- * @version  2.3.1
+ * @version  2.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -39,6 +39,13 @@ class HTL_Admin_New_Reservation {
 	 * @var string
 	 */
 	protected static $checkin;
+
+	/**
+	 * Coupon ID.
+	 *
+	 * @var string
+	 */
+	protected static $coupon_id;
 
 	/**
 	 * Checkout date.
@@ -114,6 +121,10 @@ class HTL_Admin_New_Reservation {
 					} elseif ( $key == 'to' ) {
 
 						self::$checkout = sanitize_text_field( $_POST[ 'to' ] );
+
+					} elseif ( $key == 'coupon_id' ) {
+
+						self::$coupon_id = $_POST[ 'coupon_id' ];
 					}
 				}
 
@@ -136,11 +147,11 @@ class HTL_Admin_New_Reservation {
 
 				// Check checkin and checkout dates
 				if ( ! HTL_Formatting_Helper::is_valid_checkin_checkout( self::$checkin, self::$checkout, self::$force_booking ) ) {
-					throw new Exception( esc_html__( 'Sorryd, this room is not available on the given dates.', 'wp-hotelier' ) );
+					throw new Exception( esc_html__( 'Sorry, this room is not available on the given dates.', 'wp-hotelier' ) );
 				}
 
 				// Init HTL_Cart_Totals()
-				$cart_totals = new HTL_Cart_Totals( self::$checkin, self::$checkout );
+				$cart_totals = new HTL_Cart_Totals( self::$checkin, self::$checkout, self::$coupon_id );
 
 				// Add rooms to the reservation
 				foreach ( self::$rooms as $room ) {
@@ -281,6 +292,27 @@ class HTL_Admin_New_Reservation {
 			$reservation->set_tax_total( $cart_totals->tax_total );
 			$reservation->set_total( $cart_totals->total );
 			$reservation->set_deposit( $cart_totals->required_deposit );
+
+			// Save coupon data
+			if ( htl_coupons_enabled() ) {
+				$coupon_id   = $cart_totals->coupon_id;
+				$coupon      = htl_get_coupon( $coupon_id );
+				$coupon_code = $coupon->get_code();
+
+				// Check if coupon is valid
+				$can_apply_coupon = htl_can_apply_coupon( $coupon_id, self::$force_booking );
+
+				if ( isset( $can_apply_coupon['can_apply'] ) && $can_apply_coupon['can_apply'] ) {
+					$reservation->set_discount_total( $cart_totals->discount_total );
+					$reservation->set_coupon_id( $coupon_id );
+					$reservation->set_coupon_code( $coupon_code );
+				} else {
+					$reason = isset( $can_apply_coupon['reason'] ) ? $can_apply_coupon['reason'] : false;
+					$reason = $reason ? $reason : esc_html__( 'This coupon cannot be applied.', 'wp-hotelier' );
+
+					throw new Exception( $reason );
+				}
+			}
 
 			// Add a note to the reservation
 			$reservation->add_reservation_note( esc_html__( 'Reservation manually created by admin.', 'wp-hotelier' ) );

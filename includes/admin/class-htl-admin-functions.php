@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin
- * @version  1.0.0
+ * @version  2.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -33,7 +33,9 @@ class HTL_Admin_Functions {
 			'room',
 			'room_reservation',
 			'edit-room_reservation',
-			'edit-room_facilities'
+			'edit-room_facilities',
+			'coupon',
+			'edit-coupon',
 		);
 
 		return apply_filters( 'hotelier_screen_ids', $screen_ids );

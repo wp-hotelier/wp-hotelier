@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin/Meta Boxes
- * @version  2.2.0
+ * @version  2.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -44,6 +44,13 @@ class HTL_Meta_Boxes_Helper {
 	 */
 	public static function select_input( $field ) {
 		include HTL_PLUGIN_DIR . 'includes/admin/meta-boxes/views/fields/html-meta-box-field-select.php';
+	}
+
+	/**
+	 * Output a multiselect input field.
+	 */
+	public static function multiselect_input( $field ) {
+		include HTL_PLUGIN_DIR . 'includes/admin/meta-boxes/views/fields/html-meta-box-field-multiselect.php';
 	}
 
 	/**

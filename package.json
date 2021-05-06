@@ -1,7 +1,7 @@
 {
   "name": "wp-hotelier",
   "description": "A powerful WordPress booking plugin allows you to manage your Hotel, Hostel, B&B reservations with ease.",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "homepage": "https://wphotelier.com/",
   "author": "Benito Lopez http://lopezb.com/",
   "scripts": {
@@ -28,14 +28,14 @@
   },
   "devDependencies": {
     "autoprefixer": "^7.1.1",
-    "browser-sync": "^2.18.5",
+    "browser-sync": "^2.26.14",
     "css-mqpacker": "^6.0.0",
     "node-sass": "^4.0.0",
     "npm-run-all": "^4.0.2",
     "onchange": "^3.2.1",
     "postcss-cli": "^4.0.0",
     "sass-mq": "^3.3.2",
-    "uglify-js": "^3.0.12",
+    "uglify-js": "^3.13.1",
     "wp-pot-cli": "^1.0.1",
     "xo": "^0.18.2"
   },

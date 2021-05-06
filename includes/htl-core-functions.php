@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Core
  * @package  Hotelier/Functions
- * @version  2.0.0
+ * @version  2.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -17,6 +17,7 @@ include( 'htl-conditional-functions.php' );
 include( 'htl-price-functions.php' );
 include( 'htl-room-functions.php' );
 include( 'htl-reservation-functions.php' );
+include( 'htl-coupon-functions.php' );
 
 /**
  * Short Description (excerpt)

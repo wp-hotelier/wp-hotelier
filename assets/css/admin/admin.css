@@ -47,6 +47,7 @@ META BOXES
 POST TYPES
 	Reservations ........... Overview reservations styles.
 	Rooms .................. Overview rooms styles.
+	Coupons ................ Overview coupons styles.
 
 BOOKING CALENDAR
 	Booking Calendar ....... Calendar styles.
@@ -1967,6 +1968,10 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   max-width: 400px;
 }
 
+.htl-ui-layout__column--right .htl-ui-input--multiselect {
+  min-height: 150px;
+}
+
 /****** Variations ******/
 .room-variation--placeholder {
   display: none !important;
@@ -2400,6 +2405,10 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   font-style: italic;
 }
 
+.htl-ui-table--reservation-totals .htl-ui-table__row--reservation-totals-discount-total small {
+  display: block;
+}
+
 .reservation-totals-message {
   margin-top: 18px;
 }
@@ -2653,6 +2662,27 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   height: 27px;
   line-height: 27px;
   padding: 0 9px;
+}
+
+/****** Coupons ******/
+.htl-ui-icon--coupon-status-enabled {
+  font-size: 20px;
+}
+
+.htl-ui-icon--coupon-status-enabled:after {
+  content: '\f058';
+  font-weight: 600;
+  color: #3EC170;
+}
+
+.htl-ui-icon--coupon-status-disabled {
+  font-size: 20px;
+}
+
+.htl-ui-icon--coupon-status-disabled:after {
+  content: '\f05e';
+  font-weight: 600;
+  color: #d6d6d6;
 }
 
 /*--------------------------------------------------------------

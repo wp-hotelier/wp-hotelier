@@ -7,7 +7,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  2.2.0
+ * @version  2.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -273,6 +273,27 @@ class HTL_Booking {
 			$reservation->set_total( HTL()->cart->get_total() );
 			$reservation->set_deposit( HTL()->cart->get_required_deposit() );
 			$reservation->set_payment_method( $this->payment_method );
+
+			// Save coupon data
+			if ( htl_coupons_enabled() ) {
+				$coupon_id   = HTL()->cart->get_coupon_id();
+				$coupon      = htl_get_coupon( $coupon_id );
+				$coupon_code = $coupon->get_code();
+
+				// Check if coupon is valid
+				$can_apply_coupon = htl_can_apply_coupon( $coupon_id );
+
+				if ( isset( $can_apply_coupon['can_apply'] ) && $can_apply_coupon['can_apply'] ) {
+					$reservation->set_discount_total( HTL()->cart->get_discount_total() );
+					$reservation->set_coupon_id( $coupon_id );
+					$reservation->set_coupon_code( $coupon_code );
+				} else {
+					$reason = isset( $can_apply_coupon['reason'] ) ? $can_apply_coupon['reason'] : false;
+					$reason = $reason ? $reason : esc_html__( 'This coupon cannot be applied.', 'wp-hotelier' );
+
+					throw new Exception( $reason );
+				}
+			}
 
 			// Let extensions add their own meta
 			do_action( 'hotelier_booking_update_reservation_meta', $reservation_id, $this->form_data );

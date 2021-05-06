@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Core
  * @package  Hotelier/Functions
- * @version  2.3.0
+ * @version  2.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -1103,6 +1103,17 @@ if ( ! function_exists( 'hotelier_reservation_table_guests' ) ) {
 				'quantity' => $quantity,
 			) );
 		}
+	}
+
+}
+
+if ( ! function_exists( 'hotelier_reservation_show_coupon_form' ) ) {
+
+	/**
+	 * Show coupon form.
+	 */
+	function hotelier_reservation_show_coupon_form() {
+		htl_get_template( 'booking/form-coupon.php' );
 	}
 
 }

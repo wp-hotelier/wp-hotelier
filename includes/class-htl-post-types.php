@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  1.8.2
+ * @version  2.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -98,7 +98,7 @@ class HTL_Post_Types {
 		) );
 
 		$reservation_args = array(
-			'labels'              => apply_filters( 'hotelier_reservation_labels', $reservation_labels ),
+			'labels'              => $reservation_labels,
 			'description'         => esc_html__( 'This is where hotel reservations are stored.', 'wp-hotelier' ),
 			'public'              => false,
 			'show_ui'             => true,
@@ -120,6 +120,47 @@ class HTL_Post_Types {
 			)
 		);
 		register_post_type( 'room_reservation', apply_filters( 'hotelier_reservation_post_type_args', $reservation_args ) );
+
+		// Coupon Post Type
+		if ( htl_get_option( 'enable_coupons' ) ) {
+			$coupon_labels = apply_filters( 'hotelier_coupon_labels', array(
+				'name'               => esc_html_x( 'Coupons', 'post type general name', 'wp-hotelier' ),
+				'singular_name'      => esc_html_x( 'Coupon', 'post type singular name', 'wp-hotelier' ),
+				'add_new'            => esc_html__( 'Add Coupon', 'wp-hotelier' ),
+				'add_new_item'       => esc_html__( 'Add New Coupon', 'wp-hotelier' ),
+				'edit'               => esc_html__( 'Edit', 'wp-hotelier' ),
+				'edit_item'          => esc_html__( 'Edit Coupon', 'wp-hotelier' ),
+				'new_item'           => esc_html__( 'New Coupon', 'wp-hotelier' ),
+				'view'               => esc_html__( 'View Coupon', 'wp-hotelier' ),
+				'view_item'          => esc_html__( 'View Coupon', 'wp-hotelier' ),
+				'search_items'       => esc_html__( 'Search Coupons', 'wp-hotelier' ),
+				'not_found'          => esc_html__( 'No Coupons found', 'wp-hotelier' ),
+				'not_found_in_trash' => esc_html__( 'No Coupons found in Trash', 'wp-hotelier' ),
+				'parent'             => esc_html__( 'Parent Coupon', 'wp-hotelier' ),
+				'menu_name'          => esc_html_x( 'Coupons', 'admin menu name', 'wp-hotelier' )
+			) );
+
+			$coupon_args = array(
+				'labels'              => $coupon_labels,
+				'description'         => esc_html__( 'This is where you can add new coupons that guests can use to book a room.', 'wp-hotelier' ),
+				'public'              => false,
+				'show_ui'             => true,
+				'query_var'           => false,
+				'rewrite'             => false,
+				'publicly_queryable'  => false,
+				'exclude_from_search' => true,
+				'show_in_menu'        => current_user_can( 'manage_hotelier' ) ? 'hotelier-settings' : true,
+				'capability_type'     => 'coupon',
+				'map_meta_cap'        => true,
+				'hierarchical'        => false,
+				'show_in_nav_menus'   => false,
+				'rewrite'             => false,
+				'query_var'           => false,
+				'has_archive'         => false,
+				'supports'            => array( 'title' ),
+			);
+			register_post_type( 'coupon', apply_filters( 'hotelier_coupon_post_type_args', $coupon_args ) );
+		}
 	}
 
 	/**
@@ -323,6 +364,23 @@ class HTL_Post_Types {
 			10 => esc_html__( 'Reservation draft updated.', 'wp-hotelier' ),
 			11 => esc_html__( 'Reservation updated and email sent.', 'wp-hotelier' ),
 			12 => esc_html__( 'Reservation updated. Please reload this page again.', 'wp-hotelier' ),
+		);
+
+		$messages[ 'coupon' ] = array(
+			0 => '', // Unused. Messages start at index 1.
+			1 => esc_html__( 'Coupon updated.', 'wp-hotelier' ),
+			2 => esc_html__( 'Custom field updated.', 'wp-hotelier' ),
+			3 => esc_html__( 'Custom field deleted.', 'wp-hotelier' ),
+			4 => esc_html__( 'Coupon updated.', 'wp-hotelier' ),
+			5 => isset( $_GET['revision'] ) ? sprintf( __( 'Coupon restored to revision from %s', 'wp-hotelier' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+			6 => esc_html__( 'Coupon updated.', 'wp-hotelier' ),
+			7 => esc_html__( 'Coupon saved.', 'wp-hotelier' ),
+			8 => esc_html__( 'Coupon submitted.', 'wp-hotelier' ),
+			9 => sprintf( __( 'Coupon scheduled for: <strong>%1$s</strong>.', 'wp-hotelier' ),
+			date_i18n( __( 'M j, Y @ G:i', 'wp-hotelier' ), strtotime( $post->post_date ) ) ),
+			10 => esc_html__( 'Coupon draft updated.', 'wp-hotelier' ),
+			11 => esc_html__( 'Coupon updated and email sent.', 'wp-hotelier' ),
+			12 => esc_html__( 'Coupon updated. Please reload this page again.', 'wp-hotelier' ),
 		);
 
 		return $messages;

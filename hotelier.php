@@ -3,7 +3,7 @@
  * Plugin Name:       WP Hotelier
  * Plugin URI:        https://wphotelier.com/?utm_source=wpadmin&utm_medium=plugin&utm_campaign=wphotelierplugin
  * Description:       Manage your hotel bookings with WordPress.
- * Version:           2.4.0
+ * Version:           2.5.0
  * Author:            WP Hotelier
  * Author URI:        https://wphotelier.com/
  * Requires at least: 4.0
@@ -32,7 +32,7 @@ final class Hotelier {
 	/**
 	 * @var string
 	 */
-	public $version = '2.4.0';
+	public $version = '2.5.0';
 
 	/**
 	 * @var Hotelier The single instance of the class
@@ -216,6 +216,7 @@ final class Hotelier {
 		include_once HTL_PLUGIN_DIR . 'includes/class-htl-room.php';
 		include_once HTL_PLUGIN_DIR . 'includes/class-htl-room-variation.php';
 		include_once HTL_PLUGIN_DIR . 'includes/class-htl-reservation.php';
+		include_once HTL_PLUGIN_DIR . 'includes/class-htl-coupon.php';
 		include_once HTL_PLUGIN_DIR . 'includes/class-htl-comments.php';
 		include_once HTL_PLUGIN_DIR . 'includes/class-htl-booking.php';
 		include_once HTL_PLUGIN_DIR . 'includes/class-htl-log.php';

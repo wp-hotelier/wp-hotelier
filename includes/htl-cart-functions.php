@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Core
  * @package  Hotelier/Functions
- * @version  2.2.0
+ * @version  2.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -98,7 +98,7 @@ function htl_cart_formatted_subtotal() {
 }
 
 /**
- * Get the formatted subtotal.
+ * Get the formatted tax total.
  *
  * @access public
  * @return string
@@ -119,6 +119,18 @@ function htl_cart_formatted_required_deposit() {
 	$required_deposit = htl_price( htl_convert_to_cents( HTL()->cart->get_required_deposit() ) );
 
 	echo $required_deposit;
+}
+
+/**
+ * Get the formatted discount.
+ *
+ * @access public
+ * @return string
+ */
+function htl_cart_formatted_discount() {
+	$discount = '-' . htl_price( htl_convert_to_cents( HTL()->cart->get_discount_total() ) );
+
+	echo $discount;
 }
 
 /**

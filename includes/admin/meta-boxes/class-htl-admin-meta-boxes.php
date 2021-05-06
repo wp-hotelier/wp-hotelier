@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin/Meta Boxes
- * @version  2.2.0
+ * @version  2.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -30,11 +30,17 @@ class HTL_Admin_Meta_Boxes {
 	private $reservation_meta_boxes = array();
 
 	/**
+	 * Coupon meta boxes.
+	 */
+	private $coupon_meta_boxes = array();
+
+	/**
 	 * Constructor
 	 */
 	public function __construct() {
 		$this->list_room_meta_boxes();
 		$this->list_reservation_meta_boxes();
+		$this->list_coupon_meta_boxes();
 
 		// Actions
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 30 );
@@ -48,6 +54,7 @@ class HTL_Admin_Meta_Boxes {
 		add_filter( 'hotelier_meta_box_save_textarea', array( 'HTL_Admin_Meta_Boxes_Validation', 'sanitize_textarea' ) );
 		add_filter( 'hotelier_meta_box_save_number', array( 'HTL_Admin_Meta_Boxes_Validation', 'sanitize_number' ) );
 		add_filter( 'hotelier_meta_box_save_select', array( 'HTL_Admin_Meta_Boxes_Validation', 'sanitize_select' ) );
+		add_filter( 'hotelier_meta_box_save_multiselect', array( 'HTL_Admin_Meta_Boxes_Validation', 'sanitize_multiselect' ) );
 		add_filter( 'hotelier_meta_box_save_checkbox', array( 'HTL_Admin_Meta_Boxes_Validation', 'sanitize_checkbox' ) );
 		add_filter( 'hotelier_meta_box_save_price', array( 'HTL_Admin_Meta_Boxes_Validation', 'sanitize_price' ) );
 		add_filter( 'hotelier_meta_box_save_price_per_day', array( 'HTL_Admin_Meta_Boxes_Validation', 'sanitize_price_per_day' ) );
@@ -55,6 +62,7 @@ class HTL_Admin_Meta_Boxes {
 		add_filter( 'hotelier_meta_box_save_seasonal_price', array( 'HTL_Admin_Meta_Boxes_Validation', 'sanitize_seasonal_price' ) );
 		add_filter( 'hotelier_meta_box_save_multi_text', array( 'HTL_Admin_Meta_Boxes_Validation', 'sanitize_multi_text' ) );
 		add_filter( 'hotelier_meta_box_save_room_variations', array( 'HTL_Admin_Meta_Boxes_Validation', 'sanitize_room_variations' ) );
+		add_filter( 'hotelier_meta_box_save_date', array( 'HTL_Admin_Meta_Boxes_Validation', 'sanitize_date' ) );
 
 		$this->includes();
 	}
@@ -70,6 +78,7 @@ class HTL_Admin_Meta_Boxes {
 		include_once( 'class-htl-meta-box-reservation-items.php' );
 		include_once( 'class-htl-meta-box-reservation-save.php' );
 		include_once( 'class-htl-meta-box-reservation-notes.php' );
+		include_once( 'class-htl-meta-box-coupon-settings.php' );
 	}
 
 	/**
@@ -124,6 +133,23 @@ class HTL_Admin_Meta_Boxes {
 	}
 
 	/**
+	 * Coupon meta boxes list.
+	 */
+	private function list_coupon_meta_boxes() {
+		$fields = array(
+			'_coupon_enabled'           => 'switch',
+			'_coupon_code'              => 'text',
+			'_coupon_description'       => 'textarea',
+			'_coupon_type'              => 'switch',
+			'_coupon_amount_percentage' => 'number',
+			'_coupon_amount_fixed'      => 'price',
+			'_coupon_expiration_date'   => 'date',
+		);
+
+		$this->coupon_meta_boxes = apply_filters( 'hotelier_coupon_meta_boxes', $fields );
+	}
+
+	/**
 	 * Add Hotelier meta boxes
 	 */
 	public function add_meta_boxes() {
@@ -137,6 +163,9 @@ class HTL_Admin_Meta_Boxes {
 		add_meta_box( 'hotelier-reservation-items', esc_html__( 'Rooms', 'wp-hotelier' ), 'HTL_Meta_Box_Reservation_Items::output', 'room_reservation', 'normal', 'high' );
 		add_meta_box( 'hotelier-reservation-save', esc_html__( 'Save Reservation', 'wp-hotelier' ), 'HTL_Meta_Box_Reservation_Save::output', 'room_reservation', 'side', 'high' );
 		add_meta_box( 'hotelier-reservation-notes', esc_html__( 'Reservation Notes', 'wp-hotelier' ), 'HTL_Meta_Box_Reservation_Notes::output', 'room_reservation', 'side', 'default' );
+
+		// Coupons
+		add_meta_box( 'hotelier-coupon-settings', esc_html__( 'Coupon Settings', 'wp-hotelier' ), 'HTL_Meta_Box_Coupon_Settings::output', 'coupon', 'normal', 'high' );
 	}
 
 	/**
@@ -170,6 +199,10 @@ class HTL_Admin_Meta_Boxes {
 		// Get reservation meta boxes
 		} elseif ( isset( $post->post_type ) && 'room_reservation' == $post->post_type ) {
 			$fields = $this->reservation_meta_boxes;
+
+		// Get coupon meta boxes
+		} elseif ( isset( $post->post_type ) && 'coupon' == $post->post_type ) {
+			$fields = $this->coupon_meta_boxes;
 		}
 
 		foreach ( $fields as $field => $type ) {
