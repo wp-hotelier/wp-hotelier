@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin
- * @version  2.5.0
+ * @version  2.6.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -40,6 +40,9 @@ class HTL_Admin_Post_Types {
 		// Coupon post type columns
 		add_filter( 'manage_coupon_posts_columns', array( $this, 'coupon_columns' ) );
 		add_filter( 'manage_coupon_posts_custom_column', array( $this, 'render_coupon_columns' ) );
+
+		// Fee post type columns
+		add_filter( 'manage_fee_posts_columns', array( $this, 'fee_columns' ) );
 
 		// Change label of "Date" column on reservations
 		add_filter( 'post_date_column_status', array( $this, 'post_date_column_label' ), 10, 2 );
@@ -286,6 +289,17 @@ class HTL_Admin_Post_Types {
 	}
 
 	/**
+	 * Define custom columns for fees.
+	 */
+	public function fee_columns( $columns ) {
+		if ( is_array( $columns ) ) {
+			unset( $columns[ 'date' ] );
+		}
+
+		return $columns;
+	}
+
+	/**
 	 * Delete unused actions.
 	 */
 	public function delete_actions( $actions ) {
@@ -293,6 +307,8 @@ class HTL_Admin_Post_Types {
 			unset( $actions[ 'trash' ] );
 			unset( $actions[ 'inline hide-if-no-js' ] );
 		} else if ( get_post_type() === 'coupon' ) {
+			unset( $actions[ 'inline hide-if-no-js' ] );
+		} else if ( get_post_type() === 'fee' ) {
 			unset( $actions[ 'inline hide-if-no-js' ] );
 		}
 
