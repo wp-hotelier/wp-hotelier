@@ -109,7 +109,7 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 		);
 
 		/**
-		 * A filter is provided to allow extensions to add their own standard cio settings
+		 * A filter is provided to allow extensions to add their own standard coupon settings
 		 */
 		do_action( 'hotelier_coupon_general_settings' ); ?>
 	</div>
