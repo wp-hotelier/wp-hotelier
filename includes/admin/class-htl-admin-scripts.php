@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin
- * @version  2.5.0
+ * @version  2.6.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -95,7 +95,7 @@ class HTL_Admin_Scripts {
 		}
 
 		// Admin settings and room meta boxes
-		if ( $screen->id == 'toplevel_page_hotelier-settings' || in_array( $screen->id, array( 'room', 'edit-room', 'coupon' ) ) ) {
+		if ( $screen->id == 'toplevel_page_hotelier-settings' || in_array( $screen->id, array( 'room', 'edit-room', 'coupon', 'fee' ) ) ) {
 			wp_enqueue_script( 'htl-admin-fields' );
 		}
 
