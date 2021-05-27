@@ -35,12 +35,18 @@ class HTL_Admin_Meta_Boxes {
 	private $coupon_meta_boxes = array();
 
 	/**
+	 * Fee meta boxes.
+	 */
+	private $fee_meta_boxes = array();
+
+	/**
 	 * Constructor
 	 */
 	public function __construct() {
 		$this->list_room_meta_boxes();
 		$this->list_reservation_meta_boxes();
 		$this->list_coupon_meta_boxes();
+		$this->list_fee_meta_boxes();
 
 		// Actions
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 30 );
@@ -79,6 +85,7 @@ class HTL_Admin_Meta_Boxes {
 		include_once( 'class-htl-meta-box-reservation-save.php' );
 		include_once( 'class-htl-meta-box-reservation-notes.php' );
 		include_once( 'class-htl-meta-box-coupon-settings.php' );
+		include_once( 'class-htl-meta-box-fee-settings.php' );
 	}
 
 	/**
@@ -150,6 +157,23 @@ class HTL_Admin_Meta_Boxes {
 	}
 
 	/**
+	 * Fee meta boxes list.
+	 */
+	private function list_fee_meta_boxes() {
+		$fields = array(
+			'_fee_enabled'             => 'switch',
+			'_fee_name'                => 'text',
+			'_fee_description'         => 'textarea',
+			'_fee_type'                => 'switch',
+			'_fee_guest_type'          => 'select',
+			'_fee_calculate_per_night' => 'checkbox',
+			'_fee_max_cost'            => 'price',
+		);
+
+		$this->fee_meta_boxes = apply_filters( 'hotelier_fee_meta_boxes', $fields );
+	}
+
+	/**
 	 * Add Hotelier meta boxes
 	 */
 	public function add_meta_boxes() {
@@ -166,6 +190,9 @@ class HTL_Admin_Meta_Boxes {
 
 		// Coupons
 		add_meta_box( 'hotelier-coupon-settings', esc_html__( 'Coupon Settings', 'wp-hotelier' ), 'HTL_Meta_Box_Coupon_Settings::output', 'coupon', 'normal', 'high' );
+
+		// Fees
+		add_meta_box( 'hotelier-fee-settings', esc_html__( 'Fee Settings', 'wp-hotelier' ), 'HTL_Meta_Box_Fee_Settings::output', 'fee', 'normal', 'high' );
 	}
 
 	/**
@@ -203,6 +230,10 @@ class HTL_Admin_Meta_Boxes {
 		// Get coupon meta boxes
 		} elseif ( isset( $post->post_type ) && 'coupon' == $post->post_type ) {
 			$fields = $this->coupon_meta_boxes;
+
+		// Get fee meta boxes
+		} elseif ( isset( $post->post_type ) && 'fee' == $post->post_type ) {
+			$fields = $this->fee_meta_boxes;
 		}
 
 		foreach ( $fields as $field => $type ) {
