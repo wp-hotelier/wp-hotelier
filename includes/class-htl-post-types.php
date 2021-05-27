@@ -197,7 +197,7 @@ class HTL_Post_Types {
 			'rewrite'             => false,
 			'query_var'           => false,
 			'has_archive'         => false,
-			'supports'            => array( 'title' ),
+			'supports'            => array( 'title', 'thumbnail' ),
 		);
 		register_post_type( 'fee', apply_filters( 'hotelier_fee_post_type_args', $fee_args ) );
 	}
