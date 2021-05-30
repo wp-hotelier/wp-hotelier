@@ -2,8 +2,8 @@
 Contributors: benitolopez
 Tags: booking, hotel, booking system, hostel, reservations, reservations, b&b, rooms, wphotelier
 Requires at least: 4.1
-Tested up to: 5.6
-Stable tag: 2.5.0
+Tested up to: 5.7
+Stable tag: 2.5.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -113,6 +113,10 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 4. WP Hotelier - Admin calendar.
 
 == Changelog ==
+
+= 2.5.1 - 2021-05-30 =
+* Fix - Correct coupon ID check when creating reservations.
+* Localization - POT file updated.
 
 = 2.5.0 - 2021-05-06 =
 * Add - Coupons functionality.
