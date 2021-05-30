@@ -112,6 +112,17 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 2.5.1 - 2021-05-30 =
+* Fix - Correct coupon ID check when creating reservations.
+* Localization - POT file updated.
+
+= 2.5.0 - 2021-05-06 =
+* Add - Coupons functionality.
+* Fix - Pass raw URLs to PayPal.
+* Fix - Allow to cancel a reservation from a cancelled payment.
+* Fix - Minor PHP 8 fix.
+* Localization - POT file updated.
+
 = 2.4.0 - 2021-02-17 =
 * Update - Hotel Datepicker library updated.
 * Update - Fecha library updated.
