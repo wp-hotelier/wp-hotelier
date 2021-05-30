@@ -164,6 +164,7 @@ class HTL_Admin_Meta_Boxes {
 			'_fee_enabled'             => 'switch',
 			'_fee_name'                => 'text',
 			'_fee_description'         => 'textarea',
+			'_fee_price'               => 'price',
 			'_fee_type'                => 'switch',
 			'_fee_guest_type'          => 'select',
 			'_fee_calculate_per_night' => 'checkbox',

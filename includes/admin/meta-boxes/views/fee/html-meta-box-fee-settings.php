@@ -55,6 +55,15 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 			)
 		);
 
+		HTL_Meta_Boxes_Helper::price_input(
+			array(
+				'id'          => '_fee_price',
+				'value'       => get_post_meta( $thepostid, '_fee_price', true ),
+				'label'       => esc_html__( 'Fee price:', 'wp-hotelier' ),
+				'description' => esc_html__( 'Enter the price of the fee.', 'wp-hotelier' ),
+			)
+		);
+
 		HTL_Meta_Boxes_Helper::switch_input(
 			array(
 				'name'                 => '_fee_type',
