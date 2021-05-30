@@ -295,22 +295,25 @@ class HTL_Admin_New_Reservation {
 
 			// Save coupon data
 			if ( htl_coupons_enabled() ) {
-				$coupon_id   = $cart_totals->coupon_id;
-				$coupon      = htl_get_coupon( $coupon_id );
-				$coupon_code = $coupon->get_code();
+				$coupon_id = $cart_totals->coupon_id;
 
-				// Check if coupon is valid
-				$can_apply_coupon = htl_can_apply_coupon( $coupon_id, self::$force_booking );
+				if ( absint( $coupon_id ) > 0 ) {
+					$coupon      = htl_get_coupon( $coupon_id );
+					$coupon_code = $coupon->get_code();
 
-				if ( isset( $can_apply_coupon['can_apply'] ) && $can_apply_coupon['can_apply'] ) {
-					$reservation->set_discount_total( $cart_totals->discount_total );
-					$reservation->set_coupon_id( $coupon_id );
-					$reservation->set_coupon_code( $coupon_code );
-				} else {
-					$reason = isset( $can_apply_coupon['reason'] ) ? $can_apply_coupon['reason'] : false;
-					$reason = $reason ? $reason : esc_html__( 'This coupon cannot be applied.', 'wp-hotelier' );
+					// Check if coupon is valid
+					$can_apply_coupon = htl_can_apply_coupon( $coupon_id, self::$force_booking );
 
-					throw new Exception( $reason );
+					if ( isset( $can_apply_coupon['can_apply'] ) && $can_apply_coupon['can_apply'] ) {
+						$reservation->set_discount_total( $cart_totals->discount_total );
+						$reservation->set_coupon_id( $coupon_id );
+						$reservation->set_coupon_code( $coupon_code );
+					} else {
+						$reason = isset( $can_apply_coupon['reason'] ) ? $can_apply_coupon['reason'] : false;
+						$reason = $reason ? $reason : esc_html__( 'This coupon cannot be applied.', 'wp-hotelier' );
+
+						throw new Exception( $reason );
+					}
 				}
 			}
 
