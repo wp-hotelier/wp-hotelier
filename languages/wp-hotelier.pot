@@ -35,7 +35,7 @@ msgstr ""
 msgid "Invalid coupon code."
 msgstr ""
 
-#: ../includes/class-htl-ajax.php:167, ../includes/class-htl-booking.php:292, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:429, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:311
+#: ../includes/class-htl-ajax.php:167, ../includes/class-htl-booking.php:294, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:431, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:313
 msgid "This coupon cannot be applied."
 msgstr ""
 
@@ -43,157 +43,157 @@ msgstr ""
 msgid "Error %d: Unable to create reservation. Please try again."
 msgstr ""
 
-#: ../includes/class-htl-booking.php:329, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:43
+#: ../includes/class-htl-booking.php:332, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:43
 msgid "First name"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:330
+#: ../includes/class-htl-booking.php:333
 msgctxt "placeholder"
 msgid "First name"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:335, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:48
+#: ../includes/class-htl-booking.php:338, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:48
 msgid "Last name"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:336
+#: ../includes/class-htl-booking.php:339
 msgctxt "placeholder"
 msgid "Last name"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:342, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:54
+#: ../includes/class-htl-booking.php:345, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:54
 msgid "Email address"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:343
+#: ../includes/class-htl-booking.php:346
 msgctxt "placeholder"
 msgid "Email address"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:350, ../includes/class-htl-emails.php:278, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:60
+#: ../includes/class-htl-booking.php:353, ../includes/class-htl-emails.php:278, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:60
 msgid "Telephone"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:351
+#: ../includes/class-htl-booking.php:354
 msgctxt "placeholder"
 msgid "Telephone"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:358, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:88
+#: ../includes/class-htl-booking.php:361, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:88
 msgid "Country"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:359
+#: ../includes/class-htl-booking.php:362
 msgctxt "placeholder"
 msgid "Country"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:366
+#: ../includes/class-htl-booking.php:369
 msgid "Address"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:367
+#: ../includes/class-htl-booking.php:370
 msgctxt "placeholder"
 msgid "Street address"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:372
+#: ../includes/class-htl-booking.php:375
 msgctxt "placeholder"
 msgid "Apartment, suite, unit etc. (optional)"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:377, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:75
+#: ../includes/class-htl-booking.php:380, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:75
 msgid "Town / City"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:378
+#: ../includes/class-htl-booking.php:381
 msgctxt "placeholder"
 msgid "Town / City"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:383, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:84
+#: ../includes/class-htl-booking.php:386, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:84
 msgid "State / County"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:384
+#: ../includes/class-htl-booking.php:387
 msgctxt "placeholder"
 msgid "State / County"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:389, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:79
+#: ../includes/class-htl-booking.php:392, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:79
 msgid "Postcode / Zip"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:390
+#: ../includes/class-htl-booking.php:393
 msgctxt "placeholder"
 msgid "Postcode / Zip"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:403
+#: ../includes/class-htl-booking.php:406
 msgid "Your estimated time of arrival"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:404
+#: ../includes/class-htl-booking.php:407
 msgid "Time is for %s time zone"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:409, ../includes/class-htl-reservation.php:229, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:109, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:373
+#: ../includes/class-htl-booking.php:412, ../includes/class-htl-reservation.php:229, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:109, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:373
 msgid "I don't know"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:437, ../includes/class-htl-emails.php:220
+#: ../includes/class-htl-booking.php:440, ../includes/class-htl-emails.php:220
 msgid "Special requests"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:440, ../includes/admin/settings/class-htl-admin-settings-default.php:217
+#: ../includes/class-htl-booking.php:443, ../includes/admin/settings/class-htl-admin-settings-default.php:217
 msgid "Special requests cannot be guaranteed but we will do our best to meet your needs."
 msgstr ""
 
-#: ../includes/class-htl-booking.php:490
+#: ../includes/class-htl-booking.php:493
 msgid "Send request"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:484, ../templates/room-list/content/add-to-cart.php:44, ../templates/room-list/content/rate/rate-add-to-cart.php:42
+#: ../includes/class-htl-booking.php:487, ../templates/room-list/content/add-to-cart.php:44, ../templates/room-list/content/rate/rate-add-to-cart.php:42
 msgid "Book now"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:480
+#: ../includes/class-htl-booking.php:483
 msgid "Book now & pay deposit"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:560, ../includes/class-htl-form-functions.php:130, ../includes/class-htl-form-functions.php:186, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:88
+#: ../includes/class-htl-booking.php:563, ../includes/class-htl-form-functions.php:130, ../includes/class-htl-form-functions.php:186, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:88
 msgid "We were unable to process your reservation, please try again."
 msgstr ""
 
-#: ../includes/class-htl-booking.php:573
+#: ../includes/class-htl-booking.php:576
 msgid "Sorry, your session has expired. <a href=\"%s\" class=\"htl-backward\">Return to homepage</a>"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:622
+#: ../includes/class-htl-booking.php:625
 msgid "is a required field."
 msgstr ""
 
-#: ../includes/class-htl-booking.php:632
+#: ../includes/class-htl-booking.php:635
 msgid "is not a valid email address."
 msgstr ""
 
-#: ../includes/class-htl-booking.php:639
+#: ../includes/class-htl-booking.php:642
 msgid "is not a valid number."
 msgstr ""
 
-#: ../includes/class-htl-booking.php:648
+#: ../includes/class-htl-booking.php:651
 msgid "is not a valid phone number."
 msgstr ""
 
-#: ../includes/class-htl-booking.php:661, ../includes/class-htl-form-functions.php:83
+#: ../includes/class-htl-booking.php:664, ../includes/class-htl-form-functions.php:83
 msgid "You must accept our Terms &amp; Conditions."
 msgstr ""
 
-#: ../includes/class-htl-booking.php:672, ../includes/class-htl-form-functions.php:77
+#: ../includes/class-htl-booking.php:675, ../includes/class-htl-form-functions.php:77
 msgid "Invalid payment method."
 msgstr ""
 
-#: ../includes/class-htl-booking.php:691
+#: ../includes/class-htl-booking.php:694
 msgid "List of available rooms <a href=\"%s\">here</a>"
 msgstr ""
 
@@ -2748,7 +2748,7 @@ msgstr ""
 msgid "Sorry, something went wrong during the calculation of the totals."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:436
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:439
 msgid "Reservation dates updated. Totals have been recalculated."
 msgstr ""
 
@@ -2776,7 +2776,7 @@ msgstr ""
 msgid "Please fill the required fields."
 msgstr ""
 
-#: ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:318
+#: ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:321
 msgid "Reservation manually created by admin."
 msgstr ""
 
