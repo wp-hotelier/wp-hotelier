@@ -419,7 +419,7 @@ class HTL_Admin_Settings_Default {
 					),
 					'book_now_redirect_to_booking_page' => array(
 						'id'           => 'book_now_redirect_to_booking_page',
-						'name'         => esc_html__( 'Book now behaviour', 'wp-hotelier' ),
+						'name'         => esc_html__( 'Book now direct', 'wp-hotelier' ),
 						'subdesc'      => __( 'Redirect to the booking page after successful addition (this will not allow multiple rooms on the same reservations).', 'wp-hotelier' ),
 						'type'         => 'checkbox',
 						'toggle'       => true,
