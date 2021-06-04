@@ -419,7 +419,7 @@ class HTL_Admin_Settings_Fields {
 		} elseif ( ! $booking_page[ 'page_visible' ] ) {
 			$info = __( 'The page is set, but it is not public', 'wp-hotelier' );
 		} elseif ( ! $booking_page[ 'has_shortcode' ] ) {
-			$info = sprintf( __( 'The page requires this shortcode: %s', 'wp-hotelier' ), '<code>' . $listing_page[ 'shortcode' ] . '</code>' );
+			$info = sprintf( __( 'The page requires this shortcode: %s', 'wp-hotelier' ), '<code>' . $booking_page[ 'shortcode' ] . '</code>' );
 		} else {
 			$class = 'success';
 			$info = '(ID = ' . absint( $booking_page[ 'page_id' ] ) . ') ' . get_permalink( $booking_page[ 'page_id' ] );
