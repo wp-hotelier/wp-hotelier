@@ -51,19 +51,54 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 				'value'       => get_post_meta( $thepostid, '_fee_description', true ),
 				'label'       => esc_html__( 'Fee description:', 'wp-hotelier' ),
 				'placeholder' => esc_html__( 'Fee description (optional)', 'wp-hotelier' ),
-				'description' => esc_html__( 'Enter a description for this fee (optional). For internal uses but some themes may use it.', 'wp-hotelier' ),
+				'description' => esc_html__( 'Enter a description for this fee.', 'wp-hotelier' ),
 			)
 		);
 
-		HTL_Meta_Boxes_Helper::price_input(
+		HTL_Meta_Boxes_Helper::switch_input(
 			array(
-				'id'          => '_fee_price',
-				'value'       => get_post_meta( $thepostid, '_fee_price', true ),
-				'label'       => esc_html__( 'Fee price:', 'wp-hotelier' ),
-				'description' => esc_html__( 'Enter the price of the fee.', 'wp-hotelier' ),
+				'name'                 => '_fee_amount_type',
+				'value'                => get_post_meta( $thepostid, '_fee_amount_type', true ),
+				'label'                => esc_html__( 'Fee amount type:', 'wp-hotelier' ),
+				'description'          => esc_html__( 'The type of amount to apply for this fee.', 'wp-hotelier' ),
+				'options'              => array(
+					'fixed'      => esc_html__( 'Fixed', 'wp-hotelier' ),
+					'percentage' => esc_html__( 'Percentage', 'wp-hotelier' ),
+				),
+				'std'                  => 'fixed',
+				'conditional'          => true,
+				'conditional-selector' => 'fee-amount-type',
 			)
 		);
+		?>
 
+		<div class="htl-ui-setting-conditional htl-ui-setting-conditional--fee-amount-type" data-type="fixed">
+			<?php
+				HTL_Meta_Boxes_Helper::price_input(
+					array(
+						'id'          => '_fee_amount_fixed',
+						'value'       => get_post_meta( $thepostid, '_fee_amount_fixed', true ),
+						'label'       => esc_html__( 'Amount:', 'wp-hotelier' ),
+						'description' => esc_html__( 'Enter the fixed amount.', 'wp-hotelier' ),
+					)
+				);
+			?>
+		</div>
+
+		<div class="htl-ui-setting-conditional htl-ui-setting-conditional--fee-amount-type" data-type="percentage">
+			<?php
+				HTL_Meta_Boxes_Helper::number_input(
+					array(
+						'id'          => '_fee_amount_percentage',
+						'value'       => get_post_meta( $thepostid, '_fee_amount_percentage', true ),
+						'label'       => esc_html__( 'Amount:', 'wp-hotelier' ),
+						'description' => esc_html__( 'Enter the amount percentage. 30 = 30%.', 'wp-hotelier' ),
+					)
+				);
+			?>
+		</div>
+
+		<?php
 		HTL_Meta_Boxes_Helper::switch_input(
 			array(
 				'name'                 => '_fee_type',
@@ -83,6 +118,11 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 
 		<div class="htl-ui-setting-conditional htl-ui-setting-conditional--fee-guest-type" data-type="fee-guest-type">
 			<?php
+			if ( htl_get_option( 'book_now_redirect_to_booking_page', 0 ) && ! htl_get_option( 'book_now_allow_quantity_selection', 0 ) ) {
+				$notice_text = sprintf( __( '<strong>Please note:</strong> It is recommended to enable the <a href="%s">Allow quantity selection</a> option when using the <strong>"Per person"</strong> type of fee, to allow the user to select the number of guests. If left off, the system will calculate the maximum number of adults and children that the room allows as the number of guests.', 'wp-hotelier' ), admin_url( 'admin.php?page=hotelier-settings&tab=rooms-and-reservations' ) );
+				htl_ui_print_notice( $notice_text );
+			}
+
 			HTL_Meta_Boxes_Helper::select_input(
 				array(
 					'name'                 => '_fee_guest_type',
