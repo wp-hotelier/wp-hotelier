@@ -367,6 +367,31 @@ class HTL_Room {
 		global $wpdb;
 
 		$sql          = $wpdb->prepare( "SELECT room_id, checkin, checkout, rb.reservation_id FROM {$wpdb->prefix}hotelier_rooms_bookings rb, {$wpdb->prefix}hotelier_bookings b WHERE rb.reservation_id = b.reservation_id AND rb.room_id = %d AND (%s < b.checkout AND %s > b.checkin) AND b.status <> 'cancelled' AND b.status <> 'refunded' AND b.status <> 'completed'", $this->id, $checkin, $checkout );
+		
+        // if the plugin polylang is present,
+        // we are checking not only for this room's reservations,
+        // but also for its translated rooms'
+		// this way we can have multiple view instances in different languages
+		// however, this is a non atomar action, so it could run into concurrency issues
+		// in order to address this, the post would have to be decoupled from the room model,
+		// so one room (model) can have multiple posts (views)
+        if (isset($GLOBALS["polylang"])) {
+
+        	$translations = $GLOBALS["polylang"]->model->post->get_translations($this->post->ID);
+
+            $sql = $wpdb->prepare(  "SELECT room_id, checkin, checkout, rb.reservation_id ".
+            						"FROM {$wpdb->prefix}hotelier_rooms_bookings rb, {$wpdb->prefix}hotelier_bookings b ".
+                                    "WHERE rb.reservation_id = b.reservation_id ".
+                                    "AND rb.room_id IN ( %s ) ". 
+                                    "AND (%s < b.checkout AND %s > b.checkin) ".
+                                    "AND b.status <> 'cancelled' ".
+                                    "AND b.status <> 'refunded' ".
+                                    "AND b.status <> 'completed'",
+                                    implode(',', array_map('intval', $translations)),
+                                    $checkin,
+                                    $checkout );
+        }
+		
 		$reservations = $wpdb->get_results( $sql );
 
 		// Iterate each day to calculate the exact number of reservations
