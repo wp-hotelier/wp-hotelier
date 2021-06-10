@@ -119,7 +119,7 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 		<div class="htl-ui-setting-conditional htl-ui-setting-conditional--fee-guest-type" data-type="fee-guest-type">
 			<?php
 			if ( htl_get_option( 'book_now_redirect_to_booking_page', 0 ) && ! htl_get_option( 'book_now_allow_quantity_selection', 0 ) ) {
-				$notice_text = sprintf( __( '<strong>Please note:</strong> It is recommended to enable the <a href="%s">Allow quantity selection</a> option when using the <strong>"Per person"</strong> type of fee, to allow the user to select the number of guests. If left off, the system will calculate the maximum number of adults and children that the room allows as the number of guests.', 'wp-hotelier' ), admin_url( 'admin.php?page=hotelier-settings&tab=rooms-and-reservations' ) );
+				$notice_text = sprintf( __( '<strong>Please note:</strong> It is recommended to enable the <a href="%s">Allow quantity selection</a> option when using the <strong>"Per person"</strong> type of fee, to allow the user to select the number of guests. If left off, the system will calculate the maximum number of adults that the room allows as the number of guests.', 'wp-hotelier' ), admin_url( 'admin.php?page=hotelier-settings&tab=rooms-and-reservations' ) );
 				htl_ui_print_notice( $notice_text );
 			}
 
