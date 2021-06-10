@@ -27,13 +27,56 @@ $available_rooms = absint( $room->get_available_rooms( $checkin, $checkout ) );
 			<?php do_action( 'hotelier_before_add_to_cart_button' ); ?>
 
 			<?php
-				hotelier_quantity_input( array(
-					'id'          => 'add-to-cart-room[' . esc_attr( $key ) . ']',
-					'min_value'   => apply_filters( 'hotelier_quantity_input_min', 0, $room ),
-					'max_value'   => apply_filters( 'hotelier_quantity_input_max', $room->get_stock_rooms(), $room ),
-					'input_value' => 0,
-					'input_name'  => "quantity[{$key}]"
-				) );
+			$quantity_input_args = array(
+				'id'          => 'add-to-cart-room[' . esc_attr( $key ) . ']',
+				'min_value'   => apply_filters( 'hotelier_quantity_input_min', 0, $room ),
+				'max_value'   => apply_filters( 'hotelier_quantity_input_max', $room->get_stock_rooms(), $room ),
+				'input_value' => 0,
+				'input_name'  => "quantity[{$key}]"
+			);
+
+			if ( true ) {
+				$max_adults     = $room->get_max_guests();
+				$adults_options = array();
+
+				for ( $i = 1; $i <= $max_adults; $i++ ) {
+					$adults_options[ $i ] = $i;
+				}
+
+				$adults_std = apply_filters( 'hotelier_room_list_guests_default_selection_adults', $max_adults );
+
+				$quantity_input_args['adults_args'] = array(
+					'input_name' => "adults[{$key}]",
+					'label'      => esc_html__( 'Adults', 'wp-hotelier' ),
+					'default'    => $adults_std,
+					'options'    => $adults_options
+				);
+			}
+
+			if ( true ) {
+				$max_children = $room->get_max_children();
+
+				if ( $max_children > 0 ) {
+					$children_options = array();
+
+					for ( $i = 0; $i <= $max_children; $i++ ) {
+						$children_options[ $i ] = $i;
+					}
+
+					$children_std = apply_filters( 'hotelier_room_list_guests_default_selection_children', 0 );
+
+					$quantity_input_args['children_args'] = array(
+						'input_name' => "children[{$key}]",
+						'type'       => 'select',
+						'label'      => esc_html__( 'Children', 'wp-hotelier' ),
+						'class'      => array(),
+						'default'    => $children_std,
+						'options'    => $children_options
+					);
+				}
+			}
+
+			hotelier_quantity_input( $quantity_input_args );
 			?>
 
 			<input type="hidden" name="add_to_cart_room[<?php echo esc_attr( $key ); ?>]" value="<?php echo esc_attr( apply_filters( 'hotelier_add_to_cart_room_id', $room->id, $room ) ); ?>" />

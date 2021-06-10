@@ -884,7 +884,6 @@ if ( ! function_exists( 'hotelier_template_loop_room_min_max_info' ) ) {
 	function hotelier_template_loop_room_min_max_info() {
 		global $room;
 
-
 		if ( $room->is_variable_room() ) {
 			return;
 		}
@@ -918,7 +917,12 @@ if ( ! function_exists( 'hotelier_template_loop_room_add_to_cart' ) ) {
 	 * Show the room add to cart button in the room list loop.
 	 */
 	function hotelier_template_loop_room_add_to_cart( $is_available, $atts ) {
-		htl_get_template( 'room-list/content/add-to-cart.php', array( 'is_available' => $is_available, 'shortcode_atts' => $atts ) );
+		global $room;
+
+		$show_guests_selection = htl_get_option( 'booking_number_of_guests_selection', true ) && htl_get_option( 'booking_number_of_guests_selection_type', 'booking-page' ) === 'listing-page' ? true : false;
+		$show_guests_selection = $show_guests_selection && apply_filters( 'hotelier_booking_show_number_of_guests_selection', true, $room ) ? true : false;
+
+		htl_get_template( 'room-list/content/add-to-cart.php', array( 'is_available' => $is_available, 'shortcode_atts' => $atts, 'show_guests_selection' => $show_guests_selection ) );
 	}
 
 }
@@ -1024,7 +1028,12 @@ if ( ! function_exists( 'hotelier_template_loop_room_rate_add_to_cart' ) ) {
 	 * Show the rate add to cart button.
 	 */
 	function hotelier_template_loop_room_rate_add_to_cart( $variation, $is_available, $checkin, $checkout, $atts ) {
-		htl_get_template( 'room-list/content/rate/rate-add-to-cart.php', array( 'variation' => $variation, 'is_available' => $is_available, 'checkin' => $checkin, 'checkout' => $checkout, 'shortcode_atts' => $atts ) );
+		global $room;
+
+		$show_guests_selection = htl_get_option( 'booking_number_of_guests_selection', true ) && htl_get_option( 'booking_number_of_guests_selection_type', 'booking-page' ) === 'listing-page' ? true : false;
+		$show_guests_selection = $show_guests_selection && apply_filters( 'hotelier_booking_show_number_of_guests_selection', true, $room ) ? true : false;
+
+		htl_get_template( 'room-list/content/rate/rate-add-to-cart.php', array( 'variation' => $variation, 'is_available' => $is_available, 'checkin' => $checkin, 'checkout' => $checkout, 'shortcode_atts' => $atts, 'show_guests_selection' => $show_guests_selection ) );
 	}
 
 }
@@ -1327,12 +1336,16 @@ if ( ! function_exists( 'hotelier_quantity_input' ) ) {
 			$room = $GLOBALS[ 'room' ];
 
 		$defaults = array(
-			'id'          => '',
-			'input_name'  => 'quantity',
-			'input_value' => '1',
-			'max_value'   => apply_filters( 'hotelier_quantity_input_max', '', $room ),
-			'min_value'   => apply_filters( 'hotelier_quantity_input_min', '', $room ),
-			'step'        => apply_filters( 'hotelier_quantity_input_step', '1', $room )
+			'id'            => '',
+			'class'         => 'room-quantity',
+			'input_name'    => 'quantity',
+			'input_value'   => '1',
+			'input_label'   => __( 'Nr. rooms', 'wp-hotelier' ),
+			'max_value'     => apply_filters( 'hotelier_quantity_input_max', '', $room ),
+			'min_value'     => apply_filters( 'hotelier_quantity_input_min', '', $room ),
+			'step'          => apply_filters( 'hotelier_quantity_input_step', '1', $room ),
+			'adults_args'   => array(),
+			'children_args' => array(),
 		);
 
 		$args = apply_filters( 'hotelier_quantity_input_args', wp_parse_args( $args, $defaults ), $room );
