@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! htl_get_option( 'booking_number_of_guests_selection', true ) ) {
+if ( ! htl_get_option( 'booking_number_of_guests_selection', true ) || htl_get_option( 'booking_number_of_guests_selection_type', 'booking-page' ) !== 'booking-page' ) {
 	return;
 }
 
