@@ -153,8 +153,12 @@ class HTL_Form_Functions {
 									'room_id'  => absint( $_POST[ 'add_to_cart_room' ][ $key ] ),
 									'rate_id'  => absint( $_POST[ 'rate_id' ][ $key ] ),
 									'quantity' => absint( $_POST[ 'quantity' ][ $key ] ),
+									'guests'   => array(),
 									'fees'     => array(),
 								);
+
+								// Calculate guests to add
+								$item_to_add[ 'guests' ] = self::calculate_guests_to_add( $item_to_add, $key );
 
 								if ( isset( $_POST[ 'fees' ][ $key ] ) ) {
 									$item_to_add[ 'fees' ] = $_POST[ 'fees' ][ $key ];
@@ -174,10 +178,11 @@ class HTL_Form_Functions {
 
 				// Add room(s) to the cart
 				foreach ( $items as $item ) {
-					$room_id           = absint( $item[ 'room_id' ] );
-					$quantity          = absint( $item[ 'quantity' ] );
-					$rate_id           = absint( $item[ 'rate_id' ] );
-					$fees              = $item[ 'fees' ];
+					$room_id  = absint( $item[ 'room_id' ] );
+					$quantity = absint( $item[ 'quantity' ] );
+					$rate_id  = absint( $item[ 'rate_id' ] );
+					$fees     = $item[ 'fees' ];
+					$guests   = $item[ 'guests' ];
 
 					$was_added_to_cart = false;
 					$was_added_to_cart = self::add_to_cart_from_room_list_handler( $room_id, $quantity, $rate_id, $fees );
@@ -386,6 +391,56 @@ class HTL_Form_Functions {
 
 			exit;
 		}
+	}
+
+	/**
+	 * Calculate guests to add
+	 */
+	private static function calculate_guests_to_add( $item_to_add, $key ) {
+		$_room        = htl_get_room( $item_to_add['room_id'] );
+		$max_guests   = $_room->get_max_guests();
+		$max_children = $_room->get_max_children();
+
+		$guests = array(
+			'adults'   => $max_guests,
+			'children' => 0,
+		);
+
+		if ( isset( $_POST['fees'][ $key ] ) && function_exists( 'hotelier_aps_room_has_extra_guests_enabled' ) ) {
+			if ( hotelier_aps_room_has_extra_guests_enabled( $_room ) ) {
+				if ( hotelier_aps_room_has_extra_adults( $_room ) ) {
+					$adults_included_in_rate = absint( get_post_meta( $_room->id, '_seasons_extra_person_fees_adults_included', true ) );
+					$adults_to_add           = $adults_included_in_rate;
+					$extra_adults            = isset( $_POST['fees'][$key]['adults'] ) ? absint( $_POST['fees'][$key]['adults'] ) : 0;
+					$adults_to_add           += $extra_adults;
+					$adults_to_add           = $adults_to_add > $max_guests ? $max_guests : $adults_to_add;
+					$guests['adults']        = $adults_to_add;
+				}
+
+				if ( hotelier_aps_room_has_extra_children( $_room ) ) {
+					$children_included_in_rate = absint( get_post_meta( $_room->id, '_seasons_extra_person_fees_children_included', true ) );
+					$children_to_add           = $children_included_in_rate;
+					$extra_children            = isset( $_POST['fees'][$key]['children'] ) ? absint( $_POST['fees'][$key]['children'] ) : 0;
+					$children_to_add           += $extra_children;
+					$children_to_add           = $children_to_add > $max_guests ? $max_guests : $children_to_add;
+					$guests['children']        = $children_to_add;
+				}
+			}
+		} else {
+			if ( isset( $_POST['adults'][ $key ] ) ) {
+				$adults_to_add    = absint( $_POST[ 'adults' ][ $key ] );
+				$adults_to_add    = $adults_to_add > $max_guests ? $max_guests : $adults_to_add;
+				$guests['adults'] = $adults_to_add;
+			}
+
+			if ( isset( $_POST['children'][ $key ] ) ) {
+				$children_to_add    = absint( $_POST[ 'children' ][ $key ] );
+				$children_to_add    = $children_to_add > $max_children ? $max_children : $children_to_add;
+				$guests['children'] = $children_to_add;
+			}
+		}
+
+		return $guests;
 	}
 }
 
