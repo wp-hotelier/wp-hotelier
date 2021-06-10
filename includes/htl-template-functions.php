@@ -1101,15 +1101,23 @@ if ( ! function_exists( 'hotelier_reservation_table_guests' ) ) {
 	 * Show selects for adults and children.
 	 */
 	function hotelier_reservation_table_guests( $room, $item_key, $quantity ) {
+		$guests       = array();
 		$max_adults   = $room->get_max_guests();
 		$max_children = $room->get_max_children();
+		$cart         = HTL()->cart->get_cart();
 
-		if ( htl_get_option( 'booking_number_of_guests_selection', true ) && htl_get_option( 'booking_number_of_guests_selection_type', 'booking-page' ) === 'booking-page' && apply_filters( 'hotelier_booking_show_number_of_guests_selection', true, $room ) ) {
+		if ( isset( $cart[$item_key] ) ) {
+			$cart_item = $cart[$item_key];
+			$guests    = isset( $cart_item['guests'] ) ? $cart_item['guests'] : array();
+		}
+
+		if ( htl_get_option( 'booking_number_of_guests_selection', true ) ) {
 			htl_get_template( 'booking/reservation-table-guests.php', array(
 				'adults'   => $max_adults,
 				'children' => $max_children,
 				'item_key' => $item_key,
 				'quantity' => $quantity,
+				'guests'   => $guests,
 			) );
 		}
 	}
