@@ -25,46 +25,61 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<span class="reservation-table__room-guests-label"><?php esc_html_e( 'Number of guests:', 'wp-hotelier' ); ?></span>
 		<?php endif; ?>
 
-		<?php
-		$adults_options = array();
+		<?php if ( htl_get_option( 'booking_number_of_guests_selection_type', 'booking-page' ) === 'listing-page' || ! apply_filters( 'hotelier_booking_show_number_of_guests_selection', true, $room ) ) : ?>
+			<?php
+			$line_adults   = isset( $guests['adults'] ) && ( $guests['adults'] > 0 ) ? $guests['adults'] : false;
+			$line_children = isset( $guests['children'] ) && ( $guests['children'] > 0 ) ? $guests['children'] : false;
+			?>
 
-		for ( $i = 1; $i <= $adults; $i++ ) {
-			$adults_options[ $i ] = $i;
-		}
+			<?php if ( $line_adults ) : ?>
+				<span class="reservation-table__room-guests-adults"><?php echo sprintf( _n( '%s Adult', '%s Adults', $line_adults, 'wp-hotelier' ), $line_adults ); ?></span>
+			<?php endif; ?>
 
-		$adults_std = htl_get_reservation_table_guests_default_adults_selection( $adults, $item_key, $q );
-		$adults_std = apply_filters( 'hotelier_reservation_table_guests_default_selection_adults', $adults_std );
+			<?php if ( $line_children ) : ?>
+				<span class="reservation-table__room-guests-children"><?php echo sprintf( esc_html__( '%d Children', 'wp-hotelier' ), $line_children ); ?></span>
+			<?php endif; ?>
+		<?php else : ?>
+			<?php
+			$adults_options = array();
 
-		$adults_args = array(
-			'type'    => 'select',
-			'label'   => esc_html__( 'Adults', 'wp-hotelier' ),
-			'class'   => array(),
-			'default' => $adults_std,
-			'options' => $adults_options
-		);
-
-		htl_form_field( 'adults[' . $item_key . '][' . $q . ']', $adults_args );
-
-		if ( $children > 0 ) {
-			$children_options = array();
-
-			for ( $i = 0; $i <= $children; $i++ ) {
-				$children_options[ $i ] = $i;
+			for ( $i = 1; $i <= $adults; $i++ ) {
+				$adults_options[ $i ] = $i;
 			}
 
-			$children_std = htl_get_reservation_table_guests_default_children_selection( 0, $item_key, $q );
-			$children_std = apply_filters( 'hotelier_reservation_table_guests_default_selection_children', $children_std );
+			$adults_std = htl_get_reservation_table_guests_default_adults_selection( $adults, $item_key, $q );
+			$adults_std = apply_filters( 'hotelier_reservation_table_guests_default_selection_adults', $adults_std );
 
-			$children_args = array(
+			$adults_args = array(
 				'type'    => 'select',
-				'label'   => esc_html__( 'Children', 'wp-hotelier' ),
+				'label'   => esc_html__( 'Adults', 'wp-hotelier' ),
 				'class'   => array(),
-				'default' => $children_std,
-				'options' => $children_options
+				'default' => $adults_std,
+				'options' => $adults_options
 			);
 
-			htl_form_field( 'children[' . $item_key . '][' . $q . ']', $children_args );
-		} ?>
+			htl_form_field( 'adults[' . $item_key . '][' . $q . ']', $adults_args );
+
+			if ( $children > 0 ) {
+				$children_options = array();
+
+				for ( $i = 0; $i <= $children; $i++ ) {
+					$children_options[ $i ] = $i;
+				}
+
+				$children_std = htl_get_reservation_table_guests_default_children_selection( 0, $item_key, $q );
+				$children_std = apply_filters( 'hotelier_reservation_table_guests_default_selection_children', $children_std );
+
+				$children_args = array(
+					'type'    => 'select',
+					'label'   => esc_html__( 'Children', 'wp-hotelier' ),
+					'class'   => array(),
+					'default' => $children_std,
+					'options' => $children_options
+				);
+
+				htl_form_field( 'children[' . $item_key . '][' . $q . ']', $children_args );
+			} ?>
+		<?php endif; ?>
 	</div>
 
 <?php endfor; ?>
