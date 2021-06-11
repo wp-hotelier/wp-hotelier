@@ -213,24 +213,46 @@ class HTL_Booking {
 				$children = 0;
 
 				if ( htl_get_option( 'booking_number_of_guests_selection', true ) ) {
-					// Adults
-					$cart_adults = isset( $this->form_data[ 'adults' ] ) ? $this->form_data[ 'adults' ] : false;
+					// Save adults/children selected in the booking page
+					if ( htl_get_option( 'booking_number_of_guests_selection_type', 'booking-page' ) === 'booking-page' ) {
+						// Adults
+						$cart_adults = isset( $this->form_data[ 'adults' ] ) ? $this->form_data[ 'adults' ] : false;
 
-					if ( $cart_adults && is_array( $cart_adults ) && isset( $cart_adults[ $cart_item_key ] ) ) {
-						$adults = $cart_adults[ $cart_item_key ];
+						if ( $cart_adults && is_array( $cart_adults ) && isset( $cart_adults[ $cart_item_key ] ) ) {
+							$adults = $cart_adults[ $cart_item_key ];
 
-						// Sanitize values
-						$adults = array_map( 'absint', $adults );
-					}
+							// Sanitize values
+							$adults = array_map( 'absint', $adults );
+						}
 
-					// Children
-					$cart_children = isset( $this->form_data[ 'children' ] ) ? $this->form_data[ 'children' ] : false;
+						// Children
+						$cart_children = isset( $this->form_data[ 'children' ] ) ? $this->form_data[ 'children' ] : false;
 
-					if ( $cart_children && is_array( $cart_children ) && isset( $cart_children[ $cart_item_key ] ) ) {
-						$children = $cart_children[ $cart_item_key ];
+						if ( $cart_children && is_array( $cart_children ) && isset( $cart_children[ $cart_item_key ] ) ) {
+							$children = $cart_children[ $cart_item_key ];
 
-						// Sanitize values
-						$children = array_map( 'absint', $children );
+							// Sanitize values
+							$children = array_map( 'absint', $children );
+						}
+					} else {
+						// We have this values in the cart (from the listing page)
+						if ( isset( $values['guests'] ) && is_array( $values['guests'] ) ) {
+							$guests = $values['guests'];
+
+							if ( isset( $guests['adults'] ) ) {
+								$adults = array();
+								for ( $i = 0; $i <= $values[ 'quantity' ]; $i++ ) {
+									$adults[$i] = absint( $guests['adults'] );
+								}
+							}
+
+							if ( isset( $guests['children'] ) ) {
+								$children = array();
+								for ( $i = 0; $i <= $values[ 'quantity' ]; $i++ ) {
+									$children[$i] = absint( $guests['children'] );
+								}
+							}
+						}
 					}
 				}
 
@@ -583,7 +605,7 @@ class HTL_Booking {
 			$this->form_data[ 'payment_method' ] = isset( $_POST[ 'payment_method' ] ) ? sanitize_text_field( $_POST[ 'payment_method' ] ) : '';
 
 			// Add adults/children dropdowns if enabled
-			if ( htl_get_option( 'booking_number_of_guests_selection', true ) ) {
+			if ( htl_get_option( 'booking_number_of_guests_selection', true ) && htl_get_option( 'booking_number_of_guests_selection_type', 'booking-page' ) === 'booking-page' ) {
 				$this->form_data[ 'adults' ]   = isset( $_POST[ 'adults' ] ) ? $_POST[ 'adults' ] : 0;
 				$this->form_data[ 'children' ] = isset( $_POST[ 'children' ] ) ? $_POST[ 'children' ] : 0;
 			}
