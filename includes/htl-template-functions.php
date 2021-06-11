@@ -1118,6 +1118,7 @@ if ( ! function_exists( 'hotelier_reservation_table_guests' ) ) {
 				'item_key' => $item_key,
 				'quantity' => $quantity,
 				'guests'   => $guests,
+				'room'     => $room,
 			) );
 		}
 	}
