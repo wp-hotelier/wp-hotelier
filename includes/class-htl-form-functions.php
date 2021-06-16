@@ -406,8 +406,8 @@ class HTL_Form_Functions {
 			'children' => 0,
 		);
 
-		if ( isset( $_POST['fees'][ $key ] ) && function_exists( 'hotelier_aps_room_has_extra_guests_enabled' ) ) {
-			if ( hotelier_aps_room_has_extra_guests_enabled( $_room ) ) {
+		if ( function_exists( 'hotelier_aps_room_has_extra_guests_enabled' ) && hotelier_aps_room_has_extra_guests_enabled( $_room ) ) {
+			if ( isset( $_POST['fees'][ $key ] ) ) {
 				if ( hotelier_aps_room_has_extra_adults( $_room ) ) {
 					$adults_included_in_rate = absint( get_post_meta( $_room->id, '_seasons_extra_person_fees_adults_included', true ) );
 					$adults_to_add           = $adults_included_in_rate;
