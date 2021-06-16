@@ -75,10 +75,18 @@ $tomorrow = $tomorrow->format( 'Y-m-d' );
 											<tr class="htl-ui-table__row htl-ui-table__row--body htl-ui-table__row--sortable" data-key="1">
 												<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--room-select">
 													<?php echo htl_get_list_of_rooms_html( 'room[1]' ); ?>
+													<div class="room-guests-wrapper">
+														<label class="htl-ui-label"><?php esc_html_e( 'Adults', 'wp-hotelier' ); ?>
+															<input class="htl-ui-input htl-ui-input--small htl-ui-input--number" type="number" name="room_adults[1]" value="2" min="0">
+														</label>
+														<label class="htl-ui-label"><?php esc_html_e( 'Children', 'wp-hotelier' ); ?>
+															<input class="htl-ui-input htl-ui-input--small htl-ui-input--number" type="number" name="room_children[1]" value="0" min="0">
+														</label>
+													</div>
 													<?php do_action( 'hotelier_admin_add_new_reservation_after_rooms_select' ); ?>
 												</td>
 												<td class="htl-ui-table__cell htl-ui-table__cell--body">
-													<input class="htl-ui-input htl-ui-input--small htl-ui-input--number" type="number" name="room_qty[1]" value="1">
+													<input class="htl-ui-input htl-ui-input--small htl-ui-input--number" type="number" name="room_qty[1]" value="1" min="0">
 												</td>
 												<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--remove-room">
 													<button type="button" class="htl-ui-button htl-ui-button--remove-row"><?php esc_html_e( 'Remove room', 'wp-hotelier' ); ?></button>
