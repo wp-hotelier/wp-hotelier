@@ -231,6 +231,20 @@ table.hotelier-settings-table-form {
 			text-align: right;
 		}
 	}
+
+	.room-guests-wrapper {
+		margin-top: $space;
+
+		label {
+			font-weight: 500;
+			font-size: 11px;
+			margin-right: $space;
+		}
+
+		input {
+			margin-left: $space;
+		}
+	}
 }
 
 .htl-ui-table--reservation-items {

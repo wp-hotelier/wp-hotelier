@@ -340,6 +340,20 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   width: 60px;
 }
 
+.htl-ui-table--add-new-room-to-reservation .room-guests-wrapper {
+  margin-top: 9px;
+}
+
+.htl-ui-table--add-new-room-to-reservation .room-guests-wrapper label {
+  font-weight: 500;
+  font-size: 11px;
+  margin-right: 9px;
+}
+
+.htl-ui-table--add-new-room-to-reservation .room-guests-wrapper input {
+  margin-left: 9px;
+}
+
 .htl-ui-table--reservation-items {
   width: 100%;
 }
