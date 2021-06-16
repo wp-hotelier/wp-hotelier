@@ -185,7 +185,7 @@ class HTL_Form_Functions {
 					$guests   = $item[ 'guests' ];
 
 					$was_added_to_cart = false;
-					$was_added_to_cart = self::add_to_cart_from_room_list_handler( $room_id, $quantity, $rate_id, $fees );
+					$was_added_to_cart = self::add_to_cart_from_room_list_handler( $room_id, $quantity, $rate_id, $guests, $fees, $extras );
 
 					if ( ! $was_added_to_cart ) {
 						throw new Exception( esc_html__( 'We were unable to process your reservation, please try again.', 'wp-hotelier' ) );
@@ -269,12 +269,14 @@ class HTL_Form_Functions {
 	 * @param int $room_id
 	 * @param int $quantity
 	 * @param int $rate_id
+	 * @param array $fees
+	 * @param array $extras
 	 * @return bool success or not
 	 */
-	private static function add_to_cart_from_room_list_handler( $room_id, $quantity, $rate_id, $fees ) {
+	private static function add_to_cart_from_room_list_handler( $room_id, $quantity, $rate_id, $guests, $fees, $extras ) {
 		$passed_validation = apply_filters( 'hotelier_add_to_cart_validation', true, $room_id, $quantity, $rate_id );
 
-		if ( $passed_validation && HTL()->cart->add_to_cart( $room_id, $quantity, $rate_id, $fees ) !== false ) {
+		if ( $passed_validation && HTL()->cart->add_to_cart( $room_id, $quantity, $rate_id, $guests, $fees, $extras ) !== false ) {
 			return true;
 		}
 		return false;

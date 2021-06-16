@@ -120,12 +120,14 @@ class HTL_Cart_Totals {
 	 * @param integer $room_id contains the id of the room to add to the cart
 	 * @param integer $quantity contains the quantity of the item to add
 	 * @param integer $rate_id
+	 * @param array $guests array of guests
 	 * @param array $fees array of fees
+	 * @param array $extras array of fees
 	 * @param bool $force checks only if checkout > checkin
 	 * @param array $exclude reservation IDs to exclude when checking the available rooms
 	 * @return string $cart_item_key
 	 */
-	public function add_to_cart( $room_id = 0, $quantity = 1, $rate_id = 0, $fees = false, $force = false, $exclude = array() ) {
+	public function add_to_cart( $room_id = 0, $quantity = 1, $rate_id = 0, $guests = array(), $fees = false, $extras = false, $force = false, $exclude = array() ) {
 		// Wrap in try catch so plugins can throw an exception to prevent adding to cart
 		try {
 			$room_id  = absint( $room_id );
