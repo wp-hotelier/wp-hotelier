@@ -101,14 +101,23 @@ class HTL_Admin_New_Reservation {
 							$room_id_index = explode( '-', $room_value );
 
 							$item_to_add = array(
-								'room_id' => $room_id_index[ 0 ],
-								'rate_id' => $room_id_index[ 1 ],
-								'qty'     => absint( $_POST[ 'room_qty' ][ $index ] ),
-								'fees'    => array(),
+								'room_id'  => $room_id_index[ 0 ],
+								'rate_id'  => $room_id_index[ 1 ],
+								'qty'      => absint( $_POST[ 'room_qty' ][ $index ] ),
+								'guests'   => array(),
+								'fees'     => array(),
+								'extras'   => array(),
 							);
+
+							// Calculate guests to add
+							$item_to_add['guests'] = self::calculate_guests_to_add( $item_to_add, $index );
 
 							if ( isset( $_POST[ 'fees' ][ $index ] ) && isset( $_POST[ 'fees' ][ $index ][ $room_id_index[ 0 ] ] ) ) {
 								$item_to_add[ 'fees' ] = $_POST[ 'fees' ][ $index ][ $room_id_index[ 0 ] ];
+							}
+
+							if ( isset( $_POST[ 'extras' ][ $index ] ) ) {
+								$item_to_add[ 'extras' ] = $_POST[ 'extras' ][ $index ];
 							}
 
 							self::$rooms[] = $item_to_add;
@@ -155,7 +164,7 @@ class HTL_Admin_New_Reservation {
 
 				// Add rooms to the reservation
 				foreach ( self::$rooms as $room ) {
-					$added_to_cart = $cart_totals->add_to_cart( $room[ 'room_id' ], $room[ 'qty' ], $room[ 'rate_id' ], $room[ 'fees' ], self::$force_booking );
+					$added_to_cart = $cart_totals->add_to_cart( $room[ 'room_id' ], $room[ 'qty' ], $room[ 'rate_id' ], $room[ 'guests' ], $room[ 'fees' ], $room[ 'extras' ], self::$force_booking );
 
 					if ( is_array( $added_to_cart ) && isset( $added_to_cart[ 'error' ] ) ) {
 						$error = $added_to_cart[ 'message' ] ? esc_html( $added_to_cart[ 'message' ] ) : esc_html__( 'Sorry, this room is not available.', 'wp-hotelier' );
@@ -259,6 +268,28 @@ class HTL_Admin_New_Reservation {
 				);
 				$deposit = apply_filters( 'hotelier_get_item_deposit_for_reservation', $deposit, $values );
 
+				// Default adults/children for this room
+				$adults   = $values[ 'max_guests' ];
+				$children = 0;
+
+				if ( isset( $values['guests'] ) && is_array( $values['guests'] ) ) {
+					$guests = $values['guests'];
+
+					if ( isset( $guests['adults'] ) ) {
+						$adults = array();
+						for ( $i = 0; $i <= $values[ 'quantity' ]; $i++ ) {
+							$adults[$i] = absint( $guests['adults'] );
+						}
+					}
+
+					if ( isset( $guests['children'] ) ) {
+						$children = array();
+						for ( $i = 0; $i <= $values[ 'quantity' ]; $i++ ) {
+							$children[$i] = absint( $guests['children'] );
+						}
+					}
+				}
+
 				// Fees
 				$values[ 'fees' ] = isset( $values[ 'fees' ] ) && is_array( $values[ 'fees' ] ) ? $values[ 'fees' ] : array();
 
@@ -274,6 +305,8 @@ class HTL_Admin_New_Reservation {
 						'percent_deposit' => $deposit[ 'percent_deposit' ],
 						'deposit'         => $deposit[ 'deposit' ],
 						'is_cancellable'  => $values[ 'is_cancellable' ],
+						'adults'          => $adults,
+						'children'        => $children,
 						'fees'            => $values[ 'fees' ],
 					)
 				);
@@ -349,6 +382,57 @@ class HTL_Admin_New_Reservation {
 	 */
 	public static function get_formatted_guest_full_name() {
 		return sprintf( '%1$s %2$s', self::get_form_data_field( 'first_name' ), self::get_form_data_field( 'last_name' ) );
+	}
+
+	/**
+	 * Calculate guests to add
+	 */
+	private static function calculate_guests_to_add( $item_to_add, $key ) {
+		$room_id      = $item_to_add['room_id'];
+		$_room        = htl_get_room( $room_id );
+		$max_guests   = $_room->get_max_guests();
+		$max_children = $_room->get_max_children();
+
+		$guests = array(
+			'adults'   => $max_guests,
+			'children' => 0,
+		);
+
+		if ( function_exists( 'hotelier_aps_room_has_extra_guests_enabled' ) && hotelier_aps_room_has_extra_guests_enabled( $_room ) ) {
+			if ( isset( $_POST['fees'][ $key ] ) ) {
+				if ( hotelier_aps_room_has_extra_adults( $_room ) ) {
+					$adults_included_in_rate = absint( get_post_meta( $_room->id, '_seasons_extra_person_fees_adults_included', true ) );
+					$adults_to_add           = $adults_included_in_rate;
+					$extra_adults            = isset( $_POST['fees'][$key][$room_id] ) && isset( $_POST['fees'][$key][$room_id]['adults'] ) ? absint( $_POST['fees'][$key][$room_id]['adults'] ) : 0;
+					$adults_to_add           += $extra_adults;
+					$adults_to_add           = $adults_to_add > $max_guests ? $max_guests : $adults_to_add;
+					$guests['adults']        = $adults_to_add;
+				}
+
+				if ( hotelier_aps_room_has_extra_children( $_room ) ) {
+					$children_included_in_rate = absint( get_post_meta( $_room->id, '_seasons_extra_person_fees_children_included', true ) );
+					$children_to_add           = $children_included_in_rate;
+					$extra_children            = isset( $_POST['fees'][$key][$room_id] ) && isset( $_POST['fees'][$key][$room_id]['children'] ) ? absint( $_POST['fees'][$key][$room_id]['children'] ) : 0;
+					$children_to_add           += $extra_children;
+					$children_to_add           = $children_to_add > $max_guests ? $max_guests : $children_to_add;
+					$guests['children']        = $children_to_add;
+				}
+			}
+		} else {
+			if ( isset( $_POST['room_adults'][$key] ) ) {
+				$adults_to_add    = absint( $_POST['room_adults'][$key] );
+				$adults_to_add    = $adults_to_add > $max_guests ? $max_guests : $adults_to_add;
+				$guests['adults'] = $adults_to_add;
+			}
+
+			if ( isset( $_POST['room_children'][ $key ] ) ) {
+				$children_to_add    = absint( $_POST['room_children'][$key] );
+				$children_to_add    = $children_to_add > $max_children ? $max_children : $children_to_add;
+				$guests['children'] = $children_to_add;
+			}
+		}
+
+		return $guests;
 	}
 }
 
