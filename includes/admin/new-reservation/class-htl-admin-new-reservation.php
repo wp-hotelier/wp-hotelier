@@ -277,14 +277,14 @@ class HTL_Admin_New_Reservation {
 
 					if ( isset( $guests['adults'] ) ) {
 						$adults = array();
-						for ( $i = 0; $i <= $values[ 'quantity' ]; $i++ ) {
+						for ( $i = 0; $i < $values[ 'quantity' ]; $i++ ) {
 							$adults[$i] = absint( $guests['adults'] );
 						}
 					}
 
 					if ( isset( $guests['children'] ) ) {
 						$children = array();
-						for ( $i = 0; $i <= $values[ 'quantity' ]; $i++ ) {
+						for ( $i = 0; $i < $values[ 'quantity' ]; $i++ ) {
 							$children[$i] = absint( $guests['children'] );
 						}
 					}
