@@ -237,19 +237,21 @@ class HTL_Booking {
 					} else {
 						// We have this values in the cart (from the listing page)
 						if ( isset( $values['guests'] ) && is_array( $values['guests'] ) ) {
-							$guests = $values['guests'];
+							$guests   = $values['guests'];
+							$adults   = array();
+							$children = array();
 
-							if ( isset( $guests['adults'] ) ) {
-								$adults = array();
-								for ( $i = 0; $i < $values[ 'quantity' ]; $i++ ) {
-									$adults[$i] = absint( $guests['adults'] );
+							for ( $i = 0; $i < $values[ 'quantity' ]; $i++ ) {
+								// Default fallback values
+								$adults[$i]   = $values[ 'max_guests' ];
+								$children[$i] = 0;
+
+								if ( isset( $guests[$i] ) && isset( $guests[$i]['adults'] ) ) {
+									$adults[$i] = $guests[$i]['adults'];
 								}
-							}
 
-							if ( isset( $guests['children'] ) ) {
-								$children = array();
-								for ( $i = 0; $i < $values[ 'quantity' ]; $i++ ) {
-									$children[$i] = absint( $guests['children'] );
+								if ( isset( $guests[$i] ) && isset( $guests[$i]['children'] ) ) {
+									$children[$i] = $guests[$i]['children'];
 								}
 							}
 						}

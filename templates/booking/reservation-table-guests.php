@@ -27,8 +27,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php if ( htl_get_option( 'booking_number_of_guests_selection_type', 'booking-page' ) === 'listing-page' || ! apply_filters( 'hotelier_booking_show_number_of_guests_selection', true, $room ) ) : ?>
 			<?php
-			$line_adults   = isset( $guests['adults'] ) && ( $guests['adults'] > 0 ) ? $guests['adults'] : false;
-			$line_children = isset( $guests['children'] ) && ( $guests['children'] > 0 ) ? $guests['children'] : false;
+			$line_adults   = isset( $guests[$q] ) && isset( $guests[$q]['adults'] ) && ( $guests[$q]['adults'] > 0 ) ? $guests[$q]['adults'] : false;
+			$line_children = isset( $guests[$q] ) && isset( $guests[$q]['children'] ) && ( $guests[$q]['children'] > 0 ) ? $guests[$q]['children'] : false;
 			?>
 
 			<?php if ( $line_adults ) : ?>
