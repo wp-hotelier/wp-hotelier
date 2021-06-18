@@ -1,6 +1,6 @@
 <?php
 /**
- * Fee Settings.
+ * Extra Settings.
  *
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
@@ -12,17 +12,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-if ( ! class_exists( 'HTL_Meta_Box_Fee_Settings' ) ) :
+if ( ! class_exists( 'HTL_Meta_Box_Extra_Settings' ) ) :
 
 /**
- * HTL_Meta_Box_Fee_Settings Class
+ * HTL_Meta_Box_Extra_Settings Class
  */
-class HTL_Meta_Box_Fee_Settings {
+class HTL_Meta_Box_Extra_Settings {
 	/**
 	 * Output the metabox
 	 */
 	public static function output( $post ) {
-		include HTL_PLUGIN_DIR . 'includes/admin/meta-boxes/views/fee/html-meta-box-fee-settings.php';
+		include HTL_PLUGIN_DIR . 'includes/admin/meta-boxes/views/extra/html-meta-box-extra-settings.php';
 	}
 }
 

@@ -162,27 +162,27 @@ class HTL_Post_Types {
 			register_post_type( 'coupon', apply_filters( 'hotelier_coupon_post_type_args', $coupon_args ) );
 		}
 
-		// Fee Post Type
-		$fee_labels = apply_filters( 'hotelier_fee_labels', array(
-			'name'               => esc_html_x( 'Fees', 'post type general name', 'wp-hotelier' ),
-			'singular_name'      => esc_html_x( 'Fee', 'post type singular name', 'wp-hotelier' ),
-			'add_new'            => esc_html__( 'Add Fee', 'wp-hotelier' ),
-			'add_new_item'       => esc_html__( 'Add New Fee', 'wp-hotelier' ),
+		// Extra Post Type
+		$extra_labels = apply_filters( 'hotelier_extra_labels', array(
+			'name'               => esc_html_x( 'Extras', 'post type general name', 'wp-hotelier' ),
+			'singular_name'      => esc_html_x( 'Extra', 'post type singular name', 'wp-hotelier' ),
+			'add_new'            => esc_html__( 'Add Extra', 'wp-hotelier' ),
+			'add_new_item'       => esc_html__( 'Add New Extra', 'wp-hotelier' ),
 			'edit'               => esc_html__( 'Edit', 'wp-hotelier' ),
-			'edit_item'          => esc_html__( 'Edit Fee', 'wp-hotelier' ),
-			'new_item'           => esc_html__( 'New Fee', 'wp-hotelier' ),
-			'view'               => esc_html__( 'View Fee', 'wp-hotelier' ),
-			'view_item'          => esc_html__( 'View Fee', 'wp-hotelier' ),
-			'search_items'       => esc_html__( 'Search Fees', 'wp-hotelier' ),
-			'not_found'          => esc_html__( 'No Fees found', 'wp-hotelier' ),
-			'not_found_in_trash' => esc_html__( 'No Fees found in Trash', 'wp-hotelier' ),
-			'parent'             => esc_html__( 'Parent Fee', 'wp-hotelier' ),
-			'menu_name'          => esc_html_x( 'Fees', 'admin menu name', 'wp-hotelier' )
+			'edit_item'          => esc_html__( 'Edit Extra', 'wp-hotelier' ),
+			'new_item'           => esc_html__( 'New Extra', 'wp-hotelier' ),
+			'view'               => esc_html__( 'View Extra', 'wp-hotelier' ),
+			'view_item'          => esc_html__( 'View Extra', 'wp-hotelier' ),
+			'search_items'       => esc_html__( 'Search Extras', 'wp-hotelier' ),
+			'not_found'          => esc_html__( 'No Extras found', 'wp-hotelier' ),
+			'not_found_in_trash' => esc_html__( 'No Extras found in Trash', 'wp-hotelier' ),
+			'parent'             => esc_html__( 'Parent Extra', 'wp-hotelier' ),
+			'menu_name'          => esc_html_x( 'Extras', 'admin menu name', 'wp-hotelier' )
 		) );
 
-		$fee_args = array(
-			'labels'              => $fee_labels,
-			'description'         => esc_html__( 'This is where you can add new fees.', 'wp-hotelier' ),
+		$extra_args = array(
+			'labels'              => $extra_labels,
+			'description'         => esc_html__( 'This is where you can add new extras.', 'wp-hotelier' ),
 			'public'              => false,
 			'show_ui'             => true,
 			'query_var'           => false,
@@ -190,7 +190,7 @@ class HTL_Post_Types {
 			'publicly_queryable'  => false,
 			'exclude_from_search' => true,
 			'show_in_menu'        => current_user_can( 'manage_hotelier' ) ? 'hotelier-settings' : true,
-			'capability_type'     => 'fee',
+			'capability_type'     => 'extra',
 			'map_meta_cap'        => true,
 			'hierarchical'        => false,
 			'show_in_nav_menus'   => false,
@@ -199,7 +199,7 @@ class HTL_Post_Types {
 			'has_archive'         => false,
 			'supports'            => array( 'title', 'thumbnail' ),
 		);
-		register_post_type( 'fee', apply_filters( 'hotelier_fee_post_type_args', $fee_args ) );
+		register_post_type( 'extra', apply_filters( 'hotelier_extra_post_type_args', $extra_args ) );
 	}
 
 	/**
@@ -422,21 +422,21 @@ class HTL_Post_Types {
 			12 => esc_html__( 'Coupon updated. Please reload this page again.', 'wp-hotelier' ),
 		);
 
-		$messages[ 'fee' ] = array(
+		$messages[ 'extra' ] = array(
 			0 => '', // Unused. Messages start at index 1.
-			1 => esc_html__( 'Fee updated.', 'wp-hotelier' ),
+			1 => esc_html__( 'Extra updated.', 'wp-hotelier' ),
 			2 => esc_html__( 'Custom field updated.', 'wp-hotelier' ),
 			3 => esc_html__( 'Custom field deleted.', 'wp-hotelier' ),
-			4 => esc_html__( 'Fee updated.', 'wp-hotelier' ),
-			5 => isset( $_GET['revision'] ) ? sprintf( __( 'Fee restored to revision from %s', 'wp-hotelier' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
-			6 => esc_html__( 'Fee updated.', 'wp-hotelier' ),
-			7 => esc_html__( 'Fee saved.', 'wp-hotelier' ),
-			8 => esc_html__( 'Fee submitted.', 'wp-hotelier' ),
-			9 => sprintf( __( 'Fee scheduled for: <strong>%1$s</strong>.', 'wp-hotelier' ),
+			4 => esc_html__( 'Extra updated.', 'wp-hotelier' ),
+			5 => isset( $_GET['revision'] ) ? sprintf( __( 'Extra restored to revision from %s', 'wp-hotelier' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+			6 => esc_html__( 'Extra updated.', 'wp-hotelier' ),
+			7 => esc_html__( 'Extra saved.', 'wp-hotelier' ),
+			8 => esc_html__( 'Extra submitted.', 'wp-hotelier' ),
+			9 => sprintf( __( 'Extra scheduled for: <strong>%1$s</strong>.', 'wp-hotelier' ),
 			date_i18n( __( 'M j, Y @ G:i', 'wp-hotelier' ), strtotime( $post->post_date ) ) ),
-			10 => esc_html__( 'Fee draft updated.', 'wp-hotelier' ),
-			11 => esc_html__( 'Fee updated and email sent.', 'wp-hotelier' ),
-			12 => esc_html__( 'Fee updated. Please reload this page again.', 'wp-hotelier' ),
+			10 => esc_html__( 'Extra draft updated.', 'wp-hotelier' ),
+			11 => esc_html__( 'Extra updated and email sent.', 'wp-hotelier' ),
+			12 => esc_html__( 'Extra updated. Please reload this page again.', 'wp-hotelier' ),
 		);
 
 		return $messages;

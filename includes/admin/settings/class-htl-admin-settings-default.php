@@ -527,7 +527,7 @@ class HTL_Admin_Settings_Default {
 					'booking_number_of_guests_selection_type' => array(
 						'id'      => 'booking_number_of_guests_selection_type',
 						'name'    => esc_html__( 'Number of guests selection type', 'wp-hotelier' ),
-						'desc' => __( 'Select where to show the guest selection. It is recommended to display the selection in the listing page when using "per person" fees.', 'wp-hotelier' ),
+						'desc' => __( 'Select where to show the guest selection. It is recommended to display the selection in the listing page when using "per person" extras.', 'wp-hotelier' ),
 						'std'     => 'booking-page',
 						'type'    => 'switch',
 						'options' => array(

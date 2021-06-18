@@ -35,9 +35,9 @@ class HTL_Admin_Meta_Boxes {
 	private $coupon_meta_boxes = array();
 
 	/**
-	 * Fee meta boxes.
+	 * Extra meta boxes.
 	 */
-	private $fee_meta_boxes = array();
+	private $extra_meta_boxes = array();
 
 	/**
 	 * Constructor
@@ -46,7 +46,7 @@ class HTL_Admin_Meta_Boxes {
 		$this->list_room_meta_boxes();
 		$this->list_reservation_meta_boxes();
 		$this->list_coupon_meta_boxes();
-		$this->list_fee_meta_boxes();
+		$this->list_extra_meta_boxes();
 
 		// Actions
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 30 );
@@ -85,7 +85,7 @@ class HTL_Admin_Meta_Boxes {
 		include_once( 'class-htl-meta-box-reservation-save.php' );
 		include_once( 'class-htl-meta-box-reservation-notes.php' );
 		include_once( 'class-htl-meta-box-coupon-settings.php' );
-		include_once( 'class-htl-meta-box-fee-settings.php' );
+		include_once( 'class-htl-meta-box-extra-settings.php' );
 	}
 
 	/**
@@ -157,23 +157,23 @@ class HTL_Admin_Meta_Boxes {
 	}
 
 	/**
-	 * Fee meta boxes list.
+	 * Extra meta boxes list.
 	 */
-	private function list_fee_meta_boxes() {
+	private function list_extra_meta_boxes() {
 		$fields = array(
-			'_fee_enabled'             => 'switch',
-			'_fee_name'                => 'text',
-			'_fee_description'         => 'textarea',
-			'_fee_amount_type'         => 'switch',
-			'_fee_amount_fixed'        => 'price',
-			'_fee_amount_percentage'   => 'number',
-			'_fee_type'                => 'switch',
-			'_fee_guest_type'          => 'select',
-			'_fee_calculate_per_night' => 'checkbox',
-			'_fee_max_cost'            => 'price',
+			'_extra_enabled'             => 'switch',
+			'_extra_name'                => 'text',
+			'_extra_description'         => 'textarea',
+			'_extra_amount_type'         => 'switch',
+			'_extra_amount_fixed'        => 'price',
+			'_extra_amount_percentage'   => 'number',
+			'_extra_type'                => 'switch',
+			'_extra_guest_type'          => 'select',
+			'_extra_calculate_per_night' => 'checkbox',
+			'_extra_max_cost'            => 'price',
 		);
 
-		$this->fee_meta_boxes = apply_filters( 'hotelier_fee_meta_boxes', $fields );
+		$this->extra_meta_boxes = apply_filters( 'hotelier_extra_meta_boxes', $fields );
 	}
 
 	/**
@@ -194,8 +194,8 @@ class HTL_Admin_Meta_Boxes {
 		// Coupons
 		add_meta_box( 'hotelier-coupon-settings', esc_html__( 'Coupon Settings', 'wp-hotelier' ), 'HTL_Meta_Box_Coupon_Settings::output', 'coupon', 'normal', 'high' );
 
-		// Fees
-		add_meta_box( 'hotelier-fee-settings', esc_html__( 'Fee Settings', 'wp-hotelier' ), 'HTL_Meta_Box_Fee_Settings::output', 'fee', 'normal', 'high' );
+		// Extras
+		add_meta_box( 'hotelier-extra-settings', esc_html__( 'Extra Settings', 'wp-hotelier' ), 'HTL_Meta_Box_Extra_Settings::output', 'extra', 'normal', 'high' );
 	}
 
 	/**
@@ -234,9 +234,9 @@ class HTL_Admin_Meta_Boxes {
 		} elseif ( isset( $post->post_type ) && 'coupon' == $post->post_type ) {
 			$fields = $this->coupon_meta_boxes;
 
-		// Get fee meta boxes
-		} elseif ( isset( $post->post_type ) && 'fee' == $post->post_type ) {
-			$fields = $this->fee_meta_boxes;
+		// Get extra meta boxes
+		} elseif ( isset( $post->post_type ) && 'extra' == $post->post_type ) {
+			$fields = $this->extra_meta_boxes;
 		}
 
 		foreach ( $fields as $field => $type ) {

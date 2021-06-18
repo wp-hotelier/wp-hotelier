@@ -18,6 +18,7 @@ include( 'htl-price-functions.php' );
 include( 'htl-room-functions.php' );
 include( 'htl-reservation-functions.php' );
 include( 'htl-coupon-functions.php' );
+include( 'htl-extra-functions.php' );
 
 /**
  * Short Description (excerpt)

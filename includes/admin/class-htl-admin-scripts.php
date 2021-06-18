@@ -95,7 +95,7 @@ class HTL_Admin_Scripts {
 		}
 
 		// Admin settings and room meta boxes
-		if ( $screen->id == 'toplevel_page_hotelier-settings' || in_array( $screen->id, array( 'room', 'edit-room', 'coupon', 'fee' ) ) ) {
+		if ( $screen->id == 'toplevel_page_hotelier-settings' || in_array( $screen->id, array( 'room', 'edit-room', 'coupon', 'extra' ) ) ) {
 			wp_enqueue_script( 'htl-admin-fields' );
 		}
 

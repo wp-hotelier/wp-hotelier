@@ -36,8 +36,8 @@ class HTL_Admin_Functions {
 			'edit-room_facilities',
 			'coupon',
 			'edit-coupon',
-			'fee',
-			'edit-fee',
+			'extra',
+			'edit-extra',
 		);
 
 		return apply_filters( 'hotelier_screen_ids', $screen_ids );

@@ -41,8 +41,8 @@ class HTL_Admin_Post_Types {
 		add_filter( 'manage_coupon_posts_columns', array( $this, 'coupon_columns' ) );
 		add_filter( 'manage_coupon_posts_custom_column', array( $this, 'render_coupon_columns' ) );
 
-		// Fee post type columns
-		add_filter( 'manage_fee_posts_columns', array( $this, 'fee_columns' ) );
+		// Extra post type columns
+		add_filter( 'manage_extra_posts_columns', array( $this, 'extra_columns' ) );
 
 		// Change label of "Date" column on reservations
 		add_filter( 'post_date_column_status', array( $this, 'post_date_column_label' ), 10, 2 );
@@ -289,9 +289,9 @@ class HTL_Admin_Post_Types {
 	}
 
 	/**
-	 * Define custom columns for fees.
+	 * Define custom columns for extras.
 	 */
-	public function fee_columns( $columns ) {
+	public function extra_columns( $columns ) {
 		if ( is_array( $columns ) ) {
 			unset( $columns[ 'date' ] );
 		}
@@ -308,7 +308,7 @@ class HTL_Admin_Post_Types {
 			unset( $actions[ 'inline hide-if-no-js' ] );
 		} else if ( get_post_type() === 'coupon' ) {
 			unset( $actions[ 'inline hide-if-no-js' ] );
-		} else if ( get_post_type() === 'fee' ) {
+		} else if ( get_post_type() === 'extra' ) {
 			unset( $actions[ 'inline hide-if-no-js' ] );
 		}
 
