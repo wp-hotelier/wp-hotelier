@@ -340,6 +340,34 @@ class HTL_Meta_Box_Reservation_Save {
 						}
 					}
 
+					// Guests
+					$guests = array();
+
+					$adults     = isset( $item['adults'] ) ? maybe_unserialize( $item[ 'adults' ] ) : false;
+					$children   = isset( $item['children'] ) ? maybe_unserialize( $item[ 'children' ] ) : false;
+					$max_guests = $room->get_max_guests();
+
+					$has_adults_in_meta   = is_array( $adults ) && count( $adults ) === $quantity ? true : false;
+					$has_children_in_meta = is_array( $children ) && count( $children ) === $quantity ? true : false;
+
+					// Populate guests
+					for ( $i = 0; $i < $quantity; $i++ ) {
+						if ( $has_adults_in_meta && isset( $adults[$i] ) ) {
+							// Get guests from meta
+							$guests[$i]['adults'] = $adults[$i];
+						} else {
+							// Add default adults if missing from meta
+							$guests[$i]['adults'] = $max_guests;
+						}
+
+						if ( $has_children_in_meta && isset( $children[$i] ) ) {
+							// Get guests from meta
+							$guests[$i]['children'] = $children[$i];
+						} else {
+							// Add default children if missing from meta
+							$guests[$i]['children'] = 0;
+						}
+					}
 					// Fees
 					$fees = array();
 
@@ -349,7 +377,7 @@ class HTL_Meta_Box_Reservation_Save {
 
 					$fees = is_array( $fees ) ? $fees : array();
 
-					$added_to_cart = $cart_totals->add_to_cart( $room->id, $quantity, $rate_id, $fees, true, array( $reservation->id ) );
+					$added_to_cart = $cart_totals->add_to_cart( $room->id, $quantity, $rate_id, $guests, $fees, $extras, true, array( $reservation->id ) );
 
 					if ( is_array( $added_to_cart ) && isset( $added_to_cart[ 'error' ] ) ) {
 						$error = $added_to_cart[ 'message' ] ? esc_html( $added_to_cart[ 'message' ] ) : esc_html__( 'Sorry, this room is not available.', 'wp-hotelier' );
