@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  2.5.0
+ * @version  2.6.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -155,6 +155,7 @@ class HTL_Form_Functions {
 									'quantity' => $qty,
 									'guests'   => array(),
 									'fees'     => array(),
+									'extras'   => array(),
 								);
 
 								// Calculate guests to add
@@ -162,6 +163,10 @@ class HTL_Form_Functions {
 
 								if ( isset( $_POST[ 'fees' ][ $key ] ) ) {
 									$item_to_add[ 'fees' ] = $_POST[ 'fees' ][ $key ];
+								}
+
+								if ( isset( $_POST[ 'extras' ][ $key ] ) ) {
+									$item_to_add[ 'extras' ] = $_POST[ 'extras' ][ $key ];
 								}
 
 								// Add room to the $items array
@@ -182,6 +187,7 @@ class HTL_Form_Functions {
 					$quantity = absint( $item[ 'quantity' ] );
 					$rate_id  = absint( $item[ 'rate_id' ] );
 					$fees     = $item[ 'fees' ];
+					$extras   = $item[ 'extras' ];
 					$guests   = $item[ 'guests' ];
 
 					$was_added_to_cart = false;
