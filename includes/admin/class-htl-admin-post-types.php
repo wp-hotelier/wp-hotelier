@@ -51,7 +51,7 @@ class HTL_Admin_Post_Types {
 		add_filter( 'post_row_actions', array( $this, 'delete_actions' ) );
 
 		// Action during room trash
-		add_action( 'wp_trash_post', array( $this, 'trash_room' ) );
+		add_action( 'wp_trash_post', array( $this, 'trash_post' ) );
 
 		// Actions during reservation trash/untrash/deletion
 		add_action( 'untrashed_post', array( $this, 'untrash_reservation' ) );
@@ -385,12 +385,13 @@ class HTL_Admin_Post_Types {
 	}
 
 	/**
-	 * Delete `hotelier_room_ids` transient when the post is trashed.
+	 * Delete `hotelier_room_ids` transients when the post is trashed.
 	 */
-	public function trash_room( $postid ) {
+	public function trash_post( $postid ) {
 		if ( get_post_type() === 'room' ) {
-
 			delete_transient( 'hotelier_room_ids' );
+		} else if ( get_post_type() === 'extra' ) {
+			delete_transient( 'hotelier_extras_ids' );
 		}
 	}
 

@@ -237,6 +237,9 @@ class HTL_Admin_Meta_Boxes {
 		// Get extra meta boxes
 		} elseif ( isset( $post->post_type ) && 'extra' == $post->post_type ) {
 			$fields = $this->extra_meta_boxes;
+
+			// clear transient
+			delete_transient( 'hotelier_extras_ids' );
 		}
 
 		foreach ( $fields as $field => $type ) {
