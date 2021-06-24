@@ -217,6 +217,7 @@ final class Hotelier {
 		include_once HTL_PLUGIN_DIR . 'includes/class-htl-room-variation.php';
 		include_once HTL_PLUGIN_DIR . 'includes/class-htl-reservation.php';
 		include_once HTL_PLUGIN_DIR . 'includes/class-htl-coupon.php';
+		include_once HTL_PLUGIN_DIR . 'includes/class-htl-extra.php';
 		include_once HTL_PLUGIN_DIR . 'includes/class-htl-comments.php';
 		include_once HTL_PLUGIN_DIR . 'includes/class-htl-booking.php';
 		include_once HTL_PLUGIN_DIR . 'includes/class-htl-log.php';
