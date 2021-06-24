@@ -63,7 +63,6 @@ function htl_calculate_coupon( $amount, $coupon_id ) {
 /**
  * Get all available coupons.
  *
- * @param  string $coupon_code Coupon code.
  * @return mixed
  */
 function htl_get_all_coupons() {
