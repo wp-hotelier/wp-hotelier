@@ -82,7 +82,31 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 						'description' => esc_html__( 'Enter the fixed amount.', 'wp-hotelier' ),
 					)
 				);
+				HTL_Meta_Boxes_Helper::checkbox_input(
+					array(
+						'id'           => '_extra_calculate_per_night',
+						'value'        => get_post_meta( $thepostid, '_extra_calculate_per_night', true ),
+						'label'        => esc_html__( 'Multiply per night?', 'wp-hotelier' ),
+						'toggle'       => true,
+						'show-if'      => true,
+						'show-element' => 'extra-max-cost',
+						'description'  => esc_html__( 'Enable to multiply the price of the extra for the nights of staying.', 'wp-hotelier' ),
+					)
+				);
 			?>
+
+			<div class="htl-ui-setting-conditional htl-ui-setting-conditional--extra-max-cost" data-type="extra-max-cost">
+				<?php
+				HTL_Meta_Boxes_Helper::price_input(
+					array(
+						'id'          => '_extra_max_cost',
+						'value'       => get_post_meta( $thepostid, '_extra_max_cost', true ),
+						'label'       => esc_html__( 'Maximum cost:', 'wp-hotelier' ),
+						'description' => esc_html__( 'Set a maximum cost that the extra can reach or leave empty to disable.', 'wp-hotelier' ),
+					)
+				);
+				?>
+			</div>
 		</div>
 
 		<div class="htl-ui-setting-conditional htl-ui-setting-conditional--extra-amount-type" data-type="percentage">
@@ -134,33 +158,6 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 						'adults_only'   => esc_html__( 'Adults only', 'wp-hotelier' ),
 						'children_only' => esc_html__( 'Children only', 'wp-hotelier' ),
 					),
-				)
-			);
-			?>
-		</div>
-
-		<?php
-		HTL_Meta_Boxes_Helper::checkbox_input(
-			array(
-				'id'           => '_extra_calculate_per_night',
-				'value'        => get_post_meta( $thepostid, '_extra_calculate_per_night', true ),
-				'label'        => esc_html__( 'Multiply per night?', 'wp-hotelier' ),
-				'toggle'       => true,
-				'show-if'      => true,
-				'show-element' => 'extra-max-cost',
-				'description'  => esc_html__( 'Enable to multiply the price of the extra for the nights of staying.', 'wp-hotelier' ),
-			)
-		);
-		?>
-
-		<div class="htl-ui-setting-conditional htl-ui-setting-conditional--extra-max-cost" data-type="extra-max-cost">
-			<?php
-			HTL_Meta_Boxes_Helper::price_input(
-				array(
-					'id'          => '_extra_max_cost',
-					'value'       => get_post_meta( $thepostid, '_extra_max_cost', true ),
-					'label'       => esc_html__( 'Maximum cost:', 'wp-hotelier' ),
-					'description' => esc_html__( 'Set a maximum cost that the extra can reach.', 'wp-hotelier' ),
 				)
 			);
 			?>
