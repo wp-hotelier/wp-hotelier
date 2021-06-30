@@ -209,6 +209,9 @@ class HTL_Cart_Totals {
 			// Fees
 			$fees = $fees && is_array( $fees ) ? $fees : array();
 
+			// Extras
+			$extras = $extras && is_array( $extras ) ? $extras : array();
+
 			// Generate an ID based on room ID and rate ID - this also avoid duplicates
 			$cart_item_key = htl_generate_item_key( $room_id, $rate_id );
 
@@ -222,7 +225,9 @@ class HTL_Cart_Totals {
 				'max_guests'     => $_room->get_max_guests(),
 				'deposit'        => $deposit,
 				'is_cancellable' => $is_cancellable,
+				'guests'         => $guests,
 				'fees'           => $fees,
+				'extras'         => $extras,
 			) );
 
 			// Set the quantity
@@ -265,6 +270,7 @@ class HTL_Cart_Totals {
 				$line_price              = $_variation->get_price( $this->checkin, $this->checkout );
 				$line_price_without_fees = $line_price;
 				$line_price              = $this->calculate_fees( $line_price, $values[ 'fees' ], $_room );
+				$line_price              = $this->calculate_extras( $line_price, $values[ 'extras' ], $values, $_room );
 				$line_deposit            = $_variation->get_deposit();
 				$room_type               = 'variation';
 
@@ -273,6 +279,7 @@ class HTL_Cart_Totals {
 				$line_price              = $_room->get_price( $this->checkin, $this->checkout );
 				$line_price_without_fees = $line_price;
 				$line_price              = $this->calculate_fees( $line_price, $values[ 'fees' ], $_room );
+				$line_price              = $this->calculate_extras( $line_price, $values[ 'extras' ], $values, $_room );
 				$line_deposit            = $_room->get_deposit();
 			}
 
@@ -349,6 +356,15 @@ class HTL_Cart_Totals {
 			$fee_to_add = htl_calculate_fee( $key, $value, $line_price, $this->checkin, $this->checkout, $room, $rate_id );
 			$line_price += $fee_to_add;
 		}
+
+		return $line_price;
+	}
+
+	/**
+	 * Calculate extras.
+	 */
+	public function calculate_extras( $line_price, $extras, $values, $room ) {
+		$line_price = htl_calculate_room_extras( $line_price, $extras, $values, $room, $this->checkin, $this->checkout );
 
 		return $line_price;
 	}
