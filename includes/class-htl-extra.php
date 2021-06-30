@@ -143,6 +143,39 @@ class HTL_Extra {
 
 		return apply_filters( 'hotelier_get_extra_type', $extra_type, $this->id, $this );
 	}
+
+	/**
+	 * Check if the cost should be multiplied for the nights of staying
+	 *
+	 * @return string
+	 */
+	public function calculate_per_night() {
+		$calculate_per_night = $this->extra_calculate_per_night;
+
+		return apply_filters( 'hotelier_get_extra_calculate_per_night', $calculate_per_night, $this->id, $this );
+	}
+
+	/**
+	 * Gets max cost of extra when calculation per night is enabled
+	 *
+	 * @return string
+	 */
+	public function get_max_cost() {
+		$max_cost = $this->extra_max_cost;
+
+		return apply_filters( 'hotelier_get_extra_max_cost', absint( $max_cost ), $this->id, $this );
+	}
+
+	/**
+	 * Gets allowed guest type
+	 *
+	 * @return string
+	 */
+	public function get_allowed_guest_type() {
+		$extra_guest_type = $this->extra_guest_type;
+
+		return apply_filters( 'hotelier_get_extra_allowed_guest_type', $extra_guest_type, $this->id, $this );
+	}
 }
 
 endif;
