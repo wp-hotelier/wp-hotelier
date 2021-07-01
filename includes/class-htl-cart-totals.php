@@ -266,21 +266,25 @@ class HTL_Cart_Totals {
 
 			// Price for variable room - We already know that if we pass a $rate_id is a variable room ( in $this->add_to_cart() )
 			if ( $rate_id ) {
-				$_variation              = $_room->get_room_variation( $rate_id );
-				$line_price              = $_variation->get_price( $this->checkin, $this->checkout );
-				$line_price_without_fees = $line_price;
-				$line_price              = $this->calculate_fees( $line_price, $values[ 'fees' ], $_room );
-				$line_price              = $this->calculate_extras( $line_price, $values[ 'extras' ], $values, $_room );
-				$line_deposit            = $_variation->get_deposit();
-				$room_type               = 'variation';
+				$_variation                = $_room->get_room_variation( $rate_id );
+				$line_price                = $_variation->get_price( $this->checkin, $this->checkout );
+				$line_price_without_fees   = $line_price;
+				$line_price                = $this->calculate_fees( $line_price, $values[ 'fees' ], $_room );
+				$line_price_without_extras = $line_price;
+				$line_extras               = $this->get_line_extras( $line_price, $values[ 'extras' ], $values, $_room );
+				$line_price                = $this->calculate_extras( $line_price, $line_extras );
+				$line_deposit              = $_variation->get_deposit();
+				$room_type                 = 'variation';
 
 			} else {
 				// Price for standard room
-				$line_price              = $_room->get_price( $this->checkin, $this->checkout );
-				$line_price_without_fees = $line_price;
-				$line_price              = $this->calculate_fees( $line_price, $values[ 'fees' ], $_room );
-				$line_price              = $this->calculate_extras( $line_price, $values[ 'extras' ], $values, $_room );
-				$line_deposit            = $_room->get_deposit();
+				$line_price                = $_room->get_price( $this->checkin, $this->checkout );
+				$line_price_without_fees   = $line_price;
+				$line_price                = $this->calculate_fees( $line_price, $values[ 'fees' ], $_room );
+				$line_price_without_extras = $line_price;
+				$line_extras               = $this->get_line_extras( $line_price, $values[ 'extras' ], $values, $_room );
+				$line_price                = $this->calculate_extras( $line_price, $line_extras );
+				$line_deposit              = $_room->get_deposit();
 			}
 
 			if ( ! $line_price_without_fees ) {
@@ -310,8 +314,10 @@ class HTL_Cart_Totals {
 			$this->cart_contents_total += $line_total;
 
 			// Set prices
-			$this->cart_contents[ $cart_item_key ][ 'price' ] = $line_price;
-			$this->cart_contents[ $cart_item_key ][ 'total' ] = $line_total;
+			$this->cart_contents[ $cart_item_key ][ 'extras' ]               = $line_extras ;
+			$this->cart_contents[ $cart_item_key ][ 'price_without_extras' ] = $line_price_without_extras * $qty;
+			$this->cart_contents[ $cart_item_key ][ 'price' ]                = $line_price;
+			$this->cart_contents[ $cart_item_key ][ 'total' ]                = $line_total;
 		}
 
 		// Subtotal
@@ -361,10 +367,21 @@ class HTL_Cart_Totals {
 	}
 
 	/**
+	 * Get line extras.
+	 */
+	public function get_line_extras( $line_price, $extras, $values, $room ) {
+		$line_extras = htl_get_room_extras( $line_price, $extras, $values, $room, $this->checkin, $this->checkout );
+
+		return $line_extras;
+	}
+
+	/**
 	 * Calculate extras.
 	 */
-	public function calculate_extras( $line_price, $extras, $values, $room ) {
-		$line_price = htl_calculate_room_extras( $line_price, $extras, $values, $room, $this->checkin, $this->checkout );
+	public function calculate_extras( $line_price, $line_extras ) {
+		foreach ( $line_extras as $line_extra_id => $line_extra_cost ) {
+			$line_price += $line_extra_cost;
+		}
 
 		return $line_price;
 	}

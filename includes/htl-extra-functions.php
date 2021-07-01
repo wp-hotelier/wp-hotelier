@@ -47,16 +47,17 @@ function htl_get_all_extras_ids() {
 }
 
 /**
- * Calculate room extras.
+ * Get room extras.
  */
-function htl_calculate_room_extras( $line_price, $extras, $values, $room, $checkin, $checkout ) {
+function htl_get_room_extras( $line_price, $extras, $values, $room, $checkin, $checkout ) {
+	$extras     = array();
 	$extras_ids = htl_get_room_extras_ids( $room );
 
-	foreach ( $extras_ids as $extras_id ) {
-		$line_price += htl_calculate_single_extra( $extras_id, $line_price, $values, $room, $checkin, $checkout );
+	foreach ( $extras_ids as $extra_id ) {
+		$extras[$extra_id] = htl_calculate_single_extra( $extra_id, $line_price, $values, $room, $checkin, $checkout );
 	}
 
-	return $line_price;
+	return $extras;
 }
 
 /**
