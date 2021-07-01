@@ -40,7 +40,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 					if ( $_room && $_room->exists() && $cart_item[ 'quantity' ] > 0 ) : ?>
 
 						<?php
-						$item_key = htl_generate_item_key( $cart_item[ 'room_id' ], $cart_item[ 'rate_id' ] );
+						$item_key        = htl_generate_item_key( $cart_item[ 'room_id' ], $cart_item[ 'rate_id' ] );
+						$item_has_extras = isset( $cart_item[ 'extras' ] ) && is_array( $cart_item[ 'extras' ] ) && count( $cart_item[ 'extras' ] ) > 0 ? true : false;
 						?>
 
 						<tr class="reservation-table__row reservation-table__row--body">
@@ -71,7 +72,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<td class="reservation-table__room-qty reservation-table__room-qty--body"><?php echo absint( $cart_item[ 'quantity' ] ); ?></td>
 
 							<td class="reservation-table__room-cost reservation-table__room-cost--body">
-								<?php echo HTL()->cart->get_room_price( $cart_item[ 'total' ] ); ?>
+								<?php if ( $item_has_extras ) : ?>
+									<?php echo HTL()->cart->get_room_price( $cart_item[ 'total_without_extras' ] ); ?>
+								<?php else : ?>
+									<?php echo HTL()->cart->get_room_price( $cart_item[ 'total' ] ); ?>
+								<?php endif; ?>
 
 								<?php do_action( 'hotelier_reservation_table_after_price', $_room, $cart_item, $item_key ); ?>
 
@@ -89,6 +94,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 						</tr>
 						<?php endif;
 
+						if ( $item_has_extras ) : ?>
+							<?php do_action( 'hotelier_reservation_table_extras', $_room, $item_key, $cart_item ); ?>
+						<?php endif;
 					endif;
 				endforeach;
 			?>

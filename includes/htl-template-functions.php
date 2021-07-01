@@ -1125,6 +1125,24 @@ if ( ! function_exists( 'hotelier_reservation_table_guests' ) ) {
 
 }
 
+if ( ! function_exists( 'hotelier_reservation_table_extras' ) ) {
+
+	/**
+	 * Show room extras summary.
+	 */
+	function hotelier_reservation_table_extras( $room, $item_key, $cart_item ) {
+		$extras   = $cart_item[ 'extras' ];
+		$quantity = $cart_item[ 'quantity' ];
+
+		htl_get_template( 'booking/reservation-table-extras.php', array(
+			'quantity' => $quantity,
+			'extras'   => $extras,
+			'room'     => $room,
+		) );
+	}
+
+}
+
 if ( ! function_exists( 'hotelier_reservation_show_coupon_form' ) ) {
 
 	/**
