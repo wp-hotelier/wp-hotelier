@@ -379,8 +379,10 @@ class HTL_Cart_Totals {
 	 * Calculate extras.
 	 */
 	public function calculate_extras( $line_price, $line_extras ) {
-		foreach ( $line_extras as $line_extra_id => $line_extra_cost ) {
-			$line_price += $line_extra_cost;
+		foreach ( $line_extras as $line_extra_id => $line_extra ) {
+			if ( isset( $line_extra['price'] ) ) {
+				$line_price += $line_extra['price'];
+			}
 		}
 
 		return $line_price;
