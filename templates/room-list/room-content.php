@@ -215,4 +215,5 @@ if ( $is_single ) {
 
 		<?php endif; ?>
 
+		<?php do_action( 'hotelier_room_list_after_content_wrapper', $is_available, $checkin, $checkout, $shortcode_atts ); ?>
 </li>
