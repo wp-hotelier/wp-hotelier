@@ -72,7 +72,7 @@ class HTL_Extra {
 	/**
 	 * Checks if the extra is enabled
 	 *
-	 * @return string
+	 * @return bool
 	 */
 	public function is_enabled() {
 		$enabled = $this->extra_enabled;
@@ -147,7 +147,7 @@ class HTL_Extra {
 	/**
 	 * Check if the cost should be multiplied for the nights of staying
 	 *
-	 * @return string
+	 * @return bool
 	 */
 	public function calculate_per_night() {
 		$calculate_per_night = $this->extra_calculate_per_night;
@@ -158,7 +158,7 @@ class HTL_Extra {
 	/**
 	 * Gets max cost of extra when calculation per night is enabled
 	 *
-	 * @return string
+	 * @return int
 	 */
 	public function get_max_cost() {
 		$max_cost = $this->extra_max_cost;
