@@ -54,10 +54,14 @@ function htl_get_room_extras( $line_price, $extras, $values, $room, $checkin, $c
 	$extras_ids = htl_get_room_extras_ids( $room );
 
 	foreach ( $extras_ids as $extra_id ) {
-		$extras[$extra_id] = htl_calculate_single_extra( $extra_id, 1, $line_price, $values, $room, $checkin, $checkout );
+		// Get extra
+		$extra = htl_get_extra( $extra_id );
+
 		if ( $extra->is_optional() ) {
 			continue;
 		}
+
+		$extras[$extra_id] = htl_calculate_single_extra( $extra, 1, $line_price, $values, $room, $checkin, $checkout );
 	}
 
 	return $extras;
@@ -127,11 +131,8 @@ function htl_can_apply_extra( $extra_id, $room_id, $force = false ) {
 /**
  * Calculate single extra.
  */
-function htl_calculate_single_extra( $extra_id, $qty, $line_price, $values, $room, $checkin, $checkout ) {
+function htl_calculate_single_extra( $extra, $qty, $line_price, $values, $room, $checkin, $checkout ) {
 	$extra_to_add = 0;
-
-	// Get extra
-	$extra = htl_get_extra( $extra_id );
 
 	if ( $extra->get_type() === 'per_room' ) {
 		// Extra per room
@@ -246,7 +247,7 @@ function htl_calculate_single_extra( $extra_id, $qty, $line_price, $values, $roo
 	}
 
 	$extra_to_add = ceil( $extra_to_add );
-	$extra_to_add = absint( apply_filters( 'hotelier_calulate_extra', $extra_to_add, $extra_id, $line_price, $values, $room ) );
+	$extra_to_add = absint( apply_filters( 'hotelier_calulate_extra', $extra_to_add, $extra, $line_price, $values, $room ) );
 
 	return array(
 		'qty'   => $qty,
