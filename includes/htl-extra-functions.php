@@ -55,6 +55,9 @@ function htl_get_room_extras( $line_price, $extras, $values, $room, $checkin, $c
 
 	foreach ( $extras_ids as $extra_id ) {
 		$extras[$extra_id] = htl_calculate_single_extra( $extra_id, 1, $line_price, $values, $room, $checkin, $checkout );
+		if ( $extra->is_optional() ) {
+			continue;
+		}
 	}
 
 	return $extras;
