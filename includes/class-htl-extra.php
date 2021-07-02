@@ -176,6 +176,18 @@ class HTL_Extra {
 
 		return apply_filters( 'hotelier_get_extra_allowed_guest_type', $extra_guest_type, $this->id, $this );
 	}
+
+	/**
+	 * Checks if the extra is optional
+	 *
+	 * @return bool
+	 */
+	public function is_optional() {
+		$is_optional = $this->extra_make_optional;
+		$is_optional = $is_optional ? true : false;
+
+		return apply_filters( 'hotelier_get_extra_is_optional', $is_optional, $this->id, $this );
+	}
 }
 
 endif;
