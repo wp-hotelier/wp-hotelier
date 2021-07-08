@@ -33,13 +33,19 @@ function htl_get_all_extras_ids() {
 		return $extras_ids;
 	}
 
-	$extras = get_posts( array(
-		'post_type'           => 'extra',
-		'post_status'         => 'publish',
-		'ignore_sticky_posts' => 1,
-		'posts_per_page'      => -1,
-		'fields'              => 'ids',
-	) );
+	$extras = get_posts(
+		apply_filters( 'hotelier_get_all_extras_ids_args',
+			array(
+				'post_type'           => 'extra',
+				'post_status'         => 'publish',
+				'ignore_sticky_posts' => 1,
+				'posts_per_page'      => -1,
+				'fields'              => 'ids',
+				'orderby'             => 'menu_order',
+				'order'               => 'ASC'
+			)
+		)
+	);
 
 	set_transient( 'hotelier_extras_ids', $extras, DAY_IN_SECONDS * 30 );
 
