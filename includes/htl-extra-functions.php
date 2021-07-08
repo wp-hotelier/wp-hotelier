@@ -55,7 +55,7 @@ function htl_get_all_extras_ids() {
 /**
  * Get room extras.
  */
-function htl_get_room_extras( $line_price, $extras, $values, $room, $checkin, $checkout ) {
+function htl_get_room_extras( $line_price, $optional_extras, $values, $room, $checkin, $checkout ) {
 	$extras     = array();
 	$extras_ids = htl_get_room_extras_ids( $room );
 
@@ -64,7 +64,19 @@ function htl_get_room_extras( $line_price, $extras, $values, $room, $checkin, $c
 		$extra = htl_get_extra( $extra_id );
 
 		if ( $extra->is_optional() ) {
-			continue;
+			$calculate_optional = false;
+
+			if ( is_array( $optional_extras ) && isset( $optional_extras[$extra_id] ) ) {
+				$optional_quantity = absint( $optional_extras[$extra_id] );
+
+				if ( $optional_quantity > 0 ) {
+					$calculate_optional = true;
+				}
+			}
+
+			if ( ! $calculate_optional ) {
+				continue;
+			}
 		}
 
 		$extras[$extra_id] = htl_calculate_single_extra( $extra, 1, $line_price, $values, $room, $checkin, $checkout );
