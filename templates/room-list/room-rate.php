@@ -46,4 +46,6 @@ global $room;
 			do_action( 'hotelier_room_list_item_rate_actions', $variation, $is_available, $checkin, $checkout, $shortcode_atts );
 		?>
 	</div><!-- .rate__actions -->
+
+	<?php do_action( 'hotelier_room_list_after_item_rate', $variation, $is_available, $checkin, $checkout, $shortcode_atts ); ?>
 </div>
