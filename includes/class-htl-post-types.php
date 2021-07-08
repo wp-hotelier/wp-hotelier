@@ -197,7 +197,7 @@ class HTL_Post_Types {
 			'rewrite'             => false,
 			'query_var'           => false,
 			'has_archive'         => false,
-			'supports'            => array( 'title', 'thumbnail' ),
+			'supports'            => array( 'title', 'thumbnail', 'page-attributes' ),
 		);
 		register_post_type( 'extra', apply_filters( 'hotelier_extra_post_type_args', $extra_args ) );
 	}
