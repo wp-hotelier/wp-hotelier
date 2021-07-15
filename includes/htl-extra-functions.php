@@ -60,6 +60,9 @@ function htl_get_room_extras( $line_price, $optional_extras, $values, $room, $ch
 	$extras_ids = htl_get_room_extras_ids( $room );
 
 	foreach ( $extras_ids as $extra_id ) {
+		// Default quantity
+		$qty = 1;
+
 		// Get extra
 		$extra = htl_get_extra( $extra_id );
 
@@ -67,9 +70,10 @@ function htl_get_room_extras( $line_price, $optional_extras, $values, $room, $ch
 			$calculate_optional = false;
 
 			if ( is_array( $optional_extras ) && isset( $optional_extras[$extra_id] ) ) {
-				$optional_quantity = absint( $optional_extras[$extra_id] );
+				$optional_selected_quantity = is_array( $optional_extras[$extra_id] ) && isset( $optional_extras[$extra_id]['qty'] ) ? absint( $optional_extras[$extra_id]['qty'] ) : absint( $optional_extras[$extra_id] );
 
-				if ( $optional_quantity > 0 ) {
+				if ( $optional_selected_quantity > 0 ) {
+					$qty                = $optional_selected_quantity;
 					$calculate_optional = true;
 				}
 			}
@@ -79,7 +83,7 @@ function htl_get_room_extras( $line_price, $optional_extras, $values, $room, $ch
 			}
 		}
 
-		$extras[$extra_id] = htl_calculate_single_extra( $extra, 1, $line_price, $values, $room, $checkin, $checkout );
+		$extras[$extra_id] = htl_calculate_single_extra( $extra, $qty, $line_price, $values, $room, $checkin, $checkout );
 	}
 
 	return $extras;
