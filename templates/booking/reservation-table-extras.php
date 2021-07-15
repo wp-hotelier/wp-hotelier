@@ -17,8 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php foreach ( $extras as $extra_id => $extra_data ) : ?>
 	<?php
-	$extra = htl_get_extra( $extra_id );
-	$extra_price = $quantity * $extra_data['price'];
+	$extra       = htl_get_extra( $extra_id );
+	$extra_qty   = isset( $extra_data['qty'] ) ? $extra_data['qty'] : 1;
+	$extra_price = $quantity * $extra_data['price'] * $extra_qty;
 	?>
 
 	<tr class="reservation-table__row reservation-table__row--body">
