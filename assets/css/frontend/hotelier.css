@@ -737,6 +737,29 @@ WIDGETS
   margin-right: 6px;
 }
 
+.room__extras {
+  margin-top: 24px;
+}
+
+.room-extra {
+  margin-top: 6px;
+}
+
+.room-extra__price {
+  display: block;
+}
+
+.room-extra__price .amount {
+  font-weight: bold;
+}
+
+.room-extra__info {
+  font-size: 12px;
+  font-size: 0.75rem;
+  line-height: 2;
+  font-style: italic;
+}
+
 /*--------------------------------------------------------------
 >>> PAGE: BOOKING
 ----------------------------------------------------------------
@@ -819,6 +842,10 @@ WIDGETS
 }
 
 .reservation-table__coupon-code {
+  display: block;
+}
+
+.reservation-table__room-extra .extra__description {
   display: block;
 }
 

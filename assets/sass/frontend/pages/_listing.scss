@@ -169,3 +169,26 @@
 	}
 }
 
+.room__extras {
+	margin-top: $space;
+}
+
+.room-extra {
+	margin-top: $space__xs;
+}
+
+.room-extra__price {
+	display: block;
+
+	.amount {
+		// @include font-size(16px);
+		font-weight: bold;
+	}
+}
+
+.room-extra__info {
+	@include font-size(12px);
+	// display: inline-block;
+	font-style: italic;
+	// margin-top: $space;
+}
