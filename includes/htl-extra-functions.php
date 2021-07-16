@@ -73,7 +73,13 @@ function htl_get_room_extras( $line_price, $optional_extras, $values, $room, $ch
 				$optional_selected_quantity = is_array( $optional_extras[$extra_id] ) && isset( $optional_extras[$extra_id]['qty'] ) ? absint( $optional_extras[$extra_id]['qty'] ) : absint( $optional_extras[$extra_id] );
 
 				if ( $optional_selected_quantity > 0 ) {
-					$qty                = $optional_selected_quantity;
+					$qty = $optional_selected_quantity;
+
+					// Validate selected quantity
+					if ( $extra->can_select_quantity() && $qty > $extra->get_max_quantity() ) {
+						$qty = $extra->get_max_quantity();
+					}
+
 					$calculate_optional = true;
 				}
 			}
