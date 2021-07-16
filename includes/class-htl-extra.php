@@ -188,6 +188,29 @@ class HTL_Extra {
 
 		return apply_filters( 'hotelier_get_extra_is_optional', $is_optional, $this->id, $this );
 	}
+
+	/**
+	 * Checks if the quantity can be selected
+	 *
+	 * @return bool
+	 */
+	public function can_select_quantity() {
+		$can_select_quantity = $this->extra_selectable_qty;
+		$can_select_quantity = $can_select_quantity ? true : false;
+
+		return apply_filters( 'hotelier_get_extra_can_select_quantity', $can_select_quantity, $this->id, $this );
+	}
+
+	/**
+	 * Get max quantity that can be selected
+	 *
+	 * @return bool
+	 */
+	public function get_max_quantity() {
+		$max_quantity = absint( $this->extra_selectable_qty_max );
+
+		return apply_filters( 'hotelier_get_extra_max_quantity', $max_quantity, $this->id, $this );
+	}
 }
 
 endif;
