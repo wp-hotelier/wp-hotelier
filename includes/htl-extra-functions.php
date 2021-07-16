@@ -89,7 +89,11 @@ function htl_get_room_extras( $line_price, $optional_extras, $values, $room, $ch
 			}
 		}
 
-		$extras[$extra_id] = htl_calculate_single_extra( $extra, $qty, $line_price, $values, $room, $checkin, $checkout );
+		$line_extra = htl_calculate_single_extra( $extra, $qty, $line_price, $values, $room, $checkin, $checkout );
+
+		if ( apply_filters( 'hotelier_extra_show_if_no_price', false ) || isset( $line_extra['price'] ) && $line_extra['price'] > 0 ) {
+			$extras[$extra_id] = $line_extra;
+		}
 	}
 
 	return $extras;
