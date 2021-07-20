@@ -76,7 +76,7 @@ class HTL_Frontend_Scripts {
 
 		// Get first day of week (can be sunday or monday)
 		$start_of_week = 'monday';
-		if ( get_option( 'start_of_week' ) && ( get_option( 'start_of_week' ) === 1 ) ) {
+		if ( get_option( 'start_of_week' ) && ( get_option( 'start_of_week' ) === '1' ) ) {
 			$start_of_week = 'sunday';
 		}
 
