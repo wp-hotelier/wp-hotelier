@@ -543,17 +543,19 @@ class HTL_Reservation {
 	 */
 	public function add_item( $room, $qty = 1, $args = array() ) {
 		$default_args = array(
-			'rate_name'       => false,
-			'rate_id'         => 0,
-			'max_guests'      => 0,
-			'price'           => 0,
-			'total'           => 0,
-			'deposit'         => 0,
-			'percent_deposit' => 0,
-			'is_cancellable'  => true,
-			'adults'          => false,
-			'children'        => false,
-			'fees'            => array(),
+			'rate_name'            => false,
+			'rate_id'              => 0,
+			'max_guests'           => 0,
+			'price'                => 0,
+			'total'                => 0,
+			'total_without_extras' => 0,
+			'deposit'              => 0,
+			'percent_deposit'      => 0,
+			'is_cancellable'       => true,
+			'adults'               => false,
+			'children'             => false,
+			'fees'                 => array(),
+			'extras'               => array(),
 		);
 
 		$args    = wp_parse_args( $args, $default_args );
@@ -576,6 +578,7 @@ class HTL_Reservation {
 		htl_add_reservation_item_meta( $item_id, '_max_guests', absint( $args[ 'max_guests' ] ? $args[ 'max_guests' ] : 0 ) );
 		htl_add_reservation_item_meta( $item_id, '_price', absint( $args[ 'price' ] ? $args[ 'price' ] : 0 ) );
 		htl_add_reservation_item_meta( $item_id, '_total', absint( $args[ 'total' ] ? $args[ 'total' ] : 0 ) );
+		htl_add_reservation_item_meta( $item_id, '_total_without_extras', absint( $args[ 'total_without_extras' ] ? $args[ 'total_without_extras' ] : 0 ) );
 		htl_add_reservation_item_meta( $item_id, '_percent_deposit', absint( $args[ 'percent_deposit' ] ? $args[ 'percent_deposit' ] : 0 ) );
 		htl_add_reservation_item_meta( $item_id, '_deposit', absint( $args[ 'deposit' ] ? $args[ 'deposit' ] : 0 ) );
 		htl_add_reservation_item_meta( $item_id, '_is_cancellable', absint( $args[ 'is_cancellable' ] ? $args[ 'is_cancellable' ] : false ) );
@@ -588,6 +591,9 @@ class HTL_Reservation {
 
 		$fees = $args[ 'fees' ] && is_array( $args[ 'fees' ] ) ? $args[ 'fees' ] : false;
 		htl_add_reservation_item_meta( $item_id, '_fees', $fees );
+
+		$extras = $args[ 'extras' ] && is_array( $args[ 'extras' ] ) ? $args[ 'extras' ] : false;
+		htl_add_reservation_item_meta( $item_id, '_extras', $extras );
 
 		do_action( 'hotelier_reservation_add_item', $this->id, $item_id, $room, $qty, $args );
 
@@ -709,12 +715,26 @@ class HTL_Reservation {
 	 * @return string
 	 */
 	public function get_formatted_line_total( $item ) {
-
 		if ( ! isset( $item[ 'total' ] ) || ! isset( $item[ 'total' ] ) ) {
 			return '';
 		}
 
-		$total = htl_price( htl_convert_to_cents( $item[ 'total' ] ), $this->get_reservation_currency() );
+		$total           = $item[ 'total' ];
+		$item_has_extras = false;
+
+		if ( isset( $item[ 'extras' ] ) ) {
+			$extras = maybe_unserialize( $item[ 'extras' ] );
+
+			if ( is_array( $extras ) && count( $extras ) > 0 ) {
+				$item_has_extras = true;
+			}
+		}
+
+		if ( $item_has_extras && isset( $item[ 'total_without_extras' ] ) ) {
+			$total = $item[ 'total_without_extras' ];
+		}
+
+		$total = htl_price( htl_convert_to_cents( $total ), $this->get_reservation_currency() );
 
 		return apply_filters( 'hotelier_reservation_formatted_line_total', $total, $item, $this );
 	}

@@ -261,21 +261,26 @@ class HTL_Booking {
 				// Fees
 				$values[ 'fees' ] = isset( $values[ 'fees' ] ) && is_array( $values[ 'fees' ] ) ? $values[ 'fees' ] : array();
 
+				// Extras
+				$values[ 'extras' ] = isset( $values[ 'extras' ] ) && is_array( $values[ 'extras' ] ) ? $values[ 'extras' ] : array();
+
 				$item_id = $reservation->add_item(
 					$values[ 'data' ],
 					$values[ 'quantity' ],
 					array(
-						'rate_name'       => $values[ 'rate_name' ],
-						'rate_id'         => $values[ 'rate_id' ],
-						'max_guests'      => $values[ 'max_guests' ],
-						'price'           => $values[ 'price' ],
-						'total'           => $values[ 'total' ],
-						'percent_deposit' => $deposit[ 'percent_deposit' ],
-						'deposit'         => $deposit[ 'deposit' ],
-						'is_cancellable'  => $values[ 'is_cancellable' ],
-						'adults'          => $adults,
-						'children'        => $children,
-						'fees'            => $values[ 'fees' ],
+						'rate_name'            => $values[ 'rate_name' ],
+						'rate_id'              => $values[ 'rate_id' ],
+						'max_guests'           => $values[ 'max_guests' ],
+						'price'                => $values[ 'price' ],
+						'total'                => $values[ 'total' ],
+						'total_without_extras' => $values[ 'total_without_extras' ],
+						'percent_deposit'      => $deposit[ 'percent_deposit' ],
+						'deposit'              => $deposit[ 'deposit' ],
+						'is_cancellable'       => $values[ 'is_cancellable' ],
+						'adults'               => $adults,
+						'children'             => $children,
+						'fees'                 => $values[ 'fees' ],
+						'extras'               => $values[ 'extras' ],
 					)
 				);
 
