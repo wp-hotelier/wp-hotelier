@@ -48,3 +48,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php do_action( 'hotelier_reservation_item_after_price', $room, $item ); ?>
 	</td>
 </tr>
+
+<?php
+// Show extras
+htl_get_template( 'reservation/item-extras.php', array(
+	'room' => $room,
+	'item' => $item,
+) );
