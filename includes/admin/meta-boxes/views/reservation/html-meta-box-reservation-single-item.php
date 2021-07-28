@@ -7,6 +7,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
+$item_has_extras = false;
+
+if ( isset( $item[ 'extras' ] ) ) {
+	$extras = maybe_unserialize( $item[ 'extras' ] );
+
+	if ( is_array( $extras ) && count( $extras ) > 0 ) {
+		$item_has_extras = true;
+	}
+}
+
 ?>
 
 <tr class="htl-ui-table__row htl-ui-table__row--body">
@@ -104,6 +114,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php echo htl_price( htl_convert_to_cents( $item[ 'total' ] ), $reservation->get_reservation_currency() ); ?>
 	</td>
 </tr>
+
+<?php if ( $item_has_extras ) : ?>
+	<?php foreach ( $extras as $extra_id => $extra_data ) : ?>
+		<?php
+		$extra       = htl_get_extra( $extra_id );
+		$extra_qty   = isset( $extra_data['qty'] ) ? $extra_data['qty'] : 1;
+		$extra_price = $item[ 'qty' ] * $extra_data['price'] * $extra_qty;
+		?>
+
+		<tr class="htl-ui-table__row htl-ui-table__row--body">
+			<td colspan="5" class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--reservation-items-room-extra">
+				<div class="extra">
+					<strong class="extra__name"><?php echo esc_html( $extra->get_name() ); ?></strong>
+					<?php if ( $extra_descritpion = $extra->get_description() ) : ?>
+						<span class="extra__description"><?php echo esc_html( $extra_descritpion ); ?></span>
+					<?php endif; ?>
+				</div>
+			</td>
+
+			<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--reservation-items-room-total"><?php echo htl_price( htl_convert_to_cents( $extra_price ) ) ?></td>
+		</tr>
+	<?php endforeach; ?>
+<?php endif; ?>
 
 <?php if ( ! $_room ) : ?>
 	<tr class="htl-ui-table__row htl-ui-table__row--body">
