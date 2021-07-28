@@ -20,6 +20,20 @@ if ( ! class_exists( 'HTL_Meta_Box_Reservation_Save' ) ) :
 class HTL_Meta_Box_Reservation_Save {
 
 	/**
+	 * Checkin date.
+	 *
+	 * @var string
+	 */
+	protected static $checkin;
+
+	/**
+	 * Checkout date.
+	 *
+	 * @var string
+	 */
+	protected static $checkout;
+
+	/**
 	 * Output the metabox
 	 */
 	public static function output( $post ) {
@@ -244,6 +258,11 @@ class HTL_Meta_Box_Reservation_Save {
 		$checkout            = sanitize_text_field( $checkout );
 		$coupon_id           = 0;
 
+		self::$checkin = $checkin;
+		add_filter( 'hotelier_advanced_extras_get_checkin_date', array( __CLASS__, 'apply_checkin_to_advanced_extras' ) );
+		self::$checkout = $checkout;
+		add_filter( 'hotelier_advanced_extras_get_checkout_date', array( __CLASS__, 'apply_checkout_to_advanced_extras' ) );
+
 		// Check coupon
 		if ( isset( $_POST[ 'coupon_id' ] ) ) {
 			switch ( $_POST[ 'coupon_id' ] ) {
@@ -368,6 +387,16 @@ class HTL_Meta_Box_Reservation_Save {
 							$guests[$i]['children'] = 0;
 						}
 					}
+
+					// Extras
+					$extras = array();
+
+					if ( isset( $item[ 'extras' ] ) ) {
+						$extras = maybe_unserialize( $item[ 'extras' ] );
+					}
+
+					$extras = is_array( $extras ) ? $extras : array();
+
 					// Fees
 					$fees = array();
 
@@ -416,20 +445,26 @@ class HTL_Meta_Box_Reservation_Save {
 						throw new Exception( esc_html__( 'Sorry, something went wrong during the calculation of the totals.', 'wp-hotelier' ) );
 					}
 
-					$reservation_cart_item = $cart_totals->cart_contents[ $reservation_item_key ];
-					$new_max_guests        = isset( $reservation_cart_item[ 'max_guests' ] ) ? $reservation_cart_item[ 'max_guests' ] : 0;
-					$new_price             = isset( $reservation_cart_item[ 'price' ] ) ? $reservation_cart_item[ 'price' ] : 0;
-					$new_total             = isset( $reservation_cart_item[ 'total' ] ) ? $reservation_cart_item[ 'total' ] : 0;
-					$new_percent_deposit   = isset( $reservation_cart_item[ 'percent_deposit' ] ) ? $reservation_cart_item[ 'percent_deposit' ] : 0;
-					$new_deposit           = isset( $reservation_cart_item[ 'deposit' ] ) ? $reservation_cart_item[ 'deposit' ] : 0;
-					$new_is_cancellable    = isset( $reservation_cart_item[ 'is_cancellable' ] ) ? $reservation_cart_item[ 'is_cancellable' ] : false;
+					$reservation_cart_item    = $cart_totals->cart_contents[ $reservation_item_key ];
+					$new_max_guests           = isset( $reservation_cart_item[ 'max_guests' ] ) ? $reservation_cart_item[ 'max_guests' ] : 0;
+					$new_price                = isset( $reservation_cart_item[ 'price' ] ) ? $reservation_cart_item[ 'price' ] : 0;
+					$new_price_without_extras = isset( $reservation_cart_item[ 'price_without_extras' ] ) ? $reservation_cart_item[ 'price_without_extras' ] : 0;
+					$new_total                = isset( $reservation_cart_item[ 'total' ] ) ? $reservation_cart_item[ 'total' ] : 0;
+					$new_total_without_extras = isset( $reservation_cart_item[ 'total_without_extras' ] ) ? $reservation_cart_item[ 'total_without_extras' ] : 0;
+					$new_percent_deposit      = isset( $reservation_cart_item[ 'percent_deposit' ] ) ? $reservation_cart_item[ 'percent_deposit' ] : 0;
+					$new_deposit              = isset( $reservation_cart_item[ 'deposit' ] ) ? $reservation_cart_item[ 'deposit' ] : 0;
+					$new_is_cancellable       = isset( $reservation_cart_item[ 'is_cancellable' ] ) ? $reservation_cart_item[ 'is_cancellable' ] : false;
+					$new_extras               = isset( $reservation_cart_item[ 'extras' ] ) ? $reservation_cart_item[ 'extras' ] : array();
 
 					htl_update_reservation_item_meta( $reservation_item, '_max_guests', $new_max_guests );
 					htl_update_reservation_item_meta( $reservation_item, '_price', $new_price );
+					htl_update_reservation_item_meta( $reservation_item, '_price_without_extras', $new_price_without_extras );
 					htl_update_reservation_item_meta( $reservation_item, '_total', $new_total );
+					htl_update_reservation_item_meta( $reservation_item, '_total_without_extras', $new_total_without_extras );
 					htl_update_reservation_item_meta( $reservation_item, '_percent_deposit', $new_percent_deposit );
 					htl_update_reservation_item_meta( $reservation_item, '_deposit', $new_deposit );
 					htl_update_reservation_item_meta( $reservation_item, '_is_cancellable', $new_is_cancellable );
+					htl_update_reservation_item_meta( $reservation_item, '_extras', $new_extras );
 				}
 
 				$reservation->set_checkin( $checkin );
@@ -532,6 +567,24 @@ class HTL_Meta_Box_Reservation_Save {
 	 */
 	public static function set_needs_reload_message( $location ) {
 		return add_query_arg( 'message', 12, $location );
+	}
+
+	/**
+	 * Pass checkin to Advanced Extras extension.
+	 *
+	 * @return string
+	 */
+	public static function apply_checkin_to_advanced_extras() {
+		return self::$checkin;
+	}
+
+	/**
+	 * Pass checkout to Advanced Extras extension.
+	 *
+	 * @return string
+	 */
+	public static function apply_checkout_to_advanced_extras() {
+		return self::$checkout;
 	}
 }
 
