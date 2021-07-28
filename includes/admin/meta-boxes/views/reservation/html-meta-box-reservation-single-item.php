@@ -103,7 +103,10 @@ if ( isset( $item[ 'extras' ] ) ) {
 	</td>
 
 	<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--reservation-items-room-price">
-		<?php echo htl_price( htl_convert_to_cents( $item[ 'price' ] ), $reservation->get_reservation_currency() ); ?>
+		<?php
+		$item_price = $item_has_extras && isset( $item[ 'price_without_extras' ] ) ? $item[ 'price_without_extras' ] : $item[ 'price' ];
+		?>
+		<?php echo htl_price( htl_convert_to_cents( $item_price ), $reservation->get_reservation_currency() ); ?>
 	</td>
 
 	<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--reservation-items-room-qty">
@@ -111,7 +114,10 @@ if ( isset( $item[ 'extras' ] ) ) {
 	</td>
 
 	<td class="htl-ui-table__cell htl-ui-table__cell--body htl-ui-table__cell--reservation-items-room-total">
-		<?php echo htl_price( htl_convert_to_cents( $item[ 'total' ] ), $reservation->get_reservation_currency() ); ?>
+		<?php
+		$item_total = $item_has_extras && isset( $item[ 'total_without_extras' ] ) ? $item[ 'total_without_extras' ] : $item[ 'total' ];
+		?>
+		<?php echo htl_price( htl_convert_to_cents( $item_total ), $reservation->get_reservation_currency() ); ?>
 	</td>
 </tr>
 
