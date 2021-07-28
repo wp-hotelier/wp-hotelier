@@ -65,3 +65,13 @@
 	color: $color__accent;
 	padding: 0 5px;
 }
+
+.htl-ui-table__cell--reservation-items-room-extra {
+	.extra__name {
+		display: block;
+	}
+
+	.extra__description {
+		color: $color__text__default;
+	}
+}
