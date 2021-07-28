@@ -2340,6 +2340,24 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   padding: 0 5px;
 }
 
+.htl-ui-table__cell--reservation-items-room-extra .extra {
+  font-size: .9em;
+  position: relative;
+  padding-left: 18px;
+}
+
+.htl-ui-table__cell--reservation-items-room-extra .extra:before {
+  content: '';
+  background-color: #818181;
+  display: inline-block;
+  height: 1px;
+  margin-left: -18px;
+  margin-top: 0;
+  position: absolute;
+  top: 50%;
+  width: 6px;
+}
+
 .htl-ui-table__cell--reservation-items-room-extra .extra__name {
   display: block;
 }
