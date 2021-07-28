@@ -315,6 +315,7 @@ class HTL_Cart_Totals {
 
 			// Set prices
 			$this->cart_contents[ $cart_item_key ][ 'price' ]                = $line_price;
+			$this->cart_contents[ $cart_item_key ][ 'price_without_extras' ] = $line_price_without_extras;
 			$this->cart_contents[ $cart_item_key ][ 'total' ]                = $line_total;
 			$this->cart_contents[ $cart_item_key ][ 'extras' ]               = $line_extras ;
 			$this->cart_contents[ $cart_item_key ][ 'total_without_extras' ] = $line_price_without_extras * $qty;

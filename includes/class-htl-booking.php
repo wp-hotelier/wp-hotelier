@@ -272,6 +272,7 @@ class HTL_Booking {
 						'rate_id'              => $values[ 'rate_id' ],
 						'max_guests'           => $values[ 'max_guests' ],
 						'price'                => $values[ 'price' ],
+						'price_without_extras' => $values[ 'price_without_extras' ],
 						'total'                => $values[ 'total' ],
 						'total_without_extras' => $values[ 'total_without_extras' ],
 						'percent_deposit'      => $deposit[ 'percent_deposit' ],

@@ -547,6 +547,7 @@ class HTL_Reservation {
 			'rate_id'              => 0,
 			'max_guests'           => 0,
 			'price'                => 0,
+			'price_without_extras' => 0,
 			'total'                => 0,
 			'total_without_extras' => 0,
 			'deposit'              => 0,
@@ -577,6 +578,7 @@ class HTL_Reservation {
 
 		htl_add_reservation_item_meta( $item_id, '_max_guests', absint( $args[ 'max_guests' ] ? $args[ 'max_guests' ] : 0 ) );
 		htl_add_reservation_item_meta( $item_id, '_price', absint( $args[ 'price' ] ? $args[ 'price' ] : 0 ) );
+		htl_add_reservation_item_meta( $item_id, '_price_without_extras', absint( $args[ 'price_without_extras' ] ? $args[ 'price_without_extras' ] : 0 ) );
 		htl_add_reservation_item_meta( $item_id, '_total', absint( $args[ 'total' ] ? $args[ 'total' ] : 0 ) );
 		htl_add_reservation_item_meta( $item_id, '_total_without_extras', absint( $args[ 'total_without_extras' ] ? $args[ 'total_without_extras' ] : 0 ) );
 		htl_add_reservation_item_meta( $item_id, '_percent_deposit', absint( $args[ 'percent_deposit' ] ? $args[ 'percent_deposit' ] : 0 ) );
