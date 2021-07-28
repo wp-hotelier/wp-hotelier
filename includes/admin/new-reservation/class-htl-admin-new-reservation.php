@@ -118,8 +118,8 @@ class HTL_Admin_New_Reservation {
 								$item_to_add[ 'fees' ] = $_POST[ 'fees' ][ $index ][ $room_id_index[ 0 ] ];
 							}
 
-							if ( isset( $_POST[ 'extras' ][ $index ] ) ) {
-								$item_to_add[ 'extras' ] = $_POST[ 'extras' ][ $index ];
+							if ( isset( $_POST[ 'extras' ][ $index ] ) && isset( $_POST[ 'extras' ][ $index ][ $room_id_index[ 0 ] ] ) ) {
+								$item_to_add[ 'extras' ] = $_POST[ 'extras' ][ $index ][ $room_id_index[ 0 ] ];
 							}
 
 							self::$rooms[] = $item_to_add;
@@ -128,10 +128,12 @@ class HTL_Admin_New_Reservation {
 					} elseif ( $key == 'from' ) {
 
 						self::$checkin = sanitize_text_field( $_POST[ 'from' ] );
+						add_filter( 'hotelier_advanced_extras_get_checkin_date', array( __CLASS__, 'apply_checkin_to_advanced_extras' ) );
 
 					} elseif ( $key == 'to' ) {
 
 						self::$checkout = sanitize_text_field( $_POST[ 'to' ] );
+						add_filter( 'hotelier_advanced_extras_get_checkout_date', array( __CLASS__, 'apply_checkout_to_advanced_extras' ) );
 
 					} elseif ( $key == 'coupon_id' ) {
 
@@ -297,6 +299,9 @@ class HTL_Admin_New_Reservation {
 				// Fees
 				$values[ 'fees' ] = isset( $values[ 'fees' ] ) && is_array( $values[ 'fees' ] ) ? $values[ 'fees' ] : array();
 
+				// Extras
+				$values[ 'extras' ] = isset( $values[ 'extras' ] ) && is_array( $values[ 'extras' ] ) ? $values[ 'extras' ] : array();
+
 				$item_id = $reservation->add_item(
 					$values[ 'data' ],
 					$values[ 'quantity' ],
@@ -305,13 +310,16 @@ class HTL_Admin_New_Reservation {
 						'rate_id'         => $values[ 'rate_id' ],
 						'max_guests'      => $values[ 'max_guests' ],
 						'price'           => $values[ 'price' ],
-						'total'           => $values[ 'total' ],
+						'price_without_extras' => $values[ 'price_without_extras' ],
+						'total_without_extras' => $values[ 'total_without_extras' ],
 						'percent_deposit' => $deposit[ 'percent_deposit' ],
 						'deposit'         => $deposit[ 'deposit' ],
 						'is_cancellable'  => $values[ 'is_cancellable' ],
 						'adults'          => $adults,
 						'children'        => $children,
 						'fees'            => $values[ 'fees' ],
+						'extras'               => $values[ 'extras' ],
+
 					)
 				);
 
@@ -453,6 +461,24 @@ class HTL_Admin_New_Reservation {
 		}
 
 		return $guests;
+	}
+
+	/**
+	 * Pass checkin to Advanced Extras extension.
+	 *
+	 * @return string
+	 */
+	public static function apply_checkin_to_advanced_extras() {
+		return self::$checkin;
+	}
+
+	/**
+	 * Pass checkout to Advanced Extras extension.
+	 *
+	 * @return string
+	 */
+	public static function apply_checkout_to_advanced_extras() {
+		return self::$checkout;
 	}
 }
 
