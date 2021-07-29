@@ -3,7 +3,7 @@ Contributors: benitolopez
 Tags: booking, hotel, booking system, hostel, reservations, reservations, b&b, rooms, wphotelier
 Requires at least: 4.1
 Tested up to: 5.8
-Stable tag: 2.5.1
+Stable tag: 2.6.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -27,6 +27,7 @@ WP Hotelier is a complete booking system for WordPress. Some of the features are
 * Advanced room settings: manage rooms, beds, and prices.
 * Seasonal prices: increase reservations by offering discounts on off-seasons.
 * Mark a room non cancellable and non refundable.
+* Room extras.
 * Offer discount codes (coupons).
 * List your rooms by using shortcodes.
 * Email notifications.
@@ -55,6 +56,7 @@ Something missing? No problem, you can extend WP Hotelier with a vast number of 
 * [Advanced Pricing System](https://wphotelier.com/extensions/advanced-pricing-system/)
 * [Stripe Payment Gateway](https://wphotelier.com/extensions/stripe-payment-gateway/)
 * [Disable Dates](https://wphotelier.com/extensions/disable-dates/)
+* [Advanced Extras](https://wphotelier.com/extensions/advanced-extras/)
 * [Advanced Coupons](https://wphotelier.com/extensions/advanced-coupons/)
 * [iCalendar Importer/Exporter](https://wphotelier.com/extensions/icalendar-importer-exporter/)
 * [Week Bookings](https://wphotelier.com/extensions/week-bookings/)
@@ -113,6 +115,10 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 4. WP Hotelier - Admin calendar.
 
 == Changelog ==
+
+= 2.6.0 - 2021-07-30 =
+* Add - Extras functionality.
+* Localization - POT file updated.
 
 = 2.5.1 - 2021-05-30 =
 * Fix - Correct coupon ID check when creating reservations.
