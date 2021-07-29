@@ -67,4 +67,41 @@ foreach ( $items as $item_id => $item ) : ?>
 		<td style="text-align:left;font-size:14px;line-height:20px;color:#999999;padding-top:10px;padding-bottom:10px;padding-left:0;padding-right:0;font-family:Helvetica,Arial;"><?php echo $reservation->get_formatted_line_total( $item ); ?></td>
 	</tr>
 
+	<?php
+	$item_has_extras = false;
+
+	if ( isset( $item[ 'extras' ] ) ) {
+		$extras = maybe_unserialize( $item[ 'extras' ] );
+
+		if ( is_array( $extras ) && count( $extras ) > 0 ) {
+			$item_has_extras = true;
+		}
+	}
+	?>
+
+	<?php if ( $item_has_extras ) : ?>
+		<?php foreach ( $extras as $extra_id => $extra_data ) : ?>
+			<?php
+			$extra       = htl_get_extra( $extra_id );
+			$extra_qty   = isset( $extra_data['qty'] ) ? $extra_data['qty'] : 1;
+			$extra_price = $item[ 'qty' ] * $extra_data['price'] * $extra_qty;
+			?>
+
+			<tr>
+				<td style="text-align:left;font-size:14px;line-height:20px;padding-top:0;padding-bottom:10px;padding-left:0;padding-right:0;font-family:Helvetica,Arial;">
+					<?php
+
+					echo '<br><small style="text-align:left;font-size:12px;line-height:16px;font-family:Helvetica,Arial;">' . esc_html( $extra->get_name() ) . '</small>';
+
+					if ( $extra_descritpion = $extra->get_description() ) {
+						echo '<br><small style="text-align:left;font-size:12px;line-height:16px;color:#999999;font-family:Helvetica,Arial;">' . esc_html( $extra_descritpion ) . '</small>';
+					}
+					?>
+				</td>
+				<td>&nbsp;</td>
+				<td style="text-align:left;font-size:14px;line-height:20px;color:#999999;padding-top:0;padding-bottom:10px;padding-left:0;padding-right:0;font-family:Helvetica,Arial;"><?php echo htl_price( htl_convert_to_cents( $extra_price ) ); ?></td>
+			</tr>
+		<?php endforeach; ?>
+	<?php endif; ?>
+
 <?php endforeach; ?>

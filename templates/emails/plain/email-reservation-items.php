@@ -65,6 +65,32 @@ foreach ( $items as $item_id => $item ) :
 	// Allow other plugins to add additional room information here
 	do_action( 'hotelier_email_reservation_item_meta', $item_id, $item, $reservation, true );
 
+	$item_has_extras = false;
+
+	if ( isset( $item[ 'extras' ] ) ) {
+		$extras = maybe_unserialize( $item[ 'extras' ] );
+
+		if ( is_array( $extras ) && count( $extras ) > 0 ) {
+			$item_has_extras = true;
+		}
+	}
+
+	if ( $item_has_extras ) {
+		foreach ( $extras as $extra_id => $extra_data ) {
+			$extra       = htl_get_extra( $extra_id );
+			$extra_qty   = isset( $extra_data['qty'] ) ? $extra_data['qty'] : 1;
+			$extra_price = $item[ 'qty' ] * $extra_data['price'] * $extra_qty;
+
+			echo "\n\n" . esc_html( $extra->get_name() );
+
+			if ( $extra_descritpion = $extra->get_description() ) {
+				echo "\n" . esc_html( $extra_descritpion );
+			}
+
+			echo "\n" . sprintf( esc_html__( 'Cost: %s', 'wp-hotelier' ), htl_price( htl_convert_to_cents( $extra_price ) ) );
+		}
+	}
+
 	echo "\n\n";
 
 endforeach;
