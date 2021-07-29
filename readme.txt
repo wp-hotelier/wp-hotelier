@@ -118,6 +118,8 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 = 2.6.0 - 2021-07-30 =
 * Add - Extras functionality.
+* Add - Ability to select guests in listing page.
+* Fix - Fix datepicker when sunday is start of week.
 * Localization - POT file updated.
 
 = 2.5.1 - 2021-05-30 =
