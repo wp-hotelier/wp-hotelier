@@ -154,7 +154,7 @@ function htl_can_apply_extra( $extra_id, $room_id, $force = false ) {
 			'reason'    => $reason
 		),
 		$extra_id,
-		$room_id,
+		$room_id
 	);
 
 	return $data;
