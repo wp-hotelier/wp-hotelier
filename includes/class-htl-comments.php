@@ -51,7 +51,9 @@ class HTL_Comments {
 	public static function exclude_reservation_comments( $clauses ) {
 		global $wpdb;
 
-		if ( is_admin() && in_array( get_current_screen()->id, array( 'room_reservation', 'edit-room_reservation' ) ) && current_user_can( 'manage_hotelier' ) ) {
+		$screen = get_current_screen();
+
+		if ( is_admin() && isset( $screen->id ) && in_array( $screen->id, array( 'room_reservation', 'edit-room_reservation' ) ) && current_user_can( 'manage_hotelier' ) ) {
 			return $clauses; // Don't hide when viewing reservations in admin
 		}
 
