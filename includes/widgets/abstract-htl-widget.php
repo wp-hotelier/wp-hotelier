@@ -173,7 +173,8 @@ abstract class HTL_Widget extends WP_Widget {
 
 		foreach ( $this->settings as $key => $setting ) {
 
-			$value = isset( $instance[ $key ] ) ? $instance[ $key ] : $setting[ 'std' ];
+			$std   = isset( $setting[ 'std' ] ) ? $setting[ 'std' ] : '';
+			$value = isset( $instance[ $key ] ) ? $instance[ $key ] : $std;
 
 			switch ( $setting[ 'type' ] ) {
 
