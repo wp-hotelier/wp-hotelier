@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       WP Hotelier
  * Plugin URI:        https://wphotelier.com/?utm_source=wpadmin&utm_medium=plugin&utm_campaign=wphotelierplugin
- * Description:       Manage your hotel bookings with WordPress.
+ * Description:       Hotel booking plugin for WordPress.
  * Version:           2.6.1
  * Author:            WP Hotelier
  * Author URI:        https://wphotelier.com/
