@@ -57,7 +57,8 @@ function htl_get_all_extras_ids() {
  */
 function htl_get_room_extras( $line_price, $optional_extras, $values, $room, $checkin, $checkout ) {
 	$extras     = array();
-	$extras_ids = htl_get_room_extras_ids( $room );
+	$rate_id    = isset( $values[ 'rate_id' ] ) && $values[ 'rate_id' ] > 0 ? $values[ 'rate_id' ] : false;
+	$extras_ids = htl_get_room_extras_ids( $room, $rate_id );
 
 	foreach ( $extras_ids as $extra_id ) {
 		// Default quantity
@@ -102,13 +103,13 @@ function htl_get_room_extras( $line_price, $optional_extras, $values, $room, $ch
 /**
  * Get room extras (IDs).
  */
-function htl_get_room_extras_ids( $room ) {
+function htl_get_room_extras_ids( $room, $rate_id = 0 ) {
 	$room_extras_ids = array();
 	$all_extras      = htl_get_all_extras_ids();
 
 	if ( is_array( $all_extras ) && count( $all_extras ) > 0 ) {
 		foreach ( $all_extras as $extra_id ) {
-			$can_apply = htl_can_apply_extra( $extra_id, $room->id );
+			$can_apply = htl_can_apply_extra( $extra_id, $room->id, $rate_id );
 
 			if ( isset( $can_apply['can_apply'] ) && $can_apply['can_apply'] ) {
 				$room_extras_ids[] = $extra_id;
@@ -125,7 +126,7 @@ function htl_get_room_extras_ids( $room ) {
  * @param  int $extra_id Extra ID.
  * @return array
  */
-function htl_can_apply_extra( $extra_id, $room_id, $force = false ) {
+function htl_can_apply_extra( $extra_id, $room_id, $rate_id = 0, $force = false ) {
 	$can_apply = true;
 	$reason    = false;
 
@@ -154,7 +155,8 @@ function htl_can_apply_extra( $extra_id, $room_id, $force = false ) {
 			'reason'    => $reason
 		),
 		$extra_id,
-		$room_id
+		$room_id,
+		$rate_id
 	);
 
 	return $data;
