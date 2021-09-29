@@ -2050,11 +2050,11 @@ msgstr ""
 msgid "This coupon has expired."
 msgstr ""
 
-#: ../includes/htl-extra-functions.php:136
+#: ../includes/htl-extra-functions.php:137
 msgid "This extra does not exists."
 msgstr ""
 
-#: ../includes/htl-extra-functions.php:146
+#: ../includes/htl-extra-functions.php:147
 msgid "This extra is not enabled."
 msgstr ""
 
