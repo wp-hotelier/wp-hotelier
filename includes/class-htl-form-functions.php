@@ -225,6 +225,7 @@ class HTL_Form_Functions {
 	 * Checks for a valid request, does validation (via hooks) and then redirects if valid.
 	 *
 	 * @param bool $url (default: false)
+	 * @deprecated
 	 */
 	public static function add_to_cart_action( $url = false ) {
 		if ( defined( 'HOTELIER_LISTING' ) ) {
@@ -258,6 +259,7 @@ class HTL_Form_Functions {
 	 * Handle adding rooms to the cart
 	 * @param int $room_id
 	 * @return bool success or not
+	 * @deprecated
 	 */
 	private static function add_to_cart_handler( $room_id ) {
 		$quantity          = empty( $_REQUEST[ 'quantity' ] ) ? 1 : absint( $_REQUEST[ 'quantity' ] );
