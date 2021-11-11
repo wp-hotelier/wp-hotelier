@@ -35,7 +35,7 @@ $available_rooms = absint( $room->get_available_rooms( $checkin, $checkout ) );
 				'input_name'  => "quantity[{$key}]"
 			);
 
-			if ( true ) {
+			if ( $show_guests_selection ) {
 				$max_adults     = $room->get_max_guests();
 				$adults_options = array();
 
@@ -53,7 +53,7 @@ $available_rooms = absint( $room->get_available_rooms( $checkin, $checkout ) );
 				);
 			}
 
-			if ( true ) {
+			if ( $show_guests_selection ) {
 				$max_children = $room->get_max_children();
 
 				if ( $max_children > 0 ) {
