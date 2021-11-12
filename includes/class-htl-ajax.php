@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  2.5.0
+ * @version  2.7.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -31,6 +31,7 @@ class HTL_Ajax {
 
 	public static function includes() {
 		include_once( 'ajax/htl-ajax-coupons.php' );
+		include_once( 'ajax/htl-ajax-room-booking.php' );
 	}
 
 	/**
@@ -96,6 +97,7 @@ class HTL_Ajax {
 		$ajax_events = array(
 			'get_checkin_dates' => true,
 			'apply_coupon'      => true,
+			'ajax_room_booking' => true,
 		);
 
 		foreach ( $ajax_events as $ajax_event => $nopriv ) {
@@ -128,6 +130,13 @@ class HTL_Ajax {
 	 */
 	public static function apply_coupon() {
 		hotelier_ajax_action_apply_coupon();
+	}
+
+	/**
+	 * AJAX room booking.
+	 */
+	public static function ajax_room_booking() {
+		hotelier_ajax_action_room_booking();
 	}
 }
 

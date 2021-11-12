@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  2.6.0
+ * @version  2.7.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -402,10 +402,103 @@ class HTL_Form_Functions {
 			exit;
 		}
 	}
+
+
+	/**
+	 * Add a room to the cart via AJAX.
+	 *
+	 * Checks for a valid request, does validation (via hooks) and then redirects if valid.
+	 */
+	public static function add_to_cart_from_ajax( $room_id, $checkin, $checkout, $quantity, $form_data ) {
+		try {
+			// Initialize $item
+			$item = array();
+
+			$room_id = absint( $room_id );
+
+			// Check posted data
+			if ( is_array( $form_data ) ) {
+				$quantity = $quantity ? absint( $quantity ) : 0;
+
+				if ( $quantity > 0 ) {
+					if ( $room_id ) {
+						$rate_id = isset( $form_data['rate'] ) ? absint( $form_data['rate'] ) : 0;
+
+						// Item data
+						$item = array(
+							'room_id'  => ( $room_id ),
+							'rate_id'  => ( $rate_id ),
+							'quantity' => $quantity,
+							'guests'   => array(),
+							'fees'     => array(),
+							'extras'   => array(),
+						);
+
+						// Generate key
+						$cart_item_key = htl_generate_item_key( $room_id, $rate_id );
+
+						// Add adults/children to form data (with item key)
+						$form_data['adults']   = array( $cart_item_key => $form_data['adults'] );
+						$form_data['children'] = array( $cart_item_key => $form_data['children'] );
+
+						// Calculate guests to add
+						$item[ 'guests' ] = self::calculate_guests_to_add( $item, $cart_item_key, $quantity, $form_data );
+
+						if ( isset( $form_data[ 'fees' ][ $cart_item_key ] ) ) {
+							$item[ 'fees' ] = $form_data[ 'fees' ][ $cart_item_key ];
+						}
+
+						if ( isset( $form_data[ 'extras' ][ $cart_item_key ] ) ) {
+							$item[ 'extras' ] = $form_data[ 'extras' ][ $cart_item_key ];
+						}
+					}
+				}
+			}
+
+			// If $item is empty (no rooms were added or something went wrong) throw an exception
+			if ( empty( $item ) ) {
+				throw new Exception( esc_html__( 'Sorry, something went wrong during the calculation of the totals.', 'wp-hotelier' ) );
+			}
+
+			// Add room to the cart
+			$was_added_to_cart = false;
+			$was_added_to_cart = self::add_to_cart_from_room_list_handler( $item[ 'room_id' ], $item[ 'quantity' ], $item[ 'rate_id' ], $item[ 'guests' ], $item[ 'fees' ], $item[ 'extras' ] );
+
+			if ( ! $was_added_to_cart ) {
+				throw new Exception( esc_html__( 'We were unable to process your reservation, please try again.', 'wp-hotelier' ) );
+			}
+
+			// If we added the room to the cart, then redirect.
+			if ( $was_added_to_cart && htl_notice_count( 'error' ) === 0 ) {
+				$url = apply_filters( 'hotelier_add_to_cart_from_ajax_room_booking_redirect', HTL()->cart->get_booking_form_url() );
+				$url = wp_sanitize_redirect( $url );
+				$url = wp_validate_redirect( $url, apply_filters( 'wp_safe_redirect_fallback', home_url(), 302 ) );
+
+				$added_to_cart = array(
+					'added_to_cart' => true,
+					'redirect_url'  => $url,
+				);
+
+				return $added_to_cart;
+			}
+
+		} catch ( Exception $e ) {
+			if ( ! empty( $e ) ) {
+				$added_to_cart = array(
+					'added_to_cart' => false,
+					'error'         => $e->getMessage(),
+				);
+
+				return $added_to_cart;
+			}
+		}
+	}
+
 	/**
 	 * Calculate guests to add
 	 */
-	private static function calculate_guests_to_add( $item_to_add, $key, $qty ) {
+	private static function calculate_guests_to_add( $item_to_add, $key, $qty, $post_data = false ) {
+		$post_data    = is_array( $post_data ) ? $post_data : $_POST;
 		$_room        = htl_get_room( $item_to_add['room_id'] );
 		$max_guests   = $_room->get_max_guests();
 		$max_children = $_room->get_max_children();
@@ -420,11 +513,11 @@ class HTL_Form_Functions {
 		}
 
 		if ( function_exists( 'hotelier_aps_room_has_extra_guests_enabled' ) && hotelier_aps_room_has_extra_guests_enabled( $_room ) ) {
-			if ( isset( $_POST['fees'][ $key ] ) ) {
+			if ( isset( $post_data['fees'][ $key ] ) ) {
 				if ( hotelier_aps_room_has_extra_adults( $_room ) ) {
 					$adults_included_in_rate = absint( get_post_meta( $_room->id, '_seasons_extra_person_fees_adults_included', true ) );
 					$adults_to_add           = $adults_included_in_rate;
-					$extra_adults            = isset( $_POST['fees'][$key]['adults'] ) ? absint( $_POST['fees'][$key]['adults'] ) : 0;
+					$extra_adults            = isset( $post_data['fees'][$key]['adults'] ) ? absint( $post_data['fees'][$key]['adults'] ) : 0;
 					$adults_to_add           += $extra_adults;
 					$adults_to_add           = $adults_to_add > $max_guests ? $max_guests : $adults_to_add;
 
@@ -436,7 +529,7 @@ class HTL_Form_Functions {
 				if ( hotelier_aps_room_has_extra_children( $_room ) ) {
 					$children_included_in_rate = absint( get_post_meta( $_room->id, '_seasons_extra_person_fees_children_included', true ) );
 					$children_to_add           = $children_included_in_rate;
-					$extra_children            = isset( $_POST['fees'][$key]['children'] ) ? absint( $_POST['fees'][$key]['children'] ) : 0;
+					$extra_children            = isset( $post_data['fees'][$key]['children'] ) ? absint( $post_data['fees'][$key]['children'] ) : 0;
 					$children_to_add           += $extra_children;
 					$children_to_add           = $children_to_add > $max_guests ? $max_guests : $children_to_add;
 
@@ -446,8 +539,8 @@ class HTL_Form_Functions {
 				}
 			}
 		} else {
-			if ( isset( $_POST['adults'][ $key ] ) ) {
-				$adults_to_add    = absint( $_POST[ 'adults' ][ $key ] );
+			if ( isset( $post_data['adults'][ $key ] ) ) {
+				$adults_to_add    = absint( $post_data[ 'adults' ][ $key ] );
 				$adults_to_add    = $adults_to_add > $max_guests ? $max_guests : $adults_to_add;
 
 				for ( $i = 0; $i < $qty; $i++ ) {
@@ -455,8 +548,8 @@ class HTL_Form_Functions {
 				}
 			}
 
-			if ( isset( $_POST['children'][ $key ] ) ) {
-				$children_to_add    = absint( $_POST[ 'children' ][ $key ] );
+			if ( isset( $post_data['children'][ $key ] ) ) {
+				$children_to_add    = absint( $post_data[ 'children' ][ $key ] );
 				$children_to_add    = $children_to_add > $max_children ? $max_children : $children_to_add;
 
 				for ( $i = 0; $i < $qty; $i++ ) {

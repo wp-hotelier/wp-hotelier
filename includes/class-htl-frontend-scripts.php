@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  2.6.0
+ * @version  2.7.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -174,8 +174,26 @@ class HTL_Frontend_Scripts {
 			wp_enqueue_script( 'photoswipe-ui', HTL_PLUGIN_URL . 'assets/js/lib/photoswipe/photoswipe-ui-default.min.js', array( 'photoswipe' ), '4.1.1', true );
 			wp_enqueue_script( 'photoswipe-init', HTL_PLUGIN_URL . 'assets/js/frontend/photoswipe.init' . $suffix . '.js', array( 'jquery', 'photoswipe-ui' ), HTL_VERSION, true );
 		}
-	}
 
+		if ( is_room() ) {
+			// AJAX Room Booking script
+			$hotelier_ajax_room_booking_params = array(
+				'nonce'        => wp_create_nonce( 'hotelier-ajax-room-booking-nonce' ),
+				'ajax_url'     => HTL()->ajax_url(),
+				'locale'     => array(
+					'default_button_text'  => esc_html__( 'Check availability', 'wp-hotelier' ),
+					'checking_button_text' => esc_html__( 'Checking availability...', 'wp-hotelier' ),
+					'booking_button_text'  => esc_html__( 'Booking room...', 'wp-hotelier' ),
+					'book_button_text'     => esc_html__( 'Book now', 'wp-hotelier' ),
+				),
+				'enable_debug' => defined('WP_DEBUG') && true === WP_DEBUG ? true : false
+			);
+
+			wp_register_script( 'hotelier-ajax-room-booking', HTL_PLUGIN_URL . 'assets/js/frontend/hotelier-ajax-room-booking' . $suffix . '.js', array( 'jquery' ), HTL_VERSION, true );
+
+			wp_localize_script( 'hotelier-ajax-room-booking', 'hotelier_ajax_room_booking_params', $hotelier_ajax_room_booking_params );
+		}
+	}
 }
 
 endif;
