@@ -73,6 +73,9 @@ jQuery(function ($) {
 				moveBothMonths: datepicker_params.move_both_months === '1',
 				autoClose: false,
 				i18n: datepicker_params.i18n,
+				onSelectRange: function () {
+					date_select_input.trigger('hotelier-datepicker-dates-selected');
+				},
 				getValue: function () {
 					if (checkin_input.val() && checkout_input.val()) {
 						return checkin_input.val() + ' - ' + checkout_input.val();
