@@ -116,6 +116,9 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 2.6.3 - 2021-11-17 =
+* Fix - Prevent PHP fatal error related to comment clauses.
+
 = 2.6.2 - 2021-09-29 =
 * Add - Ability to pass rates to extras.
 * Fix - PHP warning in some admin screens.
