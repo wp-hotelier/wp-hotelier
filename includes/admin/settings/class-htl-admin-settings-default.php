@@ -417,6 +417,13 @@ class HTL_Admin_Settings_Default {
 						'type'  => 'header',
 						'class' => 'htl-ui-row--section-description'
 					),
+					'listing_disabled' => array(
+						'id'      => 'listing_disabled',
+						'name'    => esc_html__( 'Disable listing page', 'wp-hotelier' ),
+						'subdesc' => __( 'Disable the listing page completely. Useful if you decide to use the AJX widget in the single room pages and you do not consider necessary the listing page.', 'wp-hotelier' ),
+						'type'    => 'checkbox',
+						'toggle'  => true,
+					),
 					'listing_sorting' => array(
 						'id'      => 'listing_sorting',
 						'name'    => esc_html__( 'Default room sorting', 'wp-hotelier' ),
