@@ -8,8 +8,10 @@ jQuery(function ($) {
 		return false;
 	}
 
+	var date_select_inputs = $('.datepicker-input-select');
+
 	function get_data() {
-		if (document.getElementById('hotelier-datepicker-select')) {
+		if (date_select_inputs.length > 0) {
 			var checkin_val = '';
 			var checkout_val = '';
 
@@ -32,16 +34,13 @@ jQuery(function ($) {
 	}
 
 	function init_datepicker(checkin, checkout) {
-		if (document.getElementById('hotelier-datepicker-select')) {
-			var date_select_input = $('#hotelier-datepicker-select');
-			var checkin_input = $('#hotelier-datepicker-checkin');
-			var checkout_input = $('#hotelier-datepicker-checkout');
+		if (date_select_inputs.length > 0) {
+			date_select_inputs.each(function () {
+				var date_select_input = $(this);
+				var form = date_select_input.closest('form');
+				var checkin_input = form.find('.datepicker-input--checkin');
+				var checkout_input = form.find('.datepicker-input--checkout');
 
-			date_select_input.show();
-			checkin_input.hide();
-			checkout_input.hide();
-
-			if (checkin && checkout) {
 				checkin_input.val(checkin);
 				checkout_input.val(checkout);
 
@@ -58,40 +57,41 @@ jQuery(function ($) {
 				var checkout_date_formatted = fecha.format(checkout_date, datepicker_params.datepicker_format);
 
 				date_select_input.val(checkin_date_formatted + ' - ' + checkout_date_formatted);
-			}
 
-			var picker = new HotelDatepicker(document.getElementById('hotelier-datepicker-select'), {
-				infoFormat: datepicker_params.datepicker_format,
-				startOfWeek: datepicker_params.start_of_week,
-				startDate: datepicker_params.start_date,
-				endDate: datepicker_params.end_date,
-				minNights: parseInt(datepicker_params.min_nights, 10),
-				maxNights: parseInt(datepicker_params.max_nights, 10),
-				disabledDates: datepicker_params.disabled_dates,
-				enableCheckout: datepicker_params.enable_checkout,
-				disabledDaysOfWeek: datepicker_params.disabled_days_of_week,
-				moveBothMonths: datepicker_params.move_both_months === '1',
-				autoClose: false,
-				i18n: datepicker_params.i18n,
-				onSelectRange: function () {
-					date_select_input.trigger('hotelier-datepicker-dates-selected');
-				},
-				getValue: function () {
-					if (checkin_input.val() && checkout_input.val()) {
-						return checkin_input.val() + ' - ' + checkout_input.val();
+				var picker = new HotelDatepicker(date_select_input[0], {
+					infoFormat: datepicker_params.datepicker_format,
+					startOfWeek: datepicker_params.start_of_week,
+					startDate: datepicker_params.start_date,
+					endDate: datepicker_params.end_date,
+					minNights: parseInt(datepicker_params.min_nights, 10),
+					maxNights: parseInt(datepicker_params.max_nights, 10),
+					disabledDates: datepicker_params.disabled_dates,
+					enableCheckout: datepicker_params.enable_checkout,
+					disabledDaysOfWeek: datepicker_params.disabled_days_of_week,
+					moveBothMonths: datepicker_params.move_both_months === '1',
+					autoClose: datepicker_params.autoclose === '1',
+					i18n: datepicker_params.i18n,
+					onSelectRange: function () {
+						date_select_input.trigger('hotelier-datepicker-dates-selected');
+						console.log('ciao');
+					},
+					getValue: function () {
+						if (checkin_input.val() && checkout_input.val()) {
+							return checkin_input.val() + ' - ' + checkout_input.val();
+						}
+						return '';
+					},
+					setValue: function (s, s1, s2) {
+						var checkin_date = new Date(s1.replace(/-/g, '\/'));
+						var checkout_date = new Date(s2.replace(/-/g, '\/'));
+						var checkin_date_formatted = fecha.format(checkin_date, datepicker_params.datepicker_format);
+						var checkout_date_formatted = fecha.format(checkout_date, datepicker_params.datepicker_format);
+
+						date_select_input.val(checkin_date_formatted + ' - ' + checkout_date_formatted);
+						checkin_input.val(s1);
+						checkout_input.val(s2);
 					}
-					return '';
-				},
-				setValue: function (s, s1, s2) {
-					var checkin_date = new Date(s1.replace(/-/g, '\/'));
-					var checkout_date = new Date(s2.replace(/-/g, '\/'));
-					var checkin_date_formatted = fecha.format(checkin_date, datepicker_params.datepicker_format);
-					var checkout_date_formatted = fecha.format(checkout_date, datepicker_params.datepicker_format);
-
-					date_select_input.val(checkin_date_formatted + ' - ' + checkout_date_formatted);
-					checkin_input.val(s1);
-					checkout_input.val(s2);
-				}
+				});
 			});
 		}
 	}
