@@ -24,11 +24,11 @@ do_action( 'hotelier_before_widget_ajax_room_booking' );
 			<label class="form-row__label widget-ajax-room-booking__label"><?php echo esc_html_e( 'Check-in / Check-out', 'wp-hotelier' ); ?></label>
 
 			<span class="datepicker-input-select-wrapper">
-				<input class="datepicker-input-select" type="text" id="hotelier-datepicker-select" value="">
+				<input class="datepicker-input-select" type="text" value="">
 			</span>
 
-			<input type="text" id="hotelier-datepicker-checkin" class="datepicker-input datepicker-input--checkin" name="checkin" value="<?php echo esc_attr( $checkin ); ?>">
-			<input type="text" id="hotelier-datepicker-checkout" class="datepicker-input datepicker-input--checkout" name="checkout" value="<?php echo esc_attr( $checkout ); ?>">
+			<input type="text" class="datepicker-input datepicker-input--checkin" name="checkin" value="<?php echo esc_attr( $checkin ); ?>" style="display: none;">
+			<input type="text" class="datepicker-input datepicker-input--checkout" name="checkout" value="<?php echo esc_attr( $checkout ); ?>" style="display: none;">
 		</p>
 
 		<?php if ( $show_quantity ) : ?>
