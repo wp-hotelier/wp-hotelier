@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  1.0.0
+ * @version  2.6.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -51,10 +51,12 @@ class HTL_Comments {
 	public static function exclude_reservation_comments( $clauses ) {
 		global $wpdb;
 
-		$screen = get_current_screen();
+		if ( is_admin() ) {
+			$screen = get_current_screen(); // Ensure we call this function only in admin pages
 
-		if ( is_admin() && isset( $screen->id ) && in_array( $screen->id, array( 'room_reservation', 'edit-room_reservation' ) ) && current_user_can( 'manage_hotelier' ) ) {
-			return $clauses; // Don't hide when viewing reservations in admin
+			if ( isset( $screen->id ) && in_array( $screen->id, array( 'room_reservation', 'edit-room_reservation' ) ) && current_user_can( 'manage_hotelier' ) ) {
+				return $clauses; // Don't hide when viewing reservations in admin
+			}
 		}
 
 		if ( ! $clauses[ 'join' ] ) {
