@@ -391,6 +391,26 @@ class HTL_Admin_Settings_Default {
 						'type'    => 'select',
 						'options' => self::get_room_size_options()
 					),
+					'datepicker_settings' => array(
+						'id'    => 'datepicker_settings',
+						'name'  => '<strong>' . esc_html__( 'Datepicker settings', 'wp-hotelier' ) . '</strong>',
+						'type'  => 'header',
+						'class' => 'htl-ui-row--section-description'
+					),
+					'datepicker_move_both_months' => array(
+						'id'      => 'datepicker_move_both_months',
+						'name'    => esc_html__( 'Move both months', 'wp-hotelier' ),
+						'subdesc' => __( 'Move both months when selecting a date in the datepicker.', 'wp-hotelier' ),
+						'type'    => 'checkbox',
+						'toggle'  => true,
+					),
+					'datepicker_autoclose' => array(
+						'id'      => 'datepicker_autoclose',
+						'name'    => esc_html__( 'Autoclose', 'wp-hotelier' ),
+						'subdesc' => __( 'Autoclose the datepicker after selecting the dates.', 'wp-hotelier' ),
+						'type'    => 'checkbox',
+						'toggle'  => true,
+					),
 					'listing_settings' => array(
 						'id'    => 'listing_settings',
 						'name'  => '<strong>' . esc_html__( 'Listing settings', 'wp-hotelier' ) . '</strong>',
@@ -430,13 +450,6 @@ class HTL_Admin_Settings_Default {
 						'id'      => 'book_now_allow_quantity_selection',
 						'name'    => esc_html__( 'Allow quantity selection', 'wp-hotelier' ),
 						'subdesc' => __( 'Allow quantity selection, then redirect to the booking page.', 'wp-hotelier' ),
-						'type'    => 'checkbox',
-						'toggle'  => true,
-					),
-					'datepicker_move_both_months' => array(
-						'id'      => 'datepicker_move_both_months',
-						'name'    => esc_html__( 'Move both months in datepicker', 'wp-hotelier' ),
-						'subdesc' => __( 'Move both months when selecting a date in the datepicker.', 'wp-hotelier' ),
 						'type'    => 'checkbox',
 						'toggle'  => true,
 					),
