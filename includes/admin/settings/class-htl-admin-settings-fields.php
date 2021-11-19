@@ -388,7 +388,10 @@ class HTL_Admin_Settings_Fields {
 		$listing_page = $pages[ 'listing' ];
 		$class        = 'error';
 
-		if ( ! $listing_page[ 'page_set' ] ) {
+		if ( htl_get_option( 'listing_disabled', false ) ) {
+			$class = '';
+			$info = __( 'Listing page disabled', 'wp-hotelier' ) ;;
+		} elseif ( ! $listing_page[ 'page_set' ] ) {
 			$info = __( 'Page not set', 'wp-hotelier' ) . '</mark>';
 		} elseif ( ! $listing_page[ 'page_exists' ] ) {
 			$info = __( 'The page is set, but it does not exist', 'wp-hotelier' );
