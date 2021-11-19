@@ -240,7 +240,7 @@ class HTL_Admin_Settings_Default {
 					'listing_page' => array(
 						'id'      => 'listing_page',
 						'name'    => esc_html__( 'Listing page', 'wp-hotelier' ),
-						'desc'    => __( 'This is the page (the listing page) where guests will see the rooms that are available for the selected dates. The <code>[hotelier_listing]</code> shortcode must be on this page.', 'wp-hotelier' ),
+						'desc'    => sprintf( __( 'This is the page (the listing page) where guests will see the rooms that are available for the selected dates. The <code>[hotelier_listing]</code> shortcode must be on this page. You can ignore this option if you decide to <a href="%s">disable the listing page</a>.', 'wp-hotelier' ), '?page=hotelier-settings&tab=rooms-and-reservations' ),
 						'type'    => 'select',
 						'options' => self::get_pages()
 					),
@@ -420,7 +420,7 @@ class HTL_Admin_Settings_Default {
 					'listing_disabled' => array(
 						'id'      => 'listing_disabled',
 						'name'    => esc_html__( 'Disable listing page', 'wp-hotelier' ),
-						'subdesc' => __( 'Disable the listing page completely. Useful if you decide to use the AJX widget in the single room pages and you do not consider necessary the listing page.', 'wp-hotelier' ),
+						'subdesc' => __( 'Disable the listing page completely. Useful if you decide to use the AJAX Room Booking widget in the single room pages and you do not consider necessary the listing page.', 'wp-hotelier' ),
 						'type'    => 'checkbox',
 						'toggle'  => true,
 					),
@@ -547,7 +547,7 @@ class HTL_Admin_Settings_Default {
 					'booking_number_of_guests_selection_type' => array(
 						'id'      => 'booking_number_of_guests_selection_type',
 						'name'    => esc_html__( 'Number of guests selection type', 'wp-hotelier' ),
-						'desc' => __( 'Select where to show the guest selection. It is recommended to display the selection in the listing page when using "per person" extras.', 'wp-hotelier' ),
+						'desc' => __( 'Select where to show the guest selection. It is recommended to display the selection in the listing page when using "per person" extras. If the listing page is disabled, this option only takes effect on the booking page. It is always possible to show the selection via the AJAX Room Booking widget in the single room pages.', 'wp-hotelier' ),
 						'std'     => 'booking-page',
 						'type'    => 'switch',
 						'options' => array(
