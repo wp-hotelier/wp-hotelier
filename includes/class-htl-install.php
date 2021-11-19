@@ -200,7 +200,7 @@ class HTL_Install {
 			)
 		);
 
-		if ( htl_get_option( 'listing_disabled', false )  ) {
+		if ( htl_get_option( 'listing_disabled', false ) ) {
 			unset( $pages['listing'] );
 		}
 
