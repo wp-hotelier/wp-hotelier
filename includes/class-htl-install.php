@@ -187,7 +187,7 @@ class HTL_Install {
 	 * Create Hotelier pages, storing page id's in variables.
 	 */
 	public static function create_pages() {
-		$pages = apply_filters( 'hotelier_create_pages', array(
+		$pages = array(
 			'listing' => array(
 				'name'    => esc_html_x( 'available-rooms', 'Page slug', 'wp-hotelier' ),
 				'title'   => esc_html_x( 'Available rooms', 'Page title', 'wp-hotelier' ),
@@ -198,7 +198,13 @@ class HTL_Install {
 				'title'   => esc_html_x( 'Booking', 'Page title', 'wp-hotelier' ),
 				'content' => '[' . apply_filters( 'hotelier_booking_shortcode_tag', 'hotelier_booking' ) . ']'
 			)
-		) );
+		);
+
+		if ( htl_get_option( 'listing_disabled', false )  ) {
+			unset( $pages['listing'] );
+		}
+
+		$pages = apply_filters( 'hotelier_create_pages', $pages );
 
 		foreach ( $pages as $key => $page ) {
 			HTL_Admin_Functions::create_page( $key, esc_sql( $page['name'] ), 'hotelier_' . $key . '_page_id', $page[ 'title' ], $page[ 'content' ], ! empty( $page[ 'parent' ] ) ? htl_get_page_id( $page[ 'parent' ] ) : '' );
