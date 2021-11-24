@@ -58,7 +58,9 @@ if ( $reservation ) : ?>
 
 		<p class="reservation-response reservation-response--invalid"><?php esc_html_e( 'Invalid reservation.', 'wp-hotelier' ); ?></p>
 
-		<p><a class="button button--backward" href="<?php echo esc_url( HTL()->cart->get_room_list_form_url() ); ?>"><?php esc_html_e( 'List of available rooms', 'wp-hotelier' ) ?></a></p>
+		<?php if ( ! htl_get_option( 'listing_disabled', false ) ) : ?>
+			<p><a class="button button--backward" href="<?php echo esc_url( HTL()->cart->get_room_list_form_url() ); ?>"><?php esc_html_e( 'List of available rooms', 'wp-hotelier' ) ?></a></p>
+		<?php endif; ?>
 
 	</div>
 

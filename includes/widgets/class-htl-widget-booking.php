@@ -59,7 +59,7 @@ class HTL_Widget_Booking extends HTL_Widget {
 
 		<div class="widget-booking__wrapper">
 
-			<?php if ( is_booking() ) : ?>
+			<?php if ( is_booking() && ! htl_get_option( 'listing_disabled', false ) ) : ?>
 				<p class="widget-booking__change-cart"><a href="<?php echo esc_url( HTL()->cart->get_room_list_form_url() ); ?>" class="widget-booking__change-cart-link"><?php esc_html_e( 'Modify', 'wp-hotelier' ); ?></a></p>
 			<?php endif; ?>
 

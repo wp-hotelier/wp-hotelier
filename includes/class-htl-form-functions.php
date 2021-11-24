@@ -39,7 +39,8 @@ class HTL_Form_Functions {
 		if ( isset( $_POST[ 'hotelier_booking_action' ] ) ) {
 
 			if ( HTL()->cart->is_empty() ) {
-				wp_redirect( htl_get_page_permalink( 'listing' ) );
+				$empty_cart_redirect = htl_get_option( 'listing_disabled', false ) ? home_url() : htl_get_page_permalink( 'listing' );
+				wp_redirect( $empty_cart_redirect );
 				exit;
 			}
 
@@ -395,7 +396,11 @@ class HTL_Form_Functions {
 				}
 			}
 
-			$redirect_page_url = htl_get_page_permalink( $redirect_page );
+			if ( htl_get_option( 'listing_disabled', false ) ) {
+				$redirect_page_url = home_url();
+			} else {
+				$redirect_page_url = htl_get_page_permalink( $redirect_page );
+			}
 
 			wp_safe_redirect( $redirect_page_url );
 

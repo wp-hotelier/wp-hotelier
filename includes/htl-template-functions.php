@@ -26,8 +26,8 @@ function htl_template_redirect() {
 
 	// When on the booking with an empty cart, redirect to listing page
 	elseif ( is_booking() && HTL()->cart->is_empty() && empty( $wp->query_vars[ 'pay-reservation' ] ) && ! isset( $wp->query_vars[ 'reservation-received' ] ) ) {
-
-		$url = apply_filters( 'hotelier_empty_cart_redirect_url', htl_get_page_permalink( 'listing' ) );
+		$url = htl_get_option( 'listing_disabled', false ) ? home_url() : htl_get_page_permalink( 'listing' );
+		$url = apply_filters( 'hotelier_empty_cart_redirect_url', $url );
 
 		wp_redirect( $url );
 		exit;
@@ -1435,7 +1435,7 @@ function hotelier_privacy_policy_text() {
  * Gets the url to remove an item from the cart.
  */
 function htl_get_cart_remove_url( $cart_item_key ) {
-	$listing_page_url = htl_get_page_permalink( 'listing' );
+	$listing_page_url = htl_get_option( 'listing_disabled', false ) ? home_url() : htl_get_page_permalink( 'listing' );
 
 	return $listing_page_url ? wp_nonce_url( add_query_arg( 'remove_room', $cart_item_key, $listing_page_url ) ) : '';
 }

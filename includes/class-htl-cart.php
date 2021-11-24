@@ -618,7 +618,7 @@ class HTL_Cart {
 	 * @return string
 	 */
 	public function get_room_list_form_url( $room_id = false ) {
-		$room_list_form_url = htl_get_page_permalink( 'listing' );
+		$room_list_form_url = htl_get_option( 'listing_disabled', false ) ? home_url() : htl_get_page_permalink( 'listing' );
 
 		if ( $room_id ) {
 			$room_id = absint( $room_id );

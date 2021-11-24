@@ -21,6 +21,8 @@ do_action( 'hotelier_before_cart_errors_page', $shortcode_atts ); ?>
 
 <?php do_action( 'hotelier_cart_has_errors' ); ?>
 
-<p><a class="button button--backward" href="<?php echo esc_url( HTL()->cart->get_room_list_form_url() ); ?>"><?php esc_html_e( 'List of available rooms', 'wp-hotelier' ) ?></a></p>
+<?php if ( ! htl_get_option( 'listing_disabled', false ) ) : ?>
+	<p><a class="button button--backward" href="<?php echo esc_url( HTL()->cart->get_room_list_form_url() ); ?>"><?php esc_html_e( 'List of available rooms', 'wp-hotelier' ) ?></a></p>
+<?php endif; ?>
 
 <?php do_action( 'hotelier_after_cart_errors_page', $shortcode_atts );

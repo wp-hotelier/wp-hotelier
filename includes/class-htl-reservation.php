@@ -1446,9 +1446,10 @@ class HTL_Reservation {
 	 * @return string the cancel endpoint; either the listing page or the home page.
 	 */
 	public function get_cancel_endpoint() {
-		$cancel_endpoint = htl_get_page_permalink( 'listing' );
+		$listing_page_enabled = htl_get_option( 'listing_disabled', false ) ? false : true;
+		$cancel_endpoint      = $listing_page_enabled ? htl_get_page_permalink( 'listing' ) : home_url();
 
-		if ( ! $cancel_endpoint ) {
+		if ( ! $cancel_endpoint && $listing_page_enabled ) {
 			$cancel_endpoint = home_url();
 		}
 

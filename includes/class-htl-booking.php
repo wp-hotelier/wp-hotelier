@@ -721,7 +721,11 @@ class HTL_Booking {
 
 				// Abort if errors are present
 				if ( htl_notice_count( 'error' ) > 0 ) {
-					throw new Exception( sprintf( wp_kses( __( 'List of available rooms <a href="%s">here</a>', 'wp-hotelier' ), array( 'a' => array( 'href' => array() ) ) ), HTL()->cart->get_room_list_form_url() ) );
+					if ( htl_get_option( 'listing_disabled', false ) ) {
+						throw new Exception( esc_html__( 'Sorry, something went wrong during the booking.', 'wp-hotelier' ) );
+					} else {
+						throw new Exception( sprintf( wp_kses( __( 'Sorry, something went wrong during the booking. List of available rooms <a href="%s">here</a>', 'wp-hotelier' ), array( 'a' => array( 'href' => array() ) ) ), HTL()->cart->get_room_list_form_url() ) );
+					}
 				}
 
 				$reservation_id = $this->create_reservation();
