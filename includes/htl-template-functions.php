@@ -610,19 +610,21 @@ if ( ! function_exists( 'hotelier_template_related_rooms' ) ) {
 	 * Output the related rooms.
 	 */
 	function hotelier_template_related_rooms() {
-		global $room, $hotelier_loop;
+		if ( ! htl_get_option( 'room_hide_related' ) ) {
+			global $room, $hotelier_loop;
 
-		$args = apply_filters( 'hotelier_output_related_rooms_args', array(
-			'posts_per_page' => 3,
-			'columns'        => 3,
-			'orderby'        => 'rand'
-		) );
+			$args = apply_filters( 'hotelier_output_related_rooms_args', array(
+				'posts_per_page' => 3,
+				'columns'        => 3,
+				'orderby'        => 'rand'
+			) );
 
-		$hotelier_loop[ 'columns' ] = $args[ 'columns' ];
+			$hotelier_loop[ 'columns' ] = $args[ 'columns' ];
 
-		$related_rooms = htl_get_related_rooms_query( $room->id, $args[ 'posts_per_page' ], $args[ 'orderby' ] );
+			$related_rooms = htl_get_related_rooms_query( $room->id, $args[ 'posts_per_page' ], $args[ 'orderby' ] );
 
-		htl_get_template( 'single-room/related.php', array( 'related_rooms' => $related_rooms, 'columns' => $args[ 'columns' ] ) );
+			htl_get_template( 'single-room/related.php', array( 'related_rooms' => $related_rooms, 'columns' => $args[ 'columns' ] ) );
+		}
 	}
 }
 

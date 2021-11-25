@@ -419,6 +419,13 @@ class HTL_Admin_Settings_Default {
 						'type'    => 'checkbox',
 						'toggle'  => true,
 					),
+					'room_hide_related' => array(
+						'id'      => 'room_hide_related',
+						'name'    => esc_html__( 'Hide related rooms', 'wp-hotelier' ),
+						'subdesc' => __( 'Hide related rooms on the room page.', 'wp-hotelier' ),
+						'type'    => 'checkbox',
+						'toggle'  => true,
+					),
 					'datepicker_settings' => array(
 						'id'    => 'datepicker_settings',
 						'name'  => '<strong>' . esc_html__( 'Datepicker settings', 'wp-hotelier' ) . '</strong>',
