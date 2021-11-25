@@ -352,7 +352,9 @@ if ( ! function_exists( 'hotelier_template_single_room_price' ) ) {
 	 * Show the room price in the single room page.
 	 */
 	function hotelier_template_single_room_price() {
-		htl_get_template( 'single-room/price.php' );
+		if ( ! htl_get_option( 'room_hide_price' ) ) {
+			htl_get_template( 'single-room/price.php' );
+		}
 	}
 
 }
@@ -363,7 +365,9 @@ if ( ! function_exists( 'hotelier_template_single_room_non_cancellable_info' ) )
 	 * Show info in the single room page when the room is not cancellable.
 	 */
 	function hotelier_template_single_room_non_cancellable_info() {
-		htl_get_template( 'single-room/non-cancellable-info.php' );
+		if ( ! htl_get_option( 'room_hide_price' ) ) {
+			htl_get_template( 'single-room/non-cancellable-info.php' );
+		}
 	}
 
 }
@@ -374,7 +378,9 @@ if ( ! function_exists( 'hotelier_template_single_room_deposit' ) ) {
 	 * Show the required deposit in the single room page.
 	 */
 	function hotelier_template_single_room_deposit() {
-		htl_get_template( 'single-room/deposit.php' );
+		if ( ! htl_get_option( 'room_hide_price' ) ) {
+			htl_get_template( 'single-room/deposit.php' );
+		}
 	}
 
 }
@@ -385,19 +391,21 @@ if ( ! function_exists( 'hotelier_template_single_room_min_max_info' ) ) {
 	 * Show minimum/maximum required nights in the single room page.
 	 */
 	function hotelier_template_single_room_min_max_info() {
-		global $room;
+		if ( ! htl_get_option( 'room_hide_price' ) ) {
+			global $room;
 
-		if ( $room->is_variable_room() ) {
-			return;
-		}
+			if ( $room->is_variable_room() ) {
+				return;
+			}
 
-		$min_nights = $room->get_min_nights();
-		$max_nights = $room->get_max_nights();
+			$min_nights = $room->get_min_nights();
+			$max_nights = $room->get_max_nights();
 
-		$text = htl_get_room_min_max_info( $min_nights, $max_nights );
+			$text = htl_get_room_min_max_info( $min_nights, $max_nights );
 
-		if ( $text ) {
-			htl_get_template( 'global/min-max-info.php', array( 'info' => $text, 'location' => 'single' ) );
+			if ( $text ) {
+				htl_get_template( 'global/min-max-info.php', array( 'info' => $text, 'location' => 'single' ) );
+			}
 		}
 	}
 
