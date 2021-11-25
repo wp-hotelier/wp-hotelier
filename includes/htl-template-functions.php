@@ -334,7 +334,8 @@ if ( ! function_exists( 'hotelier_template_single_room_datepicker' ) ) {
 	 */
 	function hotelier_template_single_room_datepicker() {
 		// show the datepicker only when the booking is enabled
-		if ( htl_get_option( 'booking_mode' ) != 'no-booking' ) {
+		// or when it is not disabled
+		if ( htl_get_option( 'booking_mode' ) != 'no-booking' && ! htl_get_option( 'room_hide_datepicker' ) ) {
 
 			$checkin  = HTL()->session->get( 'checkin' );
 			$checkout = HTL()->session->get( 'checkout' );
