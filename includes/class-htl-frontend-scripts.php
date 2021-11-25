@@ -36,7 +36,7 @@ class HTL_Frontend_Scripts {
 		$default_style    = apply_filters( 'hotelier_enqueue_styles', true );
 		$lightbox_enabled = htl_get_option( 'room_lightbox', true );
 
-		if ( $lightbox_enabled && ( is_listing() || is_room() ) ) {
+		if ( $lightbox_enabled && ( is_listing() || ( is_room() && ! htl_get_option( 'room_hide_gallery' ) ) ) ) {
 			wp_register_style( 'photoswipe', HTL_PLUGIN_URL . 'assets/css/frontend/photoswipe/photoswipe.css', array(), '4.1.1' );
 			wp_enqueue_style( 'photoswipe-default-skin', HTL_PLUGIN_URL . 'assets/css/frontend/photoswipe/default-skin/default-skin.css', array( 'photoswipe' ), '4.1.1' );
 		}
@@ -168,7 +168,7 @@ class HTL_Frontend_Scripts {
 		}
 
 		// Lightbox scripts
-		if ( $lightbox_enabled && ( is_listing() || is_room() ) ) {
+		if ( $lightbox_enabled && ( is_listing() || ( is_room() && ! htl_get_option( 'room_hide_gallery' ) ) ) ) {
 
 			// PhotoSwipe
 			wp_enqueue_script( 'photoswipe', HTL_PLUGIN_URL . 'assets/js/lib/photoswipe/photoswipe.min.js', array(), '4.1.1', true );

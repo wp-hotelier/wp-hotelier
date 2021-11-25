@@ -391,6 +391,13 @@ class HTL_Admin_Settings_Default {
 						'type'    => 'select',
 						'options' => self::get_room_size_options()
 					),
+					'room_hide_gallery' => array(
+						'id'      => 'room_hide_gallery',
+						'name'    => esc_html__( 'Hide room gallery', 'wp-hotelier' ),
+						'subdesc' => __( 'Hide the gallery on the room page.', 'wp-hotelier' ),
+						'type'    => 'checkbox',
+						'toggle'  => true,
+					),
 					'room_hide_datepicker' => array(
 						'id'      => 'room_hide_datepicker',
 						'name'    => esc_html__( 'Hide room datepicker', 'wp-hotelier' ),
