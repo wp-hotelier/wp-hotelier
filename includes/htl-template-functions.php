@@ -493,7 +493,9 @@ if ( ! function_exists( 'hotelier_template_single_room_rates' ) ) {
 	 * Show the room rates in the single room page.
 	 */
 	function hotelier_template_single_room_rates() {
-		htl_get_template( 'single-room/room-rates.php' );
+		if ( ! htl_get_option( 'room_hide_rates' ) ) {
+			htl_get_template( 'single-room/room-rates.php' );
+		}
 	}
 
 }
