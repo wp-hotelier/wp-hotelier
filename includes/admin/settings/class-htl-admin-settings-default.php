@@ -405,6 +405,13 @@ class HTL_Admin_Settings_Default {
 						'type'    => 'checkbox',
 						'toggle'  => true,
 					),
+					'room_hide_details' => array(
+						'id'      => 'room_hide_details',
+						'name'    => esc_html__( 'Hide room details', 'wp-hotelier' ),
+						'subdesc' => __( 'Hide details on the room page.', 'wp-hotelier' ),
+						'type'    => 'checkbox',
+						'toggle'  => true,
+					),
 					'datepicker_settings' => array(
 						'id'    => 'datepicker_settings',
 						'name'  => '<strong>' . esc_html__( 'Datepicker settings', 'wp-hotelier' ) . '</strong>',

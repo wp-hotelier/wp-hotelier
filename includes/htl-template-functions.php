@@ -428,7 +428,9 @@ if ( ! function_exists( 'hotelier_template_single_room_conditions' ) ) {
 	 * Show the room conditions in the single room page.
 	 */
 	function hotelier_template_single_room_conditions() {
-		htl_get_template( 'single-room/conditions.php' );
+		if ( ! htl_get_option( 'room_hide_details' ) ) {
+			htl_get_template( 'single-room/conditions.php' );
+		}
 	}
 
 }
@@ -439,7 +441,9 @@ if ( ! function_exists( 'hotelier_template_single_room_meta' ) ) {
 	 * Show the room meta in the single room page.
 	 */
 	function hotelier_template_single_room_meta() {
-		htl_get_template( 'single-room/meta.php' );
+		if ( ! htl_get_option( 'room_hide_details' ) ) {
+			htl_get_template( 'single-room/meta.php' );
+		}
 	}
 
 }
@@ -450,7 +454,9 @@ if ( ! function_exists( 'hotelier_template_single_room_facilities' ) ) {
 	 * Show the room facilities in the single room page.
 	 */
 	function hotelier_template_single_room_facilities() {
-		htl_get_template( 'single-room/facilities.php' );
+		if ( ! htl_get_option( 'room_hide_details' ) ) {
+			htl_get_template( 'single-room/facilities.php' );
+		}
 	}
 
 }
