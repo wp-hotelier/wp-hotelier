@@ -169,7 +169,7 @@ jQuery(function ($) {
 			var rates_button = $('.room-available-rates__link');
 			var rates_section = $('.room__rates--single');
 
-			if (rates_button.length === 0 || !rates_section.length === 0) {
+			if (rates_button.length === 0 || rates_section.length === 0) {
 				return;
 			}
 
