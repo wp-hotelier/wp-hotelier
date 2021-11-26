@@ -187,9 +187,23 @@ jQuery(function ($) {
 		// Scroll to datepicker from rate in single page
 		scroll_to_datpicker_from_rates: function () {
 			var button = $('.button--check-availability');
+
+			if (button.length === 0) {
+				return;
+			}
+
+			// Check if default room datepicker exists
 			var datepicker = $('#hotelier-datepicker');
 
-			if (button.length === 0 || !datepicker.length === 0) {
+			if (datepicker.length === 0) {
+				// Check if the ajax room booking widget exists
+				var ajax_room_booking_widget = $('#widget-ajax-room-booking-form');
+				if (ajax_room_booking_widget.length !== 0) {
+					datepicker = ajax_room_booking_widget;
+				}
+			}
+
+			if (datepicker.length === 0) {
 				return;
 			}
 
