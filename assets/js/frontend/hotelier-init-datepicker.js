@@ -92,6 +92,23 @@ jQuery(function ($) {
 						checkout_input.val(s2);
 					}
 				});
+
+				fix_datepicker_poisiton(picker);
+			});
+		}
+	}
+
+	function fix_datepicker_poisiton(datepicker) {
+		var parent_el = $(datepicker.parent);
+		var picker_el = $(datepicker.datepicker);
+		var picker_el_width = picker_el.outerWidth();
+		var window_width = $(window).width();
+		var parent_postion = parent_el.offset();
+
+		if (picker_el_width < window_width && parent_postion.left + picker_el_width > window_width) {
+			picker_el.css({
+				left: 'auto',
+				right: '0'
 			});
 		}
 	}
