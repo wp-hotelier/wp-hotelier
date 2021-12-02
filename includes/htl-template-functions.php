@@ -133,6 +133,27 @@ function htl_body_class( $classes ) {
 	return array_unique( $classes );
 }
 
+/**
+ * Add post classes for HTL pages.
+ *
+ * @param  array $classes
+ * @return array
+ */
+function htl_post_class( $classes ) {
+	$classes = (array) $classes;
+
+	if ( is_room() ) {
+		$classes[] = htl_get_option( 'room_hide_gallery', false ) ? 'has-not-room-gallery' : 'has-room-gallery';
+		$classes[] = htl_get_option( 'room_hide_datepicker', false ) ? 'has-not-room-datepicker' : 'has-room-datepicker';
+		$classes[] = htl_get_option( 'room_hide_price', false ) ? 'has-not-room-price' : 'has-room-price';
+		$classes[] = htl_get_option( 'room_hide_details', false ) ? 'has-not-room-details' : 'has-room-details';
+		$classes[] = htl_get_option( 'room_hide_related', false ) ? 'has-not-room-related' : 'has-room-related';
+		$classes[] = htl_get_option( 'room_hide_rates', false ) ? 'has-not-room-rates' : 'has-room-rates';
+	}
+
+	return array_unique( $classes );
+}
+
 /***** Global ***************************/
 
 if ( ! function_exists( 'hotelier_output_content_wrapper' ) ) {

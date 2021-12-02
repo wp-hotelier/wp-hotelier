@@ -13,6 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 add_filter( 'body_class', 'htl_body_class' );
+add_filter( 'post_class', 'htl_post_class' );
 
 /**
  * Output Hotelier generator tag
