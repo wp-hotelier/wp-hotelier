@@ -73,7 +73,6 @@ jQuery(function ($) {
 					i18n: datepicker_params.i18n,
 					onSelectRange: function () {
 						date_select_input.trigger('hotelier-datepicker-dates-selected');
-						console.log('ciao');
 					},
 					getValue: function () {
 						if (checkin_input.val() && checkout_input.val()) {
