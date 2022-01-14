@@ -3,7 +3,7 @@ Contributors: benitolopez
 Tags: booking, hotel, booking system, hostel, reservations, reservations, b&b, rooms, wphotelier
 Requires at least: 4.1
 Tested up to: 5.8
-Stable tag: 2.6.3
+Stable tag: 2.7.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -115,6 +115,17 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 4. WP Hotelier - Admin calendar.
 
 == Changelog ==
+
+= 2.7.0 - 2022-01-14 =
+* Add - Add new widget "AJAX Room Booking" (allows to book a room from its page).
+* Add - Add new option to disable the listing page.
+* Add - Ability to disable room sections (gallery, details, etc).
+* Tweak - Better datepicker JS related code.
+* Update - Hotel Datepicker library updated.
+* Update - Fecha library updated.
+* Localization - POT file updated.
+
+* Fix - Prevent PHP fatal error related to comment clauses.
 
 = 2.6.3 - 2021-11-17 =
 * Fix - Prevent PHP fatal error related to comment clauses.
