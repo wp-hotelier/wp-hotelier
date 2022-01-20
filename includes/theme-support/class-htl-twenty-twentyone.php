@@ -31,6 +31,14 @@ class HTL_Twenty_TwentyOne {
 
 		// Filter single room header class
 		add_filter( 'hotelier_single_room_header_classes', array( $this, 'single_room_header_classes' ) );
+	/**
+	 * Filter single room header class.
+	 */
+	public function single_room_header_classes( $classes ) {
+		$classes[] = 'alignwide';
+
+		return $classes;
+	}
 	}
 }
 
