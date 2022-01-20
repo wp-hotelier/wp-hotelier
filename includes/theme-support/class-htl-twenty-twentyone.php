@@ -40,6 +40,14 @@ class HTL_Twenty_TwentyOne {
 
 		// Enqueue custom style
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+
+		// Place room gallery inside the header tag
+		add_action( 'hotelier_after_room_title', 'hotelier_template_single_room_image', 10 );
+		add_action( 'hotelier_after_room_title', 'hotelier_template_single_room_gallery', 20 );
+
+		// Remove original room gallery
+		remove_action( 'hotelier_single_room_images', 'hotelier_template_single_room_image', 10 );
+		remove_action( 'hotelier_single_room_images', 'hotelier_template_single_room_gallery', 20 );
 	}
 
 	/**
