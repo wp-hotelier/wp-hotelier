@@ -34,6 +34,9 @@ class HTL_Twenty_TwentyOne {
 
 		// Filter single room wrapper tag
 		add_filter( 'hotelier_single_room_wrapper_tag', array( $this, 'single_room_wrapper_tag' ) );
+
+		// Enqueue custom style
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 	}
 
 	/**
@@ -52,6 +55,13 @@ class HTL_Twenty_TwentyOne {
 		$tag = 'article';
 
 		return $tag;
+	}
+
+	/**
+	 * Enqueue styles
+	 */
+	public function enqueue_styles() {
+		wp_enqueue_style( 'hotelier-twenty-twentyone', HTL_PLUGIN_URL . 'assets/css/frontend/twenty-twentyone.css', array(), HTL_VERSION );
 	}
 }
 
