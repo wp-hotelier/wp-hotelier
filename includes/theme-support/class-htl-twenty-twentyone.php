@@ -22,6 +22,9 @@ class HTL_Twenty_TwentyOne {
 	 * Constructor.
 	 */
 	public function __construct() {
+		// Remove default wrappers
+		remove_action( 'hotelier_before_main_content', 'hotelier_output_content_wrapper', 10 );
+		remove_action( 'hotelier_after_main_content', 'hotelier_output_content_wrapper_end', 10 );
 	}
 }
 
