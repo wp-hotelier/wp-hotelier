@@ -13,8 +13,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$single_room_header_classes = apply_filters(
+	'hotelier_single_room_header_classes', array(
+		'entry-header',
+		'room__header',
+	)
+);
+
 ?>
 
-<header class="entry-header room__header">
+<header class="<?php echo esc_attr( implode( ' ', $single_room_header_classes ) ) ?>">
 	<h1 class="entry-title room__title room__title--single"><?php the_title(); ?></h1>
 </header>
