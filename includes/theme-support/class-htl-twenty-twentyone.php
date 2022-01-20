@@ -28,6 +28,9 @@ class HTL_Twenty_TwentyOne {
 
 		// Remove sidebar
 		remove_action( 'hotelier_sidebar', 'hotelier_get_sidebar', 10 );
+
+		// Filter single room header class
+		add_filter( 'hotelier_single_room_header_classes', array( $this, 'single_room_header_classes' ) );
 	}
 }
 
