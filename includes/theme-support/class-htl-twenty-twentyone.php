@@ -1,0 +1,30 @@
+<?php
+/**
+ * Twenty TwentyOne support.
+ *
+ * @author   Benito Lopez <hello@lopezb.com>
+ * @package  Hotelier/Classes
+ * @version  2.8.0
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+if ( ! class_exists( 'HTL_Twenty_TwentyOne' ) ) :
+
+/**
+ * HTL_Twenty_TwentyOne Class
+ */
+class HTL_Twenty_TwentyOne {
+
+	/**
+	 * Constructor.
+	 */
+	public function __construct() {
+	}
+}
+
+endif;
+
+new HTL_Twenty_TwentyOne();
