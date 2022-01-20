@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	}
 ?>
 
-<div id="room-<?php echo absint( get_the_ID() ); ?>" <?php post_class(); ?>>
+<<?php echo esc_attr( apply_filters( 'hotelier_single_room_wrapper_tag', 'div' ) ); ?> id="room-<?php echo absint( get_the_ID() ); ?>" <?php post_class(); ?>>
 
 	<?php
 		/**
@@ -105,4 +105,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 
 	</div>
-</div>
+</<?php echo esc_attr( apply_filters( 'hotelier_single_room_wrapper_tag', 'div' ) ); ?>>
