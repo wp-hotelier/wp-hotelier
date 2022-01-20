@@ -35,6 +35,9 @@ class HTL_Twenty_TwentyOne {
 		// Filter single room wrapper tag
 		add_filter( 'hotelier_single_room_wrapper_tag', array( $this, 'single_room_wrapper_tag' ) );
 
+		// Remove default styles
+		add_filter( 'hotelier_enqueue_styles', '__return_false' );
+
 		// Enqueue custom style
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 	}
