@@ -25,6 +25,9 @@ class HTL_Twenty_TwentyOne {
 		// Remove default wrappers
 		remove_action( 'hotelier_before_main_content', 'hotelier_output_content_wrapper', 10 );
 		remove_action( 'hotelier_after_main_content', 'hotelier_output_content_wrapper_end', 10 );
+
+		// Remove sidebar
+		remove_action( 'hotelier_sidebar', 'hotelier_get_sidebar', 10 );
 	}
 }
 
