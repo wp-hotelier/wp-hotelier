@@ -35,6 +35,9 @@ class HTL_Twenty_TwentyOne {
 		// Filter single room wrapper tag
 		add_filter( 'hotelier_single_room_wrapper_tag', array( $this, 'single_room_wrapper_tag' ) );
 
+		// Filter single room thumbnail class
+		add_filter( 'hotelier_single_room_thumbnail_classes', array( $this, 'single_room_thumbnail_classes' ) );
+
 		// Remove default styles
 		add_filter( 'hotelier_enqueue_styles', '__return_false' );
 
@@ -95,6 +98,15 @@ class HTL_Twenty_TwentyOne {
 				return $new_classes;
 			}
 		}
+
+		return $classes;
+	}
+
+	/**
+	 * Filter single room thumbnail class.
+	 */
+	public function single_room_thumbnail_classes( $classes ) {
+		$classes[] = 'post-thumbnail';
 
 		return $classes;
 	}
