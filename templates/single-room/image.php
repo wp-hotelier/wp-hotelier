@@ -15,9 +15,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // The .room__thumbnail div is closed in single-room/gallery.php!
 
+$single_room_thumbnail_classes = apply_filters(
+	'hotelier_single_room_thumbnail_classes', array(
+		'room__thumbnail',
+		'room__thumbnail--single',
+	)
+);
+
 ?>
 
-<div class="room__thumbnail room__thumbnail--single">
+<div class="<?php echo esc_attr( implode( ' ', $single_room_thumbnail_classes ) ) ?>">
 
 	<?php
 		if ( has_post_thumbnail() ) {
