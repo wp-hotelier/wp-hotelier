@@ -48,6 +48,9 @@ class HTL_Twenty_TwentyOne {
 		// Remove original room gallery
 		remove_action( 'hotelier_single_room_images', 'hotelier_template_single_room_image', 10 );
 		remove_action( 'hotelier_single_room_images', 'hotelier_template_single_room_gallery', 20 );
+
+		// Remove post thumbnail class when disabled via settings
+		add_filter('post_class', array( $this, 'post_classes' ) );
 	}
 
 	/**
@@ -73,6 +76,27 @@ class HTL_Twenty_TwentyOne {
 	 */
 	public function enqueue_styles() {
 		wp_enqueue_style( 'hotelier-twenty-twentyone', HTL_PLUGIN_URL . 'assets/css/frontend/twenty-twentyone.css', array(), HTL_VERSION );
+	}
+
+	/**
+	 * Remove post thumbnail class when disabled via settings.
+	 */
+	public function post_classes( $classes ) {
+		if ( htl_get_option( 'room_hide_gallery', false ) ) {
+			$new_classes = array();
+
+			foreach ( $classes as $class ) {
+				if ( $class === 'has-post-thumbnail' ) {
+					continue;
+				}
+
+				$new_classes[] = $class;
+
+				return $new_classes;
+			}
+		}
+
+		return $classes;
 	}
 }
 
