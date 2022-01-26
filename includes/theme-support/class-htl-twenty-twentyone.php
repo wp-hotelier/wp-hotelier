@@ -38,6 +38,10 @@ class HTL_Twenty_TwentyOne {
 		remove_action( 'hotelier_archive_description', 'hotelier_taxonomy_archive_description', 10 );
 		add_action( 'hotelier_after_page_title', array( $this, 'archive_description' ), 10 );
 
+		// Remove default pagination and use a custom one
+		remove_action( 'hotelier_pagination', 'hotelier_pagination', 10 );
+		add_action( 'hotelier_after_main_content', array( $this, 'pagination' ), 15 );
+
 		// Remove sidebar
 		remove_action( 'hotelier_sidebar', 'hotelier_get_sidebar', 10 );
 
@@ -69,10 +73,6 @@ class HTL_Twenty_TwentyOne {
 
 		// Remove post thumbnail class when disabled via settings
 		add_filter('post_class', array( $this, 'post_classes' ) );
-
-		// Remove default pagination and use a custom one
-		remove_action( 'hotelier_pagination', 'hotelier_pagination', 10 );
-		add_action( 'hotelier_pagination', array( $this, 'pagination' ), 10 );
 	}
 
 	/**
