@@ -30,6 +30,8 @@ get_header( 'hotelier' ); ?>
 
 	<?php endif; ?>
 
+	<?php do_action( 'hotelier_after_archive_title' ); ?>
+
 	<?php
 		/**
 		 * hotelier_archive_description hook.
