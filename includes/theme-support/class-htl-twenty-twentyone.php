@@ -26,6 +26,10 @@ class HTL_Twenty_TwentyOne {
 		remove_action( 'hotelier_before_main_content', 'hotelier_output_content_wrapper', 10 );
 		remove_action( 'hotelier_after_main_content', 'hotelier_output_content_wrapper_end', 10 );
 
+		// Add wrapper in archive pages
+		add_action( 'hotelier_before_main_content', array( $this, 'open_archive_wrapper' ), 15 );
+		add_action( 'hotelier_after_main_content', array( $this, 'close_archive_wrapper' ), 15 );
+
 		// Remove sidebar
 		remove_action( 'hotelier_sidebar', 'hotelier_get_sidebar', 10 );
 
@@ -122,6 +126,26 @@ class HTL_Twenty_TwentyOne {
 		$classes[] = 'post-thumbnail';
 
 		return $classes;
+	}
+
+	/**
+	 * Open wrapper in archive pages.
+	 */
+	public function open_archive_wrapper() {
+		?>
+		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+		<?php
+	}
+
+	/**
+	 * Close wrapper in archive pages.
+	 */
+	public function close_archive_wrapper() {
+		?>
+		</article>
+
+		<?php
 	}
 }
 
