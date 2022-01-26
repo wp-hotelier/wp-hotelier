@@ -34,6 +34,10 @@ class HTL_Twenty_TwentyOne {
 		add_action( 'hotelier_after_archive_title', array( $this, 'open_archive_content_wrapper' ), 10 );
 		add_action( 'hotelier_after_main_content', array( $this, 'close_archive_content_wrapper' ), 5 );
 
+		// Print archive description inside the header in archives pages (and remove the original one)
+		remove_action( 'hotelier_archive_description', 'hotelier_taxonomy_archive_description', 10 );
+		add_action( 'hotelier_after_page_title', array( $this, 'archive_description' ), 10 );
+
 		// Remove sidebar
 		remove_action( 'hotelier_sidebar', 'hotelier_get_sidebar', 10 );
 
@@ -217,6 +221,19 @@ class HTL_Twenty_TwentyOne {
 		</div>
 
 		<?php
+	}
+
+	/**
+	 * Print description in archive pages.
+	 */
+	public function archive_description() {
+		if ( is_tax( 'room_cat' ) ) {
+			$description = do_shortcode( shortcode_unautop( wpautop( term_description() ) ) );
+
+			if ( $description ) {
+				echo '<div class="archive-description taxonomy-description page__description">' . $description . '</div>';
+			}
+		}
 	}
 }
 
