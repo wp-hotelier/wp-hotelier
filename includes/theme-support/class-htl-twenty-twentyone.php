@@ -32,6 +32,9 @@ class HTL_Twenty_TwentyOne {
 		// Filter single room header class
 		add_filter( 'hotelier_single_room_header_classes', array( $this, 'single_room_header_classes' ) );
 
+		// Filter archive header class
+		add_filter( 'hotelier_archive_header_classes', array( $this, 'archive_header_classes' ) );
+
 		// Filter single room wrapper tag
 		add_filter( 'hotelier_single_room_wrapper_tag', array( $this, 'single_room_wrapper_tag' ) );
 
@@ -60,6 +63,16 @@ class HTL_Twenty_TwentyOne {
 	 * Filter single room header class.
 	 */
 	public function single_room_header_classes( $classes ) {
+		$classes[] = 'alignwide';
+
+		return $classes;
+	}
+
+	/**
+	 * Filter archive header class.
+	 */
+	public function archive_header_classes( $classes ) {
+		$classes[] = 'entry-header';
 		$classes[] = 'alignwide';
 
 		return $classes;
