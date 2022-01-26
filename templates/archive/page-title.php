@@ -13,9 +13,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$archive_header_classes = apply_filters(
+	'hotelier_archive_header_classes', array(
+		'page-header',
+		'page__header'
+	)
+);
+
 ?>
 
-<header class="page-header page__header">
+<header class="<?php echo esc_attr( implode( ' ', $archive_header_classes ) ) ?>">
 	<?php do_action( 'hotelier_before_page_title' ); ?>
 
 	<h1 class="page-title page__title"><?php echo wp_kses_post( $page_title ); ?></h1>
