@@ -61,6 +61,10 @@ class HTL_Twenty_TwentyOne {
 
 		// Remove post thumbnail class when disabled via settings
 		add_filter('post_class', array( $this, 'post_classes' ) );
+
+		// Remove default pagination and use a custom one
+		remove_action( 'hotelier_pagination', 'hotelier_pagination', 10 );
+		add_action( 'hotelier_pagination', array( $this, 'pagination' ), 10 );
 	}
 
 	/**
@@ -146,6 +150,49 @@ class HTL_Twenty_TwentyOne {
 		</article>
 
 		<?php
+	}
+
+	/**
+	 * Add a custom pagination (in the style of Twenty TwentyOne).
+	 */
+	public function pagination() {
+		global $wp_query;
+
+		// Don't print empty markup if there's only one page.
+		if ( $wp_query->max_num_pages < 2 ) {
+			return;
+		}
+
+		the_posts_pagination(
+			array(
+				'before_page_number' => esc_html__( 'Page', 'wp-hotelier' ) . ' ',
+				'mid_size'           => 0,
+				'prev_text'          => sprintf(
+					'%s <span class="nav-prev-text">%s</span>',
+					is_rtl() ? twenty_twenty_one_get_icon_svg( 'ui', 'arrow_right' ) : twenty_twenty_one_get_icon_svg( 'ui', 'arrow_left' ),
+					wp_kses(
+						__( 'Next <span class="nav-short">rooms</span>', 'wp-hotelier' ),
+						array(
+							'span' => array(
+								'class' => array(),
+							),
+						)
+					)
+				),
+				'next_text'          => sprintf(
+					'<span class="nav-next-text">%s</span> %s',
+					wp_kses(
+						__( 'Previous <span class="nav-short">rooms</span>', 'wp-hotelier' ),
+						array(
+							'span' => array(
+								'class' => array(),
+							),
+						)
+					),
+					is_rtl() ? twenty_twenty_one_get_icon_svg( 'ui', 'arrow_left' ) : twenty_twenty_one_get_icon_svg( 'ui', 'arrow_right' )
+				),
+			)
+		);
 	}
 }
 
