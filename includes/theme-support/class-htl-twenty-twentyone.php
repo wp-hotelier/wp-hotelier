@@ -144,6 +144,9 @@ class HTL_Twenty_TwentyOne {
 	 * Open wrapper in archive pages.
 	 */
 	public function open_archive_wrapper() {
+		if ( is_room() ) {
+			return;
+		}
 		?>
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -154,6 +157,9 @@ class HTL_Twenty_TwentyOne {
 	 * Close wrapper in archive pages.
 	 */
 	public function close_archive_wrapper() {
+		if ( is_room() ) {
+			return;
+		}
 		?>
 		</article>
 
