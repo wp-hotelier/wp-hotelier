@@ -71,6 +71,10 @@ class HTL_Twenty_TwentyOne {
 		remove_action( 'hotelier_single_room_images', 'hotelier_template_single_room_image', 10 );
 		remove_action( 'hotelier_single_room_images', 'hotelier_template_single_room_gallery', 20 );
 
+		// Add wrapper to room deposit (single room page)
+		add_action( 'hotelier_before_single_room_deposit', array( $this, 'before_room_deposit' ) );
+		add_action( 'hotelier_after_single_room_deposit', array( $this, 'after_room_deposit' ) );
+
 		// Remove post thumbnail class when disabled via settings
 		add_filter('post_class', array( $this, 'post_classes' ) );
 	}
@@ -240,6 +244,32 @@ class HTL_Twenty_TwentyOne {
 				echo '<div class="archive-description taxonomy-description page__description">' . $description . '</div>';
 			}
 		}
+	}
+
+	/**
+	 * Open wrapper before room deposit.
+	 */
+	public function before_room_deposit() {
+		if ( ! is_room() ) {
+			return;
+		}
+		?>
+		<div class="room-deposit-wrapper">
+
+		<?php
+	}
+
+	/**
+	 * Close wrapper before room deposit.
+	 */
+	public function after_room_deposit() {
+		if ( ! is_room() ) {
+			return;
+		}
+		?>
+		</div>
+
+		<?php
 	}
 }
 
