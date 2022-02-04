@@ -41,7 +41,9 @@ if ( ! function_exists( 'is_booking' ) ) {
 	 * @return bool
 	 */
 	function is_booking() {
-		return is_page( htl_get_page_id( 'booking' ) ) || apply_filters( 'hotelier_is_booking', false ) ? true : false;
+		$page_id = htl_get_page_id( 'booking' );
+
+		return ( $page_id && is_page( $page_id ) ) || htl_post_content_has_shortcode( 'hotelier_booking' ) || apply_filters( 'hotelier_is_booking', false ) ? true : false;
 	}
 }
 
@@ -52,7 +54,9 @@ if ( ! function_exists( 'is_listing' ) ) {
 	 * @return bool
 	 */
 	function is_listing() {
-		return is_page( htl_get_page_id( 'listing' ) ) || apply_filters( 'hotelier_is_listing', false ) ? true : false;
+		$page_id = htl_get_page_id( 'listing' );
+
+		return ( $page_id && is_page( $page_id ) ) || htl_post_content_has_shortcode( 'hotelier_listing' ) || apply_filters( 'hotelier_is_listing', false ) ? true : false;
 	}
 }
 
