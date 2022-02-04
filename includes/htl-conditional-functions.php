@@ -159,3 +159,15 @@ if ( ! function_exists( 'is_htl_endpoint_url' ) ) {
 		}
 	}
 }
+
+/**
+ * Checks whether the content passed contains a specific short code.
+ *
+ * @param  string $tag Shortcode tag to check.
+ * @return bool
+ */
+function htl_post_content_has_shortcode( $tag = '' ) {
+	global $post;
+
+	return is_singular() && is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, $tag );
+}
