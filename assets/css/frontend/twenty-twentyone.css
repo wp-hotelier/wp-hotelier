@@ -11,3 +11,742 @@
 # Booking Page
 # Widgets
 */
+/*--------------------------------------------------------------
+>>> GLOBAL
+----------------------------------------------------------------
+*/
+/* Notices */
+.hotelier-notice {
+  background-color: #fff;
+  border-left: 3px solid var(--global--color-secondary);
+  margin-bottom: var(--global--spacing-vertical);
+  padding: calc(0.5 * var(--global--spacing-vertical)) calc(0.5 * var(--global--spacing-vertical)) calc(0.5 * var(--global--spacing-vertical)) var(--global--spacing-horizontal);
+}
+
+.hotelier-notice--error {
+  list-style: none;
+  margin-left: 0;
+  border-color: #ff0033;
+}
+
+/* Cart errors */
+.cart-errors {
+  font-style: italic;
+}
+
+.button--backward {
+  display: inline-block;
+  margin-top: var(--global--spacing-vertical);
+}
+
+/* No rooms found */
+.no-rooms-found {
+  font-style: italic;
+}
+
+/* Loops */
+.room-loop__list {
+  list-style: none;
+  margin-left: 0;
+  -webkit-column-gap: var(--global--spacing-vertical);
+     -moz-column-gap: var(--global--spacing-vertical);
+          column-gap: var(--global--spacing-vertical);
+  display: grid;
+  margin-bottom: var(--global--spacing-vertical);
+  padding: 0;
+  row-gap: var(--global--spacing-vertical);
+  width: 100%;
+}
+
+.room-loop__item {
+  display: block;
+}
+
+.button--view-room-details {
+  display: inline-block;
+  font-size: var(--global--font-size-xs) !important;
+  margin-top: calc(0.5 * var(--global--spacing-vertical));
+  padding: calc(0.5 * var(--button--padding-vertical)) calc(0.5 * var(--button--padding-horizontal)) !important;
+}
+
+.room__thumbnail--loop {
+  display: block;
+  margin-bottom: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.room__name--loop {
+  font-size: var(--heading--font-size-h4);
+  font-weight: var(--heading--font-weight-strong);
+  letter-spacing: var(--heading--letter-spacing-h4);
+  line-height: var(--heading--line-height-h4);
+}
+
+.room__price--loop {
+  display: block;
+  font-size: var(--global--font-size-xs);
+  margin-top: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.room__description--loop {
+  display: block;
+  font-size: var(--global--font-size-xs);
+}
+
+.room__name--loop + .room__description--loop {
+  margin-top: calc(0.5 * var(--global--spacing-vertical));
+}
+
+/* Room price */
+.room__price,
+.rate__price,
+.widget-rooms__price {
+  display: block;
+}
+
+.room__price .amount,
+.rate__price .amount,
+.widget-rooms__price .amount {
+  font-weight: bold;
+}
+
+.room__price del,
+.rate__price del,
+.widget-rooms__price del {
+  color: inherit;
+  font-size: 80%;
+  opacity: 0.5;
+}
+
+.room__price ins,
+.rate__price ins,
+.widget-rooms__price ins {
+  background: none;
+}
+
+/* Room deposit */
+.room__deposit,
+.rate__deposit {
+  background: #fff;
+  border: 3px solid var(--global--color-secondary);
+  display: inline-block;
+  font-size: var(--global--font-size-xs);
+  font-weight: bold;
+  padding: calc(0.5 * var(--button--padding-vertical)) calc(0.5 * var(--button--padding-horizontal));
+}
+
+/* Infos */
+.room__non-cancellable-info,
+.rate__non-cancellable-info,
+.room__not-available-info {
+  color: #ff0033;
+  font-weight: bold;
+}
+
+.room__min-max-stay {
+  font-weight: bold;
+}
+
+.room__max-guests-recommendation {
+  font-weight: bold;
+}
+
+/* Room conditions */
+.room__conditions-list,
+.rate__conditions-list {
+  margin-top: var(--global--spacing-vertical);
+  margin-bottom: var(--global--spacing-vertical);
+}
+
+/* Form fields */
+.room-quantity__input {
+  min-width: 60px;
+}
+
+.form-row {
+  margin-top: var(--global--spacing-vertical);
+  margin-bottom: var(--global--spacing-vertical);
+}
+
+.form-row abbr.required {
+  border-bottom: none;
+  color: #ff0033;
+}
+
+.form-row label {
+  display: block;
+  font-weight: bold;
+}
+
+.form-row input[type="text"],
+.form-row input[type="number"],
+.form-row input[type="tel"],
+.form-row input[type="email"],
+.form-row input[type="url"],
+.form-row input[type="password"],
+.form-row input[type="search"],
+.form-row textarea,
+.form-row #country {
+  width: 100%;
+}
+
+/* Reservation tables */
+table.hotelier-table th, table.hotelier-table td {
+  vertical-align: top;
+}
+
+table.hotelier-table .amount {
+  font-weight: bold;
+}
+
+table.hotelier-table tfoot th {
+  text-align: left;
+}
+
+table.hotelier-table tfoot td {
+  text-align: right;
+}
+
+.reservation-table__room-qty {
+  text-align: center;
+  width: 60px;
+}
+
+.reservation-table__room-cost,
+.reservation-table__room-extra-cost {
+  text-align: right;
+}
+
+.reservation-table__room-link {
+  font-weight: bold;
+}
+
+.reservation-table__room-rate {
+  display: block;
+}
+
+.reservation-table__room-non-cancellable {
+  color: #ff0033;
+  display: block;
+  font-weight: bold;
+}
+
+.reservation-table__extra-guests-fee {
+  display: block;
+  font-size: var(--global--font-size-xs);
+}
+
+.reservation-table__room-guests {
+  display: block;
+  font-size: var(--global--font-size-xs);
+  margin-top: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.reservation-table__room-guests-label {
+  display: block;
+}
+
+.extra__description {
+  display: block;
+  font-size: var(--global--font-size-xs);
+}
+
+/*--------------------------------------------------------------
+>>> DATEPICKER
+----------------------------------------------------------------
+*/
+.datepicker-form {
+  border-bottom: 3px solid var(--global--color-border);
+  padding-bottom: var(--global--spacing-vertical);
+  position: relative;
+}
+
+.datepicker-input-select {
+  margin: 0 !important;
+  width: 100% !important;
+  margin-right: var(--global--spacing-vertical);
+}
+
+.datepicker-input-select:hover {
+  cursor: pointer;
+}
+
+.datepicker-input-select:focus {
+  outline: none !important;
+}
+
+.button--datepicker {
+  width: 100%;
+}
+
+.datepicker-input-select-wrapper {
+  display: inline-block;
+  width: 100%;
+}
+
+.datepicker {
+  background-color: #fff;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  max-width: var(--responsive--aligndefault-width);
+  z-index: 999999;
+  border: 3px solid var(--global--color-border);
+  border-top: none;
+  font-size: var(--global--font-size-xs);
+}
+
+.datepicker table,
+.datepicker caption,
+.datepicker th,
+.datepicker td {
+  text-align: center;
+  font-size: .875rem;
+}
+
+.datepicker__inner {
+  padding: var(--global--spacing-vertical) var(--global--spacing-horizontal);
+}
+
+.datepicker__month {
+  border-collapse: collapse;
+  border: none;
+  margin-bottom: 0;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.datepicker__month--month2 {
+  display: none;
+}
+
+.datepicker__month-day--valid {
+  cursor: pointer;
+}
+
+.datepicker__month-day--lastMonth,
+.datepicker__month-day--nextMonth {
+  visibility: hidden;
+}
+
+.datepicker__info--feedback {
+  display: none;
+}
+
+.datepicker__info--error,
+.datepicker__info--help {
+  display: block;
+}
+
+.datepicker__close-button {
+  display: none;
+}
+
+.datepicker__month-button {
+  cursor: pointer;
+  display: block;
+}
+
+.datepicker__tooltip {
+  font-size: .7rem;
+  background-color: var(--global--color-primary);
+  color: #fff;
+  margin-top: -5px;
+  padding: 5px 10px;
+  position: absolute;
+}
+
+.datepicker__tooltip:after {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid var(--global--color-primary);
+  bottom: -4px;
+  content: '';
+  left: 50%;
+  margin-left: -4px;
+  position: absolute;
+}
+
+.datepicker__month-caption {
+  height: var(--global--spacing-vertical);
+  vertical-align: middle;
+}
+
+.datepicker__month-caption th {
+  border: none;
+  opacity: .5;
+}
+
+.datepicker__week-days {
+  height: var(--global--spacing-vertical);
+  vertical-align: middle;
+}
+
+.datepicker__week-name {
+  border: none;
+  border-bottom: 3px solid var(--global--color-border);
+}
+
+.datepicker__month-day {
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  -webkit-transition-property: color, background-color, border-color, opacity;
+  transition-property: color, background-color, border-color, opacity;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  padding: 7px;
+  font-weight: bold;
+}
+
+.datepicker__month-day--invalid {
+  color: rgba(40, 48, 61, 0.3);
+}
+
+.datepicker__month-day--disabled {
+  color: rgba(40, 48, 61, 0.3);
+  position: relative;
+}
+
+.datepicker__month-day--disabled:after {
+  color: #ff0033;
+  content: '\00d7';
+  font-size: 16px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.datepicker__month-day--selected {
+  background-color: rgba(40, 48, 61, 0.5);
+  color: #fff;
+}
+
+.datepicker__month-day--hovering {
+  background-color: rgba(40, 48, 61, 0.3);
+  color: #fff;
+}
+
+.datepicker__month-day--today {
+  background-color: var(--global--color-background);
+}
+
+.datepicker__month-day--first-day-selected,
+.datepicker__month-day--last-day-selected {
+  background-color: var(--global--color-dark-gray);
+  color: #fff;
+}
+
+.datepicker__month-day--last-day-selected:after {
+  content: none;
+}
+
+.datepicker__topbar {
+  margin-bottom: calc(0.5 * var(--global--spacing-vertical));
+  position: relative;
+}
+
+.datepicker__info-text--selected-days {
+  font-style: normal;
+}
+
+.datepicker__info--error {
+  color: #ff0033;
+  font-style: italic;
+}
+
+/*--------------------------------------------------------------
+>>> SINGLE ROOM
+----------------------------------------------------------------
+*/
+.room__gallery-link--single {
+  font-size: var(--global--font-size-lg);
+}
+
+.room__gallery--single {
+  text-align: left;
+}
+
+.room__price--single {
+  font-size: var(--global--font-size-lg);
+  margin: var(--global--spacing-vertical) 0;
+}
+
+.room__price--single .amount {
+  font-size: var(--global--font-size-xl);
+}
+
+.room-available-rates {
+  max-width: var(--responsive--aligndefault-width);
+  margin-right: auto;
+}
+
+.room-available-rates__link {
+  font-size: var(--global--font-size-lg);
+  margin-bottom: var(--global--spacing-vertical);
+  display: inline-block;
+}
+
+.room-deposit-wrapper {
+  max-width: var(--responsive--aligndefault-width);
+  margin-right: auto;
+}
+
+.room__deposit--single {
+  margin-bottom: var(--global--spacing-vertical);
+}
+
+.room__non-cancellable-info--single {
+  margin-bottom: var(--global--spacing-vertical);
+  max-width: var(--responsive--aligndefault-width);
+  margin-right: auto;
+}
+
+.room__min-max-stay--single {
+  margin-bottom: var(--global--spacing-vertical);
+  max-width: var(--responsive--aligndefault-width);
+  margin-right: auto;
+}
+
+.room__details--single {
+  max-width: var(--responsive--alignwide-width) !important;
+  margin-right: auto;
+}
+
+.room__details--single h3 {
+  margin-bottom: var(--global--spacing-vertical);
+  margin-top: var(--global--spacing-vertical);
+}
+
+.room__details--single ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.room__details--single .datepicker-form {
+  max-width: var(--responsive--aligndefault-width);
+  margin-right: auto;
+}
+
+.room__meta--single {
+  border-top: 3px solid var(--global--color-secondary);
+  margin-bottom: var(--global--spacing-vertical);
+}
+
+.room__facilities--single {
+  margin-bottom: var(--global--spacing-vertical);
+}
+
+.room__description--single {
+  border-top: 3px solid var(--global--color-secondary);
+  margin-bottom: var(--global--spacing-vertical);
+  max-width: var(--responsive--alignwide-width) !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.room__description--single > * {
+  margin-top: var(--global--spacing-vertical);
+  margin-bottom: var(--global--spacing-vertical);
+}
+
+.related-rooms {
+  margin-top: calc(2 * var(--global--spacing-vertical)) !important;
+  max-width: var(--responsive--alignwide-width) !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.related-rooms-title {
+  margin-bottom: var(--global--spacing-vertical);
+  margin-top: var(--global--spacing-vertical);
+}
+
+/*--------------------------------------------------------------
+>>> LISTING
+----------------------------------------------------------------
+*/
+.hotelier-listing .hotelier {
+  max-width: var(--responsive--alignwide-width) !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hotelier-listing .hotelier .datepicker-form {
+  max-width: var(--responsive--aligndefault-width);
+  margin-right: auto;
+}
+
+.selected-nights {
+  margin: var(--global--spacing-vertical) 0;
+  font-weight: bold;
+}
+
+.form--listing {
+  margin: var(--global--spacing-vertical) 0 0;
+}
+
+.listing__list {
+  list-style: none;
+  margin-left: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.listing__room {
+  border: 3px solid var(--global--color-secondary);
+  margin-bottom: var(--global--spacing-vertical);
+  padding: var(--global--spacing-vertical);
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  -webkit-transition-property: border-color;
+  transition-property: border-color;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.listing__room.room--selected {
+  outline-offset: 2px;
+  outline: 2px dotted var(--form--border-color);
+}
+
+/*--------------------------------------------------------------
+>>> BOOKING
+----------------------------------------------------------------
+*/
+.reservation-table__coupon-form {
+  text-align: left !important;
+}
+
+.coupon-form__input {
+  margin: 0 0 calc(0.5 * var(--global--spacing-vertical)) 0 !important;
+  width: 100%;
+}
+
+.coupon-form__apply {
+  display: block;
+  width: 100%;
+}
+
+.coupon-form .hotelier-notice {
+  margin: calc(0.5 * var(--global--spacing-vertical)) 0 0 0;
+}
+
+.coupon-card {
+  background-color: #fff;
+  border: 3px solid var(--global--color-secondary);
+  margin-top: calc(0.5 * var(--global--spacing-vertical));
+  padding: calc(0.5 * var(--button--padding-vertical)) calc(0.5 * var(--button--padding-horizontal));
+}
+
+.coupon-card__title {
+  display: block;
+  font-weight: bold;
+}
+
+.coupon-card__description {
+  font-size: var(--global--font-size-xs);
+}
+
+.coupon-form__remove {
+  display: inline-block;
+  font-size: var(--global--font-size-xs) !important;
+  margin-top: calc(0.5 * var(--global--spacing-vertical));
+  padding: calc(0.5 * var(--button--padding-vertical)) calc(0.5 * var(--button--padding-horizontal)) !important;
+}
+
+/*--------------------------------------------------------------
+>>> WIDGETS
+----------------------------------------------------------------
+*/
+
+@media only screen and (min-width: 482px) {
+  .room-loop--columns-2 .room-loop__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .room-loop--columns-3 .room-loop__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .room-loop--columns-4 .room-loop__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .room-loop--columns-5 .room-loop__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .room-loop--columns-6 .room-loop__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (min-width: 592px) {
+  .room-loop--columns-3 .room-loop__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .room-loop--columns-4 .room-loop__list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .room-loop--columns-5 .room-loop__list {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .room-loop--columns-6 .room-loop__list {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .datepicker-form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .datepicker-input-select {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    height: 100%;
+    border-right: 0 !important;
+  }
+  .button--datepicker {
+    width: auto;
+  }
+  .datepicker__months {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .datepicker__month--month1 {
+    margin-right: calc(0.5 * var(--global--spacing-vertical));
+  }
+  .datepicker__month--month2 {
+    display: table;
+    margin-left: calc(0.5 * var(--global--spacing-vertical));
+  }
+  .datepicker__month-button--disabled {
+    visibility: hidden;
+  }
+}
+
+@media only screen and (min-width: 592px) and (min-width: 46.25em) {
+  .form-row--first {
+    clear: both;
+    float: left;
+    margin-right: 4%;
+    width: 48%;
+    margin-top: 0;
+  }
+  .form-row--last {
+    float: right;
+    width: 48%;
+    margin-top: 0;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .room-loop__list {
+    -webkit-column-gap: calc(2 * var(--global--spacing-vertical));
+       -moz-column-gap: calc(2 * var(--global--spacing-vertical));
+            column-gap: calc(2 * var(--global--spacing-vertical));
+    margin-bottom: calc(2 * var(--global--spacing-vertical));
+    row-gap: calc(2 * var(--global--spacing-vertical));
+  }
+}

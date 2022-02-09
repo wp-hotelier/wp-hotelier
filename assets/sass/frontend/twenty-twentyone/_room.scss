@@ -1,0 +1,107 @@
+/*--------------------------------------------------------------
+>>> SINGLE ROOM
+----------------------------------------------------------------
+*/
+
+.room__gallery-link--single {
+	font-size: var(--global--font-size-lg);
+}
+
+.room__gallery--single {
+	text-align: left;
+}
+
+.room__price--single {
+	font-size: var(--global--font-size-lg);
+	margin: var(--global--spacing-vertical) 0;
+
+	.amount {
+		font-size: var(--global--font-size-xl);
+	}
+}
+
+.room-available-rates {
+	max-width: var(--responsive--aligndefault-width);
+	margin-right: auto;
+}
+
+.room-available-rates__link {
+	font-size: var(--global--font-size-lg);
+	margin-bottom: var(--global--spacing-vertical);
+	display: inline-block;
+}
+
+.room-deposit-wrapper {
+	max-width: var(--responsive--aligndefault-width);
+	margin-right: auto;
+}
+
+.room__deposit--single {
+	margin-bottom: var(--global--spacing-vertical);
+}
+
+.room__non-cancellable-info--single {
+	margin-bottom: var(--global--spacing-vertical);
+	max-width: var(--responsive--aligndefault-width);
+	margin-right: auto;
+}
+
+.room__min-max-stay--single {
+	margin-bottom: var(--global--spacing-vertical);
+	max-width: var(--responsive--aligndefault-width);
+	margin-right: auto;
+}
+
+.room__details--single {
+	max-width: var(--responsive--alignwide-width) !important;
+	margin-right: auto;
+
+	h3 {
+		margin-bottom: var(--global--spacing-vertical);
+		margin-top: var(--global--spacing-vertical);
+	}
+
+	ul {
+		@include clear-list();
+		padding-left: 0;
+	}
+
+	.datepicker-form {
+		max-width: var(--responsive--aligndefault-width);
+		margin-right: auto;
+	}
+}
+
+.room__meta--single {
+	border-top: 3px solid var(--global--color-secondary);
+	margin-bottom: var(--global--spacing-vertical);
+}
+
+.room__facilities--single {
+	margin-bottom: var(--global--spacing-vertical);
+}
+
+.room__description--single {
+	border-top: 3px solid var(--global--color-secondary);
+	margin-bottom: var(--global--spacing-vertical);
+	max-width: var(--responsive--alignwide-width) !important;
+	margin-left: auto;
+	margin-right: auto;
+
+	& > * {
+		margin-top: var(--global--spacing-vertical);
+		margin-bottom: var(--global--spacing-vertical);
+	}
+}
+
+.related-rooms {
+	margin-top: calc(2 * var(--global--spacing-vertical)) !important;
+	max-width: var(--responsive--alignwide-width) !important;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.related-rooms-title {
+	margin-bottom: var(--global--spacing-vertical);
+	margin-top: var(--global--spacing-vertical);
+}

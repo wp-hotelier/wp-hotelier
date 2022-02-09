@@ -1,0 +1,314 @@
+/*--------------------------------------------------------------
+>>> GLOBAL
+----------------------------------------------------------------
+*/
+
+/* Notices */
+
+.hotelier-notice {
+	background-color: #fff;
+	border-left: 3px solid var(--global--color-secondary);
+	margin-bottom: var(--global--spacing-vertical);
+	padding: calc(0.5 * var(--global--spacing-vertical)) calc(0.5 * var(--global--spacing-vertical)) calc(0.5 * var(--global--spacing-vertical)) var(--global--spacing-horizontal);
+}
+
+.hotelier-notice--error {
+	@include clear-list();
+	border-color: #ff0033;
+}
+
+/* Cart errors */
+
+.cart-errors {
+	font-style: italic;
+}
+
+.button--backward {
+	display: inline-block;
+	margin-top: var(--global--spacing-vertical);
+}
+
+/* No rooms found */
+
+.no-rooms-found {
+	font-style: italic;
+}
+
+/* Loops */
+
+.room-loop__list {
+	@include clear-list();
+	column-gap: var(--global--spacing-vertical);
+	display: grid;
+	margin-bottom: var(--global--spacing-vertical);
+	padding: 0;
+	row-gap: var(--global--spacing-vertical);
+	width: 100%;
+
+	@media only screen and (min-width: 1024px) {
+		column-gap: calc(2 * var(--global--spacing-vertical));
+		margin-bottom: calc(2 * var(--global--spacing-vertical));
+		row-gap: calc(2 * var(--global--spacing-vertical));
+	}
+}
+
+
+.room-loop--columns-2 .room-loop__list {
+	@media only screen and (min-width: 482px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+.room-loop--columns-3 .room-loop__list {
+	@media only screen and (min-width: 482px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media only screen and (min-width: 592px) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+.room-loop--columns-4 .room-loop__list {
+	@media only screen and (min-width: 482px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media only screen and (min-width: 592px) {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+.room-loop--columns-5 .room-loop__list {
+	@media only screen and (min-width: 482px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media only screen and (min-width: 592px) {
+		grid-template-columns: repeat(5, 1fr);
+	}
+}
+
+.room-loop--columns-6 .room-loop__list {
+	@media only screen and (min-width: 482px) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	@media only screen and (min-width: 592px) {
+		grid-template-columns: repeat(5, 1fr);
+	}
+}
+
+.room-loop__item {
+	display: block;
+}
+
+.button--view-room-details {
+	display: inline-block;
+	font-size: var(--global--font-size-xs) !important;
+	margin-top: calc(0.5 * var(--global--spacing-vertical));
+	padding: calc(0.5 * var(--button--padding-vertical)) calc(0.5 * var(--button--padding-horizontal)) !important;
+}
+
+.room__thumbnail--loop {
+	display: block;
+	margin-bottom: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.room__name--loop {
+	font-size: var(--heading--font-size-h4);
+	font-weight: var(--heading--font-weight-strong);
+	letter-spacing: var(--heading--letter-spacing-h4);
+	line-height: var(--heading--line-height-h4);
+}
+
+.room__price--loop {
+	display: block;
+	font-size: var(--global--font-size-xs);
+	margin-top: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.room__description--loop {
+	display: block;
+	font-size: var(--global--font-size-xs);
+}
+
+.room__name--loop + .room__description--loop {
+	margin-top: calc(0.5 * var(--global--spacing-vertical));
+}
+
+/* Room price */
+
+.room__price,
+.rate__price,
+.widget-rooms__price {
+	display: block;
+
+	.amount {
+		font-weight: bold;
+	}
+
+	del {
+		color: inherit;
+		font-size: 80%;
+		opacity: 0.5;
+	}
+
+	ins {
+		background: none;
+	}
+}
+
+/* Room deposit */
+
+.room__deposit,
+.rate__deposit {
+	background: #fff;
+	border: 3px solid var(--global--color-secondary);
+	display: inline-block;
+	font-size: var(--global--font-size-xs);
+	font-weight: bold;
+	padding: calc(0.5 * var(--button--padding-vertical)) calc(0.5 * var(--button--padding-horizontal));
+}
+
+/* Infos */
+
+.room__non-cancellable-info,
+.rate__non-cancellable-info,
+.room__not-available-info {
+	color: #ff0033;
+	font-weight: bold;
+}
+
+.room__min-max-stay {
+	font-weight: bold;
+}
+
+.room__max-guests-recommendation {
+	font-weight: bold;
+}
+
+/* Room conditions */
+
+.room__conditions-list,
+.rate__conditions-list {
+	margin-top: var(--global--spacing-vertical);
+    margin-bottom: var(--global--spacing-vertical);
+}
+
+/* Form fields */
+
+.room-quantity__input {
+	min-width: 60px;
+}
+
+.form-row {
+	margin-top: var(--global--spacing-vertical);
+	margin-bottom: var(--global--spacing-vertical);
+
+	abbr.required {
+		border-bottom: none;
+		color: #ff0033;
+	}
+
+	label {
+		display: block;
+		font-weight: bold;
+	}
+
+	input[type="text"],
+	input[type="number"],
+	input[type="tel"],
+	input[type="email"],
+	input[type="url"],
+	input[type="password"],
+	input[type="search"],
+	textarea,
+	#country {
+		width: 100%;
+	}
+}
+
+@media only screen and (min-width: 592px) {
+	@include mq($from: tablet) {
+		.form-row--first {
+			clear: both;
+			float: left;
+			margin-right: 4%;
+			width: 48%;
+			margin-top: 0;
+		}
+
+		.form-row--last {
+			float: right;
+			width: 48%;
+			margin-top: 0;
+		}
+	}
+}
+
+/* Reservation tables */
+
+table.hotelier-table {
+	th, td {
+		vertical-align: top;
+	}
+
+	.amount {
+		font-weight: bold;
+	}
+
+	tfoot {
+		th {
+			text-align: left;
+		}
+
+		td {
+			text-align: right;
+		}
+	}
+}
+
+.reservation-table__room-qty {
+	text-align: center;
+	width: 60px;
+}
+
+.reservation-table__room-cost,
+.reservation-table__room-extra-cost {
+	text-align: right;
+}
+
+.reservation-table__room-link {
+	font-weight: bold;
+}
+
+.reservation-table__room-rate {
+	display: block;
+}
+
+.reservation-table__room-non-cancellable {
+	color: #ff0033;
+	display: block;
+	font-weight: bold;
+}
+
+.reservation-table__extra-guests-fee {
+	display: block;
+	font-size: var(--global--font-size-xs);
+}
+
+.reservation-table__room-guests {
+	display: block;
+	font-size: var(--global--font-size-xs);
+	margin-top: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.reservation-table__room-guests-label {
+	display: block;
+}
+
+.extra__description {
+	display: block;
+	font-size: var(--global--font-size-xs);
+}

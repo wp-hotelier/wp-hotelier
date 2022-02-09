@@ -1,0 +1,46 @@
+/*--------------------------------------------------------------
+>>> LISTING
+----------------------------------------------------------------
+*/
+
+.hotelier-listing {
+	.hotelier {
+		max-width: var(--responsive--alignwide-width) !important;
+		margin-left: auto;
+		margin-right: auto;
+
+		.datepicker-form {
+			max-width: var(--responsive--aligndefault-width);
+			margin-right: auto;
+		}
+	}
+}
+
+.selected-nights {
+	margin: var(--global--spacing-vertical) 0;
+	font-weight: bold;
+}
+
+.form--listing {
+	margin: var(--global--spacing-vertical) 0 0;
+}
+
+.listing__list {
+	@include clear-list();
+	margin: 0;
+	padding: 0;
+}
+
+.listing__room {
+	border: 3px solid var(--global--color-secondary);
+	margin-bottom: var(--global--spacing-vertical);
+	padding: var(--global--spacing-vertical);
+	transition-duration: 0.2s;
+	transition-property: border-color;
+	transition-timing-function: cubic-bezier(.4,0,.2,1);
+
+	&.room--selected {
+		outline-offset: 2px;
+		outline: 2px dotted var(--form--border-color);
+	}
+}

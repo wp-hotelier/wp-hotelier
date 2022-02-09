@@ -1,0 +1,47 @@
+/*--------------------------------------------------------------
+>>> BOOKING
+----------------------------------------------------------------
+*/
+
+.reservation-table__coupon-form {
+	text-align: left !important;
+}
+
+.coupon-form__input {
+	margin: 0 0 calc(0.5 * var(--global--spacing-vertical)) 0 !important;
+	width: 100%;
+}
+
+.coupon-form__apply {
+	display: block;
+	width: 100%;
+}
+
+.coupon-form {
+	.hotelier-notice {
+		margin: calc(0.5 * var(--global--spacing-vertical)) 0 0 0;
+	}
+}
+
+.coupon-card {
+	background-color: #fff;
+	border: 3px solid var(--global--color-secondary);
+	margin-top: calc(0.5 * var(--global--spacing-vertical));
+	padding: calc(0.5 * var(--button--padding-vertical)) calc(0.5 * var(--button--padding-horizontal));
+}
+
+.coupon-card__title {
+	display: block;
+	font-weight: bold;
+}
+
+.coupon-card__description {
+	font-size: var(--global--font-size-xs);
+}
+
+.coupon-form__remove {
+	display: inline-block;
+	font-size: var(--global--font-size-xs) !important;
+	margin-top: calc(0.5 * var(--global--spacing-vertical));
+	padding: calc(0.5 * var(--button--padding-vertical)) calc(0.5 * var(--button--padding-horizontal)) !important;
+}

@@ -1,0 +1,239 @@
+/*--------------------------------------------------------------
+>>> DATEPICKER
+----------------------------------------------------------------
+*/
+
+.datepicker-form {
+	border-bottom: 3px solid var(--global--color-border);
+	padding-bottom: var(--global--spacing-vertical);
+	position: relative;
+
+	@media only screen and (min-width: 592px) {
+		display: flex;
+	}
+}
+
+.datepicker-input-select {
+	margin: 0 !important;
+	width: 100% !important;
+	margin-right: var(--global--spacing-vertical);
+
+	@media only screen and (min-width: 592px) {
+		flex-grow: 1;
+		height: 100%;
+		border-right: 0 !important;
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	&:focus {
+		outline: none !important;
+	}
+}
+
+.button--datepicker {
+	width: 100%;
+
+	@media only screen and (min-width: 592px) {
+		width: auto;
+	}
+}
+
+.datepicker-input-select-wrapper {
+	display: inline-block;
+	width: 100%;
+}
+
+.datepicker {
+	background-color: #fff;
+	left: 0;
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+	max-width: var(--responsive--aligndefault-width);
+	z-index: 999999;
+	border: 3px solid var(--global--color-border);
+	border-top: none;
+
+	font-size: var(--global--font-size-xs);
+
+	table,
+	caption,
+	th,
+	td {
+		text-align: center;
+		font-size: .875rem;
+	}
+}
+
+.datepicker__inner {
+	padding: var(--global--spacing-vertical) var(--global--spacing-horizontal);
+}
+
+.datepicker__months {
+	@media only screen and (min-width: 592px) {
+		display: flex;
+	}
+}
+
+.datepicker__month {
+	border-collapse: collapse;
+	border: none;
+	margin-bottom: 0;
+	table-layout: fixed;
+	width: 100%;
+}
+
+.datepicker__month--month1 {
+	@media only screen and (min-width: 592px) {
+		margin-right: calc(0.5 * var(--global--spacing-vertical));
+	}
+}
+
+.datepicker__month--month2 {
+	display: none;
+
+	@media only screen and (min-width: 592px) {
+		display: table;
+		margin-left: calc(0.5 * var(--global--spacing-vertical));
+	}
+}
+
+.datepicker__month-day--valid {
+	cursor: pointer;
+}
+
+.datepicker__month-day--lastMonth,
+.datepicker__month-day--nextMonth {
+	visibility: hidden;
+}
+
+.datepicker__month-button--disabled {
+	@media only screen and (min-width: 592px) {
+		visibility: hidden;
+	}
+}
+
+.datepicker__info--feedback {
+	display: none;
+}
+
+.datepicker__info--error,
+.datepicker__info--help {
+	display: block;
+}
+
+.datepicker__close-button {
+	display: none;
+}
+
+.datepicker__month-button {
+	cursor: pointer;
+	display: block;
+}
+
+.datepicker__tooltip {
+	font-size: .7rem;
+	background-color: var(--global--color-primary);
+	color: #fff;
+	margin-top: -5px;
+	padding: 5px 10px;
+	position: absolute;
+
+	&:after {
+		border-left: 4px solid transparent;
+		border-right: 4px solid transparent;
+		border-top: 4px solid var(--global--color-primary);
+		bottom: -4px;
+		content: '';
+		left: 50%;
+		margin-left: -4px;
+		position: absolute;
+	}
+}
+
+.datepicker__month-caption {
+	height: var(--global--spacing-vertical);
+	vertical-align: middle;
+
+	th {
+		border: none;
+		opacity: .5;
+	}
+}
+
+.datepicker__week-days {
+	height: var(--global--spacing-vertical);
+	vertical-align: middle;
+}
+
+.datepicker__week-name {
+	border: none;
+	border-bottom: 3px solid var(--global--color-border);
+}
+
+.datepicker__month-day {
+	@include transition;
+	border: none;
+	padding: 7px;
+	font-weight: bold;
+}
+
+.datepicker__month-day--invalid {
+	color: rgba(40, 48, 61, .3);
+}
+
+.datepicker__month-day--disabled {
+	color: rgba(40, 48, 61, .3);
+	position: relative;
+
+	&:after {
+		color: #ff0033;
+		content: '\00d7';
+		font-size: 16px;
+		left: 50%;
+		position: absolute;
+		top: 50%;
+		transform: translate(-50%,-50%);
+	}
+}
+
+.datepicker__month-day--selected {
+	background-color: rgba(40, 48, 61, .5);
+	color: #fff;
+}
+
+.datepicker__month-day--hovering {
+	background-color: rgba(40, 48, 61, .3);
+	color: #fff;
+}
+
+.datepicker__month-day--today {
+	background-color: var(--global--color-background);
+}
+
+.datepicker__month-day--first-day-selected,
+.datepicker__month-day--last-day-selected {
+	background-color: var(--global--color-dark-gray);
+	color: #fff;
+}
+
+.datepicker__month-day--last-day-selected:after {
+	content: none;
+}
+
+.datepicker__topbar {
+	margin-bottom: calc(0.5 * var(--global--spacing-vertical));
+	position: relative;
+}
+
+.datepicker__info-text--selected-days {
+	font-style: normal;
+}
+
+.datepicker__info--error {
+	color: #ff0033;
+	font-style: italic;
+}

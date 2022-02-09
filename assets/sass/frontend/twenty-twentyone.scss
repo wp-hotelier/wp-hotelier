@@ -14,6 +14,23 @@
 */
 
 // SETTINGS
-@import "../settings/frontend/settings";
-@import "../settings/frontend/mixins";
+@import "twenty-twentyone/vars";
 @import "node_modules/sass-mq/mq";
+
+// GLOBAL
+@import "twenty-twentyone/global";
+
+// DATEPICKER
+@import "twenty-twentyone/datepicker";
+
+// SINGLE ROOM
+@import "twenty-twentyone/room";
+
+// LISTING
+@import "twenty-twentyone/listing";
+
+// BOOKING
+@import "twenty-twentyone/booking";
+
+// WIDGETS
+@import "twenty-twentyone/widgets";
