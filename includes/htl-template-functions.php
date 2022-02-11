@@ -426,7 +426,7 @@ if ( ! function_exists( 'hotelier_template_single_room_min_max_info' ) ) {
 			$min_nights = $room->get_min_nights();
 			$max_nights = $room->get_max_nights();
 
-			$text = htl_get_room_min_max_info( $min_nights, $max_nights );
+			$text = htl_get_room_min_max_info( $min_nights, $max_nights, $room );
 
 			if ( $text ) {
 				htl_get_template( 'global/min-max-info.php', array( 'info' => $text, 'location' => 'single' ) );
@@ -571,10 +571,12 @@ if ( ! function_exists( 'hotelier_template_single_room_rate_min_max_info' ) ) {
 	 * Show minimum/maximum required nights in the single room page.
 	 */
 	function hotelier_template_single_room_rate_min_max_info( $variation ) {
+		global $room;
+
 		$min_nights = $variation->get_min_nights();
 		$max_nights = $variation->get_max_nights();
 
-		$text = htl_get_room_min_max_info( $min_nights, $max_nights );
+		$text = htl_get_room_min_max_info( $min_nights, $max_nights, $room );
 
 		if ( $text ) {
 			htl_get_template( 'global/min-max-info.php', array( 'info' => $text, 'location' => 'rate-single' ) );
@@ -935,7 +937,7 @@ if ( ! function_exists( 'hotelier_template_loop_room_min_max_info' ) ) {
 		$min_nights = $room->get_min_nights();
 		$max_nights = $room->get_max_nights();
 
-		$text = htl_get_room_min_max_info( $min_nights, $max_nights );
+		$text = htl_get_room_min_max_info( $min_nights, $max_nights, $room );
 
 		if ( $text ) {
 			htl_get_template( 'global/min-max-info.php', array( 'info' => $text, 'location' => 'listing' ) );
@@ -1032,10 +1034,12 @@ if ( ! function_exists( 'hotelier_template_loop_room_rate_min_max_info' ) ) {
 	 * Show rate minimum/maximum required nights in the listing page.
 	 */
 	function hotelier_template_loop_room_rate_min_max_info( $variation ) {
+		global $room;
+
 		$min_nights = $variation->get_min_nights();
 		$max_nights = $variation->get_max_nights();
 
-		$text = htl_get_room_min_max_info( $min_nights, $max_nights );
+		$text = htl_get_room_min_max_info( $min_nights, $max_nights, $room );
 
 		if ( $text ) {
 			htl_get_template( 'global/min-max-info.php', array( 'info' => $text, 'location' => 'rate-listing' ) );

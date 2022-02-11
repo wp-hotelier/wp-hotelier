@@ -570,7 +570,7 @@ function htl_get_room_reservations( $room_id, $checkin, $checkout ) {
  * @param  int $max_nights
  * @return string
  */
-function htl_get_room_min_max_info( $min_nights, $max_nights ) {
+function htl_get_room_min_max_info( $min_nights, $max_nights, $room ) {
 	if ( $min_nights > 1 && $max_nights ) {
 		$text = sprintf( __( '%s nights minimum stay and %s nights maximum stay', 'wp-hotelier' ), absint( $min_nights ), absint( $max_nights ) );
 	} else if ( $min_nights > 1 ) {
@@ -580,6 +580,8 @@ function htl_get_room_min_max_info( $min_nights, $max_nights ) {
 	} else {
 		$text = '';
 	}
+
+	$text = apply_filters( 'hotelier_get_room_min_max_info', $text, $min_nights, $max_nights, $room );
 
 	return $text;
 }
