@@ -356,6 +356,47 @@ class HTL_Room {
 	}
 
 	/**
+	 * Checks if the room is available on a given date
+	 * and if not, get the reason.
+	 *
+	 * @param string $checkin
+	 * @param string $checkout
+	 * @param int $qty
+	 * @param array $exclude
+	 * @param bool $force
+	 * @return array
+	 */
+	public function is_available_with_reason( $checkin, $checkout = false, $qty = 1, $exclude = array(), $force = false ) {
+		$reason           = '';
+		$checkout         = $checkout ? $checkout : $checkin;
+		$is_available     = false;
+		$has_enough_rooms = $this->has_enough_rooms( $checkin, $checkout, $qty, $exclude ) ? true : false;
+		$has_min_nights   = $this->check_min_nights( $checkin, $checkout );
+		$has_max_nights   = $this->check_max_nights( $checkin, $checkout );
+
+		if ( ! $has_min_nights || ! $has_max_nights ) {
+			$min_nights = $this->get_min_nights();
+			$max_nights = $this->get_max_nights();
+			$reason     = htl_get_room_not_available_min_max_info( $min_nights, $max_nights, $this );
+		}
+
+		if ( $has_enough_rooms && $has_min_nights && $max_nights ) {
+			$is_available = true;
+		}
+
+		$is_available = apply_filters( 'hotelier_room_is_available', $is_available, $this->id, $checkin, $checkout, $qty, $exclude );
+		$reason       = apply_filters( 'hotelier_room_is_available_reason_text', $reason, $is_available, $this->id, $checkin, $checkout, $qty, $exclude );
+
+		// When forcing a booking, we want at least the number of rooms to be available
+		$is_available = $force && $has_enough_rooms ? true : $is_available;
+
+		return array(
+			'is_available' => $is_available,
+			'reason'       => $reason,
+		);
+	}
+
+	/**
 	 * Gets the count of reserved rooms on a given date.
 	 *
 	 * @param string $checkin

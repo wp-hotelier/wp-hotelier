@@ -113,11 +113,16 @@ function hotelier_ajax_action_room_booking() {
 			}
 
 			// Check if the room is available
-			if ( ! $room->is_available( $checkin, $checkout, $quantity ) ) {
+			$is_available_with_reason = $room->is_available_with_reason( $checkin, $checkout, $quantity );
+			$is_available = isset( $is_available_with_reason['is_available'] ) && $is_available_with_reason['is_available'] ? true : false;
+
+			if ( ! $is_available ) {
 				// Not available
+				$reason = isset( $is_available_with_reason['reason'] ) && $is_available_with_reason['reason'] ? $is_available_with_reason['reason'] : esc_html__( 'Sorry, this room is not available on the given dates.', 'wp-hotelier' );
+
 				wp_send_json_error(
 					array(
-						'message' => esc_html__( 'Sorry, this room is not available on the given dates.', 'wp-hotelier' )
+						'message' => $reason
 					)
 				);
 			}
