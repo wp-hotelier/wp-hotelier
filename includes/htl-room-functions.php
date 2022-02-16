@@ -563,7 +563,7 @@ function htl_get_room_reservations( $room_id, $checkin, $checkout ) {
 }
 
 /**
- * Function that display an info about the minimum/amximum nights stay.
+ * Function that display an info about the minimum/maximum nights stay.
  *
  * @access public
  * @param  int $min_nights
@@ -582,6 +582,29 @@ function htl_get_room_min_max_info( $min_nights, $max_nights, $room ) {
 	}
 
 	$text = apply_filters( 'hotelier_get_room_min_max_info', $text, $min_nights, $max_nights, $room );
+
+	return $text;
+}
+
+
+/**
+ * Function that display a info about the minimum/maximum nights stay when not available.
+ *
+ * @access public
+ * @param  int $min_nights
+ * @param  int $max_nights
+ * @return string
+ */
+function htl_get_room_not_available_min_max_info( $min_nights, $max_nights, $room ) {
+	if ( $min_nights > 1 && $max_nights ) {
+		$text = sprintf( __( 'Sorry, this room requires a minimum of %s nights and a maximum of %s nights.', 'wp-hotelier' ), absint( $min_nights ), absint( $max_nights ) );
+	} else if ( $min_nights > 1 ) {
+		$text = sprintf( __( 'Sorry, this room requires a minimum of %s nights.', 'wp-hotelier' ), absint( $min_nights ) );
+	} else if ( $max_nights ) {
+		$text = sprintf( _n( 'Sorry, this room requires a maximum of %s night.', 'Sorry, this room requires a maximum of %s nights.', $max_nights, 'wp-hotelier' ), absint( $max_nights ) );
+	} else {
+		$text = '';
+	}
 
 	return $text;
 }
