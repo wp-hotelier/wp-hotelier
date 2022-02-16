@@ -185,7 +185,7 @@ msgstr ""
 msgid "Sorry, something went wrong during the booking."
 msgstr ""
 
-#: ../includes/class-htl-cart-totals.php:138, ../includes/class-htl-cart-totals.php:163, ../includes/ajax/htl-ajax-room-booking.php:110, ../includes/ajax/htl-ajax-room-booking.php:120, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:163
+#: ../includes/class-htl-cart-totals.php:138, ../includes/class-htl-cart-totals.php:163, ../includes/ajax/htl-ajax-room-booking.php:110, ../includes/ajax/htl-ajax-room-booking.php:121, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:163
 msgid "Sorry, this room is not available on the given dates."
 msgstr ""
 
@@ -1024,20 +1024,20 @@ msgstr ""
 msgid "Hotel Manager"
 msgstr ""
 
-#: ../includes/class-htl-room-variation.php:397, ../includes/class-htl-room-variation.php:390, ../includes/class-htl-room.php:789, ../includes/class-htl-room.php:782
+#: ../includes/class-htl-room-variation.php:397, ../includes/class-htl-room-variation.php:390, ../includes/class-htl-room.php:830, ../includes/class-htl-room.php:823
 msgctxt "price"
 msgid "Price: %s"
 msgstr ""
 
-#: ../includes/class-htl-room-variation.php:491, ../includes/class-htl-room.php:950, ../includes/class-htl-room.php:948
+#: ../includes/class-htl-room-variation.php:491, ../includes/class-htl-room.php:991, ../includes/class-htl-room.php:989
 msgid "%s per night"
 msgstr ""
 
-#: ../includes/class-htl-room-variation.php:478, ../includes/class-htl-room-variation.php:466, ../includes/class-htl-room.php:930, ../includes/class-htl-room.php:915, ../includes/class-htl-room.php:881
+#: ../includes/class-htl-room-variation.php:478, ../includes/class-htl-room-variation.php:466, ../includes/class-htl-room.php:971, ../includes/class-htl-room.php:956, ../includes/class-htl-room.php:922
 msgid "Rates from %s per night"
 msgstr ""
 
-#: ../includes/class-htl-room.php:767
+#: ../includes/class-htl-room.php:808
 msgctxt "min_price"
 msgid "From %s"
 msgstr ""
@@ -2213,6 +2213,20 @@ msgstr ""
 msgid "%s nights minimum stay and %s nights maximum stay"
 msgstr ""
 
+#: ../includes/htl-room-functions.php:604
+msgid "Sorry, this room requires a maximum of %s night."
+msgid_plural "Sorry, this room requires a maximum of %s nights."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../includes/htl-room-functions.php:602
+msgid "Sorry, this room requires a minimum of %s nights."
+msgstr ""
+
+#: ../includes/htl-room-functions.php:600
+msgid "Sorry, this room requires a minimum of %s nights and a maximum of %s nights."
+msgstr ""
+
 #: ../includes/htl-template-functions.php:251
 msgid "Rooms archive"
 msgstr ""
@@ -2225,15 +2239,15 @@ msgstr ""
 msgid "&nbsp;&ndash; Page %s"
 msgstr ""
 
-#: ../includes/htl-template-functions.php:1305
+#: ../includes/htl-template-functions.php:1309
 msgid "required"
 msgstr ""
 
-#: ../includes/htl-template-functions.php:1414, ../templates/widgets/ajax-room-booking/ajax-room-booking-form.php:40
+#: ../includes/htl-template-functions.php:1418, ../templates/widgets/ajax-room-booking/ajax-room-booking-form.php:40
 msgid "Nr. rooms"
 msgstr ""
 
-#: ../includes/htl-template-functions.php:1457, ../includes/htl-template-functions.php:1457
+#: ../includes/htl-template-functions.php:1461, ../includes/htl-template-functions.php:1461
 msgid "privacy policy"
 msgstr ""
 
@@ -2379,7 +2393,7 @@ msgstr ""
 msgid "Thank you for using <a href=\"%1$s\" target=\"_blank\">WP Hotelier</a>! If you like it, please leave us a %2$s rating. Cheers :)"
 msgstr ""
 
-#: ../includes/ajax/htl-ajax-coupons.php:101, ../includes/ajax/htl-ajax-room-booking.php:149
+#: ../includes/ajax/htl-ajax-coupons.php:101, ../includes/ajax/htl-ajax-room-booking.php:154
 msgid "Invalid or empty data."
 msgstr ""
 
