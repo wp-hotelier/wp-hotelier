@@ -568,6 +568,13 @@ class HTL_Admin_Settings_Default {
 						'std'     => 'manual-booking',
 						'options' => self::get_booking_mode_options()
 					),
+					'booking_admin_reservation_confirmed' => array(
+						'id'      => 'booking_admin_reservation_confirmed',
+						'name'    => esc_html__( 'Confirm admin reservations', 'wp-hotelier' ),
+						'subdesc' => __( 'Confirm admin (manual) reservations immediately if they do not require payment.', 'wp-hotelier' ),
+						'type'    => 'checkbox',
+						'toggle'  => true,
+					),
 					'booking_additional_information' => array(
 						'id'      => 'booking_additional_information',
 						'name'    => esc_html__( 'Show additional information', 'wp-hotelier' ),

@@ -189,6 +189,13 @@ class HTL_Admin_New_Reservation {
 					throw new Exception( $reservation_id->get_error_message() );
 				}
 
+				$reservation = htl_get_reservation( $reservation_id );
+
+				// Mark reservation as confirmed if the option is enabled
+				if ( ! ( $cart_totals->required_deposit > 0 ) && htl_get_option( 'booking_admin_reservation_confirmed', false ) ) {
+					$reservation->payment_complete();
+				}
+
 				if ( self::$force_booking ) {
 					remove_filter( 'hotelier_booking_minimum_nights', '__return_true' );
 					remove_filter( 'hotelier_booking_maximum_nights', '__return_zero' );
