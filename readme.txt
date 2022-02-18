@@ -116,6 +116,12 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 2.7.1 - 2022-02-18 =
+* Add - Show room minimum/maximum info in widget "AJAX Room Booking".
+* Add - Add new option to mark admin (manual) reservations as confirmed immediately.
+* Add - Ability to filter the minimum/maximum info text.
+* Localization - POT file updated.
+
 = 2.7.0 - 2022-01-14 =
 * Add - Add new widget "AJAX Room Booking" (allows to book a room from its page).
 * Add - Add new option to disable the listing page.
