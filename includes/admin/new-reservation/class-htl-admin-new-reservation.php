@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin
- * @version  2.6.0
+ * @version  2.7.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
