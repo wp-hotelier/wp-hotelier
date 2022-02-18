@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin
- * @version  2.6.0
+ * @version  2.7.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -567,6 +567,13 @@ class HTL_Admin_Settings_Default {
 						'type'    => 'switch',
 						'std'     => 'manual-booking',
 						'options' => self::get_booking_mode_options()
+					),
+					'booking_admin_reservation_confirmed' => array(
+						'id'      => 'booking_admin_reservation_confirmed',
+						'name'    => esc_html__( 'Confirm admin reservations', 'wp-hotelier' ),
+						'subdesc' => __( 'Confirm admin (manual) reservations immediately if they do not require payment.', 'wp-hotelier' ),
+						'type'    => 'checkbox',
+						'toggle'  => true,
 					),
 					'booking_additional_information' => array(
 						'id'      => 'booking_additional_information',

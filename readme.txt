@@ -3,7 +3,7 @@ Contributors: benitolopez
 Tags: booking, hotel, booking system, hostel, reservations, reservations, b&b, rooms, wphotelier
 Requires at least: 4.1
 Tested up to: 5.9
-Stable tag: 2.7.0
+Stable tag: 2.7.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -115,6 +115,12 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 4. WP Hotelier - Admin calendar.
 
 == Changelog ==
+
+= 2.7.1 - 2022-02-18 =
+* Add - Show room minimum/maximum info in widget "AJAX Room Booking".
+* Add - Add new option to mark admin (manual) reservations as confirmed immediately.
+* Add - Ability to filter the minimum/maximum info text.
+* Localization - POT file updated.
 
 = 2.7.0 - 2022-01-14 =
 * Add - Add new widget "AJAX Room Booking" (allows to book a room from its page).

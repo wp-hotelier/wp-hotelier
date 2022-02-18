@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin
- * @version  2.6.0
+ * @version  2.7.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -187,6 +187,13 @@ class HTL_Admin_New_Reservation {
 
 				if ( is_wp_error( $reservation_id ) ) {
 					throw new Exception( $reservation_id->get_error_message() );
+				}
+
+				$reservation = htl_get_reservation( $reservation_id );
+
+				// Mark reservation as confirmed if the option is enabled
+				if ( ! ( $cart_totals->required_deposit > 0 ) && htl_get_option( 'booking_admin_reservation_confirmed', false ) ) {
+					$reservation->payment_complete();
 				}
 
 				if ( self::$force_booking ) {
