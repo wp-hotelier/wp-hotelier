@@ -15,13 +15,13 @@
 
 .datepicker-input-select {
 	margin: 0 !important;
-	width: 100% !important;
 	margin-right: var(--global--spacing-vertical);
+	width: 100% !important;
 
 	@media only screen and (min-width: 592px) {
+		border-right: 0 !important;
 		flex-grow: 1;
 		height: 100%;
-		border-right: 0 !important;
 	}
 
 	&:hover {
@@ -48,23 +48,22 @@
 
 .datepicker {
 	background-color: #fff;
+	border: 3px solid var(--global--color-border);
+	border-top: none;
+	font-size: var(--global--font-size-xs);
 	left: 0;
+	max-width: var(--responsive--aligndefault-width);
 	overflow: hidden;
 	position: absolute;
 	width: 100%;
-	max-width: var(--responsive--aligndefault-width);
 	z-index: 999999;
-	border: 3px solid var(--global--color-border);
-	border-top: none;
-
-	font-size: var(--global--font-size-xs);
 
 	table,
 	caption,
 	th,
 	td {
-		text-align: center;
 		font-size: .875rem;
+		text-align: center;
 	}
 }
 
@@ -135,9 +134,9 @@
 }
 
 .datepicker__tooltip {
-	font-size: .7rem;
 	background-color: var(--global--color-primary);
 	color: #fff;
+	font-size: .7rem;
 	margin-top: -5px;
 	padding: 5px 10px;
 	position: absolute;
@@ -177,8 +176,8 @@
 .datepicker__month-day {
 	@include transition;
 	border: none;
-	padding: 7px;
 	font-weight: bold;
+	padding: 7px;
 }
 
 .datepicker__month-day--invalid {

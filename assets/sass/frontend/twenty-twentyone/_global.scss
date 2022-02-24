@@ -203,8 +203,8 @@
 }
 
 .form-row {
-	margin-top: var(--global--spacing-vertical);
 	margin-bottom: var(--global--spacing-vertical);
+	margin-top: var(--global--spacing-vertical);
 
 	abbr.required {
 		border-bottom: none;
@@ -235,14 +235,14 @@
 			clear: both;
 			float: left;
 			margin-right: 4%;
-			width: 48%;
 			margin-top: 0;
+			width: 48%;
 		}
 
 		.form-row--last {
 			float: right;
-			width: 48%;
 			margin-top: 0;
+			width: 48%;
 		}
 	}
 }
