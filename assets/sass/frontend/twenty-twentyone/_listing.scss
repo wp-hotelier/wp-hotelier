@@ -5,24 +5,28 @@
 
 .hotelier-listing {
 	.hotelier {
-		max-width: var(--responsive--alignwide-width) !important;
 		margin-left: auto;
 		margin-right: auto;
+		max-width: var(--responsive--alignwide-width) !important;
 
 		.datepicker-form {
-			max-width: var(--responsive--aligndefault-width);
 			margin-right: auto;
+			max-width: var(--responsive--aligndefault-width);
 		}
 	}
 }
 
 .selected-nights {
-	margin: var(--global--spacing-vertical) 0;
 	font-weight: bold;
+	margin: var(--global--spacing-vertical) 0;
 }
 
 .form--listing {
 	margin: var(--global--spacing-vertical) 0 0;
+
+	.button {
+		display: inline-block;
+	}
 }
 
 .listing__list {
@@ -39,8 +43,180 @@
 	transition-property: border-color;
 	transition-timing-function: cubic-bezier(.4,0,.2,1);
 
-	&.room--selected {
+	&.room--selected,
+	&.listing__room--queried {
 		outline-offset: 2px;
 		outline: 2px dotted var(--form--border-color);
+	}
+
+	&.listing__room--queried {
+		margin-bottom: calc(2 * var(--global--spacing-vertical));
+	}
+}
+
+.room__content-wrapper {
+	margin-bottom: var(--global--spacing-vertical);
+
+	@media only screen and (min-width: 592px) {
+		display: flex;
+		flex-wrap: wrap;
+		margin-bottom: 0;
+		padding-left: 180px;
+		position: relative;
+	}
+}
+
+.room__rates--listing {
+	margin-top: var(--global--spacing-vertical);
+}
+
+.rate__description-wrapper {
+	@media only screen and (min-width: 592px) {
+		padding-right: 4%;
+		width: 60%;
+	}
+}
+
+.room__rate {
+	@media only screen and (min-width: 592px) {
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
+
+.room__rate--listing {
+	border-top: 1px solid var(--global--color-border);
+	padding: var(--global--spacing-vertical) 0;
+
+	&:last-child {
+		padding-bottom: 0;
+	}
+}
+
+.room__content--listing,
+.rate__content--listing {
+	@media only screen and (min-width: 592px) {
+		padding-right: 4%;
+		width: 60%;
+	}
+}
+
+.room__actions,
+.rate__actions {
+	border-top: 1px solid var(--global--color-border);
+	margin-top: var(--global--spacing-vertical);
+	padding-top: var(--global--spacing-vertical);
+
+	@media only screen and (min-width: 592px) {
+		border-top: none;
+		margin-top: 0;
+		padding-top: 0;
+		text-align: right;
+		width: 40%;
+	}
+}
+
+.room__gallery-thumbnail--listing {
+	display: inline-block;
+
+	img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 75px;
+	}
+}
+
+.room__gallery--listing {
+	margin-top: var(--global--spacing-vertical);
+
+	@media only screen and (min-width: 592px) {
+		left: 0;
+		margin-top: 0;
+		position: absolute;
+		text-align: center;
+		top: 0;
+	}
+}
+
+.room__gallery-link--listing {
+	display: inline-block;
+	font-size: var(--global--font-size-xs);
+	margin-top: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.room__name--listing {
+	margin-bottom: var(--global--spacing-vertical);
+}
+
+.room__price-description,
+.rate__price-description {
+	display: block;
+	font-size: var(--global--font-size-xs);
+	font-style: italic;
+	margin-bottom: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.room__description,
+.rate__description {
+	margin: calc(0.5 * var(--global--spacing-vertical)) 0;
+}
+
+.room__more-link,
+.button--extras-toggle {
+	font-size: var(--global--font-size-xs);
+}
+
+.room__max-guests {
+	margin-top: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.room__deposit--listing,
+.rate__deposit--listing {
+	margin-bottom: calc(0.5 * var(--global--spacing-vertical));
+	margin-top: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.room__details--listing {
+	font-size: var(--global--font-size-xs);
+	margin-top: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.room__rate--listing {
+	border-top: 1px solid var(--global--color-border);
+	padding: var(--global--spacing-vertical) 0;
+}
+
+.rate__name--listing {
+	font-size: var(--global--font-size-xs);
+	font-weight: bold;
+}
+
+.add-to-cart-selected {
+	display: block;
+	font-size: var(--global--font-size-xs);
+}
+
+.room-quantity {
+	margin-bottom: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.room__non-cancellable-info--listing {
+	margin-bottom: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.room__only-x-left {
+	background-color: transparent;
+	color: #ff0033;
+	display: inline-block;
+	font-style: italic;
+	font-weight: bold;
+	margin-bottom: calc(0.5 * var(--global--spacing-vertical));
+}
+
+#reserve-rooms-button {
+	input[type="submit"] {
+		display: block;
+		width: 100%;
 	}
 }
