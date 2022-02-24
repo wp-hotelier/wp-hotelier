@@ -21,19 +21,19 @@
 }
 
 .room-available-rates {
-	max-width: var(--responsive--aligndefault-width);
 	margin-right: auto;
+	max-width: var(--responsive--aligndefault-width);
 }
 
 .room-available-rates__link {
+	display: inline-block;
 	font-size: var(--global--font-size-lg);
 	margin-bottom: var(--global--spacing-vertical);
-	display: inline-block;
 }
 
 .room-deposit-wrapper {
-	max-width: var(--responsive--aligndefault-width);
 	margin-right: auto;
+	max-width: var(--responsive--aligndefault-width);
 }
 
 .room__deposit--single {
@@ -42,19 +42,19 @@
 
 .room__non-cancellable-info--single {
 	margin-bottom: var(--global--spacing-vertical);
-	max-width: var(--responsive--aligndefault-width);
 	margin-right: auto;
+	max-width: var(--responsive--aligndefault-width);
 }
 
 .room__min-max-stay--single {
 	margin-bottom: var(--global--spacing-vertical);
-	max-width: var(--responsive--aligndefault-width);
 	margin-right: auto;
+	max-width: var(--responsive--aligndefault-width);
 }
 
 .room__details--single {
-	max-width: var(--responsive--alignwide-width) !important;
 	margin-right: auto;
+	max-width: var(--responsive--alignwide-width) !important;
 
 	h3 {
 		margin-bottom: var(--global--spacing-vertical);
@@ -67,8 +67,8 @@
 	}
 
 	.datepicker-form {
-		max-width: var(--responsive--aligndefault-width);
 		margin-right: auto;
+		max-width: var(--responsive--aligndefault-width);
 	}
 }
 
@@ -84,24 +84,65 @@
 .room__description--single {
 	border-top: 3px solid var(--global--color-secondary);
 	margin-bottom: var(--global--spacing-vertical);
-	max-width: var(--responsive--alignwide-width) !important;
 	margin-left: auto;
 	margin-right: auto;
+	max-width: var(--responsive--alignwide-width) !important;
 
 	& > * {
-		margin-top: var(--global--spacing-vertical);
 		margin-bottom: var(--global--spacing-vertical);
+		margin-top: var(--global--spacing-vertical);
 	}
 }
 
 .related-rooms {
-	margin-top: calc(2 * var(--global--spacing-vertical)) !important;
-	max-width: var(--responsive--alignwide-width) !important;
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: calc(2 * var(--global--spacing-vertical)) !important;
+	max-width: var(--responsive--alignwide-width) !important;
 }
 
 .related-rooms-title {
 	margin-bottom: var(--global--spacing-vertical);
 	margin-top: var(--global--spacing-vertical);
+}
+
+.room__rates--single {
+	margin: calc(2 * var(--global--spacing-vertical)) auto 0 !important;
+	max-width: var(--responsive--alignwide-width) !important;
+}
+
+.room__rates-list {
+	@include clear-list();
+	border: 3px solid var(--global--color-secondary);
+	margin-top: var(--global--spacing-vertical);
+	padding: 0;
+}
+
+.room__rate--single {
+	border-bottom: 3px solid var(--global--color-secondary);
+	padding: var(--global--spacing-vertical);
+
+	&:last-child {
+		border-bottom: none;
+	}
+}
+
+.rate__description--single {
+	font-size: var(--global--font-size-sm);
+}
+
+.button--check-availability {
+	display: inline-block;
+}
+
+.rate__price-wrapper--single {
+	margin-bottom: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.rate__conditions-title--single {
+	font-weight: bold;
+}
+
+.rate__deposit--single {
+	margin-top: calc(0.5 * var(--global--spacing-vertical));
 }
