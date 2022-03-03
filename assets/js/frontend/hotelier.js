@@ -157,10 +157,17 @@ jQuery(function ($) {
 
 				var _this = $(this);
 				var table_id = _this.attr('href');
+				var table = $(table_id);
 				var txt = $(table_id).is(':visible') ? closed_text : open_text;
 
 				_this.text(txt);
-				$(table_id).toggle();
+				if (table.hasClass('open')) {
+					table.removeClass('open');
+					table.hide();
+				} else {
+					table.addClass('open');
+					table.show();
+				}
 			});
 		},
 
