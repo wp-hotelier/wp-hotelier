@@ -1,0 +1,116 @@
+// Advanced Pricing System Fees
+
+.room__fees {
+	margin-top: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.room__rate .room__fees {
+	margin-bottom: 0;
+}
+
+.room-fee + .room-fee {
+	margin-top: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.room-fee__title {
+	display: block;
+	margin-bottom: calc(0.25 * var(--global--spacing-vertical));
+}
+
+.room-fee__label {
+	display: block;
+	margin-bottom: 0;
+
+	input {
+		margin-right: 10px;
+		top: 5px;
+	}
+
+	.amount {
+		font-weight: bold;
+	}
+}
+
+.reservation-table__extra-guests-fee {
+	font-size: var(--global--font-size-xs);
+	display: block;
+}
+
+// Advanced Extras
+
+.extra__description {
+	display: block;
+	font-size: var(--global--font-size-xs);
+}
+
+.room-extras__title {
+	margin: var(--global--spacing-vertical) 0;
+}
+
+.room-extra {
+	margin-bottom: var(--global--spacing-vertical);
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.room-extra__title {
+	border-top: 1px solid var(--global--color-border);
+	font-weight: bold;
+	margin-bottom: calc(.5 * var(--global--spacing-vertical));
+	margin-top: var(--global--spacing-vertical);
+	padding-top: var(--global--spacing-vertical);
+}
+
+.room-extra__description {
+	font-size: var(--global--font-size-xs);
+	margin-bottom: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.room-extra__info {
+	display: block;
+	font-size: var(--global--font-size-xs);
+	font-style: italic;
+	margin-bottom: calc(0.25 * var(--global--spacing-vertical));
+}
+
+.rate__extras.room-extras {
+	width: 100%;
+}
+
+.room-extra__price {
+	font-size: var(--global--font-size-sm);
+	font-weight: bold;
+}
+
+.room-extra__input {
+	display: inline;
+
+	input[type="checkbox"] {
+		margin-left: 5px;
+		position: relative;
+		top: 5px;
+	}
+}
+
+.button--extras-toggle {
+	color: var(--wp--style--color--link, var(--global--color-primary));
+	cursor: pointer;
+	text-decoration-skip-ink: all;
+	text-decoration-thickness: 1px;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+
+	&:hover {
+		text-decoration-skip-ink: none;
+		text-decoration-style: dotted;
+	}
+
+}
+
+.rate__extras {
+	.button--extras-toggle {
+		margin-top: var(--global--spacing-vertical);
+	}
+}
