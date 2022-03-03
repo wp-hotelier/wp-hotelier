@@ -1,3 +1,10 @@
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
 // Remove bullets from lists and any indentation
 @mixin clear-list() {
 	list-style: none;

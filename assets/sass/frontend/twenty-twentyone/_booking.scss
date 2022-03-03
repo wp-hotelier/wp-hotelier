@@ -3,6 +3,255 @@
 ----------------------------------------------------------------
 */
 
+.booking__section,
+.reservation-received__section {
+	@include clearfix();
+	margin-bottom: calc(2 * var(--global--spacing-vertical));
+	width: 100%;
+
+	&:last-child {
+		margin-top: 0;
+	}
+}
+
+.section-header__title {
+	margin-bottom: var(--global--spacing-vertical);
+}
+
+#postcode_field,
+#special_requests_field {
+	margin-bottom: 0;
+}
+
+@media only screen and (min-width: 592px) {
+	#state_field {
+		margin-bottom: 0;
+	}
+}
+
+#arrival_time_field {
+	label {
+		display: inline;
+	}
+
+	.form-row__description {
+		font-size: var(--global--font-size-xs);
+		display: block;
+		font-style: italic;
+	}
+}
+
+#special_requests_field .form-row__description {
+	font-size: var(--global--font-size-xs);
+	display: block;
+	font-style: italic;
+}
+
+#arrival_time {
+	margin-left: var(--global--spacing-horizontal);
+}
+
+.table--guest-details,
+.reservation-table--reservation-details {
+	td {
+		font-style: italic;
+	}
+}
+
+.credit-cards__list {
+	@include clear-list();
+	margin: 0;
+	padding: 0;
+}
+
+.credit-cards__icon {
+	display: inline-block;
+	height: 48px;
+	margin: 2px 0;
+	position: relative;
+	text-indent: -99999px;
+	width: 76px;
+
+	&:before {
+		background-color: #fff;
+		background-position: 0 0;
+		background-repeat: no-repeat;
+		content: '';
+		display: inline-block;
+		height: 48px;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 76px;
+	}
+}
+
+.credit-cards__icon--mastercard:before {
+	background-image: url(../../images/cards/mastercard.svg);
+}
+
+.credit-cards__icon--amex:before {
+	background-image: url(../../images/cards/amex.svg);
+}
+
+.credit-cards__icon--cirrus:before {
+	background-image: url(../../images/cards/cirrus.svg);
+}
+
+.credit-cards__icon--discover:before {
+	background-image: url(../../images/cards/discover.svg);
+}
+
+.credit-cards__icon--maestro:before {
+	background-image: url(../../images/cards/maestro.svg);
+}
+
+.credit-cards__icon--visa:before {
+	background-image: url(../../images/cards/visa.svg);
+}
+
+.credit-cards__icon--visa_e:before {
+	background-image: url(../../images/cards/visa_e.svg);
+}
+
+.reservation-table__room-remove {
+	display: inline-block;
+	margin-top: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.view-price-breakdown {
+	font-size: var(--global--font-size-xs);
+	display: block;
+}
+
+.reservation-table__row--price-breakdown + .reservation-table__row--body > td {
+	border-top: 0;
+}
+
+.table--price-breakdown.open {
+	border-bottom: 3px solid var(--global--color-border);
+}
+
+.price-breakdown-wrapper {
+	border-bottom: 0;
+	border-top: 0;
+	padding: 0;
+}
+
+.table--price-breakdown {
+	font-size: var(--global--font-size-xs);
+	border-collapse: separate;
+	border-left: none;
+	border-top: none;
+	margin: 0;
+	padding: 1em;
+
+	th,
+	td {
+		border: 0;
+	}
+
+	tr:nth-child(even) td {
+		background-color: #fff;
+	}
+
+	.amount {
+		font-weight: bold;
+	}
+}
+
+.price-breakdown__day--heading,
+.price-breakdown__cost--heading {
+	font-size: var(--global--font-size-xs);
+	background-color: #000;
+	color: #fff;
+}
+
+.price-breakdown__day--heading {
+	border-right: 1px solid #fff !important;
+}
+
+.price-breakdown__day--body {
+	border-right: 1px solid #fff !important;
+	font-style: italic;
+}
+
+.reservation-non-cancellable-disclaimer {
+	margin-top: var(--global--spacing-vertical);
+}
+
+.payment-methods {
+	@include clear-list();
+	margin: 0;
+	padding: 0;
+}
+
+.payment-method {
+	background-color: #fff;
+	padding: var(--global--spacing-vertical) var(--global--spacing-horizontal);
+	overflow: hidden;
+	margin-bottom: var(--global--spacing-vertical);
+	position: relative;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	img {
+		position: absolute;
+		top: var(--global--spacing-vertical);
+		right: var(--global--spacing-horizontal);
+		transform: translateY(-50%);
+	}
+}
+
+.payment-method__label {
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.payment-method--single {
+	.payment-method__label {
+		margin-left: 0;
+		padding-left: 0;
+	}
+
+	input[type="radio"] {
+		display: none;
+	}
+}
+
+.payment-method__description {
+	font-size: var(--global--font-size-sm);
+}
+
+.button.button--book-button {
+	display: block;
+	width: 100%;
+	margin-top: var(--global--spacing-vertical);
+}
+
+.form--pay-reservation {
+	.booking__section--payment,
+	.button--book-button {
+		margin-top: var(--global--spacing-vertical);
+	}
+}
+
+.form-row--booking-terms {
+	margin-bottom: var(--global--spacing-vertical);
+
+	.label--booking-terms {
+		display: inline;
+	}
+}
+
+.booking__section--request-booking {
+	.form-row:first-child {
+		margin-top: 0
+	}
+}
+
 .reservation-table__coupon-form {
 	text-align: left !important;
 }

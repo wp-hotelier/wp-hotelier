@@ -230,20 +230,18 @@
 }
 
 @media only screen and (min-width: 592px) {
-	@include mq($from: tablet) {
-		.form-row--first {
-			clear: both;
-			float: left;
-			margin-right: 4%;
-			margin-top: 0;
-			width: 48%;
-		}
+	.form-row--first {
+		clear: both;
+		float: left;
+		margin-right: 4%;
+		margin-top: 0;
+		width: 48%;
+	}
 
-		.form-row--last {
-			float: right;
-			margin-top: 0;
-			width: 48%;
-		}
+	.form-row--last {
+		float: right;
+		margin-top: 0;
+		width: 48%;
 	}
 }
 
@@ -252,6 +250,8 @@
 table.hotelier-table {
 	th, td {
 		vertical-align: top;
+		border-color: var(--global--color-border);
+		border-width: 3px;
 	}
 
 	.amount {
@@ -280,6 +280,7 @@ table.hotelier-table {
 }
 
 .reservation-table__room-link {
+	display: block;
 	font-weight: bold;
 }
 
@@ -293,22 +294,22 @@ table.hotelier-table {
 	font-weight: bold;
 }
 
-.reservation-table__extra-guests-fee {
-	display: block;
-	font-size: var(--global--font-size-xs);
-}
-
 .reservation-table__room-guests {
 	display: block;
 	font-size: var(--global--font-size-xs);
 	margin-top: calc(0.5 * var(--global--spacing-vertical));
+
+	.form-row {
+		margin: 0 0 calc(0.5 * var(--global--spacing-vertical));
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
 }
 
 .reservation-table__room-guests-label {
 	display: block;
 }
 
-.extra__description {
-	display: block;
-	font-size: var(--global--font-size-xs);
-}
+
