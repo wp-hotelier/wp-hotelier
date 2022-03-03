@@ -10,6 +10,7 @@
 # Listing Page
 # Booking Page
 # Widgets
+# Extensions
 */
 /*--------------------------------------------------------------
 >>> GLOBAL
@@ -192,6 +193,8 @@
 /* Reservation tables */
 table.hotelier-table th, table.hotelier-table td {
   vertical-align: top;
+  border-color: var(--global--color-border);
+  border-width: 3px;
 }
 
 table.hotelier-table .amount {
@@ -217,6 +220,7 @@ table.hotelier-table tfoot td {
 }
 
 .reservation-table__room-link {
+  display: block;
   font-weight: bold;
 }
 
@@ -230,24 +234,22 @@ table.hotelier-table tfoot td {
   font-weight: bold;
 }
 
-.reservation-table__extra-guests-fee {
-  display: block;
-  font-size: var(--global--font-size-xs);
-}
-
 .reservation-table__room-guests {
   display: block;
   font-size: var(--global--font-size-xs);
   margin-top: calc(0.5 * var(--global--spacing-vertical));
 }
 
-.reservation-table__room-guests-label {
-  display: block;
+.reservation-table__room-guests .form-row {
+  margin: 0 0 calc(0.5 * var(--global--spacing-vertical));
 }
 
-.extra__description {
+.reservation-table__room-guests .form-row:last-child {
+  margin-bottom: 0;
+}
+
+.reservation-table__room-guests-label {
   display: block;
-  font-size: var(--global--font-size-xs);
 }
 
 /*--------------------------------------------------------------
@@ -786,6 +788,245 @@ table.hotelier-table tfoot td {
 >>> BOOKING
 ----------------------------------------------------------------
 */
+.booking__section,
+.reservation-received__section {
+  content: "";
+  display: table;
+  table-layout: fixed;
+  margin-bottom: calc(2 * var(--global--spacing-vertical));
+  width: 100%;
+}
+
+.booking__section:last-child,
+.reservation-received__section:last-child {
+  margin-top: 0;
+}
+
+.section-header__title {
+  margin-bottom: var(--global--spacing-vertical);
+}
+
+#postcode_field,
+#special_requests_field {
+  margin-bottom: 0;
+}
+
+#arrival_time_field label {
+  display: inline;
+}
+
+#arrival_time_field .form-row__description {
+  font-size: var(--global--font-size-xs);
+  display: block;
+  font-style: italic;
+}
+
+#special_requests_field .form-row__description {
+  font-size: var(--global--font-size-xs);
+  display: block;
+  font-style: italic;
+}
+
+#arrival_time {
+  margin-left: var(--global--spacing-horizontal);
+}
+
+.table--guest-details td,
+.reservation-table--reservation-details td {
+  font-style: italic;
+}
+
+.credit-cards__list {
+  list-style: none;
+  margin-left: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.credit-cards__icon {
+  display: inline-block;
+  height: 48px;
+  margin: 2px 0;
+  position: relative;
+  text-indent: -99999px;
+  width: 76px;
+}
+
+.credit-cards__icon:before {
+  background-color: #fff;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  content: '';
+  display: inline-block;
+  height: 48px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 76px;
+}
+
+.credit-cards__icon--mastercard:before {
+  background-image: url(../../images/cards/mastercard.svg);
+}
+
+.credit-cards__icon--amex:before {
+  background-image: url(../../images/cards/amex.svg);
+}
+
+.credit-cards__icon--cirrus:before {
+  background-image: url(../../images/cards/cirrus.svg);
+}
+
+.credit-cards__icon--discover:before {
+  background-image: url(../../images/cards/discover.svg);
+}
+
+.credit-cards__icon--maestro:before {
+  background-image: url(../../images/cards/maestro.svg);
+}
+
+.credit-cards__icon--visa:before {
+  background-image: url(../../images/cards/visa.svg);
+}
+
+.credit-cards__icon--visa_e:before {
+  background-image: url(../../images/cards/visa_e.svg);
+}
+
+.reservation-table__room-remove {
+  display: inline-block;
+  margin-top: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.view-price-breakdown {
+  font-size: var(--global--font-size-xs);
+  display: block;
+}
+
+.reservation-table__row--price-breakdown + .reservation-table__row--body > td {
+  border-top: 0;
+}
+
+.table--price-breakdown.open {
+  border-bottom: 3px solid var(--global--color-border);
+}
+
+.price-breakdown-wrapper {
+  border-bottom: 0;
+  border-top: 0;
+  padding: 0;
+}
+
+.table--price-breakdown {
+  font-size: var(--global--font-size-xs);
+  border-collapse: separate;
+  border-left: none;
+  border-top: none;
+  margin: 0;
+  padding: 1em;
+}
+
+.table--price-breakdown th,
+.table--price-breakdown td {
+  border: 0;
+}
+
+.table--price-breakdown tr:nth-child(even) td {
+  background-color: #fff;
+}
+
+.table--price-breakdown .amount {
+  font-weight: bold;
+}
+
+.price-breakdown__day--heading,
+.price-breakdown__cost--heading {
+  font-size: var(--global--font-size-xs);
+  background-color: #000;
+  color: #fff;
+}
+
+.price-breakdown__day--heading {
+  border-right: 1px solid #fff !important;
+}
+
+.price-breakdown__day--body {
+  border-right: 1px solid #fff !important;
+  font-style: italic;
+}
+
+.reservation-non-cancellable-disclaimer {
+  margin-top: var(--global--spacing-vertical);
+}
+
+.payment-methods {
+  list-style: none;
+  margin-left: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.payment-method {
+  background-color: #fff;
+  padding: var(--global--spacing-vertical) var(--global--spacing-horizontal);
+  overflow: hidden;
+  margin-bottom: var(--global--spacing-vertical);
+  position: relative;
+}
+
+.payment-method:last-child {
+  margin-bottom: 0;
+}
+
+.payment-method img {
+  position: absolute;
+  top: var(--global--spacing-vertical);
+  right: var(--global--spacing-horizontal);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.payment-method__label {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.payment-method--single .payment-method__label {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.payment-method--single input[type="radio"] {
+  display: none;
+}
+
+.payment-method__description {
+  font-size: var(--global--font-size-sm);
+}
+
+.button.button--book-button {
+  display: block;
+  width: 100%;
+  margin-top: var(--global--spacing-vertical);
+}
+
+.form--pay-reservation .booking__section--payment,
+.form--pay-reservation .button--book-button {
+  margin-top: var(--global--spacing-vertical);
+}
+
+.form-row--booking-terms {
+  margin-bottom: var(--global--spacing-vertical);
+}
+
+.form-row--booking-terms .label--booking-terms {
+  display: inline;
+}
+
+.booking__section--request-booking .form-row:first-child {
+  margin-top: 0;
+}
+
 .reservation-table__coupon-form {
   text-align: left !important;
 }
@@ -831,6 +1072,116 @@ table.hotelier-table tfoot td {
 >>> WIDGETS
 ----------------------------------------------------------------
 */
+.room__fees {
+  margin-top: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.room__rate .room__fees {
+  margin-bottom: 0;
+}
+
+.room-fee + .room-fee {
+  margin-top: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.room-fee__title {
+  display: block;
+  margin-bottom: calc(0.25 * var(--global--spacing-vertical));
+}
+
+.room-fee__label {
+  display: block;
+  margin-bottom: 0;
+}
+
+.room-fee__label input {
+  margin-right: 10px;
+  top: 5px;
+}
+
+.room-fee__label .amount {
+  font-weight: bold;
+}
+
+.reservation-table__extra-guests-fee {
+  font-size: var(--global--font-size-xs);
+  display: block;
+}
+
+.extra__description {
+  display: block;
+  font-size: var(--global--font-size-xs);
+}
+
+.room-extras__title {
+  margin: var(--global--spacing-vertical) 0;
+}
+
+.room-extra {
+  margin-bottom: var(--global--spacing-vertical);
+}
+
+.room-extra:last-child {
+  margin-bottom: 0;
+}
+
+.room-extra__title {
+  border-top: 1px solid var(--global--color-border);
+  font-weight: bold;
+  margin-bottom: calc(.5 * var(--global--spacing-vertical));
+  margin-top: var(--global--spacing-vertical);
+  padding-top: var(--global--spacing-vertical);
+}
+
+.room-extra__description {
+  font-size: var(--global--font-size-xs);
+  margin-bottom: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.room-extra__info {
+  display: block;
+  font-size: var(--global--font-size-xs);
+  font-style: italic;
+  margin-bottom: calc(0.25 * var(--global--spacing-vertical));
+}
+
+.rate__extras.room-extras {
+  width: 100%;
+}
+
+.room-extra__price {
+  font-size: var(--global--font-size-sm);
+  font-weight: bold;
+}
+
+.room-extra__input {
+  display: inline;
+}
+
+.room-extra__input input[type="checkbox"] {
+  margin-left: 5px;
+  position: relative;
+  top: 5px;
+}
+
+.button--extras-toggle {
+  color: var(--wp--style--color--link, var(--global--color-primary));
+  cursor: pointer;
+  text-decoration-skip-ink: all;
+  text-decoration-thickness: 1px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.button--extras-toggle:hover {
+  text-decoration-skip-ink: none;
+  -webkit-text-decoration-style: dotted;
+          text-decoration-style: dotted;
+}
+
+.rate__extras .button--extras-toggle {
+  margin-top: var(--global--spacing-vertical);
+}
 
 @media only screen and (min-width: 482px) {
   .room-loop--columns-2 .room-loop__list {
@@ -862,6 +1213,18 @@ table.hotelier-table tfoot td {
   }
   .room-loop--columns-6 .room-loop__list {
     grid-template-columns: repeat(5, 1fr);
+  }
+  .form-row--first {
+    clear: both;
+    float: left;
+    margin-right: 4%;
+    margin-top: 0;
+    width: 48%;
+  }
+  .form-row--last {
+    float: right;
+    margin-top: 0;
+    width: 48%;
   }
   .datepicker-form {
     display: -webkit-box;
@@ -934,20 +1297,8 @@ table.hotelier-table tfoot td {
     text-align: center;
     top: 0;
   }
-}
-
-@media only screen and (min-width: 592px) and (min-width: 46.25em) {
-  .form-row--first {
-    clear: both;
-    float: left;
-    margin-right: 4%;
-    margin-top: 0;
-    width: 48%;
-  }
-  .form-row--last {
-    float: right;
-    margin-top: 0;
-    width: 48%;
+  #state_field {
+    margin-bottom: 0;
   }
 }
 
