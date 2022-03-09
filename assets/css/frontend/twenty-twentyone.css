@@ -919,7 +919,6 @@ table.hotelier-table tfoot td {
 
 .table--price-breakdown {
   font-size: var(--global--font-size-xs);
-  border-collapse: separate;
   border-left: none;
   border-top: none;
   margin: 0;
@@ -946,13 +945,16 @@ table.hotelier-table tfoot td {
   color: #fff;
 }
 
-.price-breakdown__day--heading {
-  border-right: 1px solid #fff !important;
+.price-breakdown__day {
+  text-align: left;
 }
 
 .price-breakdown__day--body {
-  border-right: 1px solid #fff !important;
   font-style: italic;
+}
+
+.price-breakdown__cost {
+  text-align: right;
 }
 
 .reservation-non-cancellable-disclaimer {
@@ -1066,6 +1068,46 @@ table.hotelier-table tfoot td {
   font-size: var(--global--font-size-xs) !important;
   margin-top: calc(0.5 * var(--global--spacing-vertical));
   padding: calc(0.5 * var(--button--padding-vertical)) calc(0.5 * var(--button--padding-horizontal)) !important;
+}
+
+.reservation-response {
+  font-size: var(--global--font-size-lg);
+  margin-bottom: calc(2 * var(--global--spacing-vertical));
+}
+
+.reservation-details__list {
+  list-style: none;
+  margin-left: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.reservation-details__item {
+  margin-bottom: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.reservation-details__item:last-child {
+  margin-bottom: 0;
+}
+
+.reservation-details__item strong {
+  display: block;
+}
+
+.reservation-details__item--special-requests {
+  display: block !important;
+  margin-top: var(--global--spacing-vertical);
+}
+
+.reservation-details__item--special-requests strong {
+  display: block;
+}
+
+.bank-details__list {
+  list-style: none;
+  margin-left: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /*--------------------------------------------------------------
@@ -1298,6 +1340,15 @@ table.hotelier-table tfoot td {
     top: 0;
   }
   #state_field {
+    margin-bottom: 0;
+  }
+  .reservation-details__item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     margin-bottom: 0;
   }
 }
