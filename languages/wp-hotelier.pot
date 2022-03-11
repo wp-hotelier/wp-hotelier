@@ -2513,6 +2513,18 @@ msgstr ""
 msgid "Pay deposit"
 msgstr ""
 
+#: ../includes/theme-support/class-htl-twenty-twentyone.php:186
+msgid "Page"
+msgstr ""
+
+#: ../includes/theme-support/class-htl-twenty-twentyone.php:192
+msgid "Next <span class=\"nav-short\">rooms</span>"
+msgstr ""
+
+#: ../includes/theme-support/class-htl-twenty-twentyone.php:203
+msgid "Previous <span class=\"nav-short\">rooms</span>"
+msgstr ""
+
 #: ../includes/widgets/class-htl-widget-ajax-room-booking.php:25
 msgid "Allows you to book your room directly from its page. Works in room pages only."
 msgstr ""
@@ -4991,7 +5003,7 @@ msgstr ""
 msgid "Room conditions"
 msgstr ""
 
-#: ../templates/single-room/deposit.php:21, ../templates/room-list/content/deposit.php:21, ../templates/single-room/rate/rate-deposit.php:19, ../templates/room-list/content/rate/rate-deposit.php:19, ../templates/widgets/ajax-room-booking/rate/deposit.php:21, ../templates/widgets/ajax-room-booking/room/deposit.php:21
+#: ../templates/single-room/deposit.php:23, ../templates/room-list/content/deposit.php:21, ../templates/single-room/rate/rate-deposit.php:19, ../templates/room-list/content/rate/rate-deposit.php:19, ../templates/widgets/ajax-room-booking/rate/deposit.php:21, ../templates/widgets/ajax-room-booking/room/deposit.php:21
 msgid "Deposit required"
 msgstr ""
 
