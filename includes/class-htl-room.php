@@ -380,7 +380,7 @@ class HTL_Room {
 			$reason     = htl_get_room_not_available_min_max_info( $min_nights, $max_nights, $this );
 		}
 
-		if ( $has_enough_rooms && $has_min_nights && $max_nights ) {
+		if ( $has_enough_rooms && $has_min_nights && $has_max_nights ) {
 			$is_available = true;
 		}
 
