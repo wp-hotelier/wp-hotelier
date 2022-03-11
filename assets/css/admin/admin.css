@@ -3238,6 +3238,35 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
     width: 100%;
     table-layout: fixed;
   }
+  table.hotelier-settings-table-form th,
+  table.hotelier-settings-table-form td {
+    display: block;
+    width: 100% !important;
+  }
+  table.hotelier-settings-table-form .htl-ui-setting th,
+  table.hotelier-settings-table-form .htl-ui-setting td {
+    display: table-cell;
+  }
+  table.hotelier-settings-table-form .htl-ui-setting th {
+    padding-bottom: 0;
+    width: 200px !important;
+  }
+  table.hotelier-settings-table-form th {
+    padding-bottom: 9px;
+  }
+  table.hotelier-settings-table-form .room-guests-wrapper .htl-ui-label {
+    display: block;
+    width: 100% !important;
+    margin-bottom: 9px;
+  }
+  table.hotelier-settings-table-form .htl-ui-button--remove-row {
+    text-indent: -9999px;
+  }
+  table.hotelier-settings-table-form .htl-ui-button--remove-row:before {
+    text-indent: 0;
+    float: left;
+    margin-right: 0;
+  }
   table.hotelier-settings-table-form .htl-ui-input--text,
   table.hotelier-settings-table-form .htl-ui-input--email,
   table.hotelier-settings-table-form .htl-ui-input--textarea,

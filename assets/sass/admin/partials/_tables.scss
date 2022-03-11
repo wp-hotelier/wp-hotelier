@@ -7,6 +7,44 @@ table.hotelier-settings-table-form {
 	@media (max-width: 800px) {
 		width: 100%;
 		table-layout: fixed;
+
+		th,
+        td {
+			display: block;
+			width: 100% !important;
+		}
+
+		.htl-ui-setting {
+			th,
+			td {
+				display: table-cell;
+			}
+
+			th {
+				padding-bottom: 0;
+				width: 200px !important;
+			}
+		}
+
+		th {
+			padding-bottom: $space;
+		}
+
+		.room-guests-wrapper .htl-ui-label {
+			display: block;
+			width: 100% !important;
+			margin-bottom: 9px;
+		}
+
+		.htl-ui-button--remove-row {
+			text-indent: -9999px;
+
+			&:before {
+				text-indent: 0;
+				float: left;
+				margin-right: 0;
+			}
+		}
 	}
 
 	> tbody {
