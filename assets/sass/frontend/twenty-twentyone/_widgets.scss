@@ -2,3 +2,183 @@
 >>> WIDGETS
 ----------------------------------------------------------------
 */
+
+/* Search */
+
+.widget-room-search {
+	form {
+		display: flex;
+		flex-wrap: wrap;
+		margin: auto;
+		max-width: var(--responsive--aligndefault-width);
+	}
+
+	.room-search__input {
+		-webkit-appearance: none;
+		flex-grow: 1;
+		margin-right: calc(-1 * var(--button--border-width));
+		max-width: inherit;
+	}
+
+	.button--room-search {
+		margin-left: 0;
+	}
+}
+
+/* Rooms */
+
+.widget-rooms__list {
+	@include clear-list();
+	margin-bottom: 0;
+}
+
+.widget-rooms__item {
+	margin-bottom: calc(0.5 * var(--global--spacing-vertical));
+	min-height: 80px;
+}
+
+.widget-rooms__link {
+	display: block;
+}
+
+.widget-rooms__name {
+	display: block;
+}
+
+.widget-rooms__name,
+.widget-rooms__price {
+	margin-left: 100px;
+}
+
+.widget-rooms__item img {
+	height: auto !important;
+	position: absolute;
+	width: 80px !important;
+}
+
+/* Booking widget */
+
+.widget-booking {
+	.widget-booking__change-cart-link {
+		display: inline-block;
+		margin-bottom: calc(0.5 * var(--global--spacing-vertical));
+	}
+
+	.widget-booking__dates {
+		background-color: var(--global--color-primary);
+		color: var(--global--color-background);
+		display: flex;
+		padding: var(--global--spacing-vertical) var(--global--spacing-horizontal);
+	}
+
+	.widget-booking__date-block {
+		text-align: center;
+		width: 50%;
+	}
+
+	.widget-booking__date-block--checkout {
+		border-left: 3px solid var(--global--color-background);
+	}
+
+	.widget-booking__date-label {
+		font-size: var(--global--font-size-xs);
+	}
+
+	.widget-booking__month-year,
+	.widget-booking__day-name {
+		display: block;
+		font-size: var(--global--font-size-md);
+	}
+
+	.widget-booking__day {
+		font-size: var(--global--font-size-xl);
+	}
+
+	.widget-booking__room-item {
+		margin-top: calc(0.5 * var(--global--spacing-vertical));
+	}
+
+	.widget-booking__room-rate {
+		display: block;
+	}
+
+	.widget-booking__cart-total {
+		border-top: 3px solid var(--global--color-border);
+		display: flex;
+		justify-content: space-between;
+		margin-top: var(--global--spacing-vertical);
+		padding-top: var(--global--spacing-vertical);
+
+		.amount {
+			font-weight: bold;
+		}
+	}
+}
+
+/* Rooms filter */
+
+.widget-rooms-filter__group {
+	margin-bottom: var(--global--spacing-vertical);
+}
+
+.widget-rooms-filter__group-label {
+	display: block;
+	font-size: var(--global--font-size-xs);
+	font-weight: bold;
+	margin-bottom: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.widget-rooms-filter__group-item--chosen a {
+	background-color: var(--global--color-primary);
+	color: var(--global--color-background) !important;
+	padding: 5px 10px;
+}
+
+/* AJAX Room Booking widget */
+
+.widget-ajax-room-booking {
+	position: relative;
+
+	.datepicker-input-select {
+		height: auto;
+		border: var(--form--border-width) solid var(--form--border-color) !important;
+	}
+
+	.datepicker {
+		border-top: var(--form--border-width) solid var(--form--border-color);
+		width: var(--responsive--aligndefault-width);
+		overflow-wrap: normal;
+	}
+
+	select {
+		width: 100%;
+	}
+
+	.widget-ajax-room-booking__row--submit {
+		margin-bottom: 0;
+	}
+
+	.widget-ajax-room-booking__data--price {
+		font-size: var(--global--font-size-md);
+
+		.amount {
+			font-weight: bold;
+		}
+	}
+
+	.reset--widget-ajax-room-booking {
+		font-size: var(--global--font-size-xs);
+		display: block;
+		margin-top: var(--global--spacing-vertical);;
+		cursor: pointer;
+		text-decoration: underline;
+	}
+
+	.button--widget-ajax-room-booking {
+		width: 100%;
+	}
+
+	.hotelier-notice {
+		margin-top: var(--global--spacing-vertical);
+	}
+}

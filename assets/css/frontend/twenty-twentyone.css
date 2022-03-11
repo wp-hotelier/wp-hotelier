@@ -1114,6 +1114,189 @@ table.hotelier-table tfoot td {
 >>> WIDGETS
 ----------------------------------------------------------------
 */
+/* Search */
+.widget-room-search form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: auto;
+  max-width: var(--responsive--aligndefault-width);
+}
+
+.widget-room-search .room-search__input {
+  -webkit-appearance: none;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin-right: calc(-1 * var(--button--border-width));
+  max-width: inherit;
+}
+
+.widget-room-search .button--room-search {
+  margin-left: 0;
+}
+
+/* Rooms */
+.widget-rooms__list {
+  list-style: none;
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+.widget-rooms__item {
+  margin-bottom: calc(0.5 * var(--global--spacing-vertical));
+  min-height: 80px;
+}
+
+.widget-rooms__link {
+  display: block;
+}
+
+.widget-rooms__name {
+  display: block;
+}
+
+.widget-rooms__name,
+.widget-rooms__price {
+  margin-left: 100px;
+}
+
+.widget-rooms__item img {
+  height: auto !important;
+  position: absolute;
+  width: 80px !important;
+}
+
+/* Booking widget */
+.widget-booking .widget-booking__change-cart-link {
+  display: inline-block;
+  margin-bottom: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.widget-booking .widget-booking__dates {
+  background-color: var(--global--color-primary);
+  color: var(--global--color-background);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: var(--global--spacing-vertical) var(--global--spacing-horizontal);
+}
+
+.widget-booking .widget-booking__date-block {
+  text-align: center;
+  width: 50%;
+}
+
+.widget-booking .widget-booking__date-block--checkout {
+  border-left: 3px solid var(--global--color-background);
+}
+
+.widget-booking .widget-booking__date-label {
+  font-size: var(--global--font-size-xs);
+}
+
+.widget-booking .widget-booking__month-year,
+.widget-booking .widget-booking__day-name {
+  display: block;
+  font-size: var(--global--font-size-md);
+}
+
+.widget-booking .widget-booking__day {
+  font-size: var(--global--font-size-xl);
+}
+
+.widget-booking .widget-booking__room-item {
+  margin-top: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.widget-booking .widget-booking__room-rate {
+  display: block;
+}
+
+.widget-booking .widget-booking__cart-total {
+  border-top: 3px solid var(--global--color-border);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: var(--global--spacing-vertical);
+  padding-top: var(--global--spacing-vertical);
+}
+
+.widget-booking .widget-booking__cart-total .amount {
+  font-weight: bold;
+}
+
+/* Rooms filter */
+.widget-rooms-filter__group {
+  margin-bottom: var(--global--spacing-vertical);
+}
+
+.widget-rooms-filter__group-label {
+  display: block;
+  font-size: var(--global--font-size-xs);
+  font-weight: bold;
+  margin-bottom: calc(0.5 * var(--global--spacing-vertical));
+}
+
+.widget-rooms-filter__group-item--chosen a {
+  background-color: var(--global--color-primary);
+  color: var(--global--color-background) !important;
+  padding: 5px 10px;
+}
+
+/* AJAX Room Booking widget */
+.widget-ajax-room-booking {
+  position: relative;
+}
+
+.widget-ajax-room-booking .datepicker-input-select {
+  height: auto;
+  border: var(--form--border-width) solid var(--form--border-color) !important;
+}
+
+.widget-ajax-room-booking .datepicker {
+  border-top: var(--form--border-width) solid var(--form--border-color);
+  width: var(--responsive--aligndefault-width);
+  overflow-wrap: normal;
+}
+
+.widget-ajax-room-booking select {
+  width: 100%;
+}
+
+.widget-ajax-room-booking .widget-ajax-room-booking__row--submit {
+  margin-bottom: 0;
+}
+
+.widget-ajax-room-booking .widget-ajax-room-booking__data--price {
+  font-size: var(--global--font-size-md);
+}
+
+.widget-ajax-room-booking .widget-ajax-room-booking__data--price .amount {
+  font-weight: bold;
+}
+
+.widget-ajax-room-booking .reset--widget-ajax-room-booking {
+  font-size: var(--global--font-size-xs);
+  display: block;
+  margin-top: var(--global--spacing-vertical);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.widget-ajax-room-booking .button--widget-ajax-room-booking {
+  width: 100%;
+}
+
+.widget-ajax-room-booking .hotelier-notice {
+  margin-top: var(--global--spacing-vertical);
+}
+
 .room__fees {
   margin-top: calc(0.5 * var(--global--spacing-vertical));
 }
