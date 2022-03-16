@@ -80,7 +80,7 @@
 	margin-top: $space;
 	padding-top: $space;
 
-	@include mq($from: mobile_wide) {
+	@media (min-width: 480px) {
 		border-left: 1px solid $color__default__line;
 		border-top: none;
 		float: right;
@@ -92,7 +92,7 @@
 	}
 }
 
-@include mq($from: mobile_wide) {
+@media (min-width: 480px) {
 	.room__content--listing {
 		float: left;
 		padding-right: $space__s;
@@ -118,7 +118,7 @@
 	padding-top: $space;
 }
 
-@include mq($from: mobile_wide) {
+@media (min-width: 480px) {
 	.rate__content {
 		float: left;
 		padding-right: $space__s;

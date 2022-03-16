@@ -24,15 +24,15 @@
 	width: 260px;
 	z-index: 1;
 
-	@include mq($from: mobile) {
+	@media (min-width: 320px) {
 		width: 300px;
 	}
 
-	@include mq($from: mobile_wide) {
+	@media (min-width: 480px) {
 		width: 460px;
 	}
 
-	@include mq($from: tablet) {
+	@media (min-width: 768px) {
 		width: 560px;
 	}
 }
@@ -43,7 +43,7 @@
 }
 
 .datepicker__months {
-	@include mq($from: mobile_wide) {
+	@media (min-width: 480px) {
 		overflow: hidden;
 		position: relative;
 
@@ -66,18 +66,18 @@
 	text-align: center;
 	width: 100%;
 
-	@include mq($from: mobile_wide) {
+	@media (min-width: 480px) {
 		width: 200px;
 	}
 
-	@include mq($from: tablet) {
+	@media (min-width: 768px) {
 		@include font-size(14px);
 		width: 240px;
 	}
 }
 
 .datepicker__month--month1 {
-	@include mq($from: mobile_wide) {
+	@media (min-width: 480px) {
 		float: left;
 	}
 }
@@ -85,7 +85,7 @@
 .datepicker__month--month2 {
 	display: none;
 
-	@include mq($from: mobile_wide) {
+	@media (min-width: 480px) {
 		display: table;
 		float: right;
 	}
@@ -154,7 +154,7 @@
 }
 
 .datepicker__month-button--disabled {
-	@include mq($from: mobile_wide) {
+	@media (min-width: 480px) {
 		visibility: hidden;
 	}
 }
@@ -175,7 +175,7 @@
 .datepicker__close-button {
 	cursor: pointer;
 
-	@include mq($from: tablet) {
+	@media (min-width: 768px) {
 		margin-top: 0;
 		position: absolute;
 		right: 0;

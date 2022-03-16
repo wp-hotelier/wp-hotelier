@@ -10,7 +10,6 @@
 //  SETTINGS
 //  Settings ........... Variables and settings.
 //  Mixins ............. Default mixins
-//  Sass MQ ............ Media Queries with superpowers (https://github.com/sass-mq/sass-mq).
 
 /*
 ELEMENTS
@@ -38,7 +37,6 @@ WIDGETS
 // SETTINGS
 @import "../settings/frontend/settings";
 @import "../settings/frontend/mixins";
-@import "node_modules/sass-mq/mq";
 
 // ELEMENTS
 @import "elements/notices";

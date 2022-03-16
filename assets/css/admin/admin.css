@@ -58,10 +58,8 @@ BOOKING CALENDAR
 /****** Resets ******/
 .htl-ui-scope * {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-font-variant-ligatures: none;
-          font-variant-ligatures: none;
+  box-sizing: border-box;
+  font-variant-ligatures: none;
   text-rendering: optimizeLegibility;
   font-smoothing: antialiased !important;
   -webkit-font-smoothing: antialiased !important;
@@ -261,12 +259,9 @@ table.hotelier-settings-table-form tr.htl-ui-row--server-info:nth-child(even) {
   text-align: center;
   text-indent: 0;
   width: 30px;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-property: color, background-color, border-color;
+  transition-duration: 0.2s;
   transition-property: color, background-color, border-color;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   top: 4px;
 }
 
@@ -398,20 +393,16 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   font-weight: 500;
   border: 0;
   outline: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   height: 36px;
   padding: 0 18px;
   cursor: pointer;
   margin: 0;
   -webkit-appearance: none;
   display: inline-block;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-property: color, background-color, border-color;
+  transition-duration: 0.2s;
   transition-property: color, background-color, border-color;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .htl-ui-button:focus, .htl-ui-button:hover,
@@ -419,8 +410,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 .button.htl-ui-button:hover {
   color: #fff;
   outline: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 .htl-ui-button:hover,
@@ -491,17 +481,13 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 }
 
 .htl-ui-input {
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-property: color, background-color, border-color;
+  transition-duration: 0.2s;
   transition-property: color, background-color, border-color;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   background-color: #f5f5f5 !important;
   border-radius: 2px;
   border: 1px solid #E6E6E6 !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   color: #555 !important;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 14px !important;
@@ -561,8 +547,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 .htl-ui-input:focus {
   border-color: #00A0D2 !important;
   outline: none !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 .htl-ui-label--from-to {
@@ -595,8 +580,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 }
 
 .htl-ui-button.htl-ui-button--loading:before {
-  -webkit-animation: spinner--loading .8s infinite linear;
-          animation: spinner--loading .8s infinite linear;
+  animation: spinner--loading .8s infinite linear;
   border-top: 2px solid rgba(255, 255, 255, 0.2);
   border-right: 2px solid rgba(255, 255, 255, 0.2);
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
@@ -606,8 +590,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   border-bottom-color: rgba(255, 255, 255, 0.2);
   border-left-color: #fff;
   font-size: 14px;
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .htl-ui-button.htl-ui-button--loading:before, .htl-ui-button.htl-ui-button--loading:after {
@@ -622,25 +605,12 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   left: 18px;
 }
 
-@-webkit-keyframes spinner--loading {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-
 @keyframes spinner--loading {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
@@ -672,12 +642,9 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 }
 
 .htl-ui-notice a {
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-property: color, background-color, border-color;
+  transition-duration: 0.2s;
   transition-property: color, background-color, border-color;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .htl-ui-notice--info {
@@ -697,8 +664,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 
 .htl-ui-notice--info a:focus, .htl-ui-notice--info a:active, .htl-ui-notice--info a:visited {
   color: #D5782C !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   outline: none !important;
 }
 
@@ -723,8 +689,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 
 .htl-ui-notice--success a:focus, .htl-ui-notice--success a:active, .htl-ui-notice--success a:visited {
   color: #3EC170 !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   outline: none !important;
 }
 
@@ -749,8 +714,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 
 .htl-ui-notice--error a:focus, .htl-ui-notice--error a:active, .htl-ui-notice--error a:visited {
   color: #ED4248 !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   outline: none !important;
 }
 
@@ -775,8 +739,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 
 .htl-ui-notice--warning a:focus, .htl-ui-notice--warning a:active, .htl-ui-notice--warning a:visited {
   color: #00A0D2 !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   outline: none !important;
 }
 
@@ -832,19 +795,15 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 }
 
 .htl-ui-setting__description a {
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-property: color, background-color, border-color;
+  transition-duration: 0.2s;
   transition-property: color, background-color, border-color;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   color: #00A0D2;
 }
 
 .htl-ui-setting__description a:focus, .htl-ui-setting__description a:active, .htl-ui-setting__description a:visited {
   color: #00A0D2 !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   outline: none !important;
 }
 
@@ -958,12 +917,9 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 }
 
 .htl-ui-switch__label {
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-property: color, background-color, border-color;
+  transition-duration: 0.2s;
   transition-property: color, background-color, border-color;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   background-color: #F2F2F2;
   color: #555;
   display: inline-block;
@@ -1004,8 +960,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   display: block;
   height: 20px;
   position: relative;
-  -webkit-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
   width: 40px;
 }
 
@@ -1018,7 +973,6 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   left: 3px;
   position: relative;
   top: 3px;
-  -webkit-transition: background .2s ease;
   transition: background .2s ease;
   width: 34px;
 }
@@ -1026,14 +980,12 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 .htl-ui-toggle__handle {
   background: white;
   border-radius: 10px;
-  -webkit-box-shadow: 0 2px 5px rgba(102, 102, 102, 0.5);
-          box-shadow: 0 2px 5px rgba(102, 102, 102, 0.5);
+  box-shadow: 0 2px 5px rgba(102, 102, 102, 0.5);
   display: block;
   height: 20px;
   left: 0;
   position: absolute;
   top: 0;
-  -webkit-transition: all .2s ease;
   transition: all .2s ease;
   width: 20px;
 }
@@ -1048,8 +1000,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   opacity: 1;
   pointer-events: none;
   position: absolute;
-  -webkit-transform: scale(0);
-          transform: scale(0);
+  transform: scale(0);
   width: 56px;
 }
 
@@ -1059,21 +1010,15 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 
 .htl-ui-toggle__input:checked + .htl-ui-toggle__label .htl-ui-toggle__handle {
   background: #00A0D2;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  -webkit-box-shadow: 0 2px 3px rgba(0, 160, 210, 0.4);
-          box-shadow: 0 2px 3px rgba(0, 160, 210, 0.4);
-  -webkit-transform: translateX(20px);
-          transform: translateX(20px);
-  -webkit-transition: all 0.2s cubic-bezier(0.8, 0.4, 0.3, 1.25), background 0.15s ease;
+  box-shadow: none;
+  box-shadow: 0 2px 3px rgba(0, 160, 210, 0.4);
+  transform: translateX(20px);
   transition: all 0.2s cubic-bezier(0.8, 0.4, 0.3, 1.25), background 0.15s ease;
 }
 
 .htl-ui-toggle__input:checked + .htl-ui-toggle__label .htl-ui-toggle__handle:before {
   opacity: 0;
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  -webkit-transition: all .4s ease;
+  transform: scale(1);
   transition: all .4s ease;
 }
 
@@ -1366,8 +1311,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 
 .htl-ui-custom-datepicker .ui-datepicker-month {
   border: none !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   color: #333 !important;
   font-weight: 500 !important;
   margin: 0 !important;
@@ -1419,8 +1363,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 
 .htl-ui-custom-datepicker td a:focus, .htl-ui-custom-datepicker td a:active, .htl-ui-custom-datepicker td a:visited {
   color: #afb3bc !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   outline: none !important;
 }
 
@@ -1436,8 +1379,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 
 .htl-ui-custom-datepicker td.ui-datepicker-current-day a:focus, .htl-ui-custom-datepicker td.ui-datepicker-current-day a:active, .htl-ui-custom-datepicker td.ui-datepicker-current-day a:visited {
   color: #fff !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   outline: none !important;
 }
 
@@ -1483,12 +1425,10 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   width: 240px;
   top: 20%;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   text-align: left;
   padding: 18px;
-  -webkit-box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.18);
-          box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.18);
+  box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.18);
   display: none;
 }
 
@@ -1535,19 +1475,15 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 
 /****** Links ******/
 .htl-ui-link {
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-property: color, background-color, border-color;
+  transition-duration: 0.2s;
   transition-property: color, background-color, border-color;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   color: #00A0D2;
 }
 
 .htl-ui-link:focus, .htl-ui-link:active, .htl-ui-link:visited {
   color: #00A0D2 !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   outline: none !important;
 }
 
@@ -1585,12 +1521,9 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 
 .hotelier-settings-header__version-info--free-version a,
 .hotelier-settings-header__version-info--pro-version {
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-property: color, background-color, border-color;
+  transition-duration: 0.2s;
   transition-property: color, background-color, border-color;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   background: #dcf3fc;
   border-radius: 2px;
   color: #00A0D2;
@@ -1648,18 +1581,14 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   padding: 9px 18px 9px 45px;
   position: relative;
   text-decoration: none;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-property: color, background-color, border-color;
+  transition-duration: 0.2s;
   transition-property: color, background-color, border-color;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hotelier-settings-navigation__link:focus, .hotelier-settings-navigation__link:active, .hotelier-settings-navigation__link:visited {
   color: #666 !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   outline: none !important;
 }
 
@@ -1686,8 +1615,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   margin-right: 9px;
   position: absolute;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   color: #818181;
 }
 
@@ -1858,15 +1786,11 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 }
 
 .htl-ui-layout--two-columns {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
 .htl-ui-layout__column--left {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 200px;
-          flex: 0 0 200px;
+  flex: 0 0 200px;
 }
 
 .htl-ui-layout__column--right {
@@ -2052,12 +1976,9 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 }
 
 .room-variation__actions .htl-ui-icon:after {
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-property: color, background-color, border-color;
+  transition-duration: 0.2s;
   transition-property: color, background-color, border-color;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   color: #818181;
   float: left;
 }
@@ -2120,8 +2041,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 #room-images-container ul li.add,
 #room-images-container ul li.htl-image-sortable-placeholder {
   background: #dcf3fc;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   cursor: move;
   float: left;
   margin: 9px 9px 0 0;
@@ -2174,12 +2094,9 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   right: -8px;
   text-indent: -9999px;
   top: -8px;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-property: color, background-color, border-color;
+  transition-duration: 0.2s;
   transition-property: color, background-color, border-color;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   width: 20px;
 }
 
@@ -2238,20 +2155,16 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 }
 
 .booking-details__transaction-id a {
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-property: color, background-color, border-color;
+  transition-duration: 0.2s;
   transition-property: color, background-color, border-color;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   color: #00A0D2;
   text-decoration: none;
 }
 
 .booking-details__transaction-id a:focus, .booking-details__transaction-id a:active, .booking-details__transaction-id a:visited {
   color: #00A0D2 !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   outline: none !important;
 }
 
@@ -2304,20 +2217,16 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 }
 
 .htl-ui-table__cell--reservation-items-room-name a {
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-property: color, background-color, border-color;
+  transition-duration: 0.2s;
   transition-property: color, background-color, border-color;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   color: #00A0D2;
   display: block;
 }
 
 .htl-ui-table__cell--reservation-items-room-name a:focus, .htl-ui-table__cell--reservation-items-room-name a:active, .htl-ui-table__cell--reservation-items-room-name a:visited {
   color: #00A0D2 !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   outline: none !important;
 }
 
@@ -2530,10 +2439,8 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 /****** Reservation ******/
 .htl-ui-text-icon-button--status {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-font-variant-ligatures: none;
-          font-variant-ligatures: none;
+  box-sizing: border-box;
+  font-variant-ligatures: none;
   text-rendering: optimizeLegibility;
   font-smoothing: antialiased !important;
   -webkit-font-smoothing: antialiased !important;
@@ -2625,10 +2532,8 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 .htl-ui-text-icon-button--checkin,
 .htl-ui-text-icon-button--checkout {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-font-variant-ligatures: none;
-          font-variant-ligatures: none;
+  box-sizing: border-box;
+  font-variant-ligatures: none;
   text-rendering: optimizeLegibility;
   font-smoothing: antialiased !important;
   -webkit-font-smoothing: antialiased !important;
@@ -2639,10 +2544,8 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 
 .post-type-room_reservation .column-nights span {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-font-variant-ligatures: none;
-          font-variant-ligatures: none;
+  box-sizing: border-box;
+  font-variant-ligatures: none;
   text-rendering: optimizeLegibility;
   font-smoothing: antialiased !important;
   -webkit-font-smoothing: antialiased !important;
@@ -2662,10 +2565,8 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 /****** Rooms ******/
 .post-type-room .column-guests span {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-font-variant-ligatures: none;
-          font-variant-ligatures: none;
+  box-sizing: border-box;
+  font-variant-ligatures: none;
   text-rendering: optimizeLegibility;
   font-smoothing: antialiased !important;
   -webkit-font-smoothing: antialiased !important;
@@ -2684,10 +2585,8 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 
 .post-type-room .column-quantity mark {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-font-variant-ligatures: none;
-          font-variant-ligatures: none;
+  box-sizing: border-box;
+  font-variant-ligatures: none;
   text-rendering: optimizeLegibility;
   font-smoothing: antialiased !important;
   -webkit-font-smoothing: antialiased !important;
@@ -2801,12 +2700,9 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 }
 
 .booking-calendar-filters__item {
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-property: color, background-color, border-color;
+  transition-duration: 0.2s;
   transition-property: color, background-color, border-color;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   display: block;
   font-size: 14px;
@@ -2823,12 +2719,9 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
   font-variant: normal;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-property: color, background-color, border-color;
+  transition-duration: 0.2s;
   transition-property: color, background-color, border-color;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   background-color: #00A0D2;
   border-radius: 2px;
   color: #fff;
@@ -2958,8 +2851,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 
 .booking-calendar-table__reservation-link:focus, .booking-calendar-table__reservation-link:active, .booking-calendar-table__reservation-link:visited {
   color: #fff !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   outline: none !important;
 }
 
@@ -2983,8 +2875,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 
 .booking-calendar-table__room-link:focus, .booking-calendar-table__room-link:active, .booking-calendar-table__room-link:visited {
   color: #333 !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   outline: none !important;
 }
 
@@ -3014,8 +2905,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 .booking-calendar-card {
   background-color: #fff;
   border-radius: 2px;
-  -webkit-box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.18);
-          box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.18);
+  box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.18);
   color: #818181;
   display: none;
   left: 50%;
@@ -3050,8 +2940,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 
 .booking-calendar-card-details__view-link:focus, .booking-calendar-card-details__view-link:active, .booking-calendar-card-details__view-link:visited {
   color: #818181 !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   outline: none !important;
 }
 
@@ -3123,16 +3012,13 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
     position: absolute;
     right: 0;
     top: 50%;
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
+    transform: translateY(-50%);
   }
 }
 
 @media (min-width: 1200px) {
   .hotelier-settings-navigation {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 300px;
-            flex: 0 0 300px;
+    flex: 0 0 300px;
   }
   .hotelier-settings-navigation__title {
     padding-top: 0;
@@ -3145,22 +3031,16 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
     display: none;
   }
   .hotelier-settings {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
   }
   .hotelier-settings-wrapper {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+    flex: 1;
   }
   .hotelier-settings-panel {
     height: 100%;
   }
   .htl-ui-layout__column--left {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 250px;
-            flex: 0 0 250px;
+    flex: 0 0 250px;
   }
   .htl-ui-layout__column--right .htl-ui-table--disabled-dates td {
     display: table-cell;
@@ -3174,8 +3054,6 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
     padding-bottom: 0;
   }
   .booking-calendar__header {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
   }
   .booking-calendar-navigation,
@@ -3192,14 +3070,10 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
     padding-bottom: 0;
   }
   .booking-calendar__content {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
   }
   .booking-calendar__table {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+    flex: 1;
   }
 }
 

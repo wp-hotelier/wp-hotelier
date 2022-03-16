@@ -16,7 +16,7 @@
 	padding: 0;
 }
 
-@include mq($from: mobile_wide) {
+@media (min-width: 480px) {
 	.room-loop__item {
 		float: left;
 		margin-right: 4%;
@@ -36,7 +36,7 @@
 	}
 }
 
-@include mq($from: tablet) {
+@media (min-width: 768px) {
 	.room-loop__item--first {
 		clear: both !important;
 	}

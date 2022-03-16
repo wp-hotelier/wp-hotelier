@@ -9,7 +9,6 @@
 //  FRAMEWORK
 //  Settings ............... Variables and settings.
 //  Mixins ................. Default mixins
-//  Sass MQ ................ Media Queries with superpowers (https://github.com/sass-mq/sass-mq).
 
 /*
 GENERAL
@@ -63,7 +62,6 @@ BOOKING CALENDAR
 // FRAMEWORK
 @import "../settings/admin/settings";
 @import "../settings/admin/mixins";
-@import "node_modules/sass-mq/mq";
 
 /*--------------------------------------------------------------
 >>> GENERAL:

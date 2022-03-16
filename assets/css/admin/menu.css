@@ -15,6 +15,5 @@
 
 #adminmenu #toplevel_page_hotelier-settings.wp-menu-open div.wp-menu-image:before,
 #adminmenu #menu-posts-room.wp-menu-open div.wp-menu-image:before {
-  -webkit-filter: grayscale(100%) brightness(5);
-          filter: grayscale(100%) brightness(5);
+  filter: grayscale(100%) brightness(5);
 }

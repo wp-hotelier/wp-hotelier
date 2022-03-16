@@ -49,9 +49,7 @@
 .room-loop__list {
   list-style: none;
   margin-left: 0;
-  -webkit-column-gap: var(--global--spacing-vertical);
-     -moz-column-gap: var(--global--spacing-vertical);
-          column-gap: var(--global--spacing-vertical);
+  column-gap: var(--global--spacing-vertical);
   display: grid;
   margin-bottom: var(--global--spacing-vertical);
   padding: 0;
@@ -390,12 +388,9 @@ table.hotelier-table tfoot td {
 }
 
 .datepicker__month-day {
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-property: color, background-color, border-color, opacity;
+  transition-duration: 0.2s;
   transition-property: color, background-color, border-color, opacity;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   border: none;
   font-weight: bold;
   padding: 7px;
@@ -417,8 +412,7 @@ table.hotelier-table tfoot td {
   left: 50%;
   position: absolute;
   top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .datepicker__month-day--selected {
@@ -648,12 +642,9 @@ table.hotelier-table tfoot td {
   border: 3px solid var(--global--color-secondary);
   margin-bottom: var(--global--spacing-vertical);
   padding: var(--global--spacing-vertical);
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-property: border-color;
+  transition-duration: 0.2s;
   transition-property: border-color;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .listing__room.room--selected, .listing__room.listing__room--queried {
@@ -984,8 +975,7 @@ table.hotelier-table tfoot td {
   position: absolute;
   top: var(--global--spacing-vertical);
   right: var(--global--spacing-horizontal);
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .payment-method__label {
@@ -1116,20 +1106,15 @@ table.hotelier-table tfoot td {
 */
 /* Search */
 .widget-room-search form {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   margin: auto;
   max-width: var(--responsive--aligndefault-width);
 }
 
 .widget-room-search .room-search__input {
   -webkit-appearance: none;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  flex-grow: 1;
   margin-right: calc(-1 * var(--button--border-width));
   max-width: inherit;
 }
@@ -1178,8 +1163,6 @@ table.hotelier-table tfoot td {
 .widget-booking .widget-booking__dates {
   background-color: var(--global--color-primary);
   color: var(--global--color-background);
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   padding: var(--global--spacing-vertical) var(--global--spacing-horizontal);
 }
@@ -1217,12 +1200,8 @@ table.hotelier-table tfoot td {
 
 .widget-booking .widget-booking__cart-total {
   border-top: 3px solid var(--global--color-border);
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   margin-top: var(--global--spacing-vertical);
   padding-top: var(--global--spacing-vertical);
 }
@@ -1400,8 +1379,7 @@ table.hotelier-table tfoot td {
 
 .button--extras-toggle:hover {
   text-decoration-skip-ink: none;
-  -webkit-text-decoration-style: dotted;
-          text-decoration-style: dotted;
+  text-decoration-style: dotted;
 }
 
 .rate__extras .button--extras-toggle {
@@ -1452,23 +1430,17 @@ table.hotelier-table tfoot td {
     width: 48%;
   }
   .datepicker-form {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
   }
   .datepicker-input-select {
     border-right: 0 !important;
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
+    flex-grow: 1;
     height: 100%;
   }
   .button--datepicker {
     width: auto;
   }
   .datepicker__months {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
   }
   .datepicker__month--month1 {
@@ -1482,11 +1454,8 @@ table.hotelier-table tfoot td {
     visibility: hidden;
   }
   .room__content-wrapper {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     margin-bottom: 0;
     padding-left: 180px;
     position: relative;
@@ -1496,11 +1465,8 @@ table.hotelier-table tfoot td {
     width: 60%;
   }
   .room__rate {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
   }
   .room__content--listing,
   .rate__content--listing {
@@ -1526,21 +1492,15 @@ table.hotelier-table tfoot td {
     margin-bottom: 0;
   }
   .reservation-details__item {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
     margin-bottom: 0;
   }
 }
 
 @media only screen and (min-width: 1024px) {
   .room-loop__list {
-    -webkit-column-gap: calc(2 * var(--global--spacing-vertical));
-       -moz-column-gap: calc(2 * var(--global--spacing-vertical));
-            column-gap: calc(2 * var(--global--spacing-vertical));
+    column-gap: calc(2 * var(--global--spacing-vertical));
     margin-bottom: calc(2 * var(--global--spacing-vertical));
     row-gap: calc(2 * var(--global--spacing-vertical));
   }

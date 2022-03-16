@@ -6,17 +6,12 @@
 ----------------------------------------------------------------
 */
 .button--view-room-details {
-  -webkit-box-shadow: 0 1px 0 #0f0f0f;
-          box-shadow: 0 1px 0 #0f0f0f;
-  -webkit-transition: -webkit-box-shadow ease-in-out 130ms;
-  transition: -webkit-box-shadow ease-in-out 130ms;
+  box-shadow: 0 1px 0 #0f0f0f;
   transition: box-shadow ease-in-out 130ms;
-  transition: box-shadow ease-in-out 130ms, -webkit-box-shadow ease-in-out 130ms;
 }
 
 .button--view-room-details:hover {
-  -webkit-box-shadow: 0 3px 0 #0f0f0f;
-          box-shadow: 0 3px 0 #0f0f0f;
+  box-shadow: 0 3px 0 #0f0f0f;
 }
 
 /*--------------------------------------------------------------
@@ -37,17 +32,12 @@
 }
 
 .room__gallery-link--single {
-  -webkit-box-shadow: 0 1px 0 #0f0f0f;
-          box-shadow: 0 1px 0 #0f0f0f;
-  -webkit-transition: -webkit-box-shadow ease-in-out 130ms;
-  transition: -webkit-box-shadow ease-in-out 130ms;
+  box-shadow: 0 1px 0 #0f0f0f;
   transition: box-shadow ease-in-out 130ms;
-  transition: box-shadow ease-in-out 130ms, -webkit-box-shadow ease-in-out 130ms;
 }
 
 .room__gallery-link--single:hover {
-  -webkit-box-shadow: 0 3px 0 #0f0f0f;
-          box-shadow: 0 3px 0 #0f0f0f;
+  box-shadow: 0 3px 0 #0f0f0f;
 }
 
 /*--------------------------------------------------------------
@@ -85,8 +75,7 @@
 }
 
 .widget-rooms__thumbnail {
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 /*--------------------------------------------------------------

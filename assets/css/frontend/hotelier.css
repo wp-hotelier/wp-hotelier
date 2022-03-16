@@ -62,10 +62,8 @@ WIDGETS
   font-size: 0.875rem;
   line-height: 1.71429;
   background-color: #fff;
-  -webkit-box-shadow: 8px 8px 40px 5px rgba(0, 0, 0, 0.08);
-          box-shadow: 8px 8px 40px 5px rgba(0, 0, 0, 0.08);
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-shadow: 8px 8px 40px 5px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
   overflow: hidden;
   position: absolute;
   width: 260px;
@@ -91,12 +89,9 @@ WIDGETS
 }
 
 .datepicker__month-day {
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-property: color, background-color, border-color;
+  transition-duration: 0.2s;
   transition-property: color, background-color, border-color;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .datepicker__month-day--invalid {
@@ -114,8 +109,7 @@ WIDGETS
   left: 50%;
   position: absolute;
   top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .datepicker__month-day--selected {
@@ -997,13 +991,13 @@ WIDGETS
   margin-top: 24px;
 }
 
-@media (min-width: 20em) {
+@media (min-width: 320px) {
   .datepicker {
     width: 300px;
   }
 }
 
-@media (min-width: 30em) {
+@media (min-width: 480px) {
   .datepicker {
     width: 460px;
   }
@@ -1082,7 +1076,7 @@ WIDGETS
   }
 }
 
-@media (min-width: 48em) {
+@media (min-width: 768px) {
   .datepicker {
     width: 560px;
   }

@@ -22,7 +22,7 @@
 .room__min-max-stay--rate-listing {
 	margin-bottom: $space;
 
-	@include mq($from: mobile_wide) {
+	@media (min-width: 480px) {
 		margin-bottom: 0;
 		margin-top: 0;
 	}
