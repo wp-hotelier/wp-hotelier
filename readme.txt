@@ -3,7 +3,7 @@ Contributors: benitolopez
 Tags: booking, hotel, booking system, hostel, reservations, reservations, b&b, rooms, wphotelier
 Requires at least: 4.1
 Tested up to: 5.9
-Stable tag: 2.7.1
+Stable tag: 2.8.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -115,6 +115,12 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 4. WP Hotelier - Admin calendar.
 
 == Changelog ==
+
+= 2.8.0 - 2022-03-16 =
+* Add - Support for TwentyTwentyOne theme.
+* Add - Add various filters and actions.
+* Tweak - Minor fixes.
+* Localization - POT file updated.
 
 = 2.7.1 - 2022-02-18 =
 * Add - Show room minimum/maximum info in widget "AJAX Room Booking".
