@@ -30,7 +30,7 @@
     "autoprefixer": "^7.1.1",
     "browser-sync": "^2.26.14",
     "css-mqpacker": "^6.0.0",
-    "node-sass": "^4.0.0",
+    "node-sass": "^7.0.0",
     "npm-run-all": "^4.0.2",
     "onchange": "^3.2.1",
     "postcss-cli": "^4.0.0",
