@@ -16,7 +16,7 @@
 .listing__room {
 	border: 1px solid #222;
 	margin-bottom: $space;
-	overflow: hidden;
+	// overflow: hidden;
 	padding: $space;
 }
 
@@ -75,26 +75,53 @@
 	margin-top: 0;
 }
 
-.room__actions {
+.room__content-wrapper {
+	@media (min-width: 480px) {
+		display: flex;
+		flex-wrap: wrap;
+		margin-bottom: 0;
+		// padding-left: 180px;
+		position: relative;
+	}
+}
+
+.room__actions,
+.rate__actions {
 	border-top: 1px solid $color__default__line;
 	margin-top: $space;
 	padding-top: $space;
+	// background-color: red;
 
 	@media (min-width: 480px) {
 		border-left: 1px solid $color__default__line;
 		border-top: none;
-		float: right;
+		// float: right;
 		margin-top: 0;
 		padding-left: $space__s;
 		padding-top: 0;
 		text-align: right;
-		width: 34%;
+		width: 35%;
 	}
 }
 
 @media (min-width: 480px) {
-	.room__content--listing {
-		float: left;
+	.room__content--listing,
+	.rate__content--listing {
+		// float: left;
+		padding-right: $space__s;
+		width: 65%;
+	}
+}
+
+.room__rate {
+	@media (min-width: 480px) {
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
+
+.rate__description-wrapper {
+	@media (min-width: 480px) {
 		padding-right: $space__s;
 		width: 65%;
 	}
@@ -118,21 +145,21 @@
 	padding-top: $space;
 }
 
-@media (min-width: 480px) {
-	.rate__content {
-		float: left;
-		padding-right: $space__s;
-		width: 65%;
-	}
+// @media (min-width: 480px) {
+// 	.rate__content {
+// 		float: left;
+// 		padding-right: $space__s;
+// 		width: 65%;
+// 	}
 
-	.rate__actions--listing {
-		border-left: 1px solid $color__default__line;
-		float: right;
-		padding-left: $space__s;
-		text-align: right;
-		width: 34%;
-	}
-}
+// 	.rate__actions--listing {
+// 		border-left: 1px solid $color__default__line;
+// 		float: right;
+// 		padding-left: $space__s;
+// 		text-align: right;
+// 		width: 34%;
+// 	}
+// }
 
 .rate__room--listing {
 	margin-bottom: 0;

@@ -594,7 +594,6 @@ WIDGETS
 .listing__room {
   border: 1px solid #222;
   margin-bottom: 24px;
-  overflow: hidden;
   padding: 24px;
 }
 
@@ -668,7 +667,8 @@ WIDGETS
   margin-top: 0;
 }
 
-.room__actions {
+.room__actions,
+.rate__actions {
   border-top: 1px solid #eee;
   margin-top: 24px;
   padding-top: 24px;
@@ -1047,32 +1047,34 @@ WIDGETS
     margin-bottom: 0;
     margin-top: 0;
   }
-  .room__actions {
+  .room__content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    position: relative;
+  }
+  .room__actions,
+  .rate__actions {
     border-left: 1px solid #eee;
     border-top: none;
-    float: right;
     margin-top: 0;
     padding-left: 12px;
     padding-top: 0;
     text-align: right;
-    width: 34%;
+    width: 35%;
   }
-  .room__content--listing {
-    float: left;
+  .room__content--listing,
+  .rate__content--listing {
     padding-right: 12px;
     width: 65%;
   }
-  .rate__content {
-    float: left;
+  .room__rate {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .rate__description-wrapper {
     padding-right: 12px;
     width: 65%;
-  }
-  .rate__actions--listing {
-    border-left: 1px solid #eee;
-    float: right;
-    padding-left: 12px;
-    text-align: right;
-    width: 34%;
   }
 }
 
