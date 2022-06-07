@@ -129,10 +129,7 @@ final class Hotelier {
 		add_action( 'after_setup_theme', array( $this, 'template_functions' ), 11 );
 		add_action( 'init', array( $this, 'init' ), 0 );
 		add_action( 'init', array( 'HTL_Emails', 'init_transactional_emails' ) );
-
-		if ( $this->is_request( 'frontend' ) ) {
-			add_action( 'init', array( 'HTL_Shortcodes', 'init' ) );
-		}
+		add_action( 'init', array( 'HTL_Shortcodes', 'init' ) );
 	}
 
 	/**
