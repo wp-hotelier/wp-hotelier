@@ -70,6 +70,26 @@ $thepostid = empty( $thepostid ) ? $post->ID : $thepostid;
 
 		HTL_Meta_Boxes_Helper::number_input(
 			array(
+				'id'          => '_beds',
+				'value'       => get_post_meta( $thepostid, '_beds', true ),
+				'label'       => esc_html__( 'Number of beds:', 'wp-hotelier' ),
+				'min'         => 0,
+				'description' => esc_html__( 'Number of beds. Not required and  not prominent by default; however, some themes may show this info.', 'wp-hotelier' )
+			)
+		);
+
+		HTL_Meta_Boxes_Helper::number_input(
+			array(
+				'id'          => '_bathrooms',
+				'value'       => get_post_meta( $thepostid, '_bathrooms', true ),
+				'label'       => esc_html__( 'Number of bathrooms:', 'wp-hotelier' ),
+				'min'         => 0,
+				'description' => esc_html__( 'Number of bathrooms. Not required and  not prominent by default; however, some themes may show this info.', 'wp-hotelier' )
+			)
+		);
+
+		HTL_Meta_Boxes_Helper::number_input(
+			array(
 				'id'          => '_room_size',
 				'value'       => get_post_meta( $thepostid, '_room_size', true ),
 				'label'       => sprintf( esc_html__( 'Room size (%s):', 'wp-hotelier' ), htl_get_option( 'room_size_unit', 'm²' ) ),

@@ -98,6 +98,8 @@ class HTL_Admin_Meta_Boxes {
 			'_max_children'            => 'number',
 			'_bed_size'                => 'text',
 			'_room_size'               => 'number',
+			'_beds'                    => 'number',
+			'_bathrooms'               => 'number',
 			'_stock_rooms'             => 'number',
 			'_show_extra_settings'     => 'checkbox',
 			'_room_additional_details' => 'textarea',
