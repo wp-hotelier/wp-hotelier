@@ -494,6 +494,24 @@ class HTL_Room {
 	}
 
 	/**
+	 * Returns the room's number of beds.
+	 *
+	 * @return int beds
+	 */
+	public function get_beds() {
+		return absint( $this->beds );
+	}
+
+	/**
+	 * Returns the room's number of bathrooms.
+	 *
+	 * @return int bathrooms
+	 */
+	public function get_bathrooms() {
+		return absint( $this->bathrooms );
+	}
+
+	/**
 	 * Returns the room's size.
 	 *
 	 * @return string room_size
