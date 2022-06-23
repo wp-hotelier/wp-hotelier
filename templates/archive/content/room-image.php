@@ -6,7 +6,7 @@
  *
  * @author  Benito Lopez <hello@lopezb.com>
  * @package Hotelier/Templates
- * @version 1.0.0
+ * @version 2.9.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -17,8 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <a href="<?php the_permalink() ?>" class="room__thumbnail room__thumbnail--loop">
 	<?php if ( has_post_thumbnail() ) :
-		the_post_thumbnail( 'room_catalog' );
+		the_post_thumbnail( apply_filters( 'hotelier_loop_room_image_size', 'room_catalog' ) );
 	else :
-		echo htl_placeholder_img( 'room_catalog' );
+		echo htl_placeholder_img( apply_filters( 'hotelier_loop_room_image_size', 'room_catalog' ) );
 	endif; ?>
 </a>
