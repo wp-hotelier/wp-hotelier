@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Shortcodes
  * @package  Hotelier/Classes
- * @version  2.3.0
+ * @version  2.9.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -85,11 +85,23 @@ class HTL_Shortcodes {
 	private static function room_loop( $query_args, $atts, $loop_name ) {
 		global $hotelier_loop;
 
+		$has_pagination = isset( $atts['paginate'] ) && $atts['paginate'] === 'true' ? true : false;
+
+		if ( $has_pagination ) {
+			$query_args['paged'] = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+		}
+
 		$rooms                      = new WP_Query( apply_filters( 'hotelier_shortcode_rooms_query', $query_args, $atts ) );
 		$columns                    = absint( $atts[ 'columns' ] );
 		$hotelier_loop[ 'columns' ] = $columns;
 
 		ob_start();
+
+		global $wp_query;
+
+		// Backup query object.
+		$previous_wp_query = $wp_query;
+		$wp_query          = $rooms;
 
 		if ( $rooms->have_posts() ) : ?>
 
@@ -107,8 +119,16 @@ class HTL_Shortcodes {
 
 			<?php do_action( "hotelier_shortcode_after_{$loop_name}_loop", $columns ); ?>
 
+			<?php
+			if ( $has_pagination ) {
+				do_action( "hotelier_pagination" );
+			}
+			?>
+
 		<?php endif;
 
+		// Restore $previous_wp_query and reset post data.
+		$wp_query = $previous_wp_query;
 		hotelier_reset_loop();
 		wp_reset_postdata();
 
@@ -159,6 +179,7 @@ class HTL_Shortcodes {
 			'columns'  => '3',
 			'orderby'  => 'date',
 			'order'    => 'desc',
+			'paginate' => 'false',
 		), $atts );
 
 		$query_args = array(
@@ -191,6 +212,7 @@ class HTL_Shortcodes {
 		$atts = shortcode_atts( array(
 			'per_page' => '9',
 			'columns'  => '3',
+			'paginate' => 'false',
 			'orderby'  => 'title',
 			'order'    => 'desc',
 			'category' => '',  // Slugs
@@ -238,17 +260,20 @@ class HTL_Shortcodes {
 	 */
 	public static function rooms( $atts ) {
 		$atts = shortcode_atts( array(
-			'columns' => '3',
-			'orderby' => 'title',
-			'order'   => 'asc',
-			'ids'     => '',
+			'per_page' => '-1',
+			'columns'  => '3',
+			'orderby'  => 'title',
+			'order'    => 'asc',
+			'paginate' => 'false',
+			'order'    => 'asc',
+			'ids'      => '',
 		), $atts );
 
 		$query_args = array(
 			'post_type'           => 'room',
 			'post_status'         => 'publish',
 			'ignore_sticky_posts' => 1,
-			'posts_per_page'      => -1,
+			'posts_per_page'      => $atts[ 'per_page' ],
 			'orderby'             => $atts[ 'orderby' ],
 			'order'               => $atts[ 'order' ],
 			'meta_query'          => array(
