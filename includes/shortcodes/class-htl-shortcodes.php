@@ -264,14 +264,17 @@ class HTL_Shortcodes {
 	 */
 	public static function rooms( $atts ) {
 		$atts = shortcode_atts( array(
-			'per_page' => '-1',
-			'columns'  => '3',
-			'orderby'  => 'title',
-			'order'    => 'asc',
-			'paginate' => 'false',
-			'order'    => 'asc',
-			'ids'      => '',
-			'offset'   => 0,
+			'per_page'         => '-1',
+			'columns'          => '3',
+			'orderby'          => 'title',
+			'order'            => 'asc',
+			'paginate'         => 'false',
+			'order'            => 'asc',
+			'ids'              => '',
+			'exclude_ids'      => '',
+			'category'         => '',
+			'exclude_category' => '',
+			'offset'           => 0,
 		), $atts );
 
 		$query_args = array(
@@ -296,7 +299,44 @@ class HTL_Shortcodes {
 			$ids = array_map( 'trim', explode( ',', $atts[ 'ids' ] ) );
 			$ids = array_map( 'absint', $ids );
 			$query_args[ 'post__in' ] = $ids;
-			$query_args[ 'orderby' ]  = 'post__in';
+		}
+
+		if ( ! empty( $atts[ 'exclude_ids' ] ) ) {
+			$ids = array_map( 'trim', explode( ',', $atts[ 'exclude_ids' ] ) );
+			$ids = array_map( 'absint', $ids );
+			$query_args[ 'post__not_in' ] = $ids;
+		}
+
+		if ( ! empty( $atts[ 'category' ] ) ) {
+			$tax_query_args = array(
+				'operator' => 'IN',
+				'taxonomy' => 'room_cat',
+				'terms'    => array_map( 'absint', explode( ',', $atts[ 'category' ] ) ),
+				'field'    => 'term_id',
+			);
+			if ( isset( $query_args[ 'tax_query' ] ) ) {
+				$query_args[ 'tax_query' ][] = $tax_query_args;
+			} else {
+				$query_args[ 'tax_query' ] = array(
+					$tax_query_args
+				);
+			}
+		}
+
+		if ( ! empty( $atts[ 'exclude_category' ] ) ) {
+			$tax_query_args = array(
+				'operator' => 'NOT IN',
+				'taxonomy' => 'room_cat',
+				'terms'    => array_map( 'absint', explode( ',', $atts[ 'exclude_category' ] ) ),
+				'field'    => 'term_id',
+			);
+			if ( isset( $query_args[ 'tax_query' ] ) ) {
+				$query_args[ 'tax_query' ][] = $tax_query_args;
+			} else {
+				$query_args[ 'tax_query' ] = array(
+					$tax_query_args
+				);
+			}
 		}
 
 		return self::room_loop( $query_args, $atts, 'rooms' );
