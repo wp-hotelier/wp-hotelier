@@ -134,7 +134,13 @@ class HTL_Shortcodes {
 
 		$custom_class = apply_filters( 'hotelier_shortcode_room_loop_wrapper_class', '', $columns );
 
-		return '<div class="hotelier room-loop room-loop--shortcode-rooms room-loop--columns-' . $columns . ' ' . esc_attr( $custom_class ) . '">' . ob_get_clean() . '</div>';
+		$html = ob_get_clean();
+
+		if ( apply_filters( 'hotelier_shortcode_room_loop_has_wrapper', true ) ) {
+			$html = '<div class="hotelier room-loop room-loop--shortcode-rooms room-loop--columns-' . $columns . ' ' . esc_attr( $custom_class ) . '">' . $html . '</div>';
+		}
+
+		return $html;
 	}
 
 	/**
