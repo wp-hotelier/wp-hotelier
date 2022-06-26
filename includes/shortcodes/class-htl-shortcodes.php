@@ -180,6 +180,7 @@ class HTL_Shortcodes {
 			'orderby'  => 'date',
 			'order'    => 'desc',
 			'paginate' => 'false',
+			'offset'   => 0,
 		), $atts );
 
 		$query_args = array(
@@ -189,6 +190,7 @@ class HTL_Shortcodes {
 			'posts_per_page'      => $atts[ 'per_page' ],
 			'orderby'             => $atts[ 'orderby' ],
 			'order'               => $atts[ 'order' ],
+			'offset'              => absint( $atts[ 'offset' ] ),
 			'meta_query'          => array(
 				array(
 					'key'     => '_stock_rooms',
@@ -215,6 +217,7 @@ class HTL_Shortcodes {
 			'paginate' => 'false',
 			'orderby'  => 'title',
 			'order'    => 'desc',
+			'offset'   => 0,
 			'category' => '',  // Slugs
 			'operator' => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
 		), $atts );
@@ -230,6 +233,7 @@ class HTL_Shortcodes {
 			'posts_per_page'      => $atts[ 'per_page' ],
 			'orderby'             => $atts[ 'orderby' ],
 			'order'               => $atts[ 'order' ],
+			'offset'              => absint( $atts[ 'offset' ] ),
 			'meta_query'          => array(
 				array(
 					'key'     => '_stock_rooms',
@@ -267,6 +271,7 @@ class HTL_Shortcodes {
 			'paginate' => 'false',
 			'order'    => 'asc',
 			'ids'      => '',
+			'offset'   => 0,
 		), $atts );
 
 		$query_args = array(
@@ -276,6 +281,7 @@ class HTL_Shortcodes {
 			'posts_per_page'      => $atts[ 'per_page' ],
 			'orderby'             => $atts[ 'orderby' ],
 			'order'               => $atts[ 'order' ],
+			'offset'              => absint( $atts[ 'offset' ] ),
 			'meta_query'          => array(
 				array(
 					'key'     => '_stock_rooms',
