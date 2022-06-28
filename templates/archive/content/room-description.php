@@ -6,7 +6,7 @@
  *
  * @author  Benito Lopez <hello@lopezb.com>
  * @package Hotelier/Templates
- * @version 1.0.0
+ * @version 2.9.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -15,8 +15,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $post;
 
+$description = apply_filters( 'hotelier_short_description', $post->post_excerpt );
+
+if ( ! $description ) {
+	return;
+}
 ?>
 
 <div class="room__description room__description--loop">
-	<?php echo apply_filters( 'hotelier_short_description', $post->post_excerpt ) ?>
+	<?php echo wp_kses_post( $description ); ?>
 </div>
