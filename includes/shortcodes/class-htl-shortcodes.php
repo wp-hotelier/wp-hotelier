@@ -89,6 +89,7 @@ class HTL_Shortcodes {
 
 		if ( $has_pagination ) {
 			$query_args['paged'] = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+			unset( $query_args['offset'] );
 		}
 
 		$rooms                      = new WP_Query( apply_filters( 'hotelier_shortcode_rooms_query', $query_args, $atts ) );
