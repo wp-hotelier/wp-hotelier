@@ -19,7 +19,11 @@ if ( $related_rooms && $related_rooms->have_posts() ) : ?>
 
 		<h3 class="related-rooms-title"><?php _e( 'Related rooms', 'wp-hotelier' ); ?></h3>
 
-		<div class="hotelier room-loop room-loop--related-rooms room-loop--columns-<?php echo absint( $columns ); ?>">
+		<?php
+		$custom_class = apply_filters( 'hotelier_related_rooms_loop_wrapper_class', '', $columns );
+		?>
+
+		<div class="hotelier room-loop room-loop--related-rooms room-loop--columns-<?php echo absint( $columns ); ?> <?php echo esc_attr( $custom_class ); ?>">
 
 			<?php do_action( 'hotelier_before_related_room_loop', $columns ); ?>
 
