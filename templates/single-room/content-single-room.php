@@ -42,6 +42,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		do_action( 'hotelier_single_room_title' );
 	?>
 
+	<?php do_action( 'hotelier_single_room_before_content' ); ?>
+
 	<?php
 		/**
 		 * hotelier_single_room_images hook.
@@ -107,6 +109,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 
 	</div>
+
+	<?php do_action( 'hotelier_single_room_after_content' ); ?>
 
 <?php if ( apply_filters( 'hotelier_print_single_room_wrapper', true ) ) : ?>
 	</<?php echo esc_attr( apply_filters( 'hotelier_single_room_wrapper_tag', 'div' ) ); ?>>
