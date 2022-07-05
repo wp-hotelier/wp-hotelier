@@ -29,7 +29,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	}
 ?>
 
-<<?php echo esc_attr( apply_filters( 'hotelier_single_room_wrapper_tag', 'div' ) ); ?> id="room-<?php echo absint( get_the_ID() ); ?>" <?php post_class(); ?>>
+<?php if ( apply_filters( 'hotelier_print_single_room_wrapper', true ) ) : ?>
+	<<?php echo esc_attr( apply_filters( 'hotelier_single_room_wrapper_tag', 'div' ) ); ?> id="room-<?php echo absint( get_the_ID() ); ?>" <?php post_class(); ?>>
+<?php endif; ?>
 
 	<?php
 		/**
@@ -105,4 +107,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 
 	</div>
-</<?php echo esc_attr( apply_filters( 'hotelier_single_room_wrapper_tag', 'div' ) ); ?>>
+
+<?php if ( apply_filters( 'hotelier_print_single_room_wrapper', true ) ) : ?>
+	</<?php echo esc_attr( apply_filters( 'hotelier_single_room_wrapper_tag', 'div' ) ); ?>>
+<?php endif; ?>
