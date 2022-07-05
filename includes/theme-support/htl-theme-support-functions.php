@@ -16,4 +16,6 @@ if ( get_template() === 'twentyseventeen' ) {
 	include_once( 'class-htl-twenty-seventeen.php' );
 } else if ( get_template() === 'twentytwentyone' ) {
 	include_once( 'class-htl-twenty-twentyone.php' );
+} else if ( get_template() === 'hello-elementor' ) {
+	include_once( 'class-htl-theme-hello-elementor.php' );
 }
