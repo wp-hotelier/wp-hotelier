@@ -4,6 +4,22 @@
 */
 
 /* Notices */
+.hotelier-notice {
+	font-family: "Roboto", Sans-serif;
+	padding: 15px;
+	margin-bottom: 20px;
+	position: relative;
+}
+
+.hotelier-notice--info {
+	color: #313131;
+	background-color: #F4F4F4;
+}
+
+.hotelier-notice--error {
+	color: #FF3100;
+	background-color: #FFEDED;
+}
 
 /* Cart errors */
 
