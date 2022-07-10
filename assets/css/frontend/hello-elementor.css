@@ -201,6 +201,18 @@
   margin-right: 0;
 }
 
+/*--------------------------------------------------------------
+>>> DATEPICKER
+----------------------------------------------------------------
+*/
+.datepicker-form {
+  position: relative;
+}
+@media only screen and (min-width: 768px) {
+  .datepicker-form {
+    display: flex;
+  }
+}
 @media (max-width: 1024px) {
   .rooms-grid-tablet-6 .room-loop__list {
     grid-template-columns: repeat(6, 1fr);
@@ -221,7 +233,6 @@
     grid-template-columns: repeat(1, 1fr);
   }
 }
-
 @media (max-width: 767px) {
   .rooms-grid-mobile-6 .room-loop__list {
     grid-template-columns: repeat(6, 1fr);
