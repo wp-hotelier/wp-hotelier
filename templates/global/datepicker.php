@@ -17,8 +17,13 @@ $shortcode_atts = isset( $shortcode_atts ) ? $shortcode_atts : array();
 
 $room_id = is_room() ? get_the_ID() : false;
 
-// extensions can hook into here to add their own pages
-$datepicker_form_url = apply_filters( 'hotelier_datepicker_form_url', HTL()->cart->get_room_list_form_url( $room_id ) ); ?>
+if ( is_array( $shortcode_atts ) && isset( $shortcode_atts['preview'] ) ) {
+	$datepicker_form_url = '';
+} else {
+	// extensions can hook into here to add their own pages
+	$datepicker_form_url = apply_filters( 'hotelier_datepicker_form_url', HTL()->cart->get_room_list_form_url( $room_id ) );
+}
+?>
 
 <?php do_action( 'hotelier_before_datepicker', $shortcode_atts ); ?>
 
