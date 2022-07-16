@@ -42,9 +42,14 @@ class HTL_Shortcode_Datepicker {
 	 * Show the datepicker form
 	 */
 	private static function datepicker( $atts ) {
-
-		$checkin  = HTL()->session->get( 'checkin' ) ? HTL()->session->get( 'checkin' ) :  null;
-		$checkout = HTL()->session->get( 'checkout' ) ? HTL()->session->get( 'checkout' ) : null;
+		if ( isset( $atts ) && is_array( $atts ) && isset( $atts['preview'] ) ) {
+			$dates    = htl_get_default_dates();
+			$checkin  = $dates[ 'checkin' ];
+			$checkout = $dates[ 'checkout' ];
+		} else {
+			$checkin  = HTL()->session->get( 'checkin' ) ? HTL()->session->get( 'checkin' ) :  null;
+			$checkout = HTL()->session->get( 'checkout' ) ? HTL()->session->get( 'checkout' ) : null;
+		}
 
 		// Enqueue the datepicker scripts
 		wp_enqueue_script( 'hotelier-init-datepicker' );
