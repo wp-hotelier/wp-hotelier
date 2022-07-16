@@ -135,11 +135,13 @@ class HTL_Frontend_Scripts {
 			'disabled_dates'     => apply_filters( 'hotelier_datepicker_disabled_dates', array() ),
 			'enable_checkout'    => apply_filters( 'hotelier_datepicker_enable_checkout', true ),
 			'disabled_days_of_week' => apply_filters( 'hotelier_datepicker_disabled_days_of_week', array() ),
+			'inline'             => apply_filters( 'hotelier_datepicker_inline', false ),
 			'i18n'               => array(
 				'selected'          => esc_html_x( 'Your stay:', 'datepicker_selected', 'wp-hotelier' ),
 				'night'             => esc_html_x( 'Night', 'datepicker_night', 'wp-hotelier' ),
 				'nights'            => esc_html_x( 'Nights', 'datepicker_nights', 'wp-hotelier' ),
 				'button'            => esc_html_x( 'Close', 'datepicker_apply', 'wp-hotelier' ),
+    			'clearButton'       => esc_html_x( 'Clear', 'datepicker_apply', 'wp-hotelier' ),
 				'day-names'         => $day_names,
 				'day-names-short'   => $day_names_short,
 				'month-names'       => $month_names,
