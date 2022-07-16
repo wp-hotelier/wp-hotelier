@@ -230,17 +230,14 @@
 
 .datepicker {
   background-color: #fff;
-  box-shadow: 5px 0px 15px 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 7px 25px 5px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   left: 0;
   overflow: hidden;
   position: absolute;
   width: 240px;
   z-index: 999999;
-}
-
-.datepicker--inline {
-  position: relative;
+  border: 1px solid rgba(230, 230, 230, 0.8);
 }
 
 .datepicker table,
@@ -253,6 +250,23 @@
 
 .datepicker table {
   border-top: none !important;
+}
+
+.datepicker-form--rounded .datepicker {
+  border-radius: 10px;
+}
+
+.datepicker-form--inline .datepicker--inline {
+  position: relative;
+}
+
+.datepicker-form--inline .button--datepicker,
+.datepicker-form--inline .datepicker-input-select {
+  display: none;
+}
+
+.datepicker--topbar-bottom .datepicker__months {
+  padding-bottom: 20px;
 }
 
 .datepicker__inner {
@@ -315,13 +329,14 @@
   position: absolute;
 }
 
-.datepicker__month-caption {
-  height: 50px;
-  vertical-align: middle;
-}
-
 .datepicker__month-caption th {
   border: none !important;
+  padding-bottom: 5px;
+  padding-top: 25px;
+}
+
+.datepicker--topbar-bottom .datepicker__month-caption th {
+  padding-top: 0;
 }
 
 .datepicker__month-name {
@@ -329,15 +344,13 @@
 }
 
 .datepicker__week-days {
-  text-transform: uppercase;
   vertical-align: middle;
 }
 
 .datepicker__week-name {
   border: none;
   font-size: 12px;
-  font-weight: 500;
-  text-transform: uppercase;
+  font-weight: bold;
   padding: 19px 7px 12px 7px !important;
 }
 
@@ -350,7 +363,8 @@
 }
 
 .datepicker__month-day:hover {
-  background-color: rgba(204, 51, 102, 0.3) !important;
+  background-color: #CC3366 !important;
+  color: #fff;
 }
 
 td.datepicker__month-day--invalid {
@@ -389,14 +403,15 @@ td.datepicker__month-day--today:hover {
 
 td.datepicker__month-day--selected,
 td.datepicker__month-day--selected:hover {
-  background-color: rgba(204, 51, 102, 0.9) !important;
-  color: #fff;
+  background-color: #f3f3f3 !important;
+  color: #CC3366;
+  font-weight: bold;
 }
 
 td.datepicker__month-day--hovering,
 td.datepicker__month-day--hovering:hover {
-  background-color: rgba(204, 51, 102, 0.9) !important;
-  color: #fff;
+  background-color: #f3f3f3 !important;
+  color: #CC3366;
 }
 
 td.datepicker__month-day--first-day-selected,
@@ -405,6 +420,25 @@ td.datepicker__month-day--first-day-selected:hover,
 td.datepicker__month-day--last-day-selected:hover {
   background-color: #CC3366 !important;
   color: #fff;
+  font-weight: bold;
+}
+
+.datepicker-form--rounded td.datepicker__month-day--today {
+  border-radius: 10px;
+}
+
+.datepicker-form--rounded td.datepicker__month-day--first-day-selected {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.datepicker-form--rounded td.datepicker__month-day--last-day-selected {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .datepicker__month-day--last-day-selected:after {
@@ -413,9 +447,20 @@ td.datepicker__month-day--last-day-selected:hover {
 
 .datepicker__topbar {
   font-size: 14px;
-  border-bottom: 1px solid rgba(102, 102, 102, 0.3);
-  padding-bottom: 18px;
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 20px;
   position: relative;
+}
+
+.datepicker--topbar-bottom .datepicker__topbar {
+  border-bottom: none;
+  border-top: 1px solid #e6e6e6;
+  padding-top: 20px;
+  padding-bottom: 0;
+  margin-left: -20px;
+  margin-right: -20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .datepicker__info-text--selected-days {
@@ -427,11 +472,34 @@ td.datepicker__month-day--last-day-selected:hover {
 }
 
 .datepicker__close-button,
-.datepicker__clear-button {
+.datepicker__clear-button,
+.datepicker__submit-button {
   cursor: pointer;
   font-size: 12px !important;
   margin-top: 20px !important;
   padding: 0.3rem .75rem !important;
+}
+
+.datepicker__close-button:disabled, .datepicker__close-button[disabled],
+.datepicker__clear-button:disabled,
+.datepicker__clear-button[disabled],
+.datepicker__submit-button:disabled,
+.datepicker__submit-button[disabled] {
+  cursor: not-allowed;
+}
+
+.datepicker__clear-button + .datepicker__submit-button {
+  margin-left: 10px;
+}
+
+.datepicker__buttons .datepicker__clear-button,
+.datepicker__buttons .datepicker__submit-button {
+  margin-top: 0 !important;
+}
+
+.datepicker--topbar-bottom .datepicker__buttons .datepicker__clear-button,
+.datepicker--topbar-bottom .datepicker__buttons .datepicker__submit-button {
+  margin-top: 20px !important;
 }
 
 @media (min-width: 340px) {
@@ -445,14 +513,14 @@ td.datepicker__month-day--last-day-selected:hover {
 
 @media (min-width: 570px) {
   .datepicker {
-    width: 420px;
+    width: 520px;
   }
   .datepicker__months {
     overflow: hidden;
     position: relative;
   }
   .datepicker__months:before {
-    background: rgba(102, 102, 102, 0.3);
+    background: #e6e6e6;
     bottom: 0;
     content: '';
     display: block;
@@ -461,8 +529,18 @@ td.datepicker__month-day--last-day-selected:hover {
     top: 0;
     width: 1px;
   }
+  .datepicker--topbar-bottom .datepicker__inner:before {
+    background: #e6e6e6;
+    content: '';
+    display: block;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    height: 100px;
+    width: 1px;
+  }
   .datepicker__month {
-    width: 180px !important;
+    width: 230px !important;
   }
   .datepicker__month--month1 {
     float: left;
@@ -471,12 +549,28 @@ td.datepicker__month-day--last-day-selected:hover {
     display: table;
     float: right;
   }
-  .datepicker__close-button,
-  .datepicker__clear-button {
+  .datepicker__close-button {
     margin-top: 0 !important;
     position: absolute;
     right: 0;
     top: -4px;
+  }
+  .datepicker--topbar-bottom .datepicker__close-button {
+    margin-top: 20px !important;
+    right: 20px;
+    top: 0;
+  }
+  .datepicker__buttons {
+    margin-top: 0 !important;
+    position: absolute;
+    right: 0;
+    bottom: 50%;
+  }
+  .datepicker--topbar-bottom .datepicker__buttons {
+    right: 20px;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
   }
 }
 
@@ -491,13 +585,31 @@ td.datepicker__month-day--last-day-selected:hover {
 
 @media (min-width: 960px) {
   .datepicker {
-    width: 560px;
+    width: 630px;
   }
   .datepicker__inner {
     padding: 30px;
   }
   .datepicker__month {
-    width: 240px !important;
+    width: 260px !important;
+  }
+  .datepicker--topbar-bottom .datepicker__topbar {
+    margin-left: -30px;
+    margin-right: -30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+  }
+  .datepicker--topbar-bottom .datepicker__close-button {
+    margin-top: 30px !important;
+    right: 30px;
+  }
+  .datepicker--topbar-bottom .datepicker__buttons {
+    right: 30px;
+  }
+  .datepicker--topbar-bottom .datepicker__buttons .datepicker__clear-button,
+  .datepicker--topbar-bottom .datepicker__buttons .datepicker__submit-button {
+    margin-top: 30px !important;
   }
 }
 
