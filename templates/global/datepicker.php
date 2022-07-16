@@ -27,7 +27,7 @@ if ( is_array( $shortcode_atts ) && isset( $shortcode_atts['preview'] ) ) {
 
 <?php do_action( 'hotelier_before_datepicker', $shortcode_atts ); ?>
 
-<form name="hotelier_datepicker" method="post" id="hotelier-datepicker" class="datepicker-form" action="<?php echo esc_url( $datepicker_form_url ); ?>" enctype="multipart/form-data">
+<form name="hotelier_datepicker" method="post" id="hotelier-datepicker" class="datepicker-form <?php echo is_array( $shortcode_atts ) && isset( $shortcode_atts['inline'] ) ? 'datepicker-form--inline' : ''; ?>" action="<?php echo esc_url( $datepicker_form_url ); ?>" enctype="multipart/form-data">
 
 	<?php do_action( 'hotelier_datepicker_before_input', $shortcode_atts ); ?>
 
