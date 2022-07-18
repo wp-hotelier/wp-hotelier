@@ -66,6 +66,14 @@ Something missing? No problem, you can extend WP Hotelier with a vast number of 
 * [Bank Transfer Payment Gateway](https://wphotelier.com/extensions/bank-transfer-payment-gateway/)
 * [MailChimp](https://wphotelier.com/extensions/mailchimp/)
 
+= Supported themes =
+
+List of officially supported themes:
+
+* [Uncode](https://undsgn.com/uncode/)
+* [Manila](http://manila.wphotelier.com/)
+* [Twenty Twenty-One](https://wordpress.org/themes/twentytwentyone/)
+
 == Installation ==
 
 = Minimum Requirements =
