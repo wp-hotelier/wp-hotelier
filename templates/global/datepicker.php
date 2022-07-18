@@ -23,11 +23,29 @@ if ( is_array( $shortcode_atts ) && isset( $shortcode_atts['preview'] ) ) {
 	// extensions can hook into here to add their own pages
 	$datepicker_form_url = apply_filters( 'hotelier_datepicker_form_url', HTL()->cart->get_room_list_form_url( $room_id ) );
 }
+
+$datepicker_class = array();
+
+if ( is_array( $shortcode_atts ) ) {
+	if ( isset( $shortcode_atts['inline'] ) ) {
+		$datepicker_class[] = 'datepicker-form--inline';
+	}
+
+	if ( isset( $shortcode_atts['rounded'] ) ) {
+		$datepicker_class[] = 'datepicker-form--rounded';
+	}
+
+	if ( isset( $shortcode_atts['bar'] ) && $shortcode_atts['bar'] === 'bottom' ) {
+		$datepicker_class[] = 'datepicker-form--bottom-bar';
+	}
+}
+
+$datepicker_class = implode( ' ', $datepicker_class );
 ?>
 
 <?php do_action( 'hotelier_before_datepicker', $shortcode_atts ); ?>
 
-<form name="hotelier_datepicker" method="post" id="hotelier-datepicker" class="datepicker-form <?php echo is_array( $shortcode_atts ) && isset( $shortcode_atts['inline'] ) ? 'datepicker-form--inline' : ''; ?>" action="<?php echo esc_url( $datepicker_form_url ); ?>" enctype="multipart/form-data">
+<form name="hotelier_datepicker" method="post" id="hotelier-datepicker" class="datepicker-form <?php echo esc_attr( $datepicker_class ); ?>" action="<?php echo esc_url( $datepicker_form_url ); ?>" enctype="multipart/form-data">
 
 	<?php do_action( 'hotelier_datepicker_before_input', $shortcode_atts ); ?>
 

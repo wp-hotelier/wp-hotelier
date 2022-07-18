@@ -42,6 +42,8 @@ jQuery(function ($) {
 				var checkout_input = form.find('.datepicker-input--checkout');
 				var inline_layout = form.hasClass('datepicker-form--inline') || datepicker_params.inline === '1' ? true : false;
 				var clear_button = inline_layout ? true : false;
+				var submit_button = inline_layout ? true : false;
+				var topbar_position = form.hasClass('datepicker-form--bottom-bar') || datepicker_params.topbar_position === 'bottom' ? 'bottom' : 'top';
 
 				checkin_input.val(checkin);
 				checkout_input.val(checkout);
@@ -74,6 +76,9 @@ jQuery(function ($) {
 					autoClose: datepicker_params.autoclose === '1',
 					inline: inline_layout,
 					clearButton: clear_button,
+					submitButton: clear_button,
+					submitButtonName: datepicker_params.submit_button_name,
+					topbarPosition: topbar_position,
 					i18n: datepicker_params.i18n,
 					onSelectRange: function () {
 						date_select_input.trigger('hotelier-datepicker-dates-selected');
