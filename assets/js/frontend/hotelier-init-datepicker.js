@@ -26,14 +26,18 @@ jQuery(function ($) {
 						checkout_val = response.checkout.toString();
 
 						// Init datepicker
-						init_datepicker(checkin_val, checkout_val);
+						init_datepicker(checkin_val, checkout_val, false);
 					}
 				}
 			});
 		}
 	}
 
-	function init_datepicker(checkin, checkout) {
+	function init_datepicker(checkin, checkout, trigger) {
+		if (trigger) {
+			var date_select_inputs = $('.datepicker-input-select');
+		}
+
 		if (date_select_inputs.length > 0) {
 			date_select_inputs.each(function () {
 				var date_select_input = $(this);
@@ -123,5 +127,9 @@ jQuery(function ($) {
 
 	$(document).ready(function () {
 		get_data();
+	});
+
+	$(window).on('hotelier_init_datepicker', function (e, checkin, checkout) {
+		init_datepicker(checkin, checkout, true);
 	});
 });
