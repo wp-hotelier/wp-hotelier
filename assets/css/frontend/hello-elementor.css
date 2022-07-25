@@ -215,6 +215,10 @@
   min-width: 270px;
 }
 
+.button--datepicker {
+  outline: none !important;
+}
+
 .datepicker-input-select {
   margin: 0;
   width: 100%;
@@ -478,6 +482,7 @@ td.datepicker__month-day--last-day-selected:hover {
   font-size: 12px !important;
   margin-top: 20px !important;
   padding: 0.3rem .75rem !important;
+  outline: none !important;
 }
 
 .datepicker__close-button:disabled, .datepicker__close-button[disabled],
