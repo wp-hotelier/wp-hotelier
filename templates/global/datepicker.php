@@ -35,6 +35,10 @@ if ( is_array( $shortcode_atts ) ) {
 		$datepicker_class[] = 'datepicker-form--rounded';
 	}
 
+	if ( isset( $shortcode_atts['disabled_style'] ) ) {
+		$datepicker_class[] = 'datepicker-form--disabled-style-' . $shortcode_atts['disabled_style'];
+	}
+
 	if ( isset( $shortcode_atts['bar'] ) && $shortcode_atts['bar'] === 'bottom' ) {
 		$datepicker_class[] = 'datepicker-form--bottom-bar';
 	}
