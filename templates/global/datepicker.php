@@ -17,7 +17,7 @@ $shortcode_atts = isset( $shortcode_atts ) ? $shortcode_atts : array();
 
 $room_id = is_room() ? get_the_ID() : false;
 
-if ( is_array( $shortcode_atts ) && isset( $shortcode_atts['preview'] ) ) {
+if ( defined( 'HOTELIER_SHORTCODE_PREVIEW' ) ) {
 	$datepicker_form_url = '';
 } else {
 	// extensions can hook into here to add their own pages
