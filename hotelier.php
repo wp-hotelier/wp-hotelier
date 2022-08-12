@@ -240,7 +240,7 @@ final class Hotelier {
 			$this->frontend_includes();
 		}
 
-		if ( $this->is_request( 'frontend' ) || $this->is_request( 'cron' ) ) {
+		if ( $this->is_request( 'frontend' ) || $this->is_request( 'cron' ) || defined( 'HOTELIER_SHORTCODE_PREVIEW' ) ) {
 			include_once HTL_PLUGIN_DIR . 'includes/class-htl-session.php';
 		}
 
@@ -298,7 +298,7 @@ final class Hotelier {
 		}
 
 		// Session class, handles session data for users
-		if ( $this->is_request( 'frontend' ) || $this->is_request( 'cron' ) ) {
+		if ( $this->is_request( 'frontend' ) || $this->is_request( 'cron' ) || defined( 'HOTELIER_SHORTCODE_PREVIEW' ) ) {
 			$this->session  = new HTL_Session();
 		}
 
