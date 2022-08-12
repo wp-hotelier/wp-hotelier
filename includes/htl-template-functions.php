@@ -742,12 +742,11 @@ if ( ! function_exists( 'hotelier_template_datepicker' ) ) {
 	/**
 	 * Show the datepicker form in the room list loop.
 	 */
-	function hotelier_template_datepicker() {
+	function hotelier_template_datepicker( $atts ) {
 
 		$checkin  = HTL()->session->get( 'checkin' );
 		$checkout = HTL()->session->get( 'checkout' );
-
-		htl_get_template( 'global/datepicker.php', array( 'checkin' => $checkin, 'checkout' => $checkout ) );
+		htl_get_template( 'global/datepicker.php', array( 'checkin' => $checkin, 'checkout' => $checkout, 'shortcode_atts' => $atts ) );
 	}
 
 }
