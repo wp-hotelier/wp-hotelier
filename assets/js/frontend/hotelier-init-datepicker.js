@@ -74,6 +74,8 @@ jQuery(function ($) {
 					disabledDates: datepicker_params.disabled_dates,
 					enableCheckout: datepicker_params.enable_checkout,
 					disabledDaysOfWeek: datepicker_params.disabled_days_of_week,
+					noCheckInDaysOfWeek: datepicker_params.no_checkin_week_days,
+					noCheckOutDaysOfWeek: datepicker_params.no_checkout_week_days,
 					moveBothMonths: datepicker_params.move_both_months === '1',
 					autoClose: datepicker_params.autoclose === '1',
 					inline: inline_layout,
