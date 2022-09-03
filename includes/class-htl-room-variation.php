@@ -567,6 +567,18 @@ class HTL_Room_Variation {
 	}
 
 	/**
+	 * Returns the deposit amount with a more descriptive text
+	 *
+	 * @return int percentage of total price
+	 */
+	public function get_long_formatted_deposit() {
+		$text = $this->get_deposit() === '100' ? __( 'Requires an immediate payment', 'wp-hotelier' ) : sprintf( __( 'Requires an immediate payment (%s%% of the total)', 'wp-hotelier' ), $this->get_deposit() );
+
+
+		return apply_filters( 'hotelier_room_long_formatted_deposit', $text, $this );
+	}
+
+	/**
 	 * Checks if the variation is cancellable.
 	 *
 	 * @return bool

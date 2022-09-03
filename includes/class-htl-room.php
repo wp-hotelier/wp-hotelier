@@ -1086,6 +1086,17 @@ class HTL_Room {
 	}
 
 	/**
+	 * Returns the deposit amount with a more descriptive text
+	 *
+	 * @return int percentage of total price
+	 */
+	public function get_long_formatted_deposit() {
+		$text = $this->get_deposit() === '100' ? __( 'Requires an immediate payment', 'wp-hotelier' ) : sprintf( __( 'Requires an immediate payment (%s%% of the total)', 'wp-hotelier' ), $this->get_deposit() );
+
+		return apply_filters( 'hotelier_room_long_formatted_deposit', $text, $this );
+	}
+
+	/**
 	 * Returns the name of the rate
 	 *
 	 * @param int $rate_id
