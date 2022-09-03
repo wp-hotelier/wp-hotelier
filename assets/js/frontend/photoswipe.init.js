@@ -4,7 +4,7 @@ jQuery(function ($) {
 
 	var pswp = $('.pswp')[0];
 
-	$('.room__gallery').each(function () {
+	$('.room__gallery, .room-card__gallery').each(function () {
 		var _this = $(this);
 		var getItems = function () {
 			var items = [];
