@@ -1134,7 +1134,7 @@ if ( ! function_exists( 'hotelier_pagination' ) ) {
 if ( ! function_exists( 'hotelier_template_terms_checkbox' ) ) {
 
 	/**
-	 * Show the terms and consitions checkbox.
+	 * Show the terms and conditions checkbox.
 	 */
 	function hotelier_template_terms_checkbox() {
 		htl_get_template( 'booking/terms.php' );
