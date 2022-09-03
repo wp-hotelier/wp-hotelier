@@ -772,7 +772,11 @@ if ( ! function_exists( 'hotelier_template_room_list_content' ) ) {
 	 * The template for displaying room content in the listing loop.
 	 */
 	function hotelier_template_room_list_content( $single = false, $atts = array() ) {
-		htl_get_template( 'room-list/room-content.php', array( 'is_single' => $single, 'shortcode_atts' => $atts ) );
+		if ( get_theme_support( 'htl-room-list-content-card' ) ) {
+			htl_get_template( 'room-list/room-content-card.php', array( 'is_single' => $single, 'shortcode_atts' => $atts ) );
+		} else {
+			htl_get_template( 'room-list/room-content.php', array( 'is_single' => $single, 'shortcode_atts' => $atts ) );
+		}
 	}
 
 }
@@ -1114,6 +1118,261 @@ if ( ! function_exists( 'hotelier_template_loop_room_rate_fees' ) ) {
 	 */
 	function hotelier_template_loop_room_rate_fees( $variation ) {
 		htl_get_template( 'room-list/content/rate/rate-fees.php', array( 'variation' => $variation ) );
+	}
+
+}
+
+// Room List Card
+
+if ( ! function_exists( 'hotelier_template_room_card_image' ) ) {
+
+	/**
+	 * Show the room image in the room list loop.
+	 */
+	function hotelier_template_room_card_image( $atts ) {
+		htl_get_template( 'room-list/content-card/image.php', array( 'shortcode_atts' => $atts ) );
+	}
+
+}
+
+if ( ! function_exists( 'hotelier_template_room_card_title' ) ) {
+
+	/**
+	 * Show the room title in the room list loop.
+	 */
+	function hotelier_template_room_card_title( $is_available, $checkin, $checkout, $atts ) {
+		htl_get_template( 'room-list/content-card/title.php', array( 'is_available' => $is_available, 'checkin' => $checkin, 'checkout' => $checkout, 'shortcode_atts' => $atts ) );
+	}
+
+}
+
+if ( ! function_exists( 'hotelier_template_room_card_description' ) ) {
+
+	/**
+	 * Show the room description in the room list loop.
+	 */
+	function hotelier_template_room_card_description( $is_available, $checkin, $checkout, $atts ) {
+		htl_get_template( 'room-list/content-card/description.php', array( 'is_available' => $is_available, 'checkin' => $checkin, 'checkout' => $checkout, 'shortcode_atts' => $atts ) );
+	}
+
+}
+
+if ( ! function_exists( 'hotelier_template_room_card_facilities' ) ) {
+
+	/**
+	 * Show the room facilities in the room list loop.
+	 */
+	function hotelier_template_room_card_facilities( $is_available, $checkin, $checkout, $atts ) {
+		htl_get_template( 'room-list/content-card/facilities.php', array( 'is_available' => $is_available, 'checkin' => $checkin, 'checkout' => $checkout, 'shortcode_atts' => $atts ) );
+	}
+
+}
+
+if ( ! function_exists( 'hotelier_template_room_card_meta' ) ) {
+
+	/**
+	 * Show the room meta in the room list loop.
+	 */
+	function hotelier_template_room_card_meta( $is_available, $checkin, $checkout, $atts ) {
+		htl_get_template( 'room-list/content-card/meta.php', array( 'is_available' => $is_available, 'checkin' => $checkin, 'checkout' => $checkout, 'shortcode_atts' => $atts ) );
+	}
+
+}
+
+if ( ! function_exists( 'hotelier_template_room_card_max_guests_info' ) ) {
+
+	/**
+	 * Show maximum guests info.
+	 */
+	function hotelier_template_room_card_max_guests_info( $is_available, $checkin, $checkout, $atts ) {
+		htl_get_template( 'room-list/content-card/max-guests.php', array( 'is_available' => $is_available, 'checkin' => $checkin, 'checkout' => $checkout, 'shortcode_atts' => $atts ) );
+	}
+
+}
+
+if ( ! function_exists( 'hotelier_template_room_card_not_available_info' ) ) {
+
+	/**
+	 * Show info when a room is not available.
+	 */
+	function hotelier_template_room_card_not_available_info( $is_available, $checkin, $checkout, $atts ) {
+		htl_get_template( 'room-list/content-card/not-available-info.php', array( 'is_available' => $is_available, 'checkin' => $checkin, 'checkout' => $checkout, 'shortcode_atts' => $atts ) );
+	}
+
+}
+
+if ( ! function_exists( 'hotelier_template_room_card_price' ) ) {
+
+	/**
+	 * Show the room price in the room list loop.
+	 */
+	function hotelier_template_room_card_price( $is_available, $checkin, $checkout, $atts ) {
+		htl_get_template( 'room-list/content-card/price.php', array( 'is_available' => $is_available, 'checkin' => $checkin, 'checkout' => $checkout, 'shortcode_atts' => $atts ) );
+	}
+
+}
+
+if ( ! function_exists( 'hotelier_template_room_card_deposit' ) ) {
+
+	/**
+	 * Show the required deposit in the room list loop.
+	 */
+	function hotelier_template_room_card_deposit( $is_available, $checkin, $checkout, $atts ) {
+		htl_get_template( 'room-list/content-card/deposit.php', array( 'is_available' => $is_available, 'checkin' => $checkin, 'checkout' => $checkout, 'shortcode_atts' => $atts ) );
+	}
+
+}
+
+if ( ! function_exists( 'hotelier_template_room_card_conditions' ) ) {
+
+	/**
+	 * Show the room conditions in the room list loop.
+	 */
+	function hotelier_template_room_card_conditions( $is_available, $checkin, $checkout, $atts ) {
+		htl_get_template( 'room-list/content-card/conditions.php', array( 'is_available' => $is_available, 'checkin' => $checkin, 'checkout' => $checkout, 'shortcode_atts' => $atts ) );
+	}
+
+}
+
+if ( ! function_exists( 'hotelier_template_room_card_min_max_info' ) ) {
+
+	/**
+	 * Show minimum/maximum required nights.
+	 */
+	function hotelier_template_room_card_min_max_info( $is_available, $checkin, $checkout, $atts ) {
+		global $room;
+
+		if ( $room->is_variable_room() ) {
+			return;
+		}
+
+		$min_nights = $room->get_min_nights();
+		$max_nights = $room->get_max_nights();
+
+		$text = htl_get_room_min_max_info( $min_nights, $max_nights, $room );
+
+		if ( $text ) {
+			htl_get_template( 'room-list/content-card/min-max-info.php', array( 'info' => $text, 'is_available' => $is_available, 'checkin' => $checkin, 'checkout' => $checkout, 'shortcode_atts' => $atts ) );
+		}
+	}
+
+}
+
+if ( ! function_exists( 'hotelier_template_room_card_non_cancellable_info' ) ) {
+
+	/**
+	 * Show info in the room list loop when the room is not cancellable.
+	 */
+	function hotelier_template_room_card_non_cancellable_info( $is_available, $checkin, $checkout, $atts ) {
+		htl_get_template( 'room-list/content-card/non-cancellable-info.php', array( 'is_available' => $is_available, 'checkin' => $checkin, 'checkout' => $checkout, 'shortcode_atts' => $atts ) );
+	}
+
+}
+
+if ( ! function_exists( 'hotelier_template_room_card_fees' ) ) {
+
+	/**
+	 * Show the room fees.
+	 */
+	function hotelier_template_room_card_fees( $is_available, $checkin, $checkout, $atts ) {
+		htl_get_template( 'room-list/content-card/fees.php', array( 'is_available' => $is_available, 'checkin' => $checkin, 'checkout' => $checkout, 'shortcode_atts' => $atts ) );
+	}
+
+}
+
+if ( ! function_exists( 'hotelier_template_room_card_rate_name' ) ) {
+
+	/**
+	 * Show the rate name.
+	 */
+	function hotelier_template_room_card_rate_name( $variation, $is_available, $checkin, $checkout, $atts ) {
+		htl_get_template( 'room-list/content-card/rate/rate-name.php', array( 'variation' => $variation, 'is_available' => $is_available, 'checkin' => $checkin, 'checkout' => $checkout, 'shortcode_atts' => $atts ) );
+	}
+
+}
+
+if ( ! function_exists( 'hotelier_template_room_card_rate_description' ) ) {
+
+	/**
+	 * Show the rate description.
+	 */
+	function hotelier_template_room_card_rate_description( $variation, $is_available, $checkin, $checkout, $atts ) {
+		htl_get_template( 'room-list/content-card/rate/rate-description.php', array( 'variation' => $variation, 'is_available' => $is_available, 'checkin' => $checkin, 'checkout' => $checkout, 'shortcode_atts' => $atts ) );
+	}
+
+}
+
+if ( ! function_exists( 'hotelier_template_room_card_rate_price' ) ) {
+
+	/**
+	 * Show the rate price.
+	 */
+	function hotelier_template_room_card_rate_price( $variation, $is_available, $checkin, $checkout, $atts ) {
+		htl_get_template( 'room-list/content-card/rate/rate-price.php', array( 'variation' => $variation, 'is_available' => $is_available, 'checkin' => $checkin, 'checkout' => $checkout, 'shortcode_atts' => $atts ) );
+	}
+
+}
+
+if ( ! function_exists( 'hotelier_template_room_card_rate_deposit' ) ) {
+
+	/**
+	 * Show the required deposit in the room list loop.
+	 */
+	function hotelier_template_room_card_rate_deposit( $variation, $is_available, $checkin, $checkout, $atts ) {
+		htl_get_template( 'room-list/content-card/rate/rate-deposit.php', array( 'variation' => $variation, 'is_available' => $is_available, 'checkin' => $checkin, 'checkout' => $checkout, 'shortcode_atts' => $atts ) );
+	}
+
+}
+
+if ( ! function_exists( 'hotelier_template_room_card_rate_conditions' ) ) {
+
+	/**
+	 * Show the rate conditions in the room list loop.
+	 */
+	function hotelier_template_room_card_rate_conditions( $variation, $is_available, $checkin, $checkout, $atts ) {
+		htl_get_template( 'room-list/content-card/rate/rate-conditions.php', array( 'variation' => $variation, 'is_available' => $is_available, 'checkin' => $checkin, 'checkout' => $checkout, 'shortcode_atts' => $atts ) );
+	}
+
+}
+
+if ( ! function_exists( 'hotelier_template_room_card_rate_min_max_info' ) ) {
+
+	/**
+	 * Show rate's minimum/maximum required nights.
+	 */
+	function hotelier_template_room_card_rate_min_max_info( $variation, $is_available, $checkin, $checkout, $atts ) {
+		global $room;
+
+		$min_nights = $variation->get_min_nights();
+		$max_nights = $variation->get_max_nights();
+
+		$text = htl_get_room_min_max_info( $min_nights, $max_nights, $room );
+
+		if ( $text ) {
+			htl_get_template( 'room-list/content-card/rate/rate-min-max-info.php', array( 'info' => $text, 'variation' => $variation, 'is_available' => $is_available, 'checkin' => $checkin, 'checkout' => $checkout, 'shortcode_atts' => $atts ) );
+		}
+	}
+
+}
+
+if ( ! function_exists( 'hotelier_template_room_card_rate_non_cancellable_info' ) ) {
+
+	/**
+	 * Show info in the room list loop when the rate is not cancellable.
+	 */
+	function hotelier_template_room_card_rate_non_cancellable_info( $variation, $is_available, $checkin, $checkout, $atts ) {
+		htl_get_template( 'room-list/content-card/rate/rate-non-cancellable-info.php', array( 'variation' => $variation, 'is_available' => $is_available, 'checkin' => $checkin, 'checkout' => $checkout, 'shortcode_atts' => $atts ) );
+	}
+
+}
+
+if ( ! function_exists( 'hotelier_template_room_card_rate_fees' ) ) {
+
+	/**
+	 * Show the room rate fees.
+	 */
+	function hotelier_template_room_card_rate_fees( $variation, $is_available, $checkin, $checkout, $atts ) {
+		htl_get_template( 'room-list/content-card/fees.php', array( 'variation' => $variation, 'is_available' => $is_available, 'checkin' => $checkin, 'checkout' => $checkout, 'shortcode_atts' => $atts ) );
 	}
 
 }
