@@ -99,29 +99,33 @@ if ( $is_single ) {
 
 						<?php if ( apply_filters( 'hotelier_room_list_show_item_rate', true, $variation, $checkin, $checkout ) ) : ?>
 
-							<div class="room-card__action-content room-card__action-content--rate">
+							<div class="room-card__action">
 
-								<?php
-									/**
-									 * hotelier_room_list_card_rate_action_content hook
-									 *
-									 */
-									do_action( 'hotelier_room_list_card_rate_action_content', $variation, $is_available, $checkin, $checkout, $shortcode_atts );
-								?>
+								<div class="room-card__action-content room-card__action-content--rate">
 
-							</div><!-- .room-card__action-text -->
+									<?php
+										/**
+										 * hotelier_room_list_card_rate_action_content hook
+										 *
+										 */
+										do_action( 'hotelier_room_list_card_rate_action_content', $variation, $is_available, $checkin, $checkout, $shortcode_atts );
+									?>
 
-							<div class="room-card__action-button room-card__action-button--rate">
+								</div><!-- .room-card__action-text -->
 
-								<?php
-									/**
-									 * hotelier_room_list_card_rate_action_button hook
-									 *
-									 */
-									do_action( 'hotelier_room_list_card_rate_action_button', $variation, $is_available, $checkin, $checkout, $shortcode_atts );
-								?>
+								<div class="room-card__action-button room-card__action-button--rate">
 
-							</div><!-- .room-card__action-button -->
+									<?php
+										/**
+										 * hotelier_room_list_card_rate_action_button hook
+										 *
+										 */
+										do_action( 'hotelier_room_list_card_rate_action_button', $variation, $is_available, $checkin, $checkout, $shortcode_atts );
+									?>
+
+								</div><!-- .room-card__action-button -->
+
+							</div><!-- .room-card__action -->
 
 						<?php endif; ?>
 
