@@ -134,7 +134,7 @@ add_action( 'hotelier_room_list_card_room_action_content', 'hotelier_template_ro
 
 // Hide book button when booking_mode is set to 'no-booking'
 if ( htl_get_option( 'booking_mode' ) != 'no-booking' ) {
-	add_action( 'hotelier_room_list_card_room_action_content', 'hotelier_template_loop_room_add_to_cart', 10, 2 );
+	add_action( 'hotelier_room_list_card_room_action_button', 'hotelier_template_loop_room_add_to_cart', 10, 2 );
 }
 
 add_action( 'hotelier_room_list_card_rate_action_content', 'hotelier_template_room_card_rate_name', 10, 5 );
@@ -148,7 +148,7 @@ add_action( 'hotelier_room_list_card_rate_action_content', 'hotelier_template_ro
 
 // Hide book button when booking_mode is set to 'no-booking'
 if ( htl_get_option( 'booking_mode' ) != 'no-booking' ) {
-	add_action( 'hotelier_room_list_card_rate_action_content', 'hotelier_template_loop_room_rate_add_to_cart', 15, 5 );
+	add_action( 'hotelier_room_list_card_rate_action_button', 'hotelier_template_loop_room_rate_add_to_cart', 15, 5 );
 }
 
 /**
