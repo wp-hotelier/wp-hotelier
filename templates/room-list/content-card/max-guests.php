@@ -20,7 +20,7 @@ $max_children = $room->get_max_children();
 
 ?>
 
-<div class="room-card__max-guests">
+<div class="room-card__max-guests room-card__info">
 	<?php if ( $max_children > 0 ) : ?>
 		<div class="room-card__max-guests-recommendation"><?php printf( esc_html__( 'Recommended for %s adult(s) and %s child(ren)', 'wp-hotelier' ), absint( $max_guests ), absint( $max_children ) ); ?></div>
 	<?php endif; ?>

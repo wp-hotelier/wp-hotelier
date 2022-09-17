@@ -15,6 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<div class="room-card__min-max-stay">
+<div class="room-card__min-max-stay room-card__info">
 	<?php echo wp_kses_post( $info ); ?>
 </div>
