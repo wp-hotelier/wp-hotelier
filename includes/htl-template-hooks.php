@@ -120,35 +120,36 @@ if ( htl_get_option( 'booking_mode' ) != 'no-booking' ) {
  */
 add_action( 'hotelier_room_list_card_room_gallery', 'hotelier_template_room_card_image', 10 );
 add_action( 'hotelier_room_list_card_room_content', 'hotelier_template_room_card_title', 10, 4 );
-add_action( 'hotelier_room_list_card_room_content', 'hotelier_template_room_card_description', 20, 4 );
-add_action( 'hotelier_room_list_card_room_content', 'hotelier_template_room_card_facilities', 30, 4 );
-add_action( 'hotelier_room_list_card_room_content', 'hotelier_template_room_card_meta', 40, 4 );
+add_action( 'hotelier_room_list_card_room_content', 'hotelier_template_room_card_meta', 20, 4 );
+add_action( 'hotelier_room_list_card_room_content', 'hotelier_template_room_card_description', 30, 4 );
+add_action( 'hotelier_room_list_card_room_content', 'hotelier_template_room_card_facilities', 40, 4 );
 add_action( 'hotelier_room_list_card_room_content', 'hotelier_template_room_card_max_guests_info', 50, 4 );
 add_action( 'hotelier_room_list_card_room_content', 'hotelier_template_room_card_not_available_info', 60, 4 );
-add_action( 'hotelier_room_list_card_room_action_content', 'hotelier_template_room_card_price', 10, 4 );
-add_action( 'hotelier_room_list_card_room_action_content', 'hotelier_template_room_card_deposit', 20, 4 );
-add_action( 'hotelier_room_list_card_room_action_content', 'hotelier_template_room_card_conditions', 30, 4 );
-add_action( 'hotelier_room_list_card_room_action_content', 'hotelier_template_room_card_min_max_info', 40, 4 );
-add_action( 'hotelier_room_list_card_room_action_content', 'hotelier_template_room_card_non_cancellable_info', 50, 4 );
-add_action( 'hotelier_room_list_card_room_action_content', 'hotelier_template_room_card_fees', 60, 4 );
+add_action( 'hotelier_room_list_card_room_action_content', 'hotelier_template_room_card_deposit', 10, 4 );
+add_action( 'hotelier_room_list_card_room_action_content', 'hotelier_template_room_card_conditions', 20, 4 );
+add_action( 'hotelier_room_list_card_room_action_content', 'hotelier_template_room_card_min_max_info', 30, 4 );
+add_action( 'hotelier_room_list_card_room_action_content', 'hotelier_template_room_card_non_cancellable_info', 40, 4 );
+add_action( 'hotelier_room_list_card_room_action_content', 'hotelier_template_room_card_fees', 50, 4 );
+add_action( 'hotelier_room_list_card_room_action_button', 'hotelier_template_room_card_price', 10, 4 );
 
 // Hide book button when booking_mode is set to 'no-booking'
 if ( htl_get_option( 'booking_mode' ) != 'no-booking' ) {
-	add_action( 'hotelier_room_list_card_room_action_button', 'hotelier_template_loop_room_add_to_cart', 10, 2 );
+	add_action( 'hotelier_room_list_card_room_action_button', 'hotelier_template_loop_room_add_to_cart', 20, 4 );
 }
 
 add_action( 'hotelier_room_list_card_rate_action_content', 'hotelier_template_room_card_rate_name', 10, 5 );
 add_action( 'hotelier_room_list_card_rate_action_content', 'hotelier_template_room_card_rate_description', 20, 5 );
-add_action( 'hotelier_room_list_card_rate_action_content', 'hotelier_template_room_card_rate_price', 30, 5 );
-add_action( 'hotelier_room_list_card_rate_action_content', 'hotelier_template_room_card_rate_deposit', 40, 5 );
-add_action( 'hotelier_room_list_card_rate_action_content', 'hotelier_template_room_card_rate_conditions', 50, 5 );
-add_action( 'hotelier_room_list_card_rate_action_content', 'hotelier_template_room_card_rate_min_max_info', 60, 5 );
-add_action( 'hotelier_room_list_card_rate_action_content', 'hotelier_template_room_card_rate_non_cancellable_info', 70, 5 );
-add_action( 'hotelier_room_list_card_rate_action_content', 'hotelier_template_room_card_rate_fees', 80, 5 );
+add_action( 'hotelier_room_list_card_rate_action_content', 'hotelier_template_room_card_rate_deposit', 30, 5 );
+add_action( 'hotelier_room_list_card_rate_action_content', 'hotelier_template_room_card_rate_conditions', 40, 5 );
+add_action( 'hotelier_room_list_card_rate_action_content', 'hotelier_template_room_card_rate_min_max_info', 50, 5 );
+add_action( 'hotelier_room_list_card_rate_action_content', 'hotelier_template_room_card_rate_non_cancellable_info', 60, 5 );
+add_action( 'hotelier_room_list_card_rate_action_content', 'hotelier_template_room_card_rate_fees', 70, 5 );
+
+add_action( 'hotelier_room_list_card_rate_action_button', 'hotelier_template_room_card_rate_price', 10, 5 );
 
 // Hide book button when booking_mode is set to 'no-booking'
 if ( htl_get_option( 'booking_mode' ) != 'no-booking' ) {
-	add_action( 'hotelier_room_list_card_rate_action_button', 'hotelier_template_loop_room_rate_add_to_cart', 15, 5 );
+	add_action( 'hotelier_room_list_card_rate_action_button', 'hotelier_template_loop_room_rate_add_to_cart', 20, 5 );
 }
 
 /**
