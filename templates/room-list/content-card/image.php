@@ -33,7 +33,18 @@ if ( $room_gallery_ids ) {
 }
 ?>
 
-<div class="room-card__gallery" style="background-image: url(<?php echo esc_url( $thumbnail_src ); ?>);">
+<div class="room-card__gallery">
+	<?php
+		if ( has_post_thumbnail() ) {
+
+			the_post_thumbnail( 'full', array( 'class' => 'room__gallery-image room__gallery-image--listing' ) );
+
+		} else {
+
+			echo '<a href="' . esc_url ( get_the_permalink() ) . '" class="room__gallery-image room__gallery-image--listing">' . htl_placeholder_img( 'full' ) . '</a>';
+
+		}
+	?>
 	<a href="#thumbnails-<?php echo esc_attr( $post->ID ); ?>" class="room__gallery-link" data-index="0"><?php esc_html_e( 'View gallery', 'wp-hotelier' ); ?></a>
 
 	<?php if ( is_array( $room_thumbnails ) && count( $room_thumbnails ) > 0 ) :
