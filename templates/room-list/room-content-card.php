@@ -88,6 +88,14 @@ if ( $is_single ) {
 
 					</div><!-- .room-card__action -->
 
+					<?php
+						/**
+						 * hotelier_room_list_card_after_room_action hook
+						 *
+						 */
+						do_action( 'hotelier_room_list_card_after_room_action', $is_available, $checkin, $checkout, $shortcode_atts );
+					?>
+
 				<?php else : ?>
 
 					<?php
@@ -126,6 +134,14 @@ if ( $is_single ) {
 								</div><!-- .room-card__action-button -->
 
 							</div><!-- .room-card__action -->
+
+							<?php
+								/**
+								 * hotelier_room_list_card_after_rate_action hook
+								 *
+								 */
+								do_action( 'hotelier_room_list_card_after_rate_action', $variation, $is_available, $checkin, $checkout, $shortcode_atts );
+							?>
 
 						<?php endif; ?>
 
