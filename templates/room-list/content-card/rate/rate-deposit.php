@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( $variation->needs_deposit() ) : ?>
 
 <div class="room-card__deposit">
-	<?php echo esc_html( $variation->get_long_formatted_deposit() ); ?>
+	<?php echo wp_kses_post( $variation->get_long_formatted_deposit() ); ?>
 </div>
 
 <?php endif; ?>
