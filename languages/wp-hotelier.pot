@@ -5192,6 +5192,12 @@ msgstr ""
 msgid "Hide rates"
 msgstr ""
 
+#: ../templates/room-list/content-card/meta.php:27
+msgid "%s bathroom"
+msgid_plural "%s bathrooms"
+msgstr[0] ""
+msgstr[1] ""
+
 #: ../templates/single-room/rate/rate-conditions.php:24, ../templates/widgets/ajax-room-booking/rate/conditions.php:20
 msgid "Rate conditions:"
 msgstr ""
