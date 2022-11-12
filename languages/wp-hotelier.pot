@@ -141,7 +141,7 @@ msgstr ""
 msgid "Send request"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:517, ../includes/class-htl-frontend-scripts.php:188, ../templates/room-list/content/add-to-cart.php:85, ../templates/room-list/content/rate/rate-add-to-cart.php:85
+#: ../includes/class-htl-booking.php:517, ../includes/class-htl-frontend-scripts.php:193, ../templates/room-list/content/add-to-cart.php:85, ../templates/room-list/content/rate/rate-add-to-cart.php:85
 msgid "Book now"
 msgstr ""
 
@@ -289,75 +289,85 @@ msgstr ""
 msgid "Please insert a valid coupon code."
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:139
+#: ../includes/class-htl-frontend-scripts.php:142
 msgctxt "datepicker_selected"
 msgid "Your stay:"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:140
+#: ../includes/class-htl-frontend-scripts.php:143
 msgctxt "datepicker_night"
 msgid "Night"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:141
+#: ../includes/class-htl-frontend-scripts.php:144
 msgctxt "datepicker_nights"
 msgid "Nights"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:142
+#: ../includes/class-htl-frontend-scripts.php:145
 msgctxt "datepicker_apply"
 msgid "Close"
 msgstr ""
 
+#: ../includes/class-htl-frontend-scripts.php:146
+msgctxt "datepicker_apply"
+msgid "Clear"
+msgstr ""
+
 #: ../includes/class-htl-frontend-scripts.php:147
+msgctxt "datepicker_apply"
+msgid "Check"
+msgstr ""
+
+#: ../includes/class-htl-frontend-scripts.php:152
 msgctxt "datepicker_error_more"
 msgid "Date range should not be more than 1 night"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:148
+#: ../includes/class-htl-frontend-scripts.php:153
 msgctxt "datepicker_error_more_plural"
 msgid "Date range should not be more than %d nights"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:149
+#: ../includes/class-htl-frontend-scripts.php:154
 msgctxt "datepicker_error_less"
 msgid "Date range should not be less than 1 night"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:150
+#: ../includes/class-htl-frontend-scripts.php:155
 msgctxt "datepicker_error_less_plural"
 msgid "Date range should not be less than %d nights"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:151
+#: ../includes/class-htl-frontend-scripts.php:156
 msgctxt "datepicker_info_more"
 msgid "Please select a date range longer than 1 night"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:152
+#: ../includes/class-htl-frontend-scripts.php:157
 msgctxt "datepicker_info_more_plural"
 msgid "Please select a date range longer than %d nights"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:153
+#: ../includes/class-htl-frontend-scripts.php:158
 msgctxt "datepicker_info_range"
 msgid "Please select a date range between %d and %d nights"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:154
+#: ../includes/class-htl-frontend-scripts.php:159
 msgctxt "datepicker_info_default"
 msgid "Please select a date range"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:185, ../templates/global/datepicker.php:33, ../templates/single-room/rate/rate-button.php:22, ../templates/widgets/ajax-room-booking/ajax-room-booking-form.php:107
+#: ../includes/class-htl-frontend-scripts.php:190, ../templates/global/datepicker.php:60, ../templates/single-room/rate/rate-button.php:22, ../templates/widgets/ajax-room-booking/ajax-room-booking-form.php:107
 msgid "Check availability"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:186
+#: ../includes/class-htl-frontend-scripts.php:191
 msgid "Checking availability..."
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:187
+#: ../includes/class-htl-frontend-scripts.php:192
 msgid "Booking room..."
 msgstr ""
 
@@ -1028,20 +1038,28 @@ msgstr ""
 msgid "Hotel Manager"
 msgstr ""
 
-#: ../includes/class-htl-room-variation.php:397, ../includes/class-htl-room-variation.php:390, ../includes/class-htl-room.php:830, ../includes/class-htl-room.php:823
+#: ../includes/class-htl-room-variation.php:397, ../includes/class-htl-room-variation.php:390, ../includes/class-htl-room.php:848, ../includes/class-htl-room.php:841
 msgctxt "price"
 msgid "Price: %s"
 msgstr ""
 
-#: ../includes/class-htl-room-variation.php:491, ../includes/class-htl-room.php:991, ../includes/class-htl-room.php:989
+#: ../includes/class-htl-room-variation.php:491, ../includes/class-htl-room.php:1009, ../includes/class-htl-room.php:1007
 msgid "%s per night"
 msgstr ""
 
-#: ../includes/class-htl-room-variation.php:478, ../includes/class-htl-room-variation.php:466, ../includes/class-htl-room.php:971, ../includes/class-htl-room.php:956, ../includes/class-htl-room.php:922
+#: ../includes/class-htl-room-variation.php:478, ../includes/class-htl-room-variation.php:466, ../includes/class-htl-room.php:989, ../includes/class-htl-room.php:974, ../includes/class-htl-room.php:940
 msgid "Rates from %s per night"
 msgstr ""
 
-#: ../includes/class-htl-room.php:808
+#: ../includes/class-htl-room-variation.php:575, ../includes/class-htl-room.php:1094
+msgid "Requires an immediate payment"
+msgstr ""
+
+#: ../includes/class-htl-room-variation.php:575, ../includes/class-htl-room.php:1094
+msgid "Requires an immediate payment (%s%% of the total)"
+msgstr ""
+
+#: ../includes/class-htl-room.php:826
 msgctxt "min_price"
 msgid "From %s"
 msgstr ""
@@ -2243,15 +2261,15 @@ msgstr ""
 msgid "&nbsp;&ndash; Page %s"
 msgstr ""
 
-#: ../includes/htl-template-functions.php:1309
+#: ../includes/htl-template-functions.php:1567
 msgid "required"
 msgstr ""
 
-#: ../includes/htl-template-functions.php:1418, ../templates/widgets/ajax-room-booking/ajax-room-booking-form.php:40
+#: ../includes/htl-template-functions.php:1676, ../templates/widgets/ajax-room-booking/ajax-room-booking-form.php:40
 msgid "Nr. rooms"
 msgstr ""
 
-#: ../includes/htl-template-functions.php:1461, ../includes/htl-template-functions.php:1461
+#: ../includes/htl-template-functions.php:1719, ../includes/htl-template-functions.php:1719
 msgid "privacy policy"
 msgstr ""
 
@@ -2633,7 +2651,7 @@ msgstr ""
 msgid "Hotelier Rooms"
 msgstr ""
 
-#: ../includes/widgets/class-htl-widget-rooms.php:29, ../includes/admin/meta-boxes/class-htl-admin-meta-boxes.php:190
+#: ../includes/widgets/class-htl-widget-rooms.php:29, ../includes/admin/meta-boxes/class-htl-admin-meta-boxes.php:192
 msgid "Rooms"
 msgstr ""
 
@@ -2693,35 +2711,35 @@ msgstr ""
 msgid "Enter valid license key for automatic updates."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-admin-meta-boxes.php:184
+#: ../includes/admin/meta-boxes/class-htl-admin-meta-boxes.php:186
 msgid "Room Settings"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-admin-meta-boxes.php:185
+#: ../includes/admin/meta-boxes/class-htl-admin-meta-boxes.php:187
 msgid "Room Gallery"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-admin-meta-boxes.php:186
+#: ../includes/admin/meta-boxes/class-htl-admin-meta-boxes.php:188
 msgid "Room Short Description"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-admin-meta-boxes.php:189
+#: ../includes/admin/meta-boxes/class-htl-admin-meta-boxes.php:191
 msgid "Reservation Details"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-admin-meta-boxes.php:191
+#: ../includes/admin/meta-boxes/class-htl-admin-meta-boxes.php:193
 msgid "Save Reservation"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-admin-meta-boxes.php:192
+#: ../includes/admin/meta-boxes/class-htl-admin-meta-boxes.php:194
 msgid "Reservation Notes"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-admin-meta-boxes.php:195
+#: ../includes/admin/meta-boxes/class-htl-admin-meta-boxes.php:197
 msgid "Coupon Settings"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-admin-meta-boxes.php:198
+#: ../includes/admin/meta-boxes/class-htl-admin-meta-boxes.php:200
 msgid "Extra Settings"
 msgstr ""
 
@@ -4397,7 +4415,7 @@ msgstr ""
 msgid "The captured amount (%s) does not match the required deposit (%s). The balance has been recalculated."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php:216, ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-single-item.php:55, ../templates/booking/reservation-table.php:58, ../templates/emails/email-reservation-items.php:31, ../templates/reservation/item.php:31, ../templates/single-room/non-cancellable-info.php:24, ../templates/emails/plain/email-reservation-items.php:28, ../templates/room-list/content/non-cancellable-info.php:24, ../templates/single-room/rate/rate-non-cancellable-info.php:21, ../templates/room-list/content/rate/rate-non-cancellable-info.php:22, ../templates/widgets/ajax-room-booking/rate/non-cancellable-info.php:20, ../templates/widgets/ajax-room-booking/room/non-cancellable-info.php:20
+#: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php:216, ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-single-item.php:55, ../templates/booking/reservation-table.php:58, ../templates/emails/email-reservation-items.php:31, ../templates/reservation/item.php:31, ../templates/single-room/non-cancellable-info.php:24, ../templates/emails/plain/email-reservation-items.php:28, ../templates/room-list/content/non-cancellable-info.php:24, ../templates/room-list/content-card/non-cancellable-info.php:24, ../templates/single-room/rate/rate-non-cancellable-info.php:21, ../templates/room-list/content/rate/rate-non-cancellable-info.php:22, ../templates/room-list/content-card/rate/rate-non-cancellable-info.php:22, ../templates/widgets/ajax-room-booking/rate/non-cancellable-info.php:20, ../templates/widgets/ajax-room-booking/room/non-cancellable-info.php:20
 msgid "Non-refundable"
 msgstr ""
 
@@ -4520,126 +4538,142 @@ msgid "The size of the bed(s)."
 msgstr ""
 
 #: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:75
-msgid "Room size (%s):"
+msgid "Number of beds:"
 msgstr ""
 
 #: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:77
-msgid "The size of room. You can change the unit in the <a href=\"%s\">admin settings</a>."
+msgid "Number of beds. Not required and  not prominent by default; however, some themes may show this info."
 msgstr ""
 
 #: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:85
-msgid "Stock rooms?"
+msgid "Number of bathrooms:"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:86
-msgid "This is the total number of rooms available in the structure."
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:87
+msgid "Number of bathrooms. Not required and  not prominent by default; however, some themes may show this info."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:101
-msgid "Show additional settings:"
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:95
+msgid "Room size (%s):"
+msgstr ""
+
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:97
+msgid "The size of room. You can change the unit in the <a href=\"%s\">admin settings</a>."
 msgstr ""
 
 #: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:105
-msgid "Show advanced settings."
+msgid "Stock rooms?"
+msgstr ""
+
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:106
+msgid "This is the total number of rooms available in the structure."
 msgstr ""
 
 #: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:121
+msgid "Show additional settings:"
+msgstr ""
+
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:125
+msgid "Show advanced settings."
+msgstr ""
+
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:141
 msgid "Additional details:"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:122
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:142
 msgid "These details are not prominent by default; however, some themes may show them."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:138
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:158
 msgid "Standard room settings"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:143, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:17
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:163, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:17
 msgid "Global"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:144, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:18
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:164, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:18
 msgid "Price per day"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:145, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:19
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:165, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:19
 msgid "Seasonal price"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:152, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:26
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:172, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:26
 msgid "Price type:"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:157, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:31
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:177, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:31
 msgid "Select the price type."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:168, ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:190, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:42, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:64
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:188, ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:210, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:42, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:64
 msgid "Regular price:"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:169, ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:178, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:43, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:52
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:189, ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:198, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:43, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:52
 msgid "Same price for all days of the week."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:177, ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:199, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:51, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:73
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:197, ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:219, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:51, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:73
 msgid "Sale price:"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:191, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:65
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:211, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:65
 msgid "The regular price of the room per day."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:200, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:74
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:220, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:74
 msgid "The sale price of the room per day."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:234, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:108
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:254, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:108
 msgid "Require deposit?"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:238, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:112
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:258, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:112
 msgid "When enabled, a deposit is required at the time of booking."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:249, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:123
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:269, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:123
 msgid "Deposit amount:"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:252, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:126
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:272, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:126
 msgid "Select the deposit amount."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:270, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:144
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:290, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:144
 msgid "Non cancellable?"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:272, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:146
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:292, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:146
 msgid "When enabled, reservations that include this room will be non cancellable and non refundable."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:280, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:154
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:300, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:154
 msgid "Conditions:"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:281, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:155
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:301, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:155
 msgid "Special condition here"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:282, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:156
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:302, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:156
 msgid "Add new condition"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:283, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:157
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:303, ../includes/admin/meta-boxes/views/room/settings/html-meta-box-room-view-variation-content.php:157
 msgid "You can insert some useful info about the room using the conditions fields. Typically they appear on the <strong>listing</strong> page and in the single room page."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:296
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:316
 msgid "Variable room settings"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:335
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:355
 msgid "Before adding variations, add and save some room rates first. You can create a room rate <a href=\"%1$s\">here</a>. Then edit again this room to add your variations."
 msgstr ""
 
@@ -5120,15 +5154,15 @@ msgstr ""
 msgid "Room facilities:"
 msgstr ""
 
-#: ../templates/room-list/content/max-guests.php:27
+#: ../templates/room-list/content/max-guests.php:27, ../templates/room-list/content-card/max-guests.php:25
 msgid "Recommended for %s adult(s) and %s child(ren)"
 msgstr ""
 
-#: ../templates/room-list/content/not-available-info.php:24
+#: ../templates/room-list/content/not-available-info.php:24, ../templates/room-list/content-card/not-available-info.php:24
 msgid "The room is not available for this date"
 msgstr ""
 
-#: ../templates/room-list/content/price.php:22, ../templates/room-list/content/rate/rate-price.php:20
+#: ../templates/room-list/content/price.php:22, ../templates/room-list/content-card/price.php:22, ../templates/room-list/content/rate/rate-price.php:20, ../templates/room-list/content-card/rate/rate-price.php:20
 msgid "Prices are per room"
 msgstr ""
 
@@ -5146,7 +5180,7 @@ msgstr[1] ""
 msgid "More about this room"
 msgstr ""
 
-#: ../templates/room-list/content/thumbnails.php:24
+#: ../templates/room-list/content/thumbnails.php:24, ../templates/room-list/content-card/image.php:48
 msgid "View gallery"
 msgstr ""
 
