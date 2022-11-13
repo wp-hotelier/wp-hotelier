@@ -6,7 +6,7 @@
  *
  * @author  Benito Lopez <hello@lopezb.com>
  * @package Hotelier/Templates
- * @version 2.5.0
+ * @version 2.9.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -55,7 +55,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								<?php endif; ?>
 
 								<?php if ( ! $cart_item[ 'is_cancellable' ] ) : ?>
-									<span class="reservation-table__room-non-cancellable"><?php echo esc_html_e( 'Non-refundable', 'wp-hotelier' ); ?></span>
+									<span class="reservation-table__room-non-cancellable"><?php esc_html_e( 'Non-refundable', 'wp-hotelier' ); ?></span>
 								<?php endif; ?>
 
 								<?php
