@@ -144,7 +144,9 @@ class HTL_Frontend_Scripts {
 				'nights'            => esc_html_x( 'Nights', 'datepicker_nights', 'wp-hotelier' ),
 				'button'            => esc_html_x( 'Close', 'datepicker_apply', 'wp-hotelier' ),
     			'clearButton'       => esc_html_x( 'Clear', 'datepicker_apply', 'wp-hotelier' ),
-    			'submitButton'       => esc_html_x( 'Check', 'datepicker_apply', 'wp-hotelier' ),
+    			'submitButton'      => esc_html_x( 'Check', 'datepicker_apply', 'wp-hotelier' ),
+				'checkin-disabled'  => esc_html_x( 'Check-in disabled', 'datepicker_checkin_disabled', 'wp-hotelier' ),
+				'checkout-disabled' => esc_html_x( 'Check-out disabled', 'datepicker_checkout_disabled', 'wp-hotelier' ),
 				'day-names'         => $day_names,
 				'day-names-short'   => $day_names_short,
 				'month-names'       => $month_names,
@@ -156,7 +158,20 @@ class HTL_Frontend_Scripts {
 				'info-more'         => esc_html_x( 'Please select a date range longer than 1 night', 'datepicker_info_more', 'wp-hotelier' ),
 				'info-more-plural'  => esc_html_x( 'Please select a date range longer than %d nights', 'datepicker_info_more_plural', 'wp-hotelier' ),
 				'info-range'        => esc_html_x( 'Please select a date range between %d and %d nights', 'datepicker_info_range', 'wp-hotelier' ),
-				'info-default'      => esc_html_x( 'Please select a date range', 'datepicker_info_default', 'wp-hotelier' )
+				'info-range-equal'        => esc_html_x( 'Please select a date range of %d nights', 'datepicker_info_range', 'wp-hotelier' ),
+				'info-default'      => esc_html_x( 'Please select a date range', 'datepicker_info_default', 'wp-hotelier' ),
+				'aria-application'      => esc_html_x( 'Calendar', 'datepicker_aria_application', 'wp-hotelier' ),
+				'aria-selected-checkin'      => esc_html_x( 'Selected as check-in date, %s', 'datepicker_aria_selected_checkin', 'wp-hotelier' ),
+				'aria-selected-checkout'      => esc_html_x( 'Selected as check-out date, %s', 'datepicker_aria_selected_checkout', 'wp-hotelier' ),
+				'aria-selected'      => esc_html_x( 'Selected, %s', 'datepicker_aria_selected', 'wp-hotelier' ),
+				'aria-disabled'      => esc_html_x( 'Not available, %s', 'datepicker_aria_disabled', 'wp-hotelier' ),
+				'aria-choose-checkin'      => esc_html_x( 'Choose %s as your check-in date', 'datepicker_aria_choose_checkin', 'wp-hotelier' ),
+				'aria-choose-checkout'      => esc_html_x( 'Choose %s as your check-out date', 'datepicker_aria_choose_checkout', 'wp-hotelier' ),
+				'aria-prev-month'      => esc_html_x( 'Move backward to switch to the previous month', 'datepicker_aria_prev_month', 'wp-hotelier' ),
+				'aria-next-month'      => esc_html_x( 'Move forward to switch to the next month', 'datepicker_aria_next_month', 'wp-hotelier' ),
+				'aria-close-button'      => esc_html_x( 'Close the datepicker', 'datepicker_aria_close_button', 'wp-hotelier' ),
+				'aria-clear-button'      => esc_html_x( 'Clear the selected dates', 'datepicker_aria_clear_button', 'wp-hotelier' ),
+				'aria-submit-button'      => esc_html_x( 'Submit the form', 'datepicker_aria_submit_button', 'wp-hotelier' ),
 			)
 		);
 
