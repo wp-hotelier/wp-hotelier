@@ -80,18 +80,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 								<?php do_action( 'hotelier_reservation_table_after_price', $_room, $cart_item, $item_key ); ?>
 
-								<?php if ( $nights > 1 && apply_filters( 'hotelier_show_price_breakdown', true, HTL()->session->get( 'checkin' ), HTL()->session->get( 'checkout' ), $cart_item[ 'room_id' ], $cart_item[ 'rate_id' ], $cart_item[ 'quantity' ] ) ) : ?>
-								<a class="view-price-breakdown" href="#<?php echo esc_attr( $item_key ); ?>" data-closed="<?php esc_html_e( 'View price breakdown', 'wp-hotelier' ); ?>" data-open="<?php esc_html_e( 'Hide price breakdown', 'wp-hotelier' ); ?>"><?php esc_html_e( 'View price breakdown', 'wp-hotelier' ); ?></a>
+								<?php if ( get_theme_support( 'htl-modal-price-breakdown' ) ) : ?>
+									<?php if ( $nights > 1 && apply_filters( 'hotelier_show_price_breakdown', true, HTL()->session->get( 'checkin' ), HTL()->session->get( 'checkout' ), $cart_item[ 'room_id' ], $cart_item[ 'rate_id' ], $cart_item[ 'quantity' ] ) ) : ?>
+										<span class="view-price-breakdown-modal"><?php esc_html_e( 'View price breakdown', 'wp-hotelier' ); ?><?php echo htl_cart_price_breakdown( HTL()->session->get( 'checkin' ), HTL()->session->get( 'checkout' ), $cart_item[ 'room_id' ], $cart_item[ 'rate_id' ], $cart_item[ 'quantity' ] ); ?></span>
+									<?php endif; ?>
+								<?php else : ?>
+									<?php if ( $nights > 1 && apply_filters( 'hotelier_show_price_breakdown', true, HTL()->session->get( 'checkin' ), HTL()->session->get( 'checkout' ), $cart_item[ 'room_id' ], $cart_item[ 'rate_id' ], $cart_item[ 'quantity' ] ) ) : ?>
+									<a class="view-price-breakdown" href="#<?php echo esc_attr( $item_key ); ?>" data-closed="<?php esc_html_e( 'View price breakdown', 'wp-hotelier' ); ?>" data-open="<?php esc_html_e( 'Hide price breakdown', 'wp-hotelier' ); ?>"><?php esc_html_e( 'View price breakdown', 'wp-hotelier' ); ?></a>
+									<?php endif; ?>
 								<?php endif; ?>
 							</td>
 						</tr>
 
-						<?php if ( $nights > 1 && apply_filters( 'hotelier_show_price_breakdown', true, HTL()->session->get( 'checkin' ), HTL()->session->get( 'checkout' ), $cart_item[ 'room_id' ], $cart_item[ 'rate_id' ], $cart_item[ 'quantity' ] ) ) : ?>
-						<tr class="reservation-table__row reservation-table__row--body reservation-table__row--price-breakdown">
-							<td colspan="3" class="price-breakdown-wrapper">
-								<?php echo htl_cart_price_breakdown( HTL()->session->get( 'checkin' ), HTL()->session->get( 'checkout' ), $cart_item[ 'room_id' ], $cart_item[ 'rate_id' ], $cart_item[ 'quantity' ] ); ?>
-							</td>
-						</tr>
+						<?php if ( ! get_theme_support( 'htl-modal-price-breakdown' ) ) : ?>
+							<?php if ( $nights > 1 && apply_filters( 'hotelier_show_price_breakdown', true, HTL()->session->get( 'checkin' ), HTL()->session->get( 'checkout' ), $cart_item[ 'room_id' ], $cart_item[ 'rate_id' ], $cart_item[ 'quantity' ] ) ) : ?>
+							<tr class="reservation-table__row reservation-table__row--body reservation-table__row--price-breakdown">
+								<td colspan="3" class="price-breakdown-wrapper">
+									<?php echo htl_cart_price_breakdown( HTL()->session->get( 'checkin' ), HTL()->session->get( 'checkout' ), $cart_item[ 'room_id' ], $cart_item[ 'rate_id' ], $cart_item[ 'quantity' ] ); ?>
+								</td>
+							</tr>
+							<?php endif; ?>
 						<?php endif;
 
 						if ( $item_has_extras ) : ?>
