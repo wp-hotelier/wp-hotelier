@@ -64,6 +64,7 @@ class HTL_Shortcode_Booking {
 	 * @param int $reservation_id
 	 */
 	private static function pay_reservation( $reservation_id, $atts ) {
+		echo '<div class="pay-reservation">';
 
 		do_action( 'before_hotelier_pay', $atts );
 
@@ -122,6 +123,8 @@ class HTL_Shortcode_Booking {
 		htl_print_notices();
 
 		do_action( 'after_hotelier_pay', $atts );
+
+		echo '</div>';
 	}
 
 	/**
