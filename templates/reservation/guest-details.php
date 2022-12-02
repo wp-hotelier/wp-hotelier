@@ -15,10 +15,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<div class="reservation-received__section">
+<div class="reservation-received__section reservation-received__section--guest-details">
 
 	<header class="section-header">
-		<h3 class="<?php echo esc_attr( apply_filters( 'hotelier_booking_section_title_class', 'section-header__title' ) ); ?>"><?php echo esc_html( apply_filters( 'hotelier_booking_section_guest_details_title', __( 'Guest details', 'wp-hotelier' ) ) ); ?></h3>
+		<h3 class="<?php echo esc_attr( apply_filters( 'hotelier_booking_section_title_class', 'section-header__title' ) ); ?>"><?php echo esc_html( apply_filters( 'hotelier_received_section_guest_details_title', __( 'Guest details', 'wp-hotelier' ) ) ); ?></h3>
 	</header>
 
 	<table class="table table--guest-details hotelier-table">
@@ -48,9 +48,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 </div>
 
-<div class="reservation-received__section">
+<div class="reservation-received__section reservation-received__section--guest-address">
 	<header class="section-header">
-		<h3 class="<?php echo esc_attr( apply_filters( 'hotelier_booking_section_title_class', 'section-header__title' ) ); ?>"><?php echo esc_html( apply_filters( 'hotelier_booking_section_guest_address_title', __( 'Guest address', 'wp-hotelier' ) ) ); ?></h3>
+		<h3 class="<?php echo esc_attr( apply_filters( 'hotelier_booking_section_title_class', 'section-header__title' ) ); ?>"><?php echo esc_html( apply_filters( 'hotelier_received_section_guest_address_title', __( 'Guest address', 'wp-hotelier' ) ) ); ?></h3>
 	</header>
 
 	<address class="address address--guest-address">

@@ -12,58 +12,64 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+?>
 
-do_action( 'hotelier_before_reservation_received_page', $shortcode_atts );
+<div class="reservation-received">
 
-if ( $reservation ) : ?>
+	<?php
+	do_action( 'hotelier_before_reservation_received_page', $shortcode_atts );
 
-	<div class="reservation-received__section">
+	if ( $reservation ) : ?>
 
-		<?php if ( $reservation->has_status( 'failed' ) ) : ?>
+		<div class="reservation-received__section reservation-received__section--response">
 
-			<p class="reservation-response reservation-response--failed"><?php esc_html_e( 'Unfortunately your reservation cannot be processed as the originating bank/merchant has declined your transaction. Please attempt your purchase again.', 'wp-hotelier' ); ?></p>
+			<?php if ( $reservation->has_status( 'failed' ) ) : ?>
 
-			<p class="reservation-response reservation-response--failed">
-				<a href="<?php echo esc_url( $reservation->get_booking_payment_url() ); ?>" class="button button--pay-failed-reservation"><?php _e( 'Pay', 'wp-hotelier' ) ?></a>
-			</p>
+				<p class="reservation-response reservation-response--failed"><?php esc_html_e( 'Unfortunately your reservation cannot be processed as the originating bank/merchant has declined your transaction. Please attempt your purchase again.', 'wp-hotelier' ); ?></p>
 
-		<?php elseif ( $reservation->has_status( 'cancelled' ) ) : ?>
+				<p class="reservation-response reservation-response--failed">
+					<a href="<?php echo esc_url( $reservation->get_booking_payment_url() ); ?>" class="button button--pay-failed-reservation"><?php _e( 'Pay', 'wp-hotelier' ) ?></a>
+				</p>
 
-			<p class="reservation-response reservation-response--cancelled"><?php echo apply_filters( 'hotelier_reservation_cancelled_text', esc_html__( 'This reservation has been cancelled. The reservation was as follows.', 'wp-hotelier' ), $reservation ); ?></p>
+			<?php elseif ( $reservation->has_status( 'cancelled' ) ) : ?>
 
-			<?php do_action( 'hotelier_reservation_details', $reservation ); ?>
+				<p class="reservation-response reservation-response--cancelled"><?php echo apply_filters( 'hotelier_reservation_cancelled_text', esc_html__( 'This reservation has been cancelled. The reservation was as follows.', 'wp-hotelier' ), $reservation ); ?></p>
 
-		<?php elseif ( $reservation->has_status( 'refunded' ) ) : ?>
+				<?php do_action( 'hotelier_reservation_details', $reservation ); ?>
 
-			<p class="reservation-response reservation-response--refunded"><?php echo apply_filters( 'hotelier_reservation_refunded_text', esc_html__( 'This reservation has been refunded. The reservation was as follows.', 'wp-hotelier' ), $reservation ); ?></p>
+			<?php elseif ( $reservation->has_status( 'refunded' ) ) : ?>
 
-			<?php do_action( 'hotelier_reservation_details', $reservation ); ?>
+				<p class="reservation-response reservation-response--refunded"><?php echo apply_filters( 'hotelier_reservation_refunded_text', esc_html__( 'This reservation has been refunded. The reservation was as follows.', 'wp-hotelier' ), $reservation ); ?></p>
 
-		<?php else : ?>
+				<?php do_action( 'hotelier_reservation_details', $reservation ); ?>
 
-			<p class="reservation-response reservation-response--received"><?php echo apply_filters( 'hotelier_reservation_received_text', esc_html__( 'Thank you. Your reservation has been received.', 'wp-hotelier' ), $reservation ); ?></p>
+			<?php else : ?>
 
-			<?php do_action( 'hotelier_reservation_details', $reservation ); ?>
+				<p class="reservation-response reservation-response--received"><?php echo apply_filters( 'hotelier_reservation_received_text', esc_html__( 'Thank you. Your reservation has been received.', 'wp-hotelier' ), $reservation ); ?></p>
 
-		<?php endif; ?>
+				<?php do_action( 'hotelier_reservation_details', $reservation ); ?>
 
-	</div>
+			<?php endif; ?>
 
-	<?php do_action( 'hotelier_received_' . $reservation->payment_method, $reservation->id ); ?>
-	<?php do_action( 'hotelier_received', $reservation->id ); ?>
+		</div>
 
-<?php else : ?>
+		<?php do_action( 'hotelier_received_' . $reservation->payment_method, $reservation->id ); ?>
+		<?php do_action( 'hotelier_received', $reservation->id ); ?>
 
-	<div class="reservation-received__section">
+	<?php else : ?>
 
-		<p class="reservation-response reservation-response--invalid"><?php esc_html_e( 'Invalid reservation.', 'wp-hotelier' ); ?></p>
+		<div class="reservation-received__section reservation-received__section--response">
 
-		<?php if ( ! htl_get_option( 'listing_disabled', false ) ) : ?>
-			<p><a class="button button--backward" href="<?php echo esc_url( HTL()->cart->get_room_list_form_url() ); ?>"><?php esc_html_e( 'List of available rooms', 'wp-hotelier' ) ?></a></p>
-		<?php endif; ?>
+			<p class="reservation-response reservation-response--invalid"><?php esc_html_e( 'Invalid reservation.', 'wp-hotelier' ); ?></p>
 
-	</div>
+			<?php if ( ! htl_get_option( 'listing_disabled', false ) ) : ?>
+				<p><a class="button button--backward" href="<?php echo esc_url( HTL()->cart->get_room_list_form_url() ); ?>"><?php esc_html_e( 'List of available rooms', 'wp-hotelier' ) ?></a></p>
+			<?php endif; ?>
 
-<?php endif; ?>
+		</div>
 
-<?php do_action( 'hotelier_after_reservation_received_page', $shortcode_atts ); ?>
+	<?php endif; ?>
+
+	<?php do_action( 'hotelier_after_reservation_received_page', $shortcode_atts ); ?>
+
+</div>

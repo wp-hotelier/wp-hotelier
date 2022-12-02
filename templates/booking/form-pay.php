@@ -20,42 +20,50 @@ do_action( 'hotelier_before_pay_form' );
 
 	<?php do_action( 'hotelier_form_pay_before_reservation_table' ); ?>
 
-	<table class="table table--reservation-table reservation-table hotelier-table">
-		<thead class="reservation-table__heading">
-			<tr class="reservation-table__row reservation-table__row--heading">
-				<th class="reservation-table__room-name reservation-table__room-name--heading"><?php esc_html_e( 'Room', 'wp-hotelier' ); ?></th>
-				<th class="reservation-table__room-qty reservation-table__room-qty--heading"><?php esc_html_e( 'Qty', 'wp-hotelier' ); ?></th>
-				<th class="reservation-table__room-cost reservation-table__room-cost--heading"><?php esc_html_e( 'Cost', 'wp-hotelier' ); ?></th>
-			</tr>
-		</thead>
-		<tbody class="reservation-table__body">
-			<?php
-				foreach( $reservation->get_items() as $item_id => $item ) {
-					$room = $reservation->get_room_from_item( $item );
+	<div id="reservation-table" class="booking__section booking__section--reservation-table">
 
-					htl_get_template( 'reservation/item.php', array(
-						'reservation' => $reservation,
-						'item_id'     => $item_id,
-						'item'        => $item,
-						'room'        => $room,
-					) );
-				}
-			?>
-		</tbody>
-		<tfoot class="reservation-table__footer">
-			<?php
-			if ( $totals = $reservation->get_totals_before_booking() ) :
-				foreach ( $totals as $total ) : ?>
-					<tr class="reservation-table__row reservation-table__row--footer">
-						<th colspan="2" class="reservation-table__label reservation-table__label--total"><?php echo esc_html( $total[ 'label' ] ); ?></th>
-						<td class="reservation-table__data reservation-table__data--total"><strong><?php echo wp_kses_post( $total[ 'value' ] ); ?></strong></td>
-					</tr>
-				<?php endforeach;
-			endif; ?>
-		</tfoot>
-	</table>
+		<header class="section-header">
+			<h3 class="<?php echo esc_attr( apply_filters( 'hotelier_booking_section_title_class', 'section-header__title' ) ); ?>"><?php echo esc_html( apply_filters( 'hotelier_booking_section_reservation_table_title', __( 'Your reservation', 'wp-hotelier' ) ) ); ?></h3>
+		</header>
 
-	<?php do_action( 'hotelier_form_pay_after_reservation_table' ); ?>
+		<table class="table table--reservation-table reservation-table hotelier-table">
+			<thead class="reservation-table__heading">
+				<tr class="reservation-table__row reservation-table__row--heading">
+					<th class="reservation-table__room-name reservation-table__room-name--heading"><?php esc_html_e( 'Room', 'wp-hotelier' ); ?></th>
+					<th class="reservation-table__room-qty reservation-table__room-qty--heading"><?php esc_html_e( 'Qty', 'wp-hotelier' ); ?></th>
+					<th class="reservation-table__room-cost reservation-table__room-cost--heading"><?php esc_html_e( 'Cost', 'wp-hotelier' ); ?></th>
+				</tr>
+			</thead>
+			<tbody class="reservation-table__body">
+				<?php
+					foreach( $reservation->get_items() as $item_id => $item ) {
+						$room = $reservation->get_room_from_item( $item );
+
+						htl_get_template( 'reservation/item.php', array(
+							'reservation' => $reservation,
+							'item_id'     => $item_id,
+							'item'        => $item,
+							'room'        => $room,
+						) );
+					}
+				?>
+			</tbody>
+			<tfoot class="reservation-table__footer">
+				<?php
+				if ( $totals = $reservation->get_totals_before_booking() ) :
+					foreach ( $totals as $total ) : ?>
+						<tr class="reservation-table__row reservation-table__row--footer">
+							<th colspan="2" class="reservation-table__label reservation-table__label--total"><?php echo esc_html( $total[ 'label' ] ); ?></th>
+							<td class="reservation-table__data reservation-table__data--total"><strong><?php echo wp_kses_post( $total[ 'value' ] ); ?></strong></td>
+						</tr>
+					<?php endforeach;
+				endif; ?>
+			</tfoot>
+		</table>
+
+		<?php do_action( 'hotelier_form_pay_after_reservation_table' ); ?>
+
+	</div>
 
 	<?php if ( $reservation->needs_payment() ) : ?>
 
@@ -79,6 +87,10 @@ do_action( 'hotelier_before_pay_form' );
 					}
 				?>
 			</ul>
+
+		</div>
+
+		<div id="request-booking" class="booking__section booking__section--request-booking">
 
 			<div class="form-row">
 
