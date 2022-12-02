@@ -29,8 +29,10 @@ function htl_template_redirect() {
 		$url = htl_get_option( 'listing_disabled', false ) ? home_url() : htl_get_page_permalink( 'listing' );
 		$url = apply_filters( 'hotelier_empty_cart_redirect_url', $url );
 
-		wp_redirect( $url );
-		exit;
+		if ( ! isset( $_GET['elementor-preview'] ) ) {
+			wp_redirect( $url );
+			exit;
+		}
 	}
 
 	// Booking page handling
