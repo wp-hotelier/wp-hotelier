@@ -21,6 +21,9 @@ do_action( 'hotelier_before_booking_form', $booking, $shortcode_atts );
 $booking_form_url = apply_filters( 'hotelier_booking_form_url', HTL()->cart->get_booking_form_url() ); ?>
 
 <form id="booking-form" name="booking" method="post" class="booking form--booking" action="<?php echo esc_url( $booking_form_url ); ?>" enctype="multipart/form-data">
+
+	<?php do_action( 'hotelier_begin_booking_form' ); ?>
+
 	<?php if ( sizeof( $booking->booking_fields ) > 0 ) : ?>
 
 		<?php do_action( 'hotelier_booking_guest_details' ); ?>
@@ -42,6 +45,8 @@ $booking_form_url = apply_filters( 'hotelier_booking_form_url', HTL()->cart->get
 	<?php do_action( 'hotelier_booking_payment' ); ?>
 
 	<?php do_action( 'hotelier_book_button' ); ?>
+
+	<?php do_action( 'hotelier_end_booking_form' ); ?>
 
 </form>
 
