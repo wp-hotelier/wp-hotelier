@@ -128,7 +128,7 @@ function htl_cart_formatted_required_deposit() {
  * @return string
  */
 function htl_cart_formatted_discount() {
-	$discount = '-' . htl_price( htl_convert_to_cents( HTL()->cart->get_discount_total() ) );
+	$discount = '<span class="discount-separator">-</span>' . htl_price( htl_convert_to_cents( HTL()->cart->get_discount_total() ) );
 
 	echo $discount;
 }

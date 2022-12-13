@@ -1299,7 +1299,7 @@ class HTL_Reservation {
 	 * @return int
 	 */
 	public function get_formatted_discount_total() {
-		$amount = '-' . htl_price( htl_convert_to_cents( $this->get_discount_total() ), $this->get_reservation_currency() );
+		$amount = '<span class="discount-separator">-</span>' . htl_price( htl_convert_to_cents( $this->get_discount_total() ), $this->get_reservation_currency() );
 
 		return apply_filters( 'hotelier_get_formatted_reservation_discount_total', $amount, $this );
 	}
