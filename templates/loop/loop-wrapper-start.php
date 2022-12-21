@@ -18,6 +18,7 @@ if ( empty( $hotelier_loop[ 'columns' ] ) ) {
 	$hotelier_loop[ 'columns' ] = apply_filters( 'loop_room_columns', 3 );
 }
 
+$archive_rooms_wrapper_class = apply_filters( 'hotelier_archive_rooms_wrapper_class', '' );
 ?>
 
-<div class="hotelier room-loop room-loop--archive-rooms room-loop--columns-<?php echo absint( $hotelier_loop[ 'columns' ] ); ?>">
+<div class="hotelier room-loop room-loop--archive-rooms room-loop--columns-<?php echo absint( $hotelier_loop[ 'columns' ] ); ?> <?php echo esc_attr( $archive_rooms_wrapper_class ); ?>>">
