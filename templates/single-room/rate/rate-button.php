@@ -6,7 +6,7 @@
  *
  * @author  Benito Lopez <hello@lopezb.com>
  * @package Hotelier/Templates
- * @version 1.0.0
+ * @version 2.9.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -19,4 +19,4 @@ if ( htl_get_option( 'booking_mode' ) == 'no-booking' ) {
 
 ?>
 
-<p><a href="#hotelier-datepicker" class="button button--check-availability"><?php esc_html_e( 'Check availability', 'wp-hotelier' ) ?></a></p>
+<p class="rate__check-availability"><a href="#hotelier-datepicker" class="button button--check-availability"><?php esc_html_e( 'Check availability', 'wp-hotelier' ) ?></a></p>
