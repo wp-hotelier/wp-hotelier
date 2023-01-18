@@ -6,7 +6,7 @@
  *
  * @author  Benito Lopez <hello@lopezb.com>
  * @package Hotelier/Templates
- * @version 1.0.0
+ * @version 2.9.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -14,5 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
+
+<?php if ( apply_filters( 'hotelier_single_room_description_show_title', false ) ) : ?>
+	<h3 class="room__description-title room__description-title--single"><?php esc_html_e( 'Description', 'wp-hotelier' ); ?></h3>
+<?php endif; ?>
 
 <?php the_content(); ?>
