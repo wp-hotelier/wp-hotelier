@@ -262,9 +262,16 @@ class HTL_Reservation {
 		// Only update if they differ
 		if ( $new_requests !== $old_requests ) {
 
+			// Temporarily remove reservation save action to
+			// avoid infinite loops
+			remove_action( 'hotelier_process_room_reservation_meta', 'HTL_Meta_Box_Reservation_Data::save', 20, 2 );
+
 			// Update the reservation
 			wp_update_post( array( 'ID' => $this->id, 'post_excerpt' => $new_requests ) );
 			$this->guest_special_requests = $new_requests;
+
+			// Re-enable save action
+			add_action( 'hotelier_process_room_reservation_meta', 'HTL_Meta_Box_Reservation_Data::save', 20, 2 );
 		}
 	}
 
