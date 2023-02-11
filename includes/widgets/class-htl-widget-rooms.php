@@ -71,10 +71,10 @@ class HTL_Widget_Rooms extends HTL_Widget {
 	 * @return WP_Query
 	 */
 	public function get_rooms( $args, $instance ) {
-		$number  = $instance[ 'number' ] ? absint( $instance[ 'number' ] ) : $this->settings[ 'number' ][ 'std' ];
-		$order    = $instance[ 'order' ] ? sanitize_title( $instance[ 'order' ] ) : $this->settings[ 'order' ][ 'std' ];
-		$cats = $instance[ 'cats' ] ? HTL_Formatting_Helper::sanitize_ids( $instance[ 'cats' ] ) : array();
-		$ids = $instance[ 'ids' ] ? HTL_Formatting_Helper::sanitize_ids( $instance[ 'ids' ] ) : array();
+		$number  = isset( $instance[ 'number' ] ) && $instance[ 'number' ] ? absint( $instance[ 'number' ] ) : $this->settings[ 'number' ][ 'std' ];
+		$order    = isset( $instance[ 'order' ] ) && $instance[ 'order' ] ? sanitize_title( $instance[ 'order' ] ) : $this->settings[ 'order' ][ 'std' ];
+		$cats = isset( $instance[ 'cats' ] ) && $instance[ 'cats' ] ? HTL_Formatting_Helper::sanitize_ids( $instance[ 'cats' ] ) : array();
+		$ids = isset( $instance[ 'ids' ] ) && $instance[ 'ids' ] ? HTL_Formatting_Helper::sanitize_ids( $instance[ 'ids' ] ) : array();
 
 		$query_args = array(
 			'post_status'    => 'publish',
