@@ -19,9 +19,8 @@ do_action( 'hotelier_before_widget_rooms_filter' );
 <div class="widget-rooms-filter__wrapper <?php echo esc_attr( $wrapper_class ); ?>">
 
 	<?php
-	$link            = HTL()->cart->get_room_list_form_url();
-	$room_cats       = get_terms( 'room_cat' );
-	$room_rates      = get_terms( 'room_rate' );
+	$room_cats       = apply_filters( 'hotelier_widget_rooms_filter_show_room_types', true ) ? get_terms( 'room_cat' ) : array();
+	$room_rates      = apply_filters( 'hotelier_widget_rooms_filter_show_room_rates', true ) ? get_terms( 'room_rate' ) : array();;
 	$default_filters = apply_filters( 'hotelier_widget_rooms_filter_default_filters',
 		array(
 			'room_cat',
@@ -55,7 +54,9 @@ do_action( 'hotelier_before_widget_rooms_filter' );
 
 		<div class="widget-rooms-filter__group widget-rooms-filter__group--room-type">
 
-			<span class="widget-rooms-filter__group-label"><?php esc_html_e( 'Room type', 'wp-hotelier' ); ?></span>
+			<?php if ( apply_filters( 'hotelier_widget_rooms_filter_show_titles', true ) ) : ?>
+				<span class="widget-rooms-filter__group-label"><?php do_action( 'hotelier_widget_rooms_filter_before_title' ); ?><?php esc_html_e( 'Room type', 'wp-hotelier' ); ?><?php do_action( 'hotelier_widget_rooms_filter_after_title' ); ?></span>
+			<?php endif; ?>
 
 			<ul class="widget-rooms-filter__group-list widget-rooms-filter__group-list--room-type">
 
@@ -101,7 +102,9 @@ do_action( 'hotelier_before_widget_rooms_filter' );
 
 		<div class="widget-rooms-filter__group widget-rooms-filter__group--room-rate">
 
-			<span class="widget-rooms-filter__group-label"><?php esc_html_e( 'Room rate', 'wp-hotelier' ); ?></span>
+			<?php if ( apply_filters( 'hotelier_widget_rooms_filter_show_titles', true ) ) : ?>
+				<span class="widget-rooms-filter__group-label"><?php do_action( 'hotelier_widget_rooms_filter_before_title' ); ?><?php esc_html_e( 'Room rate', 'wp-hotelier' ); ?><?php do_action( 'hotelier_widget_rooms_filter_after_title' ); ?></span>
+			<?php endif; ?>
 
 			<ul class="widget-rooms-filter__group-list widget-rooms-filter__group-list--room-rate">
 
@@ -145,7 +148,9 @@ do_action( 'hotelier_before_widget_rooms_filter' );
 
 		<div class="widget-rooms-filter__group widget-rooms-filter__group--guests">
 
-			<span class="widget-rooms-filter__group-label"><?php esc_html_e( 'Guests', 'wp-hotelier' ); ?></span>
+			<?php if ( apply_filters( 'hotelier_widget_rooms_filter_show_titles', true ) ) : ?>
+				<span class="widget-rooms-filter__group-label"><?php do_action( 'hotelier_widget_rooms_filter_before_title' ); ?><?php esc_html_e( 'Guests', 'wp-hotelier' ); ?><?php do_action( 'hotelier_widget_rooms_filter_after_title' ); ?></span>
+			<?php endif; ?>
 
 			<?php $guests =  range( 2, $max_guests ); ?>
 
@@ -189,7 +194,9 @@ do_action( 'hotelier_before_widget_rooms_filter' );
 
 		<div class="widget-rooms-filter__group widget-rooms-filter__group--children">
 
-			<span class="widget-rooms-filter__group-label"><?php esc_html_e( 'Children', 'wp-hotelier' ); ?></span>
+			<?php if ( apply_filters( 'hotelier_widget_rooms_filter_show_titles', true ) ) : ?>
+				<span class="widget-rooms-filter__group-label"><?php do_action( 'hotelier_widget_rooms_filter_before_title' ); ?><?php esc_html_e( 'Children', 'wp-hotelier' ); ?><?php do_action( 'hotelier_widget_rooms_filter_after_title' ); ?></span>
+			<?php endif; ?>
 
 			<?php $children =  range( 1, $max_children ); ?>
 
