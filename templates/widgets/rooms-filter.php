@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 do_action( 'hotelier_before_widget_rooms_filter' );
 ?>
 
-<div class="widget-rooms-filter__wrapper">
+<div class="widget-rooms-filter__wrapper <?php echo esc_attr( $wrapper_class ); ?>">
 
 	<?php
 	$link            = HTL()->cart->get_room_list_form_url();

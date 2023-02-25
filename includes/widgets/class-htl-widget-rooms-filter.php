@@ -69,6 +69,7 @@ class HTL_Widget_Rooms_Filter extends HTL_Widget {
 			'link'          => $link,
 			'max_guests'    => $max_guests,
 			'max_children'  => $max_children,
+			'wrapper_class' => '',
 		) );
 
 		echo ob_get_clean();
