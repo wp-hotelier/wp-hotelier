@@ -59,16 +59,16 @@ class HTL_Widget_Rooms_Filter extends HTL_Widget {
 
 		$max_guests   = isset( $instance[ 'max_guests' ] ) && $instance[ 'max_guests' ] != '' ? absint( $instance[ 'max_guests' ] ) : $this->settings[ 'max_guests' ][ 'std' ];
 		$max_children = isset( $instance[ 'max_children' ] ) && $instance[ 'max_children' ] != '' ? absint( $instance[ 'max_children' ] ) : $this->settings[ 'max_children' ][ 'std' ];
+		$link         = HTL()->cart->get_room_list_form_url();
 
 		$this->widget_start( $args, $instance );
-
-
 
 		ob_start();
 
 		htl_get_template( 'widgets/rooms-filter.php', array(
-			'max_guests'   => $max_guests,
-			'max_children' => $max_children,
+			'link'          => $link,
+			'max_guests'    => $max_guests,
+			'max_children'  => $max_children,
 		) );
 
 		echo ob_get_clean();
