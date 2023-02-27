@@ -90,6 +90,7 @@ class HTL_Widget_Ajax_Room_Booking extends HTL_Widget {
 		ob_start();
 
 		htl_get_template( 'widgets/ajax-room-booking/ajax-room-booking-form.php', array(
+			'default_dates'         => '',
 			'checkin'               => $checkin,
 			'checkout'              => $checkout,
 			'show_guests_selection' => $show_guests_selection,
