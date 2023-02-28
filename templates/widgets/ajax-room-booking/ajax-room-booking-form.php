@@ -15,11 +15,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $room;
 
+$datepicker_class = array();
+
+if ( is_array( $datepicker_atts ) ) {
+	if ( isset( $datepicker_atts['inline'] ) ) {
+		$datepicker_class[] = 'datepicker-form--inline';
+	}
+
+	if ( isset( $datepicker_atts['rounded'] ) ) {
+		$datepicker_class[] = 'datepicker-form--rounded';
+	}
+
+	if ( isset( $datepicker_atts['disabled_style'] ) ) {
+		$datepicker_class[] = 'datepicker-form--disabled-style-' . $datepicker_atts['disabled_style'];
+	}
+
+	if ( isset( $datepicker_atts['bar'] ) && $datepicker_atts['bar'] === 'bottom' ) {
+		$datepicker_class[] = 'datepicker-form--bottom-bar';
+	}
+}
+
+$datepicker_class = implode( ' ', $datepicker_class );
+
 do_action( 'hotelier_before_widget_ajax_room_booking' );
 ?>
 
 <div class="widget-ajax_room_booking__wrapper">
-	<form class="form--widget-ajax-room-booking" id="widget-ajax-room-booking-form" name="widget-ajax-room-booking-form" method="post" data-room-id="<?php echo absint( $room->id ); ?>" data-show-rate-description="<?php echo $show_rate_desc ? 'true' : 'false'; ?>" data-show-room-conditions="<?php echo $show_room_conditions ? 'true' : 'false'; ?>">
+	<form class="form--widget-ajax-room-booking <?php echo esc_attr( $datepicker_class ); ?>" id="widget-ajax-room-booking-form" name="widget-ajax-room-booking-form" method="post" data-room-id="<?php echo absint( $room->id ); ?>" data-show-rate-description="<?php echo $show_rate_desc ? 'true' : 'false'; ?>" data-show-room-conditions="<?php echo $show_room_conditions ? 'true' : 'false'; ?>">
 		<p class="form-row form-row--wide widget-ajax-room-booking__row widget-ajax-room-booking__row--dates">
 			<label class="form-row__label widget-ajax-room-booking__label"><?php echo esc_html_e( 'Check-in / Check-out', 'wp-hotelier' ); ?></label>
 

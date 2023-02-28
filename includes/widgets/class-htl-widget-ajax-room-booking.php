@@ -83,6 +83,8 @@ class HTL_Widget_Ajax_Room_Booking extends HTL_Widget {
 		$checkin  = HTL()->session->get( 'checkin' );
 		$checkout = HTL()->session->get( 'checkout' );
 
+		$datepicker_atts = array();
+
 		$this->widget_start( $args, $instance );
 
 		wp_enqueue_script( 'hotelier-ajax-room-booking' );
@@ -98,6 +100,7 @@ class HTL_Widget_Ajax_Room_Booking extends HTL_Widget {
 			'show_rate_desc'        => $show_rate_desc,
 			'show_room_conditions'  => $show_room_conditions,
 			'show_room_deposit'     => $show_room_deposit,
+			'datepicker_atts'       => $datepicker_atts,
 		) );
 
 		echo ob_get_clean();
