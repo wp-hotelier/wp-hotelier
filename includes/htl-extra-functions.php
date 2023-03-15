@@ -168,6 +168,25 @@ function htl_can_apply_extra( $extra_id, $room_id, $rate_id = 0, $force = false 
 function htl_calculate_single_extra( $extra, $qty, $line_price, $values, $room, $checkin, $checkout ) {
 	$extra_to_add = 0;
 
+	$_checkin  = new DateTime( $checkin );
+	$_checkout = $checkout ? new DateTime( $checkout ) : $checkin;
+	$interval  = new DateInterval( 'P1D' );
+	$daterange = new DatePeriod( $_checkin, $interval, $_checkout );
+	$nights    = $_checkin->diff( $_checkout )->days;
+	$max_range = $nights;
+
+	if ( $extra->extra_seasonal ) {
+		$days_in_interval = hotelier_advanced_extras_get_dates_in_seasonal_extra( $extra, $_checkin, $_checkout );
+
+		if ( $days_in_interval < $nights ) {
+			if ( $extra->extra_incomplete_intervals === 'disabled' ) {
+				return $extra_to_add;
+			} else if ( $extra->extra_incomplete_intervals === 'include_partial' ) {
+				$max_range = $days_in_interval;
+			}
+		}
+	}
+
 	if ( $extra->get_type() === 'per_room' ) {
 		// Extra per room
 		if ( $extra->get_amount_type() === 'fixed' ) {
@@ -176,15 +195,18 @@ function htl_calculate_single_extra( $extra, $qty, $line_price, $values, $room, 
 
 			// Calculate cost per night if enabled
 			if ( $extra->calculate_per_night() ) {
-				$checkin   = new DateTime( $checkin );
-				$checkout  = $checkout ? new DateTime( $checkout ) : $checkin;
-				$interval  = new DateInterval( 'P1D' );
-				$daterange = new DatePeriod( $checkin, $interval ,$checkout );
-
 				$extra_per_day_to_add = 0;
+
+				$i = 0;
 
 				foreach( $daterange as $date ) {
 					$extra_per_day_to_add += $extra_to_add;
+
+					$i++;
+
+					if ( $i === $max_range ) {
+						break;
+					}
 				}
 
 				// Check max cost if any
@@ -229,12 +251,10 @@ function htl_calculate_single_extra( $extra, $qty, $line_price, $values, $room, 
 
 					// Calculate cost per night if enabled
 					if ( $extra->calculate_per_night() ) {
-						$checkin   = new DateTime( $checkin );
-						$checkout  = $checkout ? new DateTime( $checkout ) : $checkin;
-						$interval  = new DateInterval( 'P1D' );
-						$daterange = new DatePeriod( $checkin, $interval ,$checkout );
 
 						$extra_per_day_to_add = 0;
+
+						$i = 0;
 
 						foreach( $daterange as $date ) {
 							if ( $calculate_adults ) {
@@ -243,6 +263,12 @@ function htl_calculate_single_extra( $extra, $qty, $line_price, $values, $room, 
 
 							if ( $calculate_children ) {
 								$extra_per_day_to_add += $extra_amount_to_add * $children;
+							}
+
+							$i++;
+
+							if ( $i === $max_range ) {
+								break;
 							}
 						}
 
