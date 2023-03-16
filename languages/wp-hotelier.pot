@@ -1,4 +1,4 @@
-# Copyright (C) 2022 WP Hotelier
+# Copyright (C) 2023 WP Hotelier
 # This file is distributed under the same license as the WP Hotelier package.
 msgid ""
 msgstr ""
@@ -241,7 +241,7 @@ msgstr ""
 msgid "Please select at least one room."
 msgstr ""
 
-#: ../includes/class-htl-form-functions.php:329, ../includes/shortcodes/class-htl-shortcode-booking.php:119, ../templates/booking/received.php:59
+#: ../includes/class-htl-form-functions.php:329, ../includes/shortcodes/class-htl-shortcode-booking.php:120, ../templates/booking/received.php:63
 msgid "Invalid reservation."
 msgstr ""
 
@@ -434,7 +434,7 @@ msgctxt "datepicker_aria_submit_button"
 msgid "Submit the form"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:205, ../templates/global/datepicker.php:60, ../templates/single-room/rate/rate-button.php:22, ../templates/widgets/ajax-room-booking/ajax-room-booking-form.php:107
+#: ../includes/class-htl-frontend-scripts.php:205, ../templates/global/datepicker.php:60, ../templates/single-room/rate/rate-button.php:22, ../templates/widgets/ajax-room-booking/ajax-room-booking-form.php:129
 msgid "Check availability"
 msgstr ""
 
@@ -1049,63 +1049,63 @@ msgstr ""
 msgid "Reservation received"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:335, ../includes/class-htl-reservation.php:341, ../includes/admin/class-htl-admin-functions.php:53, ../includes/admin/settings/class-htl-admin-settings.php:65
+#: ../includes/class-htl-reservation.php:342, ../includes/class-htl-reservation.php:348, ../includes/admin/class-htl-admin-functions.php:53, ../includes/admin/settings/class-htl-admin-settings.php:65
 msgid "Hotelier"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:414, ../includes/admin/class-htl-admin-post-types.php:357
+#: ../includes/class-htl-reservation.php:421, ../includes/admin/class-htl-admin-post-types.php:357
 msgid "This reservation cannot be restored because one or more rooms are no longer available."
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:435
+#: ../includes/class-htl-reservation.php:442
 msgid "Reservation status changed from %s to %s."
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:378
+#: ../includes/class-htl-reservation.php:385
 msgid "Error: Trying to change the status from %1$s to %2$s. %1$s reservations cannot be restored or modified."
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:796
+#: ../includes/class-htl-reservation.php:803
 msgid "Reservation marked as paid."
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:808
+#: ../includes/class-htl-reservation.php:815
 msgid "Reservation marked as unpaid."
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:1039, ../includes/class-htl-reservation.php:1061, ../includes/class-htl-reservation.php:1118, ../includes/class-htl-reservation.php:1140, ../templates/booking/reservation-table.php:114, ../templates/booking/reservation-table.php:176, ../templates/booking/reservation-table.php:139
+#: ../includes/class-htl-reservation.php:1046, ../includes/class-htl-reservation.php:1068, ../includes/class-htl-reservation.php:1125, ../includes/class-htl-reservation.php:1147, ../templates/booking/reservation-table.php:122, ../templates/booking/reservation-table.php:184, ../templates/booking/reservation-table.php:147
 msgid "Subtotal:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:1047, ../includes/class-htl-reservation.php:1066, ../includes/class-htl-reservation.php:1126, ../includes/class-htl-reservation.php:1145
+#: ../includes/class-htl-reservation.php:1054, ../includes/class-htl-reservation.php:1073, ../includes/class-htl-reservation.php:1133, ../includes/class-htl-reservation.php:1152
 msgid "Discount:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:1054, ../includes/class-htl-reservation.php:1133, ../templates/booking/reservation-table.php:128
+#: ../includes/class-htl-reservation.php:1061, ../includes/class-htl-reservation.php:1140, ../templates/booking/reservation-table.php:136
 msgid "Tax total:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:1084
+#: ../includes/class-htl-reservation.php:1091
 msgid "Required deposit:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:1077
+#: ../includes/class-htl-reservation.php:1084
 msgid "Paid deposit:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:1091
+#: ../includes/class-htl-reservation.php:1098
 msgid "Payment method:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:1099, ../includes/class-htl-reservation.php:1166, ../includes/class-htl-reservation.php:1154, ../templates/booking/reservation-table.php:188, ../templates/booking/reservation-table.php:151
+#: ../includes/class-htl-reservation.php:1106, ../includes/class-htl-reservation.php:1173, ../includes/class-htl-reservation.php:1161, ../templates/booking/reservation-table.php:196, ../templates/booking/reservation-table.php:159
 msgid "Total:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:1099
+#: ../includes/class-htl-reservation.php:1106
 msgid "Total due:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:1159
+#: ../includes/class-htl-reservation.php:1166
 msgid "Deposit Due Now:"
 msgstr ""
 
@@ -1147,7 +1147,7 @@ msgstr ""
 msgid "Day"
 msgstr ""
 
-#: ../includes/htl-cart-functions.php:152, ../templates/booking/form-pay.php:28, ../templates/booking/reservation-table.php:31, ../templates/emails/admin-cancelled-reservation.php:60, ../templates/emails/admin-new-reservation.php:60, ../templates/emails/guest-cancelled-reservation.php:60, ../templates/emails/guest-confirmed-reservation.php:60, ../templates/emails/guest-invoice.php:70, ../templates/emails/guest-request-received.php:60, ../templates/reservation/reservation-table.php:31
+#: ../includes/htl-cart-functions.php:152, ../templates/booking/form-pay.php:34, ../templates/booking/reservation-table.php:31, ../templates/emails/admin-cancelled-reservation.php:60, ../templates/emails/admin-new-reservation.php:60, ../templates/emails/guest-cancelled-reservation.php:60, ../templates/emails/guest-confirmed-reservation.php:60, ../templates/emails/guest-invoice.php:70, ../templates/emails/guest-request-received.php:60, ../templates/reservation/reservation-table.php:31
 msgid "Cost"
 msgstr ""
 
@@ -2324,27 +2324,27 @@ msgstr ""
 msgid "Sorry, this room requires a minimum of %s nights and a maximum of %s nights."
 msgstr ""
 
-#: ../includes/htl-template-functions.php:251
+#: ../includes/htl-template-functions.php:253
 msgid "Rooms archive"
 msgstr ""
 
-#: ../includes/htl-template-functions.php:240
+#: ../includes/htl-template-functions.php:242
 msgid "Search results for: \"%s\""
 msgstr ""
 
-#: ../includes/htl-template-functions.php:243
+#: ../includes/htl-template-functions.php:245
 msgid "&nbsp;&ndash; Page %s"
 msgstr ""
 
-#: ../includes/htl-template-functions.php:1567
+#: ../includes/htl-template-functions.php:1569
 msgid "required"
 msgstr ""
 
-#: ../includes/htl-template-functions.php:1676, ../templates/widgets/ajax-room-booking/ajax-room-booking-form.php:40
+#: ../includes/htl-template-functions.php:1678, ../templates/widgets/ajax-room-booking/ajax-room-booking-form.php:62
 msgid "Nr. rooms"
 msgstr ""
 
-#: ../includes/htl-template-functions.php:1719, ../includes/htl-template-functions.php:1719
+#: ../includes/htl-template-functions.php:1721, ../includes/htl-template-functions.php:1721
 msgid "privacy policy"
 msgstr ""
 
@@ -2404,7 +2404,7 @@ msgstr ""
 msgid "Looks like you are using Uncode without the official WP Hotelier integration. You can download the plugin for free <a href=\"%s\" target=\"_blank\">at this address</a>. Once you have downloaded the zip file, upload it to <a href=\"%s\">Plugins > Add New</a> like any other plugin."
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-post-types.php:107, ../includes/widgets/class-htl-widget-rooms-filter.php:197, ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php:24
+#: ../includes/admin/class-htl-admin-post-types.php:107, ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php:24, ../templates/widgets/rooms-filter.php:152
 msgid "Guests"
 msgstr ""
 
@@ -2598,15 +2598,15 @@ msgstr ""
 msgid "Guest Reservations"
 msgstr ""
 
-#: ../includes/shortcodes/class-htl-shortcode-booking.php:115
+#: ../includes/shortcodes/class-htl-shortcode-booking.php:116
 msgid "Sorry, this reservation is invalid and cannot be paid for."
 msgstr ""
 
-#: ../includes/shortcodes/class-htl-shortcode-booking.php:111
+#: ../includes/shortcodes/class-htl-shortcode-booking.php:112
 msgid "Hi there! Seems that this reservation does not require a deposit. Please contact us if you need assistance."
 msgstr ""
 
-#: ../includes/shortcodes/class-htl-shortcode-booking.php:107, ../templates/emails/guest-invoice.php:125
+#: ../includes/shortcodes/class-htl-shortcode-booking.php:108, ../templates/emails/guest-invoice.php:125
 msgid "Pay deposit"
 msgstr ""
 
@@ -2704,18 +2704,6 @@ msgstr ""
 
 #: ../includes/widgets/class-htl-widget-rooms-filter.php:40
 msgid "Max children (type \"0\" to hide this filter)"
-msgstr ""
-
-#: ../includes/widgets/class-htl-widget-rooms-filter.php:107
-msgid "Room type"
-msgstr ""
-
-#: ../includes/widgets/class-htl-widget-rooms-filter.php:153
-msgid "Room rate"
-msgstr ""
-
-#: ../includes/widgets/class-htl-widget-rooms-filter.php:241, ../includes/admin/new-reservation/views/html-admin-new-reservation.php:82, ../templates/booking/reservation-table-guests.php:74, ../templates/room-list/content/add-to-cart.php:71, ../templates/widgets/ajax-room-booking/ajax-room-booking-form.php:93, ../templates/room-list/content/rate/rate-add-to-cart.php:71
-msgid "Children"
 msgstr ""
 
 #: ../includes/widgets/class-htl-widget-rooms.php:23
@@ -4098,8 +4086,12 @@ msgstr ""
 msgid "Quantity"
 msgstr ""
 
-#: ../includes/admin/new-reservation/views/html-admin-new-reservation.php:79, ../templates/booking/reservation-table-guests.php:54, ../templates/room-list/content/add-to-cart.php:52, ../templates/widgets/ajax-room-booking/ajax-room-booking-form.php:81, ../templates/room-list/content/rate/rate-add-to-cart.php:50
+#: ../includes/admin/new-reservation/views/html-admin-new-reservation.php:79, ../templates/booking/reservation-table-guests.php:54, ../templates/room-list/content/add-to-cart.php:52, ../templates/widgets/ajax-room-booking/ajax-room-booking-form.php:103, ../templates/room-list/content/rate/rate-add-to-cart.php:50
 msgid "Adults"
+msgstr ""
+
+#: ../includes/admin/new-reservation/views/html-admin-new-reservation.php:82, ../templates/booking/reservation-table-guests.php:74, ../templates/widgets/rooms-filter.php:198, ../templates/room-list/content/add-to-cart.php:71, ../templates/widgets/ajax-room-booking/ajax-room-booking-form.php:115, ../templates/room-list/content/rate/rate-add-to-cart.php:71
+msgid "Children"
 msgstr ""
 
 #: ../includes/admin/new-reservation/views/html-admin-new-reservation.php:92
@@ -4426,7 +4418,7 @@ msgstr ""
 msgid "Sort"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php:20, ../templates/booking/form-pay.php:26, ../templates/booking/reservation-table.php:29, ../templates/emails/admin-cancelled-reservation.php:58, ../templates/emails/admin-new-reservation.php:58, ../templates/emails/guest-cancelled-reservation.php:58, ../templates/emails/guest-confirmed-reservation.php:58, ../templates/emails/guest-invoice.php:68, ../templates/emails/guest-request-received.php:58, ../templates/reservation/reservation-table.php:29
+#: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php:20, ../templates/booking/form-pay.php:32, ../templates/booking/reservation-table.php:29, ../templates/emails/admin-cancelled-reservation.php:58, ../templates/emails/admin-new-reservation.php:58, ../templates/emails/guest-cancelled-reservation.php:58, ../templates/emails/guest-confirmed-reservation.php:58, ../templates/emails/guest-invoice.php:68, ../templates/emails/guest-request-received.php:58, ../templates/reservation/reservation-table.php:29
 msgid "Room"
 msgstr ""
 
@@ -4434,7 +4426,7 @@ msgstr ""
 msgid "Price"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php:26, ../templates/booking/form-pay.php:27, ../templates/booking/reservation-table.php:30, ../templates/emails/admin-cancelled-reservation.php:59, ../templates/emails/admin-new-reservation.php:59, ../templates/emails/guest-cancelled-reservation.php:59, ../templates/emails/guest-confirmed-reservation.php:59, ../templates/emails/guest-invoice.php:69, ../templates/emails/guest-request-received.php:59, ../templates/reservation/reservation-table.php:30
+#: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php:26, ../templates/booking/form-pay.php:33, ../templates/booking/reservation-table.php:30, ../templates/emails/admin-cancelled-reservation.php:59, ../templates/emails/admin-new-reservation.php:59, ../templates/emails/guest-cancelled-reservation.php:59, ../templates/emails/guest-confirmed-reservation.php:59, ../templates/emails/guest-invoice.php:69, ../templates/emails/guest-request-received.php:59, ../templates/reservation/reservation-table.php:30
 msgid "Qty"
 msgstr ""
 
@@ -4572,7 +4564,7 @@ msgstr ""
 msgid "This room does not exist anymore"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:28, ../templates/single-room/meta.php:41
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:28, ../templates/single-room/meta.php:65
 msgid "Room type:"
 msgstr ""
 
@@ -4592,7 +4584,7 @@ msgstr ""
 msgid "The max occupancy of the room."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:54, ../templates/single-room/meta.php:30
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:54, ../templates/single-room/meta.php:54
 msgid "Children:"
 msgstr ""
 
@@ -4600,7 +4592,7 @@ msgstr ""
 msgid "Maximum number of children."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:65, ../templates/single-room/meta.php:38, ../templates/room-list/content/meta.php:27
+#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:65, ../templates/single-room/meta.php:62, ../templates/room-list/content/meta.php:27
 msgid "Bed size(s):"
 msgstr ""
 
@@ -4916,7 +4908,7 @@ msgstr ""
 msgid "There are some issues with the items in your cart (shown above). Please go back and resolve these issues before the booking."
 msgstr ""
 
-#: ../templates/booking/cart-errors.php:25, ../templates/booking/received.php:62
+#: ../templates/booking/cart-errors.php:25, ../templates/booking/received.php:66
 msgid "List of available rooms"
 msgstr ""
 
@@ -4932,31 +4924,35 @@ msgstr ""
 msgid "Apply"
 msgstr ""
 
-#: ../templates/booking/form-pay.php:66, ../templates/booking/payment.php:20
+#: ../templates/booking/form-pay.php:26, ../templates/booking/reservation-table.php:21
+msgid "Your reservation"
+msgstr ""
+
+#: ../templates/booking/form-pay.php:74, ../templates/booking/payment.php:20
 msgid "Payment method"
 msgstr ""
 
-#: ../templates/booking/form-pay.php:78, ../templates/booking/payment.php:32
+#: ../templates/booking/form-pay.php:86, ../templates/booking/payment.php:32
 msgid "Sorry, it seems that there are no available payment methods. Please contact us if you require assistance."
 msgstr ""
 
-#: ../templates/booking/received.php:44
+#: ../templates/booking/received.php:48
 msgid "Thank you. Your reservation has been received."
 msgstr ""
 
-#: ../templates/booking/received.php:38
+#: ../templates/booking/received.php:42
 msgid "This reservation has been refunded. The reservation was as follows."
 msgstr ""
 
-#: ../templates/booking/received.php:32
+#: ../templates/booking/received.php:36
 msgid "This reservation has been cancelled. The reservation was as follows."
 msgstr ""
 
-#: ../templates/booking/received.php:24
+#: ../templates/booking/received.php:28
 msgid "Unfortunately your reservation cannot be processed as the originating bank/merchant has declined your transaction. Please attempt your purchase again."
 msgstr ""
 
-#: ../templates/booking/received.php:27
+#: ../templates/booking/received.php:31
 msgid "Pay"
 msgstr ""
 
@@ -4968,27 +4964,23 @@ msgstr ""
 msgid "Pets"
 msgstr ""
 
-#: ../templates/booking/reservation-table.php:21
-msgid "Your reservation"
-msgstr ""
-
-#: ../templates/booking/reservation-table.php:84, ../templates/booking/reservation-table.php:84
+#: ../templates/booking/reservation-table.php:89, ../templates/booking/reservation-table.php:89, ../templates/booking/reservation-table.php:85
 msgid "View price breakdown"
 msgstr ""
 
-#: ../templates/booking/reservation-table.php:84
+#: ../templates/booking/reservation-table.php:89
 msgid "Hide price breakdown"
 msgstr ""
 
-#: ../templates/booking/reservation-table.php:165
+#: ../templates/booking/reservation-table.php:173
 msgid "Deposit due after confirm:"
 msgstr ""
 
-#: ../templates/booking/reservation-table.php:158
+#: ../templates/booking/reservation-table.php:166
 msgid "Deposit due now:"
 msgstr ""
 
-#: ../templates/booking/reservation-table.php:202, ../templates/emails/guest-confirmed-reservation.php:109, ../templates/emails/guest-invoice.php:119, ../templates/emails/guest-request-received.php:109, ../templates/reservation/reservation-table.php:64, ../templates/emails/plain/guest-confirmed-reservation.php:49, ../templates/emails/plain/guest-invoice.php:56, ../templates/emails/plain/guest-request-received.php:49
+#: ../templates/booking/reservation-table.php:210, ../templates/emails/guest-confirmed-reservation.php:109, ../templates/emails/guest-invoice.php:119, ../templates/emails/guest-request-received.php:109, ../templates/reservation/reservation-table.php:64, ../templates/emails/plain/guest-confirmed-reservation.php:49, ../templates/emails/plain/guest-invoice.php:56, ../templates/emails/plain/guest-request-received.php:49
 msgid "This reservation includes a non-cancellable and non-refundable room. You will be charged the total price if you cancel your booking."
 msgstr ""
 
@@ -5048,7 +5040,7 @@ msgstr ""
 msgid "Thank you, your booking request has been received and is now being processed. Your reservation details are shown below for your reference."
 msgstr ""
 
-#: ../templates/global/quantity-input.php:20, ../templates/widgets/ajax-room-booking/ajax-room-booking-form.php:42
+#: ../templates/global/quantity-input.php:20, ../templates/widgets/ajax-room-booking/ajax-room-booking-form.php:64
 msgctxt "Room quantity input tooltip"
 msgid "Qty"
 msgstr ""
@@ -5116,8 +5108,12 @@ msgstr ""
 msgid "Room conditions"
 msgstr ""
 
-#: ../templates/single-room/deposit.php:23, ../templates/room-list/content/deposit.php:21, ../templates/single-room/rate/rate-deposit.php:19, ../templates/room-list/content/rate/rate-deposit.php:19, ../templates/widgets/ajax-room-booking/rate/deposit.php:21, ../templates/widgets/ajax-room-booking/room/deposit.php:21
+#: ../templates/single-room/deposit.php:28, ../templates/room-list/content/deposit.php:21, ../templates/single-room/rate/rate-deposit.php:22, ../templates/room-list/content/rate/rate-deposit.php:19, ../templates/widgets/ajax-room-booking/rate/deposit.php:23, ../templates/widgets/ajax-room-booking/room/deposit.php:24
 msgid "Deposit required"
+msgstr ""
+
+#: ../templates/single-room/description.php:19
+msgid "Description"
 msgstr ""
 
 #: ../templates/single-room/facilities.php:25
@@ -5128,17 +5124,33 @@ msgstr ""
 msgid "View room gallery"
 msgstr ""
 
-#: ../templates/single-room/meta.php:23
+#: ../templates/single-room/meta.php:47
 msgid "Room details"
 msgstr ""
 
-#: ../templates/single-room/meta.php:27, ../templates/room-list/content/max-guests.php:24
+#: ../templates/single-room/meta.php:51, ../templates/room-list/content/max-guests.php:24
 msgid "Guests:"
 msgstr ""
 
-#: ../templates/single-room/meta.php:34, ../templates/room-list/content/meta.php:23
+#: ../templates/single-room/meta.php:58, ../templates/room-list/content/meta.php:23
 msgid "Room size:"
 msgstr ""
+
+#: ../templates/single-room/meta.php:25
+msgid "%s adult"
+msgid_plural "%s adults"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../templates/single-room/meta.php:29
+msgid "%s children"
+msgstr ""
+
+#: ../templates/single-room/meta.php:37, ../templates/room-list/content-card/meta.php:27
+msgid "%s bathroom"
+msgid_plural "%s bathrooms"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../templates/single-room/price.php:25
 msgid "See available rates"
@@ -5169,6 +5181,14 @@ msgstr ""
 #: ../templates/widgets/room-searchform.php:23
 msgctxt "submit button"
 msgid "Search"
+msgstr ""
+
+#: ../templates/widgets/rooms-filter.php:58
+msgid "Room type"
+msgstr ""
+
+#: ../templates/widgets/rooms-filter.php:106
+msgid "Room rate"
 msgstr ""
 
 #: ../templates/archive/content/room-more-button.php:18
@@ -5267,21 +5287,15 @@ msgstr ""
 msgid "Hide rates"
 msgstr ""
 
-#: ../templates/room-list/content-card/meta.php:27
-msgid "%s bathroom"
-msgid_plural "%s bathrooms"
-msgstr[0] ""
-msgstr[1] ""
-
 #: ../templates/single-room/rate/rate-conditions.php:24, ../templates/widgets/ajax-room-booking/rate/conditions.php:20
 msgid "Rate conditions:"
 msgstr ""
 
-#: ../templates/widgets/ajax-room-booking/ajax-room-booking-form.php:24
+#: ../templates/widgets/ajax-room-booking/ajax-room-booking-form.php:46
 msgid "Check-in / Check-out"
 msgstr ""
 
-#: ../templates/widgets/ajax-room-booking/ajax-room-booking-form.php:109
+#: ../templates/widgets/ajax-room-booking/ajax-room-booking-form.php:131
 msgid "Reset selection"
 msgstr ""
 
