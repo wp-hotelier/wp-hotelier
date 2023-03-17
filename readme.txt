@@ -124,6 +124,13 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 2.9.0 - 2022-03-17 =
+* Add - Added the possibility to paginate rooms shortcodes.
+* Add - Add various filters and actions.
+* Update - Hotel Datepicker library updated.
+* Tweak - Minor fixes.
+* Localization - POT file updated.
+
 = 2.8.0 - 2022-03-16 =
 * Add - Support for TwentyTwentyOne theme.
 * Add - Add various filters and actions.
