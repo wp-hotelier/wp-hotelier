@@ -37,11 +37,11 @@ if ( $room_gallery_ids ) {
 	<?php
 		if ( has_post_thumbnail() ) {
 
-			the_post_thumbnail( 'full', array( 'class' => 'room__gallery-image room__gallery-image--listing' ) );
+			the_post_thumbnail( 'room_catalog', array( 'class' => 'room__gallery-image room__gallery-image--listing' ) );
 
 		} else {
 
-			echo '<a href="' . esc_url ( get_the_permalink() ) . '" class="room__gallery-image room__gallery-image--listing">' . htl_placeholder_img( 'full' ) . '</a>';
+			echo '<a href="' . esc_url ( get_the_permalink() ) . '" class="room__gallery-image room__gallery-image--listing">' . htl_placeholder_img( 'room_catalog' ) . '</a>';
 
 		}
 	?>
