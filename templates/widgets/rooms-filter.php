@@ -237,6 +237,10 @@ do_action( 'hotelier_before_widget_rooms_filter' );
 
 	<?php endif; ?>
 
+	<?php if ( $reset_button && ! empty( $filters ) ) : ?>
+		<a href="<?php echo HTL()->cart->get_room_list_form_url(); ?>" class="widget-rooms-filter__reset button"><?php esc_html_e( 'Reset', 'wp-hotelier' ); ?></a>
+	<?php endif; ?>
+
 </div>
 
 <?php

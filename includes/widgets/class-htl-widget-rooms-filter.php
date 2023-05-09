@@ -70,6 +70,7 @@ class HTL_Widget_Rooms_Filter extends HTL_Widget {
 			'max_guests'    => $max_guests,
 			'max_children'  => $max_children,
 			'wrapper_class' => '',
+			'reset_button'  => false,
 		) );
 
 		echo ob_get_clean();
