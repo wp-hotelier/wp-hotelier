@@ -5191,6 +5191,10 @@ msgstr ""
 msgid "Room rate"
 msgstr ""
 
+#: ../templates/widgets/rooms-filter.php:241
+msgid "Reset"
+msgstr ""
+
 #: ../templates/archive/content/room-more-button.php:18
 msgid "View room details"
 msgstr ""
