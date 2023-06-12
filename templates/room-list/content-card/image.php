@@ -37,7 +37,7 @@ if ( $room_gallery_ids ) {
 	<?php
 		if ( has_post_thumbnail() ) {
 
-			the_post_thumbnail( 'room_catalog', array( 'class' => 'room__gallery-image room__gallery-image--listing' ) );
+			echo '<a href="' . esc_url ( get_the_permalink() ) . '" class="room__gallery-image room__gallery-image--listing">' . get_the_post_thumbnail( $post->ID,  'room_catalog', array( 'class' => 'room__gallery-image room__gallery-image--listing' ) ) . '</a>';
 
 		} else {
 
