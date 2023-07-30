@@ -98,6 +98,22 @@ class HTL_Admin_Notices {
 		if ( defined( 'UNCODE_VERSION' ) && ! defined( 'HTL_UNCODE_VERSION' ) ) {
 			add_action( 'admin_notices', array( $this, 'show_notice_for_uncode_integration' ) );
 		}
+
+		// Elementor and Hello integration
+		if ( defined( 'ELEMENTOR_VERSION' ) && defined( 'HELLO_ELEMENTOR_VERSION' ) && ! defined( 'HTL_HELLO_ELEMENTOR_VERSION' ) ) {
+			add_action( 'admin_notices', array( $this, 'show_notice_for_hello_theme' ) );
+		}
+
+		// Elementor and Hello integration
+		if ( defined( 'ELEMENTOR_VERSION' ) && ! defined( 'HELLO_ELEMENTOR_VERSION' ) && ! defined( 'HTL_HELLO_ELEMENTOR_VERSION' ) ) {
+			add_action( 'admin_notices', array( $this, 'show_notice_for_elementor_integration' ) );
+		}
+
+		// Elementor and Hello integration
+		if ( defined( 'ELEMENTOR_VERSION' ) && ! defined( 'HELLO_ELEMENTOR_VERSION' ) && defined( 'HTL_HELLO_ELEMENTOR_VERSION' ) ) {
+			add_action( 'admin_notices', array( $this, 'show_notice_for_hello_theme_required' ) );
+		}
+
 	}
 
 	/**
@@ -205,6 +221,28 @@ class HTL_Admin_Notices {
 	public function show_notice_for_uncode_integration() {
 		echo '<div class="error"><p>' . sprintf( wp_kses_post( __( 'Looks like you are using Uncode without the official WP Hotelier integration. You can download the plugin for free <a href="%s" target="_blank">at this address</a>. Once you have downloaded the zip file, upload it to <a href="%s">Plugins > Add New</a> like any other plugin.', 'wp-hotelier' ) ), 'https://github.com/wp-hotelier/wp-hotelier-uncode/releases', admin_url( 'plugin-install.php' ) ) . '</p></div>';
 	}
+
+	/**
+	 * Notice for Hello theme.
+	 */
+	public function show_notice_for_hello_theme() {
+		echo '<div class="notice notice-info is-dismissible"><h3>' . esc_html__( 'Using Hello Elementor?' ) . '</h3><p>' . sprintf( wp_kses_post( __( 'WP Hotelier has an official extension for Hello Elementor. You can download the plugin for free <a href="%s" target="_blank">at this address</a>. Once you have downloaded the zip file, upload it to <a href="%s">Plugins > Add New</a> like any other plugin.', 'wp-hotelier' ) ), 'https://github.com/wp-hotelier/wp-hotelier-elementor/releases', admin_url( 'plugin-install.php' ) ) . '</p></div>';
+	}
+
+	/**
+	 * Notice for WP Hotelier Elementor integration.
+	 */
+	public function show_notice_for_elementor_integration() {
+		echo '<div class="notice notice-info is-dismissible"><h3>' . esc_html__( 'Using Elementor?' ) . '</h3><p>' . sprintf( wp_kses_post( __( 'WP Hotelier has an official extension for Elementor and Hello Elementor. You can download the plugin for free <a href="%s" target="_blank">at this address</a>. Once you have downloaded the zip file, upload it to <a href="%s">Plugins > Add New</a> like any other plugin.', 'wp-hotelier' ) ), 'https://github.com/wp-hotelier/wp-hotelier-elementor/releases', admin_url( 'plugin-install.php' ) ) . '</p></div>';
+	}
+
+	/**
+	 * Require extension when usiong Elementor and Hello Elementor theme.
+	 */
+	public function show_notice_for_hello_theme_required() {
+		echo '<div class="error"><p>' . sprintf( wp_kses_post( __( 'Looks like you are using Hello Elementor without the official WP Hotelier integration. You can download the plugin for free <a href="%s" target="_blank">at this address</a>. Once you have downloaded the zip file, upload it to <a href="%s">Plugins > Add New</a> like any other plugin.', 'wp-hotelier' ) ), 'https://github.com/wp-hotelier/wp-hotelier-elementor/releases', admin_url( 'plugin-install.php' ) ) . '</p></div>';
+	}
+
 }
 
 endif;
