@@ -26,12 +26,13 @@ class HTL_Shortcodes {
 		self::includes();
 
 		$shortcodes = array(
-			'hotelier_recent_rooms' => __CLASS__ . '::recent_rooms',
-			'hotelier_rooms'        => __CLASS__ . '::rooms',
-			'hotelier_room_type'    => __CLASS__ . '::room_type',
-			'hotelier_booking'      => __CLASS__ . '::booking',
-			'hotelier_listing'      => __CLASS__ . '::room_list',
-			'hotelier_datepicker'   => __CLASS__ . '::datepicker',
+			'hotelier_recent_rooms'  => __CLASS__ . '::recent_rooms',
+			'hotelier_rooms'         => __CLASS__ . '::rooms',
+			'hotelier_archive_rooms' => __CLASS__ . '::archive_rooms',
+			'hotelier_room_type'     => __CLASS__ . '::room_type',
+			'hotelier_booking'       => __CLASS__ . '::booking',
+			'hotelier_listing'       => __CLASS__ . '::room_list',
+			'hotelier_datepicker'    => __CLASS__ . '::datepicker',
 		);
 
 		foreach ( $shortcodes as $shortcode => $function ) {
@@ -347,6 +348,42 @@ class HTL_Shortcodes {
 		}
 
 		return self::room_loop( $query_args, $atts, 'rooms' );
+	}
+
+	/**
+	 * Archive rooms shortcode.
+	 *
+	 * @param array $atts
+	 * @return string
+	 */
+	public static function archive_rooms( $atts ) {
+		$atts = shortcode_atts( array(
+			'per_page' => get_option( 'posts_per_page' ),
+			'columns'  => '3',
+			'paginate' => 'true',
+		), $atts );
+
+		$query_args = array(
+			'post_type'           => 'room',
+			'post_status'         => 'publish',
+			'ignore_sticky_posts' => 1,
+			'posts_per_page'      => $atts[ 'per_page' ],
+			'order'               => 'desc',
+		);
+
+		if ( is_tax( 'room_cat' ) ) {
+			$term = get_queried_object();
+
+			$query_args['tax_query'] = array(
+				array(
+					'taxonomy' => 'room_cat',
+					'field'    => 'slug',
+					'terms'    => $term->slug,
+				),
+			);
+		}
+
+		return self::room_loop( $query_args, $atts, 'archive_rooms' );
 	}
 }
 
