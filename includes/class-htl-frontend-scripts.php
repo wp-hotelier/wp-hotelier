@@ -135,6 +135,8 @@ class HTL_Frontend_Scripts {
 			'disabled_dates'     => apply_filters( 'hotelier_datepicker_disabled_dates', array() ),
 			'enable_checkout'    => apply_filters( 'hotelier_datepicker_enable_checkout', true ),
 			'disabled_days_of_week' => apply_filters( 'hotelier_datepicker_disabled_days_of_week', array() ),
+			'no_checkin_week_days' => apply_filters( 'hotelier_datepicker_no_checkin_week_days', array() ),
+			'no_checkout_week_days' => apply_filters( 'hotelier_datepicker_no_checkout_week_days', array() ),
 			'inline'             => apply_filters( 'hotelier_datepicker_inline', false ),
 			'topbar_position'    => apply_filters( 'hotelier_datepicker_topbar_position', 'top' ),
 			'submit_button_name' => 'hotelier_datepicker_button',
