@@ -3,7 +3,7 @@ Contributors: benitolopez
 Tags: booking, hotel, booking system, hostel, reservations, reservations, b&b, rooms, wphotelier
 Requires at least: 4.1
 Tested up to: 6.2
-Stable tag: 2.9.0
+Stable tag: 2.10.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -15,6 +15,7 @@ WP Hotelier is a powerful free hotel booking plugin for WordPress, built specifi
 
 You can see WP Hotelier in action with:
 
+* [Hello Elementor](https://hello.wphotelier.com/one/): the most popular theme on the market. You can download the offical integration [here](https://github.com/wp-hotelier/wp-hotelier-hello-elementor/).
 * [Uncode](http://uncode.wphotelier.com/): Uncode is a premium theme and one of the most popular premium themes on the market. You can download the offical integration [here](https://github.com/wp-hotelier/wp-hotelier-uncode/releases/).
 * [Manila](http://manila.wphotelier.com/): Manila is a free WordPress hotel theme developed for WP hotelier specifically. You can [download it for free here](https://github.com/wp-hotelier/manila/releases).
 
@@ -70,6 +71,7 @@ Something missing? No problem, you can extend WP Hotelier with a vast number of 
 
 List of officially supported themes:
 
+* [Hello Elementor](https://wordpress.org/themes/hello-elementor/)
 * [Uncode](https://undsgn.com/uncode/)
 * [Manila](http://manila.wphotelier.com/)
 * [Twenty Twenty-One](https://wordpress.org/themes/twentytwentyone/)
@@ -106,6 +108,10 @@ WP Hotelier comes with some sample data you can use to see how rooms look. You c
 WP Hotelier requires two pages to work: the `listing` page and the `booking` page. Make sure that you have them and that they are set correctly in the [WP Hotelier's settings](http://docs.wphotelier.com/article/9-general-settings#hotelier-pages)
 
 == Frequently Asked Questions ==
+
+= Does WP Hotelier support Elementor? =
+
+Yes; WP Hotelier fully supports Elementor (free and pro) if you install [this plugin](https://github.com/wp-hotelier/wp-hotelier-hello-elementor/). Hello Elementor is required as a theme.
 
 = Will WP Hotelier work with my theme? =
 
