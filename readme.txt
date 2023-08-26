@@ -15,7 +15,7 @@ WP Hotelier is a powerful free hotel booking plugin for WordPress, built specifi
 
 You can see WP Hotelier in action with:
 
-* [Hello Elementor](https://hello.wphotelier.com/one/): the most popular theme on the market. You can download the offical integration [here](https://github.com/wp-hotelier/wp-hotelier-hello-elementor/).
+* [Hello Elementor](https://hello.wphotelier.com/one/): the most popular theme on the market. You can download the offical integration [here](https://github.com/wp-hotelier/wp-hotelier-hello-elementor/releases/).
 * [Uncode](http://uncode.wphotelier.com/): Uncode is a premium theme and one of the most popular premium themes on the market. You can download the offical integration [here](https://github.com/wp-hotelier/wp-hotelier-uncode/releases/).
 * [Manila](http://manila.wphotelier.com/): Manila is a free WordPress hotel theme developed for WP hotelier specifically. You can [download it for free here](https://github.com/wp-hotelier/manila/releases).
 
@@ -111,7 +111,7 @@ WP Hotelier requires two pages to work: the `listing` page and the `booking` pag
 
 = Does WP Hotelier support Elementor? =
 
-Yes; WP Hotelier fully supports Elementor (free and pro) if you install [this plugin](https://github.com/wp-hotelier/wp-hotelier-hello-elementor/). Hello Elementor is required as a theme.
+Yes; WP Hotelier fully supports Elementor (free and pro) if you install [this plugin](https://github.com/wp-hotelier/wp-hotelier-hello-elementor/releases/). Hello Elementor is required as a theme.
 
 = Will WP Hotelier work with my theme? =
 
