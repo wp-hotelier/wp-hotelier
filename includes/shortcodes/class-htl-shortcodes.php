@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Shortcodes
  * @package  Hotelier/Classes
- * @version  2.9.0
+ * @version  2.10.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

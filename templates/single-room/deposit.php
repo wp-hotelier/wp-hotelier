@@ -6,7 +6,7 @@
  *
  * @author  Benito Lopez <hello@lopezb.com>
  * @package Hotelier/Templates
- * @version 1.2.0
+ * @version 2.10.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
