@@ -141,7 +141,7 @@ msgstr ""
 msgid "Send request"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:517, ../includes/class-htl-frontend-scripts.php:208, ../templates/room-list/content/add-to-cart.php:85, ../templates/room-list/content/rate/rate-add-to-cart.php:85
+#: ../includes/class-htl-booking.php:517, ../includes/class-htl-frontend-scripts.php:210, ../templates/room-list/content/add-to-cart.php:85, ../templates/room-list/content/rate/rate-add-to-cart.php:85
 msgid "Book now"
 msgstr ""
 
@@ -289,160 +289,160 @@ msgstr ""
 msgid "Please insert a valid coupon code."
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:142
+#: ../includes/class-htl-frontend-scripts.php:144
 msgctxt "datepicker_selected"
 msgid "Your stay:"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:143
+#: ../includes/class-htl-frontend-scripts.php:145
 msgctxt "datepicker_night"
 msgid "Night"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:144
+#: ../includes/class-htl-frontend-scripts.php:146
 msgctxt "datepicker_nights"
 msgid "Nights"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:145
+#: ../includes/class-htl-frontend-scripts.php:147
 msgctxt "datepicker_apply"
 msgid "Close"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:146
+#: ../includes/class-htl-frontend-scripts.php:148
 msgctxt "datepicker_apply"
 msgid "Clear"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:147
+#: ../includes/class-htl-frontend-scripts.php:149
 msgctxt "datepicker_apply"
 msgid "Check"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:148
+#: ../includes/class-htl-frontend-scripts.php:150
 msgctxt "datepicker_checkin_disabled"
 msgid "Check-in disabled"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:149
+#: ../includes/class-htl-frontend-scripts.php:151
 msgctxt "datepicker_checkout_disabled"
 msgid "Check-out disabled"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:154
+#: ../includes/class-htl-frontend-scripts.php:156
 msgctxt "datepicker_error_more"
 msgid "Date range should not be more than 1 night"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:155
+#: ../includes/class-htl-frontend-scripts.php:157
 msgctxt "datepicker_error_more_plural"
 msgid "Date range should not be more than %d nights"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:156
+#: ../includes/class-htl-frontend-scripts.php:158
 msgctxt "datepicker_error_less"
 msgid "Date range should not be less than 1 night"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:157
+#: ../includes/class-htl-frontend-scripts.php:159
 msgctxt "datepicker_error_less_plural"
 msgid "Date range should not be less than %d nights"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:158
+#: ../includes/class-htl-frontend-scripts.php:160
 msgctxt "datepicker_info_more"
 msgid "Please select a date range longer than 1 night"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:159
+#: ../includes/class-htl-frontend-scripts.php:161
 msgctxt "datepicker_info_more_plural"
 msgid "Please select a date range longer than %d nights"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:160
+#: ../includes/class-htl-frontend-scripts.php:162
 msgctxt "datepicker_info_range"
 msgid "Please select a date range between %d and %d nights"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:161
+#: ../includes/class-htl-frontend-scripts.php:163
 msgctxt "datepicker_info_range"
 msgid "Please select a date range of %d nights"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:162
+#: ../includes/class-htl-frontend-scripts.php:164
 msgctxt "datepicker_info_default"
 msgid "Please select a date range"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:163
+#: ../includes/class-htl-frontend-scripts.php:165
 msgctxt "datepicker_aria_application"
 msgid "Calendar"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:164
+#: ../includes/class-htl-frontend-scripts.php:166
 msgctxt "datepicker_aria_selected_checkin"
 msgid "Selected as check-in date, %s"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:165
+#: ../includes/class-htl-frontend-scripts.php:167
 msgctxt "datepicker_aria_selected_checkout"
 msgid "Selected as check-out date, %s"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:166
+#: ../includes/class-htl-frontend-scripts.php:168
 msgctxt "datepicker_aria_selected"
 msgid "Selected, %s"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:167
+#: ../includes/class-htl-frontend-scripts.php:169
 msgctxt "datepicker_aria_disabled"
 msgid "Not available, %s"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:168
+#: ../includes/class-htl-frontend-scripts.php:170
 msgctxt "datepicker_aria_choose_checkin"
 msgid "Choose %s as your check-in date"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:169
+#: ../includes/class-htl-frontend-scripts.php:171
 msgctxt "datepicker_aria_choose_checkout"
 msgid "Choose %s as your check-out date"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:170
+#: ../includes/class-htl-frontend-scripts.php:172
 msgctxt "datepicker_aria_prev_month"
 msgid "Move backward to switch to the previous month"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:171
+#: ../includes/class-htl-frontend-scripts.php:173
 msgctxt "datepicker_aria_next_month"
 msgid "Move forward to switch to the next month"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:172
+#: ../includes/class-htl-frontend-scripts.php:174
 msgctxt "datepicker_aria_close_button"
 msgid "Close the datepicker"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:173
+#: ../includes/class-htl-frontend-scripts.php:175
 msgctxt "datepicker_aria_clear_button"
 msgid "Clear the selected dates"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:174
+#: ../includes/class-htl-frontend-scripts.php:176
 msgctxt "datepicker_aria_submit_button"
 msgid "Submit the form"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:205, ../templates/global/datepicker.php:60, ../templates/single-room/rate/rate-button.php:22, ../templates/widgets/ajax-room-booking/ajax-room-booking-form.php:129
+#: ../includes/class-htl-frontend-scripts.php:207, ../templates/global/datepicker.php:60, ../templates/single-room/rate/rate-button.php:22, ../templates/widgets/ajax-room-booking/ajax-room-booking-form.php:129
 msgid "Check availability"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:206
+#: ../includes/class-htl-frontend-scripts.php:208
 msgid "Checking availability..."
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:207
+#: ../includes/class-htl-frontend-scripts.php:209
 msgid "Booking room..."
 msgstr ""
 
@@ -2356,52 +2356,64 @@ msgstr ""
 msgid "Logs"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-notices.php:107
+#: ../includes/admin/class-htl-admin-notices.php:123
 msgid "You are using an old version of <strong>\"%1$s\"</strong> that is not supported by the current version of <strong>\"WP Hotelier\"</strong>. Please update <strong>\"%1$s\"</strong> to the last version to ensure the correct functionality of your installation."
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-notices.php:116
+#: ../includes/admin/class-htl-admin-notices.php:132
 msgid "Disabled Dates"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-notices.php:125
+#: ../includes/admin/class-htl-admin-notices.php:141
 msgid "Gateway Stripe"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-notices.php:134
+#: ../includes/admin/class-htl-admin-notices.php:150
 msgid "iCalendar"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-notices.php:143
+#: ../includes/admin/class-htl-admin-notices.php:159
 msgid "Flat Deposit"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-notices.php:152
+#: ../includes/admin/class-htl-admin-notices.php:168
 msgid "Gateway Bank Transfer"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-notices.php:161
+#: ../includes/admin/class-htl-admin-notices.php:177
 msgid "Gateway Eurobank"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-notices.php:170
+#: ../includes/admin/class-htl-admin-notices.php:186
 msgid "Week Bookings"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-notices.php:179
+#: ../includes/admin/class-htl-admin-notices.php:195
 msgid "Min/Max Nights"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-notices.php:188
+#: ../includes/admin/class-htl-admin-notices.php:204
 msgid "MailChimp"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-notices.php:197
+#: ../includes/admin/class-htl-admin-notices.php:213
 msgid "Hotelier Multilingual"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-notices.php:206
+#: ../includes/admin/class-htl-admin-notices.php:222
 msgid "Looks like you are using Uncode without the official WP Hotelier integration. You can download the plugin for free <a href=\"%s\" target=\"_blank\">at this address</a>. Once you have downloaded the zip file, upload it to <a href=\"%s\">Plugins > Add New</a> like any other plugin."
+msgstr ""
+
+#: ../includes/admin/class-htl-admin-notices.php:229
+msgid "WP Hotelier has an official extension for Hello Elementor. You can download the plugin for free <a href=\"%s\" target=\"_blank\">at this address</a>. Once you have downloaded the zip file, upload it to <a href=\"%s\">Plugins > Add New</a> like any other plugin."
+msgstr ""
+
+#: ../includes/admin/class-htl-admin-notices.php:236
+msgid "WP Hotelier has an official extension for Elementor and Hello Elementor. You can download the plugin for free <a href=\"%s\" target=\"_blank\">at this address</a>. Once you have downloaded the zip file, upload it to <a href=\"%s\">Plugins > Add New</a> like any other plugin."
+msgstr ""
+
+#: ../includes/admin/class-htl-admin-notices.php:243
+msgid "Looks like you are using Hello Elementor without the official WP Hotelier integration. You can download the plugin for free <a href=\"%s\" target=\"_blank\">at this address</a>. Once you have downloaded the zip file, upload it to <a href=\"%s\">Plugins > Add New</a> like any other plugin."
 msgstr ""
 
 #: ../includes/admin/class-htl-admin-post-types.php:107, ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php:24, ../templates/widgets/rooms-filter.php:152
