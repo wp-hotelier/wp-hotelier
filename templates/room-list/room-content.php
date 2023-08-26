@@ -168,11 +168,19 @@ if ( $is_single ) {
 				<?php
 				$varitations = $room->get_room_variations();
 
+				$show_room_unavailable = htl_get_option( 'room_unavailable_visibility', false );
+
 				// Print room rates
 				foreach ( $varitations as $variation ) :
-					$variation = new HTL_Room_Variation( $variation, $room->id ); ?>
+					$variation      = new HTL_Room_Variation( $variation, $room->id );
+					$show_item_rate = apply_filters( 'hotelier_room_list_show_item_rate', true, $variation, $checkin, $checkout );
+					?>
 
-					<?php if ( apply_filters( 'hotelier_room_list_show_item_rate', true, $variation, $checkin, $checkout ) ) : ?>
+					<?php if ( $show_item_rate || $show_room_unavailable ) : ?>
+
+						<?php
+						$is_available = ! $show_item_rate ? false : $is_available;
+						?>
 
 						<?php
 							/**
