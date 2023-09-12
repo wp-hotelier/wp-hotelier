@@ -56,6 +56,16 @@ function htl_get_default_dates() {
 	// Arrival date must be "XX" days from current date (default 0).
 	$from = htl_get_option( 'booking_arrival_date', 0 );
 
+	// Check time limit
+	if ( $from === 0 ) {
+		$time_limit   = absint( htl_get_option( 'booking_time_limit', '24' ) );
+		$current_time = absint( current_time("H") );
+
+		if ( $current_time > $time_limit ) {
+			$from++;
+		}
+	}
+
 	// Get minimum number of nights a guest can book
 	$minimum_nights = apply_filters( 'hotelier_booking_minimum_nights', htl_get_option( 'booking_minimum_nights', 1 ) );
 

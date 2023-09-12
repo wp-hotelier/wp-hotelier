@@ -68,6 +68,19 @@ class HTL_Admin_Settings_Default {
 	}
 
 	/**
+	 * Get time options.
+	 */
+	public static function get_time_options() {
+		$options = array();
+
+		for ( $i = 1; $i < 25; $i++ ) {
+			$options[ $i ] = sprintf( '%02d', $i ) . ':00';
+		}
+
+		return $options;
+	}
+
+	/**
 	 * Get booking mode options.
 	 *
 	 * A filter is provided to allow extensions to add their own booking mode options
@@ -619,6 +632,15 @@ class HTL_Admin_Settings_Default {
 						'type' => 'number',
 						'size' => 'small',
 						'std'  => '0'
+					),
+					'booking_time_limit' => array(
+						'id'   => 'booking_time_limit',
+						'name' => esc_html__( 'Time limit', 'wp-hotelier' ),
+						'desc' => __( 'Reservations for the same day must be made by this time. It is only active when "Arrival date" is 0.', 'wp-hotelier' ),
+						'type' => 'select',
+						'type'    => 'select',
+						'options' => self::get_time_options(),
+						'std'  => '24'
 					),
 					'booking_minimum_nights' => array(
 						'id'   => 'booking_minimum_nights',

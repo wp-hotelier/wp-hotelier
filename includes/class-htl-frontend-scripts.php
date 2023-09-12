@@ -82,6 +82,17 @@ class HTL_Frontend_Scripts {
 
 		// Start date
 		$arrival_date = htl_get_option( 'booking_arrival_date', 0 );
+
+		// Check time limit
+		if ( $arrival_date === 0 ) {
+			$time_limit   = absint( htl_get_option( 'booking_time_limit', '24' ) );
+			$current_time = absint( current_time("H") );
+
+			if ( $current_time > $time_limit ) {
+				$arrival_date++;
+			}
+		}
+
 		$start_date = new DateTime( current_time( 'Y-m-d' ) );
 		$start_date->modify( "+$arrival_date days" );
 		$start_date = $start_date->format( 'Y-m-d' );
