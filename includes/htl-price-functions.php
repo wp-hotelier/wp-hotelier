@@ -180,8 +180,10 @@ if ( ! function_exists( 'htl_price' ) ) {
 		$decimal_sep   = htl_get_price_decimal_separator();
 		$decimals      = htl_get_price_decimals();
 		$position      = htl_get_option( 'currency_position', 'before' );
+		$space         = htl_get_option( 'currency_space', 'no' );
+		$space_output  = $space === 'yes' ? ' ' : '';
 		$price         = number_format( (double) $price, $decimals, $decimal_sep, $thousands_sep );
-		$price         = ( $position == 'before' ) ? htl_get_currency_symbol( $currency ) . $price : $price . htl_get_currency_symbol( $currency );
+		$price         = ( $position == 'before' ) ? htl_get_currency_symbol( $currency ) . $space_output . $price : $price . $space_output . htl_get_currency_symbol( $currency );
 		$return        = '<span class="amount">' . $price . '</span>';
 
 		return apply_filters( 'hotelier_price', $return, $price );
@@ -201,8 +203,10 @@ if ( ! function_exists( 'htl_price_raw' ) ) {
 		$decimal_sep   = htl_get_price_decimal_separator();
 		$decimals      = htl_get_price_decimals();
 		$position      = htl_get_option( 'currency_position', 'before' );
+		$space         = htl_get_option( 'currency_space', 'no' );
+		$space_output  = $space === 'yes' ? ' ' : '';
 		$price         = number_format( (double) $price, $decimals, $decimal_sep, $thousands_sep );
-		$price         = ( $position == 'before' ) ? htl_get_currency_symbol( $currency ) . $price : $price . htl_get_currency_symbol( $currency );
+		$price         = ( $position == 'before' ) ? htl_get_currency_symbol( $currency ) . $space_output . $price : $price . $space_output . htl_get_currency_symbol( $currency );
 		$return        = $price;
 
 		return apply_filters( 'hotelier_price_raw', $return, $price );

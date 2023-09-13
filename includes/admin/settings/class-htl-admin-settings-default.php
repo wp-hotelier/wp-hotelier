@@ -330,6 +330,16 @@ class HTL_Admin_Settings_Default {
 							'after'  => esc_html__( 'After - 10$', 'wp-hotelier' )
 						)
 					),
+					'currency_space' => array(
+						'id'      => 'currency_space',
+						'name'    => esc_html__( 'Currency space', 'wp-hotelier' ),
+						'desc'    => __( 'Choose whether to have a space between the amount and the currency.', 'wp-hotelier' ),
+						'type'    => 'select',
+						'options' => array(
+							'no' => esc_html__( 'No space - $10', 'wp-hotelier' ),
+							'yes'  => esc_html__( 'With space - $ 10', 'wp-hotelier' )
+						)
+					),
 					'thousands_separator' => array(
 						'id'   => 'thousands_separator',
 						'name' => esc_html__( 'Thousands separator', 'wp-hotelier' ),
