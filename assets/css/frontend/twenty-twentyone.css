@@ -680,6 +680,11 @@ table.hotelier-table tfoot td {
   padding-top: var(--global--spacing-vertical);
 }
 
+.listing__room--rates-expanded.listing__room--variable .room__content--listing {
+  padding-right: 0;
+  width: 100%;
+}
+
 .room__gallery-thumbnail--listing {
   display: inline-block;
 }

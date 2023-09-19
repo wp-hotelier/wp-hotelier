@@ -598,7 +598,7 @@ WIDGETS
 }
 
 .listing__room--queried {
-  border: 5px solid #9DC94A;
+  border: 5px solid #9dc94a;
   margin-bottom: 96px;
 }
 
@@ -645,7 +645,7 @@ WIDGETS
   font-size: 12px;
   font-size: 0.75rem;
   line-height: 2;
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .room__price--listing ins,
@@ -672,6 +672,11 @@ WIDGETS
   border-top: 1px solid #eee;
   margin-top: 24px;
   padding-top: 24px;
+}
+
+.listing__room--rates-expanded.listing__room--variable .room__content--listing {
+  padding-right: 0;
+  width: 100%;
 }
 
 .button--add-to-cart,

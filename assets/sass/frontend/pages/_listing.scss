@@ -21,7 +21,7 @@
 }
 
 .listing__room--queried {
-	border: 5px solid #9DC94A;
+	border: 5px solid #9dc94a;
 	margin-bottom: $space__xl;
 }
 
@@ -55,7 +55,7 @@
 
 	del .amount {
 		@include font-size(12px);
-		opacity: .5;
+		opacity: 0.5;
 	}
 
 	ins {
@@ -124,6 +124,13 @@
 	@media (min-width: 480px) {
 		padding-right: $space__s;
 		width: 65%;
+	}
+}
+
+.listing__room--rates-expanded.listing__room--variable {
+	.room__content--listing {
+		padding-right: 0;
+		width: 100%;
 	}
 }
 

@@ -41,7 +41,7 @@
 	padding: var(--global--spacing-vertical);
 	transition-duration: 0.2s;
 	transition-property: border-color;
-	transition-timing-function: cubic-bezier(.4,0,.2,1);
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
 	&.room--selected,
 	&.listing__room--queried {
@@ -113,6 +113,13 @@
 		padding-top: 0;
 		text-align: right;
 		width: 40%;
+	}
+}
+
+.listing__room--rates-expanded.listing__room--variable {
+	.room__content--listing {
+		padding-right: 0;
+		width: 100%;
 	}
 }
 
