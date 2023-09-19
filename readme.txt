@@ -130,6 +130,12 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 2.11.0 - 2023-09-19 =
+* Add - Add possibility to add a space between the currency and the amount.
+* Add - Add booking time limit option.
+* Add - Add ability to expand rates in the listing page.
+* Localization - POT file updated.
+
 = 2.10.0 - 2023-08-26 =
 * Add - Support for Hello Elementor.
 * Add - Add various filters and actions.
