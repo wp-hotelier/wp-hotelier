@@ -26,6 +26,16 @@ $listing_room_classes = array(
 if ( $is_single ) {
 	$listing_room_classes[] = 'listing__room--queried';
 }
+
+if ( htl_get_option( 'expand_rates', 0 ) ) {
+	$listing_room_classes[] = 'listing__room--rates-expanded';
+}
+
+if ( $room->is_variable_room() ) {
+	$listing_room_classes[] = 'listing__room--variable';
+} else {
+	$listing_room_classes[] = 'listing__room--standard';
+}
 ?>
 
 <li <?php post_class( $listing_room_classes ); ?>>
