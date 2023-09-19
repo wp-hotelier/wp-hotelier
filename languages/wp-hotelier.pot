@@ -141,7 +141,7 @@ msgstr ""
 msgid "Send request"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:517, ../includes/class-htl-frontend-scripts.php:221, ../templates/room-list/content/add-to-cart.php:85, ../templates/room-list/content/rate/rate-add-to-cart.php:85
+#: ../includes/class-htl-booking.php:517, ../includes/class-htl-frontend-scripts.php:222, ../templates/room-list/content/add-to-cart.php:85, ../templates/room-list/content/rate/rate-add-to-cart.php:85
 msgid "Book now"
 msgstr ""
 
@@ -285,164 +285,164 @@ msgstr ""
 msgid "Sorry, something went wrong during the calculation of the totals."
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:69, ../includes/ajax/htl-ajax-coupons.php:38
+#: ../includes/class-htl-frontend-scripts.php:70, ../includes/ajax/htl-ajax-coupons.php:38
 msgid "Please insert a valid coupon code."
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:155
+#: ../includes/class-htl-frontend-scripts.php:156
 msgctxt "datepicker_selected"
 msgid "Your stay:"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:156
+#: ../includes/class-htl-frontend-scripts.php:157
 msgctxt "datepicker_night"
 msgid "Night"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:157
+#: ../includes/class-htl-frontend-scripts.php:158
 msgctxt "datepicker_nights"
 msgid "Nights"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:158
+#: ../includes/class-htl-frontend-scripts.php:159
 msgctxt "datepicker_apply"
 msgid "Close"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:159
+#: ../includes/class-htl-frontend-scripts.php:160
 msgctxt "datepicker_apply"
 msgid "Clear"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:160
+#: ../includes/class-htl-frontend-scripts.php:161
 msgctxt "datepicker_apply"
 msgid "Check"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:161
+#: ../includes/class-htl-frontend-scripts.php:162
 msgctxt "datepicker_checkin_disabled"
 msgid "Check-in disabled"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:162
+#: ../includes/class-htl-frontend-scripts.php:163
 msgctxt "datepicker_checkout_disabled"
 msgid "Check-out disabled"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:167
+#: ../includes/class-htl-frontend-scripts.php:168
 msgctxt "datepicker_error_more"
 msgid "Date range should not be more than 1 night"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:168
+#: ../includes/class-htl-frontend-scripts.php:169
 msgctxt "datepicker_error_more_plural"
 msgid "Date range should not be more than %d nights"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:169
+#: ../includes/class-htl-frontend-scripts.php:170
 msgctxt "datepicker_error_less"
 msgid "Date range should not be less than 1 night"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:170
+#: ../includes/class-htl-frontend-scripts.php:171
 msgctxt "datepicker_error_less_plural"
 msgid "Date range should not be less than %d nights"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:171
+#: ../includes/class-htl-frontend-scripts.php:172
 msgctxt "datepicker_info_more"
 msgid "Please select a date range longer than 1 night"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:172
+#: ../includes/class-htl-frontend-scripts.php:173
 msgctxt "datepicker_info_more_plural"
 msgid "Please select a date range longer than %d nights"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:173
+#: ../includes/class-htl-frontend-scripts.php:174
 msgctxt "datepicker_info_range"
 msgid "Please select a date range between %d and %d nights"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:174
+#: ../includes/class-htl-frontend-scripts.php:175
 msgctxt "datepicker_info_range"
 msgid "Please select a date range of %d nights"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:175
+#: ../includes/class-htl-frontend-scripts.php:176
 msgctxt "datepicker_info_default"
 msgid "Please select a date range"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:176
+#: ../includes/class-htl-frontend-scripts.php:177
 msgctxt "datepicker_aria_application"
 msgid "Calendar"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:177
+#: ../includes/class-htl-frontend-scripts.php:178
 msgctxt "datepicker_aria_selected_checkin"
 msgid "Selected as check-in date, %s"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:178
+#: ../includes/class-htl-frontend-scripts.php:179
 msgctxt "datepicker_aria_selected_checkout"
 msgid "Selected as check-out date, %s"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:179
+#: ../includes/class-htl-frontend-scripts.php:180
 msgctxt "datepicker_aria_selected"
 msgid "Selected, %s"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:180
+#: ../includes/class-htl-frontend-scripts.php:181
 msgctxt "datepicker_aria_disabled"
 msgid "Not available, %s"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:181
+#: ../includes/class-htl-frontend-scripts.php:182
 msgctxt "datepicker_aria_choose_checkin"
 msgid "Choose %s as your check-in date"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:182
+#: ../includes/class-htl-frontend-scripts.php:183
 msgctxt "datepicker_aria_choose_checkout"
 msgid "Choose %s as your check-out date"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:183
+#: ../includes/class-htl-frontend-scripts.php:184
 msgctxt "datepicker_aria_prev_month"
 msgid "Move backward to switch to the previous month"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:184
+#: ../includes/class-htl-frontend-scripts.php:185
 msgctxt "datepicker_aria_next_month"
 msgid "Move forward to switch to the next month"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:185
+#: ../includes/class-htl-frontend-scripts.php:186
 msgctxt "datepicker_aria_close_button"
 msgid "Close the datepicker"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:186
+#: ../includes/class-htl-frontend-scripts.php:187
 msgctxt "datepicker_aria_clear_button"
 msgid "Clear the selected dates"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:187
+#: ../includes/class-htl-frontend-scripts.php:188
 msgctxt "datepicker_aria_submit_button"
 msgid "Submit the form"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:218, ../templates/global/datepicker.php:60, ../templates/single-room/rate/rate-button.php:22, ../templates/widgets/ajax-room-booking/ajax-room-booking-form.php:129
+#: ../includes/class-htl-frontend-scripts.php:219, ../templates/global/datepicker.php:60, ../templates/single-room/rate/rate-button.php:22, ../templates/widgets/ajax-room-booking/ajax-room-booking-form.php:129
 msgid "Check availability"
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:219
+#: ../includes/class-htl-frontend-scripts.php:220
 msgid "Checking availability..."
 msgstr ""
 
-#: ../includes/class-htl-frontend-scripts.php:220
+#: ../includes/class-htl-frontend-scripts.php:221
 msgid "Booking room..."
 msgstr ""
 
@@ -2336,15 +2336,15 @@ msgstr ""
 msgid "&nbsp;&ndash; Page %s"
 msgstr ""
 
-#: ../includes/htl-template-functions.php:1569
+#: ../includes/htl-template-functions.php:1579
 msgid "required"
 msgstr ""
 
-#: ../includes/htl-template-functions.php:1678, ../templates/widgets/ajax-room-booking/ajax-room-booking-form.php:62
+#: ../includes/htl-template-functions.php:1688, ../templates/widgets/ajax-room-booking/ajax-room-booking-form.php:62
 msgid "Nr. rooms"
 msgstr ""
 
-#: ../includes/htl-template-functions.php:1721, ../includes/htl-template-functions.php:1721
+#: ../includes/htl-template-functions.php:1731, ../includes/htl-template-functions.php:1731
 msgid "privacy policy"
 msgstr ""
 
@@ -2518,31 +2518,31 @@ msgstr ""
 msgid "Invalid room ID."
 msgstr ""
 
-#: ../includes/emails/class-htl-email-cancelled-reservation.php:28, ../includes/emails/class-htl-email-cancelled-reservation.php:30, ../includes/emails/class-htl-email-guest-cancelled-reservation.php:28, ../includes/emails/class-htl-email-guest-cancelled-reservation.php:30, ../includes/admin/settings/class-htl-admin-settings-default.php:958, ../includes/admin/settings/class-htl-admin-settings-default.php:992, ../includes/admin/settings/class-htl-admin-settings-default.php:1030
+#: ../includes/emails/class-htl-email-cancelled-reservation.php:28, ../includes/emails/class-htl-email-cancelled-reservation.php:30, ../includes/emails/class-htl-email-guest-cancelled-reservation.php:28, ../includes/emails/class-htl-email-guest-cancelled-reservation.php:30, ../includes/admin/settings/class-htl-admin-settings-default.php:965, ../includes/admin/settings/class-htl-admin-settings-default.php:999, ../includes/admin/settings/class-htl-admin-settings-default.php:1037
 msgid "Cancelled reservation"
 msgstr ""
 
-#: ../includes/emails/class-htl-email-cancelled-reservation.php:31, ../includes/admin/settings/class-htl-admin-settings-default.php:985
+#: ../includes/emails/class-htl-email-cancelled-reservation.php:31, ../includes/admin/settings/class-htl-admin-settings-default.php:992
 msgid "{site_title} - Cancelled reservation #{reservation_number}"
 msgstr ""
 
-#: ../includes/emails/class-htl-email-guest-cancelled-reservation.php:31, ../includes/emails/class-htl-email-guest-confirmed-reservation.php:31, ../includes/emails/class-htl-email-guest-request-received.php:31, ../includes/admin/settings/class-htl-admin-settings-default.php:871, ../includes/admin/settings/class-htl-admin-settings-default.php:909, ../includes/admin/settings/class-htl-admin-settings-default.php:1023
+#: ../includes/emails/class-htl-email-guest-cancelled-reservation.php:31, ../includes/emails/class-htl-email-guest-confirmed-reservation.php:31, ../includes/emails/class-htl-email-guest-request-received.php:31, ../includes/admin/settings/class-htl-admin-settings-default.php:878, ../includes/admin/settings/class-htl-admin-settings-default.php:916, ../includes/admin/settings/class-htl-admin-settings-default.php:1030
 msgid "Your reservation for {site_title}"
 msgstr ""
 
-#: ../includes/emails/class-htl-email-guest-confirmed-reservation.php:28, ../includes/admin/settings/class-htl-admin-settings-default.php:882
+#: ../includes/emails/class-htl-email-guest-confirmed-reservation.php:28, ../includes/admin/settings/class-htl-admin-settings-default.php:889
 msgid "Confirmed reservation"
 msgstr ""
 
-#: ../includes/emails/class-htl-email-guest-confirmed-reservation.php:30, ../includes/admin/settings/class-htl-admin-settings-default.php:916
+#: ../includes/emails/class-htl-email-guest-confirmed-reservation.php:30, ../includes/admin/settings/class-htl-admin-settings-default.php:923
 msgid "Thank you for your reservation"
 msgstr ""
 
-#: ../includes/emails/class-htl-email-guest-invoice.php:28, ../includes/admin/settings/class-htl-admin-settings-default.php:920
+#: ../includes/emails/class-htl-email-guest-invoice.php:28, ../includes/admin/settings/class-htl-admin-settings-default.php:927
 msgid "Guest invoice"
 msgstr ""
 
-#: ../includes/emails/class-htl-email-guest-invoice.php:30, ../includes/admin/settings/class-htl-admin-settings-default.php:947, ../includes/admin/settings/class-htl-admin-settings-default.php:954
+#: ../includes/emails/class-htl-email-guest-invoice.php:30, ../includes/admin/settings/class-htl-admin-settings-default.php:954, ../includes/admin/settings/class-htl-admin-settings-default.php:961
 msgid "Invoice for reservation #{reservation_number}"
 msgstr ""
 
@@ -2550,19 +2550,19 @@ msgstr ""
 msgid "{site_title} - Invoice for reservation #{reservation_number}"
 msgstr ""
 
-#: ../includes/emails/class-htl-email-guest-request-received.php:28, ../includes/emails/class-htl-email-guest-request-received.php:30, ../includes/admin/settings/class-htl-admin-settings-default.php:844, ../includes/admin/settings/class-htl-admin-settings-default.php:878
+#: ../includes/emails/class-htl-email-guest-request-received.php:28, ../includes/emails/class-htl-email-guest-request-received.php:30, ../includes/admin/settings/class-htl-admin-settings-default.php:851, ../includes/admin/settings/class-htl-admin-settings-default.php:885
 msgid "Request received"
 msgstr ""
 
-#: ../includes/emails/class-htl-email-new-reservation.php:28, ../includes/admin/settings/class-htl-admin-settings-default.php:806
+#: ../includes/emails/class-htl-email-new-reservation.php:28, ../includes/admin/settings/class-htl-admin-settings-default.php:813
 msgid "New reservation"
 msgstr ""
 
-#: ../includes/emails/class-htl-email-new-reservation.php:30, ../includes/admin/settings/class-htl-admin-settings-default.php:840
+#: ../includes/emails/class-htl-email-new-reservation.php:30, ../includes/admin/settings/class-htl-admin-settings-default.php:847
 msgid "New hotel reservation"
 msgstr ""
 
-#: ../includes/emails/class-htl-email-new-reservation.php:31, ../includes/admin/settings/class-htl-admin-settings-default.php:833
+#: ../includes/emails/class-htl-email-new-reservation.php:31, ../includes/admin/settings/class-htl-admin-settings-default.php:840
 msgid "{site_title} - New hotel reservation #{reservation_number}"
 msgstr ""
 
@@ -2874,7 +2874,7 @@ msgstr ""
 msgid "Reservation #%d details"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:195, ../includes/admin/settings/class-htl-admin-settings-default.php:588
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:195, ../includes/admin/settings/class-htl-admin-settings-default.php:595
 msgid "Booking mode"
 msgstr ""
 
@@ -3190,7 +3190,7 @@ msgstr ""
 msgid "Hotelier pages"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:255, ../includes/admin/settings/class-htl-admin-settings-default.php:627, ../includes/admin/settings/class-htl-admin-settings-default.php:1117
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:255, ../includes/admin/settings/class-htl-admin-settings-default.php:634, ../includes/admin/settings/class-htl-admin-settings-default.php:1124
 msgid "Listing page"
 msgstr ""
 
@@ -3198,7 +3198,7 @@ msgstr ""
 msgid "This is the page (the listing page) where guests will see the rooms that are available for the selected dates. The <code>[hotelier_listing]</code> shortcode must be on this page. You can ignore this option if you decide to <a href=\"%s\">disable the listing page</a>."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:262, ../includes/admin/settings/class-htl-admin-settings-default.php:626, ../includes/admin/settings/class-htl-admin-settings-default.php:1123
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:262, ../includes/admin/settings/class-htl-admin-settings-default.php:633, ../includes/admin/settings/class-htl-admin-settings-default.php:1130
 msgid "Booking page"
 msgstr ""
 
@@ -3467,402 +3467,410 @@ msgid "Allow quantity selection, then redirect to the booking page."
 msgstr ""
 
 #: ../includes/admin/settings/class-htl-admin-settings-default.php:530
+msgid "Expand rates"
+msgstr ""
+
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:531
+msgid "Expand rates instead of keeping them hidden."
+msgstr ""
+
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:537
 msgid "Room images"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:536
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:543
 msgid "These settings affect the display and dimensions of images in your website, but the display on the front-end will still be affected by the CSS of your theme. After changing these settings you may need to <a href=\"%s\">regenerate your thumbnails</a>."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:541
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:548
 msgid "Catalog images"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:542
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:549
 msgid "This size is usually used when you list the rooms."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:552
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:559
 msgid "Single room image"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:553
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:560
 msgid "This size is the size used on the single room page."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:563
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:570
 msgid "Room thumbnails"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:564
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:571
 msgid "This size is usually used for the gallery of images on the room page."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:574
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:581
 msgid "Enable lightbox for room images"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:575
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:582
 msgid "Room gallery images will open in a lightbox."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:582
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:589
 msgid "Reservation settings"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:589
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:596
 msgid "<ul><li><strong>No booking</strong>Show only the room details.</li><li><strong>Manual booking</strong>Guests will be able to request a reservation and the admin will approve or reject the booking manually.</li><li><strong>Instant booking</strong>Guests will be able to make a reservation without manual approval from the admin.</li></ul>"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:596
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:603
 msgid "Confirm admin reservations"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:597
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:604
 msgid "Confirm admin (manual) reservations immediately if they do not require payment."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:603
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:610
 msgid "Show additional information"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:604
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:611
 msgid "Show the \"arrival estimated time\" and the \"special requests\" field in the booking form."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:611
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:618
 msgid "Show number of guests selection"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:612
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:619
 msgid "Show a dropdown where the guest can select the number of adults and children for each room."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:621
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:628
 msgid "Number of guests selection type"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:622
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:629
 msgid "Select where to show the guest selection. It is recommended to display the selection in the listing page when using \"per person\" extras. If the listing page is disabled, this option only takes effect on the booking page. It is always possible to show the selection via the AJAX Room Booking widget in the single room pages."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:632
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:639
 msgid "Months in advance"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:633
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:640
 msgid "Only allow reservations for \"XX\" months from current date (0 unlimited)."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:640
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:647
 msgid "Arrival date"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:641
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:648
 msgid "Arrival date must be \"XX\" days from current date."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:648
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:655
 msgid "Time limit"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:649
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:656
 msgid "Reservations for the same day must be made by this time. It is only active when \"Arrival date\" is 0."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:657
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:664
 msgid "Minimum nights"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:658
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:665
 msgid "Minimum number of nights a guest can book."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:665
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:672
 msgid "Maximum nights"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:666
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:673
 msgid "Maximum number of nights a guest can book (0 unlimited)."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:673
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:680
 msgid "Hold reservation (minutes)"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:674
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:681
 msgid "Hold reservation (for unpaid reservations that require a deposit) for \"XX\" minutes. When this limit is reached, the pending reservation will be cancelled. Type \"0\" to disable. Reservations created by admin will be not cancelled."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:686
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:693
 msgid "Seasonal prices schema"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:692
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:699
 msgid "Define here your global price schema, adding one rate for each date range. Rooms will have a default price (used when no rules are found) and a specific price for each season. To use this schema edit a room, select <em>Seasonal prices</em> as your <em>Price type</em> and enter the price amount of each season."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:697
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:704
 msgid "Price schema"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:698
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:705
 msgid "Each date range should have have a different price. The last rule defined overrides any previous rules. When you re-order the schema, remember to update the prices on already created rooms."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:708, ../includes/admin/settings/class-htl-admin-settings.php:95
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:715, ../includes/admin/settings/class-htl-admin-settings.php:95
 msgid "Payment gateways"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:714
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:721
 msgid "Default gateway"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:725
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:732
 msgid "Tax settings"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:731
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:738
 msgid "Enable tax"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:742
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:749
 msgid "Tax rate %"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:743
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:750
 msgid "Enter a tax rate (percentage) to 4 decimal places. Use a point (.) for the decimal separator."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:749
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:756
 msgid "Enable tax on deposits"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:760
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:767
 msgid "Email options"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:766
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:773
 msgid "Reservation notification emails"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:767
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:774
 msgid "Enter the email address(es) (comma separated) that should receive a notification anytime a reservation is made. Default to <code>%s</code>"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:774
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:781
 msgid "\"From\" name"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:780
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:787
 msgid "\"From\" email address"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:786
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:793
 msgid "Email type"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:793
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:800
 msgid "Email logo"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:794
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:801
 msgid "Upload or choose a logo to be displayed at the top of Hotelier emails. Displayed on HTML emails only."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:799
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:806
 msgid "Email footer text"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:800
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:807
 msgid "The text to appear in the footer of Hotelier emails."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:802
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:809
 msgid "Powered by WP Hotelier"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:812
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:819
 msgid "New reservation emails are sent to the admin when a reservation (or a booking request in \"manual\" mode) is made."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:817, ../includes/admin/settings/class-htl-admin-settings-default.php:855, ../includes/admin/settings/class-htl-admin-settings-default.php:893, ../includes/admin/settings/class-htl-admin-settings-default.php:931, ../includes/admin/settings/class-htl-admin-settings-default.php:969, ../includes/admin/settings/class-htl-admin-settings-default.php:1007
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:824, ../includes/admin/settings/class-htl-admin-settings-default.php:862, ../includes/admin/settings/class-htl-admin-settings-default.php:900, ../includes/admin/settings/class-htl-admin-settings-default.php:938, ../includes/admin/settings/class-htl-admin-settings-default.php:976, ../includes/admin/settings/class-htl-admin-settings-default.php:1014
 msgid "Enable/disable"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:818, ../includes/admin/settings/class-htl-admin-settings-default.php:856, ../includes/admin/settings/class-htl-admin-settings-default.php:894, ../includes/admin/settings/class-htl-admin-settings-default.php:932, ../includes/admin/settings/class-htl-admin-settings-default.php:970, ../includes/admin/settings/class-htl-admin-settings-default.php:1008
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:825, ../includes/admin/settings/class-htl-admin-settings-default.php:863, ../includes/admin/settings/class-htl-admin-settings-default.php:901, ../includes/admin/settings/class-htl-admin-settings-default.php:939, ../includes/admin/settings/class-htl-admin-settings-default.php:977, ../includes/admin/settings/class-htl-admin-settings-default.php:1015
 msgid "Enable this email notification."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:830, ../includes/admin/settings/class-htl-admin-settings-default.php:868, ../includes/admin/settings/class-htl-admin-settings-default.php:906, ../includes/admin/settings/class-htl-admin-settings-default.php:944, ../includes/admin/settings/class-htl-admin-settings-default.php:982, ../includes/admin/settings/class-htl-admin-settings-default.php:1020
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:837, ../includes/admin/settings/class-htl-admin-settings-default.php:875, ../includes/admin/settings/class-htl-admin-settings-default.php:913, ../includes/admin/settings/class-htl-admin-settings-default.php:951, ../includes/admin/settings/class-htl-admin-settings-default.php:989, ../includes/admin/settings/class-htl-admin-settings-default.php:1027
 msgid "Email subject"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:831
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:838
 msgid "This controls the email subject line. Default: <code>{site_title} - New hotel reservation #{reservation_number}</code>"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:837, ../includes/admin/settings/class-htl-admin-settings-default.php:875, ../includes/admin/settings/class-htl-admin-settings-default.php:913, ../includes/admin/settings/class-htl-admin-settings-default.php:951, ../includes/admin/settings/class-htl-admin-settings-default.php:989, ../includes/admin/settings/class-htl-admin-settings-default.php:1027
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:844, ../includes/admin/settings/class-htl-admin-settings-default.php:882, ../includes/admin/settings/class-htl-admin-settings-default.php:920, ../includes/admin/settings/class-htl-admin-settings-default.php:958, ../includes/admin/settings/class-htl-admin-settings-default.php:996, ../includes/admin/settings/class-htl-admin-settings-default.php:1034
 msgid "Email heading"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:838, ../includes/admin/settings/class-htl-admin-settings-default.php:876, ../includes/admin/settings/class-htl-admin-settings-default.php:914, ../includes/admin/settings/class-htl-admin-settings-default.php:952, ../includes/admin/settings/class-htl-admin-settings-default.php:990, ../includes/admin/settings/class-htl-admin-settings-default.php:1028
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:845, ../includes/admin/settings/class-htl-admin-settings-default.php:883, ../includes/admin/settings/class-htl-admin-settings-default.php:921, ../includes/admin/settings/class-htl-admin-settings-default.php:959, ../includes/admin/settings/class-htl-admin-settings-default.php:997, ../includes/admin/settings/class-htl-admin-settings-default.php:1035
 msgid "This controls the main heading contained within the email notification."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:850
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:857
 msgid "Request received emails are sent to guests when they request a booking (\"manual\" booking mode only)."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:869, ../includes/admin/settings/class-htl-admin-settings-default.php:907, ../includes/admin/settings/class-htl-admin-settings-default.php:1021
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:876, ../includes/admin/settings/class-htl-admin-settings-default.php:914, ../includes/admin/settings/class-htl-admin-settings-default.php:1028
 msgid "This controls the email subject line. Default: <code>Your reservation for {site_title}</code>"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:888
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:895
 msgid "Reservation confirmed emails are sent to guests when their reservations are marked confirmed. By the admin (when sent manually) or automatically (after payment if required or immediately in \"instant\" booking mode)."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:926
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:933
 msgid "Guest invoice emails can be sent to guests containing their reservation information and payment links. Use these emails when you (the admin) create a reservation manually that requires a payment (deposit)."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:945
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:952
 msgid "This controls the email subject line. Default: <code>Invoice for reservation #{reservation_number}</code>"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:964
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:971
 msgid "Cancelled reservation emails are sent to the admin when the guest cancels his reservation."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:983
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:990
 msgid "This controls the email subject line. Default: <code>{site_title} - Cancelled reservation #{reservation_number}</code>"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:996
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1003
 msgid "Guest cancelled reservation"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1002
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1009
 msgid "Cancelled reservation emails are sent to guests when reservations have been marked cancelled."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1043
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1050
 msgid "Install Hotelier pages"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1044
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1051
 msgid "This tool will install all the missing Hotelier pages. Pages already defined and set up will not be replaced."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1049
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1056
 msgid "Send test email"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1050
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1057
 msgid "Test if your WordPress installation is sending emails correctly."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1055
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1062
 msgid "Template debug mode"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1056
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1063
 msgid "This tool will disable template overrides for logged-in administrators for debugging purposes."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1062
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1069
 msgid "Cleanup guest sessions"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1063
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1070
 msgid "This tool will delete all guest session data from the database (including any current live booking)."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1068
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1075
 msgid "Delete completed bookings"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1069
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1076
 msgid "This tool will delete all completed bookings from the database."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1074
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1081
 msgid "Remove data on uninstall"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1075
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1082
 msgid "This tool will remove all Hotelier, Rooms and Reservations data when using the \"Delete\" link on the plugins screen."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1081
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1088
 msgid "Server settings & info"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1087
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1094
 msgid "WP Hotelier version"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1093
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1100
 msgid "Theme name"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1099
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1106
 msgid "Theme version"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1105
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1112
 msgid "Parent theme name"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1111
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1118
 msgid "Parent theme version"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1129
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1136
 msgid "Server info"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1135
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1142
 msgid "PHP version"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1141
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1148
 msgid "WP memory limit"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1147
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1154
 msgid "WP debug"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1153
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1160
 msgid "PHP post max size"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1159
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1166
 msgid "PHP max upload size"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1165
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1172
 msgid "PHP time limit"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1171
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1178
 msgid "PHP max input vars"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1177
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1184
 msgid "fsockopen/cURL"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1183
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1190
 msgid "DOMDocument"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1189
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1196
 msgid "Multibyte string (mbstring)"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-default.php:1195
+#: ../includes/admin/settings/class-htl-admin-settings-default.php:1202
 msgid "Log directory writable"
 msgstr ""
 
