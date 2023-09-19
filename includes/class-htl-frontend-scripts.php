@@ -62,6 +62,7 @@ class HTL_Frontend_Scripts {
 
 		// Datepicker params
 		$hotelier_params = array(
+			'expand_rates'                      => htl_get_option( 'expand_rates', 0 ),
 			'book_now_redirect_to_booking_page' => htl_get_option( 'book_now_redirect_to_booking_page', 0 ),
 			'book_now_allow_quantity_selection' => htl_get_option( 'book_now_allow_quantity_selection', 0 ),
 			'apply_coupon_nonce'                => wp_create_nonce( 'hotelier-apply-coupon-nonce' ),

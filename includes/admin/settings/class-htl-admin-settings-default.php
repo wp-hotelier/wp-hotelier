@@ -525,6 +525,13 @@ class HTL_Admin_Settings_Default {
 						'type'    => 'checkbox',
 						'toggle'  => true,
 					),
+					'expand_rates' => array(
+						'id'      => 'expand_rates',
+						'name'    => esc_html__( 'Expand rates', 'wp-hotelier' ),
+						'subdesc' => __( 'Expand rates instead of keeping them hidden.', 'wp-hotelier' ),
+						'type'    => 'checkbox',
+						'toggle'  => true,
+					),
 					'room_images' => array(
 						'id'    => 'room_images',
 						'name'  => '<strong>' . esc_html__( 'Room images', 'wp-hotelier' ) . '</strong>',

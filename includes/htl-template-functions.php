@@ -911,7 +911,17 @@ if ( ! function_exists( 'hotelier_template_loop_room_price' ) ) {
 	 * Show the room price in the room list loop.
 	 */
 	function hotelier_template_loop_room_price( $checkin, $checkout ) {
-		htl_get_template( 'room-list/content/price.php', array( 'checkin' => $checkin, 'checkout' => $checkout ) );
+		global $room;
+
+		$show_price = true;
+
+		if ( htl_get_option( 'expand_rates', 0 ) && $room->is_variable_room() ) {
+			$show_price = false;
+		}
+
+		if ( $show_price ) {
+			htl_get_template( 'room-list/content/price.php', array( 'checkin' => $checkin, 'checkout' => $checkout ) );
+		}
 	}
 
 }
