@@ -130,6 +130,10 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 2.12.0 - 2024-01-28 =
+* Add - Support for PHP 8.2.
+* Localization - POT file updated.
+
 = 2.11.0 - 2023-09-19 =
 * Add - Add possibility to add a space between the currency and the amount.
 * Add - Add booking time limit option.
