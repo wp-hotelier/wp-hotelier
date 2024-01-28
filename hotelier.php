@@ -68,6 +68,13 @@ final class Hotelier {
 	public $cart = null;
 
 	/**
+	 * HTL API Object
+	 *
+	 * @var object
+	 */
+	public $api = null;
+
+	/**
 	 * Main Hotelier Instance
 	 *
 	 * Insures that only one instance of Hotelier exists in memory at any one time.
