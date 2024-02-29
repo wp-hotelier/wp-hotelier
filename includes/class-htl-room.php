@@ -17,6 +17,7 @@ if ( ! class_exists( 'HTL_Room' ) ) :
 /**
  * HTL_Room Class
  */
+#[AllowDynamicProperties]
 class HTL_Room {
 	/**
 	 * The room (post) ID.

@@ -2,8 +2,8 @@
 Contributors: benitolopez
 Tags: booking, hotel, booking system, hostel, reservations, reservations, b&b, rooms, wphotelier
 Requires at least: 4.1
-Tested up to: 6.2
-Stable tag: 2.10.0
+Tested up to: 6.4
+Stable tag: 2.12.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -129,6 +129,16 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 4. WP Hotelier - Admin calendar.
 
 == Changelog ==
+
+= 2.12.0 - 2024-01-28 =
+* Add - Support for PHP 8.2.
+* Localization - POT file updated.
+
+= 2.11.0 - 2023-09-19 =
+* Add - Add possibility to add a space between the currency and the amount.
+* Add - Add booking time limit option.
+* Add - Add ability to expand rates in the listing page.
+* Localization - POT file updated.
 
 = 2.10.0 - 2023-08-26 =
 * Add - Support for Hello Elementor.

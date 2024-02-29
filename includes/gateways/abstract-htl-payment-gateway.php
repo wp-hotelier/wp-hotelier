@@ -16,6 +16,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 abstract class HTL_Payment_Gateway {
 	/**
+	 * Payment method ID
+	 * @var string
+	 */
+	public $id;
+
+	/**
 	 * Payment method title
 	 * @var string
 	 */
@@ -28,10 +34,28 @@ abstract class HTL_Payment_Gateway {
 	public $description;
 
 	/**
+	 * Payment method email
+	 * @var string
+	 */
+	public $email;
+
+	/**
 	 * Check if selected
 	 * @var bool
 	 */
 	public $selected;
+
+	/**
+	 * True if testmode is enabled
+	 * @var bool
+	 */
+	public $testmode;
+
+	/**
+	 * True if debug is enabled
+	 * @var bool
+	 */
+	public $debug;
 
 	/**
 	 * True if the gateway shows fields on the checkout

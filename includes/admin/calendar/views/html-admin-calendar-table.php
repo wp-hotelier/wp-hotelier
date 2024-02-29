@@ -101,6 +101,7 @@ $all_reservations = htl_get_all_reservations( $start_range, $end_range );
 									if ( $has_space ) {
 										for ( $i = $offset;  $i < min( $offset + $duration, 8 * $weeks ); $i++ ) {
 											if ( $i == $offset ) {
+												$rows[ $row_index ][ $i ] = array();
 												$rows[ $row_index ][ $i ][ 'size' ] = 2 * min( $duration, ( 8 * $weeks - $offset ) );
 												$rows[ $row_index ][ $i ][ 'id' ] = $reservation[ 'reservation_id' ];
 												$rows[ $row_index ][ $i ][ 'status' ] = $reservation[ 'status' ];
@@ -113,6 +114,7 @@ $all_reservations = htl_get_all_reservations( $start_range, $end_range );
 
 										for ( $i = $offset;  $i < min( $offset + $duration, 8 * $weeks ); $i++ ) {
 											if ( $i == $offset ) {
+												$rows[ count( $rows ) - 1 ][ $i ] = array();
 												$rows[ count( $rows ) - 1 ][ $i ][ 'size' ] = 2 * min( $duration, ( 8 * $weeks - $offset ) );
 												$rows[ count( $rows ) - 1 ][ $i ][ 'id' ] = $reservation[ 'reservation_id' ];
 												$rows[ count( $rows ) - 1 ][ $i ][ 'status' ] = $reservation[ 'status' ];

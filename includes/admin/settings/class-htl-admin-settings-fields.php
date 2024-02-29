@@ -22,7 +22,12 @@ class HTL_Admin_Settings_Fields {
 	/**
     * Holds the values to be used in the fields callbacks
     */
-   private $options = array();
+    private $options = array();
+
+   /**
+    * Hotelier pages
+    */
+    private $pages = array();
 
 	/**
 	 * Constructor.

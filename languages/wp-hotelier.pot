@@ -1,4 +1,4 @@
-# Copyright (C) 2023 WP Hotelier
+# Copyright (C) 2024 WP Hotelier
 # This file is distributed under the same license as the WP Hotelier package.
 msgid ""
 msgstr ""
@@ -19,7 +19,7 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../hotelier.php:91, ../hotelier.php:98, ../includes/class-htl-booking.php:89, ../includes/class-htl-booking.php:96, ../includes/class-htl-emails.php:47, ../includes/class-htl-emails.php:54, ../includes/class-htl-payment-gateways.php:51, ../includes/class-htl-payment-gateways.php:58
+#: ../hotelier.php:98, ../hotelier.php:105, ../includes/class-htl-booking.php:89, ../includes/class-htl-booking.php:96, ../includes/class-htl-emails.php:47, ../includes/class-htl-emails.php:54, ../includes/class-htl-payment-gateways.php:51, ../includes/class-htl-payment-gateways.php:58
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
@@ -1113,28 +1113,28 @@ msgstr ""
 msgid "Hotel Manager"
 msgstr ""
 
-#: ../includes/class-htl-room-variation.php:397, ../includes/class-htl-room-variation.php:390, ../includes/class-htl-room.php:848, ../includes/class-htl-room.php:841
+#: ../includes/class-htl-room-variation.php:397, ../includes/class-htl-room-variation.php:390, ../includes/class-htl-room.php:849, ../includes/class-htl-room.php:842
 msgctxt "price"
 msgid "Price: %s"
 msgstr ""
 
-#: ../includes/class-htl-room-variation.php:491, ../includes/class-htl-room.php:1009, ../includes/class-htl-room.php:1007
+#: ../includes/class-htl-room-variation.php:491, ../includes/class-htl-room.php:1010, ../includes/class-htl-room.php:1008
 msgid "%s per night"
 msgstr ""
 
-#: ../includes/class-htl-room-variation.php:478, ../includes/class-htl-room-variation.php:466, ../includes/class-htl-room.php:989, ../includes/class-htl-room.php:974, ../includes/class-htl-room.php:940
+#: ../includes/class-htl-room-variation.php:478, ../includes/class-htl-room-variation.php:466, ../includes/class-htl-room.php:990, ../includes/class-htl-room.php:975, ../includes/class-htl-room.php:941
 msgid "Rates from %s per night"
 msgstr ""
 
-#: ../includes/class-htl-room-variation.php:575, ../includes/class-htl-room.php:1094
+#: ../includes/class-htl-room-variation.php:575, ../includes/class-htl-room.php:1095
 msgid "Requires an immediate payment"
 msgstr ""
 
-#: ../includes/class-htl-room-variation.php:575, ../includes/class-htl-room.php:1094
+#: ../includes/class-htl-room-variation.php:575, ../includes/class-htl-room.php:1095
 msgid "Requires an immediate payment (%s%% of the total)"
 msgstr ""
 
-#: ../includes/class-htl-room.php:826
+#: ../includes/class-htl-room.php:827
 msgctxt "min_price"
 msgid "From %s"
 msgstr ""
@@ -2774,7 +2774,7 @@ msgstr ""
 msgid "Nonce verification failed"
 msgstr ""
 
-#: ../includes/admin/license-manager/class-htl-admin-license-manager.php:230, ../includes/admin/license-manager/vendor/EDD_SL_Plugin_Updater.php:396
+#: ../includes/admin/license-manager/class-htl-admin-license-manager.php:230, ../includes/admin/license-manager/vendor/EDD_SL_Plugin_Updater.php:397
 msgid "Error"
 msgstr ""
 
@@ -2966,7 +2966,7 @@ msgstr ""
 msgid "Emails"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:72, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:72, ../includes/admin/settings/class-htl-admin-settings-fields.php:275
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:72, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:72, ../includes/admin/settings/class-htl-admin-settings-fields.php:280
 msgid "Send email"
 msgstr ""
 
@@ -3575,7 +3575,7 @@ msgid "Time limit"
 msgstr ""
 
 #: ../includes/admin/settings/class-htl-admin-settings-default.php:656
-msgid "Reservations for the same day must be made by this time. It is only active when \"Arrival date\" is 0."
+msgid "Reservations for the same day must be made by this time. Only takes effect when \"Arrival date\" is 0."
 msgstr ""
 
 #: ../includes/admin/settings/class-htl-admin-settings-default.php:664
@@ -3874,91 +3874,91 @@ msgstr ""
 msgid "Log directory writable"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:270
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:275
 msgid "Install pages"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:280
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:285
 msgid "Clear sessions"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:285
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:290
 msgid "Delete bookings"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:401, ../includes/admin/settings/class-htl-admin-settings-fields.php:425
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:406, ../includes/admin/settings/class-htl-admin-settings-fields.php:430
 msgid "The page requires this shortcode: %s"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:399, ../includes/admin/settings/class-htl-admin-settings-fields.php:423
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:404, ../includes/admin/settings/class-htl-admin-settings-fields.php:428
 msgid "The page is set, but it is not public"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:397, ../includes/admin/settings/class-htl-admin-settings-fields.php:421
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:402, ../includes/admin/settings/class-htl-admin-settings-fields.php:426
 msgid "The page is set, but it does not exist"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:395, ../includes/admin/settings/class-htl-admin-settings-fields.php:419
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:400, ../includes/admin/settings/class-htl-admin-settings-fields.php:424
 msgid "Page not set"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:393
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:398
 msgid "Listing page disabled"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:438, ../includes/admin/settings/class-htl-admin-settings-fields.php:451, ../includes/admin/settings/class-htl-admin-settings-fields.php:470, ../includes/admin/settings/class-htl-admin-settings-fields.php:501, ../includes/admin/settings/class-htl-admin-settings-fields.php:523, ../includes/admin/settings/class-htl-admin-settings-fields.php:536
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:443, ../includes/admin/settings/class-htl-admin-settings-fields.php:456, ../includes/admin/settings/class-htl-admin-settings-fields.php:475, ../includes/admin/settings/class-htl-admin-settings-fields.php:506, ../includes/admin/settings/class-htl-admin-settings-fields.php:528, ../includes/admin/settings/class-htl-admin-settings-fields.php:541
 msgid "Not available"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:456
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:461
 msgid "%s - WP Hotelier requires at least PHP 5.6.0. Please update your PHP version."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:475
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:480
 msgid "%s - We recommend setting memory to at least 64MB."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:491, ../includes/admin/meta-boxes/views/coupon/html-meta-box-coupon-settings.php:32, ../includes/admin/meta-boxes/views/extra/html-meta-box-extra-settings.php:32
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:496, ../includes/admin/meta-boxes/views/coupon/html-meta-box-coupon-settings.php:32, ../includes/admin/meta-boxes/views/extra/html-meta-box-extra-settings.php:32
 msgid "Disabled"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:489, ../includes/admin/settings/class-htl-admin-settings-fields.php:551, ../includes/admin/settings/class-htl-admin-settings-fields.php:566, ../includes/admin/settings/class-htl-admin-settings-fields.php:594, ../includes/admin/meta-boxes/views/coupon/html-meta-box-coupon-settings.php:31, ../includes/admin/meta-boxes/views/extra/html-meta-box-extra-settings.php:31
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:494, ../includes/admin/settings/class-htl-admin-settings-fields.php:556, ../includes/admin/settings/class-htl-admin-settings-fields.php:571, ../includes/admin/settings/class-htl-admin-settings-fields.php:599, ../includes/admin/meta-boxes/views/coupon/html-meta-box-coupon-settings.php:31, ../includes/admin/meta-boxes/views/extra/html-meta-box-extra-settings.php:31
 msgid "Enabled"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:554
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:559
 msgid "Your server does not have fsockopen or cURL enabled - PayPal IPN and other scripts which communicate with other servers will not work. Contact your hosting provider."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:569
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:574
 msgid "Your server does not have the DOMDocument class enabled - Some extensions may not work without DOMDocument"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:584
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:589
 msgid "To allow logging, make <code>%s</code> writable or define a custom (writebale) <code>HTL_LOG_DIR</code>."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:599
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:604
 msgid "Your server does not have the mbstring extension enabled - Some extensions (Stripe) may require this module to work. Contact your hosting provider."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:768
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:773
 msgid "All missing Hotelier pages was installed successfully."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:782
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:787
 msgid "Test email from %s"
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:787
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:792
 msgid "Email sent. This does not mean it has been delivered. See %s in the Codex for more information."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:806
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:811
 msgid "Sessions successfully cleared."
 msgstr ""
 
-#: ../includes/admin/settings/class-htl-admin-settings-fields.php:839
+#: ../includes/admin/settings/class-htl-admin-settings-fields.php:844
 msgid "Bookings successfully deleted."
 msgstr ""
 
@@ -4094,15 +4094,15 @@ msgstr ""
 msgid "Hide filters"
 msgstr ""
 
-#: ../includes/admin/license-manager/vendor/EDD_SL_Plugin_Updater.php:209
+#: ../includes/admin/license-manager/vendor/EDD_SL_Plugin_Updater.php:210
 msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s or %5$supdate now%6$s."
 msgstr ""
 
-#: ../includes/admin/license-manager/vendor/EDD_SL_Plugin_Updater.php:201
+#: ../includes/admin/license-manager/vendor/EDD_SL_Plugin_Updater.php:202
 msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s."
 msgstr ""
 
-#: ../includes/admin/license-manager/vendor/EDD_SL_Plugin_Updater.php:396
+#: ../includes/admin/license-manager/vendor/EDD_SL_Plugin_Updater.php:397
 msgid "You do not have permission to install plugin updates"
 msgstr ""
 
