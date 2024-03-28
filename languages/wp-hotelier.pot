@@ -2413,7 +2413,7 @@ msgid "WP Hotelier has an official extension for Elementor and Hello Elementor. 
 msgstr ""
 
 #: ../includes/admin/class-htl-admin-notices.php:243
-msgid "Looks like you are using Hello Elementor without the official WP Hotelier integration. You can download the plugin for free <a href=\"%s\" target=\"_blank\">at this address</a>. Once you have downloaded the zip file, upload it to <a href=\"%s\">Plugins > Add New</a> like any other plugin."
+msgid "Looks like you are using Elementor and the official WP Hotelier integration without the Hello theme. <a href=\"%s\">Download &amp; install</a>."
 msgstr ""
 
 #: ../includes/admin/class-htl-admin-post-types.php:107, ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-items.php:24, ../templates/widgets/rooms-filter.php:152

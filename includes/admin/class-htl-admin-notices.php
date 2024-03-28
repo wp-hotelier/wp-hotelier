@@ -240,7 +240,7 @@ class HTL_Admin_Notices {
 	 * Require extension when usiong Elementor and Hello Elementor theme.
 	 */
 	public function show_notice_for_hello_theme_required() {
-		echo '<div class="error"><p>' . sprintf( wp_kses_post( __( 'Looks like you are using Hello Elementor without the official WP Hotelier integration. You can download the plugin for free <a href="%s" target="_blank">at this address</a>. Once you have downloaded the zip file, upload it to <a href="%s">Plugins > Add New</a> like any other plugin.', 'wp-hotelier' ) ), 'https://github.com/wp-hotelier/wp-hotelier-hello-elementor/releases', admin_url( 'plugin-install.php' ) ) . '</p></div>';
+		echo '<div class="error"><p>' . sprintf( wp_kses_post( __( 'Looks like you are using Elementor and the official WP Hotelier integration without the Hello theme. <a href="%s">Download &amp; install</a>.', 'wp-hotelier' ) ), admin_url( 'theme-install.php?theme=hello-elementor' ) ) . '</p></div>';
 	}
 
 }
