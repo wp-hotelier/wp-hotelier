@@ -304,7 +304,7 @@ class HTL_Cart_Totals {
 			$room_data = $room_type == 'standard' ? $_room : $_variation;
 
 			// Allow plugins to filter the deposit
-			$line_to_pay = apply_filters( 'hotelier_line_to_pay', $line_to_pay, $line_price, $line_deposit, $qty, $room_type, $room_data );
+			$line_to_pay = apply_filters( 'hotelier_line_to_pay', $line_to_pay, $line_price, $line_deposit, $qty, $room_type, $room_data, $this->checkin, $this->checkout );
 
 			// This is the total deposit required to confirm a reservation
 			// Deposits are per line (room)
