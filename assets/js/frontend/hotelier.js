@@ -43,28 +43,42 @@ jQuery(function ($) {
 				var qty = parent.find(".room-quantity");
 				var input = qty.find("input.room-quantity__input");
 
+				var inputValue = parseInt(qty.val());
+
+				if (!inputValue || 1 > inputValue) {
+					inputValue = 1;
+				}
+
 				// Redirect to booking page directly if the option is enabled
 				if (
 					hotelier_params.book_now_redirect_to_booking_page === "1" &&
 					hotelier_params.book_now_allow_quantity_selection !== "1"
 				) {
-					input.val(1);
+					input.val(inputValue);
 					$("#reserve-button").click();
 					return;
 				}
 
 				if (!_this.hasClass("button--selected")) {
 					var parent_room = _this.closest("li.room");
-					var selected_txt = _this.data("selected-text-singular");
+
+					if (inputValue > 1) {
+						var selected_txt = _this.data("selected-text-plural");
+					} else {
+						var selected_txt = _this.data("selected-text-singular");
+					}
+
 					var selected_html =
-						'<span class="add-to-cart-selected"><span class="add-to-cart-selected__count">1</span> <span class="add-to-cart-selected__text">' +
+						'<span class="add-to-cart-selected"><span class="add-to-cart-selected__count">' +
+						inputValue +
+						'</span> <span class="add-to-cart-selected__text">' +
 						selected_txt +
 						"</span></span>";
 
 					parent_room.addClass("room--selected");
 					_this.addClass("button--selected");
 					_this.append(selected_html);
-					input.val(1);
+					input.val(inputValue);
 					qty.show();
 				} else if (parseInt(input.val(), 10) > 0) {
 					// Redirect to booking page directly if the option is enabled
