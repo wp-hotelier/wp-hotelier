@@ -43,7 +43,7 @@ jQuery(function ($) {
 				var qty = parent.find(".room-quantity");
 				var input = qty.find("input.room-quantity__input");
 
-				var inputValue = parseInt(qty.val());
+				var inputValue = parseInt(input.val());
 
 				if (!inputValue || 1 > inputValue) {
 					inputValue = 1;
