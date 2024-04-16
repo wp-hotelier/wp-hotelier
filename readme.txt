@@ -130,6 +130,9 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 2.12.0 - 2024-04-16 =
+* Fix - PHP 8.2 error.
+
 = 2.12.0 - 2024-01-28 =
 * Add - Support for PHP 8.2.
 * Localization - POT file updated.
