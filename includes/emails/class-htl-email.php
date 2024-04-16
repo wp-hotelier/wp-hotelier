@@ -125,6 +125,13 @@ class HTL_Email {
 	public $sending;
 
 	/**
+	 * Email type.
+	 *
+	 * @var string
+	 */
+	public $email_type;
+
+	/**
 	 *  List of preg* regular expression patterns to search for,
 	 *  used in conjunction with $replace.
 	 *  https://raw.github.com/ushahidi/wp-silcc/master/class.html2text.inc
