@@ -77,7 +77,7 @@ function htl_get_room_extras( $line_price, $optional_extras, $values, $room, $ch
 					$qty = $optional_selected_quantity;
 
 					// Validate selected quantity
-					if ( $extra->can_select_quantity() && $qty > $extra->get_max_quantity() ) {
+					if ( $extra->can_select_quantity() && $extra->get_max_quantity() > 0 && $qty > $extra->get_max_quantity() ) {
 						$qty = $extra->get_max_quantity();
 					}
 
