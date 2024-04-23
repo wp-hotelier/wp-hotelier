@@ -33,8 +33,7 @@ if ( ! class_exists( 'HTL_Template_Loader' ) ) :
 			$find = array();
 			$file = '';
 
-			if ( is_single() && get_post_type() == 'room' ) {
-
+			if ( htl_get_option( 'room_use_template', true ) && is_single() && get_post_type() == 'room' ) {
 				$file 	= 'single-room/single-room.php';
 				$find[] = $file;
 				$find[] = HTL()->template_path() . $file;

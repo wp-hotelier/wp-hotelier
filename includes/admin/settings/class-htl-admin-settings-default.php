@@ -414,6 +414,23 @@ class HTL_Admin_Settings_Default {
 						'type'    => 'select',
 						'options' => self::get_room_size_options()
 					),
+					'room_use_template' => array(
+						'id'      => 'room_use_template',
+						'name'    => esc_html__( 'Use room template', 'wp-hotelier' ),
+						'subdesc' => __( 'Disable it if you plan to create the page through the use of a page builder such as Elementor. Please note that you will lose all the default elements that are printed on the room page (such as the datepicker, room price, etc.) in that case, and will have to enter these elements manually through your page builder.', 'wp-hotelier' ),
+						'type'    => 'checkbox',
+						'std'     => true,
+						'toggle'  => true,
+						'show-if'      => true,
+						'show-element' => array(
+							'room_hide_gallery',
+							'room_hide_datepicker',
+							'room_hide_price',
+							'room_hide_details',
+							'room_hide_related',
+							'room_hide_rates'
+						),
+					),
 					'room_hide_gallery' => array(
 						'id'      => 'room_hide_gallery',
 						'name'    => esc_html__( 'Hide room gallery', 'wp-hotelier' ),
