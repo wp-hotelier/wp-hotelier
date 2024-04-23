@@ -130,7 +130,11 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
-= 2.12.0 - 2024-04-16 =
+= 2.13.0 - 2024-04-23 =
+* Add - Add ability to disable the room template.
+* Localization - POT file updated.
+
+= 2.12.1 - 2024-04-16 =
 * Fix - PHP 8.2 error.
 
 = 2.12.0 - 2024-01-28 =
