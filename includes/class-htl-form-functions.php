@@ -421,6 +421,9 @@ class HTL_Form_Functions {
 
 			$room_id = absint( $room_id );
 
+			// Clear notices
+			htl_clear_notices();
+
 			// Check posted data
 			if ( is_array( $form_data ) ) {
 				$quantity = $quantity ? absint( $quantity ) : 0;
@@ -473,8 +476,14 @@ class HTL_Form_Functions {
 				throw new Exception( esc_html__( 'We were unable to process your reservation, please try again.', 'wp-hotelier' ) );
 			}
 
+			// Check notices
+			if ( htl_notice_count( 'error' ) > 0 ) {
+			    $notices = HTL()->session->get( 'htl_notices', array() );
+			    throw new Exception( $notices['error'][0] );
+			}
+
 			// If we added the room to the cart, then redirect.
-			if ( $was_added_to_cart && htl_notice_count( 'error' ) === 0 ) {
+			if ( $was_added_to_cart ) {
 				$url = apply_filters( 'hotelier_add_to_cart_from_ajax_room_booking_redirect', HTL()->cart->get_booking_form_url() );
 				$url = wp_sanitize_redirect( $url );
 				$url = wp_validate_redirect( $url, apply_filters( 'wp_safe_redirect_fallback', home_url(), 302 ) );
