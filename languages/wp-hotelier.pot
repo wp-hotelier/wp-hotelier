@@ -149,7 +149,7 @@ msgstr ""
 msgid "Book now & pay deposit"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:593, ../includes/class-htl-form-functions.php:131, ../includes/class-htl-form-functions.php:198, ../includes/class-htl-form-functions.php:473, ../includes/ajax/htl-ajax-room-booking.php:80, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:88
+#: ../includes/class-htl-booking.php:593, ../includes/class-htl-form-functions.php:131, ../includes/class-htl-form-functions.php:198, ../includes/class-htl-form-functions.php:476, ../includes/ajax/htl-ajax-room-booking.php:80, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:88
 msgid "We were unable to process your reservation, please try again."
 msgstr ""
 
@@ -281,7 +281,7 @@ msgstr ""
 msgid "%s removed."
 msgstr ""
 
-#: ../includes/class-htl-form-functions.php:465, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:445
+#: ../includes/class-htl-form-functions.php:468, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:445
 msgid "Sorry, something went wrong during the calculation of the totals."
 msgstr ""
 
