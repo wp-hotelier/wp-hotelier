@@ -130,6 +130,11 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 2.13.1 - 2024-04-29 =
+* Fix - Clear notices when submitting the AJAX Room Booking form.
+* Update - Hotel Datepicker library updated.
+* Localization - POT file updated.
+
 = 2.13.0 - 2024-04-23 =
 * Add - Add ability to disable the room template.
 * Localization - POT file updated.
