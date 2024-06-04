@@ -130,6 +130,9 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 2.13.2 - 2024-06-04 =
+* Fix - Don't filter third-party nonces (fixes Events Calendar Pro issue).
+
 = 2.13.1 - 2024-04-29 =
 * Fix - Clear notices when submitting the AJAX Room Booking form.
 * Update - Hotel Datepicker library updated.
