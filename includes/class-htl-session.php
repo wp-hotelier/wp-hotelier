@@ -79,7 +79,7 @@ class HTL_Session {
 
 		if ( ! is_user_logged_in() ) {
 			add_action( 'hotelier_received', array( $this, 'destroy_session' ) );
-			add_filter( 'nonce_user_logged_out', array( $this, 'nonce_user_logged_out' ) );
+			add_filter( 'nonce_user_logged_out', array( $this, 'nonce_user_logged_out' ), 10, 2 );
 		}
 	}
 
@@ -313,8 +313,12 @@ class HTL_Session {
 	 *
 	 * @return string
 	 */
-	public function nonce_user_logged_out( $uid ) {
-		return $this->has_session() && $this->_guest_id ? $this->_guest_id : $uid;
+	public function nonce_user_logged_out( $uid, $action ) {
+		if ( substr( $action, 0, 8 ) === "hotelier" ) {
+			return $this->has_session() && $this->_customer_id ? $this->_customer_id : $uid;
+		}
+
+		return $uid;
 	}
 
 	/**
