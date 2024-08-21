@@ -130,6 +130,10 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 2.14.0 - 2024-08-21 =
+* Fix - Extensions update.
+* Localization - POT file updated.
+
 = 2.13.2 - 2024-06-04 =
 * Fix - Don't filter third-party nonces (fixes Events Calendar Pro issue).
 
