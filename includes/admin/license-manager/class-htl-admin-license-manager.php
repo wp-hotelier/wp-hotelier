@@ -80,7 +80,7 @@ class HTL_License_Manager {
 		add_action( 'hotelier_check_license_cron', array( $this, 'weekly_license_check' ) );
 
 		// Updater
-		add_action( 'admin_init', array( $this, 'auto_updater' ), 0 );
+		add_action( 'init', array( $this, 'auto_updater' ), 0 );
 
 		// Display notices to admins
 		add_action( 'admin_notices', array( $this, 'notices' ) );
