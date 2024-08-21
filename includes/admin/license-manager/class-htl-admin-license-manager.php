@@ -315,7 +315,7 @@ class HTL_License_Manager {
 		$args = array(
 			'version'   => $this->version,
 			'license'   => $this->license,
-			'author'    => 'Hotelier',
+			'author'    => 'WP Hotelier',
 			'beta'      => false
 		);
 
