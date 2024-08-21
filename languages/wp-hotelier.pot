@@ -2774,7 +2774,7 @@ msgstr ""
 msgid "Nonce verification failed"
 msgstr ""
 
-#: ../includes/admin/license-manager/class-htl-admin-license-manager.php:230, ../includes/admin/license-manager/vendor/EDD_SL_Plugin_Updater.php:397
+#: ../includes/admin/license-manager/class-htl-admin-license-manager.php:230
 msgid "Error"
 msgstr ""
 
@@ -4100,18 +4100,6 @@ msgstr ""
 
 #: ../includes/admin/calendar/views/html-admin-calendar.php:27
 msgid "Hide filters"
-msgstr ""
-
-#: ../includes/admin/license-manager/vendor/EDD_SL_Plugin_Updater.php:210
-msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s or %5$supdate now%6$s."
-msgstr ""
-
-#: ../includes/admin/license-manager/vendor/EDD_SL_Plugin_Updater.php:202
-msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s."
-msgstr ""
-
-#: ../includes/admin/license-manager/vendor/EDD_SL_Plugin_Updater.php:397
-msgid "You do not have permission to install plugin updates"
 msgstr ""
 
 #: ../includes/admin/new-reservation/views/html-admin-new-reservation.php:226
