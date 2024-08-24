@@ -672,7 +672,6 @@ class HTL_Admin_Settings_Default {
 						'name' => esc_html__( 'Time limit', 'wp-hotelier' ),
 						'desc' => __( 'Reservations for the same day must be made by this time. Only takes effect when "Arrival date" is 0.', 'wp-hotelier' ),
 						'type' => 'select',
-						'type'    => 'select',
 						'options' => self::get_time_options(),
 						'std'  => '24'
 					),
