@@ -274,7 +274,7 @@ class HTL_Admin_Settings_Default {
 					'enforce_ssl_booking' => array(
 						'id'           => 'enforce_ssl_booking',
 						'name'         => esc_html__( 'Enforce SSL booking', 'wp-hotelier' ),
-						'subdesc'         => __( 'Enforce SSL (HTTPS) on the booking page (you must have an SSL certificate installed to use this option).', 'wp-hotelier' ),
+						'subdesc'         => __( 'Enforce SSL (HTTPS) on the booking page (you must have an SSL certificate installed to use this option). Do not activate this option if your server already handles HTTPS redirects correctly. Activating it when unnecessary could lead to redundant redirects.', 'wp-hotelier' ),
 						'type'         => 'checkbox',
 						'toggle'       => true,
 						'show-if'      => true,
@@ -283,7 +283,7 @@ class HTL_Admin_Settings_Default {
 					'unforce_ssl_booking' => array(
 						'id'      => 'unforce_ssl_booking',
 						'name'    => esc_html__( 'Force HTTP leaving booking', 'wp-hotelier' ),
-						'subdesc' => __( 'Force HTTP when leaving the booking page.', 'wp-hotelier' ),
+						'subdesc' => __( 'Force HTTP when leaving the booking page. Do not activate this option if your server already handles HTTPS redirects correctly. Activating it when unnecessary could lead to redundant redirects.', 'wp-hotelier' ),
 						'type'    => 'checkbox',
 						'toggle'  => true,
 					),
