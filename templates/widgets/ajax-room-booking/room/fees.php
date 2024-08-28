@@ -31,7 +31,8 @@ $fees = apply_filters( 'hotelier_get_room_fees', array(), $room );
 				<?php foreach ( $fee[ 'options' ] as $option ) : ?>
 					<?php
 					$checked = isset( $option[ 'checked' ] ) && $option[ 'checked' ] ? true : false;
-					$label   = $option[ 'value' ] == 0 ? $option[ 'label' ] : sprintf( esc_html__( 'Add %s', 'wp-hotelier' ), $option[ 'label' ] );
+
+					$label = $option[ 'value' ] == 0 || htl_get_option( 'extra_guests_mode', 'default' ) === 'alternate' ? $option[ 'label' ] : sprintf( esc_html__( 'Add %s', 'wp-hotelier' ), $option[ 'label' ] );
 					?>
 
 					<label class="room-fee__label"><input type="<?php echo esc_attr( $fee[ 'type' ] ); ?>" name="fees[<?php echo esc_attr( $key ); ?>][<?php echo esc_attr( $option[ 'key' ] ); ?>]" value="<?php echo esc_attr( $option[ 'value' ] ); ?>" <?php echo $checked ? 'checked' : ''; ?>><?php echo wp_kses_post( $label ); ?></label>
