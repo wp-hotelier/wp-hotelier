@@ -19,7 +19,7 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../hotelier.php:98, ../hotelier.php:105, ../includes/class-htl-booking.php:89, ../includes/class-htl-booking.php:96, ../includes/class-htl-emails.php:47, ../includes/class-htl-emails.php:54, ../includes/class-htl-payment-gateways.php:51, ../includes/class-htl-payment-gateways.php:58
+#: ../hotelier.php:97, ../hotelier.php:104, ../includes/class-htl-booking.php:89, ../includes/class-htl-booking.php:96, ../includes/class-htl-emails.php:47, ../includes/class-htl-emails.php:54, ../includes/class-htl-payment-gateways.php:51, ../includes/class-htl-payment-gateways.php:58
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
@@ -5347,6 +5347,6 @@ msgstr ""
 msgid "Select rate"
 msgstr ""
 
-#: ../templates/widgets/ajax-room-booking/rate/fees.php:34, ../templates/widgets/ajax-room-booking/room/fees.php:34
+#: ../templates/widgets/ajax-room-booking/rate/fees.php:34, ../templates/widgets/ajax-room-booking/room/fees.php:35
 msgid "Add %s"
 msgstr ""
