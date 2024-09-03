@@ -130,8 +130,11 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 2.14.3 - 2024-09-03 =
+* Fix - Fix selected children info.
+
 = 2.14.2 - 2024-08-28 =
-* Add - Fix label for extra guests in the AJAX Room Booking form.
+* Fix - Fix label for extra guests in the AJAX Room Booking form.
 * Localization - POT file updated.
 
 = 2.14.1 - 2024-08-24 =
