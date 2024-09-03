@@ -545,7 +545,7 @@ class HTL_Form_Functions {
 					$children_to_add           = $children_included_in_rate;
 					$extra_children            = isset( $post_data['fees'][$key]['children'] ) ? absint( $post_data['fees'][$key]['children'] ) : 0;
 					$children_to_add           += $extra_children;
-					$children_to_add           = $children_to_add > $max_guests ? $max_guests : $children_to_add;
+					$children_to_add           = $children_to_add > $max_children ? $max_children : $children_to_add;
 
 					for ( $i = 0; $i < $qty; $i++ ) {
 						$guests[$i]['children'] = $children_to_add;
