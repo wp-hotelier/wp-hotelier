@@ -1,4 +1,4 @@
-# Copyright (C) 2024 WP Hotelier
+# Copyright (C) 2025 WP Hotelier
 # This file is distributed under the same license as the WP Hotelier package.
 msgid ""
 msgstr ""
