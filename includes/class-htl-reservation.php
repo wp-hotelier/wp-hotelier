@@ -1078,7 +1078,7 @@ class HTL_Reservation {
 
 		if ( $this->has_room_with_deposit() ) {
 
-			if ( $this->get_formatted_paid_deposit() > 0 || $this->requires_capture() ) {
+			if ( $this->get_paid_deposit() > 0 || $this->requires_capture() ) {
 
 				$total_rows[ 'paid_deposit' ] = array(
 					'label' => esc_html__( 'Paid deposit:', 'wp-hotelier' ),
