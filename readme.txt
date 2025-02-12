@@ -130,6 +130,9 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 2.14.4 - 2025-02-12 =
+* Fix - Reservation tables not showing correct info for paid deposits.
+
 = 2.14.3 - 2024-09-03 =
 * Fix - Fix selected children info.
 
