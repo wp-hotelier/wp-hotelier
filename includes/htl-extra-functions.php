@@ -47,6 +47,8 @@ function htl_get_all_extras_ids() {
 		)
 	);
 
+	$extras = apply_filters( 'hotelier_get_all_extras_ids', $extras );
+
 	set_transient( 'hotelier_extras_ids', $extras, DAY_IN_SECONDS * 30 );
 
 	return $extras;
