@@ -124,6 +124,7 @@ if ( isset( $item[ 'extras' ] ) ) {
 <?php if ( $item_has_extras ) : ?>
 	<?php foreach ( $extras as $extra_id => $extra_data ) : ?>
 		<?php
+		$extra_id    = apply_filters( 'translate_object_id', $extra_id, 'extra', true );
 		$extra       = htl_get_extra( $extra_id );
 		$extra_qty   = isset( $extra_data['qty'] ) ? $extra_data['qty'] : 1;
 		$extra_price = $item[ 'qty' ] * $extra_data['price'] * $extra_qty;
