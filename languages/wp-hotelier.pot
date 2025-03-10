@@ -2155,11 +2155,11 @@ msgstr ""
 msgid "This coupon has expired."
 msgstr ""
 
-#: ../includes/htl-extra-functions.php:137
+#: ../includes/htl-extra-functions.php:139
 msgid "This extra does not exists."
 msgstr ""
 
-#: ../includes/htl-extra-functions.php:147
+#: ../includes/htl-extra-functions.php:149
 msgid "This extra is not enabled."
 msgstr ""
 
@@ -4600,7 +4600,7 @@ msgstr[1] ""
 msgid "%d Children"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-single-item.php:150
+#: ../includes/admin/meta-boxes/views/reservation/html-meta-box-reservation-single-item.php:151
 msgid "This room does not exist anymore"
 msgstr ""
 
