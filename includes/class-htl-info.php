@@ -105,24 +105,40 @@ class HTL_Info {
 	}
 
 	/**
-	 * Gets hotel checkin hours.
+	 * Helper function to format hotel hours.
 	 *
-	 * @return string
+	 * @param array $hours The hours settings array
+	 * @param string $filter_name The name of the filter to apply
+	 * @return string Formatted time string
 	 */
-	public static function get_hotel_checkin() {
-		$checkin        = htl_get_option( 'hotel_checkin', array() );
-		$from           = isset( $checkin[ 'from' ] ) ? $checkin[ 'from' ] : 0;
-		$to             = isset( $checkin[ 'to' ] ) ? $checkin[ 'to' ] : 0;
+	private static function format_hotel_hours( $hours, $filter_name ) {
+		$from           = isset( $hours['from'] ) ? $hours['from'] : 0;
+		$to             = isset( $hours['to'] ) ? $hours['to'] : 0;
 		$formatted_from = $from > 24 ? $from - 25 : $from;
 		$formatted_from = sprintf( '%02d', $formatted_from );
 		$formatted_from .= $from > 24 ? ':30' : ':00';
 		$formatted_to   = $to > 24 ? $to - 25 : $to;
 		$formatted_to   = sprintf( '%02d', $formatted_to );
 		$formatted_to   .= $to > 24 ? ':30' : ':00';
+		
+		// Check if from and to times are the same
+		if ( $from === $to ) {
+			$formatted_hours = date_i18n( get_option( 'time_format' ), strtotime( $formatted_from ) );
+		} else {
+			$formatted_hours = date_i18n( get_option( 'time_format' ), strtotime( $formatted_from ) ) . ' - ' . date_i18n( get_option( 'time_format' ), strtotime( $formatted_to ) );
+		}
 
-		$hotel_checkin  = date_i18n( get_option( 'time_format' ), strtotime( $formatted_from ) ) . ' - ' . date_i18n( get_option( 'time_format' ), strtotime( $formatted_to ) );
+		return apply_filters( $filter_name, $formatted_hours, $from, $to );
+	}
 
-		return apply_filters( 'hotelier_get_hotel_checkin', $hotel_checkin, $from, $to );
+	/**
+	 * Gets hotel checkin hours.
+	 *
+	 * @return string
+	 */
+	public static function get_hotel_checkin() {
+		$checkin = htl_get_option( 'hotel_checkin', array() );
+		return self::format_hotel_hours( $checkin, 'hotelier_get_hotel_checkin' );
 	}
 
 	/**
@@ -131,18 +147,8 @@ class HTL_Info {
 	 * @return string
 	 */
 	public static function get_hotel_checkout() {
-		$checkout       = htl_get_option( 'hotel_checkout', array() );
-		$from           = isset( $checkout[ 'from' ] ) ? $checkout[ 'from' ] : 0;
-		$to             = isset( $checkout[ 'to' ] ) ? $checkout[ 'to' ] : 0;
-		$formatted_from = $from > 24 ? $from - 25 : $from;
-		$formatted_from = sprintf( '%02d', $formatted_from );
-		$formatted_from .= $from > 24 ? ':30' : ':00';
-		$formatted_to   = $to > 24 ? $to - 25 : $to;
-		$formatted_to   = sprintf( '%02d', $formatted_to );
-		$formatted_to   .= $to > 24 ? ':30' : ':00';
-		$hotel_checkout = date_i18n( get_option( 'time_format' ), strtotime( $formatted_from ) ) . ' - ' . date_i18n( get_option( 'time_format' ), strtotime( $formatted_to ) );
-
-		return apply_filters( 'hotelier_get_hotel_checkout', $hotel_checkout, $from, $to );
+		$checkout = htl_get_option( 'hotel_checkout', array() );
+		return self::format_hotel_hours( $checkout, 'hotelier_get_hotel_checkout' );
 	}
 
 	/**
