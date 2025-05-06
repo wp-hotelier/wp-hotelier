@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  1.6.0
+ * @version  2.15.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -41,13 +41,13 @@ class HTL_Privacy {
 		include_once 'class-htl-privacy-erasers.php';
 		include_once 'class-htl-privacy-exporters.php';
 
-		$this->init();
+		add_action( 'init', array( $this, 'init' ) );
 	}
 
 	/**
 	 * Hook in events.
 	 */
-	protected function init() {
+	public function init() {
 		add_filter( 'wp_privacy_personal_data_exporters', array( $this, 'register_exporters' ), 5 );
 		add_filter( 'wp_privacy_personal_data_erasers', array( $this, 'register_erasers' ) );
 
