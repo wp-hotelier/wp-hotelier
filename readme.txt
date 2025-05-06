@@ -130,6 +130,10 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 2.15.0 - 2025-05-06 =
+* Add - Support for WordPress 6.8.
+* Fix - PHP warning for text domain not loaded correctly.
+
 = 2.14.4 - 2025-02-12 =
 * Fix - Reservation tables not showing correct info for paid deposits.
 
