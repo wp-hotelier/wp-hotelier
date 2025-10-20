@@ -446,7 +446,7 @@ msgstr ""
 msgid "Booking room..."
 msgstr ""
 
-#: ../includes/class-htl-info.php:155
+#: ../includes/class-htl-info.php:161
 msgid "Pets are not allowed."
 msgstr ""
 
@@ -4176,6 +4176,10 @@ msgstr ""
 
 #: ../includes/admin/settings/views/html-admin-logs.php:49
 msgid "View"
+msgstr ""
+
+#: ../includes/admin/settings/views/html-admin-logs.php:56
+msgid "Delete log"
 msgstr ""
 
 #: ../includes/admin/settings/views/html-settings-header.php:13
