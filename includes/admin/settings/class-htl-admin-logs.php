@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Admin
  * @package  Hotelier/Admin
- * @version  1.0.0
+ * @version  2.16.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -18,6 +18,8 @@ if ( ! class_exists( 'HTL_Admin_Logs' ) ) :
  * HTL_Admin_Logs Class
  */
 class HTL_Admin_Logs {
+	/** @var HTL_Log Logger instance */
+	public static $log = false;
 
 	/**
 	 * Scan the log files
@@ -54,6 +56,19 @@ class HTL_Admin_Logs {
 			$viewed_log = $logs[ sanitize_title( $_REQUEST[ 'log_file' ] ) ];
 		} elseif ( ! empty( $logs ) ) {
 			$viewed_log = current( $logs );
+		}
+
+		if ( ! empty( $_REQUEST[ 'delete_log_file' ] ) && isset( $logs[ sanitize_title( $_REQUEST[ 'delete_log_file' ] ) ] ) ) {
+			$log_to_delete = $logs[ sanitize_title( $_REQUEST[ 'delete_log_file' ] ) ];
+			$handle   = preg_replace( '/-[^-]+$/', '', $log_to_delete );
+
+			if ( $handle && check_admin_referer( 'delete_log' . $log_to_delete ) ) {
+				if ( empty( self::$log ) ) {
+					self::$log = new HTL_Log();
+				}
+
+				self::$log->clear( $handle );
+			}
 		}
 
 		include_once( 'views/html-admin-logs.php' );

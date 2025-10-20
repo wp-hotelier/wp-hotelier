@@ -51,6 +51,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 				<textarea class="htl-ui-input htl-ui-input--textarea htl-ui-input--logs" cols="70" rows="25"><?php echo esc_textarea( file_get_contents( HTL_LOG_DIR . $viewed_log ) ); ?></textarea>
 
+				<form class="htl-ui-form htl-ui-form--delete-log" action="<?php echo esc_url( admin_url( 'admin.php?page=hotelier-logs' ) ); ?>" method="post">
+					<input type="hidden" value="<?php echo $viewed_log; ?>" name="delete_log_file">
+					<input type="submit" class="htl-ui-button htl-ui-button--delete-log" value="<?php esc_attr_e( 'Delete log', 'wp-hotelier' ); ?>" />
+
+					<?php wp_nonce_field( 'delete_log' . $viewed_log ); ?>
+				</form>
+
 			<?php else : ?>
 
 				<?php htl_ui_print_notice( $notice_text, 'info', $notice_wrapper_class, $notice_class ); ?>
