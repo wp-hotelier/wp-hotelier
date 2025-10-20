@@ -1242,6 +1242,7 @@ table.hotelier-settings-table-form .htl-ui-table__cell--seasonal-prices-dates la
 }
 
 .htl-ui-input--logs {
+  margin-bottom: 18px;
   margin-top: 18px;
 }
 
