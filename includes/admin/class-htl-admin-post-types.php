@@ -166,6 +166,7 @@ class HTL_Admin_Post_Types {
 
 		$columns                = array();
 		$columns[ 'title' ]     = esc_html__( 'Guest', 'wp-hotelier' );
+		$columns[ 'rooms' ]     = esc_html__( 'Rooms', 'wp-hotelier' );
 		$columns[ 'nights' ]    = esc_html__( 'Nights', 'wp-hotelier' );
 		$columns[ 'check_in' ]  = esc_html__( 'Check-in', 'wp-hotelier' );
 		$columns[ 'check_out' ] = esc_html__( 'Check-out', 'wp-hotelier' );
@@ -186,6 +187,23 @@ class HTL_Admin_Post_Types {
 		}
 
 		switch ( $column ) {
+			case 'rooms' :
+				$line_items = $the_reservation->get_items();
+				$room_links = array();
+
+				foreach ( $line_items as $item_id => $item ) {
+					$_room = $the_reservation->get_room_from_item( $item );
+
+					if ( $_room->exists() ) {
+						$room_links[] = sprintf( '<a href="%s">%s</a>', get_edit_post_link( $item['room_id'] ), $item['name'] );
+					} else {
+						$room_links[] = $item['name'];
+					}
+				}
+
+				echo '<span>' . implode( ', ', $room_links ) . '</span>';
+				break;
+
 			case 'nights' :
 				echo '<span>' . absint( $the_reservation->get_nights() ) . '</span>';
 				break;
