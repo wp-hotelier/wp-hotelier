@@ -195,7 +195,19 @@ class HTL_Meta_Box_Reservation_Data {
 				<span class="booking-details__booking-mode"><?php echo esc_html__( 'Booking mode', 'wp-hotelier' ) . ': ' . esc_html( ucfirst( str_replace( '-', ' ', $booking_method ) ) ); ?></span>
 
 				<?php if ( ( get_post_meta( $post->ID, '_created_via', true ) == 'admin' ) ) : ?>
-					<span class="booking-details__created-by-admin"><?php esc_html_e( '(created by admin)', 'wp-hotelier' ); ?></span>
+					<?php
+					$admin_name = esc_html__( 'admin', 'wp-hotelier' );
+					$creator_id = get_post_meta( $post->ID, '_admin_creator', true );
+
+					if ( $creator_id ) {
+						$creator_obj = get_user_by( 'id', $creator_id );
+
+						if ( isset( $creator_obj->display_name ) ) {
+							$admin_name = $creator_obj->display_name;
+						}
+					}
+					?>
+					<span class="booking-details__created-by-admin"><?php echo sprintf( esc_html__( '(created by %s)', 'wp-hotelier' ), $admin_name ); ?></span>
 				<?php endif; ?>
 
 				<?php if ( $payment_method ) : ?>
