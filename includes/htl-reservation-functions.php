@@ -37,6 +37,7 @@ function htl_create_reservation( $args = array() ) {
 		'special_requests' => null,
 		'reservation_id'   => 0,
 		'created_via'      => '',
+		'admin_creator'    => '',
 		'parent'           => 0
 	);
 
@@ -87,6 +88,10 @@ function htl_create_reservation( $args = array() ) {
 		update_post_meta( $reservation_id, '_reservation_guest_ip_address', htl_get_ip() );
 		update_post_meta( $reservation_id, '_reservation_currency', htl_get_currency() );
 		update_post_meta( $reservation_id, '_created_via', sanitize_text_field( $args[ 'created_via' ] ) );
+
+		if ( isset( $args[ 'admin_creator' ] ) ) {
+			update_post_meta( $reservation_id, '_admin_creator', sanitize_text_field( $args[ 'admin_creator' ] ) );
+		}
 	}
 
 	return htl_get_reservation( $reservation_id );

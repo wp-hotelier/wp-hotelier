@@ -230,6 +230,8 @@ class HTL_Admin_New_Reservation {
 		global $wpdb;
 
 		try {
+			$current_user = wp_get_current_user();
+
 			// Start transaction if available
 			$wpdb->query( 'START TRANSACTION' );
 
@@ -238,7 +240,8 @@ class HTL_Admin_New_Reservation {
 				'guest_name'       => self::get_formatted_guest_full_name(),
 				'email'            => self::get_form_data_field( 'email' ),
 				'special_requests' => self::get_form_data_field( 'special_requests' ),
-				'created_via'      => 'admin'
+				'created_via'      => 'admin',
+				'admin_creator'    => $current_user->ID
 			);
 
 			$reservation = htl_create_reservation( $reservation_data );
@@ -370,7 +373,8 @@ class HTL_Admin_New_Reservation {
 			}
 
 			// Add a note to the reservation
-			$reservation->add_reservation_note( esc_html__( 'Reservation manually created by admin.', 'wp-hotelier' ) );
+			$admin_name = $current_user->display_name ? $current_user->display_name : esc_html__( 'admin', 'wp-hotelier' );
+			$reservation->add_reservation_note( sprintf( esc_html__( 'Reservation manually created by %s.', 'wp-hotelier' ), $admin_name ) );
 
 			// If we got here, the reservation was created without problems!
 			$wpdb->query( 'COMMIT' );
