@@ -130,6 +130,10 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 2.17.0 - 2025-11-22 =
+* Add - Display rooms included in reservation
+* Add - Display creator name for manual reservations
+
 = 2.16.0 - 2025-10-18 =
 * Add - Ability to clear logs from admin.
 * Localization - POT file updated.
