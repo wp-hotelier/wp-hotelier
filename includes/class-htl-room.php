@@ -879,11 +879,11 @@ class HTL_Room {
 	 *
 	 * @return string
 	 */
-	public function get_min_price_html( $use_this = false ) {
+	public function get_min_price( $use_this = false, $raw = true ) {
 		if ( class_exists( 'HTL_APS_Room' ) && ! $use_this ) {
 			$room = new HTL_APS_Room( $this );
 
-			return $room->get_min_price_html();
+			return $room->get_min_price( $raw );
 		} else {
 			$min_price = 0;
 
@@ -935,12 +935,18 @@ class HTL_Room {
 					}
 				}
 
-				$min_price = $prices ? min( $prices ) / 100 : 0; // (prices are stored as integers)
-
-				if ( $min_price > 0 ) {
-					$min_price = sprintf( __( 'Rates from %s per night', 'wp-hotelier' ), htl_price( $min_price ) );
+				if ( $raw ) {
+					$min_price = $prices ? min( $prices ) : 0;
 				} else {
-					$min_price = apply_filters( 'hotelier_empty_price_html', '', $this );
+					$min_price = $prices ? min( $prices ) / 100 : 0; // (prices are stored as integers)
+				}
+
+				if ( ! $raw ) {
+					if ( $min_price > 0 ) {
+						$min_price = sprintf( __( 'Rates from %s per night', 'wp-hotelier' ), htl_price( $min_price ) );
+					} else {
+						$min_price = apply_filters( 'hotelier_empty_price_html', '', $this );
+					}
 				}
 
 			} else {
@@ -969,57 +975,95 @@ class HTL_Room {
 						$prices[] = $this->seasonal_base_price;
 					}
 
-					$min_price = $prices ? min( $prices ) / 100 : 0; // (prices are stored as integers)
-
-					if ( $min_price > 0 ) {
-						$min_price = sprintf( __( 'Rates from %s per night', 'wp-hotelier' ), htl_price( $min_price ) );
+					if ( $raw ) {
+						$min_price = $prices ? min( $prices ) : 0;
 					} else {
-						$min_price = apply_filters( 'hotelier_empty_price_html', '', $this );
+						$min_price = $prices ? min( $prices ) / 100 : 0; // (prices are stored as integers)
+					}
+
+					if ( ! $raw ) {
+						if ( $min_price > 0 ) {
+							$min_price = sprintf( __( 'Rates from %s per night', 'wp-hotelier' ), htl_price( $min_price ) );
+						} else {
+							$min_price = apply_filters( 'hotelier_empty_price_html', '', $this );
+						}
 					}
 
 				} else if ( $this->is_price_per_day() ) {
 
 					if ( $this->sale_price_day ) {
-						$min_price = min( $this->sale_price_day ) / 100; // (prices are stored as integers)
-
+						if ( $raw ) {
+							$min_price = min( $this->sale_price_day );
+						} else {
+							$min_price = min( $this->sale_price_day ) / 100; // (prices are stored as integers)
+						}
 					} elseif ( $this->regular_price_day ) {
-						$min_price = min( $this->regular_price_day ) / 100; // (prices are stored as integers)
+						if ( $raw ) {
+							$min_price = min( $this->regular_price_day );
+						} else {
+							$min_price = min( $this->regular_price_day ) / 100; // (prices are stored as integers)
+						}
 					}
 
-					if ( $min_price > 0 ) {
-						$min_price = sprintf( __( 'Rates from %s per night', 'wp-hotelier' ), htl_price( $min_price ) );
-					} else {
-						$min_price = apply_filters( 'hotelier_empty_price_html', '', $this );
+					if ( ! $raw ) {
+						if ( $min_price > 0 ) {
+							$min_price = sprintf( __( 'Rates from %s per night', 'wp-hotelier' ), htl_price( $min_price ) );
+						} else {
+							$min_price = apply_filters( 'hotelier_empty_price_html', '', $this );
+						}
 					}
 
 				} else {
 
 					if ( $this->sale_price ) {
-						$min_price = $this->sale_price / 100; // (prices are stored as integers)
+						if ( $raw ) {
+							$min_price = $this->sale_price;
+						} else {
+							$min_price = $this->sale_price / 100; // (prices are stored as integers)
+						}
 
 					} elseif ( $this->regular_price ) {
-						$min_price = $this->regular_price / 100; // (prices are stored as integers)
+						if ( $raw ) {
+							$min_price = $this->regular_price;
+						} else {
+							$min_price = $this->regular_price / 100; // (prices are stored as integers)
+						}
 					}
 
-					if ( $min_price > 0 ) {
-						if ( $this->sale_price && $this->regular_price ) {
-							$from  = $this->regular_price / 100; // (prices are stored as integers)
-							$to    = $this->sale_price / 100; // (prices are stored as integers)
-							$min_price = sprintf( __( '%s per night', 'wp-hotelier' ), $this->get_price_html_from_to( $from, $to ) );
+					if ( ! $raw ) {
+						if ( $min_price > 0 ) {
+							if ( $this->sale_price && $this->regular_price ) {
+								$from  = $this->regular_price / 100; // (prices are stored as integers)
+								$to    = $this->sale_price / 100; // (prices are stored as integers)
+								$min_price = sprintf( __( '%s per night', 'wp-hotelier' ), $this->get_price_html_from_to( $from, $to ) );
+							} else {
+								$min_price = sprintf( __( '%s per night', 'wp-hotelier' ), htl_price( $min_price ) );
+							}
 						} else {
-							$min_price = sprintf( __( '%s per night', 'wp-hotelier' ), htl_price( $min_price ) );
+							$min_price = apply_filters( 'hotelier_empty_price_html', '', $this );
 						}
-					} else {
-						$min_price = apply_filters( 'hotelier_empty_price_html', '', $this );
 					}
 				}
 
 			}
 
-			$min_price = apply_filters( 'hotelier_min_price_html', $min_price, $this );
+			if ( $raw ) {
+				$min_price = apply_filters( 'hotelier_min_price', $min_price, $this );
+			} else {
+				$min_price = apply_filters( 'hotelier_min_price_html', $min_price, $this );
+			}
 
 			return $min_price;
 		}
+	}
+
+	/**
+	 * Returns the low room's price in html format (variations included).
+	 *
+	 * @return string
+	 */
+	public function get_min_price_html( $use_this = false ) {
+		return $this->get_min_price( $use_this, false );
 	}
 
 	/**
