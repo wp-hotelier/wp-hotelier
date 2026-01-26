@@ -74,6 +74,13 @@ final class Hotelier {
 	public $api = null;
 
 	/**
+	 * HTL REST API Object
+	 *
+	 * @var HTL_REST_Server
+	 */
+	public $rest_api = null;
+
+	/**
 	 * Main Hotelier Instance
 	 *
 	 * Insures that only one instance of Hotelier exists in memory at any one time.
@@ -253,6 +260,9 @@ final class Hotelier {
 		$this->api   = include( 'includes/class-htl-api.php' );
 		$this->query = include( 'includes/class-htl-query.php' );
 
+		// REST API.
+		include_once HTL_PLUGIN_DIR . 'includes/api/class-htl-rest-server.php';
+
 		include_once HTL_PLUGIN_DIR . 'includes/class-htl-post-types.php';
 		include_once HTL_PLUGIN_DIR . 'includes/htl-misc-functions.php';
 		include_once HTL_PLUGIN_DIR . 'includes/htl-country-functions.php';
@@ -307,6 +317,9 @@ final class Hotelier {
 		if ( $this->is_request( 'frontend' ) || $this->is_request( 'cron' ) || defined( 'HOTELIER_SHORTCODE_PREVIEW' ) ) {
 			$this->session  = new HTL_Session();
 		}
+
+		// Initialize REST API.
+		$this->rest_api = HTL_REST_Server::instance();
 
 		// Init action
 		do_action( 'hotelier_init' );
