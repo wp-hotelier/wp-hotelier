@@ -69,6 +69,12 @@ class HTL_REST_Reservations_Controller extends HTL_REST_Controller {
 						'context' => $this->get_context_param( array( 'default' => 'view' ) ),
 					),
 				),
+				array(
+					'methods'             => WP_REST_Server::EDITABLE,
+					'callback'            => array( $this, 'update_item' ),
+					'permission_callback' => array( $this, 'update_item_permissions_check' ),
+					'args'                => $this->get_endpoint_args_for_item_schema( WP_REST_Server::EDITABLE ),
+				),
 				'schema' => array( $this, 'get_public_item_schema' ),
 			)
 		);
@@ -91,6 +97,16 @@ class HTL_REST_Reservations_Controller extends HTL_REST_Controller {
 	 * @return bool|WP_Error
 	 */
 	public function get_item_permissions_check( $request ) {
+		return HTL_REST_Authentication::check_manage_hotelier_permission();
+	}
+
+	/**
+	 * Check if a given request has access to update an item.
+	 *
+	 * @param WP_REST_Request $request Full details about the request.
+	 * @return bool|WP_Error
+	 */
+	public function update_item_permissions_check( $request ) {
 		return HTL_REST_Authentication::check_manage_hotelier_permission();
 	}
 
@@ -191,6 +207,81 @@ class HTL_REST_Reservations_Controller extends HTL_REST_Controller {
 		return $response;
 	}
 
+	/**
+	 * Update a single reservation (status only).
+	 *
+	 * @param WP_REST_Request $request Full details about the request.
+	 * @return WP_REST_Response|WP_Error
+	 */
+	public function update_item( $request ) {
+		$id   = absint( $request->get_param( 'id' ) );
+		$post = get_post( $id );
+
+		if ( ! $post || $this->post_type !== $post->post_type ) {
+			return new WP_Error(
+				'hotelier_rest_invalid_id',
+				__( 'Invalid reservation ID.', 'wp-hotelier' ),
+				array( 'status' => 404 )
+			);
+		}
+
+		$reservation = htl_get_reservation( $id );
+
+		$new_status = $request->get_param( 'status' );
+
+		// Update status if provided
+		if ( ! empty( $new_status ) ) {
+			$current_status = $reservation->get_status();
+
+			// Validate status
+			$valid_statuses = array( 'pending', 'on-hold', 'confirmed', 'completed', 'cancelled', 'refunded', 'failed' );
+			if ( ! in_array( $new_status, $valid_statuses ) ) {
+				return new WP_Error(
+					'hotelier_rest_invalid_status',
+					__( 'Invalid reservation status.', 'wp-hotelier' ),
+					array( 'status' => 400 )
+				);
+			}
+
+			// Refunded reservations cannot be restored
+			if ( $current_status === 'refunded' ) {
+				return new WP_Error(
+					'hotelier_rest_cannot_update',
+					__( 'Refunded reservations cannot be modified.', 'wp-hotelier' ),
+					array( 'status' => 400 )
+				);
+			}
+
+			// Update the status
+			$result = $reservation->update_status( $new_status, '', false, 'api' );
+
+			if ( $result === false ) {
+				return new WP_Error(
+					'hotelier_rest_room_not_available',
+					__( 'One or more rooms are no longer available for this reservation.', 'wp-hotelier' ),
+					array( 'status' => 409 )
+				);
+			}
+		}
+
+		// Update last modified timestamp
+		$reservation->update_last_modified();
+
+		/**
+		 * Fires after a reservation is updated via REST API.
+		 *
+		 * @param HTL_Reservation  $reservation The reservation object.
+		 * @param WP_REST_Request  $request     The request object.
+		 */
+		do_action( 'hotelier_rest_update_reservation', $reservation, $request );
+
+		// Return updated reservation
+		$post     = get_post( $id );
+		$data     = $this->prepare_item_for_response( $post, $request );
+		$response = rest_ensure_response( $data );
+
+		return $response;
+	}
 	/**
 	 * Prepare a single reservation output for response.
 	 *
