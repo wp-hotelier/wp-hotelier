@@ -216,177 +216,37 @@ class HTL_Admin_New_Reservation {
 	/**
 	 * Create the reservation.
 	 *
-	 * Error codes:
-	 * 		400 - Cannot insert reservation into the database (reservations_items table)
-	 * 		401 - Cannot insert booking into the database (bookings table)
-	 * 		402 - Cannot populate room_bookings
-	 * 		403 - Cannot add item to reservation
+	 * Uses the htl_create_reservation_from_cart() utility function to create
+	 * a reservation from calculated cart totals.
+	 *
+	 * @since 2.18.0 Refactored to use htl_create_reservation_from_cart().
 	 *
 	 * @access public
-	 * @throws Exception
-	 * @return int|WP_ERROR
+	 * @param HTL_Cart_Totals $cart_totals Calculated cart totals.
+	 * @return int|WP_Error Reservation ID on success, WP_Error on failure.
 	 */
 	public static function create_reservation( $cart_totals ) {
-		global $wpdb;
+		$current_user = wp_get_current_user();
 
-		try {
-			$current_user = wp_get_current_user();
-
-			// Start transaction if available
-			$wpdb->query( 'START TRANSACTION' );
-
-			$reservation_data = array(
-				'status'           => 'pending',
-				'guest_name'       => self::get_formatted_guest_full_name(),
-				'email'            => self::get_form_data_field( 'email' ),
-				'special_requests' => self::get_form_data_field( 'special_requests' ),
-				'created_via'      => 'admin',
-				'admin_creator'    => $current_user->ID
-			);
-
-			$reservation = htl_create_reservation( $reservation_data );
-
-			if ( is_wp_error( $reservation ) ) {
-				throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'wp-hotelier' ), 400 ) );
-			} else {
-				$reservation_id = $reservation->id;
-				$booking_id = htl_add_booking( $reservation_id, self::$checkin, self::$checkout, 'pending', self::$force_booking );
-
-				if ( ! $booking_id ) {
-					throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'wp-hotelier' ), 401 ) );
-				}
-			}
-
-			// Guest address
-			$guest_address = array();
-
-			foreach ( HTL_Meta_Box_Reservation_Data::get_guest_details_fields() as $address_key => $address_value ) {
-				$guest_address[ $address_key ] = self::get_form_data_field( $address_key );
-			}
-
-			foreach ( $cart_totals->cart_contents as $cart_item_key => $values ) {
-				for ( $i = 0; $i < $values[ 'quantity' ]; $i++ ) {
-					$rooms_bookings_id = htl_populate_rooms_bookings( $reservation_id, $values[ 'room_id' ] );
-
-					if ( ! $rooms_bookings_id ) {
-						throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'wp-hotelier' ), 402 ) );
-					}
-				}
-
-				// Since the version 1.2.0, the calculated deposit is saved into
-				// the reservation meta (as well as the percent deposit)
-				$deposit = round( ( $values[ 'price' ] * $values[ 'deposit' ] ) / 100 );
-				$deposit = array(
-					'deposit'         => $deposit,
-					'percent_deposit' => $values[ 'deposit' ],
-				);
-				$deposit = apply_filters( 'hotelier_get_item_deposit_for_reservation', $deposit, $values );
-
-				// Default adults/children for this room
-				$adults   = $values[ 'max_guests' ];
-				$children = 0;
-
-				if ( isset( $values['guests'] ) && is_array( $values['guests'] ) ) {
-					$guests   = $values['guests'];
-					$adults   = array();
-					$children = array();
-
-					for ( $i = 0; $i < $values[ 'quantity' ]; $i++ ) {
-						// Default fallback values
-						$adults[$i]   = $values[ 'max_guests' ];
-						$children[$i] = 0;
-
-						if ( isset( $guests[$i] ) && isset( $guests[$i]['adults'] ) ) {
-							$adults[$i] = $guests[$i]['adults'];
-						}
-
-						if ( isset( $guests[$i] ) && isset( $guests[$i]['children'] ) ) {
-							$children[$i] = $guests[$i]['children'];
-						}
-					}
-				}
-
-				// Fees
-				$values[ 'fees' ] = isset( $values[ 'fees' ] ) && is_array( $values[ 'fees' ] ) ? $values[ 'fees' ] : array();
-
-				// Extras
-				$values[ 'extras' ] = isset( $values[ 'extras' ] ) && is_array( $values[ 'extras' ] ) ? $values[ 'extras' ] : array();
-
-				$item_id = $reservation->add_item(
-					$values[ 'data' ],
-					$values[ 'quantity' ],
-					array(
-						'rate_name'       => $values[ 'rate_name' ],
-						'rate_id'         => $values[ 'rate_id' ],
-						'max_guests'      => $values[ 'max_guests' ],
-						'price'           => $values[ 'price' ],
-						'price_without_extras' => $values[ 'price_without_extras' ],
-						'total_without_extras' => $values[ 'total_without_extras' ],
-						'percent_deposit' => $deposit[ 'percent_deposit' ],
-						'deposit'         => $deposit[ 'deposit' ],
-						'is_cancellable'  => $values[ 'is_cancellable' ],
-						'adults'          => $adults,
-						'children'        => $children,
-						'fees'            => $values[ 'fees' ],
-						'extras'               => $values[ 'extras' ],
-
-					)
-				);
-
-				if ( ! $item_id ) {
-					throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'wp-hotelier' ), 403 ) );
-				}
-			}
-
-			$reservation->set_checkin( self::$checkin );
-			$reservation->set_checkout( self::$checkout );
-			$reservation->set_address( $guest_address );
-			$reservation->set_arrival_time( '-1' );
-			$reservation->set_booking_method( 'manual-booking' );
-			$reservation->set_subtotal( $cart_totals->subtotal );
-			$reservation->set_tax_total( $cart_totals->tax_total );
-			$reservation->set_total( $cart_totals->total );
-			$reservation->set_deposit( $cart_totals->required_deposit );
-
-			// Save coupon data
-			if ( htl_coupons_enabled() ) {
-				$coupon_id = $cart_totals->coupon_id;
-
-				if ( absint( $coupon_id ) > 0 ) {
-					$coupon      = htl_get_coupon( $coupon_id );
-					$coupon_code = $coupon->get_code();
-
-					// Check if coupon is valid
-					$can_apply_coupon = htl_can_apply_coupon( $coupon_id, self::$force_booking );
-
-					if ( isset( $can_apply_coupon['can_apply'] ) && $can_apply_coupon['can_apply'] ) {
-						$reservation->set_discount_total( $cart_totals->discount_total );
-						$reservation->set_coupon_id( $coupon_id );
-						$reservation->set_coupon_code( $coupon_code );
-					} else {
-						$reason = isset( $can_apply_coupon['reason'] ) ? $can_apply_coupon['reason'] : false;
-						$reason = $reason ? $reason : esc_html__( 'This coupon cannot be applied.', 'wp-hotelier' );
-
-						throw new Exception( $reason );
-					}
-				}
-			}
-
-			// Add a note to the reservation
-			$admin_name = $current_user->display_name ? $current_user->display_name : esc_html__( 'admin', 'wp-hotelier' );
-			$reservation->add_reservation_note( sprintf( esc_html__( 'Reservation manually created by %s.', 'wp-hotelier' ), $admin_name ) );
-
-			// If we got here, the reservation was created without problems!
-			$wpdb->query( 'COMMIT' );
-
-		} catch ( Exception $e ) {
-
-			// There was an error adding reservation data
-			$wpdb->query( 'ROLLBACK' );
-			return new WP_Error( 'booking-error', $e->getMessage() );
+		// Build guest address from form data.
+		$guest_address = array();
+		foreach ( HTL_Meta_Box_Reservation_Data::get_guest_details_fields() as $key => $val ) {
+			$guest_address[ $key ] = self::get_form_data_field( $key );
 		}
 
-		return $reservation_id;
+		$args = array(
+			'checkin'          => self::$checkin,
+			'checkout'         => self::$checkout,
+			'guest_address'    => $guest_address,
+			'special_requests' => self::get_form_data_field( 'special_requests' ),
+			'arrival_time'     => -1,
+			'created_via'      => 'admin',
+			'admin_creator'    => $current_user->ID,
+			'force_booking'    => self::$force_booking,
+			'status'           => 'pending',
+		);
+
+		return htl_create_reservation_from_cart( $cart_totals, $args );
 	}
 
 	/**

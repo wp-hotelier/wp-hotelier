@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Core
  * @package  Hotelier/Functions
- * @version  2.17.0
+ * @version  2.18.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -468,6 +468,229 @@ function htl_get_all_reservations( $checkin, $checkout ) {
 	}
 
 	return $reservations;
+}
+
+/**
+ * Create a reservation from calculated cart totals.
+ *
+ * @param HTL_Cart_Totals $cart_totals Calculated cart totals (after calculate_totals()).
+ * @param array $args Reservation arguments.
+ * @return int|WP_Error Reservation ID on success, WP_Error on failure.
+ */
+function htl_create_reservation_from_cart( $cart_totals, $args = array() ) {
+	global $wpdb;
+
+	$defaults = array(
+		'checkin'              => '',
+		'checkout'             => '',
+		'guest_address'        => array(),
+		'special_requests'     => '',
+		'arrival_time'         => -1,
+		'created_via'          => 'api',
+		'admin_creator'        => 0,
+		'force_booking'        => false,
+		'status'               => 'pending',
+		'payment_method'       => '',
+		'payment_method_title' => '',
+	);
+
+	$args = wp_parse_args( $args, $defaults );
+
+	// Validate required dates
+	if ( empty( $args['checkin'] ) || empty( $args['checkout'] ) ) {
+		return new WP_Error( 'hotelier_reservation_error', esc_html__( 'Check-in and check-out dates are required.', 'wp-hotelier' ) );
+	}
+
+	// Validate guest address
+	$guest_address = $args['guest_address'];
+	if ( empty( $guest_address['first_name'] ) || empty( $guest_address['last_name'] ) || empty( $guest_address['email'] ) ) {
+		return new WP_Error( 'hotelier_reservation_error', esc_html__( 'Guest first name, last name, and email are required.', 'wp-hotelier' ) );
+	}
+
+	$guest_full_name = sprintf( '%s %s', $guest_address['first_name'], $guest_address['last_name'] );
+
+	// Start transaction if available
+	$wpdb->query( 'START TRANSACTION' );
+
+	try {
+		// Create reservation
+		$reservation_data = array(
+			'status'           => $args['status'],
+			'guest_name'       => $guest_full_name,
+			'email'            => $guest_address['email'],
+			'special_requests' => $args['special_requests'],
+			'created_via'      => $args['created_via'],
+			'admin_creator'    => $args['admin_creator'],
+		);
+
+		$reservation = htl_create_reservation( $reservation_data );
+
+		if ( is_wp_error( $reservation ) ) {
+			throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'wp-hotelier' ), 400 ) );
+		}
+
+		$reservation_id = $reservation->id;
+
+		// Add booking
+		$booking_id = htl_add_booking(
+			$reservation_id,
+			$args['checkin'],
+			$args['checkout'],
+			$args['status'],
+			$args['force_booking']
+		);
+
+		if ( ! $booking_id ) {
+			throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'wp-hotelier' ), 401 ) );
+		}
+
+		// Process each cart item
+		foreach ( $cart_totals->cart_contents as $cart_item_key => $values ) {
+			// Populate rooms_bookings for each unit
+			for ( $i = 0; $i < $values['quantity']; $i++ ) {
+				$rooms_bookings_id = htl_populate_rooms_bookings(
+					$reservation_id,
+					$values['room_id']
+				);
+
+				if ( ! $rooms_bookings_id ) {
+					throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'wp-hotelier' ), 402 ) );
+				}
+			}
+
+			// Calculate the deposit for this item
+			$deposit = round( ( $values['price'] * $values['deposit'] ) / 100 );
+			$deposit = array(
+				'deposit'         => $deposit,
+				'percent_deposit' => $values['deposit'],
+			);
+			$deposit = apply_filters( 'hotelier_get_item_deposit_for_reservation', $deposit, $values );
+
+			// Default adults/children for this room
+			$adults   = $values['max_guests'];
+			$children = 0;
+
+			if ( isset( $values['guests'] ) && is_array( $values['guests'] ) ) {
+				$guests   = $values['guests'];
+				$adults   = array();
+				$children = array();
+
+				for ( $i = 0; $i < $values['quantity']; $i++ ) {
+					$adults[ $i ]   = $values['max_guests'];
+					$children[ $i ] = 0;
+
+					if ( isset( $guests[ $i ] ) && isset( $guests[ $i ]['adults'] ) ) {
+						$adults[ $i ] = $guests[ $i ]['adults'];
+					}
+
+					if ( isset( $guests[ $i ] ) && isset( $guests[ $i ]['children'] ) ) {
+						$children[ $i ] = $guests[ $i ]['children'];
+					}
+				}
+			}
+
+			// Fees
+			$values['fees'] = isset( $values['fees'] ) && is_array( $values['fees'] ) ? $values['fees'] : array();
+
+			// Extras
+			$values['extras'] = isset( $values['extras'] ) && is_array( $values['extras'] ) ? $values['extras'] : array();
+
+			// Add item
+			$item_id = $reservation->add_item(
+				$values['data'],
+				$values['quantity'],
+				array(
+					'rate_name'            => $values['rate_name'],
+					'rate_id'              => $values['rate_id'],
+					'max_guests'           => $values['max_guests'],
+					'price'                => $values['price'],
+					'price_without_extras' => $values['price_without_extras'],
+					'total_without_extras' => $values['total_without_extras'],
+					'percent_deposit'      => $deposit['percent_deposit'],
+					'deposit'              => $deposit['deposit'],
+					'is_cancellable'       => $values['is_cancellable'],
+					'adults'               => $adults,
+					'children'             => $children,
+					'fees'                 => $values['fees'],
+					'extras'               => $values['extras'],
+				)
+			);
+
+			if ( ! $item_id ) {
+				throw new Exception( sprintf( esc_html__( 'Error %d: Unable to create reservation. Please try again.', 'wp-hotelier' ), 403 ) );
+			}
+		}
+
+		// Set reservation meta
+		$reservation->set_checkin( $args['checkin'] );
+		$reservation->set_checkout( $args['checkout'] );
+		$reservation->set_address( $guest_address );
+		$reservation->set_arrival_time( $args['arrival_time'] );
+		$reservation->set_subtotal( $cart_totals->subtotal );
+		$reservation->set_tax_total( $cart_totals->tax_total );
+		$reservation->set_total( $cart_totals->total );
+		$reservation->set_deposit( $cart_totals->required_deposit );
+
+		// Set booking method
+		$booking_method = 'manual-booking';
+		if ( $args['created_via'] === 'api' ) {
+			$booking_method = 'api-booking';
+		} elseif ( $args['created_via'] === 'booking' ) {
+			$booking_method = 'online-booking';
+		}
+		$reservation->set_booking_method( $booking_method );
+
+		// Set payment method
+		if ( ! empty( $args['payment_method'] ) ) {
+			$reservation->set_payment_method( $args['payment_method'], $args['payment_method_title'] );
+		}
+
+		// Save coupon data
+		if ( htl_coupons_enabled() ) {
+			$coupon_id = $cart_totals->coupon_id;
+
+			if ( absint( $coupon_id ) > 0 ) {
+				$coupon      = htl_get_coupon( $coupon_id );
+				$coupon_code = $coupon->get_code();
+
+				// Check if coupon is valid
+				$can_apply_coupon = htl_can_apply_coupon( $coupon_id, $args['force_booking'] );
+
+				if ( isset( $can_apply_coupon['can_apply'] ) && $can_apply_coupon['can_apply'] ) {
+					$reservation->set_discount_total( $cart_totals->discount_total );
+					$reservation->set_coupon_id( $coupon_id );
+					$reservation->set_coupon_code( $coupon_code );
+				} else {
+					$reason = isset( $can_apply_coupon['reason'] ) ? $can_apply_coupon['reason'] : esc_html__( 'This coupon cannot be applied.', 'wp-hotelier' );
+					throw new Exception( $reason );
+				}
+			}
+		}
+
+		// Add a note to the reservation
+		$note = '';
+		if ( $args['created_via'] === 'admin' && $args['admin_creator'] ) {
+			$admin_user = get_userdata( $args['admin_creator'] );
+			$admin_name = $admin_user ? $admin_user->display_name : esc_html__( 'admin', 'wp-hotelier' );
+			$note       = sprintf( esc_html__( 'Reservation manually created by %s.', 'wp-hotelier' ), $admin_name );
+		} elseif ( $args['created_via'] === 'api' ) {
+			$note = esc_html__( 'Reservation created via REST API.', 'wp-hotelier' );
+		}
+
+		if ( $note ) {
+			$reservation->add_reservation_note( $note );
+		}
+
+		$wpdb->query( 'COMMIT' );
+
+		do_action( 'hotelier_reservation_created_from_cart_totals', $reservation, $cart_totals, $args );
+
+		return $reservation_id;
+
+	} catch ( Exception $e ) {
+		$wpdb->query( 'ROLLBACK' );
+		return new WP_Error( 'hotelier_reservation_error', $e->getMessage() );
+	}
 }
 
 /**
