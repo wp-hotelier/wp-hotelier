@@ -365,9 +365,10 @@ class HTL_Reservation {
 	 *
 	 * @param string $new_status Status to change the reservation to. No internal htl- prefix is required.
 	 * @param string $note (default: '') Optional note to add
-	 * @param string $manual (default: '') Changed by admin or not
+	 * @param bool $manual (default: false) Changed by admin or not
+	 * @param string $context (default: '') Context of the change ('api', 'admin', etc.)
 	 */
-	public function update_status( $new_status, $note = '',  $manual = false ) {
+	public function update_status( $new_status, $note = '', $manual = false, $context = '' ) {
 		if ( ! $this->id ) {
 			return;
 		}
@@ -439,7 +440,13 @@ class HTL_Reservation {
 				// Update the reservation table
 				$this->update_table_status( $new_status );
 
-				$this->add_reservation_note( trim( $note . ' ' . sprintf( esc_html__( 'Reservation status changed from %s to %s.', 'wp-hotelier' ), htl_get_reservation_status_name( $old_status ), htl_get_reservation_status_name( $new_status ) ) ) );
+				if ( $context === 'api' ) {
+					$status_note = sprintf( esc_html__( 'Reservation status changed from %s to %s via REST API.', 'wp-hotelier' ), htl_get_reservation_status_name( $old_status ), htl_get_reservation_status_name( $new_status ) );
+				} else {
+					$status_note = sprintf( esc_html__( 'Reservation status changed from %s to %s.', 'wp-hotelier' ), htl_get_reservation_status_name( $old_status ), htl_get_reservation_status_name( $new_status ) );
+				}
+
+				$this->add_reservation_note( trim( $note . ' ' . $status_note ) );
 
 				// Status was changed
 				do_action( 'hotelier_reservation_status_' . $new_status, $this->id );
