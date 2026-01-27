@@ -59,21 +59,6 @@ function htl_rest_get_date_params_schema() {
 }
 
 /**
- * Validate date format (YYYY-MM-DD).
- *
- * @param string $date Date string.
- * @return bool True if valid.
- */
-function htl_rest_validate_date( $date ) {
-	if ( ! is_string( $date ) ) {
-		return false;
-	}
-
-	$d = DateTime::createFromFormat( 'Y-m-d', $date );
-	return $d && $d->format( 'Y-m-d' ) === $date;
-}
-
-/**
  * Get the featured image URL for a room.
  *
  * @param int    $room_id Room ID.
