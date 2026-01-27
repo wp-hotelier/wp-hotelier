@@ -129,7 +129,7 @@ abstract class HTL_REST_Controller extends WP_REST_Controller {
 	 * @return bool|WP_Error True if valid, WP_Error if not.
 	 */
 	public function validate_date_param( $value, $request, $param ) {
-		if ( ! htl_rest_validate_date( $value ) ) {
+		if ( ! HTL_Formatting_Helper::is_valid_date( $value ) ) {
 			return new WP_Error(
 				'rest_invalid_param',
 				/* translators: %s: parameter name */

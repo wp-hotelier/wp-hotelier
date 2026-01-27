@@ -344,7 +344,7 @@ class HTL_REST_Rooms_Controller extends HTL_REST_Controller {
 			$index            = 0;
 
 			foreach ( $disabled_dates_schema as $rule ) {
-				if ( ! isset( $rule['from'] ) || ! htl_rest_validate_date( $rule['from'] ) ) {
+				if ( ! isset( $rule['from'] ) || ! HTL_Formatting_Helper::is_valid_date( $rule['from'] ) ) {
 					return new WP_Error(
 						'hotelier_rest_invalid_dates',
 						__( 'Each rule must have a valid "from" date in YYYY-MM-DD format.', 'wp-hotelier' ),
@@ -358,7 +358,7 @@ class HTL_REST_Rooms_Controller extends HTL_REST_Controller {
 				// Validate 'to' date if not a single day
 				if ( ! $single_day ) {
 					if ( isset( $rule['to'] ) && ! empty( $rule['to'] ) ) {
-						if ( ! htl_rest_validate_date( $rule['to'] ) ) {
+						if ( ! HTL_Formatting_Helper::is_valid_date( $rule['to'] ) ) {
 							return new WP_Error(
 								'hotelier_rest_invalid_dates',
 								__( 'Invalid "to" date format. Use YYYY-MM-DD.', 'wp-hotelier' ),
