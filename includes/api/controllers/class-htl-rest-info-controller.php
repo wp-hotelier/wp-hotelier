@@ -42,6 +42,34 @@ class HTL_REST_Info_Controller extends HTL_REST_Controller {
 				'schema' => array( $this, 'get_public_item_schema' ),
 			)
 		);
+
+		// Route for updating global disabled dates
+		register_rest_route(
+			$this->namespace,
+			'/' . $this->rest_base . '/disabled-dates',
+			array(
+				array(
+					'methods'             => WP_REST_Server::EDITABLE,
+					'callback'            => array( $this, 'update_disabled_dates' ),
+					'permission_callback' => array( $this, 'update_disabled_dates_permissions_check' ),
+					'args'                => array(
+						'schema' => array(
+							'description' => __( 'Array of disabled date rules.', 'wp-hotelier' ),
+							'type'        => 'array',
+							'items'       => array(
+								'type'       => 'object',
+								'properties' => array(
+									'from'       => array( 'type' => 'string', 'format' => 'date' ),
+									'to'         => array( 'type' => array( 'string', 'null' ) ),
+									'single_day' => array( 'type' => 'boolean' ),
+									'every_year' => array( 'type' => 'boolean' ),
+								),
+							),
+						),
+					),
+				),
+			)
+		);
 	}
 
 	/**
@@ -52,6 +80,127 @@ class HTL_REST_Info_Controller extends HTL_REST_Controller {
 	 */
 	public function get_info_permissions_check( $request ) {
 		return HTL_REST_Authentication::check_public_permission();
+	}
+
+	/**
+	 * Check if a given request has access to update disabled dates.
+	 *
+	 * @param WP_REST_Request $request Full details about the request.
+	 * @return bool|WP_Error
+	 */
+	public function update_disabled_dates_permissions_check( $request ) {
+		return HTL_REST_Authentication::check_manage_hotelier_permission();
+	}
+
+	/**
+	 * Update global disabled dates settings.
+	 *
+	 * @param WP_REST_Request $request Full details about the request.
+	 * @return WP_REST_Response|WP_Error
+	 */
+	public function update_disabled_dates( $request ) {
+		// Check if Disable Dates extension is active
+		if ( ! class_exists( 'Hotelier_Disable_Dates' ) ) {
+			return new WP_Error(
+				'hotelier_rest_extension_required',
+				__( 'The Disable Dates extension is required to update disabled dates settings.', 'wp-hotelier' ),
+				array( 'status' => 400 )
+			);
+		}
+
+		$schema = $request->get_param( 'schema' );
+
+		// Validate and save schema if provided
+		if ( $schema !== null ) {
+			if ( ! is_array( $schema ) ) {
+				return new WP_Error(
+					'hotelier_rest_invalid_param',
+					__( 'The schema parameter must be an array.', 'wp-hotelier' ),
+					array( 'status' => 400 )
+				);
+			}
+
+			$validated_schema = array();
+			$index            = 0;
+
+			foreach ( $schema as $rule ) {
+				if ( ! isset( $rule['from'] ) || ! HTL_Formatting_Helper::is_valid_date( $rule['from'] ) ) {
+					return new WP_Error(
+						'hotelier_rest_invalid_dates',
+						__( 'Each rule must have a valid "from" date in YYYY-MM-DD format.', 'wp-hotelier' ),
+						array( 'status' => 400 )
+					);
+				}
+
+				$single_day = isset( $rule['single_day'] ) ? (bool) $rule['single_day'] : false;
+				$to_date    = '';
+
+				// Validate 'to' date if not a single day
+				if ( ! $single_day ) {
+					if ( isset( $rule['to'] ) && ! empty( $rule['to'] ) ) {
+						if ( ! HTL_Formatting_Helper::is_valid_date( $rule['to'] ) ) {
+							return new WP_Error(
+								'hotelier_rest_invalid_dates',
+								__( 'Invalid "to" date format. Use YYYY-MM-DD.', 'wp-hotelier' ),
+								array( 'status' => 400 )
+							);
+						}
+
+						if ( strtotime( $rule['to'] ) < strtotime( $rule['from'] ) ) {
+							return new WP_Error(
+								'hotelier_rest_invalid_dates',
+								__( 'The "to" date must be after or equal to the "from" date.', 'wp-hotelier' ),
+								array( 'status' => 400 )
+							);
+						}
+
+						$to_date = sanitize_text_field( $rule['to'] );
+					}
+				}
+
+				$validated_rule = array(
+					'index' => $index,
+					'from'  => sanitize_text_field( $rule['from'] ),
+					'to'    => $to_date,
+				);
+
+				// Only include single_day if true (extension uses isset() check)
+				if ( $single_day ) {
+					$validated_rule['single_day'] = 1;
+				}
+
+				// Only include every_year if true (extension uses isset() check)
+				if ( isset( $rule['every_year'] ) && $rule['every_year'] ) {
+					$validated_rule['every_year'] = 1;
+				}
+
+				$validated_schema[] = $validated_rule;
+
+				$index++;
+			}
+
+			// Save the schema
+			htl_update_option( 'disabled_dates_schema', $validated_schema );
+		}
+
+		// Clear transients
+		delete_transient( 'hotelier_global_disabled_dates' );
+		delete_transient( 'hotelier_room_disabled_dates' );
+
+		/**
+		 * Fires after global disabled dates settings are updated via REST API.
+		 *
+		 * @param WP_REST_Request $request The request object.
+		 */
+		do_action( 'hotelier_rest_update_disabled_dates_settings', $request );
+
+		// Return the updated disabled dates info
+		$data = array(
+			'success'        => true,
+			'disabled_dates' => $this->get_disabled_dates_info(),
+		);
+
+		return rest_ensure_response( $data );
 	}
 
 	/**
