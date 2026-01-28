@@ -32,6 +32,7 @@ WP Hotelier is a complete hotel booking system for WordPress. Some of the featur
 * Offer discount codes (coupons).
 * List your rooms by using shortcodes.
 * Email notifications.
+* REST API (new!).
 
 = How it works? =
 
@@ -129,6 +130,11 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 4. WP Hotelier - Admin calendar.
 
 == Changelog ==
+
+= 2.18.0 - 2026-01-28 =
+* Add - Support for WordPress 6.9.
+* Add - REST API.
+* Localization - POT file updated.
 
 = 2.17.0 - 2025-11-22 =
 * Add - Display rooms included in reservation
