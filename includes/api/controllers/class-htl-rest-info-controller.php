@@ -79,7 +79,7 @@ class HTL_REST_Info_Controller extends HTL_REST_Controller {
 	 * @return bool|WP_Error
 	 */
 	public function get_info_permissions_check( $request ) {
-		return HTL_REST_Authentication::check_public_permission();
+		return HTL_REST_Authentication::check_manage_hotelier_permission();
 	}
 
 	/**
