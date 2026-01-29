@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Class
  * @package  Hotelier/Classes
- * @version  2.10.0
+ * @version  2.18.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -431,7 +431,16 @@ class HTL_Room_Variation {
 		if ( class_exists( 'HTL_APS_Room_Variation' ) && ! $use_this ) {
 			$variation = new HTL_APS_Room_Variation( $this );
 
-			return $variation->get_min_price( $raw );
+			if ( method_exists( $variation, 'get_min_price' ) ) {
+				return $variation->get_min_price( $raw );
+			} else {
+				// Backwards compatibility with old APS versions
+				if ( $raw ) {
+					return 0;
+				} else {
+					return $variation->get_min_price_html();
+				}
+			}
 		} else {
 
 			$min_price = 0;
