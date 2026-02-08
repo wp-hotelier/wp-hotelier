@@ -1,4 +1,4 @@
-# Copyright (C) 2025 WP Hotelier
+# Copyright (C) 2026 WP Hotelier
 # This file is distributed under the same license as the WP Hotelier package.
 msgid ""
 msgstr ""
@@ -19,15 +19,15 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../hotelier.php:97, ../hotelier.php:104, ../includes/class-htl-booking.php:89, ../includes/class-htl-booking.php:96, ../includes/class-htl-emails.php:47, ../includes/class-htl-emails.php:54, ../includes/class-htl-payment-gateways.php:51, ../includes/class-htl-payment-gateways.php:58
+#: ../hotelier.php:104, ../hotelier.php:111, ../includes/class-htl-booking.php:89, ../includes/class-htl-booking.php:96, ../includes/class-htl-emails.php:47, ../includes/class-htl-emails.php:54, ../includes/class-htl-payment-gateways.php:51, ../includes/class-htl-payment-gateways.php:58
 msgid "Cheatin&#8217; huh?"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:177, ../includes/class-htl-booking.php:171, ../includes/class-htl-booking.php:160, ../includes/class-htl-booking.php:198, ../includes/class-htl-booking.php:289, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:253, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:247, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:269, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:334
+#: ../includes/class-htl-booking.php:177, ../includes/class-htl-booking.php:171, ../includes/class-htl-booking.php:160, ../includes/class-htl-booking.php:198, ../includes/class-htl-booking.php:289, ../includes/htl-reservation-functions.php:529, ../includes/htl-reservation-functions.php:544, ../includes/htl-reservation-functions.php:557, ../includes/htl-reservation-functions.php:620
 msgid "Error %d: Unable to create reservation. Please try again."
 msgstr ""
 
-#: ../includes/class-htl-booking.php:324, ../includes/ajax/htl-ajax-coupons.php:61, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:494, ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:365
+#: ../includes/class-htl-booking.php:324, ../includes/htl-reservation-functions.php:664, ../includes/ajax/htl-ajax-coupons.php:61, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-save.php:494
 msgid "This coupon cannot be applied."
 msgstr ""
 
@@ -125,7 +125,7 @@ msgstr ""
 msgid "Time is for %s time zone"
 msgstr ""
 
-#: ../includes/class-htl-booking.php:442, ../includes/class-htl-reservation.php:229, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:109, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:373
+#: ../includes/class-htl-booking.php:442, ../includes/class-htl-reservation.php:229, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:109, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:385
 msgid "I don't know"
 msgstr ""
 
@@ -229,7 +229,7 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: ../includes/class-htl-emails.php:287, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:325, ../templates/booking/form-guest-details.php:21, ../templates/emails/email-guest-details.php:19, ../templates/reservation/guest-details.php:21
+#: ../includes/class-htl-emails.php:287, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:337, ../templates/booking/form-guest-details.php:21, ../templates/emails/email-guest-details.php:19, ../templates/reservation/guest-details.php:21
 msgid "Guest details"
 msgstr ""
 
@@ -721,7 +721,7 @@ msgid_plural "Pending Payment <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../includes/class-htl-post-types.php:218, ../includes/htl-reservation-functions.php:119
+#: ../includes/class-htl-post-types.php:218, ../includes/htl-reservation-functions.php:124
 msgctxt "Reservation status"
 msgid "On Hold"
 msgstr ""
@@ -732,7 +732,7 @@ msgid_plural "On Hold <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../includes/class-htl-post-types.php:226, ../includes/htl-reservation-functions.php:117
+#: ../includes/class-htl-post-types.php:226, ../includes/htl-reservation-functions.php:122
 msgctxt "Reservation status"
 msgid "Confirmed"
 msgstr ""
@@ -743,7 +743,7 @@ msgid_plural "Confirmed <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../includes/class-htl-post-types.php:234, ../includes/htl-reservation-functions.php:116
+#: ../includes/class-htl-post-types.php:234, ../includes/htl-reservation-functions.php:121
 msgctxt "Reservation status"
 msgid "Completed"
 msgstr ""
@@ -754,7 +754,7 @@ msgid_plural "Completed <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../includes/class-htl-post-types.php:242, ../includes/htl-reservation-functions.php:120
+#: ../includes/class-htl-post-types.php:242, ../includes/htl-reservation-functions.php:125
 msgctxt "Reservation status"
 msgid "Cancelled"
 msgstr ""
@@ -765,7 +765,7 @@ msgid_plural "Cancelled <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../includes/class-htl-post-types.php:250, ../includes/htl-reservation-functions.php:122
+#: ../includes/class-htl-post-types.php:250, ../includes/htl-reservation-functions.php:127
 msgctxt "Reservation status"
 msgid "Failed"
 msgstr ""
@@ -776,7 +776,7 @@ msgid_plural "Failed <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../includes/class-htl-post-types.php:258, ../includes/htl-reservation-functions.php:121
+#: ../includes/class-htl-post-types.php:258, ../includes/htl-reservation-functions.php:126
 msgctxt "Reservation status"
 msgid "Refunded"
 msgstr ""
@@ -1053,59 +1053,63 @@ msgstr ""
 msgid "Hotelier"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:421, ../includes/admin/class-htl-admin-post-types.php:357
+#: ../includes/class-htl-reservation.php:422, ../includes/admin/class-htl-admin-post-types.php:375
 msgid "This reservation cannot be restored because one or more rooms are no longer available."
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:442
+#: ../includes/class-htl-reservation.php:446
 msgid "Reservation status changed from %s to %s."
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:385
+#: ../includes/class-htl-reservation.php:444
+msgid "Reservation status changed from %s to %s via REST API."
+msgstr ""
+
+#: ../includes/class-htl-reservation.php:386
 msgid "Error: Trying to change the status from %1$s to %2$s. %1$s reservations cannot be restored or modified."
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:803
+#: ../includes/class-htl-reservation.php:810
 msgid "Reservation marked as paid."
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:815
+#: ../includes/class-htl-reservation.php:822
 msgid "Reservation marked as unpaid."
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:1046, ../includes/class-htl-reservation.php:1068, ../includes/class-htl-reservation.php:1125, ../includes/class-htl-reservation.php:1147, ../templates/booking/reservation-table.php:122, ../templates/booking/reservation-table.php:184, ../templates/booking/reservation-table.php:147
+#: ../includes/class-htl-reservation.php:1053, ../includes/class-htl-reservation.php:1075, ../includes/class-htl-reservation.php:1132, ../includes/class-htl-reservation.php:1154, ../templates/booking/reservation-table.php:122, ../templates/booking/reservation-table.php:184, ../templates/booking/reservation-table.php:147
 msgid "Subtotal:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:1054, ../includes/class-htl-reservation.php:1073, ../includes/class-htl-reservation.php:1133, ../includes/class-htl-reservation.php:1152
+#: ../includes/class-htl-reservation.php:1061, ../includes/class-htl-reservation.php:1080, ../includes/class-htl-reservation.php:1140, ../includes/class-htl-reservation.php:1159
 msgid "Discount:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:1061, ../includes/class-htl-reservation.php:1140, ../templates/booking/reservation-table.php:136
+#: ../includes/class-htl-reservation.php:1068, ../includes/class-htl-reservation.php:1147, ../templates/booking/reservation-table.php:136
 msgid "Tax total:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:1091
+#: ../includes/class-htl-reservation.php:1098
 msgid "Required deposit:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:1084
+#: ../includes/class-htl-reservation.php:1091
 msgid "Paid deposit:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:1098
+#: ../includes/class-htl-reservation.php:1105
 msgid "Payment method:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:1106, ../includes/class-htl-reservation.php:1173, ../includes/class-htl-reservation.php:1161, ../templates/booking/reservation-table.php:196, ../templates/booking/reservation-table.php:159
+#: ../includes/class-htl-reservation.php:1113, ../includes/class-htl-reservation.php:1180, ../includes/class-htl-reservation.php:1168, ../templates/booking/reservation-table.php:196, ../templates/booking/reservation-table.php:159
 msgid "Total:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:1106
+#: ../includes/class-htl-reservation.php:1113
 msgid "Total due:"
 msgstr ""
 
-#: ../includes/class-htl-reservation.php:1166
+#: ../includes/class-htl-reservation.php:1173
 msgid "Deposit Due Now:"
 msgstr ""
 
@@ -1118,19 +1122,19 @@ msgctxt "price"
 msgid "Price: %s"
 msgstr ""
 
-#: ../includes/class-htl-room-variation.php:491, ../includes/class-htl-room.php:1010, ../includes/class-htl-room.php:1008
+#: ../includes/class-htl-room-variation.php:525, ../includes/class-htl-room.php:1049, ../includes/class-htl-room.php:1047
 msgid "%s per night"
 msgstr ""
 
-#: ../includes/class-htl-room-variation.php:478, ../includes/class-htl-room-variation.php:466, ../includes/class-htl-room.php:990, ../includes/class-htl-room.php:975, ../includes/class-htl-room.php:941
+#: ../includes/class-htl-room-variation.php:502, ../includes/class-htl-room-variation.php:480, ../includes/class-htl-room.php:1019, ../includes/class-htl-room.php:995, ../includes/class-htl-room.php:955
 msgid "Rates from %s per night"
 msgstr ""
 
-#: ../includes/class-htl-room-variation.php:575, ../includes/class-htl-room.php:1095
+#: ../includes/class-htl-room-variation.php:625, ../includes/class-htl-room.php:1148
 msgid "Requires an immediate payment"
 msgstr ""
 
-#: ../includes/class-htl-room-variation.php:575, ../includes/class-htl-room.php:1095
+#: ../includes/class-htl-room-variation.php:625, ../includes/class-htl-room.php:1148
 msgid "Requires an immediate payment (%s%% of the total)"
 msgstr ""
 
@@ -2267,25 +2271,45 @@ msgstr ""
 msgid "Russian Rubles"
 msgstr ""
 
-#: ../includes/htl-reservation-functions.php:61
+#: ../includes/htl-reservation-functions.php:62
 msgid "Invalid reservation status"
 msgstr ""
 
-#: ../includes/htl-reservation-functions.php:103
+#: ../includes/htl-reservation-functions.php:108
 msgid "Invalid reservation ID"
 msgstr ""
 
-#: ../includes/htl-reservation-functions.php:118
+#: ../includes/htl-reservation-functions.php:123
 msgctxt "Reservation status"
 msgid "Pending"
 msgstr ""
 
-#: ../includes/htl-reservation-functions.php:402
+#: ../includes/htl-reservation-functions.php:407
 msgid "Time limit reached."
 msgstr ""
 
-#: ../includes/htl-reservation-functions.php:440, ../includes/htl-reservation-functions.php:438
+#: ../includes/htl-reservation-functions.php:445, ../includes/htl-reservation-functions.php:443
 msgid "Check-out date reached."
+msgstr ""
+
+#: ../includes/htl-reservation-functions.php:501
+msgid "Check-in and check-out dates are required."
+msgstr ""
+
+#: ../includes/htl-reservation-functions.php:507
+msgid "Guest first name, last name, and email are required."
+msgstr ""
+
+#: ../includes/htl-reservation-functions.php:677
+msgid "Reservation created via REST API."
+msgstr ""
+
+#: ../includes/htl-reservation-functions.php:674, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:199
+msgid "admin"
+msgstr ""
+
+#: ../includes/htl-reservation-functions.php:675
+msgid "Reservation manually created by %s."
 msgstr ""
 
 #: ../includes/htl-room-functions.php:44
@@ -2336,7 +2360,7 @@ msgstr ""
 msgid "&nbsp;&ndash; Page %s"
 msgstr ""
 
-#: ../includes/htl-template-functions.php:1579
+#: ../includes/htl-template-functions.php:1579, ../templates/booking/terms.php:22
 msgid "required"
 msgstr ""
 
@@ -2428,7 +2452,7 @@ msgstr ""
 msgid "Available Today"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-post-types.php:110, ../includes/admin/class-htl-admin-post-types.php:172, ../includes/widgets/class-htl-widget-rooms.php:45
+#: ../includes/admin/class-htl-admin-post-types.php:110, ../includes/admin/class-htl-admin-post-types.php:173, ../includes/widgets/class-htl-widget-rooms.php:45
 msgid "Date"
 msgstr ""
 
@@ -2446,47 +2470,51 @@ msgstr[1] ""
 msgid "Guest"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-post-types.php:169
+#: ../includes/admin/class-htl-admin-post-types.php:169, ../includes/widgets/class-htl-widget-rooms.php:29, ../includes/admin/meta-boxes/class-htl-admin-meta-boxes.php:192
+msgid "Rooms"
+msgstr ""
+
+#: ../includes/admin/class-htl-admin-post-types.php:170
 msgid "Nights"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-post-types.php:170, ../includes/widgets/class-htl-widget-booking.php:70, ../includes/admin/settings/class-htl-admin-settings-default.php:193, ../templates/booking/reservation-details.php:29
+#: ../includes/admin/class-htl-admin-post-types.php:171, ../includes/widgets/class-htl-widget-booking.php:70, ../includes/admin/settings/class-htl-admin-settings-default.php:193, ../templates/booking/reservation-details.php:29
 msgid "Check-in"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-post-types.php:171, ../includes/widgets/class-htl-widget-booking.php:80, ../includes/admin/settings/class-htl-admin-settings-default.php:202, ../templates/booking/reservation-details.php:33
+#: ../includes/admin/class-htl-admin-post-types.php:172, ../includes/widgets/class-htl-widget-booking.php:80, ../includes/admin/settings/class-htl-admin-settings-default.php:202, ../templates/booking/reservation-details.php:33
 msgid "Check-out"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-post-types.php:173, ../includes/admin/class-htl-admin-post-types.php:286
+#: ../includes/admin/class-htl-admin-post-types.php:174, ../includes/admin/class-htl-admin-post-types.php:304
 msgid "Status"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-post-types.php:226
+#: ../includes/admin/class-htl-admin-post-types.php:244
 msgid "Percentage discount"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-post-types.php:226
+#: ../includes/admin/class-htl-admin-post-types.php:244
 msgid "Fixed discount"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-post-types.php:265
+#: ../includes/admin/class-htl-admin-post-types.php:283
 msgid "Created"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-post-types.php:282, ../includes/admin/meta-boxes/views/coupon/html-meta-box-coupon-settings.php:43
+#: ../includes/admin/class-htl-admin-post-types.php:300, ../includes/admin/meta-boxes/views/coupon/html-meta-box-coupon-settings.php:43
 msgid "Coupon code"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-post-types.php:283
+#: ../includes/admin/class-htl-admin-post-types.php:301
 msgid "Coupon type"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-post-types.php:284
+#: ../includes/admin/class-htl-admin-post-types.php:302
 msgid "Coupon amount"
 msgstr ""
 
-#: ../includes/admin/class-htl-admin-post-types.php:285
+#: ../includes/admin/class-htl-admin-post-types.php:303
 msgid "Expiration date"
 msgstr ""
 
@@ -2514,8 +2542,24 @@ msgstr ""
 msgid "Invalid coupon code."
 msgstr ""
 
-#: ../includes/ajax/htl-ajax-room-booking.php:36
+#: ../includes/ajax/htl-ajax-room-booking.php:36, ../includes/api/controllers/class-htl-rest-availability-controller.php:126, ../includes/api/controllers/class-htl-rest-rooms-controller.php:252, ../includes/api/controllers/class-htl-rest-rooms-controller.php:307
 msgid "Invalid room ID."
+msgstr ""
+
+#: ../includes/api/class-htl-rest-authentication.php:31
+msgid "Sorry, you are not allowed to access this resource."
+msgstr ""
+
+#: ../includes/api/class-htl-rest-authentication.php:48
+msgid "Sorry, you are not allowed to edit this resource."
+msgstr ""
+
+#: ../includes/api/htl-rest-functions.php:49
+msgid "Check-in date (YYYY-MM-DD)."
+msgstr ""
+
+#: ../includes/api/htl-rest-functions.php:54
+msgid "Check-out date (YYYY-MM-DD)."
 msgstr ""
 
 #: ../includes/emails/class-htl-email-cancelled-reservation.php:28, ../includes/emails/class-htl-email-cancelled-reservation.php:30, ../includes/emails/class-htl-email-guest-cancelled-reservation.php:28, ../includes/emails/class-htl-email-guest-cancelled-reservation.php:30, ../includes/admin/settings/class-htl-admin-settings-default.php:981, ../includes/admin/settings/class-htl-admin-settings-default.php:1015, ../includes/admin/settings/class-htl-admin-settings-default.php:1053
@@ -2726,10 +2770,6 @@ msgstr ""
 msgid "Hotelier Rooms"
 msgstr ""
 
-#: ../includes/widgets/class-htl-widget-rooms.php:29, ../includes/admin/meta-boxes/class-htl-admin-meta-boxes.php:192
-msgid "Rooms"
-msgstr ""
-
 #: ../includes/widgets/class-htl-widget-rooms.php:38
 msgid "Number of rooms to show"
 msgstr ""
@@ -2878,75 +2918,75 @@ msgstr ""
 msgid "Booking mode"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:198
-msgid "(created by admin)"
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:210
+msgid "(created by %s)"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:202
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:214
 msgid "Payment via %s"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:207
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:219
 msgid "Transaction ID:"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:219
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:231
 msgid "General details"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:228
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:240
 msgid "Reservation status:"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:246, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:238, ../includes/admin/new-reservation/views/html-admin-new-reservation.php:109, ../templates/emails/admin-cancelled-reservation.php:42, ../templates/emails/admin-new-reservation.php:42, ../templates/emails/guest-cancelled-reservation.php:42, ../templates/emails/guest-confirmed-reservation.php:42, ../templates/emails/guest-invoice.php:52, ../templates/emails/guest-request-received.php:42, ../templates/reservation/reservation-details.php:28
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:258, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:250, ../includes/admin/new-reservation/views/html-admin-new-reservation.php:109, ../templates/emails/admin-cancelled-reservation.php:42, ../templates/emails/admin-new-reservation.php:42, ../templates/emails/guest-cancelled-reservation.php:42, ../templates/emails/guest-confirmed-reservation.php:42, ../templates/emails/guest-invoice.php:52, ../templates/emails/guest-request-received.php:42, ../templates/reservation/reservation-details.php:28
 msgid "Check-in:"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:248
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:260, ../includes/api/controllers/class-htl-rest-availability-controller.php:535, ../includes/api/controllers/class-htl-rest-reservations-controller.php:539
 msgid "Check-in date."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:267, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:259, ../includes/admin/new-reservation/views/html-admin-new-reservation.php:119, ../templates/emails/admin-cancelled-reservation.php:45, ../templates/emails/admin-new-reservation.php:45, ../templates/emails/guest-cancelled-reservation.php:45, ../templates/emails/guest-confirmed-reservation.php:45, ../templates/emails/guest-invoice.php:55, ../templates/emails/guest-request-received.php:45, ../templates/reservation/reservation-details.php:32
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:279, ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:271, ../includes/admin/new-reservation/views/html-admin-new-reservation.php:119, ../templates/emails/admin-cancelled-reservation.php:45, ../templates/emails/admin-new-reservation.php:45, ../templates/emails/guest-cancelled-reservation.php:45, ../templates/emails/guest-confirmed-reservation.php:45, ../templates/emails/guest-invoice.php:55, ../templates/emails/guest-request-received.php:45, ../templates/reservation/reservation-details.php:32
 msgid "Check-out:"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:269
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:281, ../includes/api/controllers/class-htl-rest-availability-controller.php:541, ../includes/api/controllers/class-htl-rest-reservations-controller.php:545
 msgid "Check-out date."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:280
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:292
 msgid "Don't apply a new coupon (leave current one if any)"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:284
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:296
 msgid "Remove existing coupon"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:304
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:316
 msgid "Apply a coupon:"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:305
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:317
 msgid "Select the coupon you want to apply."
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:316
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:328
 msgid "Number of nights:"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:317, ../includes/admin/calendar/views/html-admin-calendar-booking-card.php:24
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:329, ../includes/admin/calendar/views/html-admin-calendar-booking-card.php:24
 msgid "%d-night stay"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:361
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:373
 msgid "Guest notes"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:371
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:383
 msgid "Estimated arrival time:"
 msgstr ""
 
-#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:412, ../templates/reservation/reservation-details.php:40
+#: ../includes/admin/meta-boxes/class-htl-meta-box-reservation-data.php:424, ../templates/reservation/reservation-details.php:40
 msgid "Special requests:"
 msgstr ""
 
@@ -3048,10 +3088,6 @@ msgstr ""
 
 #: ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:147
 msgid "Please fill the required fields."
-msgstr ""
-
-#: ../includes/admin/new-reservation/class-htl-admin-new-reservation.php:373
-msgid "Reservation manually created by admin."
 msgstr ""
 
 #: ../includes/admin/settings/class-htl-admin-settings-default.php:90
@@ -4002,6 +4038,331 @@ msgstr ""
 msgid "The callback function used for the <strong>%s</strong> setting is missing."
 msgstr ""
 
+#: ../includes/api/controllers/class-htl-rest-availability-controller.php:75
+msgid "Both checkin and checkout parameters are required."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-availability-controller.php:84, ../includes/api/controllers/class-htl-rest-rooms-controller.php:220, ../includes/api/controllers/class-htl-rest-rooms-controller.php:273
+msgid "Check-out date must be after check-in date."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-availability-controller.php:93
+msgid "Check-in date cannot be in the past."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-availability-controller.php:476
+msgid "Check-in date (YYYY-MM-DD). Required."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-availability-controller.php:484
+msgid "Check-out date (YYYY-MM-DD). Required."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-availability-controller.php:492
+msgid "Check availability for a specific room."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-availability-controller.php:498
+msgid "Number of adults. Defaults to room max_guests if not provided."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-availability-controller.php:505
+msgid "Number of children. Defaults to room max_children if not provided."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-availability-controller.php:547, ../includes/api/controllers/class-htl-rest-reservations-controller.php:551
+msgid "Number of nights."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-availability-controller.php:552
+msgid "Number of available rooms."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-availability-controller.php:557
+msgid "Available rooms with pricing."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-controller.php:84
+msgid "Current page of the collection."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-controller.php:92
+msgid "Maximum number of items to be returned in result set."
+msgstr ""
+
+#. translators: %s: parameter name
+#: ../includes/api/controllers/class-htl-rest-controller.php:136
+msgid "Invalid date format for %s. Use YYYY-MM-DD."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-info-controller.php:57
+msgid "Array of disabled date rules."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-info-controller.php:106
+msgid "The Disable Dates extension is required to update disabled dates settings."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-info-controller.php:118
+msgid "The schema parameter must be an array."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-info-controller.php:130, ../includes/api/controllers/class-htl-rest-rooms-controller.php:350
+msgid "Each rule must have a valid \"from\" date in YYYY-MM-DD format."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-info-controller.php:144, ../includes/api/controllers/class-htl-rest-rooms-controller.php:364
+msgid "Invalid \"to\" date format. Use YYYY-MM-DD."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-info-controller.php:152, ../includes/api/controllers/class-htl-rest-rooms-controller.php:372
+msgid "The \"to\" date must be after or equal to the \"from\" date."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-info-controller.php:385
+msgid "Hotel information."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-info-controller.php:403
+msgid "Currency settings."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-info-controller.php:416
+msgid "Booking settings."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-info-controller.php:427
+msgid "Tax settings."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-info-controller.php:436
+msgid "Seasonal prices schema."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-info-controller.php:441
+msgid "Active Hotelier extensions."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-reservations-controller.php:60, ../includes/api/controllers/class-htl-rest-reservations-controller.php:517
+msgid "Unique identifier for the reservation."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-reservations-controller.php:199, ../includes/api/controllers/class-htl-rest-reservations-controller.php:223
+msgid "Invalid reservation ID."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-reservations-controller.php:241
+msgid "Invalid reservation status."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-reservations-controller.php:250
+msgid "Refunded reservations cannot be modified."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-reservations-controller.php:261
+msgid "One or more rooms are no longer available for this reservation."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-reservations-controller.php:475
+msgid "Filter by reservation status."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-reservations-controller.php:482
+msgid "Filter reservations with check-in after this date (YYYY-MM-DD)."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-reservations-controller.php:490
+msgid "Filter reservations with check-in before this date (YYYY-MM-DD)."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-reservations-controller.php:523
+msgid "Reservation number for display."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-reservations-controller.php:528
+msgid "Reservation status."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-reservations-controller.php:533
+msgid "Date the reservation was created."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-reservations-controller.php:556
+msgid "Guest information."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-reservations-controller.php:561
+msgid "Subtotal amount (integer)."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-reservations-controller.php:566
+msgid "Tax total (integer)."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-reservations-controller.php:571
+msgid "Discount total (integer)."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-reservations-controller.php:576
+msgid "Total amount (integer)."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-reservations-controller.php:581
+msgid "Deposit amount (integer)."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-reservations-controller.php:586
+msgid "Paid deposit amount (integer)."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-reservations-controller.php:591
+msgid "Remain deposit charged manually (integer)."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-reservations-controller.php:596
+msgid "Balance due (integer). Zero if marked as paid."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-reservations-controller.php:601
+msgid "Reservation items."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-room-types-controller.php:60, ../includes/api/controllers/class-htl-rest-room-types-controller.php:286
+msgid "Unique identifier for the room type."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-room-types-controller.php:162
+msgid "Invalid room type ID."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-room-types-controller.php:246
+msgid "Whether to hide categories with no rooms."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-room-types-controller.php:252, ../includes/api/controllers/class-htl-rest-rooms-controller.php:662
+msgid "Sort collection by attribute."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-room-types-controller.php:259, ../includes/api/controllers/class-htl-rest-rooms-controller.php:670
+msgid "Order sort attribute ascending or descending."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-room-types-controller.php:266
+msgid "Filter by parent term ID."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-room-types-controller.php:292
+msgid "Room type name."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-room-types-controller.php:297
+msgid "Room type slug."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-room-types-controller.php:302
+msgid "Room type description."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-room-types-controller.php:307
+msgid "Number of rooms in this category."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-room-types-controller.php:312
+msgid "Parent term ID."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-rooms-controller.php:60, ../includes/api/controllers/class-htl-rest-rooms-controller.php:713
+msgid "Unique identifier for the room."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-rooms-controller.php:71
+msgid "Check-in date (YYYY-MM-DD) for price calculation."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-rooms-controller.php:78
+msgid "Check-out date (YYYY-MM-DD) for price calculation."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-rooms-controller.php:92
+msgid "Type of disabled dates: \"global\" or \"custom\"."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-rooms-controller.php:97
+msgid "Array of disabled date rules (only for custom type)."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-rooms-controller.php:260
+msgid "Room is not available."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-rooms-controller.php:296
+msgid "The Disable Dates extension is required to update room disabled dates."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-rooms-controller.php:319
+msgid "The disabled_dates_type parameter is required."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-rooms-controller.php:327
+msgid "Invalid disabled_dates_type. Use \"global\" or \"custom\"."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-rooms-controller.php:337
+msgid "A disabled_dates_schema array is required when using custom type."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-rooms-controller.php:655
+msgid "Filter by room category (term ID)."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-rooms-controller.php:678
+msgid "Check-in date (YYYY-MM-DD) to filter by availability and calculate prices."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-rooms-controller.php:686
+msgid "Check-out date (YYYY-MM-DD) to filter by availability and calculate prices."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-rooms-controller.php:719
+msgid "Room name."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-rooms-controller.php:724
+msgid "Room slug."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-rooms-controller.php:729
+msgid "Room URL."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-rooms-controller.php:735
+msgid "Whether this room has rate variations."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-rooms-controller.php:740
+msgid "Maximum number of guests."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-rooms-controller.php:745, ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:57
+msgid "Maximum number of children."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-rooms-controller.php:750
+msgid "Number of rooms in stock."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-rooms-controller.php:755
+msgid "Minimum nightly price as integer."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-rooms-controller.php:760
+msgid "Available extras with pricing rules."
+msgstr ""
+
+#: ../includes/api/controllers/class-htl-rest-rooms-controller.php:781
+msgid "Room rate variations (for variable rooms)."
+msgstr ""
+
 #: ../includes/gateways/paypal-standard/class-htl-gateway-paypal.php:28
 msgid "PayPal"
 msgstr ""
@@ -4630,10 +4991,6 @@ msgstr ""
 
 #: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:54, ../templates/single-room/meta.php:54
 msgid "Children:"
-msgstr ""
-
-#: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:57
-msgid "Maximum number of children."
 msgstr ""
 
 #: ../includes/admin/meta-boxes/views/room/html-meta-box-room-settings.php:65, ../templates/single-room/meta.php:62, ../templates/room-list/content/meta.php:27
