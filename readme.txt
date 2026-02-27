@@ -131,6 +131,9 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 2.18.3 - 2026-02-27 =
+* Fixed - Apply hotelier_get_all_extras_ids filter when returning early
+
 = 2.18.2 - 2026-02-08 =
 * Fixed - Fix datepicker i18n strings encoding apostrophes as HTML entities
 * Localization - POT file updated.
