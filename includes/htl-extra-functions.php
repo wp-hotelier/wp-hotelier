@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Core
  * @package  Hotelier/Functions
- * @version  2.10.0
+ * @version  2.18.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
