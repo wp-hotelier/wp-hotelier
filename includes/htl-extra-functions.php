@@ -30,7 +30,7 @@ function htl_get_all_extras_ids() {
 
 	// Valid cache found
 	if ( false !== $extras_ids ) {
-		return $extras_ids;
+		return apply_filters( 'hotelier_get_all_extras_ids', $extras_ids );
 	}
 
 	$extras = get_posts(
