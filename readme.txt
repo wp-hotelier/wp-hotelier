@@ -131,6 +131,9 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 
 == Changelog ==
 
+= 2.19.0 - 2026-05-19 =
+* Add - Support for WordPress 7.0.
+
 = 2.18.3 - 2026-02-27 =
 * Fixed - Apply hotelier_get_all_extras_ids filter when returning early
 
