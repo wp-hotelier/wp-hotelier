@@ -43,7 +43,7 @@ do_action( 'hotelier_before_widget_ajax_room_booking' );
 <div class="widget-ajax_room_booking__wrapper">
 	<form class="form--widget-ajax-room-booking <?php echo esc_attr( $datepicker_class ); ?>" id="widget-ajax-room-booking-form" name="widget-ajax-room-booking-form" method="post" data-room-id="<?php echo absint( $room->id ); ?>" data-show-rate-description="<?php echo $show_rate_desc ? 'true' : 'false'; ?>" data-show-room-conditions="<?php echo $show_room_conditions ? 'true' : 'false'; ?>">
 		<p class="form-row form-row--wide widget-ajax-room-booking__row widget-ajax-room-booking__row--dates">
-			<label class="form-row__label widget-ajax-room-booking__label"><?php echo esc_html_e( 'Check-in / Check-out', 'wp-hotelier' ); ?></label>
+			<label class="form-row__label widget-ajax-room-booking__label"><?php esc_html_e( 'Check-in / Check-out', 'wp-hotelier' ); ?></label>
 
 			<span class="datepicker-input-select-wrapper">
 				<input class="datepicker-input-select" type="text" value="">
@@ -59,7 +59,7 @@ do_action( 'hotelier_before_widget_ajax_room_booking' );
 			$max_value = apply_filters( 'hotelier_quantity_input_max', $room->get_stock_rooms(), $room );
 			?>
 			<p class="form-row form-row--wide widget-ajax-room-booking__row widget-ajax-room-booking__row--quantity widget-ajax-room-booking__row--pre">
-				<label class="form-row__label widget-ajax-room-booking__label"><?php echo esc_html_e( 'Nr. rooms', 'wp-hotelier' ); ?></label>
+				<label class="form-row__label widget-ajax-room-booking__label"><?php esc_html_e( 'Nr. rooms', 'wp-hotelier' ); ?></label>
 
 				<input type="number" id="quantity" step="1" min="<?php echo esc_attr( $min_value ); ?>" max="<?php echo esc_attr( $max_value ); ?>" name="quantity" value="1" title="<?php echo esc_attr_x( 'Qty', 'Room quantity input tooltip', 'wp-hotelier' ) ?>" class="form-row__input input-text" data-default="1" />
 			</p>
@@ -100,7 +100,7 @@ do_action( 'hotelier_before_widget_ajax_room_booking' );
 
 		<?php if ( $print_adults_selection ) : ?>
 			<p class="form-row form-row--wide widget-ajax-room-booking__row widget-ajax-room-booking__row--adults widget-ajax-room-booking__row--pre">
-				<label class="form-row__label widget-ajax-room-booking__label"><?php echo esc_html_e( 'Adults', 'wp-hotelier' ); ?></label>
+				<label class="form-row__label widget-ajax-room-booking__label"><?php esc_html_e( 'Adults', 'wp-hotelier' ); ?></label>
 
 				<select class="form-row__input select" name="adults" id="adults" data-default="<?php echo esc_attr( $adults_std ); ?>">
 					<?php foreach ( $adults_options as $adults_option_key => $adults_option_value ): ?>
@@ -112,7 +112,7 @@ do_action( 'hotelier_before_widget_ajax_room_booking' );
 
 		<?php if ( $print_children_selection ) : ?>
 			<p class="form-row form-row--wide widget-ajax-room-booking__row widget-ajax-room-booking__row--children widget-ajax-room-booking__row--pre">
-				<label class="form-row__label widget-ajax-room-booking__label"><?php echo esc_html_e( 'Children', 'wp-hotelier' ); ?></label>
+				<label class="form-row__label widget-ajax-room-booking__label"><?php esc_html_e( 'Children', 'wp-hotelier' ); ?></label>
 
 				<select class="form-row__input select" name="children" id="children" data-default="<?php echo esc_attr( $children_std ); ?>">
 					<?php foreach ( $children_options as $children_option_key => $children_option_value ): ?>
