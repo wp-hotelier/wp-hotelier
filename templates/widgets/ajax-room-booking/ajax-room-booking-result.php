@@ -84,7 +84,7 @@ if ( $room->is_variable_room() ) :
 	<?php $result_html = ob_get_clean(); ?>
 
 	<p class="form-row form-row--wide widget-ajax-room-booking__row widget-ajax-room-booking__row--rates">
-		<label class="form-row__label widget-ajax-room-booking__label"><?php echo esc_html_e( 'Select rate', 'wp-hotelier' ); ?></label>
+		<label class="form-row__label widget-ajax-room-booking__label"><?php esc_html_e( 'Select rate', 'wp-hotelier' ); ?></label>
 
 		<select class="form-row__input select" name="rate" id="rate">
 			<?php foreach ( $varitations_data as $variation_data_key => $variation_data_value ) : ?>
