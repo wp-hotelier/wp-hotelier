@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php endif;
 
 		if ( ! $item[ 'is_cancellable' ] ) : ?>
-			<span class="reservation-table__room-non-cancellable"><?php echo esc_html_e( 'Non-refundable', 'wp-hotelier' ); ?></span>
+			<span class="reservation-table__room-non-cancellable"><?php esc_html_e( 'Non-refundable', 'wp-hotelier' ); ?></span>
 		<?php endif;
 
 		// Show adults/children guests
