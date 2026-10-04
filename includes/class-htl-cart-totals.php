@@ -206,6 +206,26 @@ class HTL_Cart_Totals {
 				$is_cancellable = $_room->is_cancellable();
 			}
 
+			// Validate the selected offer as well as room availability. Manual
+			// reservations may explicitly bypass conditions with force booking.
+			if ( ! $force ) {
+				/**
+				 * Validate conditions for the selected room/rate before adding it.
+				 *
+				 * @param bool|WP_Error            $valid     True to allow, false or WP_Error to reject.
+				 * @param HTL_Room                 $room      Room being reserved.
+				 * @param HTL_Room_Variation|false $variation Selected rate, or false for a standard room.
+				 * @param string                   $checkin   Arrival date (Y-m-d).
+				 * @param string                   $checkout  Departure date (Y-m-d).
+				 */
+				$booking_valid = apply_filters( 'hotelier_cart_item_booking_validation', true, $_room, $_variation, $this->checkin, $this->checkout );
+				if ( is_wp_error( $booking_valid ) ) {
+					throw new Exception( $booking_valid->get_error_message() );
+				} elseif ( ! $booking_valid ) {
+					throw new Exception( esc_html__( 'Sorry, this room cannot be reserved.', 'wp-hotelier' ) );
+				}
+			}
+
 			// Fees
 			$fees = $fees && is_array( $fees ) ? $fees : array();
 
