@@ -2,8 +2,8 @@
 Contributors: benitolopez
 Tags: booking, hotel, booking system, hostel, reservations, reservations, b&b, rooms, wphotelier
 Requires at least: 4.1
-Tested up to: 7.0
-Stable tag: 2.19.0
+Tested up to: 7.1
+Stable tag: 2.20.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -130,6 +130,9 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 4. WP Hotelier - Admin calendar.
 
 == Changelog ==
+
+= 2.20.0 - 2026-10-04 =
+* Add - Filter to validate room rates before adding them to the cart.
 
 = 2.19.0 - 2026-05-19 =
 * Add - Support for WordPress 7.0.
