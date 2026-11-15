@@ -132,7 +132,7 @@ Here: [WP Hotelier documentation](http://docs.wphotelier.com/).
 == Changelog ==
 
 = 2.20.1 - 2026-11-15 =
-* Fix - Generate reservation keys with a cryptographically secure random generator.
+* Fix - Generate reservation keys with a cryptographically secure random generator (thanks to kta1kri, https://github.com/kta1kri).
 
 = 2.20.0 - 2026-10-04 =
 * Add - Filter to validate room rates before adding them to the cart.
