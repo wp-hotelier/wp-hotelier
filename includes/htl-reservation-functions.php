@@ -5,7 +5,7 @@
  * @author   Benito Lopez <hello@lopezb.com>
  * @category Core
  * @package  Hotelier/Functions
- * @version  2.18.0
+ * @version  2.20.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -84,7 +84,7 @@ function htl_create_reservation( $args = array() ) {
 	}
 
 	if ( ! $updating ) {
-		update_post_meta( $reservation_id, '_reservation_key', 'htl_' . apply_filters( 'hotelier_generate_reservation_key', uniqid( 'reservation_' ) ) );
+		update_post_meta( $reservation_id, '_reservation_key', 'htl_' . apply_filters( 'hotelier_generate_reservation_key', 'reservation_' . wp_generate_password( 13, false ) ) );
 		update_post_meta( $reservation_id, '_reservation_guest_ip_address', htl_get_ip() );
 		update_post_meta( $reservation_id, '_reservation_currency', htl_get_currency() );
 		update_post_meta( $reservation_id, '_created_via', sanitize_text_field( $args[ 'created_via' ] ) );
